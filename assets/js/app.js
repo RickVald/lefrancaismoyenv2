@@ -240,3 +240,31 @@ function handleNewsletter(e) {
   }).catch(() => {}); // silent fail — backend optional
 }
 
+// ── Boutons de partage sur les cartes KPI ──────────────────────────────────
+(function initKpiShare() {
+  document.querySelectorAll('.panel.kpi[data-share-label]').forEach(function(card) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'kpi-share';
+    btn.textContent = '↗ Partager';
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var label = card.dataset.shareLabel || '';
+      var kpiId = card.dataset.shareKpi || '';
+      var ctx   = card.dataset.shareCtx  || '';
+      var valEl = kpiId ? document.getElementById(kpiId) : null;
+      var val   = valEl ? valEl.textContent.trim() : '';
+      var text  = label + (val ? ' : ' + val : '') + (ctx ? ' (' + ctx + ')' : '') + '\n\nDonnées officielles → ';
+      var url   = 'https://le-francais-moyen.com/';
+      if (navigator.share) {
+        navigator.share({ title: label, text: text, url: url }).catch(function(){});
+      } else {
+        window.open(
+          'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url),
+          '_blank', 'width=560,height=420,noopener'
+        );
+      }
+    });
+    card.appendChild(btn);
+  });
+})();
