@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18295a"/>
+      <stop offset="50%" stop-color="#0b1020"/>
+      <stop offset="100%" stop-color="#070a14"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f6c343"/>
+      <stop offset="100%" stop-color="#fff0aa"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5dd6c5"/>
+      <stop offset="100%" stop-color="#7eebd8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="15%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#f6c343" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f6c343" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Glow blob -->
+  <ellipse cx="180" cy="180" rx="320" ry="280" fill="url(#glow)" filter="url(#blur)"/>
+  <!-- Teal glow bottom right -->
+  <ellipse cx="1050" cy="500" rx="280" ry="200" fill="#5dd6c5" opacity="0.07" filter="url(#blur)"/>
+
+  <!-- Grid lines (subtle) -->
+  <line x1="0" y1="157" x2="1200" y2="157" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="0" y1="473" x2="1200" y2="473" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="300" y1="0" x2="300" y2="630" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+  <line x1="900" y1="0" x2="900" y2="630" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+
+  <!-- Logo box -->
+  <rect x="60" y="58" width="68" height="68" rx="16" fill="url(#gold)" opacity="0.95"/>
+  <text x="94" y="106" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="32" fill="#101520" text-anchor="middle">LF</text>
+
+  <!-- Site name -->
+  <text x="148" y="87" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="28" fill="white" letter-spacing="-0.5">Le Français Moyen</text>
+  <text x="148" y="114" font-family="system-ui,-apple-system,sans-serif" font-weight="400" font-size="16" fill="#aebbd4" letter-spacing="0.2">lefrancaismoyen.fr</text>
+
+  <!-- Main headline -->
+  <text x="60" y="230" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="72" fill="white" letter-spacing="-3">Tableau de bord</text>
+  <text x="60" y="316" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="72" fill="url(#gold)" letter-spacing="-3">statistique</text>
+  <text x="60" y="400" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="52" fill="white" letter-spacing="-2" opacity="0.85">de la France</text>
+
+  <!-- Tagline -->
+  <text x="60" y="460" font-family="system-ui,-apple-system,sans-serif" font-weight="400" font-size="22" fill="#aebbd4">Inflation · Pouvoir d'achat · Logement · Fiscalité · Démographie</text>
+
+  <!-- Sources badge -->
+  <rect x="60" y="497" width="280" height="38" rx="19" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="200" y="521" font-family="system-ui,-apple-system,sans-serif" font-weight="700" font-size="14" fill="#aebbd4" text-anchor="middle">Données INSEE · Eurostat · Banque de France</text>
+
+  <!-- Chart decoration (right side) -->
+  <!-- Panel background -->
+  <rect x="720" y="140" width="420" height="340" rx="24" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+  <!-- Mini line chart — inflation curve -->
+  <polyline points="740,380 780,360 820,370 860,340 900,310 940,320 880,290 960,260 1000,240 1040,255 1080,235 1120,220" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Area under inflation curve -->
+  <polygon points="740,380 780,360 820,370 860,340 900,310 940,320 880,290 960,260 1000,240 1040,255 1080,235 1120,220 1120,420 740,420" fill="url(#gold)" opacity="0.06"/>
+
+  <!-- Mini line chart — second series (teal) -->
+  <polyline points="740,400 790,410 840,390 890,380 930,390 970,370 1010,355 1050,345 1090,335 1120,330" fill="none" stroke="url(#teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Chart x-axis -->
+  <line x1="740" y1="420" x2="1120" y2="420" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <!-- Chart labels -->
+  <text x="740" y="440" font-family="system-ui" font-size="12" fill="#aebbd4">2000</text>
+  <text x="920" y="440" font-family="system-ui" font-size="12" fill="#aebbd4">2012</text>
+  <text x="1080" y="440" font-family="system-ui" font-size="12" fill="#aebbd4">2024</text>
+
+  <!-- Chart title -->
+  <text x="740" y="175" font-family="system-ui,-apple-system,sans-serif" font-weight="800" font-size="16" fill="white">Inflation &amp; Pouvoir d'achat</text>
+  <!-- Legend dots -->
+  <circle cx="740" cy="200" r="5" fill="#f6c343"/>
+  <text x="752" y="204" font-family="system-ui" font-size="13" fill="#aebbd4">Inflation réelle</text>
+  <circle cx="860" cy="200" r="5" fill="#5dd6c5"/>
+  <text x="872" y="204" font-family="system-ui" font-size="13" fill="#aebbd4">Salaire réel</text>
+
+  <!-- KPI chips -->
+  <rect x="740" y="220" width="110" height="48" rx="12" fill="rgba(246,195,67,0.1)" stroke="rgba(246,195,67,0.3)" stroke-width="1"/>
+  <text x="795" y="241" font-family="system-ui" font-weight="900" font-size="20" fill="#f6c343" text-anchor="middle">+42%</text>
+  <text x="795" y="258" font-family="system-ui" font-size="11" fill="#aebbd4" text-anchor="middle">Prix depuis 2000</text>
+
+  <rect x="862" y="220" width="110" height="48" rx="12" fill="rgba(93,214,197,0.1)" stroke="rgba(93,214,197,0.3)" stroke-width="1"/>
+  <text x="917" y="241" font-family="system-ui" font-weight="900" font-size="20" fill="#5dd6c5" text-anchor="middle">3 213 €</text>
+  <text x="917" y="258" font-family="system-ui" font-size="11" fill="#aebbd4" text-anchor="middle">Salaire médian</text>
+
+  <rect x="984" y="220" width="110" height="48" rx="12" fill="rgba(255,107,107,0.1)" stroke="rgba(255,107,107,0.3)" stroke-width="1"/>
+  <text x="1039" y="241" font-family="system-ui" font-weight="900" font-size="20" fill="#ff6b6b" text-anchor="middle">3 228 Md€</text>
+  <text x="1039" y="258" font-family="system-ui" font-size="11" fill="#aebbd4" text-anchor="middle">Dette publique</text>
+
+  <!-- Bottom border accent -->
+  <rect x="0" y="618" width="1200" height="12" fill="url(#gold)" opacity="0.6"/>
+</svg>

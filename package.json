@@ -1,0 +1,18 @@
+{
+  "name": "lefrancaismoyen",
+  "version": "1.0.0",
+  "description": "Tableau de bord statistique des données officielles françaises",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-og.js && node scripts/build-data.js",
+    "data": "node scripts/build-data.js",
+    "og": "node scripts/generate-og.js"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

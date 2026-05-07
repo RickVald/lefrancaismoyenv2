@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l \"/mnt/c/Users/rrica/Downloads/lefrancaismoyen_site_html \\(2\\).html\")",
+      "Bash(dir \"C:\\\\Users\\\\rrica\\\\Desktop\\\\REMY\\\\LEFRANCAISMOYEN\\\\lefrancaismoyen_v1_manager_ready\")"
+    ]
+  }
+}

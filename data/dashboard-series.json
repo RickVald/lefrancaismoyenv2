@@ -1,0 +1,163 @@
+{
+  "lastUpdated": "2026-04-30",
+  "snapshot": [
+    {
+      "label": "Inflation ressentie cumulée",
+      "value": "+71%",
+      "note": "Panier propriétaire depuis 2000 — démo"
+    },
+    {
+      "label": "Dépendance énergétique",
+      "value": "48%",
+      "note": "Part importée de la consommation — démo"
+    },
+    {
+      "label": "Dépendants de l'État",
+      "value": "52%",
+      "note": "Population directement liée à la dépense publique — démo"
+    },
+    {
+      "label": "Richesse nette réelle / hab.",
+      "value": "-9%",
+      "note": "Correction inflation ressentie depuis 2008 — démo"
+    }
+  ],
+  "charts": {
+    "inflation": [
+      [
+        2000,
+        100
+      ],
+      [
+        2005,
+        112
+      ],
+      [
+        2010,
+        126
+      ],
+      [
+        2015,
+        137
+      ],
+      [
+        2020,
+        151
+      ],
+      [
+        2025,
+        171
+      ]
+    ],
+    "energy": [
+      [
+        1960,
+        22
+      ],
+      [
+        1975,
+        58
+      ],
+      [
+        1990,
+        50
+      ],
+      [
+        2005,
+        53
+      ],
+      [
+        2020,
+        44
+      ],
+      [
+        2025,
+        48
+      ]
+    ],
+    "state": [
+      [
+        1980,
+        35
+      ],
+      [
+        1995,
+        41
+      ],
+      [
+        2010,
+        47
+      ],
+      [
+        2020,
+        51
+      ],
+      [
+        2025,
+        52
+      ]
+    ],
+    "wealth": [
+      [
+        1995,
+        100
+      ],
+      [
+        2005,
+        118
+      ],
+      [
+        2010,
+        112
+      ],
+      [
+        2015,
+        107
+      ],
+      [
+        2020,
+        103
+      ],
+      [
+        2025,
+        96
+      ]
+    ],
+    "demo": [
+      [
+        1970,
+        100
+      ],
+      [
+        1990,
+        91
+      ],
+      [
+        2010,
+        78
+      ],
+      [
+        2025,
+        66
+      ],
+      [
+        2040,
+        58
+      ]
+    ]
+  },
+  "realityChecks": [
+    {
+      "feeling": "« On vit moins bien malgré les salaires affichés. »",
+      "reality": "À vérifier via salaire réel, logement, énergie et panier alimentaire."
+    },
+    {
+      "feeling": "« L'État pèse partout. »",
+      "reality": "À objectiver par transferts, emplois publics, retraites, allocations et fiscalité."
+    },
+    {
+      "feeling": "« Le pays devient fragile. »",
+      "reality": "À mesurer par dette, énergie, démographie, balance commerciale et richesse nette."
+    }
+  ]
+}

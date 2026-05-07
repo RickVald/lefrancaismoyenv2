@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6c343"/>
+      <stop offset="100%" stop-color="#fff0aa"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b1020"/>
+  <rect width="64" height="64" rx="14" fill="url(#g)" opacity=".12"/>
+  <!-- LFM monogram -->
+  <text x="32" y="42" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="26" fill="url(#g)" text-anchor="middle" letter-spacing="-1">LF</text>
+  <!-- bottom accent bar -->
+  <rect x="18" y="48" width="28" height="3" rx="2" fill="#f6c343" opacity=".7"/>
+</svg>
