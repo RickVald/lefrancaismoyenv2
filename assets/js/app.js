@@ -317,3 +317,27 @@ function handleNewsletter(e) {
     card.appendChild(btn);
   });
 })();
+
+// ── Chargement des données live depuis dashboard-series.json ───────────────
+(function loadLiveData() {
+  fetch('/data/dashboard-series.json')
+    .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function(d) {
+      var set = function(id, val) { var e = document.getElementById(id); if (e && val != null) e.textContent = val; };
+      var fr  = function(n, dec) { return Number(n).toLocaleString('fr-FR', { minimumFractionDigits: dec || 0, maximumFractionDigits: dec || 1 }); };
+      if (d.kpis) {
+        var k = d.kpis;
+        if (k.foodInflation   != null) set('kpiFood',      (k.foodInflation >= 0 ? '+' : '') + fr(k.foodInflation, 1) + '%');
+        if (k.debtPctGdp      != null) set('kpiDebt',      fr(k.debtPctGdp, 0) + '%');
+        if (k.purchasingPowerChange != null) set('kpiPurchasing', (k.purchasingPowerChange >= 0 ? '+' : '') + fr(k.purchasingPowerChange, 1) + '%');
+      }
+      if (d.lastUpdated) {
+        var el = document.getElementById('dataLastUpdated');
+        if (el) {
+          var dt = new Date(d.lastUpdated);
+          el.textContent = 'Données : ' + dt.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+        }
+      }
+    })
+    .catch(function() {}); // silent — static values remain as fallback
+})();

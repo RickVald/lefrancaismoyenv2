@@ -1,9 +1,9 @@
-﻿name: weekly-data-refresh
+name: weekly-data-refresh
 
 on:
-  workflow_dispatch:   # Allow manual trigger from GitHub UI
+  workflow_dispatch:
   schedule:
-    - cron: "0 7 * * 1"   # Every Monday at 07:00 UTC
+    - cron: "0 7 * * 1"   # Every Monday 07:00 UTC
 
 permissions:
   contents: write
@@ -21,40 +21,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Generate OG image (SVG → PNG)
-        run: node scripts/generate-og.js
+        run: npm install
 
       - name: Fetch latest official data
         env:
           INSEE_TOKEN: ${{ secrets.INSEE_TOKEN }}
-          BDF_TOKEN: ${{ secrets.BDF_TOKEN }}
         run: node scripts/build-data.js
-
-      - name: Update weekly snapshot page
-        run: |
-          DATE=$(date +%Y-%m-%d)
-          cp index.html weekly/latest.html
-          sed -i "s|<link rel=\"canonical\".*|<link rel=\"canonical\" href=\"https://le-francais-moyen.com/weekly/latest.html\">|g" weekly/latest.html
-          echo "Weekly snapshot updated: $DATE"
 
       - name: Commit and push refreshed data
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/dashboard-series.json weekly/latest.html assets/img/og-image.png || true
+          git add data/dashboard-series.json
           git diff --cached --quiet && echo "No changes to commit" || \
             git commit -m "chore: weekly data refresh $(date +%Y-%m-%d)"
           git push
-
-      - name: Trigger Netlify deploy (optional)
-        if: ${{ secrets.NETLIFY_DEPLOY_HOOK != '' }}
-        run: |
-          curl -s -X POST "${{ secrets.NETLIFY_DEPLOY_HOOK }}" \
-            -d '{}' \
-            -H "Content-Type: application/json"
-          echo "Netlify deploy hook triggered"
