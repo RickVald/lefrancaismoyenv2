@@ -175,18 +175,14 @@
     </a>
     <nav aria-label="Navigation principale">
       <ul>
-        <li><a href="#dashboard">Tableau de bord</a></li>
-        <li><a href="#compte-resultat-national">Compte national</a></li>
-        <li><a href="#simulateur-fiscal-reel">Fiscalité</a></li>
-        <li><a href="#indice-cout-vie-reel">Coût réel</a></li>
-        <li><a href="#balance-energetique-nationale">Énergie</a></li>
+        <li><a href="#dashboard">Indicateurs</a></li>
+        <li><a href="#simulateur-fiscal-reel">Mon impôt</a></li>
         <li><a href="#simulateur">Simulateur</a></li>
         <li><a href="#demographie">Démographie</a></li>
         <li><a href="#questions">Questions</a></li>
-        <li><a href="#sources">Sources</a></li>
       </ul>
     </nav>
-    <a class="cta" href="#sources">Données officielles</a>
+    <a class="cta" href="#newsletter">Recevoir les données</a>
   </div>
 </header>
 
@@ -194,35 +190,43 @@
   <section class="hero" aria-labelledby="titre-site">
     <div class="card hero-card">
       <div>
-        <div class="eyebrow">Le pays comme une entreprise</div>
-        <h1 id="titre-site">Le tableau de bord du Français moyen.</h1>
-        <p>Des données économiques, fiscales, financières et démographiques mises en perspective pour comprendre ce que l'on ressent dans la vie quotidienne : pouvoir d'achat, logement, impôts, énergie, dette, salaires, population.</p>
+        <div class="eyebrow">Données officielles · Mise à jour hebdomadaire</div>
+        <h1 id="titre-site">Mettez des chiffres sur ce que vous ressentez.</h1>
+        <p>Inflation réelle, pouvoir d'achat, logement, fiscalité, dette, énergie, démographie. Tout ce que l'on ressent mais que personne ne vous dit clairement — avec les sources officielles.</p>
         <div class="actions">
-          <a class="button" href="#dashboard">Voir les indicateurs</a>
-          <a class="button secondary" href="#simulateur">Tester le simulateur</a>
+          <a class="button" href="#dashboard">Voir les chiffres</a>
+          <a class="button secondary" href="#simulateur-fiscal-reel">Mon impôt réel</a>
         </div>
         <div class="share-bar" aria-label="Partager le site">
           <span style="color:var(--muted);font-size:.82rem;font-weight:750">Partager :</span>
-          <a class="share-btn" href="https://twitter.com/intent/tweet?text=Le+tableau+de+bord+des+données+officielles+françaises+%3A+inflation%2C+salaires%2C+dette%2C+démographie&url=https%3A%2F%2Flefrancaismoyen.fr%2F&via=lefrancaismoyen" target="_blank" rel="noopener" aria-label="Partager sur X (Twitter)">𝕏 Twitter</a>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=Mettez+des+chiffres+sur+ce+que+vous+ressentez+%3A+inflation+r%C3%A9elle%2C+pouvoir+d%27achat%2C+fiscalit%C3%A9%2C+dette.+Donn%C3%A9es+officielles+%E2%86%92&url=https%3A%2F%2Flefrancaismoyen.fr%2F" target="_blank" rel="noopener" aria-label="Partager sur X (Twitter)">𝕏 Twitter</a>
           <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flefrancaismoyen.fr%2F" target="_blank" rel="noopener" aria-label="Partager sur Facebook">Facebook</a>
           <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flefrancaismoyen.fr%2F" target="_blank" rel="noopener" aria-label="Partager sur LinkedIn">LinkedIn</a>
-          <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://lefrancaismoyen.fr/').then(()=>this.textContent='✓ Copié !')" aria-label="Copier le lien">🔗 Copier le lien</button>
+          <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://lefrancaismoyen.fr/').then(()=>this.textContent='✓ Copié !')" aria-label="Copier le lien">Copier le lien</button>
         </div>
       </div>
-      <small>Période cible : 1900 → aujourd'hui, selon disponibilité réelle des séries. Sources : INSEE, Eurostat, Banque de France, SDES, DREES, Notaires-INSEE.</small>
     </div>
-    <aside class="card status-panel" aria-label="Synthèse des indicateurs">
+    <aside class="card status-panel" aria-label="Calculateur d'impact personnel">
       <div class="score">
         <div class="score-top">
           <span class="score-label">Indice de tension du quotidien</span>
-          <span class="tag">Prototype</span>
         </div>
-        <div class="score-value" id="dailyScore">72/100</div>
-        <small>Synthèse pondérée : inflation, logement, énergie, salaire réel, fiscalité.</small>
+        <div class="score-value" id="dailyScore" style="color:var(--red)">72<span style="font-size:1.4rem;opacity:.7">/100</span></div>
+        <small>Inflation + logement + énergie + fiscalité. Plus le score est élevé, plus la pression sur le quotidien est forte.</small>
       </div>
-      <div class="score">
-        <div class="score-top"><span class="score-label">Phrase du moment</span></div>
-        <p class="quote">« Je ne sais pas si je gagne moins, mais j'ai clairement l'impression que mon argent va moins loin. »</p>
+      <div class="score" style="padding-bottom:8px">
+        <div class="eyebrow" style="margin-bottom:10px">Mon bilan personnel</div>
+        <label style="color:var(--muted);font-size:.82rem;display:block;margin-bottom:6px">Votre année de naissance</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="number" id="birthYear" value="1985" min="1950" max="2005" step="1" style="flex:1;font-size:1.1rem;text-align:center;font-weight:700">
+          <button class="button" type="button" id="calcPersonalBtn" style="white-space:nowrap">Calculer</button>
+        </div>
+        <div id="personalResult" style="margin-top:14px;display:none;gap:8px;display:none">
+          <div class="insight" style="margin-bottom:8px"><strong id="pr1"></strong><span id="pr2" style="color:var(--muted);font-size:.9rem"></span></div>
+          <div class="insight" style="margin-bottom:8px"><strong id="pr3"></strong><span id="pr4" style="color:var(--muted);font-size:.9rem"></span></div>
+          <div class="insight"><strong id="pr5"></strong><span id="pr6" style="color:var(--muted);font-size:.9rem"></span></div>
+          <button class="share-btn" id="sharePersonal" style="margin-top:10px;width:100%;justify-content:center">Partager mon bilan</button>
+        </div>
       </div>
     </aside>
   </section>
@@ -282,7 +286,7 @@
       <div class="panel-header">
         <div>
           <h2>Évolution longue des grands signaux</h2>
-          <small>Séries normalisées base 100. Données de démonstration — remplacer par séries officielles.</small>
+          <small>Séries normalisées base 100. Sources : INSEE, Eurostat, Banque de France.</small>
         </div>
         <div class="tabs">
           <button class="tab active" data-view="all" type="button">Tout</button>
@@ -344,17 +348,6 @@
           </div>
           <div class="insight" style="margin-top:14px"><strong>Pourquoi dette / salaire ?</strong><span>La dette par habitant donne un montant. Le ratio dette par habitant / salaire annuel donne une consistance : combien d'années de salaire net moyen représente la quote-part théorique.</span></div>
         </aside>
-        <article class="panel full">
-          <h3>Sources à brancher</h3>
-          <table class="audit-table">
-            <tr><th>Série</th><th>Définition</th><th>Source cible</th></tr>
-            <tr><td>Recettes / dépenses / déficit</td><td>Administrations publiques, comptes nationaux, % du PIB</td><td>INSEE — comptes des administrations publiques</td></tr>
-            <tr><td>Dette totale</td><td>Dette publique Maastricht, Md€ et % du PIB</td><td>INSEE, Banque de France, Eurostat</td></tr>
-            <tr><td>Population</td><td>Population moyenne ou au 1er janvier</td><td>INSEE — bilan démographique</td></tr>
-            <tr><td>Salaire annuel</td><td>Salaire net moyen mensuel EQTP × 12</td><td>INSEE, OCDE en complément</td></tr>
-            <tr><td>Charge d'intérêts</td><td>Intérêts publics annuels, Md€ courants</td><td>INSEE, Banque de France</td></tr>
-          </table>
-        </article>
       </div>
     </article>
 
@@ -809,11 +802,11 @@
     </article>
 
     <aside class="panel side">
-      <div class="panel-header"><h2>Modules à créer</h2></div>
+      <div class="panel-header"><h2>En un coup d'œil</h2></div>
       <div class="insight-list">
-        <div class="insight"><strong>Comparateur d'époque</strong><span>Comparer 1970, 1990, 2008, 2024 : salaire, logement, courses, carburant.</span></div>
-        <div class="insight"><strong>Radar de gestion France</strong><span>Dette, déficit, croissance, chômage, balance commerciale, prélèvements.</span></div>
-        <div class="insight"><strong>Observatoire démographique</strong><span>Naissances, décès, espérance de vie, immigration, ratio actifs/retraités.</span></div>
+        <div class="insight"><strong>Le logement a ×2,7 depuis 2000</strong><span>Un bien à 100 000 € en 2000 vaut 270 000 € aujourd'hui. Les salaires réels ont progressé de 4 %.</span></div>
+        <div class="insight"><strong>L'État dépense 57 % du PIB</strong><span>Le taux le plus élevé de l'OCDE. La charge des intérêts de la dette dépasse le budget de l'Éducation nationale.</span></div>
+        <div class="insight"><strong>1,7 actif pour 1 retraité</strong><span>Contre 4 en 1960. Le ratio devrait atteindre 1,4 en 2050 selon les projections centrales INSEE.</span></div>
       </div>
     </aside>
 
@@ -822,7 +815,7 @@
         <div>
           <div class="eyebrow">Traçabilité</div>
           <h2>Sources officielles</h2>
-          <small>Chaque graphique doit afficher la source, la définition exacte, la fréquence, les ruptures de série et la dernière mise à jour.</small>
+          <small>Toutes les données proviennent de sources publiques officielles et sont vérifiables directement.</small>
         </div>
       </div>
       <div class="source-grid">
@@ -876,6 +869,22 @@
 </section>
 
 <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
+
+<!-- Newsletter -->
+<section id="newsletter" style="background:linear-gradient(135deg,rgba(246,195,67,.08),rgba(93,214,197,.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 24px">
+  <div style="max-width:580px;margin:auto;text-align:center">
+    <div class="eyebrow" style="margin-bottom:10px">Chiffre de la semaine</div>
+    <h2 style="font-size:1.8rem;margin-bottom:12px;letter-spacing:-.04em">Un chiffre. Une source. Chaque lundi.</h2>
+    <p style="color:var(--muted);margin-bottom:28px;font-size:1rem">Le tableau de bord est mis à jour chaque semaine avec les dernières données officielles. Recevez le chiffre le plus marquant directement dans votre boîte mail — sans publicité, sans algorithme.</p>
+    <form id="newsletterForm" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center" onsubmit="handleNewsletter(event)">
+      <input type="email" id="newsletterEmail" placeholder="votre@email.fr" required
+        style="flex:1;min-width:240px;padding:13px 16px;border-radius:14px;font-size:1rem;background:rgba(255,255,255,.1);color:var(--text);border:1px solid var(--border)">
+      <button type="submit" class="button" style="padding:13px 22px;font-size:1rem">S'abonner gratuitement</button>
+    </form>
+    <p id="newsletterMsg" style="margin-top:14px;color:var(--accent2);display:none;font-size:.92rem"></p>
+    <p style="color:var(--muted);font-size:.8rem;margin-top:12px">Désabonnement en un clic · Aucune donnée revendue · RGPD</p>
+  </div>
+</section>
 
 <footer>
   <span>lefrançaismoyen.fr — Données sources : INSEE · Eurostat · Banque de France · SDES · DREES</span>

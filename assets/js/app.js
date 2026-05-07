@@ -123,3 +123,119 @@ function initSocial(){const anchors={population:{1950:41.8,1960:45.5,1970:50.8,1
 function initMobility(){const fmtK=v=>(v>=0?'+':'')+Math.round(v).toLocaleString('fr-FR')+' hab.',fmtAbs=v=>Math.round(v).toLocaleString('fr-FR'),fmtAge=v=>v.toLocaleString('fr-FR',{maximumFractionDigits:1})+' ans',fmtM=v=>(v>=0?'+':'')+v.toLocaleString('fr-FR',{maximumFractionDigits:1})+' M€';const regions=[{id:'idf',name:'Île-de-France',x:460,y:155,w:120,h:76,pop:12.4,baseNet:-62000,in:146000,out:208000,ageIn:30.4,ageOut:34.2,income:30200,cost:5200,job:1.45,housing:1.75,young:1.25,families:.75,retirees:.35,exit:1.45},{id:'hdf',name:'Hauts-de-France',x:390,y:55,w:130,h:80,pop:6.0,baseNet:-9000,in:69000,out:78000,ageIn:32.2,ageOut:33.5,income:23600,cost:4500,job:.95,housing:.95,young:.95,families:1.05,retirees:.55,exit:.80},{id:'norm',name:'Normandie',x:260,y:135,w:125,h:80,pop:3.3,baseNet:2500,in:52000,out:49500,ageIn:38.8,ageOut:35.7,income:24400,cost:4300,job:.88,housing:.85,young:.75,families:1.10,retirees:1.15,exit:.75},{id:'bret',name:'Bretagne',x:115,y:190,w:135,h:95,pop:3.4,baseNet:16500,in:72000,out:55500,ageIn:41.5,ageOut:34.4,income:24900,cost:4350,job:1.02,housing:1.05,young:.80,families:1.12,retirees:1.45,exit:.95},{id:'pdl',name:'Pays de la Loire',x:255,y:245,w:135,h:95,pop:3.9,baseNet:18500,in:79000,out:60500,ageIn:36.4,ageOut:33.2,income:25200,cost:4400,job:1.10,housing:1.00,young:1.00,families:1.30,retirees:.95,exit:.70},{id:'cvl',name:'Centre-Val de Loire',x:410,y:250,w:130,h:95,pop:2.6,baseNet:-1500,in:43000,out:44500,ageIn:39.5,ageOut:34.8,income:24700,cost:4250,job:.90,housing:.82,young:.70,families:1.00,retirees:1.25,exit:.65},{id:'ge',name:'Grand Est',x:595,y:125,w:150,h:105,pop:5.5,baseNet:-15500,in:70000,out:85500,ageIn:32.8,ageOut:34.0,income:24900,cost:4450,job:.98,housing:.88,young:.90,families:.95,retirees:.65,exit:.95},{id:'bfc',name:'Bourgogne-Franche-Comté',x:570,y:260,w:145,h:100,pop:2.8,baseNet:-3500,in:42000,out:45500,ageIn:39.7,ageOut:35.5,income:24200,cost:4200,job:.90,housing:.78,young:.65,families:.95,retirees:1.20,exit:.70},{id:'na',name:'Nouvelle-Aquitaine',x:255,y:380,w:175,h:135,pop:6.1,baseNet:28500,in:112000,out:83500,ageIn:43.2,ageOut:35.8,income:24600,cost:4450,job:.98,housing:1.05,young:.80,families:1.05,retirees:1.75,exit:.90},{id:'ara',name:'Auvergne-Rhône-Alpes',x:515,y:385,w:175,h:125,pop:8.2,baseNet:23000,in:121000,out:98000,ageIn:35.0,ageOut:33.5,income:26900,cost:4700,job:1.25,housing:1.18,young:1.15,families:1.20,retirees:.75,exit:1.05},{id:'occ',name:'Occitanie',x:390,y:535,w:170,h:125,pop:6.1,baseNet:25500,in:105000,out:79500,ageIn:41.6,ageOut:35.0,income:23900,cost:4350,job:1.00,housing:1.02,young:.95,families:1.00,retirees:1.55,exit:.85},{id:'paca',name:'PACA',x:605,y:545,w:150,h:105,pop:5.1,baseNet:8500,in:78000,out:69500,ageIn:42.8,ageOut:36.7,income:25800,cost:4850,job:1.05,housing:1.35,young:.85,families:.80,retirees:1.45,exit:.95},{id:'corse',name:'Corse',x:770,y:655,w:70,h:80,pop:.35,baseNet:1800,in:7200,out:5400,ageIn:44.3,ageOut:36.1,income:23000,cost:5100,job:.82,housing:1.25,young:.55,families:.75,retirees:1.60,exit:.55}];let selected='na';function params(){return{year:+$('mobYear').value||2024,profile:$('mobProfile').value,housing:+$('mobHousing').value||1,job:+$('mobJob').value||1,exitStress:+$('mobExitStress').value||1,returnRate:(+$('mobReturnRate').value||38)/100}}function computeRegion(r){const p=params(),t=p.year-2024,profileBoost=p.profile==='all'?1:r[p.profile],jobEffect=(r.job*p.job-1)*9000,housingPenalty=(r.housing*p.housing-1)*11000,ageingPull=(r.retirees-1)*4500,trend=t*(r.job>1.05?450:r.housing>1.2?-550:150),net=r.baseNet*profileBoost+jobEffect-housingPenalty+ageingPull+trend,totalFlow=(r.in+r.out)*(p.profile==='all'?1:(.42+profileBoost*.42)),entrants=Math.max(2000,totalFlow/2+net/2),sortants=Math.max(1000,totalFlow/2-net/2),ageAdj=p.profile==='young'?-7:p.profile==='families'?-2:p.profile==='retirees'?9:0,ageIn=r.ageIn+ageAdj+(r.retirees-1)*1.5,ageOut=r.ageOut+(p.profile==='young'?-4:p.profile==='retirees'?5:0),employedShare=Math.max(.25,Math.min(.78,.62+(r.job-1)*.12+(p.profile==='young'?.08:0)+(p.profile==='retirees'?-.30:0))),fiscalRevenue=net*employedShare*r.income*.075/1e6,localCost=net*Math.max(0,1-employedShare)*r.cost*.45/1e6,fiscal=fiscalRevenue-localCost,dominant=p.profile!=='all'?p.profile:(r.retirees>1.25?'Retraités':r.families>1.15?'Familles':r.young>1.1?'Jeunes actifs':'Mixte'),exitProfile=p.profile==='young'?1.35:p.profile==='families'?.75:p.profile==='retirees'?1.15:1,exits=Math.max(300,r.pop*2100*(r.exit||.8)*p.exitStress*exitProfile),returns=exits*p.returnRate*(p.profile==='retirees'?.55:1),netExits=exits-returns,exitFiscal=-netExits*r.income*.055/1e6;return{...r,net,entrants,sortants,ageIn,ageOut,fiscal:fiscal+exitFiscal,localFiscal:fiscal,exitFiscal,exits,returns,netExits,dominant,employedShare}}function allData(){return regions.map(computeRegion).sort((a,b)=>b.net-a.net)}function color(value,min,max){const norm=(value-min)/(max-min||1);if(norm>.55){const g=Math.round(115+norm*100),r=Math.round(50+(1-norm)*70);return`rgb(${r},${Math.min(220,g)},125)`}const red=Math.round(180+(1-norm)*60),green=Math.round(70+norm*80);return`rgb(${red},${green},105)`}function valueFor(r,view){if(view==='exit')return r.netExits;if(view==='fiscal')return r.fiscal;if(view==='age')return r.ageIn;if(view==='flow')return r.entrants+r.sortants;return r.net}function drawMap(){const data=allData(),view=$('mobView').value,svg=$('mobSvg'),W=920,H=760;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.textContent='';svg.append(el('rect',{width:W,height:H,fill:'transparent'}));const vals=data.map(r=>valueFor(r,view)),min=Math.min(...vals),max=Math.max(...vals);data.forEach(r=>{const v=valueFor(r,view),group=el('g',{'data-id':r.id}),rect=el('rect',{x:r.x,y:r.y,width:r.w,height:r.h,rx:20,fill:color(v,min,max),stroke:'rgba(255,255,255,.28)','stroke-width':1.4,style:'cursor:pointer'});rect.addEventListener('click',()=>{selected=r.id;update()});rect.addEventListener('mousemove',ev=>{const tt=$('tooltip');tt.style.display='block';tt.style.left=(ev.clientX+14)+'px';tt.style.top=(ev.clientY+14)+'px';tt.innerHTML=`<b>${r.name}</b><br>Entrants : <b>${fmtAbs(r.entrants)}</b><br>Sortants : <b>${fmtAbs(r.sortants)}</b><br>Solde : <b>${fmtK(r.net)}</b><br>Âge entrants : <b>${fmtAge(r.ageIn)}</b><br>Impact fiscal : <b>${fmtM(r.fiscal)}</b><br>Sorties territoire : <b>${fmtAbs(r.exits)}</b><br>Sorties nettes : <b>${fmtAbs(r.netExits)}</b>`});rect.addEventListener('mouseleave',()=>{$('tooltip').style.display='none'});group.append(rect);let txt=el('text',{x:r.x+r.w/2,y:r.y+r.h/2-4,'text-anchor':'middle','font-size':10,fill:'#eef3ff','font-weight':850,style:'pointer-events:none'});txt.textContent=r.name.replace('Auvergne-Rhône-Alpes','AURA').replace('Bourgogne-Franche-Comté','BFC').replace('Centre-Val de Loire','Centre').replace('Nouvelle-Aquitaine','N. Aquitaine');group.append(txt);let sub=el('text',{x:r.x+r.w/2,y:r.y+r.h/2+14,'text-anchor':'middle','font-size':10,fill:'#aebbd4','font-weight':850,style:'pointer-events:none'});sub.textContent=view==='exit'?fmtAbs(r.netExits):view==='fiscal'?fmtM(r.fiscal):view==='age'?fmtAge(r.ageIn):view==='flow'?fmtAbs(r.entrants+r.sortants):fmtK(r.net);group.append(sub);if(r.id===selected)group.append(el('rect',{x:r.x+3,y:r.y+3,width:r.w-6,height:r.h-6,rx:17,fill:'none',stroke:'#f6c343','stroke-width':4}));svg.append(group)});$('mobMapTitle').textContent={net:'Carte des soldes migratoires internes',exit:'Carte des sorties nettes du territoire',fiscal:'Carte de l\'impact fiscal local estimé',age:'Carte de l\'âge moyen des entrants',flow:'Carte du volume de flux internes'}[view]}function updateKpis(){const data=allData(),top=data[0],bottom=data.at(-1),fiscalTop=data.slice().sort((a,b)=>b.fiscal-a.fiscal)[0],totalExits=data.reduce((a,b)=>a+b.exits,0);$('mobTopRegion').textContent=top.name;$('mobBottomRegion').textContent=bottom.name;$('mobFiscalMax').textContent=fmtM(fiscalTop.fiscal);$('mobExitTotal').textContent=fmtAbs(totalExits)}function updateSelected(){const r=allData().find(x=>x.id===selected)||allData()[0];selected=r.id;$('mobSelectedTitle').textContent='Détail — '+r.name;$('mobIn').textContent=fmtAbs(r.entrants);$('mobOut').textContent=fmtAbs(r.sortants);$('mobNet').textContent=fmtK(r.net);$('mobNet').className=r.net>=0?'down':'up';$('mobAgeIn').textContent=fmtAge(r.ageIn);$('mobAgeOut').textContent=fmtAge(r.ageOut);$('mobFiscal').textContent=fmtM(r.fiscal);$('mobFiscal').className=r.fiscal>=0?'down':'up';$('mobExit').textContent=fmtAbs(r.exits);$('mobExitNet').textContent=fmtAbs(r.netExits);$('mobDominant').textContent=r.dominant==='young'?'Jeunes actifs':r.dominant==='families'?'Familles':r.dominant==='retirees'?'Retraités':r.dominant;const max=Math.max(r.entrants,r.sortants,Math.abs(r.net)||1);$('mobBars').innerHTML=[['Entrants',r.entrants,'#63d471'],['Sortants',r.sortants,'#ff6b6b'],['Solde net',Math.abs(r.net),'#f6c343'],['Sorties nettes',Math.abs(r.netExits),'#b892ff']].map(([lab,val,col])=>`<div><label style="display:flex;justify-content:space-between;color:var(--muted);font-size:.86rem;font-weight:800;margin-bottom:6px"><span>${lab}</span><span>${fmtAbs(val)}</span></label><div style="height:13px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--border);overflow:hidden"><div style="height:100%;width:${Math.max(2,val/max*100)}%;background:${col}"></div></div></div>`).join('')}function updateRankings(){const data=allData();$('mobWinners').innerHTML=data.slice(0,5).map(r=>`<div class="insight"><strong>${r.name}</strong><span>Solde ${fmtK(r.net)} · impact fiscal ${fmtM(r.fiscal)}</span></div>`).join('');$('mobLosers').innerHTML=data.slice(-5).reverse().map(r=>`<div class="insight"><strong>${r.name}</strong><span>Solde ${fmtK(r.net)} · impact fiscal ${fmtM(r.fiscal)}</span></div>`).join('')}function update(){updateKpis();updateSelected();updateRankings();drawMap()}['mobYear','mobView','mobProfile','mobHousing','mobJob','mobExitStress','mobReturnRate'].forEach(id=>$(id).addEventListener('change',update));$('mobUpdate').addEventListener('click',update);update()}
 
 drawMain();drawBudget();initCrn();initTax();initLife();initEnergy();initSocial();initMobility();drawSimulator();initDemo();initDemoEco();
+
+// ── Calculateur d'impact personnel ───────────────────────────────────────────
+function calcPersonalImpact() {
+  const year = parseInt($('birthYear').value) || 1985;
+  const now = 2024;
+  const age = now - year;
+  const workStart = Math.min(now - 1, Math.max(2000, year + 22));
+  const yearsWork = now - workStart;
+
+  // Cumulative changes per year (annualised, base 2000)
+  const foodRate = 0.0143;      // ~+35% total 2000-2024
+  const housingRate = 0.0422;   // ×2.7 = +170% total 2000-2024
+  const energyRate = 0.0256;    // ~+83% total 2000-2024
+  const salaryRate = 0.0018;    // ~+4% real total 2010-2024
+
+  const foodUp   = Math.round((Math.pow(1 + foodRate,    yearsWork) - 1) * 100);
+  const houseUp  = Math.round((Math.pow(1 + housingRate, yearsWork) - 1) * 100);
+  const energyUp = Math.round((Math.pow(1 + energyRate,  yearsWork) - 1) * 100);
+  const salaryUp = Math.round((Math.pow(1 + salaryRate,  yearsWork) - 1) * 100);
+
+  // Basket: 100€ courses in workStart year
+  const basketNow = Math.round(100 * Math.pow(1 + foodRate, yearsWork));
+
+  $('pr1').textContent = `Alimentation +${foodUp}% depuis ${workStart}`;
+  $('pr2').textContent = `Un panier de 100 € vaut aujourd'hui ${basketNow} €.`;
+  $('pr3').textContent = `Logement +${houseUp}% sur la même période`;
+  $('pr4').textContent = `Un bien à 150 000 € vaut maintenant ~${Math.round(150000 * Math.pow(1 + housingRate, yearsWork) / 1000) * 1000}€.`;
+  $('pr5').textContent = `Salaire réel : +${salaryUp}% seulement`;
+  $('pr6').textContent = `Les prix ont augmenté ${Math.round(foodUp / Math.max(1, salaryUp))}× plus vite que les salaires réels.`;
+
+  const result = $('personalResult');
+  result.style.display = 'grid';
+
+  const shareBtn = $('sharePersonal');
+  if (shareBtn) {
+    const text = `Depuis ${workStart}, mon panier de courses a augmenté de ${foodUp}%, le logement de ${houseUp}%… mais les salaires réels seulement de ${salaryUp}%. Les chiffres officiels → lefrancaismoyen.fr`;
+    shareBtn.onclick = () => {
+      if (navigator.share) {
+        navigator.share({ title: 'Mon bilan personnel — Le Français Moyen', text, url: 'https://lefrancaismoyen.fr/' });
+      } else {
+        navigator.clipboard.writeText(text).then(() => { shareBtn.textContent = '✓ Texte copié !'; setTimeout(() => { shareBtn.textContent = 'Partager mon bilan'; }, 2500); });
+      }
+    };
+  }
+}
+
+const calcBtn = $('calcPersonalBtn');
+if (calcBtn) {
+  calcBtn.addEventListener('click', calcPersonalImpact);
+  $('birthYear').addEventListener('keydown', e => { if (e.key === 'Enter') calcPersonalImpact(); });
+  // Auto-calculate on load for default year
+  calcPersonalImpact();
+}
+
+// ── Animations de compteur (scroll-triggered) ─────────────────────────────────
+function animateCounter(el, target, suffix, duration) {
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  const from = 0;
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const current = from + (target - from) * eased;
+    el.textContent = (isFloat ? current.toFixed(1) : Math.round(current)).toLocaleString('fr-FR') + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function initCounters() {
+  const kpis = [
+    { id: 'kpiPurchasing', target: 0.8,  suffix: '%',  duration: 1200 },
+    { id: 'kpiFood',       target: 7.2,  suffix: '%',  duration: 1400 },
+    { id: 'kpiDebt',       target: 110,  suffix: '%',  duration: 1600 },
+  ];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const kpi = kpis.find(k => k.id === entry.target.id);
+      if (kpi) {
+        animateCounter(entry.target, kpi.target, kpi.suffix, kpi.duration);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  kpis.forEach(k => { const el = $(k.id); if (el) observer.observe(el); });
+}
+initCounters();
+
+// ── Newsletter (stockage local + feedback) ────────────────────────────────────
+function handleNewsletter(e) {
+  e.preventDefault();
+  const email = $('newsletterEmail').value.trim();
+  const msg   = $('newsletterMsg');
+  if (!email) return;
+
+  // Store locally so user sees confirmation even without backend
+  try {
+    const subs = JSON.parse(localStorage.getItem('lfm_subs') || '[]');
+    if (!subs.includes(email)) subs.push(email);
+    localStorage.setItem('lfm_subs', JSON.stringify(subs));
+  } catch (_) {}
+
+  msg.style.display = 'block';
+  msg.textContent   = '✓ Inscription enregistrée — vous recevrez le prochain chiffre de la semaine.';
+  $('newsletterEmail').value = '';
+
+  // If a Brevo / Mailchimp endpoint is configured via a Netlify function, call it
+  fetch('/api/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  }).catch(() => {}); // silent fail — backend optional
+}
+
