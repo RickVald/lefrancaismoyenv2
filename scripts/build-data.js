@@ -112,6 +112,59 @@ async function main() {
     console.warn('⚠ Eurostat GDP growth failed:', e.message);
   }
 
+  // ── World Bank API — GDP per capita France (current USD) ─────────────────
+  try {
+    const url = 'https://api.worldbank.org/v2/country/FR/indicator/NY.GDP.PCAP.CD?format=json&mrv=10&per_page=10';
+    const res  = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    const rows = (json[1] || []).filter(r => r.value !== null).sort((a, b) => +b.date - +a.date);
+    if (rows.length) {
+      data.kpis.gdpPerCapitaUsd = Math.round(rows[0].value);
+      data.charts.gdpPerCapita = {
+        labels: rows.map(r => +r.date).reverse(),
+        values: rows.map(r => Math.round(r.value)).reverse(),
+      };
+      console.log(`✓ World Bank GDP/cap: ${rows[0].date} = $${data.kpis.gdpPerCapitaUsd}`);
+    }
+  } catch (e) {
+    console.warn('⚠ World Bank GDP/cap failed:', e.message);
+  }
+
+  // ── World Bank API — Unemployment rate France ─────────────────────────────
+  try {
+    const url = 'https://api.worldbank.org/v2/country/FR/indicator/SL.UEM.TOTL.ZS?format=json&mrv=10&per_page=10';
+    const res  = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    const rows = (json[1] || []).filter(r => r.value !== null).sort((a, b) => +b.date - +a.date);
+    if (rows.length) {
+      data.kpis.unemploymentRate = +rows[0].value.toFixed(1);
+      data.charts.unemployment = {
+        labels: rows.map(r => +r.date).reverse(),
+        values: rows.map(r => +r.value.toFixed(1)).reverse(),
+      };
+      console.log(`✓ World Bank unemployment: ${rows[0].date} = ${data.kpis.unemploymentRate}%`);
+    }
+  } catch (e) {
+    console.warn('⚠ World Bank unemployment failed:', e.message);
+  }
+
+  // ── World Bank API — Population France ────────────────────────────────────
+  try {
+    const url = 'https://api.worldbank.org/v2/country/FR/indicator/SP.POP.TOTL?format=json&mrv=5&per_page=5';
+    const res  = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    const rows = (json[1] || []).filter(r => r.value !== null).sort((a, b) => +b.date - +a.date);
+    if (rows.length) {
+      data.kpis.population = Math.round(rows[0].value / 1e6 * 10) / 10;
+      console.log(`✓ World Bank population: ${rows[0].date} = ${data.kpis.population}M`);
+    }
+  } catch (e) {
+    console.warn('⚠ World Bank population failed:', e.message);
+  }
+
   // ── INSEE BDM API (requires INSEE_TOKEN) ─────────────────────────────────
   if (process.env.INSEE_TOKEN) {
     console.log('ℹ INSEE_TOKEN found — INSEE integration available (not yet mapped)');

@@ -1,2 +1,11 @@
+# Questions — clean URLs (sans .html)
+/questions/pourquoi-tout-augmente /questions/pourquoi-tout-augmente.html 301
+/questions/la-france-s-appauvrit-elle /questions/la-france-s-appauvrit-elle.html 301
+/questions/combien-coute-l-etat /questions/combien-coute-l-etat.html 301
+/questions/dependance-energetique-france /questions/dependance-energetique-france.html 301
+/questions/demographie-france-soutenable /questions/demographie-france-soutenable.html 301
 /questions /questions/index.html 200
-/questions/ /questions/index.html 301
+/questions/ /questions/index.html 200
+
+# Fallback 404
+/* /404.html 404
