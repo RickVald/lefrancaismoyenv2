@@ -787,14 +787,30 @@
       <div class="panel-header">
         <div>
           <div class="eyebrow">Ressenti vs données</div>
-          <h2>Les phrases du quotidien, traduites en indicateurs</h2>
+          <h2>Les phrases du quotidien, traduites en chiffres</h2>
         </div>
       </div>
       <div class="matrix">
-        <div class="matrix-item"><small>« Les courses coûtent une fortune. »</small><b>Indice caddie</b><span class="muted">IPC alimentaire, marques distributeur, produits frais, panier type.</span></div>
-        <div class="matrix-item"><small>« On ne peut plus acheter. »</small><b>Indice toit</b><span class="muted">Prix immobilier / revenu disponible / taux d'intérêt.</span></div>
-        <div class="matrix-item"><small>« Je travaille mais je n'avance pas. »</small><b>Indice effort</b><span class="muted">Salaire réel, prélèvements, temps de travail, dépenses contraintes.</span></div>
-        <div class="matrix-item"><small>« L'État dépense trop. »</small><b>Indice gestion</b><span class="muted">Dépenses publiques, dette, déficit, intérêts, recettes fiscales.</span></div>
+        <a href="questions/pourquoi-tout-augmente.html" class="matrix-item" style="text-decoration:none;display:block">
+          <small style="color:var(--muted)">« Les courses coûtent une fortune. »</small>
+          <b style="color:var(--accent)">+7,2 % d'inflation alimentaire</b>
+          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">IPC alimentation INSEE 2024 → voir l'analyse ↗</span>
+        </a>
+        <a href="questions/la-france-s-appauvrit-elle.html" class="matrix-item" style="text-decoration:none;display:block">
+          <small style="color:var(--muted)">« On ne peut plus acheter. »</small>
+          <b style="color:var(--red)">×2,7 le prix du m² depuis 2000</b>
+          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">Notaires-INSEE, IGEDD → voir l'analyse ↗</span>
+        </a>
+        <a href="#indice-cout-vie-reel" class="matrix-item" style="text-decoration:none;display:block">
+          <small style="color:var(--muted)">« Je travaille mais je n'avance pas. »</small>
+          <b style="color:var(--accent2)">+320 h/an pour financer le même panier</b>
+          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">Simulateur coût de la vie 1960→2024 → calculer ↗</span>
+        </a>
+        <a href="#compte-resultat-national" class="matrix-item" style="text-decoration:none;display:block">
+          <small style="color:var(--muted)">« L'État dépense trop. »</small>
+          <b style="color:var(--red)">110 % du PIB de dette publique</b>
+          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">INSEE, Banque de France → voir le compte de résultat ↗</span>
+        </a>
       </div>
     </article>
 
@@ -896,6 +912,6 @@
   <span><a href="weekly/latest.html">Note hebdomadaire</a> · <a href="#sources">Sources</a> · <a href="sitemap.xml">Plan du site</a></span>
 </footer>
 
-<script src="assets/js/app.js?v=7" defer></script>
+<script src="assets/js/app.js?v=8" defer></script>
 </body>
 </html>

@@ -261,7 +261,7 @@ function handleNewsletter(e) {
     { id:'compte-resultat-national', label:'Compte de résultat national', text:'La France vue comme une entreprise : recettes, dépenses, dette et déficit depuis 1900' },
     { id:'indice-cout-vie-reel', label:'Indice coût de la vie réel', text:'Combien d\'heures de travail pour financer votre panier de vie depuis 1960 ?' },
     { id:'balance-energetique-nationale', label:'Balance énergétique nationale', text:'Dépendance énergétique, importations et facture par habitant en France' },
-    { id:'indice-soutenabilite-social', label:'Soutenabilité du modèle social', text:'Score de soutenabilité du modèle social français : retraites, démographie, cotisants' },
+    { id:'indice-soutenabilite-sociale', label:'Soutenabilité du modèle social', text:'Score de soutenabilité du modèle social français : retraites, démographie, cotisants' },
     { id:'simulateur', label:'Simulateur démographique', text:'Projections démographiques France : fécondité, immigration, retraites' }
   ];
   blocks.forEach(function(b) {
