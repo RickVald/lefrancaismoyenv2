@@ -68,7 +68,10 @@ option{background:#10172e}
 .matrix-item b{display:block;font-size:1.5rem;margin:8px 0 2px}
 .source-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .source{border:1px dashed rgba(255,255,255,.2);border-radius:16px;padding:14px;color:var(--muted);background:rgba(255,255,255,.035);font-weight:750;font-size:.92rem}
-.simulator-layout{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+.simulator-layout{display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
+.simulator-layout .grid .kpi{grid-column:span 6}
+.simulator-layout .grid .wide{grid-column:1/-1}
+.simulator-layout .grid .side{grid-column:1/-1}
 .sim-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
 .field label{display:block;color:var(--muted);font-size:.82rem;margin-bottom:6px;font-weight:750}
 .field input,.field select{width:100%}

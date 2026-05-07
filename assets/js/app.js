@@ -126,56 +126,57 @@ drawMain();drawBudget();initCrn();initTax();initLife();initEnergy();initSocial()
 
 // ── Calculateur d'impact personnel ───────────────────────────────────────────
 function calcPersonalImpact() {
-  const year = parseInt($('birthYear').value) || 1985;
-  const now = 2024;
-  const age = now - year;
-  const workStart = Math.min(now - 1, Math.max(2000, year + 22));
-  const yearsWork = now - workStart;
+  try {
+    const inputEl = document.getElementById('birthYear');
+    const resultEl = document.getElementById('personalResult');
+    if (!inputEl || !resultEl) return;
 
-  // Cumulative changes per year (annualised, base 2000)
-  const foodRate = 0.0143;      // ~+35% total 2000-2024
-  const housingRate = 0.0422;   // ×2.7 = +170% total 2000-2024
-  const energyRate = 0.0256;    // ~+83% total 2000-2024
-  const salaryRate = 0.0018;    // ~+4% real total 2010-2024
+    const year = parseInt(inputEl.value) || 1985;
+    const now = 2024;
+    const workStart = Math.min(now - 1, Math.max(2000, year + 22));
+    const yearsWork = now - workStart;
 
-  const foodUp   = Math.round((Math.pow(1 + foodRate,    yearsWork) - 1) * 100);
-  const houseUp  = Math.round((Math.pow(1 + housingRate, yearsWork) - 1) * 100);
-  const energyUp = Math.round((Math.pow(1 + energyRate,  yearsWork) - 1) * 100);
-  const salaryUp = Math.round((Math.pow(1 + salaryRate,  yearsWork) - 1) * 100);
+    const foodRate    = 0.0143;
+    const housingRate = 0.0422;
+    const salaryRate  = 0.0018;
 
-  // Basket: 100€ courses in workStart year
-  const basketNow = Math.round(100 * Math.pow(1 + foodRate, yearsWork));
+    const foodUp    = Math.round((Math.pow(1 + foodRate,    yearsWork) - 1) * 100);
+    const houseUp   = Math.round((Math.pow(1 + housingRate, yearsWork) - 1) * 100);
+    const salaryUp  = Math.round((Math.pow(1 + salaryRate,  yearsWork) - 1) * 100);
+    const basketNow = Math.round(100 * Math.pow(1 + foodRate, yearsWork));
+    const houseNow  = Math.round(150 * Math.pow(1 + housingRate, yearsWork));
 
-  $('pr1').textContent = `Alimentation +${foodUp}% depuis ${workStart}`;
-  $('pr2').textContent = `Un panier de 100 € vaut aujourd'hui ${basketNow} €.`;
-  $('pr3').textContent = `Logement +${houseUp}% sur la même période`;
-  $('pr4').textContent = `Un bien à 150 000 € vaut maintenant ~${Math.round(150000 * Math.pow(1 + housingRate, yearsWork) / 1000) * 1000}€.`;
-  $('pr5').textContent = `Salaire réel : +${salaryUp}% seulement`;
-  $('pr6').textContent = `Les prix ont augmenté ${Math.round(foodUp / Math.max(1, salaryUp))}× plus vite que les salaires réels.`;
+    const set = (id, txt) => { const e = document.getElementById(id); if (e) e.textContent = txt; };
+    set('pr1', 'Courses : +' + foodUp + '% depuis ' + workStart);
+    set('pr2', 'Un panier de 100 € en coûte ' + basketNow + ' aujourd\'hui.');
+    set('pr3', 'Logement : +' + houseUp + '% sur la même période');
+    set('pr4', 'Un bien à 150 000 € vaut maintenant ~' + houseNow + ' 000 €.');
+    set('pr5', 'Salaire réel : +' + salaryUp + '% seulement');
+    set('pr6', 'Les prix ont progressé ' + Math.round(foodUp / Math.max(1, salaryUp)) + '× plus vite que les salaires.');
 
-  const result = $('personalResult');
-  result.style.display = 'grid';
+    resultEl.style.display = 'grid';
+    resultEl.style.gap = '8px';
 
-  const shareBtn = $('sharePersonal');
-  if (shareBtn) {
-    const text = `Depuis ${workStart}, mon panier de courses a augmenté de ${foodUp}%, le logement de ${houseUp}%… mais les salaires réels seulement de ${salaryUp}%. Les chiffres officiels → lefrancaismoyen.fr`;
-    shareBtn.onclick = () => {
-      if (navigator.share) {
-        navigator.share({ title: 'Mon bilan personnel — Le Français Moyen', text, url: 'https://lefrancaismoyen.fr/' });
-      } else {
-        navigator.clipboard.writeText(text).then(() => { shareBtn.textContent = '✓ Texte copié !'; setTimeout(() => { shareBtn.textContent = 'Partager mon bilan'; }, 2500); });
-      }
-    };
-  }
+    const shareBtn = document.getElementById('sharePersonal');
+    if (shareBtn) {
+      const text = 'Depuis ' + workStart + ', mon panier de courses a augmenté de ' + foodUp + '%, le logement de ' + houseUp + '%… mais les salaires réels de ' + salaryUp + '% seulement. Les chiffres officiels : lefrancaismoyen.fr';
+      shareBtn.onclick = function() {
+        if (navigator.share) {
+          navigator.share({ title: 'Mon bilan — Le Français Moyen', text: text, url: 'https://lefrancaismoyen.fr/' });
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(function() { shareBtn.textContent = '✓ Copié !'; setTimeout(function() { shareBtn.textContent = 'Partager mon bilan'; }, 2500); });
+        }
+      };
+    }
+  } catch(e) { console.error('calcPersonalImpact:', e); }
 }
 
-const calcBtn = $('calcPersonalBtn');
-if (calcBtn) {
-  calcBtn.addEventListener('click', calcPersonalImpact);
-  $('birthYear').addEventListener('keydown', e => { if (e.key === 'Enter') calcPersonalImpact(); });
-  // Auto-calculate on load for default year
-  calcPersonalImpact();
-}
+(function() {
+  var btn = document.getElementById('calcPersonalBtn');
+  var inp = document.getElementById('birthYear');
+  if (btn) btn.addEventListener('click', calcPersonalImpact);
+  if (inp) inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') calcPersonalImpact(); });
+})();
 
 // ── Animations de compteur (scroll-triggered) ─────────────────────────────────
 function animateCounter(el, target, suffix, duration) {
