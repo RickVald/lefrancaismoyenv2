@@ -1,9 +1,5 @@
 [build]
-  command = "npm install && npm run build"
   publish = "."
-
-[build.environment]
-  NODE_VERSION = "20"
 
 # ──────────────── Security & performance headers ────────────────
 
