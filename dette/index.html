@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compteur de la dette publique française en temps réel — Le Français Moyen</title>
+  <meta name="description" content="La dette publique française augmente de 5 500 € par seconde. Regardez le compteur tourner en direct. Votre part : 46 000 €. Les intérêts coûtent 1 840 € par seconde.">
+  <link rel="canonical" href="https://le-francais-moyen.com/dette/">
+  <meta property="og:title" content="La dette française en temps réel — Le Français Moyen">
+  <meta property="og:description" content="+5 500 € par seconde. 46 000 € par habitant. Regardez la dette publique française augmenter en direct.">
+  <meta property="og:url" content="https://le-francais-moyen.com/dette/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=10">
+  <style>
+    .counter-hero{text-align:center;padding:48px 24px 32px;background:radial-gradient(ellipse at 50% 0%,rgba(255,107,107,.12) 0%,transparent 65%)}
+    .debt-counter{font-size:clamp(2.2rem,7vw,5.5rem);font-weight:900;letter-spacing:-.05em;color:#ff9898;font-variant-numeric:tabular-nums;line-height:1;margin:12px 0 6px}
+    .debt-unit{font-size:1rem;color:var(--muted);font-weight:750;margin-bottom:32px}
+    .ticker-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:48px}
+    .ticker-pill{background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:14px;padding:12px 18px;text-align:center;min-width:160px}
+    .ticker-pill .val{font-size:1.35rem;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+    .ticker-pill .lbl{font-size:.75rem;color:var(--muted);margin-top:3px}
+    .debt-bar-section{max-width:780px;margin:0 auto 40px;padding:0 24px}
+    .debt-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;font-size:.88rem}
+    .debt-bar-row .country{width:80px;color:var(--muted);font-weight:750;flex-shrink:0}
+    .debt-bar-row .bar-wrap{flex:1;height:14px;background:rgba(255,255,255,.07);border-radius:6px;overflow:hidden}
+    .debt-bar-row .bar-fill{height:100%;border-radius:6px;transition:width .6s ease}
+    .debt-bar-row .pct{width:52px;text-align:right;font-weight:900}
+    .fr-highlight .bar-fill{background:var(--red)}
+    .debt-bar-row .bar-fill{background:var(--accent2)}
+    .chart-svg-wrap{max-width:780px;margin:0 auto 32px;padding:0 24px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Indicateurs</a></li>
+          <li><a href="/outils/" style="color:var(--accent)">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <a href="/" class="cta">← Tableau de bord</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="counter-hero">
+      <nav style="font-size:.88rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <a href="/outils/">Outils</a> › <span>Compteur dette</span></nav>
+      <div class="eyebrow">En ce moment, en direct</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:4px">La dette publique française</h1>
+      <div class="debt-counter" id="debtCounter">3 228 000 000 000 €</div>
+      <div class="debt-unit">euros — mise à jour toutes les 100 ms</div>
+
+      <div class="ticker-row">
+        <div class="ticker-pill">
+          <div class="val" id="tickerPerCapita" style="color:var(--red)">47 200 €</div>
+          <div class="lbl">par habitant</div>
+        </div>
+        <div class="ticker-pill">
+          <div class="val" id="tickerSinceOpen" style="color:var(--accent)">0 €</div>
+          <div class="lbl">depuis que vous avez ouvert cette page</div>
+        </div>
+        <div class="ticker-pill">
+          <div class="val" id="tickerInterest" style="color:#ff9898">0 €</div>
+          <div class="lbl">d'intérêts payés depuis l'ouverture</div>
+        </div>
+        <div class="ticker-pill">
+          <div class="val" style="color:var(--accent2)">113 %</div>
+          <div class="lbl">du PIB — seuil critique à 100 %</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="debt-bar-section">
+      <div class="panel" style="padding:28px;margin-bottom:28px">
+        <div class="eyebrow" style="margin-bottom:4px">Contexte européen</div>
+        <h2 style="font-size:1.15rem;margin:0 0 20px">Dette / PIB — France vs voisins (2024)</h2>
+        <div id="europeCompar"></div>
+      </div>
+
+      <div class="panel" style="padding:28px;margin-bottom:28px">
+        <div class="eyebrow" style="margin-bottom:4px">Évolution historique</div>
+        <h2 style="font-size:1.15rem;margin:0 0 4px">Dette / PIB depuis 2000</h2>
+        <p style="color:var(--muted);font-size:.88rem;margin:0 0 18px">La dette a doublé en 20 ans. Les intérêts coûtent plus que le budget de l'Éducation nationale.</p>
+        <div class="chart-box" style="height:240px"><svg id="debtHistSvg" class="svg-chart"></svg></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px">
+        <div class="panel" style="padding:20px;text-align:center">
+          <div class="eyebrow" style="margin-bottom:6px">Charge d'intérêts</div>
+          <div style="font-size:1.8rem;font-weight:900;color:var(--red)">58 Md€</div>
+          <div style="color:var(--muted);font-size:.82rem;margin-top:4px">par an — 1 840 €/seconde</div>
+        </div>
+        <div class="panel" style="padding:20px;text-align:center">
+          <div class="eyebrow" style="margin-bottom:6px">Déficit 2024</div>
+          <div style="font-size:1.8rem;font-weight:900;color:var(--red)">6,1 % PIB</div>
+          <div style="color:var(--muted);font-size:.82rem;margin-top:4px">~178 Md€ ajoutés en 2024</div>
+        </div>
+        <div class="panel" style="padding:20px;text-align:center">
+          <div class="eyebrow" style="margin-bottom:6px">Dette en années de salaire</div>
+          <div style="font-size:1.8rem;font-weight:900;color:var(--accent)">1,44 an</div>
+          <div style="color:var(--muted);font-size:.82rem;margin-top:4px">par habitant / salaire net médian</div>
+        </div>
+      </div>
+
+      <div class="panel" style="padding:24px;margin-bottom:28px;border-left:4px solid var(--red)">
+        <div class="eyebrow" style="margin-bottom:8px">Ce que ça signifie concrètement</div>
+        <div style="display:grid;gap:10px">
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
+            <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
+            <span>Les intérêts de la dette (58 Md€/an) dépassent le budget de la Défense nationale (47 Md€).</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
+            <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
+            <span>Chaque enfant qui naît en France hérite de <strong>46 000 € de dette publique</strong> à sa naissance.</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
+            <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
+            <span>Si les taux remontaient à 4 %, la charge d'intérêts doublerait à <strong>120 Md€/an</strong>, soit 10 % des recettes fiscales.</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
+            <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
+            <span>Au rythme actuel des déficits, la dette atteindrait <strong>130 % du PIB en 2032</strong>.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;padding:24px 0;border-top:1px solid var(--border)">
+        <p style="color:var(--muted);margin-bottom:14px;font-size:.9rem">Partagez ce compteur</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a class="share-btn" id="shareTwitterDebt" href="#" target="_blank" rel="noopener">𝕏 Partager</a>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2Fdette%2F" target="_blank" rel="noopener">LinkedIn</a>
+          <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/dette/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const REF_DEBT_DATE = new Date('2026-01-01T00:00:00Z').getTime();
+  const REF_DEBT      = 3_228_000_000_000;  // estimation dette au 1er jan 2026
+  const RATE_SEC      = 178e9 / (365.25*24*3600); // ~5 641 €/sec (déficit 178Md€/an)
+  const INTEREST_SEC  = 58e9  / (365.25*24*3600); // ~1 839 €/sec
+  const POPULATION    = 68_400_000;
+  const openTime      = Date.now();
+
+  function currentDebt() {
+    return REF_DEBT + RATE_SEC * (Date.now() - REF_DEBT_DATE) / 1000;
+  }
+
+  function fmt(n, dec=0) {
+    return n.toLocaleString('fr-FR', {minimumFractionDigits:dec, maximumFractionDigits:dec});
+  }
+
+  function tick() {
+    const debt    = currentDebt();
+    const elapsed = (Date.now() - openTime) / 1000;
+    const added   = RATE_SEC * elapsed;
+    const interest= INTEREST_SEC * elapsed;
+
+    document.getElementById('debtCounter').textContent   = fmt(Math.round(debt)) + ' €';
+    document.getElementById('tickerPerCapita').textContent = fmt(Math.round(debt / POPULATION)) + ' €';
+    document.getElementById('tickerSinceOpen').textContent = '+' + fmt(Math.round(added)) + ' €';
+    document.getElementById('tickerInterest').textContent  = '+' + fmt(Math.round(interest)) + ' €';
+
+    const shareVal = fmt(Math.round(debt / 1e9), 0);
+    document.getElementById('shareTwitterDebt').href =
+      `https://twitter.com/intent/tweet?text=La+dette+publique+française+vient+de+dépasser+${shareVal}+milliards+d%27euros.+Elle+augmente+de+5+600+%E2%82%AC+par+seconde.+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fdette%2F`;
+  }
+
+  setInterval(tick, 100);
+  tick();
+
+  // Comparateur européen
+  const euroData = [
+    {name:'Grèce',  pct:164, fr:false},
+    {name:'Italie', pct:137, fr:false},
+    {name:'France', pct:113, fr:true},
+    {name:'Espagne',pct:105, fr:false},
+    {name:'Portugal',pct:99, fr:false},
+    {name:'Belgique',pct:106, fr:false},
+    {name:'Allemagne',pct:63, fr:false},
+    {name:'Suède',  pct:33, fr:false},
+  ].sort((a,b) => b.pct - a.pct);
+
+  const maxPct = Math.max(...euroData.map(d => d.pct));
+  document.getElementById('europeCompar').innerHTML = euroData.map(d =>
+    `<div class="debt-bar-row${d.fr ? ' fr-highlight' : ''}">
+      <span class="country">${d.fr ? '<strong style="color:var(--red)">' + d.name + '</strong>' : d.name}</span>
+      <div class="bar-wrap"><div class="bar-fill" style="width:${d.pct/maxPct*100}%${d.fr ? ';background:var(--red)' : ''}"></div></div>
+      <span class="pct" style="${d.fr ? 'color:var(--red)' : ''}">${d.pct} %</span>
+    </div>`
+  ).join('');
+
+  // Graphique historique
+  (function drawHistory() {
+    const years = [2000,2002,2004,2006,2008,2010,2012,2014,2016,2018,2020,2022,2024,2025];
+    const vals  = [58.8,63.1,65.7,64.4,68.8,85.3,90.6,95.3,98.0,97.8,115.0,111.6,113.0,113.8];
+    const svg = document.getElementById('debtHistSvg');
+    const W=760,H=220,ml=42,mr=16,mt=14,mb=32;
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    const min=50,max=125;
+    const xS=i=>ml+(i/(years.length-1))*(W-ml-mr);
+    const yS=v=>mt+(H-mt-mb)*(1-(v-min)/(max-min));
+    // zone rouge au-dessus de 100
+    const i100=yS(100);
+    const danger=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    danger.setAttribute('x',ml);danger.setAttribute('y',mt);
+    danger.setAttribute('width',W-ml-mr);danger.setAttribute('height',i100-mt);
+    danger.setAttribute('fill','rgba(255,107,107,.06)');svg.appendChild(danger);
+    // ligne 100%
+    const l100=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l100.setAttribute('x1',ml);l100.setAttribute('y1',i100);l100.setAttribute('x2',W-mr);l100.setAttribute('y2',i100);
+    l100.setAttribute('stroke','rgba(255,107,107,.4)');l100.setAttribute('stroke-dasharray','4,3');svg.appendChild(l100);
+    const lt=document.createElementNS('http://www.w3.org/2000/svg','text');
+    lt.setAttribute('x',W-mr-2);lt.setAttribute('y',i100-4);lt.setAttribute('text-anchor','end');lt.setAttribute('font-size',9);lt.setAttribute('fill','rgba(255,107,107,.7)');
+    lt.textContent='seuil 100 %';svg.appendChild(lt);
+    // grille
+    [60,80,100,120].forEach(v=>{
+      const y=yS(v),g=document.createElementNS('http://www.w3.org/2000/svg','line');
+      g.setAttribute('x1',ml);g.setAttribute('y1',y);g.setAttribute('x2',W-mr);g.setAttribute('y2',y);
+      g.setAttribute('stroke','rgba(255,255,255,.07)');svg.appendChild(g);
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',ml-4);t.setAttribute('y',y+3);t.setAttribute('text-anchor','end');t.setAttribute('font-size',9);t.setAttribute('fill','#7a8aa0');
+      t.textContent=v+'%';svg.appendChild(t);
+    });
+    // courbe aire
+    const area='M'+xS(0)+','+yS(min)+' L'+vals.map((v,i)=>xS(i)+','+yS(v)).join(' L')+' L'+xS(vals.length-1)+','+yS(min)+' Z';
+    const a=document.createElementNS('http://www.w3.org/2000/svg','path');
+    a.setAttribute('d',area);a.setAttribute('fill','rgba(255,107,107,.12)');svg.appendChild(a);
+    // ligne
+    const pts=vals.map((v,i)=>xS(i)+','+yS(v)).join(' ');
+    const line=document.createElementNS('http://www.w3.org/2000/svg','polyline');
+    line.setAttribute('points',pts);line.setAttribute('fill','none');line.setAttribute('stroke','#ff6b6b');line.setAttribute('stroke-width',2.5);line.setAttribute('stroke-linecap','round');svg.appendChild(line);
+    // labels années
+    [2000,2008,2020,2024].forEach(y=>{
+      const i=years.indexOf(y);if(i<0)return;
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',xS(i));t.setAttribute('y',H-6);t.setAttribute('text-anchor','middle');t.setAttribute('font-size',10);t.setAttribute('fill','#7a8aa0');
+      t.textContent=y;svg.appendChild(t);
+    });
+    // point 2024
+    const ci=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    const li=vals.length-2;
+    ci.setAttribute('cx',xS(li));ci.setAttribute('cy',yS(vals[li]));ci.setAttribute('r',4);ci.setAttribute('fill','#ff6b6b');svg.appendChild(ci);
+  })();
+  </script>
+</body>
+</html>

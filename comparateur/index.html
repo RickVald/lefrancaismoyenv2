@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>France vs Europe — Comparateur économique — Le Français Moyen</title>
+  <meta name="description" content="Comparez la France avec l'Allemagne, le Royaume-Uni, la Suède, l'Espagne et l'Italie sur 10 indicateurs : dette, inflation, chômage, dépenses publiques, PISA, espérance de vie.">
+  <link rel="canonical" href="https://le-francais-moyen.com/comparateur/">
+  <meta property="og:title" content="France vs Europe — 10 indicateurs comparés">
+  <meta property="og:url" content="https://le-francais-moyen.com/comparateur/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=10">
+  <style>
+    .country-btn{border:2px solid var(--border);background:rgba(255,255,255,.05);border-radius:14px;padding:10px 16px;cursor:pointer;font-size:.9rem;font-weight:800;transition:all .15s;display:flex;align-items:center;gap:8px}
+    .country-btn.active{border-color:transparent;color:#0b1020}
+    .country-btn:hover:not(.active){border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.09)}
+    .indicator-tab{border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:850;font-size:.85rem;transition:all .15s}
+    .indicator-tab.active{background:var(--accent);color:#0b1020;border-color:transparent}
+    .ranking-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:16px}
+    .ranking-table th{padding:9px 12px;text-align:left;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border)}
+    .ranking-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .ranking-table tr:last-child td{border-bottom:none}
+    .rank-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;font-size:.75rem;font-weight:900}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Indicateurs</a></li>
+          <li><a href="/outils/" style="color:var(--accent)">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <a href="/" class="cta">← Tableau de bord</a>
+    </div>
+  </header>
+
+  <main style="max-width:1100px;margin:auto;padding:36px 24px 80px">
+    <nav style="font-size:.88rem;color:var(--muted);margin-bottom:20px"><a href="/">Accueil</a> › <a href="/outils/">Outils</a> › <span>Comparateur Europe</span></nav>
+    <div class="eyebrow">Benchmark européen · données 2024</div>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:10px">France vs Europe — 10 indicateurs</h1>
+    <p style="color:var(--muted);font-size:1rem;max-width:700px;margin:0 0 28px">Sélectionnez les pays et l'indicateur pour comparer. Sources : Eurostat, OCDE, OMS, PISA 2022.</p>
+
+    <!-- Sélection pays -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px">Pays à comparer</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap" id="countryBtns"></div>
+    </div>
+
+    <!-- Sélection indicateur -->
+    <div style="margin-bottom:28px">
+      <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px">Indicateur</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap" id="indicatorTabs"></div>
+    </div>
+
+    <!-- Graphique + tableau -->
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start" id="mainLayout">
+      <div class="panel" style="padding:24px">
+        <div id="chartTitle" style="font-size:1rem;font-weight:900;margin-bottom:4px"></div>
+        <div id="chartSource" style="font-size:.78rem;color:var(--muted);margin-bottom:16px"></div>
+        <div class="chart-box" style="height:280px"><svg id="compSvg" class="svg-chart"></svg></div>
+        <div id="chartLegend" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:.8rem"></div>
+      </div>
+      <div class="panel" style="padding:20px">
+        <div style="font-weight:900;font-size:.95rem;margin-bottom:14px">Classement 2024</div>
+        <table class="ranking-table"><thead><tr><th>#</th><th>Pays</th><th id="rankHeader">Valeur</th></tr></thead>
+        <tbody id="rankingBody"></tbody></table>
+        <div id="frVerdict" style="margin-top:16px;padding:14px;background:rgba(255,255,255,.05);border-radius:12px;font-size:.84rem;color:var(--muted);line-height:1.55"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : Eurostat · OCDE · OMS · PISA</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const COUNTRIES = [
+    {id:'FR',name:'France',   flag:'🇫🇷',color:'#f6c343',active:true},
+    {id:'DE',name:'Allemagne',flag:'🇩🇪',color:'#5dd6c5',active:true},
+    {id:'UK',name:'Royaume-Uni',flag:'🇬🇧',color:'#6ea8fe',active:true},
+    {id:'SE',name:'Suède',    flag:'🇸🇪',color:'#63d471',active:true},
+    {id:'ES',name:'Espagne',  flag:'🇪🇸',color:'#ff9f43',active:false},
+    {id:'IT',name:'Italie',   flag:'🇮🇹',color:'#ff6b6b',active:false},
+  ];
+
+  // Données : [2000, 2005, 2010, 2015, 2020, 2024]
+  const INDICATORS = [
+    {id:'debt',  label:'Dette / PIB',          unit:'%',  src:'Eurostat', lowerBetter:true,
+     desc:'Dette des administrations publiques en % du PIB.',
+     data:{FR:[58.8,67.4,85.3,96.2,115.0,113.0], DE:[59.7,68.5,82.3,71.2,68.9,63.0], UK:[39.0,42.2,78.4,87.9,103.1,98.5], SE:[51.7,49.2,39.4,43.5,39.6,33.0], ES:[59.3,43.1,60.1,99.3,120.0,105.0], IT:[108.6,105.7,119.2,131.8,154.9,137.3]}},
+    {id:'deficit',label:'Déficit public',       unit:'%',  src:'Eurostat', lowerBetter:true,
+     desc:'Solde des administrations publiques en % du PIB (négatif = déficit).',
+     data:{FR:[-1.6,-3.2,-7.2,-3.6,-9.0,-6.1], DE:[-1.5,-3.3,-4.2,0.8,-4.3,-1.8], UK:[-3.5,-3.2,-9.9,-4.6,-14.0,-4.8], SE:[5.0,1.9,0.3,0.2,-2.7,-0.6], ES:[-0.9,1.0,-9.4,-5.3,-10.1,-3.1], IT:[-2.4,-3.5,-5.4,-2.6,-9.5,-3.8]}},
+    {id:'unemp', label:'Chômage',               unit:'%',  src:'Eurostat', lowerBetter:true,
+     desc:'Taux de chômage au sens du BIT (population active).',
+     data:{FR:[10.2,9.3,9.4,10.4,8.0,7.3], DE:[7.5,11.2,7.0,4.6,3.9,3.4], UK:[5.4,4.8,7.8,5.3,4.5,4.3], SE:[5.6,7.8,8.7,7.4,8.5,8.6], ES:[11.1,9.2,20.1,22.1,15.5,11.7], IT:[10.1,7.7,8.4,11.9,9.3,6.8]}},
+    {id:'inflat',label:'Inflation moy. 5 ans',  unit:'%',  src:'Eurostat', lowerBetter:true,
+     desc:'Inflation IPCH moyenne sur les 5 dernières années.',
+     data:{FR:[2.0,2.1,1.5,0.5,3.5,3.2], DE:[1.4,1.9,1.5,0.5,4.1,3.8], UK:[2.1,2.5,3.1,0.8,4.8,4.5], SE:[1.5,1.0,1.5,0.5,4.2,3.6], ES:[3.5,3.3,1.5,0.0,3.8,3.4], IT:[2.5,2.2,1.5,0.3,4.2,3.3]}},
+    {id:'gdpcap',label:'PIB / habitant',        unit:'k€', src:'Eurostat', lowerBetter:false,
+     desc:'PIB par habitant en milliers d\'euros courants.',
+     data:{FR:[23.2,27.8,30.5,32.1,32.0,36.8], DE:[23.1,28.2,33.5,37.8,38.2,44.5], UK:[26.5,31.5,29.8,34.5,33.8,36.2], SE:[30.5,38.2,44.5,50.1,51.2,58.3], ES:[15.2,20.5,22.1,22.8,22.1,26.8], IT:[20.5,24.2,24.5,25.8,24.1,28.2]}},
+    {id:'public',label:'Dépenses publiques',    unit:'%',  src:'Eurostat', lowerBetter:false,
+     desc:'Dépenses des administrations publiques en % du PIB.',
+     data:{FR:[51.6,53.4,56.4,56.8,61.6,57.3], DE:[47.6,46.9,47.9,43.9,51.0,44.5], UK:[36.8,42.1,47.8,43.4,51.8,45.2], SE:[55.1,53.5,51.5,50.3,52.1,48.8], ES:[39.1,38.4,45.6,43.8,52.1,46.2], IT:[46.2,47.8,49.8,50.3,57.2,53.1]}},
+    {id:'taxes', label:'Prélèvements obligs.',  unit:'%',  src:'Eurostat', lowerBetter:false,
+     desc:'Prélèvements obligatoires (impôts + cotisations) en % du PIB.',
+     data:{FR:[44.4,43.8,43.5,45.2,47.5,45.8], DE:[41.5,38.8,37.8,40.0,41.8,41.2], UK:[36.5,36.8,34.5,35.2,35.8,36.5], SE:[50.5,47.5,43.5,43.5,42.5,42.8], ES:[34.2,35.5,32.2,33.8,38.5,38.2], IT:[41.8,40.5,42.8,43.5,44.5,43.2]}},
+    {id:'pisa',  label:'Score PISA maths',      unit:'pts',src:'OCDE',     lowerBetter:false,
+     desc:'Score PISA en mathématiques (élèves de 15 ans). Données 2000, 2006, 2012, 2015, 2018, 2022.',
+     data:{FR:[517,496,495,493,495,474], DE:[490,504,514,506,500,475], UK:[529,495,494,492,502,489], SE:[510,502,478,494,502,482], ES:[476,480,484,486,481,473], IT:[457,462,485,490,487,471]}},
+    {id:'health',label:'Espérance de vie',      unit:'ans',src:'OMS',      lowerBetter:false,
+     desc:'Espérance de vie à la naissance (hommes + femmes, moyenne).',
+     data:{FR:[79.2,80.2,81.5,82.4,82.3,82.4], DE:[78.0,79.3,80.5,81.0,81.4,81.1], UK:[77.9,79.1,80.5,81.0,81.3,80.7], SE:[79.8,80.7,81.8,82.3,82.4,83.1], ES:[79.4,80.3,81.8,83.0,83.3,83.3], IT:[79.8,80.9,82.1,82.6,82.9,83.1]}},
+    {id:'confid',label:'Confiance institutions',unit:'%',  src:'Eurobaromètre', lowerBetter:false,
+     desc:'% de personnes ayant confiance dans le gouvernement national (Eurobaromètre / Gallup).',
+     data:{FR:[38,35,30,28,35,24], DE:[50,45,42,55,62,48], UK:[46,40,35,42,48,35], SE:[58,55,58,65,68,62], ES:[48,42,22,18,32,28], IT:[40,36,28,22,28,24]}},
+  ];
+
+  let activeCountries = new Set(COUNTRIES.filter(c=>c.active).map(c=>c.id));
+  let activeIndicator = 'debt';
+
+  function getIndicator() { return INDICATORS.find(i=>i.id===activeIndicator); }
+
+  // Render country buttons
+  function renderCountryBtns() {
+    document.getElementById('countryBtns').innerHTML = COUNTRIES.map(c => {
+      const on = activeCountries.has(c.id);
+      return `<button class="country-btn${on?' active':''}" data-id="${c.id}" style="${on?'background:'+c.color+';border-color:'+c.color:''}">
+        ${c.flag} ${c.name}
+      </button>`;
+    }).join('');
+    document.querySelectorAll('.country-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        if (activeCountries.has(id) && activeCountries.size > 1) activeCountries.delete(id);
+        else activeCountries.add(id);
+        renderCountryBtns(); renderAll();
+      });
+    });
+  }
+
+  // Render indicator tabs
+  function renderIndicatorTabs() {
+    document.getElementById('indicatorTabs').innerHTML = INDICATORS.map(i =>
+      `<button class="indicator-tab${i.id===activeIndicator?' active':''}" data-id="${i.id}">${i.label}</button>`
+    ).join('');
+    document.querySelectorAll('.indicator-tab').forEach(btn => {
+      btn.addEventListener('click', () => { activeIndicator=btn.dataset.id; renderIndicatorTabs(); renderAll(); });
+    });
+  }
+
+  function f1(v) { return v.toLocaleString('fr-FR',{maximumFractionDigits:1}); }
+
+  function renderAll() {
+    const ind = getIndicator();
+    const years = [2000,2005,2010,2015,2020,2024];
+    document.getElementById('chartTitle').textContent = ind.label + (ind.unit ? ' (' + ind.unit + ')' : '');
+    document.getElementById('chartSource').textContent = 'Source : ' + ind.src + ' — données 2024 ou dernière disponible';
+    document.getElementById('rankHeader').textContent = ind.label;
+
+    const svg = document.getElementById('compSvg');
+    const W=680,H=260,ml=44,mr=16,mt=12,mb=28;
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    svg.innerHTML='';
+
+    const active = COUNTRIES.filter(c=>activeCountries.has(c.id));
+    const allVals = active.flatMap(c => ind.data[c.id]);
+    const minV = Math.min(...allVals)*0.95, maxV = Math.max(...allVals)*1.05;
+    const xS=i=>ml+(i/(years.length-1))*(W-ml-mr);
+    const yS=v=>mt+(H-mt-mb)*(1-(v-minV)/(maxV-minV));
+
+    [3,5,7].forEach(i => {
+      const v = minV + (maxV-minV)*i/8;
+      const g = document.createElementNS('http://www.w3.org/2000/svg','line');
+      g.setAttribute('x1',ml);g.setAttribute('y1',yS(v));g.setAttribute('x2',W-mr);g.setAttribute('y2',yS(v));
+      g.setAttribute('stroke','rgba(255,255,255,.07)');svg.appendChild(g);
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',ml-4);t.setAttribute('y',yS(v)+3);t.setAttribute('text-anchor','end');t.setAttribute('font-size',9);t.setAttribute('fill','#7a8aa0');
+      t.textContent=f1(v);svg.appendChild(t);
+    });
+
+    years.forEach((y,i)=>{
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',xS(i));t.setAttribute('y',H-6);t.setAttribute('text-anchor','middle');t.setAttribute('font-size',10);t.setAttribute('fill','#7a8aa0');
+      t.textContent=y;svg.appendChild(t);
+    });
+
+    active.forEach(c => {
+      const vals = ind.data[c.id];
+      const pts = vals.map((v,i)=>xS(i)+','+yS(v)).join(' ');
+      const isFr = c.id==='FR';
+      const poly = document.createElementNS('http://www.w3.org/2000/svg','polyline');
+      poly.setAttribute('points',pts);poly.setAttribute('fill','none');poly.setAttribute('stroke',c.color);
+      poly.setAttribute('stroke-width',isFr?3:2);poly.setAttribute('opacity',isFr?1:0.7);
+      poly.setAttribute('stroke-linecap','round');svg.appendChild(poly);
+      const ci=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      ci.setAttribute('cx',xS(vals.length-1));ci.setAttribute('cy',yS(vals.at(-1)));ci.setAttribute('r',isFr?5:3.5);
+      ci.setAttribute('fill',c.color);svg.appendChild(ci);
+    });
+
+    // Legend
+    document.getElementById('chartLegend').innerHTML = active.map(c =>
+      `<span style="display:flex;align-items:center;gap:5px;font-size:.8rem;color:${c.color};font-weight:800">
+        <span style="width:16px;height:3px;background:${c.color};border-radius:2px;display:inline-block"></span>${c.flag} ${c.name}</span>`
+    ).join('');
+
+    // Ranking
+    const ranked = active.map(c=>({...c,val:ind.data[c.id].at(-1)}))
+      .sort((a,b) => ind.lowerBetter ? a.val-b.val : b.val-a.val);
+    const frRank = ranked.findIndex(c=>c.id==='FR')+1;
+    document.getElementById('rankingBody').innerHTML = ranked.map((c,i) => {
+      const medal = i===0?'🥇':i===1?'🥈':i===2?'🥉':'';
+      const isFr = c.id==='FR';
+      return `<tr style="${isFr?'background:rgba(246,195,67,.07)':''}">
+        <td><span class="rank-badge" style="background:${c.color}20;color:${c.color}">${i+1}</span></td>
+        <td style="${isFr?'color:var(--accent);font-weight:900':''}">
+          ${medal} ${c.flag} ${c.name}${isFr?' ←':''}
+        </td>
+        <td style="font-weight:900;${isFr?'color:var(--accent)':''}">${f1(c.val)} ${ind.unit}</td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('frVerdict').innerHTML = `
+      La France est <strong style="color:var(--accent)">${frRank}e/${active.length}</strong> pour cet indicateur parmi les pays sélectionnés.
+      ${ind.lowerBetter
+        ? frRank===1 ? 'Meilleur résultat — ' + ind.label.toLowerCase() + ' le plus bas.'
+                     : frRank===active.length ? '<strong style="color:var(--red)">Moins bonne performance</strong> parmi les pays sélectionnés.'
+                                               : 'Performance intermédiaire.'
+        : frRank===1 ? 'Meilleur résultat pour cet indicateur.'
+                     : frRank===active.length ? '<strong style="color:var(--red)">Performance la plus faible</strong> parmi les pays sélectionnés.'
+                                               : 'Performance intermédiaire.'}
+      ${ind.desc}`;
+  }
+
+  renderCountryBtns();
+  renderIndicatorTabs();
+  renderAll();
+
+  window.addEventListener('resize',()=>renderAll());
+  </script>
+</body>
+</html>

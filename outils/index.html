@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Outils – Le Français Moyen</title>
+<link rel="stylesheet" href="../assets/css/styles.css?v=10">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d0d;color:#e8e8e8;font-family:'Segoe UI',sans-serif;min-height:100vh}
+.page-header{padding:40px 24px 0;max-width:1000px;margin:0 auto;text-align:center}
+.back-link{color:#888;text-decoration:none;font-size:13px;display:inline-block;margin-bottom:20px}
+.back-link:hover{color:#e8e8e8}
+h1{font-size:clamp(26px,5vw,42px);font-weight:800;color:#fff;margin-bottom:12px}
+.subtitle{color:#aaa;font-size:16px;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6}
+.main{max-width:1000px;margin:0 auto;padding:0 24px 80px}
+.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:20px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px;margin-bottom:48px}
+.tool-card{background:#161616;border:1px solid #222;border-radius:10px;padding:24px;text-decoration:none;color:inherit;display:block;transition:all .2s;position:relative;overflow:hidden}
+.tool-card:hover{border-color:#444;transform:translateY(-2px);background:#1a1a1a}
+.tool-card:hover .tool-arrow{opacity:1;transform:translateX(4px)}
+.tool-icon{font-size:32px;margin-bottom:14px;display:block}
+.tool-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+.tool-desc{font-size:13px;color:#888;line-height:1.6;margin-bottom:14px}
+.tool-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;padding:3px 8px;border-radius:3px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.tag-red{background:#3a0000;color:#f87171}
+.tag-blue{background:#00081a;color:#60a5fa}
+.tag-green{background:#001a08;color:#4ade80}
+.tag-yellow{background:#1a1400;color:#fbbf24}
+.tag-purple{background:#0d0015;color:#a78bfa}
+.tag-orange{background:#1a0800;color:#fb923c}
+.tool-arrow{position:absolute;top:24px;right:20px;color:#555;font-size:18px;opacity:0;transition:all .2s}
+.highlight{background:linear-gradient(135deg,#1a0a00,#161616);border-color:#fb923c44}
+.highlight .tool-title{color:#fb923c}
+.separator{border:none;border-top:1px solid #1e1e1e;margin:8px 0 28px}
+.intro-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:40px}
+.stat-pill{background:#161616;border:1px solid #222;border-radius:6px;padding:14px 16px;text-align:center}
+.stat-pill-val{font-size:22px;font-weight:800;margin-bottom:4px}
+.stat-pill-label{font-size:11px;color:#666;line-height:1.4}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <a href="/" class="back-link">← Accueil</a>
+  <h1>Boîte à outils</h1>
+  <p class="subtitle">Des visualisations interactives pour comprendre, mesurer et contextualiser la situation économique et sociale de la France.</p>
+</div>
+<div class="main">
+
+  <div class="intro-stats">
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">113%</div><div class="stat-pill-label">Dette / PIB 2024</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#fbbf24">6.1%</div><div class="stat-pill-label">Déficit 2024</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">45.3%</div><div class="stat-pill-label">Prélèvements / PIB</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#60a5fa">7.3%</div><div class="stat-pill-label">Chômage 2024</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">−37</div><div class="stat-pill-label">Points PISA maths depuis 2003</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#a78bfa">3e</div><div class="stat-pill-label">Pression fiscale mondiale</div></div>
+  </div>
+
+  <div class="section-label">Finances publiques & fiscalité</div>
+  <div class="grid">
+
+    <a href="/dette/" class="tool-card highlight">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">⏱</span>
+      <div class="tool-title">Compteur de la dette</div>
+      <div class="tool-desc">La dette publique française en temps réel : chaque seconde, l'État s'endette davantage. Compteur live, comparaisons européennes, trajectoire historique.</div>
+      <div class="tool-tags"><span class="tag tag-red">Temps réel</span><span class="tag tag-orange">Dette</span><span class="tag tag-blue">Europe</span></div>
+    </a>
+
+    <a href="/projections/" class="tool-card">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">📈</span>
+      <div class="tool-title">Projections 2035</div>
+      <div class="tool-desc">Trois scénarios pour la France d'ici 2035 : inertie, réforme ou crise. Évolution de la dette, des taux d'intérêt, des retraites et de la pression fiscale.</div>
+      <div class="tool-tags"><span class="tag tag-yellow">Scénarios</span><span class="tag tag-orange">Prévisions</span><span class="tag tag-red">Risques</span></div>
+    </a>
+
+    <a href="/epargne/" class="tool-card">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">💰</span>
+      <div class="tool-title">Érosion de l'épargne</div>
+      <div class="tool-desc">Simulateur : que vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ? Livret A vs CAC vs immobilier vs or.</div>
+      <div class="tool-tags"><span class="tag tag-green">Simulateur</span><span class="tag tag-yellow">Fiscalité</span><span class="tag tag-blue">Inflation</span></div>
+    </a>
+
+  </div>
+
+  <hr class="separator">
+  <div class="section-label">Comparaisons & contexte</div>
+  <div class="grid">
+
+    <a href="/comparateur/" class="tool-card">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">🌍</span>
+      <div class="tool-title">Comparateur européen</div>
+      <div class="tool-desc">France vs Allemagne, Espagne, Italie, Suède, Royaume-Uni sur 10 indicateurs : dette, chômage, fiscalité, PISA, espérance de vie, confiance institutionnelle.</div>
+      <div class="tool-tags"><span class="tag tag-blue">Europe</span><span class="tag tag-purple">Indicateurs</span></div>
+    </a>
+
+    <a href="/elections/" class="tool-card">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">🗳</span>
+      <div class="tool-title">Simulateur élections</div>
+      <div class="tool-desc">2002–2022 : que se serait-il passé si chaque candidat avait gagné ? Projections économiques simulées vs réalité, et comparaison de la pression fiscale par programme.</div>
+      <div class="tool-tags"><span class="tag tag-yellow">Simulation</span><span class="tag tag-red">Politique</span><span class="tag tag-orange">Fiscal</span></div>
+    </a>
+
+    <a href="/generations/" class="tool-card">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">👶</span>
+      <div class="tool-title">Déclassement générationnel</div>
+      <div class="tool-desc">Né en 1950, 1970 ou 1990 : quelle différence ? Salaire, immobilier, chômage, dette par tête. Mesure le déclassement relatif de chaque génération vs les baby-boomers.</div>
+      <div class="tool-tags"><span class="tag tag-purple">Générations</span><span class="tag tag-blue">Indicateurs</span></div>
+    </a>
+
+  </div>
+
+  <hr class="separator">
+  <div class="section-label">Services & histoire</div>
+  <div class="grid">
+
+    <a href="/services/" class="tool-card">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">🏥</span>
+      <div class="tool-title">Services publics</div>
+      <div class="tool-desc">L'état réel des services que finance la France avec les impôts les plus élevés d'Europe : hôpitaux, éducation, transports, justice, administration.</div>
+      <div class="tool-tags"><span class="tag tag-red">Santé</span><span class="tag tag-blue">Éducation</span><span class="tag tag-orange">Justice</span></div>
+    </a>
+
+    <a href="/histoire/" class="tool-card">
+      <span class="tool-arrow">→</span>
+      <span class="tool-icon">📅</span>
+      <div class="tool-title">Timeline des ruptures</div>
+      <div class="tool-desc">Les 50 décisions qui ont transformé la France de 1973 à 2026. Chocs pétroliers, tournant de la rigueur, 35 heures, crises financières, réformes manquées.</div>
+      <div class="tool-tags"><span class="tag tag-purple">Histoire</span><span class="tag tag-yellow">Politique</span><span class="tag tag-red">Économie</span></div>
+    </a>
+
+  </div>
+
+  <div style="background:#111;border:1px dashed #222;border-radius:8px;padding:20px;text-align:center;color:#555;font-size:13px">
+    Tous les chiffres sont sourcés depuis l'INSEE, la Banque de France, le FMI, l'OCDE et Eurostat.<br>
+    Les projections et simulations sont des modèles indicatifs, non des prévisions certifiées.
+  </div>
+
+</div>
+</body>
+</html>

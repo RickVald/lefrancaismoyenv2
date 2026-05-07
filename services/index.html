@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Services publics – Le Français Moyen</title>
+<link rel="stylesheet" href="../assets/css/styles.css?v=10">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d0d;color:#e8e8e8;font-family:'Segoe UI',sans-serif;min-height:100vh}
+.page-header{padding:32px 24px 0;max-width:940px;margin:0 auto}
+.back-link{color:#888;text-decoration:none;font-size:13px;display:inline-block;margin-bottom:16px}
+.back-link:hover{color:#e8e8e8}
+h1{font-size:clamp(22px,4vw,32px);font-weight:700;color:#fff;margin-bottom:8px}
+.subtitle{color:#aaa;font-size:15px;margin-bottom:32px}
+.main{max-width:940px;margin:0 auto;padding:0 24px 80px}
+.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:12px}
+.tabs{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:24px;border-bottom:1px solid #222}
+.tab{padding:9px 16px;cursor:pointer;font-size:13px;color:#888;border-bottom:2px solid transparent;transition:all .15s}
+.tab.active{color:#fff;border-color:#f87171}
+.tab:hover{color:#ccc}
+.domain{display:none}.domain.active{display:block}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-bottom:24px}
+.kpi{background:#161616;border:1px solid #222;border-radius:6px;padding:14px}
+.kpi-label{font-size:11px;color:#888;margin-bottom:6px}
+.kpi-value{font-size:20px;font-weight:700}
+.kpi-sub{font-size:11px;color:#666;margin-top:4px}
+.red{color:#f87171}.green{color:#4ade80}.yellow{color:#fbbf24}.blue{color:#60a5fa}.orange{color:#fb923c}
+.chart-section{background:#161616;border:1px solid #222;border-radius:8px;padding:20px;margin-bottom:20px}
+svg.chart{width:100%;display:block}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:13px}
+.bar-label{min-width:180px;color:#aaa;text-align:right;font-size:12px}
+.bar-track{flex:1;height:20px;background:#1e1e1e;border-radius:3px;position:relative}
+.bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.bar-val{min-width:60px;text-align:right;font-weight:600}
+.trend-up::after{content:' ↑';color:#f87171}
+.trend-down::after{content:' ↓';color:#4ade80}
+.verdict{background:#1a1a1a;border-left:3px solid #f87171;padding:14px 16px;border-radius:0 6px 6px 0;margin-top:20px;font-size:13px;line-height:1.8;color:#ccc}
+.stat-table{width:100%;border-collapse:collapse;font-size:13px}
+.stat-table th{text-align:left;padding:8px;color:#888;border-bottom:1px solid #333;font-weight:500}
+.stat-table td{padding:8px;border-bottom:1px solid #1a1a1a;color:#ccc}
+.stat-table tr:last-child td{border:none}
+.badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:700;text-transform:uppercase}
+.badge-red{background:#3a0000;color:#f87171}
+.badge-orange{background:#2a1500;color:#fb923c}
+.badge-green{background:#001a08;color:#4ade80}
+.badge-yellow{background:#1a1400;color:#fbbf24}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <a href="/outils/" class="back-link">← Outils</a>
+  <h1>Services publics</h1>
+  <p class="subtitle">L'état réel des services que la France finance avec les impôts les plus élevés d'Europe</p>
+</div>
+<div class="main">
+
+  <div class="tabs">
+    <div class="tab active" onclick="setDomain('sante')">Santé</div>
+    <div class="tab" onclick="setDomain('education')">Éducation</div>
+    <div class="tab" onclick="setDomain('transport')">Transports</div>
+    <div class="tab" onclick="setDomain('justice')">Justice</div>
+    <div class="tab" onclick="setDomain('admin')">Administration</div>
+  </div>
+
+  <!-- SANTE -->
+  <div id="sante" class="domain active">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-label">Lits d'hôpitaux pour 1000 hab.</div><div class="kpi-value red">5.7</div><div class="kpi-sub">était 8.3 en 2000 (−31%)</div></div>
+      <div class="kpi"><div class="kpi-label">Médecins généralistes partant/an</div><div class="kpi-value red">+3 200</div><div class="kpi-sub">départs à la retraite non remplacés</div></div>
+      <div class="kpi"><div class="kpi-label">Déserts médicaux (part pop.)</div><div class="kpi-value red">11%</div><div class="kpi-sub">6 millions de Français sans médecin</div></div>
+      <div class="kpi"><div class="kpi-label">Attente urgences (médiane)</div><div class="kpi-value yellow">2h30</div><div class="kpi-sub">+45 min vs 2010</div></div>
+      <div class="kpi"><div class="kpi-label">Dépenses santé / PIB</div><div class="kpi-value blue">11.9%</div><div class="kpi-sub">3e monde, mais résultats en baisse</div></div>
+      <div class="kpi"><div class="kpi-label">Reste à charge moyen</div><div class="kpi-value yellow">9.4%</div><div class="kpi-sub">Europe : 12% (mais protection inégale)</div></div>
+    </div>
+    <div class="chart-section">
+      <div class="section-label">Évolution lits hospitaliers (pour 1 000 hab.)</div>
+      <svg id="chartSante" class="chart" height="220" viewBox="0 0 820 220"></svg>
+    </div>
+    <table class="stat-table">
+      <tr><th>Indicateur</th><th>2000</th><th>2010</th><th>2020</th><th>2024</th><th>Tendance</th></tr>
+      <tr><td>Lits MCO / 1000 hab.</td><td>3.8</td><td>3.3</td><td>2.9</td><td>2.8</td><td><span class="badge badge-red">Dégradé</span></td></tr>
+      <tr><td>Médecins pour 1000 hab.</td><td>3.1</td><td>3.2</td><td>3.1</td><td>3.0</td><td><span class="badge badge-orange">Stable bas</span></td></tr>
+      <tr><td>Infirmiers pour 1000 hab.</td><td>6.4</td><td>8.0</td><td>10.8</td><td>11.1</td><td><span class="badge badge-green">Hausse</span></td></tr>
+      <tr><td>Dépenses publiques santé (Md€)</td><td>116</td><td>161</td><td>222</td><td>270</td><td><span class="badge badge-yellow">Hausse coûts</span></td></tr>
+      <tr><td>Satisfaction usagers (%)</td><td>65%</td><td>62%</td><td>54%</td><td>48%</td><td><span class="badge badge-red">Dégradé</span></td></tr>
+    </table>
+    <div class="verdict">La France dépense <strong>+20% de plus que la moyenne OCDE</strong> par habitant en santé, mais ferme des lits depuis 2000 (−27 000 lits d'hôpitaux en 20 ans). Le numerus clausus, réduit dans les années 90, a créé une génération de pénurie médicale. Le virage ambulatoire, nécessaire, a été mal accompagné. Résultat : des urgences saturées, 6 millions de Français sans médecin traitant, et une satisfaction en chute libre malgré une dépense record.</div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div id="education" class="domain">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-label">Score PISA maths 2022</div><div class="kpi-value red">474</div><div class="kpi-sub">−20 pts vs 2003, sous moyenne OCDE</div></div>
+      <div class="kpi"><div class="kpi-label">Score PISA lecture 2022</div><div class="kpi-value red">474</div><div class="kpi-sub">Baisse la plus forte d'Europe occidentale</div></div>
+      <div class="kpi"><div class="kpi-label">Inégalités scolaires (PISA)</div><div class="kpi-value red">1er</div><div class="kpi-sub">Plus fort impact de l'origine sociale en Europe</div></div>
+      <div class="kpi"><div class="kpi-label">Dépenses éducation / PIB</div><div class="kpi-value blue">5.5%</div><div class="kpi-sub">Stable, mais résultats en déclin</div></div>
+      <div class="kpi"><div class="kpi-label">Décrochage scolaire</div><div class="kpi-value yellow">8.3%</div><div class="kpi-sub">UE : 9.6% (FR légèrement sous)</div></div>
+      <div class="kpi"><div class="kpi-label">Enseignants non remplacés/an</div><div class="kpi-value red">~900 000</div><div class="kpi-sub">heures de cours perdues (estimation)</div></div>
+    </div>
+    <div class="chart-section">
+      <div class="section-label">Score PISA mathématiques (France vs OCDE)</div>
+      <svg id="chartEdu" class="chart" height="220" viewBox="0 0 820 220"></svg>
+    </div>
+    <table class="stat-table">
+      <tr><th>Indicateur</th><th>2003</th><th>2009</th><th>2015</th><th>2022</th><th>Tendance</th></tr>
+      <tr><td>PISA Maths</td><td>511</td><td>497</td><td>493</td><td>474</td><td><span class="badge badge-red">−37 pts</span></td></tr>
+      <tr><td>PISA Lecture</td><td>496</td><td>496</td><td>499</td><td>474</td><td><span class="badge badge-red">−22 pts</span></td></tr>
+      <tr><td>PISA Sciences</td><td>511</td><td>498</td><td>495</td><td>487</td><td><span class="badge badge-red">−24 pts</span></td></tr>
+      <tr><td>Taux de réussite au bac (%)</td><td>80%</td><td>85%</td><td>88%</td><td>91%</td><td><span class="badge badge-yellow">↑ bac dévalué</span></td></tr>
+      <tr><td>Postes enseignants non pourvus</td><td>–</td><td>620</td><td>712</td><td>3057</td><td><span class="badge badge-red">Crise recrutement</span></td></tr>
+    </table>
+    <div class="verdict">La France consacre autant à l'éducation que l'Allemagne ou l'Angleterre, mais ses résultats PISA ont <strong>chuté de 37 points en mathématiques depuis 2003</strong> — soit l'équivalent d'une année scolaire entière perdue. Paradoxe français : le baccalauréat affiche 91% de réussite tandis que le niveau réel s'effondre. L'inégalité scolaire selon l'origine sociale est <strong>la plus élevée d'Europe occidentale</strong>. La crise de recrutement des enseignants (3 057 postes non pourvus en 2024) menace l'ensemble du système.</div>
+  </div>
+
+  <!-- TRANSPORT -->
+  <div id="transport" class="domain">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-label">Retards SNCF TER (% trains)</div><div class="kpi-value red">14.2%</div><div class="kpi-sub">objectif contractuel : <5%</div></div>
+      <div class="kpi"><div class="kpi-label">Réseau ferré en voie unique</div><div class="kpi-value yellow">43%</div><div class="kpi-sub">Goulots d'étranglement chroniques</div></div>
+      <div class="kpi"><div class="kpi-label">Dette SNCF (reprise État 2019)</div><div class="kpi-value red">35 Md€</div><div class="kpi-sub">reprise par l'État, puis SNCF re-endettée</div></div>
+      <div class="kpi"><div class="kpi-label">Subvention État + RégionsRFF</div><div class="kpi-value blue">~15 Md€/an</div><div class="kpi-sub">pour 85 000 trains/jour</div></div>
+      <div class="kpi"><div class="kpi-label">Autoroutes (loyer)</div><div class="kpi-value red">2.5 Md€/an</div><div class="kpi-sub">versés par concessionnaires à l'État</div></div>
+      <div class="kpi"><div class="kpi-label">Mortalité routière</div><div class="kpi-value green">3 170</div><div class="kpi-sub">morts 2023 (−72% vs 1972)</div></div>
+    </div>
+    <table class="stat-table">
+      <tr><th>Indicateur</th><th>2000</th><th>2010</th><th>2020</th><th>2024</th><th>Tendance</th></tr>
+      <tr><td>Ponctualité TGV (%)</td><td>86%</td><td>84%</td><td>79%</td><td>77%</td><td><span class="badge badge-red">Dégradé</span></td></tr>
+      <tr><td>Km de réseau ferré actif</td><td>29 000</td><td>29 300</td><td>28 200</td><td>27 600</td><td><span class="badge badge-orange">−1 400 km</span></td></tr>
+      <tr><td>Investissement réseau (Md€/an)</td><td>2.5</td><td>3.0</td><td>4.1</td><td>5.2</td><td><span class="badge badge-yellow">Hausse tardive</span></td></tr>
+      <tr><td>Passagers aériens (millions)</td><td>104</td><td>138</td><td>69</td><td>190</td><td><span class="badge badge-green">Rebond post-covid</span></td></tr>
+      <tr><td>Part modale vélo</td><td>2%</td><td>2.5%</td><td>3.4%</td><td>4.1%</td><td><span class="badge badge-green">Hausse lente</span></td></tr>
+    </table>
+    <div class="verdict">La France a investi massivement dans le TGV (LGV) au détriment du réseau classique. <strong>40% des lignes classiques nécessitent des travaux urgents</strong>. La SNCF a accumulé 46 Md€ de dette avant la reprise de 35 Md€ par l'État en 2019 — puis s'est ré-endettée. Les autoroutes privatisées (2006) génèrent des rendements de 20–30% pour les concessionnaires privés tout en facturant des péages parmi les plus chers d'Europe. Le bilan des transports publics hors Île-de-France est particulièrement préoccupant.</div>
+  </div>
+
+  <!-- JUSTICE -->
+  <div id="justice" class="domain">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-label">Délai moyen affaires civiles</div><div class="kpi-value red">16 mois</div><div class="kpi-sub">devant les tribunaux judiciaires</div></div>
+      <div class="kpi"><div class="kpi-label">Délai pénal (correctionnelle)</div><div class="kpi-value red">13.5 mois</div><div class="kpi-sub">+4 mois vs 2015</div></div>
+      <div class="kpi"><div class="kpi-label">Magistrats / 100 000 hab.</div><div class="kpi-value red">11.3</div><div class="kpi-sub">Moyenne EU : 21.4 — France dernière</div></div>
+      <div class="kpi"><div class="kpi-label">Budget justice / PIB</div><div class="kpi-value yellow">0.20%</div><div class="kpi-sub">Allemagne : 0.35%, Pays-Bas : 0.40%</div></div>
+      <div class="kpi"><div class="kpi-label">Taux d'occupation prisons</div><div class="kpi-value red">144%</div><div class="kpi-sub">72 000 détenus pour 60 000 places</div></div>
+      <div class="kpi"><div class="kpi-label">Dossiers en souffrance</div><div class="kpi-value red">+1.5 million</div><div class="kpi-sub">dossiers en stock aux juridictions</div></div>
+    </div>
+    <table class="stat-table">
+      <tr><th>Indicateur</th><th>2005</th><th>2012</th><th>2018</th><th>2024</th><th>Tendance</th></tr>
+      <tr><td>Budget justice (Md€)</td><td>5.5</td><td>7.0</td><td>8.3</td><td>11.7</td><td><span class="badge badge-yellow">Hausse insuffisante</span></td></tr>
+      <tr><td>Délai cour d'appel (mois)</td><td>15</td><td>17</td><td>19</td><td>22</td><td><span class="badge badge-red">Dégradé</span></td></tr>
+      <tr><td>Postes de magistrat vacants</td><td>200</td><td>350</td><td>510</td><td>700</td><td><span class="badge badge-red">Crise</span></td></tr>
+      <tr><td>Détenus en surnombre</td><td>5 000</td><td>7 000</td><td>13 000</td><td>12 000</td><td><span class="badge badge-red">Surpopulation</span></td></tr>
+      <tr><td>Classements sans suite (%)</td><td>78%</td><td>79%</td><td>81%</td><td>82%</td><td><span class="badge badge-red">Hausse</span></td></tr>
+    </table>
+    <div class="verdict">La France consacre <strong>deux fois moins au service public de la justice que l'Allemagne</strong> en proportion du PIB. 82% des plaintes sont classées sans suite — soit 4 plaintes sur 5 sans aucune suite judiciaire. Les tribunaux peinent à rendre des décisions rapides : en matière civile, il faut en moyenne 16 mois pour obtenir un jugement en première instance. La surpopulation carcérale (144%) coexiste paradoxalement avec un taux d'emprisonnement parmi les plus faibles d'Europe, révélant une gestion défaillante de l'ensemble du système.</div>
+  </div>
+
+  <!-- ADMIN -->
+  <div id="admin" class="domain">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-label">Agents publics (millions)</div><div class="kpi-value blue">5.7</div><div class="kpi-sub">20% de la population active (2e monde)</div></div>
+      <div class="kpi"><div class="kpi-label">Coût masse salariale État</div><div class="kpi-value red">340 Md€/an</div><div class="kpi-sub">1er poste budgétaire</div></div>
+      <div class="kpi"><div class="kpi-label">Délai CAF (dossier RSA)</div><div class="kpi-value yellow">42 jours</div><div class="kpi-sub">objectif légal : 2 mois max</div></div>
+      <div class="kpi"><div class="kpi-label">Satisfaction services publics</div><div class="kpi-value yellow">52%</div><div class="kpi-sub">en baisse : 61% en 2014</div></div>
+      <div class="kpi"><div class="kpi-label">Procédures dématérialisées</div><div class="kpi-value green">89%</div><div class="kpi-sub">France Leader numérique UE (UNI)</div></div>
+      <div class="kpi"><div class="kpi-label">Exclusion numérique</div><div class="kpi-value red">13 millions</div><div class="kpi-sub">Français en difficulté avec les démarches en ligne</div></div>
+    </div>
+    <table class="stat-table">
+      <tr><th>Indicateur</th><th>2000</th><th>2010</th><th>2020</th><th>2024</th><th>Tendance</th></tr>
+      <tr><td>Effectifs fonction publique (M)</td><td>4.9</td><td>5.4</td><td>5.6</td><td>5.7</td><td><span class="badge badge-yellow">Stable haut</span></td></tr>
+      <tr><td>Coût masse salariale (Md€)</td><td>178</td><td>234</td><td>293</td><td>340</td><td><span class="badge badge-red">+91%</span></td></tr>
+      <tr><td>Guichets physiques fermés</td><td>–</td><td>–</td><td>+2 200</td><td>+4 100</td><td><span class="badge badge-red">Désertification</span></td></tr>
+      <tr><td>Classement e-gouvernement EU</td><td>–</td><td>12e</td><td>6e</td><td>4e</td><td><span class="badge badge-green">Progrès digital</span></td></tr>
+      <tr><td>Organismes publics distincts</td><td>–</td><td>~1200</td><td>~1300</td><td>~1350</td><td><span class="badge badge-red">Millefeuille</span></td></tr>
+    </table>
+    <div class="verdict">La France a <strong>5,7 millions d'agents publics</strong> — soit davantage que l'Allemagne en proportion, pour une qualité de service jugée en baisse continue. La contradiction centrale : une masse salariale publique en hausse de 91% depuis 2000 pour des résultats qui se dégradent. Le "millefeuille administratif" (1 350 organismes distincts, 40 000 communes) génère des doublons, des inefficacités et une lisibilité nulle pour les citoyens. La dématérialisation est réelle mais a exclu 13 millions de Français en difficulté numérique, créant une nouvelle inégalité d'accès aux droits.</div>
+  </div>
+
+</div>
+<script>
+function setDomain(d){
+  document.querySelectorAll('.tab').forEach((t,i)=>{
+    const ids=['sante','education','transport','justice','admin'];
+    t.classList.toggle('active',ids[i]===d);
+  });
+  document.querySelectorAll('.domain').forEach(el=>{
+    el.classList.toggle('active',el.id===d);
+  });
+  if(d==='sante') drawSanteChart();
+  if(d==='education') drawEduChart();
+}
+
+function drawLineChart(svgId,series,W,H,pad,colors,labels,yMin,yMax){
+  const svg=document.getElementById(svgId);
+  if(!svg)return;
+  svg.innerHTML='';
+  const ns='http://www.w3.org/2000/svg';
+  const n=series[0].length-1;
+  function pt(i,v){
+    return{
+      x:pad+(W-2*pad)*(i/n),
+      y:H-pad-(H-2*pad)*((v-yMin)/(yMax-yMin))
+    };
+  }
+  for(let g=0;g<=4;g++){
+    const v=yMin+(yMax-yMin)*(g/4);
+    const y=pt(0,v).y;
+    const line=document.createElementNS(ns,'line');
+    line.setAttribute('x1',pad);line.setAttribute('x2',W-pad);
+    line.setAttribute('y1',y);line.setAttribute('y2',y);
+    line.setAttribute('stroke','#222');line.setAttribute('stroke-width','1');
+    svg.appendChild(line);
+    const t=document.createElementNS(ns,'text');
+    t.setAttribute('x',pad-6);t.setAttribute('y',y+4);
+    t.setAttribute('text-anchor','end');t.setAttribute('font-size','10');t.setAttribute('fill','#666');
+    t.textContent=v.toFixed(1);
+    svg.appendChild(t);
+  }
+  series.forEach((s,si)=>{
+    const d=s.map((v,i)=>pt(i,v)).map((p,i)=>(i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+    const path=document.createElementNS(ns,'path');
+    path.setAttribute('d',d);path.setAttribute('fill','none');
+    path.setAttribute('stroke',colors[si]);path.setAttribute('stroke-width',2);
+    svg.appendChild(path);
+    const last=s[s.length-1];
+    const lp=pt(s.length-1,last);
+    const t=document.createElementNS(ns,'text');
+    t.setAttribute('x',lp.x+6);t.setAttribute('y',lp.y+4);
+    t.setAttribute('font-size','11');t.setAttribute('fill',colors[si]);
+    t.textContent=(labels[si]||'')+' '+last;
+    svg.appendChild(t);
+  });
+}
+
+function drawSanteChart(){
+  // lits totaux / 1000 hab : 2000,2005,2010,2015,2020,2024
+  drawLineChart('chartSante',[[8.3,7.8,7.2,6.5,5.9,5.7]],820,220,44,['#f87171'],['Lits/1000'],4,9);
+}
+
+function drawEduChart(){
+  // PISA maths FR vs OCDE : 2003,2006,2009,2012,2015,2018,2022
+  drawLineChart('chartEdu',[[511,496,497,495,493,495,474],[500,498,496,494,490,489,472]],820,220,44,['#60a5fa','#888'],['FR','OCDE'],450,530);
+}
+
+drawSanteChart();
+</script>
+</body>
+</html>

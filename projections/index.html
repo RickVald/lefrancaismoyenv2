@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>La France dans 10 ans — Projections 2035 — Le Français Moyen</title>
+  <meta name="description" content="Si rien ne change : la dette à 135 % du PIB en 2035, les intérêts de la dette dépassant l'Éducation nationale et la Défense réunies. Trois scénarios comparés.">
+  <link rel="canonical" href="https://le-francais-moyen.com/projections/">
+  <meta property="og:title" content="La France dans 10 ans si rien ne change — Projections 2035">
+  <meta property="og:url" content="https://le-francais-moyen.com/projections/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=10">
+  <style>
+    .scenario-btn{border:2px solid var(--border);background:rgba(255,255,255,.05);color:var(--muted);padding:12px 20px;border-radius:16px;cursor:pointer;font-weight:850;font-size:.9rem;transition:all .15s;text-align:left}
+    .scenario-btn:hover{border-color:rgba(255,255,255,.3)}
+    .scenario-btn.active{color:#0b1020}
+    .scenario-btn .sc-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;font-weight:900}
+    .scenario-btn .sc-desc{font-size:.78rem;font-weight:700;opacity:.85}
+    .proj-kpi{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid var(--border);border-radius:18px;padding:18px}
+    .proj-kpi .year-label{font-size:.72rem;color:var(--muted);font-weight:750}
+    .proj-kpi .val-row{display:flex;justify-content:space-between;align-items:baseline;margin:4px 0}
+    .proj-kpi .val{font-size:1.55rem;font-weight:900;letter-spacing:-.04em}
+    .proj-kpi .change{font-size:.82rem;font-weight:800}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Indicateurs</a></li>
+          <li><a href="/outils/" style="color:var(--accent)">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <a href="/" class="cta">← Tableau de bord</a>
+    </div>
+  </header>
+
+  <main style="max-width:1060px;margin:auto;padding:36px 24px 80px">
+    <nav style="font-size:.88rem;color:var(--muted);margin-bottom:20px"><a href="/">Accueil</a> › <a href="/outils/">Outils</a> › <span>Projections 2035</span></nav>
+    <div class="eyebrow">Modèle paramétrique · horizon 2035</div>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:10px">La France dans 10 ans</h1>
+    <p style="color:var(--muted);font-size:1rem;max-width:700px;margin:0 0 28px">Trois scénarios pour 2035 : tendance actuelle, réforme, ou dégradation. Les trajectoires sont construites à partir des données Banque de France, INSEE et FMI.</p>
+
+    <!-- Scénarios -->
+    <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px">Scénario</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px" id="scenarioBtns">
+      <button class="scenario-btn active" data-sc="inertia" style="border-color:var(--red);background:rgba(255,107,107,.08)">
+        <div class="sc-label" style="color:var(--red)">Inertie</div>
+        <div style="font-size:.98rem;font-weight:900;margin-bottom:3px">Si rien ne change</div>
+        <div class="sc-desc">Déficits actuels maintenus. Croissance 1,2 %/an. Réformes structurelles absentes.</div>
+      </button>
+      <button class="scenario-btn" data-sc="reform">
+        <div class="sc-label" style="color:var(--green)">Réforme</div>
+        <div style="font-size:.98rem;font-weight:900;margin-bottom:3px">Redressement progressif</div>
+        <div class="sc-desc">Déficit ramené à 3 % d'ici 2028. Réforme retraites. Croissance 1,6 %/an.</div>
+      </button>
+      <button class="scenario-btn" data-sc="crisis">
+        <div class="sc-label" style="color:#ff6b6b)">Dégradation</div>
+        <div style="font-size:.98rem;font-weight:900;margin-bottom:3px">Scénario de stress</div>
+        <div class="sc-desc">Hausse des taux à 4 %, croissance 0,5 %/an, choc démographique.</div>
+      </button>
+    </div>
+
+    <!-- KPIs 2035 -->
+    <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:12px">Indicateurs projetés à 2035</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px" id="projKpis"></div>
+
+    <!-- Graphique -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px">
+      <div class="panel" style="padding:22px">
+        <div style="font-weight:900;margin-bottom:4px">Dette / PIB (%)</div>
+        <div style="color:var(--muted);font-size:.82rem;margin-bottom:14px">Trajectoire 2024–2035</div>
+        <div class="chart-box" style="height:200px"><svg id="debtSvg" class="svg-chart"></svg></div>
+      </div>
+      <div class="panel" style="padding:22px">
+        <div style="font-weight:900;margin-bottom:4px">Charge d'intérêts (Md€)</div>
+        <div style="color:var(--muted);font-size:.82rem;margin-bottom:14px">Coût annuel du service de la dette</div>
+        <div class="chart-box" style="height:200px"><svg id="interestSvg" class="svg-chart"></svg></div>
+      </div>
+      <div class="panel" style="padding:22px">
+        <div style="font-weight:900;margin-bottom:4px">Déficit retraites (Md€)</div>
+        <div style="color:var(--muted);font-size:.82rem;margin-bottom:14px">Projection COR — besoin de financement</div>
+        <div class="chart-box" style="height:200px"><svg id="pensionSvg" class="svg-chart"></svg></div>
+      </div>
+      <div class="panel" style="padding:22px">
+        <div style="font-weight:900;margin-bottom:4px">Prélèvements obligatoires / PIB</div>
+        <div style="color:var(--muted);font-size:.82rem;margin-bottom:14px">Pression fiscale implicite</div>
+        <div class="chart-box" style="height:200px"><svg id="taxSvg" class="svg-chart"></svg></div>
+      </div>
+    </div>
+
+    <div style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.3);border-radius:16px;padding:20px;margin-bottom:28px" id="scenarioVerdict"></div>
+
+    <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:16px;padding:16px 20px;font-size:.84rem;color:var(--muted);line-height:1.6">
+      <strong style="color:var(--accent)">Sources &amp; méthodologie :</strong> Scénario inertie basé sur FMI Article IV 2025, Banque de France et COR (rapport annuel 2025). Scénario réforme : hypothèses OBR/HCFP. Scénario stress : FMI adverse scenario. Projections indicatives — les chocs exogènes (crise financière, guerre, pandémie) peuvent modifier ces trajectoires.
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : FMI · Banque de France · COR · HCFP</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const SCENARIOS = {
+    inertia:{
+      label:'Inertie — si rien ne change',
+      color:'var(--red)',
+      debt2035:135, interest2035:82, pension2035:28, taxRate2035:47.5,
+      debt:   [113,114.5,116.2,118.0,119.8,121.5,123.5,125.5,127.5,129.5,131.5,135],
+      interest:[58,61,64,68,71,74,76,78,80,82,82,82],
+      pension: [12,13,14,15,16,18,20,22,24,26,27,28],
+      taxRate: [45.8,46.0,46.2,46.5,46.6,46.8,47.0,47.1,47.2,47.3,47.4,47.5],
+      verdict:`<strong style="color:var(--red)">Scénario inertie :</strong> Sans réformes, la France atteint 135 % de dette/PIB en 2035. La charge d'intérêts dépasse 80 milliards €/an — soit plus que la Défense et l'Éducation nationale réunies. La marge de manœuvre budgétaire se réduit chaque année, limitant la capacité à répondre aux crises. Le risque de "spiral de la dette" (taux qui montent → déficit qui monte → taux qui montent davantage) est croissant après 2030.`
+    },
+    reform:{
+      label:'Réforme — redressement progressif',
+      color:'var(--green)',
+      debt2035:108, interest2035:61, pension2035:14, taxRate2035:44.8,
+      debt:   [113,113.5,113.0,112.0,111.0,110.0,109.5,109.0,108.5,108.2,108.0,108],
+      interest:[58,59,60,60,59,60,60,61,61,61,61,61],
+      pension: [12,13,13,13,12,12,12,12,13,13,14,14],
+      taxRate: [45.8,45.5,45.2,45.0,44.8,44.8,44.8,44.8,44.8,44.8,44.8,44.8],
+      verdict:`<strong style="color:var(--green)">Scénario réforme :</strong> Avec un assainissement progressif (déficit ramené à 3 % d'ici 2028, réforme paramétrique des retraites), la dette se stabilise autour de 108 % du PIB. La charge d'intérêts reste maîtrisée. Ce scénario suppose un effort budgétaire de ~50 Md€ entre 2025 et 2028 — via une combinaison de baisse de dépenses et de hausse de recettes. Difficile politiquement mais techniquement réalisable selon le HCFP.`
+    },
+    crisis:{
+      label:'Dégradation — scénario de stress',
+      color:'#ff6b6b',
+      debt2035:158, interest2035:118, pension2035:35, taxRate2035:51.0,
+      debt:   [113,116,119,123,127,131,135,139,143,148,153,158],
+      interest:[58,65,72,80,88,95,102,108,112,116,118,118],
+      pension: [12,14,16,18,20,22,24,27,30,32,34,35],
+      taxRate: [45.8,46.5,47.2,48.0,48.8,49.2,49.8,50.2,50.5,50.8,50.9,51.0],
+      verdict:`<strong style="color:var(--red)">Scénario dégradation :</strong> En cas de remontée des taux à 4 % (proche des niveaux des années 2000), de croissance atone et d'absence de réforme, la dette atteint 158 % du PIB en 2035 et les intérêts représentent 118 Md€/an. Les prélèvements obligatoires dépassent 50 % du PIB pour compenser le déficit structurel, comprimant encore le pouvoir d'achat. Un risque de perte de souveraineté budgétaire (tutelle FMI/BCE) ne peut être écarté après 2032.`
+    }
+  };
+
+  const YEARS = Array.from({length:12},(_,i)=>2024+i);
+  let currentSc = 'inertia';
+
+  const f1 = v => v.toLocaleString('fr-FR',{maximumFractionDigits:1});
+  const fMd = v => v.toLocaleString('fr-FR',{maximumFractionDigits:0}) + ' Md€';
+
+  function drawSimpleChart(svgId, series, color, minV, maxV, yUnit) {
+    const svg = document.getElementById(svgId);
+    const W=480,H=180,ml=44,mr=14,mt=10,mb=26;
+    svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+    svg.innerHTML='';
+    const n=series.length;
+    const xS=i=>ml+(i/(n-1))*(W-ml-mr);
+    const yS=v=>mt+(H-mt-mb)*(1-(v-minV)/(maxV-minV));
+    [2,4,6].forEach(i=>{
+      const v=minV+(maxV-minV)*i/8;
+      const g=document.createElementNS('http://www.w3.org/2000/svg','line');
+      g.setAttribute('x1',ml);g.setAttribute('y1',yS(v));g.setAttribute('x2',W-mr);g.setAttribute('y2',yS(v));
+      g.setAttribute('stroke','rgba(255,255,255,.07)');svg.appendChild(g);
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',ml-4);t.setAttribute('y',yS(v)+3);t.setAttribute('text-anchor','end');t.setAttribute('font-size',9);t.setAttribute('fill','#7a8aa0');
+      t.textContent=f1(v);svg.appendChild(t);
+    });
+    [2024,2028,2032,2035].forEach(y=>{
+      const i=y-2024;if(i<0||i>=n)return;
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',xS(i));t.setAttribute('y',H-4);t.setAttribute('text-anchor','middle');t.setAttribute('font-size',9);t.setAttribute('fill','#7a8aa0');
+      t.textContent=y;svg.appendChild(t);
+    });
+    const area='M'+xS(0)+','+yS(minV)+' '+series.map((v,i)=>xS(i)+','+yS(v)).join(' ')+' L'+xS(n-1)+','+yS(minV)+' Z';
+    const a=document.createElementNS('http://www.w3.org/2000/svg','path');
+    a.setAttribute('d',area);
+    const parsed=color.replace('var(','').replace(')','');
+    a.setAttribute('fill',color.includes('var') ? 'rgba(255,107,107,.1)' : 'rgba(99,212,113,.1)');svg.appendChild(a);
+    const pts=series.map((v,i)=>xS(i)+','+yS(v)).join(' ');
+    const line=document.createElementNS('http://www.w3.org/2000/svg','polyline');
+    line.setAttribute('points',pts);line.setAttribute('fill','none');line.setAttribute('stroke',color);
+    line.setAttribute('stroke-width',2.5);line.setAttribute('stroke-linecap','round');svg.appendChild(line);
+    const ci=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    ci.setAttribute('cx',xS(n-1));ci.setAttribute('cy',yS(series.at(-1)));ci.setAttribute('r',4);ci.setAttribute('fill',color);svg.appendChild(ci);
+  }
+
+  function renderAll() {
+    const sc = SCENARIOS[currentSc];
+
+    // Scenario buttons styling
+    document.querySelectorAll('.scenario-btn').forEach(btn => {
+      const on = btn.dataset.sc === currentSc;
+      const scColor = SCENARIOS[btn.dataset.sc].color;
+      btn.classList.toggle('active', on);
+      if (on) {
+        btn.style.borderColor = scColor.replace('var(--red)','rgba(255,107,107,.7)').replace('var(--green)','rgba(99,212,113,.7)').replace('#ff6b6b','rgba(255,107,107,.7)');
+        btn.style.background = scColor.includes('green') ? 'rgba(99,212,113,.1)' : 'rgba(255,107,107,.1)';
+        btn.style.color = 'var(--text)';
+      } else {
+        btn.style.borderColor = '';btn.style.background = '';btn.style.color = '';
+      }
+    });
+
+    // KPIs
+    const kpis = [
+      {label:'Dette / PIB',      val:f1(sc.debt2035)+' %',  cur:'113 %', color:sc.debt2035 > 115 ? 'var(--red)' : 'var(--green)'},
+      {label:'Intérêts dette',   val:fMd(sc.interest2035), cur:'58 Md€', color:sc.interest2035 > 70 ? 'var(--red)' : 'var(--green)'},
+      {label:'Déficit retraites',val:fMd(sc.pension2035),  cur:'12 Md€', color:sc.pension2035 > 20 ? 'var(--red)' : 'var(--green)'},
+      {label:'Prél. obligatoires',val:f1(sc.taxRate2035)+' %', cur:'45,8 %', color:sc.taxRate2035 > 47 ? 'var(--red)' : 'var(--green)'},
+    ];
+    document.getElementById('projKpis').innerHTML = kpis.map(k =>
+      `<div class="proj-kpi">
+        <div class="eyebrow">${k.label}</div>
+        <div class="val-row">
+          <span class="year-label">2024 (actuel)</span>
+          <span style="font-size:.9rem;font-weight:800;color:var(--muted)">${k.cur}</span>
+        </div>
+        <div class="val-row">
+          <span class="year-label">2035 (projeté)</span>
+          <span class="val" style="color:${k.color}">${k.val}</span>
+        </div>
+      </div>`
+    ).join('');
+
+    // Charts
+    drawSimpleChart('debtSvg',     sc.debt,     sc.color, 100, 170, '%');
+    drawSimpleChart('interestSvg', sc.interest, sc.color, 50,  130, 'Md');
+    drawSimpleChart('pensionSvg',  sc.pension,  sc.color, 0,   40,  'Md');
+    drawSimpleChart('taxSvg',      sc.taxRate,  sc.color, 43,  55,  '%');
+
+    document.getElementById('scenarioVerdict').innerHTML = sc.verdict;
+    document.getElementById('scenarioVerdict').style.borderColor = sc.color.includes('green') ? 'rgba(99,212,113,.3)' : 'rgba(255,107,107,.3)';
+    document.getElementById('scenarioVerdict').style.background  = sc.color.includes('green') ? 'rgba(99,212,113,.07)' : 'rgba(255,107,107,.07)';
+  }
+
+  document.querySelectorAll('.scenario-btn').forEach(btn => {
+    btn.addEventListener('click', () => { currentSc=btn.dataset.sc; renderAll(); });
+  });
+
+  renderAll();
+  </script>
+</body>
+</html>

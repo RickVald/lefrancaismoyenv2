@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Timeline des ruptures – Le Français Moyen</title>
+<link rel="stylesheet" href="../assets/css/styles.css?v=10">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d0d;color:#e8e8e8;font-family:'Segoe UI',sans-serif;min-height:100vh}
+.page-header{padding:32px 24px 0;max-width:960px;margin:0 auto}
+.back-link{color:#888;text-decoration:none;font-size:13px;display:inline-block;margin-bottom:16px}
+.back-link:hover{color:#e8e8e8}
+h1{font-size:clamp(22px,4vw,32px);font-weight:700;color:#fff;margin-bottom:8px}
+.subtitle{color:#aaa;font-size:15px;margin-bottom:32px}
+.main{max-width:960px;margin:0 auto;padding:0 24px 80px}
+.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:12px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filter-btn{padding:6px 14px;border-radius:20px;border:1px solid #333;background:transparent;color:#aaa;font-size:12px;cursor:pointer;transition:all .15s}
+.filter-btn:hover{border-color:#666;color:#e8e8e8}
+.filter-btn.active{border-color:#f87171;color:#f87171;background:#1a0a0a}
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#222,#333,#222)}
+.event{position:relative;margin-bottom:28px;opacity:1;transition:opacity .2s}
+.event.hidden{opacity:0;pointer-events:none;height:0;margin:0;overflow:hidden}
+.event-dot{position:absolute;left:-26px;top:12px;width:12px;height:12px;border-radius:50%;border:2px solid}
+.event-card{background:#161616;border:1px solid #222;border-radius:8px;padding:16px 18px;cursor:pointer;transition:border-color .15s}
+.event-card:hover{border-color:#333}
+.event-header{display:flex;align-items:flex-start;gap:12px}
+.event-year{font-size:24px;font-weight:800;min-width:56px;line-height:1}
+.event-meta{flex:1}
+.event-title{font-size:15px;font-weight:600;color:#fff;margin-bottom:4px}
+.event-cat{font-size:11px;text-transform:uppercase;letter-spacing:1.5px}
+.event-body{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #222;font-size:13px;color:#bbb;line-height:1.7}
+.event-body.open{display:block}
+.event-metrics{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.metric-chip{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:4px;padding:5px 10px;font-size:12px}
+.metric-chip strong{display:block;font-size:14px;margin-bottom:1px}
+.cat-fiscal{color:#fbbf24}.cat-social{color:#4ade80}.cat-économique{color:#60a5fa}.cat-politique{color:#f87171}.cat-géopolitique{color:#a78bfa}.cat-institutionnel{color:#fb923c}
+.dot-fiscal{border-color:#fbbf24;background:#1a1500}
+.dot-social{border-color:#4ade80;background:#001a08}
+.dot-économique{border-color:#60a5fa;background:#00081a}
+.dot-politique{border-color:#f87171;background:#1a0000}
+.dot-géopolitique{border-color:#a78bfa;background:#0d0015}
+.dot-institutionnel{border-color:#fb923c;background:#1a0800}
+.impact-bar{height:4px;border-radius:2px;margin-top:10px}
+.note-box{background:#111;border:1px dashed #333;border-radius:6px;padding:14px;font-size:13px;color:#888;margin-bottom:24px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <a href="/outils/" class="back-link">← Outils</a>
+  <h1>Timeline des ruptures</h1>
+  <p class="subtitle">Les 50 ans de décisions qui ont transformé – et fragilisé – la France (1973–2026)</p>
+</div>
+<div class="main">
+
+  <div class="note-box">
+    Cliquez sur chaque événement pour voir les indicateurs chiffrés. Filtrez par catégorie. Les dates marquent le moment de décision ou d'entrée en vigueur.
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="setFilter('all')">Tout</button>
+    <button class="filter-btn" onclick="setFilter('fiscal')">Fiscal</button>
+    <button class="filter-btn" onclick="setFilter('économique')">Économique</button>
+    <button class="filter-btn" onclick="setFilter('social')">Social</button>
+    <button class="filter-btn" onclick="setFilter('politique')">Politique</button>
+    <button class="filter-btn" onclick="setFilter('géopolitique')">Géopolitique</button>
+    <button class="filter-btn" onclick="setFilter('institutionnel')">Institutionnel</button>
+  </div>
+
+  <div class="timeline" id="timeline"></div>
+</div>
+<script>
+const EVENTS=[
+  {year:1973,cat:'institutionnel',title:'Loi Pompidou-Giscard : fin du financement monétaire de l\'État',
+   body:'La loi du 3 janvier 1973 interdit à la Banque de France de financer directement le Trésor sans taux d\'intérêt. L\'État doit désormais emprunter sur les marchés. Début de la spirale dette/intérêts.',
+   metrics:[['Dette publique 1973','~15% PIB'],['Dette publique 2024','~113% PIB'],['Intérêts payés 2024','~58 Md€/an']]},
+  {year:1974,cat:'économique',title:'Premier choc pétrolier : fin des Trente Glorieuses',
+   body:'La crise de l\'OPEP de 1973–74 met fin à 30 ans de croissance forte (+5%/an). Le chômage structurel émerge en France. La croissance potentielle tombe sous 3%, le modèle productif est fragile.',
+   metrics:[['Croissance 1960–73','~5.5%/an'],['Croissance 1974–85','~2.2%/an'],['Chômage 1973','2.7%'],['Chômage 1980','6.4%']]},
+  {year:1975,cat:'social',title:'Création de l\'aide sociale généralisée (ASS, ASSEDIC réforme)',
+   body:'Massification des dispositifs d\'assurance chômage au moment où le chômage structurel s\'installe. Les charges sociales augmentent continûment pour financer un système conçu pour un chômage frictionnel.',
+   metrics:[['Charges patronales 1970','~30% salaire brut'],['Charges patronales 2024','~42% salaire brut']]},
+  {year:1981,cat:'fiscal',title:'Mitterrand : nationalisations + programme de réformes sociales',
+   body:'120 jours de réformes : retraite à 60 ans, 5e semaine de congés payés, 39h, hausse SMIC +10%. Coût estimé de 35 Md€/an en euros 2024. Le "tournant de la rigueur" suit 2 ans plus tard.',
+   metrics:[['Coût retraite à 60 ans','estimé 15 Md€/an'],['Durée travail','39h → 35h progressivement'],['Dette 1981','21% PIB → 30% en 1985']]},
+  {year:1983,cat:'économique',title:'Tournant de la rigueur : ancrage au mark allemand',
+   body:'Face à la fuite des capitaux, Mitterrand choisit l\'austérité et l\'arrimage du franc au DM dans le SME. La politique monétaire passe sous contrôle extérieur de facto. La désinflation compétitive est lancée.',
+   metrics:[['Inflation 1981','13.4%'],['Inflation 1986','2.7%'],['Chômage 1983','8.3%']]},
+  {year:1986,cat:'économique',title:'Privatisations Chirac-Balladur : 1ère vague',
+   body:'66 entreprises privatisées. Le patrimoine de l\'État diminue. La logique actionnariale s\'impose dans des secteurs stratégiques. Recettes court terme mais perte de leviers économiques à long terme.',
+   metrics:[['Entreprises privatisées 1986–88','18 groupes'],['Recettes privatisations','~50 Md€ 1986–2005']]},
+  {year:1992,cat:'institutionnel',title:'Traité de Maastricht : convergence et critères de stabilité',
+   body:'La France s\'engage à ne pas dépasser 3% de déficit et 60% de dette/PIB. Ces contraintes réduisent la flexibilité budgétaire contracyclique et vont être systématiquement contournées ou violées.',
+   metrics:[['Déficit France 1992','4.0% PIB'],['Respect critère 3%','<50% des années depuis 1999'],['Procédures déficit excessif','7 fois depuis 2003']]},
+  {year:1995,cat:'fiscal',title:'Plan Juppé : hausse de la CSG et réforme Sécu',
+   body:'Création de la CRDS, hausse CSG. La contribution sociale généralisée devient l\'impôt le plus rentable de France (~140 Md€/an). Mais les réformes structurelles de la Sécu échouent sous la pression syndicale.',
+   metrics:[['CSG taux 1991','1.1%'],['CSG taux 2024','9.2%'],['Recettes CSG 2024','~140 Md€']]},
+  {year:1997,cat:'social',title:'35 heures : loi Aubry I',
+   body:'La semaine de 35 heures vise à partager le travail pour réduire le chômage. Elle réduit la durée légale mais coûte des centaines d\'heures-flexibilité aux entreprises et crée des rigidités sectorielles persistantes.',
+   metrics:[['Heures travaillées/an FR','1670h (2000) → 1511h (2022)'],['Écart DE/FR heures','FR travaille 200h/an de moins que DE'],['Coût exonérations 35h','~12 Md€/an au pic']]},
+  {year:1999,cat:'économique',title:'Passage à l\'euro : fin du levier monétaire',
+   body:'La France cède sa politique monétaire à la BCE. Elle perd la dévaluation compétitive comme outil d\'ajustement. Sa productivité doit désormais seule compenser ses surcoûts structurels.',
+   metrics:[['Dévaluations franc 1973–99','11 dévaluations majeures'],['Inflation cible BCE','2%'],['Compétitivité-prix FR','dégradée vs DE après 2000']]},
+  {year:2000,cat:'fiscal',title:'Bulle internet : pic de recettes fiscales, dépenses en hausse',
+   body:'L\'embellie de 2000 masque les déséquilibres structurels. Les gouvernements augmentent les dépenses permanentes sur des recettes cycliques. Quand la bulle éclate, le déficit repart.',
+   metrics:[['Croissance 2000','3.6%'],['Déficit 2000','−1.5% PIB'],['Déficit 2003','−4.1% PIB']]},
+  {year:2003,cat:'fiscal',title:'Réforme des retraites Fillon : 40 ans de cotisation',
+   body:'Passage à 40 annuités pour les fonctionnaires, alignement progressif sur le privé. Mesure nécessaire mais insuffisante. Les projections du COR seront continuellement révisées à la baisse. 5 réformes des retraites suivront.',
+   metrics:[['Espérance de vie à 60 ans 2003','23 ans'],['Espérance de vie à 60 ans 2024','26 ans'],['Nombre de réformes retraites','7 depuis 1993']]},
+  {year:2005,cat:'politique',title:'Non au traité constitutionnel européen',
+   body:'La France rejette le TCE à 55%. Crise de légitimité européenne. L\'essentiel est repris dans le traité de Lisbonne (2007) sans referendum. Fracture entre élites et opinion sur la construction européenne.',
+   metrics:[['Vote Non','54.7%'],['Traité Lisbonne','adopté sans referendum en 2008'],['Défiance institutions EU (2024)','~60% des Français']]},
+  {year:2007,cat:'fiscal',title:'Paquet fiscal Sarkozy : bouclier fiscal + exonérations heures sup',
+   body:'"Travailler plus pour gagner plus" : exonérations sur heures sup (coût 4.5 Md€/an), bouclier fiscal (coût 0.7 Md€/an), ISF réformé. Puis crise de 2008 qui force la marche arrière.',
+   metrics:[['Coût paquet fiscal','~15 Md€/an'],['Dette 2007','64% PIB'],['Dette 2012','89% PIB (crise + mesures)']]},
+  {year:2008,cat:'économique',title:'Crise financière mondiale : le choc externe qui révèle les fragilités',
+   body:'La France entre en récession (−2.9% en 2009). L\'État absorbe le choc avec un plan de relance. La dette bondit de 15 points de PIB en 3 ans. Jamais revenue au niveau d\'avant-crise.',
+   metrics:[['PIB 2009','−2.9%'],['Chômage 2008→2012','7.2% → 9.8%'],['Dette 2008→2012','68% → 89% PIB'],['Déficit 2009','−7.2% PIB']]},
+  {year:2010,cat:'fiscal',title:'Réforme retraites : report âge légal à 62 ans',
+   body:'La réforme Woerth repousse progressivement l\'âge légal de 60 à 62 ans. Cristallise la fracture sociale : grèves massives. Économies à terme insuffisantes face au déséquilibre démographique projeté.',
+   metrics:[['Manifestants','3.5 millions (24 oct. 2010)'],['Économies projetées 2030','~20 Md€/an'],['Age effectif moyen départ','61.7 ans en 2024']]},
+  {year:2012,cat:'fiscal',title:'Hollande : hausse massive d\'impôts − 30 Md€ de prélèvements',
+   body:'Tranche à 75% sur les hauts revenus, hausse ISF, TVA reportée. Pression fiscale record : prélèvements à 45.3% du PIB en 2013. Effet "ras-le-bol fiscal" documenté par l\'INSEE. Renversement partiel en 2014.',
+   metrics:[['Pression fiscale 2012','43.8% PIB'],['Pression fiscale 2013','45.3% PIB'],['Exil fiscal','10 000 départs de hauts revenus sur 2 ans'],['Tranche 75%','Censurée partiellement, abrogée 2014']]},
+  {year:2013,cat:'économique',title:'Pacte de responsabilité : bascule vers l\'offre',
+   body:'Face à la dégradation de la compétitivité, le gouvernement Ayrault-Valls lance le Pacte : allègements de charges pour les entreprises (CICE, 20 Md€/an). Amorce du tournant supply-side.',
+   metrics:[['CICE montant annuel','~20 Md€/an'],['Chômage 2013','10.4%'],['Part industrie PIB FR','12% vs 22% DE']]},
+  {year:2015,cat:'géopolitique',title:'Attentats de janvier et novembre : 250 morts, état d\'urgence',
+   body:'Les attentats contre Charlie Hebdo, le Bataclan et Saint-Denis (130 morts le 13 novembre) basculent la France dans une décennie d\'état d\'urgence glissant. Coût sécuritaire permanent : +3 Md€/an au budget défense/intérieur.',
+   metrics:[['Morts attentats 2015','147'],['Coût état d\'urgence renforcé','~1.5 Md€/an'],['Sentiment insécurité (2024)','63% des Français']]},
+  {year:2017,cat:'fiscal',title:'Macron : flat tax 30%, ISF → IFI, exonérations heures sup',
+   body:'Réforme de la fiscalité du capital : flat tax PFU à 30%, transformation de l\'ISF en IFI (immobilier seul). Objectif : rapatrier les capitaux et relancer l\'investissement. Résultat : investissements en hausse mais inégalités de patrimoine amplifiées.',
+   metrics:[['Recettes ISF perdues','~5 Md€/an → IFI 2 Md€'],['Investissements directs en France','+40% sur 2017–2022'],['Inégalités patrimoine (Gini)','0.65 en 2022']]},
+  {year:2018,cat:'politique',title:'Gilets jaunes : crise de légitimité fiscale',
+   body:'La hausse de la TICPE sur le carburant déclenche un mouvement social inédit. L\'État recule (abandon de la taxe, indexation retraites, prime Macron). Coût : ~17 Md€ de mesures d\'urgence. Fracture territoriale révélée.',
+   metrics:[['Samedis de mobilisation','80 consécutifs'],['Manifestants au pic (17/11/2018)','300 000'],['Coût mesures d\'urgence','~17 Md€'],['Confiance gouvernement (2019)','25%']]},
+  {year:2019,cat:'social',title:'Réforme retraites universelle avortée (Delevoye)',
+   body:'Le projet de système universel à points est présenté en 2019, déclenche 55 jours de grève à la SNCF/RATP, puis est abandonné à cause du Covid. La question de l\'équilibre des retraites reste entière.',
+   metrics:[['Jours de grève SNCF','55 jours consécutifs (record)'],['Déficit retraites 2023','~14 Md€'],['Coût retraites/PIB','13.8% (plus haut d\'Europe avec Italie)']]},
+  {year:2020,cat:'économique',title:'Covid-19 : choc inédit, quoi qu\'il en coûte',
+   body:'"Quoi qu\'il en coûte" : 230 Md€ de soutien public. PIB −8% en 2020. La dette bondit à 115% du PIB. L\'État n\'a pas retrouvé l\'équilibre budgétaire depuis. Le plan de relance France Relance (100 Md€) s\'endette davantage.',
+   metrics:[['PIB 2020','−8.0%'],['Coût "quoi qu\'il en coûte"','~230 Md€'],['Dette 2019→2021','98% → 115% PIB'],['Chômage (maintenu par chômage partiel)','8%']]},
+  {year:2022,cat:'géopolitique',title:'Guerre en Ukraine : choc énergétique et inflation',
+   body:'L\'invasion de l\'Ukraine provoque la crise énergétique : gaz +200%, électricité +300% à terme, inflation à 6%. La France protège les ménages avec le "bouclier tarifaire" (45 Md€). La compétitivité industrielle se dégrade.',
+   metrics:[['Coût bouclier tarifaire','~45 Md€ sur 2022–2023'],['Inflation 2022','5.2%'],['Déficit 2022','−4.7% PIB'],['Facture énergétique France','+30 Md€/an vs 2021']]},
+  {year:2023,cat:'fiscal',title:'Réforme des retraites : 64 ans sous 49.3',
+   body:'Le report de l\'âge de départ à 64 ans est adopté sans vote de l\'Assemblée (49.3). La réforme est légale mais illégitime aux yeux de 70% des Français. Fracture politique et institutionnelle durable.',
+   metrics:[['Opposition dans l\'opinion','68–72% selon sondages'],['Motions de censure','2 (dont une à 9 voix)'],['Grèves et manifestations','14 journées nationales'],['Économies attendues 2030','~17.7 Md€/an']]},
+  {year:2024,cat:'fiscal',title:'Déficit 6.1% : la France sous surveillance européenne',
+   body:'Le déficit atteint 6.1% du PIB, le double de la limite Maastricht. La Commission ouvre une procédure pour déficit excessif. Le gouvernement Barnier propose 60 Md€ d\'économies, renversé en décembre. L\'instabilité politique se superpose à la crise budgétaire.',
+   metrics:[['Déficit 2024','6.1% PIB (≈170 Md€)'],['Dette 2024','113% PIB'],['Note crédit France','AA− (S&P) − dégradée 2023'],['Gouvernements en 12 mois','3 (Attal → Barnier → Bayrou)']]},
+  {year:2025,cat:'institutionnel',title:'Dissolution ratée, cohabitation instable, perte de souveraineté budgétaire',
+   body:'La France vit sa crise institutionnelle la plus sévère depuis 1958 : Assemblée fragmentée, gouvernements minoritaires, budget adopté par 49.3 ou ordonnances de reconduction. La note souveraine se dégrade, les taux longs montent.',
+   metrics:[['Taux OAT 10 ans','3.2% (vs 0% en 2021)'],['Spread vs Bund','80 pb (vs 25 pb en 2022)'],['Instabilité gouvernementale','5 gouvernements en 24 mois'],['Confiance institutions','21% (Parlement)']]},
+];
+
+let activeFilter='all';
+
+function setFilter(f){
+  activeFilter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>{
+    b.classList.toggle('active',b.textContent.toLowerCase()===f||f==='all'&&b.textContent==='Tout');
+  });
+  renderTimeline();
+}
+
+function renderTimeline(){
+  const tl=document.getElementById('timeline');
+  tl.innerHTML='';
+  EVENTS.forEach(ev=>{
+    const hidden=activeFilter!=='all'&&ev.cat!==activeFilter;
+    const div=document.createElement('div');
+    div.className='event'+(hidden?' hidden':'');
+    div.innerHTML=`
+      <div class="event-dot dot-${ev.cat}"></div>
+      <div class="event-card" onclick="toggleBody(this)">
+        <div class="event-header">
+          <div class="event-year cat-${ev.cat}">${ev.year}</div>
+          <div class="event-meta">
+            <div class="event-title">${ev.title}</div>
+            <div class="event-cat cat-${ev.cat}">${ev.cat.charAt(0).toUpperCase()+ev.cat.slice(1)}</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <p>${ev.body}</p>
+          <div class="event-metrics">
+            ${ev.metrics.map(([k,v])=>`<div class="metric-chip"><strong>${v}</strong>${k}</div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+    tl.appendChild(div);
+  });
+}
+
+function toggleBody(card){
+  const body=card.querySelector('.event-body');
+  body.classList.toggle('open');
+}
+
+renderTimeline();
+</script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Érosion de l'épargne – Le Français Moyen</title>
+<link rel="stylesheet" href="../assets/css/styles.css?v=10">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d0d;color:#e8e8e8;font-family:'Segoe UI',sans-serif;min-height:100vh}
+.page-header{padding:32px 24px 0;max-width:900px;margin:0 auto}
+.back-link{color:#888;text-decoration:none;font-size:13px;display:inline-block;margin-bottom:16px}
+.back-link:hover{color:#e8e8e8}
+h1{font-size:clamp(22px,4vw,32px);font-weight:700;color:#fff;margin-bottom:8px}
+.subtitle{color:#aaa;font-size:15px;margin-bottom:32px}
+.main{max-width:900px;margin:0 auto;padding:0 24px 60px}
+.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:12px}
+.card{background:#161616;border:1px solid #222;border-radius:8px;padding:20px;margin-bottom:20px}
+.input-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+.input-group label{display:block;font-size:12px;color:#aaa;margin-bottom:6px}
+.input-group input{width:100%;background:#1e1e1e;border:1px solid #333;border-radius:4px;padding:8px 10px;color:#e8e8e8;font-size:14px}
+.input-group input:focus{outline:none;border-color:#4ade80}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.btn{padding:9px 18px;border-radius:4px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .15s}
+.btn-primary{background:#4ade80;color:#000}
+.btn-primary:hover{background:#22c55e}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+.kpi{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:14px}
+.kpi-label{font-size:11px;color:#888;margin-bottom:6px}
+.kpi-value{font-size:20px;font-weight:700}
+.kpi-sub{font-size:11px;color:#666;margin-top:4px}
+.green{color:#4ade80}.red{color:#f87171}.yellow{color:#fbbf24}.blue{color:#60a5fa}.purple{color:#a78bfa}
+svg.chart{width:100%;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:16px}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#aaa}
+.legend-dot{width:12px;height:3px;border-radius:2px}
+.note{font-size:12px;color:#666;margin-top:8px}
+.verdict{background:#1a1a1a;border-left:3px solid #f87171;padding:14px 16px;border-radius:0 6px 6px 0;margin-top:20px;font-size:14px;line-height:1.7;color:#ccc}
+.tabs{display:flex;gap:2px;margin-bottom:20px;border-bottom:1px solid #222}
+.tab{padding:8px 16px;cursor:pointer;font-size:13px;color:#888;border-bottom:2px solid transparent;transition:all .15s}
+.tab.active{color:#fff;border-color:#4ade80}
+.tab:hover{color:#ccc}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <a href="/outils/" class="back-link">← Outils</a>
+  <h1>Érosion de l'épargne</h1>
+  <p class="subtitle">Combien vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ?</p>
+</div>
+<div class="main">
+
+  <div class="card">
+    <div class="section-label">Paramètres</div>
+    <div class="input-grid">
+      <div class="input-group"><label>Capital initial (€)</label><input id="capital" type="number" value="10000" min="1000"></div>
+      <div class="input-group"><label>Durée (années)</label><input id="duree" type="number" value="20" min="1" max="40"></div>
+      <div class="input-group"><label>Versement mensuel (€)</label><input id="mensuel" type="number" value="200" min="0"></div>
+      <div class="input-group"><label>TMI (% IR)</label><input id="tmi" type="number" value="30" min="0" max="45"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="compute()">Calculer</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('evolution')">Évolution du capital</div>
+    <div class="tab" onclick="switchTab('pouvoir')">Pouvoir d'achat réel</div>
+    <div class="tab" onclick="switchTab('fisc')">Fiscalité</div>
+  </div>
+
+  <div id="tab-evolution">
+    <div class="legend" id="legend1">
+      <div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>Livret A</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div>Assurance-vie fonds €</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div>CAC 40 net</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div>Immobilier moyen</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>Or</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#888;border-bottom:2px dashed #888;height:0"></div>Inflation (pouvoir d'achat figé)</div>
+    </div>
+    <svg id="chart1" class="chart" height="320" viewBox="0 0 860 320"></svg>
+    <div class="note">Rendements nets de frais, bruts de fiscalité (sauf Livret A exonéré). Hypothèses : Livret A 3%, AV fonds € 2.5%, CAC 40 brut 7%/an, immo 4%/an, or 5%/an, inflation 2.5%/an.</div>
+  </div>
+
+  <div id="tab-pouvoir" style="display:none">
+    <div class="kpi-grid" id="kpiPouvoir"></div>
+    <svg id="chart2" class="chart" height="280" viewBox="0 0 860 280"></svg>
+    <div class="note">Pouvoir d'achat réel = capital final / (1+inflation)^n. Montre combien vaut votre argent en euros constants d'aujourd'hui.</div>
+  </div>
+
+  <div id="tab-fisc" style="display:none">
+    <div class="kpi-grid" id="kpiFisc"></div>
+    <div id="fiscTable"></div>
+  </div>
+
+  <div class="verdict" id="verdict"></div>
+
+</div>
+<script>
+let activeTab='evolution';
+function switchTab(t){
+  activeTab=t;
+  document.querySelectorAll('.tab').forEach((el,i)=>{
+    const names=['evolution','pouvoir','fisc'];
+    el.classList.toggle('active',names[i]===t);
+  });
+  document.getElementById('tab-evolution').style.display=t==='evolution'?'':'none';
+  document.getElementById('tab-pouvoir').style.display=t==='pouvoir'?'':'none';
+  document.getElementById('tab-fisc').style.display=t==='fisc'?'':'none';
+}
+
+function compute(){
+  const C0=+document.getElementById('capital').value||10000;
+  const N=+document.getElementById('duree').value||20;
+  const M=+document.getElementById('mensuel').value||0;
+  const TMI=(+document.getElementById('tmi').value||30)/100;
+
+  // Annual rates (nominal, gross)
+  const rates={livret:0.03,av:0.025,cac:0.07,immo:0.04,or:0.05};
+  const inf=0.025;
+  // Tax treatment
+  // Livret A: exonéré (0%)
+  // AV: après 8 ans PFU 7.5% sur gains (avant: 12.8%), sinon PFU 12.8%
+  // CAC (PEA): 0% PS après 5 ans, sinon flat tax 30%
+  // Immo: IFI, taxe foncière ~1%/an net déduit, plus-value 19%+17.2% (abatt. après 22/30 ans)
+  // Or: 36.2% flat sur PV (ou forfait 0.5%/an)
+
+  function simulate(rGross, taxOnGains, annualCosts=0){
+    let series=[C0];
+    let totalGains=0;
+    let totalPaid=0;
+    let cap=C0;
+    for(let y=1;y<=N;y++){
+      const gain=cap*rGross + M*12*(rGross/2); // approx mid-year contribs
+      const fees=cap*annualCosts;
+      const netGainBeforeTax=gain-fees;
+      totalGains+=netGainBeforeTax>0?netGainBeforeTax:0;
+      totalPaid+=M*12;
+      cap=cap+netGainBeforeTax+M*12;
+      series.push(Math.round(cap));
+    }
+    const totalInvested=C0+totalPaid;
+    const taxDue=totalGains*taxOnGains;
+    const capAfterTax=cap-taxDue;
+    return{series,cap,capAfterTax,totalGains,taxDue,totalInvested};
+  }
+
+  const livret=simulate(0.03,0,0); // exo
+  const av=simulate(0.025,N>=8?0.075+0.172:0.128+0.172,0.005);
+  const cac=simulate(0.07,N>=5?0.172:0.30,0);
+  const immo=simulate(0.04,(N>=30?0:N>=22?0.075:0.19)+0.172,0.01);
+  const or=simulate(0.05,0.362,0);
+
+  // Inflation reference (capital eroded)
+  const infSeries=[];
+  let c=C0+M*12*N; // rough total invested
+  const infFinal=C0*Math.pow(1+inf,N);
+  const infSer=[];
+  let tc=C0;
+  for(let y=0;y<=N;y++){infSer.push(Math.round(tc*(1+y/N*(Math.pow(1+inf,N)-1))));}
+
+  // Real purchasing power
+  function realPower(series){
+    return series.map((v,i)=>Math.round(v/Math.pow(1+inf,i)));
+  }
+
+  drawEvolutionChart(livret.series,av.series,cac.series,immo.series,or.series,infSer,N);
+  drawPowerChart(realPower(livret.series),realPower(cac.series),realPower(immo.series),N,C0,M);
+  drawFiscalSection(livret,av,cac,immo,or,N,TMI,C0,M);
+  drawVerdict(livret,av,cac,immo,or,inf,N,C0,M);
+}
+
+function pathFromSeries(series,W,H,pad=40){
+  const maxV=Math.max(...series)*1.05;
+  const n=series.length-1;
+  return series.map((v,i)=>{
+    const x=pad+(W-2*pad)*(i/n);
+    const y=H-pad-(H-2*pad)*(v/maxV);
+    return (i===0?'M':'L')+x.toFixed(1)+' '+y.toFixed(1);
+  }).join(' ');
+}
+
+function drawEvolutionChart(l,av,c,im,or,inf,N){
+  const W=860,H=320,pad=48;
+  const allVals=[...l,...av,...c,...im,...or,...inf];
+  const maxV=Math.max(...allVals)*1.05;
+  const n=N;
+  const svg=document.getElementById('chart1');
+  svg.innerHTML='';
+  const ns='http://www.w3.org/2000/svg';
+  function pt(i,v){
+    return{x:pad+(W-2*pad)*(i/n),y:H-pad-(H-2*pad)*(v/maxV)};
+  }
+  // grid
+  for(let g=0;g<=4;g++){
+    const y=pad+(H-2*pad)*(g/4);
+    const val=Math.round(maxV*(1-g/4));
+    const line=document.createElementNS(ns,'line');
+    line.setAttribute('x1',pad);line.setAttribute('x2',W-pad);
+    line.setAttribute('y1',y);line.setAttribute('y2',y);
+    line.setAttribute('stroke','#222');line.setAttribute('stroke-width','1');
+    svg.appendChild(line);
+    const t=document.createElementNS(ns,'text');
+    t.setAttribute('x',pad-6);t.setAttribute('y',y+4);
+    t.setAttribute('text-anchor','end');t.setAttribute('font-size','10');t.setAttribute('fill','#666');
+    t.textContent=(val/1000).toFixed(0)+'k€';
+    svg.appendChild(t);
+  }
+  // year labels
+  for(let y=0;y<=N;y+=5){
+    const p=pt(y,0);
+    const t=document.createElementNS(ns,'text');
+    t.setAttribute('x',p.x);t.setAttribute('y',H-6);
+    t.setAttribute('text-anchor','middle');t.setAttribute('font-size','10');t.setAttribute('fill','#666');
+    t.textContent='+'+ y +'an'+(y>1?'s':'');
+    svg.appendChild(t);
+  }
+
+  function drawLine(series,color,dash=false){
+    const pts=series.map((v,i)=>pt(i,v));
+    const d=pts.map((p,i)=>(i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+    const path=document.createElementNS(ns,'path');
+    path.setAttribute('d',d);path.setAttribute('fill','none');
+    path.setAttribute('stroke',color);path.setAttribute('stroke-width',dash?1.5:2);
+    if(dash)path.setAttribute('stroke-dasharray','6,4');
+    svg.appendChild(path);
+  }
+  drawLine(inf,'#555',true);
+  drawLine(l,'#4ade80');
+  drawLine(av,'#60a5fa');
+  drawLine(c,'#fbbf24');
+  drawLine(im,'#f97316');
+  drawLine(or,'#a78bfa');
+}
+
+function drawPowerChart(livP,cacP,imP,N,C0,M){
+  const W=860,H=280,pad=48;
+  const maxV=Math.max(...cacP,...imP)*1.05;
+  const svg=document.getElementById('chart2');
+  svg.innerHTML='';
+  const ns='http://www.w3.org/2000/svg';
+  function pt(i,v){return{x:pad+(W-2*pad)*(i/N),y:H-pad-(H-2*pad)*(v/maxV)};}
+  for(let g=0;g<=4;g++){
+    const y=pad+(H-2*pad)*(g/4);
+    const line=document.createElementNS(ns,'line');
+    line.setAttribute('x1',pad);line.setAttribute('x2',W-pad);
+    line.setAttribute('y1',y);line.setAttribute('y2',y);
+    line.setAttribute('stroke','#222');line.setAttribute('stroke-width','1');
+    svg.appendChild(line);
+    const t=document.createElementNS(ns,'text');
+    t.setAttribute('x',pad-6);t.setAttribute('y',y+4);
+    t.setAttribute('text-anchor','end');t.setAttribute('font-size','10');t.setAttribute('fill','#666');
+    t.textContent=(Math.round(maxV*(1-g/4))/1000).toFixed(0)+'k€';
+    svg.appendChild(t);
+  }
+  // flat C0 line
+  const flatPts=Array.from({length:N+1},(_,i)=>pt(i,C0));
+  const fd=flatPts.map((p,i)=>(i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+  const fp=document.createElementNS(ns,'path');
+  fp.setAttribute('d',fd);fp.setAttribute('fill','none');fp.setAttribute('stroke','#444');fp.setAttribute('stroke-width',1.5);fp.setAttribute('stroke-dasharray','4,4');
+  svg.appendChild(fp);
+  function drawLine(series,color){
+    const d=series.map((v,i)=>pt(i,v)).map((p,i)=>(i===0?'M':'L')+p.x.toFixed(1)+' '+p.y.toFixed(1)).join(' ');
+    const path=document.createElementNS(ns,'path');
+    path.setAttribute('d',d);path.setAttribute('fill','none');path.setAttribute('stroke',color);path.setAttribute('stroke-width',2);
+    svg.appendChild(path);
+  }
+  drawLine(livP,'#4ade80');
+  drawLine(cacP,'#fbbf24');
+  drawLine(imP,'#f97316');
+
+  const kpis=document.getElementById('kpiPouvoir');
+  kpis.innerHTML='';
+  const finalLiv=livP[N],finalCac=cacP[N],finalIm=imP[N];
+  function kpi(label,val,color,sub){
+    return `<div class="kpi"><div class="kpi-label">${label}</div><div class="kpi-value ${color}">${(val/1000).toFixed(1)}k€</div><div class="kpi-sub">${sub}</div></div>`;
+  }
+  const pct=(v,C0)=>((v/C0-1)*100).toFixed(1);
+  kpis.innerHTML=
+    kpi('Livret A réel',finalLiv,'green',pct(finalLiv,C0)+'% vs capital init.')+
+    kpi('CAC 40 réel',finalCac,'yellow',pct(finalCac,C0)+'% vs capital init.')+
+    kpi('Immo réel',finalIm,'color:#f97316',pct(finalIm,C0)+'% vs capital init.');
+}
+
+function drawFiscalSection(l,av,c,im,or,N,TMI,C0,M){
+  const kpis=document.getElementById('kpiFisc');
+  const total=document.getElementById('fiscTable');
+  const rows=[
+    ['Livret A','Exonéré (loi)','0 €','0%','#4ade80'],
+    ['AV fonds €',N>=8?'PFU 7.5% + PS 17.2% (>8 ans)':'PFL 12.8% + PS 17.2%',Math.round(av.taxDue).toLocaleString('fr-FR')+'€',((av.taxDue/Math.max(1,av.totalGains))*100).toFixed(1)+'%','#60a5fa'],
+    ['CAC 40 (PEA)',N>=5?'PS 17.2% uniquement (>5 ans)':'PFU 30%',Math.round(c.taxDue).toLocaleString('fr-FR')+'€',((c.taxDue/Math.max(1,c.totalGains))*100).toFixed(1)+'%','#fbbf24'],
+    ['Immobilier','TF ~1%/an + PV 19%+PS (dégressif)','estimé','-','#f97316'],
+    ['Or','Flat 36.2% sur PV (ou forfait 0.5%/an)',Math.round(or.taxDue).toLocaleString('fr-FR')+'€',((or.taxDue/Math.max(1,or.totalGains))*100).toFixed(1)+'%','#a78bfa'],
+  ];
+  kpis.innerHTML='';
+  let html='<table style="width:100%;border-collapse:collapse;font-size:13px">';
+  html+='<tr style="border-bottom:1px solid #333"><th style="text-align:left;padding:8px;color:#888">Placement</th><th style="text-align:left;padding:8px;color:#888">Régime fiscal</th><th style="text-align:right;padding:8px;color:#888">Impôt estimé</th><th style="text-align:right;padding:8px;color:#888">Taux eff.</th></tr>';
+  rows.forEach(([name,regime,tax,rate,col])=>{
+    html+=`<tr style="border-bottom:1px solid #1e1e1e"><td style="padding:8px"><span style="color:${col}">${name}</span></td><td style="padding:8px;color:#aaa;font-size:12px">${regime}</td><td style="padding:8px;text-align:right;color:#e8e8e8">${tax}</td><td style="padding:8px;text-align:right;color:#fbbf24">${rate}</td></tr>`;
+  });
+  html+='</table>';
+  total.innerHTML=html;
+}
+
+function drawVerdict(l,av,c,im,or,inf,N,C0,M){
+  const best=Math.max(l.capAfterTax,av.capAfterTax,c.capAfterTax,im.capAfterTax,or.capAfterTax);
+  const worst=Math.min(l.capAfterTax,c.capAfterTax);
+  const infFinal=C0*Math.pow(1+inf,N)+(M*12*N*0.5);
+  const lossPct=(((l.capAfterTax-infFinal)/infFinal)*100).toFixed(1);
+  document.getElementById('verdict').innerHTML=`
+    <strong style="color:#f87171">L'ennemi silencieux de l'épargne : l'inflation cumulée.</strong><br>
+    Sur ${N} ans à 2,5%/an d'inflation, un euro d'aujourd'hui ne vaut plus que <strong style="color:#fbbf24">${(1/Math.pow(1.025,N)*100).toFixed(0)} centimes</strong> en pouvoir d'achat.
+    Le Livret A, pourtant placement "sûr" du Français moyen, génère un rendement réel souvent nul ou négatif quand l'inflation dépasse 3%.
+    La meilleure option simulée ici, nette de fiscalité, est <strong style="color:#4ade80">${best===l.capAfterTax?'le Livret A':best===c.capAfterTax?'le CAC 40 (PEA)':best===im.capAfterTax?'l\'immobilier':'l\'or'}</strong> avec
+    <strong>${Math.round(best).toLocaleString('fr-FR')} €</strong> finaux.
+    La fiscalité française sur les placements représente en moyenne <strong style="color:#f87171">17 à 40%</strong> des plus-values selon l'enveloppe choisie.
+  `;
+}
+
+compute();
+</script>
+</body>
+</html>

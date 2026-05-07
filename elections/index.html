@@ -188,9 +188,16 @@
       <p id="chartCaption" style="color:var(--muted);font-size:.82rem;margin:10px 0 0;text-align:center"></p>
     </div>
 
+    <!-- Pression fiscale -->
+    <div class="chart-section" style="margin-bottom:24px">
+      <div class="section-label" style="margin-bottom:8px">4 — Pression fiscale comparée</div>
+      <p style="color:var(--muted);font-size:.9rem;margin:0 0 20px;max-width:700px">Charges patronales &amp; salariales sur le travail, impôt sur le revenu, TVA, TICPE carburant, impôts indirects — programme simulé vs trajectoire réelle. Pondération : travail 35 %, revenus 25 %, consommation 20 %, énergie 15 %, indirects 5 %.</p>
+      <div id="fpContent"></div>
+    </div>
+
     <!-- Étape 5 : programme détaillé -->
     <div id="programSection">
-      <div class="section-label">4 — Détail du programme économique</div>
+      <div class="section-label">5 — Détail du programme économique</div>
       <div class="program-grid">
         <div class="program-panel">
           <h3>📋 Mesures fiscales &amp; budgétaires</h3>
@@ -948,6 +955,7 @@
     renderCandidates();
     renderVersus();
     renderChart();
+    renderFiscalPressure();
     renderProgram();
   }
 
@@ -975,6 +983,87 @@
   });
 
   window.addEventListener('resize', renderChart);
+
+  // ─── Pression fiscale ────────────────────────────────────────────────────────
+  // [chargesTotal%, irTopRate%, tvaNormal%, ticpe€/L, indirects_index]
+  const FP = {
+    macron22:[67,45,20,0.68,102],   lepen22:[69,45,17,0.50,85],   melenchon22:[72,90,15,0.45,75],  zemmour22:[56,15,20,0.55,95],   act2022:[67,45,20,0.68,100],
+    macron17:[65,45,20,0.61,95],    lepen17:[67,45,20,0.48,88],   melenchon17:[70,100,20,0.45,85], fillon17:[60,45,21.6,0.61,102],  act2017:[65,45,20,0.61,100],
+    hollande12:[64,45,20,0.59,100], sarkozy12:[62,41,21.2,0.59,105], melenchon12:[72,100,19.6,0.45,90], lepen12:[65,41,19.6,0.40,110], act2012:[64,45,20,0.62,100],
+    sarkozy07:[60,40,19.6,0.55,97], royal07:[62,40,19.6,0.55,98], bayrou07:[58,40,19.6,0.55,100], lepen07:[58,35,19.6,0.35,125],   act2007:[60,40,19.6,0.60,100],
+    chirac02:[57,44,19.6,0.50,100], jospin02:[59,49,19.6,0.50,100], lepen02:[55,35,19.6,0.35,135], chevenement02:[61,49,19.6,0.50,100], act2002:[57,49,19.6,0.50,100]
+  };
+  const FP_LABELS = ['Charges totales travail','IR taux marginal sup.','TVA standard','TICPE carburant','Impôts indirects'];
+  const FP_UNITS  = ['%','%','%','€/L','ind.'];
+  const FP_W      = [0.35,0.25,0.20,0.15,0.05];
+  const FP_NOTES  = [
+    'Charges patronales + salariales en % du coût employeur total',
+    'Taux marginal supérieur de l\'impôt sur le revenu',
+    'TVA au taux normal — certains candidats proposent des baisses ciblées (alim., énergie)',
+    'Taxe intérieure sur la consommation d\'énergie (TICPE) sur SP95-E10',
+    'Indice composite : taxes locales, TVA réduite, fiscalité énergie et patrimoine (100 = réalité)'
+  ];
+
+  function renderFiscalPressure() {
+    const c = ELECTIONS[currentYear].candidates.find(x => x.id === selectedId);
+    const sim = FP[c.id], act = FP['act' + currentYear];
+    if (!sim || !act) { $('fpContent').innerHTML = '<p style="color:var(--muted)">Données non disponibles.</p>'; return; }
+
+    const compositeIndex = FP_W.reduce((s,w,i) => s + w * (sim[i] / act[i]), 0) * 100;
+    const idxColor = compositeIndex > 105 ? 'var(--red)' : compositeIndex < 95 ? 'var(--green)' : 'var(--accent)';
+    const idxLabel = compositeIndex > 102 ? '▲ pression plus lourde' : compositeIndex < 98 ? '▼ pression plus légère' : '≈ pression identique';
+    const winner = ELECTIONS[currentYear].candidates.find(x => x.winner);
+
+    let html = `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;margin-bottom:22px">
+      <div style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:16px;padding:16px 22px;min-width:150px">
+        <div class="eyebrow" style="margin-bottom:4px">Indice global</div>
+        <div style="font-size:2.2rem;font-weight:900;letter-spacing:-.05em;color:${idxColor}">${f1(compositeIndex)}</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:2px">réel = 100<br>${idxLabel}</div>
+      </div>
+      <div style="flex:1;min-width:220px;color:var(--muted);font-size:.87rem;line-height:1.65;padding-top:8px">
+        ${c.winner
+          ? `Programme réel de <strong style="color:var(--text)">${c.name}</strong>. L'indice 100 est la référence pour ce mandat.`
+          : `Sous <strong style="color:var(--text)">${c.name}</strong>, la pression fiscale globale aurait été
+             <strong style="color:${idxColor}">${compositeIndex > 100 ? 'plus élevée' : 'moins élevée'}</strong>
+             que ce qu'a appliqué ${winner.name} (indice ${f1(compositeIndex)}/100).
+             ${compositeIndex > 105 ? ' Le surcroît de charges sur le travail et les revenus pèse principalement sur les ménages à revenu intermédiaire.' : compositeIndex < 95 ? ' La baisse de pression serait principalement portée par les revenus du capital et les charges patronales, au risque d\'un déficit accru.' : ''}`
+        }
+      </div>
+    </div>`;
+
+    const maxVals = sim.map((v,i) => Math.max(v, act[i]) * 1.06);
+    html += '<div style="display:grid;gap:14px">';
+    FP_LABELS.forEach((label, i) => {
+      const diff = sim[i] - act[i];
+      const absDiff = Math.abs(diff);
+      const worse  = i <= 3 ? diff > 0.2 : diff > 5;
+      const better = i <= 3 ? diff < -0.2 : diff < -5;
+      const diffCls = worse ? 'delta-worse' : better ? 'delta-better' : 'delta-neutral';
+      const diffStr = absDiff < 0.1 ? '= identique' : (diff > 0 ? '+' : '') + f1(diff) + (FP_UNITS[i] === 'ind.' ? ' pts' : ' ' + FP_UNITS[i]) + ' vs réel';
+      const sw = Math.max(4, sim[i] / maxVals[i] * 100);
+      const aw = Math.max(4, act[i] / maxVals[i] * 100);
+      html += `<div title="${FP_NOTES[i]}">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+          <span style="color:var(--muted);font-size:.83rem;font-weight:750">${label}</span>
+          <span class="${diffCls}" style="font-size:.78rem;font-weight:800">${diffStr}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+          <span style="width:66px;font-size:.73rem;color:var(--accent);font-weight:800;flex-shrink:0">Simulé</span>
+          <div style="flex:1;height:11px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden">
+            <div style="height:100%;width:${sw}%;background:var(--accent);border-radius:5px"></div></div>
+          <span style="width:58px;text-align:right;font-size:.83rem;font-weight:900;flex-shrink:0">${f1(sim[i])} ${FP_UNITS[i]}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:66px;font-size:.73rem;color:var(--accent2);font-weight:800;flex-shrink:0">Réel</span>
+          <div style="flex:1;height:11px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden">
+            <div style="height:100%;width:${aw}%;background:var(--accent2);border-radius:5px"></div></div>
+          <span style="width:58px;text-align:right;font-size:.83rem;font-weight:900;flex-shrink:0">${f1(act[i])} ${FP_UNITS[i]}</span>
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+    $('fpContent').innerHTML = html;
+  }
 
   // ─── Init ────────────────────────────────────────────────────────────────────
   render();
