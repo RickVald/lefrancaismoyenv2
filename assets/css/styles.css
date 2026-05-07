@@ -44,7 +44,7 @@ option{background:#10172e}
 .wide{grid-column:span 8}
 .side{grid-column:span 4}
 .full{grid-column:1/-1}
-.kpi-number{font-size:2.15rem;font-weight:900;letter-spacing:-.06em;margin:12px 0 4px}
+.kpi-number{font-size:clamp(1.5rem,3.5vw,2.15rem);font-weight:900;letter-spacing:-.06em;margin:12px 0 4px;word-break:break-word}
 .delta{font-weight:850;font-size:.9rem}
 .up{color:var(--red)}
 .down{color:var(--green)}
@@ -79,10 +79,9 @@ option{background:#10172e}
 .sim-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .sim-kpi small{display:block}
 .panel.kpi{position:relative}
-.kpi-share{position:absolute;bottom:10px;right:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:var(--muted);font-size:.7rem;font-weight:750;padding:4px 9px;border-radius:8px;cursor:pointer;opacity:0;transition:opacity .18s,background .18s;letter-spacing:.02em;white-space:nowrap}
+.kpi-share{position:absolute;bottom:10px;right:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:var(--muted);font-size:.7rem;font-weight:750;padding:4px 9px;border-radius:8px;cursor:pointer;opacity:.35;transition:opacity .18s,background .18s;letter-spacing:.02em;white-space:nowrap}
 .panel.kpi:hover .kpi-share{opacity:1}
 .kpi-share:hover{background:rgba(246,195,67,.15);border-color:rgba(246,195,67,.35);color:var(--accent)}
-@media(hover:none){.kpi-share{opacity:.7}}
 .sim-kpi b{font-size:1.65rem;letter-spacing:-.05em}
 .audit-table{width:100%;border-collapse:collapse;color:var(--muted);font-size:.86rem;margin-top:18px}
 .audit-table th,.audit-table td{border-bottom:1px solid var(--border);padding:10px;text-align:left}
