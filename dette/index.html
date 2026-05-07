@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://le-francais-moyen.com/dette/">
   <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.svg">
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=10">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=11">
   <style>
     .counter-hero{text-align:center;padding:48px 24px 32px;background:radial-gradient(ellipse at 50% 0%,rgba(255,107,107,.12) 0%,transparent 65%)}
     .debt-counter{font-size:clamp(2.2rem,7vw,5.5rem);font-weight:900;letter-spacing:-.05em;color:#ff9898;font-variant-numeric:tabular-nums;line-height:1;margin:12px 0 6px}
@@ -29,6 +29,10 @@
     .fr-highlight .bar-fill{background:var(--red)}
     .debt-bar-row .bar-fill{background:var(--accent2)}
     .chart-svg-wrap{max-width:780px;margin:0 auto 32px;padding:0 24px}
+    @media(max-width:640px){
+      .debt-bar-section [style*="repeat(3,1fr)"]{grid-template-columns:1fr!important}
+      .ticker-pill{min-width:140px;padding:10px 12px}
+    }
   </style>
 </head>
 <body>
