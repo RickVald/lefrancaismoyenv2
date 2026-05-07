@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://ec.europa.eu">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=6">
+  <link rel="stylesheet" href="assets/css/styles.css?v=7">
 
   <!-- JSON-LD: WebSite + SearchAction -->
   <script type="application/ld+json">
@@ -393,18 +393,23 @@
               <div id="taxLegend" class="legend"></div>
             </article>
             <aside class="panel side">
-              <h3>Lecture nette du profil</h3>
-              <div class="insight-list" style="margin-top:12px">
-                <div class="insight"><strong>Salaire net estimé</strong><span id="taxNetSalary">—</span></div>
-                <div class="insight"><strong>Revenu disponible après impôts</strong><span id="taxDisposable">—</span></div>
-                <div class="insight"><strong>Solde fiscal net</strong><span id="taxNetFiscal">—</span></div>
-                <div class="insight"><strong>Redistribution directe</strong><span id="taxRedisDirect">—</span></div>
-                <div class="insight"><strong>Redistribution sociale</strong><span id="taxRedisSocial">—</span></div>
-                <div class="insight"><strong>Redistribution collective</strong><span id="taxRedisCollective">—</span></div>
-                <div class="insight"><strong>Impôt sur le revenu</strong><span id="taxIncomeTax">—</span></div>
-                <div class="insight"><strong>Cotisations salariales / CSG-CRDS</strong><span id="taxPayroll">—</span></div>
-                <div class="insight"><strong>TVA implicite</strong><span id="taxVat">—</span></div>
-                <div class="insight"><strong>Fiscalité carburant/énergie</strong><span id="taxEnergy">—</span></div>
+              <div class="voir-plus-header">
+                <h3>Lecture nette du profil</h3>
+                <button class="btn-voir-plus" type="button" aria-expanded="false">Voir plus ▾</button>
+              </div>
+              <div class="voir-plus-body" hidden>
+                <div class="details-grid" style="margin-top:12px">
+                  <div class="insight"><strong>Salaire net estimé</strong><span id="taxNetSalary">—</span></div>
+                  <div class="insight"><strong>Revenu disponible après impôts</strong><span id="taxDisposable">—</span></div>
+                  <div class="insight"><strong>Solde fiscal net</strong><span id="taxNetFiscal">—</span></div>
+                  <div class="insight"><strong>Redistribution directe</strong><span id="taxRedisDirect">—</span></div>
+                  <div class="insight"><strong>Redistribution sociale</strong><span id="taxRedisSocial">—</span></div>
+                  <div class="insight"><strong>Redistribution collective</strong><span id="taxRedisCollective">—</span></div>
+                  <div class="insight"><strong>Impôt sur le revenu</strong><span id="taxIncomeTax">—</span></div>
+                  <div class="insight"><strong>Cotisations salariales / CSG-CRDS</strong><span id="taxPayroll">—</span></div>
+                  <div class="insight"><strong>TVA implicite</strong><span id="taxVat">—</span></div>
+                  <div class="insight"><strong>Fiscalité carburant/énergie</strong><span id="taxEnergy">—</span></div>
+                </div>
               </div>
             </aside>
           </div>
@@ -891,6 +896,6 @@
   <span><a href="weekly/latest.html">Note hebdomadaire</a> · <a href="#sources">Sources</a> · <a href="sitemap.xml">Plan du site</a></span>
 </footer>
 
-<script src="assets/js/app.js?v=5" defer></script>
+<script src="assets/js/app.js?v=7" defer></script>
 </body>
 </html>

@@ -240,6 +240,55 @@ function handleNewsletter(e) {
   }).catch(() => {}); // silent fail — backend optional
 }
 
+// ── Toggle "Voir plus" pour les panneaux de détails ───────────────────────
+(function initVoirPlus() {
+  document.querySelectorAll('.btn-voir-plus').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var body = btn.closest('aside, .panel').querySelector('.voir-plus-body');
+      if (!body) return;
+      var open = !body.hidden;
+      body.hidden = open;
+      btn.textContent = open ? 'Voir plus ▾' : 'Voir moins ▴';
+      btn.setAttribute('aria-expanded', String(!open));
+    });
+  });
+})();
+
+// ── Boutons de partage sur chaque bloc outil ──────────────────────────────
+(function initBlockShare() {
+  var blocks = [
+    { id:'simulateur-fiscal-reel', label:'Simulateur fiscal réel', text:'Calculez votre taux d\'imposition réel (IR + cotisations + TVA + énergie)' },
+    { id:'compte-resultat-national', label:'Compte de résultat national', text:'La France vue comme une entreprise : recettes, dépenses, dette et déficit depuis 1900' },
+    { id:'indice-cout-vie-reel', label:'Indice coût de la vie réel', text:'Combien d\'heures de travail pour financer votre panier de vie depuis 1960 ?' },
+    { id:'balance-energetique-nationale', label:'Balance énergétique nationale', text:'Dépendance énergétique, importations et facture par habitant en France' },
+    { id:'indice-soutenabilite-social', label:'Soutenabilité du modèle social', text:'Score de soutenabilité du modèle social français : retraites, démographie, cotisants' },
+    { id:'simulateur', label:'Simulateur démographique', text:'Projections démographiques France : fécondité, immigration, retraites' }
+  ];
+  blocks.forEach(function(b) {
+    var article = document.getElementById(b.id);
+    if (!article) return;
+    var header = article.querySelector('.panel-header');
+    if (!header) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn-block-share';
+    btn.textContent = '↗ Partager';
+    btn.addEventListener('click', function() {
+      var url = 'https://le-francais-moyen.com/#' + b.id;
+      var text = b.text + ' → ';
+      if (navigator.share) {
+        navigator.share({ title: b.label, text: text, url: url }).catch(function(){});
+      } else {
+        window.open(
+          'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url),
+          '_blank', 'width=560,height=420,noopener'
+        );
+      }
+    });
+    header.appendChild(btn);
+  });
+})();
+
 // ── Boutons de partage sur les cartes KPI ──────────────────────────────────
 (function initKpiShare() {
   document.querySelectorAll('.panel.kpi[data-share-label]').forEach(function(card) {
