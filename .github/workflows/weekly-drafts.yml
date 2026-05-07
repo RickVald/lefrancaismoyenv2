@@ -1,0 +1,31 @@
+name: Génère les drafts hebdomadaires
+
+on:
+  schedule:
+    # Chaque lundi à 7h00 UTC (9h Paris)
+    - cron: '0 7 * * 1'
+  workflow_dispatch:  # lancement manuel possible
+
+permissions:
+  contents: write
+
+jobs:
+  drafts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Générer les 7 drafts de la semaine
+        run: node scripts/weekly-drafts.js
+
+      - name: Commit des drafts
+        run: |
+          git config user.name  "LFM DraftBot"
+          git config user.email "bot@le-francais-moyen.com"
+          git add drafts/
+          git diff --staged --quiet || git commit -m "drafts: semaine $(date +'%Y-W%V') — 7 posts prêts"
+          git push

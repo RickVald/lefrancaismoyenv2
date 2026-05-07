@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio de publication – Le Français Moyen</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../assets/css/styles.css?v=10">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d0d;color:#e8e8e8;font-family:'Segoe UI',sans-serif;min-height:100vh}
+.page-header{padding:32px 24px 0;max-width:1000px;margin:0 auto}
+.back-link{color:#888;text-decoration:none;font-size:13px;display:inline-block;margin-bottom:16px}
+h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px}
+.subtitle{color:#aaa;font-size:14px;margin-bottom:28px}
+.main{max-width:1000px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start}
+@media(max-width:700px){.main{grid-template-columns:1fr}}
+.panel{background:#161616;border:1px solid #222;border-radius:10px;padding:20px}
+.section-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:10px}
+.select-group{margin-bottom:16px}
+.select-group label{display:block;font-size:12px;color:#aaa;margin-bottom:6px}
+.select-group select,.select-group input{width:100%;background:#1e1e1e;border:1px solid #333;border-radius:4px;padding:8px 10px;color:#e8e8e8;font-size:13px}
+.select-group select:focus,.select-group input:focus{outline:none;border-color:#a78bfa}
+.btn{padding:10px 20px;border-radius:6px;border:none;cursor:pointer;font-size:13px;font-weight:700;transition:all .15s;width:100%;margin-bottom:10px}
+.btn-primary{background:#a78bfa;color:#000}
+.btn-primary:hover{background:#9061f9}
+.btn-secondary{background:#1e1e1e;color:#e8e8e8;border:1px solid #333}
+.btn-secondary:hover{background:#2a2a2a}
+.platform-tabs{display:flex;gap:2px;margin-bottom:16px;border-bottom:1px solid #222}
+.ptab{padding:8px 16px;cursor:pointer;font-size:13px;color:#888;border-bottom:2px solid transparent;transition:all .15s}
+.ptab.active{color:#fff;border-color:#a78bfa}
+.output-area{display:none}.output-area.active{display:block}
+.text-preview{background:#111;border:1px solid #222;border-radius:6px;padding:14px;font-size:13px;line-height:1.7;color:#ccc;white-space:pre-wrap;min-height:180px;position:relative}
+.copy-btn{position:absolute;top:8px;right:8px;background:#2a2a2a;border:1px solid #333;border-radius:4px;padding:4px 10px;font-size:11px;color:#aaa;cursor:pointer}
+.copy-btn:hover{background:#333;color:#fff}
+.card-preview{background:#0d0d0d;border:1px solid #222;border-radius:8px;overflow:hidden;margin-bottom:16px}
+.card-preview canvas{width:100%;display:block}
+.action-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.action-btn{flex:1;padding:10px;border-radius:6px;border:none;cursor:pointer;font-size:13px;font-weight:600;transition:all .15s;min-width:120px;display:flex;align-items:center;justify-content:center;gap:6px}
+.btn-x{background:#1a1a1a;border:1px solid #333;color:#e8e8e8}
+.btn-x:hover{background:#222;border-color:#555}
+.btn-li{background:#0a66c2;color:#fff}
+.btn-li:hover{background:#0856a5}
+.btn-dl{background:#1a1a1a;border:1px solid #333;color:#4ade80}
+.btn-dl:hover{background:#1a2a1a}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.tag{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:3px;padding:3px 8px;font-size:11px;color:#aaa;cursor:pointer;user-select:all}
+.tag:hover{border-color:#555;color:#e8e8e8}
+.hint{font-size:11px;color:#555;margin-top:6px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <a href="/" class="back-link">← Accueil</a>
+  <h1>🎯 Studio de publication</h1>
+  <p class="subtitle">Générez des posts prêts à publier sur X et LinkedIn à partir des données du site</p>
+</div>
+
+<div class="main">
+  <!-- LEFT: Controls -->
+  <div>
+    <div class="panel" style="margin-bottom:16px">
+      <div class="section-label">1 — Choisir le sujet</div>
+      <div class="select-group">
+        <label>Thématique</label>
+        <select id="topicSelect" onchange="updateAngle()">
+          <option value="dette">⏱ Compteur de la dette</option>
+          <option value="projections">📈 Projections 2035</option>
+          <option value="epargne">💰 Érosion de l'épargne</option>
+          <option value="comparateur">🌍 Comparateur européen</option>
+          <option value="elections">🗳 Simulateur élections</option>
+          <option value="generations">👶 Déclassement générationnel</option>
+          <option value="services">🏥 Services publics</option>
+          <option value="histoire">📅 Timeline des ruptures</option>
+        </select>
+      </div>
+      <div class="select-group">
+        <label>Angle éditorial</label>
+        <select id="angleSelect">
+          <option value="choc">Chiffre choc — surprendre</option>
+          <option value="question">Question rhétorique — engager</option>
+          <option value="comparaison">Comparaison — contextualiser</option>
+          <option value="thread">Thread analyse — éduquer</option>
+          <option value="histoire">Mise en contexte historique</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-bottom:16px">
+      <div class="section-label">2 — Personnaliser</div>
+      <div class="select-group">
+        <label>Événement d'actualité (optionnel)</label>
+        <input type="text" id="actuality" placeholder="ex: annonce BCE, chiffres INSEE…">
+      </div>
+      <div class="select-group">
+        <label>Compte à mentionner (optionnel)</label>
+        <input type="text" id="mention" placeholder="ex: @lesechos @BFMBusiness">
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="section-label">3 — Hashtags</div>
+      <div class="tag-list" id="tagList"></div>
+      <p class="hint">Cliquez pour copier un hashtag</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: Output -->
+  <div>
+    <div class="panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+        <div class="section-label" style="margin:0">Prévisualisation</div>
+        <button class="btn btn-primary" style="width:auto;margin:0;padding:8px 20px" onclick="generate()">⚡ Générer</button>
+      </div>
+
+      <div id="cardWrap" style="margin-bottom:16px;display:none">
+        <div class="section-label">Carte image (1200×630)</div>
+        <div class="card-preview">
+          <canvas id="cardCanvas" width="1200" height="630" style="width:100%"></canvas>
+        </div>
+      </div>
+
+      <div class="platform-tabs">
+        <div class="ptab active" onclick="switchPlatform('x')">𝕏 X / Twitter</div>
+        <div class="ptab" onclick="switchPlatform('li')">💼 LinkedIn</div>
+      </div>
+
+      <div id="out-x" class="output-area active">
+        <div class="text-preview" id="preview-x">
+          <button class="copy-btn" onclick="copyText('preview-x')">Copier</button>
+          <span id="text-x" style="display:block;padding-right:60px">Cliquez sur "Générer" pour créer votre post…</span>
+        </div>
+        <div class="hint" id="count-x" style="text-align:right;margin-top:4px"></div>
+      </div>
+
+      <div id="out-li" class="output-area">
+        <div class="text-preview" id="preview-li">
+          <button class="copy-btn" onclick="copyText('preview-li')">Copier</button>
+          <span id="text-li" style="display:block;padding-right:60px">Cliquez sur "Générer" pour créer votre post…</span>
+        </div>
+      </div>
+
+      <div class="action-row" id="actionRow" style="display:none">
+        <button class="action-btn btn-x" onclick="openX()">𝕏 Ouvrir dans X</button>
+        <button class="action-btn btn-li" onclick="openLI()">💼 LinkedIn</button>
+        <button class="action-btn btn-dl" onclick="downloadCard()">🖼 Carte PNG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/share.js"></script>
+<script>
+const TOPICS = {
+  dette:{label:'La dette publique française',value:'3 228 Md€',subtitle:'5 641 € empruntés chaque seconde · 113% du PIB',color:'#fb923c',url:LFM_SITE+'/dette/'},
+  projections:{label:'Projections 2035 — scénario inertie',value:'135% PIB',subtitle:'Dette publique sans réforme structurelle',color:'#fbbf24',url:LFM_SITE+'/projections/'},
+  epargne:{label:'Érosion de votre épargne',value:'−2.3%',subtitle:'Rendement réel Livret A quand inflation > 3%',color:'#4ade80',url:LFM_SITE+'/epargne/'},
+  comparateur:{label:'Prélèvements obligatoires France',value:'45.3% PIB',subtitle:'Record d\'Europe occidentale · Eurostat 2024',color:'#60a5fa',url:LFM_SITE+'/comparateur/'},
+  elections:{label:'Simulateur présidentiel 2002–2022',value:'5 élections',subtitle:'20 candidats simulés vs réalité',color:'#f87171',url:LFM_SITE+'/elections/'},
+  generations:{label:'Déclassement générationnel',value:'−18 pts',subtitle:'Nés en 1990 vs nés en 1960 · indice composite',color:'#a78bfa',url:LFM_SITE+'/generations/'},
+  services:{label:'Lits d\'hôpitaux fermés depuis 2000',value:'−31%',subtitle:'8.3 → 5.7 lits / 1 000 hab. · DREES 2024',color:'#f87171',url:LFM_SITE+'/services/'},
+  histoire:{label:'La dette française',value:'1973–2026',subtitle:'15% → 113% du PIB en 50 ans de décisions',color:'#a78bfa',url:LFM_SITE+'/histoire/'},
+};
+
+const HASHTAGS = {
+  dette:      ['#DetteFrance','#BudgetFrance','#EconomieFrance','#FiscalitéFR','#Déficit'],
+  projections:['#France2035','#DetteFrance','#Retraites','#Budget','#Économie'],
+  epargne:    ['#EpargneFrance','#LivretA','#PouvoirAchat','#FiscalitéFR','#Inflation'],
+  comparateur:['#FiscalitéFR','#Europe','#Impôts','#France','#Compétitivité'],
+  elections:  ['#Présidentielle','#PolitiqueFrance','#EconomieFrance','#FiscalitéFR'],
+  generations:['#DéclassementFR','#Logement','#JeunesFrance','#Générations','#Inégalités'],
+  services:   ['#ServicePublic','#Hôpital','#Education','#France','#FiscalitéFR'],
+  histoire:   ['#HistoireFrance','#DetteFrance','#PolitiqueÉconomique','#France'],
+};
+
+const ANGLES = {
+  choc:       (topic,cfg,actu,mention)=>`🚨 ${cfg.value}\n\nC'est le chiffre que vous devez retenir sur ${cfg.label.toLowerCase()}.\n\n${cfg.subtitle}.\n\n${actu?'📰 Contexte : '+actu+'\n\n':''}Toutes les données en détail ↓\n${cfg.url}\n\n${getHashtags(topic)}${mention?' '+mention:''}`,
+  question:   (topic,cfg,actu,mention)=>`❓ Vous payez ${topic==='comparateur'?'45.3% de votre revenu en impôts et cotisations':'parmi les impôts les plus élevés d\'Europe'}.\n\nEn échange, vous obtenez quoi exactement ?\n\n${actu?'📰 '+actu+'\n\n':''}Les données officielles ↓\n${cfg.url}\n\n${getHashtags(topic)}${mention?' '+mention:''}`,
+  comparaison:(topic,cfg,actu,mention)=>`🌍 France vs reste de l'Europe :\n\n${cfg.label} : ${cfg.value}\n${cfg.subtitle}\n\n${actu?'📰 Contexte : '+actu+'\n\n':''}Comparaison complète sur 10 indicateurs ↓\n${SITE_URL+'/comparateur/'}\n\n${getHashtags(topic)}${mention?' '+mention:''}`,
+  thread:     (topic,cfg,actu,mention)=>`🧵 THREAD — ${cfg.label}\n\n1/ ${cfg.value} — ${cfg.subtitle}.\n\n2/ ${actu||'Ce chiffre s\'explique par des décisions accumulées sur 20 ans, pas par un seul événement.'}\n\n3/ Le détail complet avec sources officielles ↓\n${cfg.url}\n\n${getHashtags(topic)}${mention?' '+mention:''}`,
+  histoire:   (topic,cfg,actu,mention)=>`📅 Contexte historique :\n\n${cfg.label}\n${cfg.value} — ${cfg.subtitle}\n\n${actu?'📰 Lien avec l\'actu : '+actu+'\n\n':''}La timeline des décisions qui expliquent cette trajectoire ↓\n${SITE_URL+'/histoire/'}\n\n${getHashtags(topic)}${mention?' '+mention:''}`,
+};
+
+const LI_ANGLES = {
+  choc:       (topic,cfg,actu,mention)=>`${cfg.label} : ${cfg.value}\n\n${cfg.subtitle}.\n\n${actu?'Dans le contexte de '+actu+', ce chiffre prend une résonance particulière.\n\n':''}Pour comprendre ce que cela signifie concrètement pour le quotidien des Français, et comment nous nous comparons à nos partenaires européens, consultez notre analyse complète :\n${cfg.url}\n\n${getHashtags(topic)}`,
+  question:   (topic,cfg,actu,mention)=>`Un paradoxe documenté chiffres à l'appui.\n\nLa France prélève parmi les impôts les plus élevés d'Europe occidentale. Les résultats sur les services publics, la compétitivité et les indicateurs sociaux devraient pourtant être proportionnels.\n\n${actu?'L\'actualité récente — '+actu+' — pose à nouveau cette question.\n\n':''}L'analyse complète :\n${cfg.url}\n\n${getHashtags(topic)}`,
+  comparaison:(topic,cfg,actu,mention)=>`${cfg.label} en perspective européenne.\n\n${cfg.value}. ${cfg.subtitle}.\n\n${actu?'Dans un contexte où '+actu+', il est utile de rappeler les fondamentaux comparatifs.\n\n':''}Comparaison France vs Allemagne, Espagne, Suède, Royaume-Uni, Italie sur 10 indicateurs :\n${SITE_URL+'/comparateur/'}\n\n${getHashtags(topic)}`,
+  thread:     (topic,cfg,actu,mention)=>`${cfg.label}\n\nLe chiffre : ${cfg.value}.\nLe contexte : ${cfg.subtitle}.\n\n${actu?'L\'actualité du moment — '+actu+' — est une occasion de rappeler ces données de fond.\n\n':''}Parce que les décisions économiques se jugent sur le long terme, pas sur le cycle médiatique, nous avons documenté l'ensemble de la trajectoire.\n\nAnalyse complète avec sources officielles :\n${cfg.url}\n\n${getHashtags(topic)}`,
+  histoire:   (topic,cfg,actu,mention)=>`Pour comprendre ${actu||'l\'actualité économique française'}, il faut regarder la trajectoire longue.\n\n${cfg.label} : ${cfg.value}.\n${cfg.subtitle}.\n\nLes décisions qui ont produit cette situation ne datent pas d'hier. Elles s'accumulent depuis 1973.\n\nTimeline interactive des 25 ruptures qui ont transformé la France :\n${SITE_URL+'/histoire/'}\n\n${getHashtags(topic)}`,
+};
+
+function getHashtags(topic){return (HASHTAGS[topic]||[]).join(' ');}
+
+let currentX='', currentLI='', currentTopic='dette';
+
+function updateAngle(){
+  const topic=document.getElementById('topicSelect').value;
+  // nothing to do on change, just regenerate on button click
+}
+
+function switchPlatform(p){
+  document.querySelectorAll('.ptab').forEach((t,i)=>t.classList.toggle('active',['x','li'][i]===p));
+  document.getElementById('out-x').classList.toggle('active',p==='x');
+  document.getElementById('out-li').classList.toggle('active',p==='li');
+}
+
+function generate(){
+  const topic=document.getElementById('topicSelect').value;
+  const angle=document.getElementById('angleSelect').value;
+  const actu=document.getElementById('actuality').value.trim();
+  const mention=document.getElementById('mention').value.trim();
+  const cfg=TOPICS[topic];
+  currentTopic=topic;
+
+  currentX=(ANGLES[angle]||ANGLES.choc)(topic,cfg,actu,mention);
+  currentLI=(LI_ANGLES[angle]||LI_ANGLES.choc)(topic,cfg,actu,mention);
+
+  document.getElementById('text-x').textContent=currentX;
+  document.getElementById('text-li').textContent=currentLI;
+  document.getElementById('count-x').textContent=currentX.length+'/280 chars '+(currentX.length>280?'⚠️ trop long — réduire':'✓');
+
+  // Draw card
+  const dataURL=lfmGenerateCard({...cfg,title:cfg.label,source:'INSEE / Banque de France / FMI 2024',tool:topic});
+  const canvas=document.getElementById('cardCanvas');
+  const img=new Image();
+  img.onload=()=>{
+    const ctx=canvas.getContext('2d');
+    ctx.drawImage(img,0,0);
+  };
+  img.src=dataURL;
+  document.getElementById('cardWrap').style.display='block';
+  document.getElementById('actionRow').style.display='flex';
+
+  // Update tags
+  const tags=HASHTAGS[topic]||[];
+  document.getElementById('tagList').innerHTML=tags.map(t=>`<span class="tag" onclick="navigator.clipboard.writeText('${t}')" title="Cliquer pour copier">${t}</span>`).join('');
+}
+
+function openX(){
+  lfmShareX(currentX, TOPICS[currentTopic]?.url);
+}
+
+function openLI(){
+  lfmShareLinkedIn(TOPICS[currentTopic]?.url || LFM_SITE);
+}
+
+function downloadCard(){
+  const cfg=TOPICS[currentTopic];
+  lfmDoDownload(currentTopic)||lfmDownloadCard(lfmGenerateCard({...cfg,title:cfg.label,source:'INSEE / Banque de France / FMI 2024'}),'lfm-'+currentTopic+'-card.png');
+}
+
+function copyText(id){
+  const el=document.getElementById(id);
+  const textEl=el.querySelector('span[id^="text-"]');
+  const text=textEl?textEl.textContent:'';
+  navigator.clipboard&&navigator.clipboard.writeText(text).then(()=>{
+    const btn=el.querySelector('.copy-btn');
+    if(btn){btn.textContent='✓ Copié';setTimeout(()=>btn.textContent='Copier',2000);}
+  });
+}
+
+// Init hashtags for default topic
+document.getElementById('tagList').innerHTML=(HASHTAGS.dette||[]).map(t=>`<span class="tag" onclick="navigator.clipboard.writeText('${t}')" title="Cliquer pour copier">${t}</span>`).join('');
+</script>
+</body>
+</html>

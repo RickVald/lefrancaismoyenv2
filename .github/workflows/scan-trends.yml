@@ -1,0 +1,35 @@
+name: Scan tendances & prépare drafts
+
+on:
+  schedule:
+    # 3x/jour heure de Paris : 7h, 12h, 18h (UTC 6h, 11h, 17h)
+    - cron: '0 6 * * *'
+    - cron: '0 11 * * *'
+    - cron: '0 17 * * *'
+  workflow_dispatch:  # permet de lancer manuellement depuis GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Scanner les tendances
+        run: node scripts/scan-trends.js
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}  # optionnel
+
+      - name: Commit du fichier de scan
+        run: |
+          git config user.name  "LFM TrendBot"
+          git config user.email "bot@le-francais-moyen.com"
+          git add drafts/
+          git diff --staged --quiet || git commit -m "scan: tendances $(date +'%Y-%m-%d %Hh')"
+          git push
