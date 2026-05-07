@@ -986,5 +986,40 @@
 </footer>
 
 <script src="assets/js/app.js?v=10" defer></script>
+<script>
+async function handleNewsletter(e) {
+  e.preventDefault();
+  const email = document.getElementById('newsletterEmail').value.trim();
+  const msg = document.getElementById('newsletterMsg');
+  const btn = e.target.querySelector('button');
+  btn.disabled = true;
+  btn.textContent = 'Inscription…';
+  try {
+    const r = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({email})
+    });
+    const data = await r.json();
+    msg.style.display = 'block';
+    if (r.ok) {
+      msg.style.color = 'var(--accent2)';
+      msg.textContent = '✓ Inscription confirmée — à lundi !';
+      e.target.reset();
+    } else {
+      msg.style.color = 'var(--red)';
+      msg.textContent = data.error || 'Une erreur est survenue. Réessayez.';
+      btn.disabled = false;
+      btn.textContent = 'S\'abonner gratuitement';
+    }
+  } catch {
+    msg.style.display = 'block';
+    msg.style.color = 'var(--red)';
+    msg.textContent = 'Erreur réseau. Réessayez dans un instant.';
+    btn.disabled = false;
+    btn.textContent = 'S\'abonner gratuitement';
+  }
+}
+</script>
 </body>
 </html>
