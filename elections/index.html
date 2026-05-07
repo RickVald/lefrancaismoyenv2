@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Simulateur de programmes présidentiels — Le Français Moyen</title>
+  <meta name="description" content="Et si un autre candidat avait gagné ? Simulez l'impact économique des programmes présidentiels de 2002 à 2022 sur la dette, l'inflation et le pouvoir d'achat — et comparez avec ce qui s'est réellement passé.">
+  <link rel="canonical" href="https://le-francais-moyen.com/elections/">
+  <meta property="og:title" content="Et si un autre candidat avait gagné ? — Le Français Moyen">
+  <meta property="og:description" content="Simulez l'impact des programmes présidentiels de 2002 à 2022 sur la dette, l'inflation et le pouvoir d'achat. Comparez avec la réalité.">
+  <meta property="og:url" content="https://le-francais-moyen.com/elections/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=10">
+  <style>
+    /* ── Layout ── */
+    .year-selector{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+    .year-btn{border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--muted);padding:10px 20px;border-radius:999px;cursor:pointer;font-size:.95rem;font-weight:800;transition:all .15s}
+    .year-btn:hover{color:var(--text);border-color:rgba(255,255,255,.28)}
+    .year-btn.active{background:var(--accent);color:#0b1020;border-color:transparent}
+
+    /* ── Candidats ── */
+    .candidates-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px}
+    .candidate-card{border:2px solid var(--border);border-radius:20px;padding:18px 16px 16px;cursor:pointer;background:rgba(255,255,255,.04);transition:all .18s;position:relative}
+    .candidate-card:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+    .candidate-card.selected{border-color:var(--accent);background:rgba(246,195,67,.07);box-shadow:0 0 0 3px rgba(246,195,67,.15)}
+    .candidate-card.winner-card{border-color:rgba(99,212,113,.5)}
+    .candidate-card.winner-card.selected{border-color:var(--accent)}
+    .badge-row{display:flex;gap:6px;margin-bottom:10px;min-height:22px}
+    .badge{font-size:.65rem;font-weight:900;padding:3px 8px;border-radius:8px;letter-spacing:.04em;white-space:nowrap}
+    .badge-winner{background:var(--green);color:#0b1020}
+    .badge-round{background:rgba(255,255,255,.12);color:var(--muted)}
+    .badge-extreme{background:rgba(255,107,107,.18);color:#ff9898}
+    .candidate-name{font-size:1.05rem;font-weight:900;letter-spacing:-.03em;margin-bottom:2px}
+    .candidate-party{font-size:.78rem;color:var(--muted);margin-bottom:8px}
+    .candidate-tagline{font-size:.81rem;color:var(--muted);font-style:italic;border-top:1px solid var(--border);padding-top:8px;line-height:1.4}
+
+    /* ── Comparaison principale ── */
+    .versus-block{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid var(--border);border-radius:24px;padding:28px;margin-bottom:28px}
+    .versus-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+    .versus-title{font-size:1.2rem;font-weight:900;letter-spacing:-.03em;margin:0}
+    .versus-table{width:100%;border-collapse:collapse}
+    .versus-table th{padding:10px 14px;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);text-align:left;border-bottom:1px solid var(--border)}
+    .versus-table th.col-sim{color:var(--accent)}
+    .versus-table th.col-real{color:var(--accent2)}
+    .versus-table td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06);font-size:.95rem;vertical-align:top}
+    .versus-table td.col-label{color:var(--muted);font-weight:750;font-size:.88rem}
+    .versus-table td.col-sim{font-weight:900;font-size:1.15rem;letter-spacing:-.03em}
+    .versus-table td.col-real{font-weight:900;font-size:1.15rem;letter-spacing:-.03em;color:var(--accent2)}
+    .versus-table td.col-delta{font-size:.85rem;font-weight:800}
+    .versus-table tr:last-child td{border-bottom:none}
+    .delta-better{color:var(--green)}
+    .delta-worse{color:var(--red)}
+    .delta-neutral{color:var(--muted)}
+
+    /* ── Verdict ── */
+    .verdict-box{border-radius:16px;padding:16px 20px;margin-top:20px;font-size:.92rem;line-height:1.6;border:1px solid}
+    .verdict-box.positive{background:rgba(99,212,113,.07);border-color:rgba(99,212,113,.3);color:#a8f0b4}
+    .verdict-box.negative{background:rgba(255,107,107,.07);border-color:rgba(255,107,107,.3);color:#ffb3b3}
+    .verdict-box.mixed{background:rgba(93,214,197,.07);border-color:rgba(93,214,197,.3);color:#a0ede4}
+    .verdict-box.neutral{background:rgba(255,255,255,.04);border-color:var(--border);color:var(--muted)}
+
+    /* ── Graphique ── */
+    .chart-section{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid var(--border);border-radius:24px;padding:24px;margin-bottom:24px}
+    .chart-metric-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+    .chart-metric-tab{border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--muted);padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:850;font-size:.88rem;transition:all .15s}
+    .chart-metric-tab.active{background:var(--accent);color:#0b1020;border-color:transparent}
+    .chart-legend-row{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+    .chart-legend-item{display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:800;color:var(--muted)}
+    .legend-line{width:28px;height:3px;border-radius:2px}
+    .legend-line.dashed{background:repeating-linear-gradient(90deg,#aebbd4 0,#aebbd4 5px,transparent 5px,transparent 9px)}
+
+    /* ── Programme ── */
+    .program-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+    .program-panel{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:20px;padding:20px}
+    .program-panel h3{margin:0 0 14px;font-size:.95rem;color:var(--text);font-weight:900}
+    .program-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.86rem}
+    .program-row:last-child{border-bottom:none}
+    .program-row .lbl{color:var(--muted);flex:1}
+    .program-row .val{font-weight:800;text-align:right;max-width:180px}
+
+    /* ── Misc ── */
+    .section-label{font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px}
+    .disclaimer{border:1px solid rgba(246,195,67,.25);background:rgba(246,195,67,.05);border-radius:16px;padding:14px 18px;color:var(--muted);font-size:.84rem;line-height:1.55;margin-bottom:28px}
+
+    @media(max-width:900px){
+      .candidates-grid{grid-template-columns:repeat(2,1fr)}
+      .program-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      .candidates-grid{grid-template-columns:1fr 1fr}
+      .versus-table{font-size:.85rem}
+      .versus-table td.col-sim,.versus-table td.col-real{font-size:.98rem}
+    }
+    @media(max-width:420px){
+      .candidates-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Indicateurs</a></li>
+          <li><a href="/#simulateur-fiscal-reel">Mon impôt</a></li>
+          <li><a href="/elections/" style="color:var(--accent)">Élections</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <a href="/" class="cta">← Tableau de bord</a>
+    </div>
+  </header>
+
+  <main style="max-width:1100px;margin:auto;padding:36px 24px 80px">
+
+    <nav aria-label="Fil d'Ariane" style="margin-bottom:20px;font-size:.88rem;color:var(--muted)">
+      <a href="/">Accueil</a> › <span>Simulateur présidentiel</span>
+    </nav>
+
+    <div style="margin-bottom:32px">
+      <div class="eyebrow">Outil interactif · données officielles</div>
+      <h1 style="font-size:clamp(1.9rem,4.5vw,3.2rem);margin-bottom:12px;line-height:1.05">Et si un autre candidat avait gagné ?</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:700px;margin:0">
+        Sélectionnez une élection et un candidat pour voir l'impact simulé de son programme — puis comparez ligne à ligne avec <strong style="color:var(--accent2)">ce qui s'est réellement passé</strong>.
+      </p>
+    </div>
+
+    <div class="disclaimer">
+      <strong style="color:var(--accent)">Méthodologie :</strong> Projections construites à partir des programmes officiels et des analyses d'instituts économiques (OFCE, CAE, FMI). Les effets sont appliqués aux données réelles de départ via un modèle paramétrique. Objectif pédagogique : visualiser les ordres de grandeur des choix politiques, pas prédire l'avenir. L'exécution réelle dépend de la conjoncture mondiale, du Parlement et des arbitrages budgétaires.
+    </div>
+
+    <!-- Étape 1 : année -->
+    <div class="section-label">1 — Choisir l'élection</div>
+    <div class="year-selector" id="yearSelector">
+      <button class="year-btn" data-year="2002">2002</button>
+      <button class="year-btn" data-year="2007">2007</button>
+      <button class="year-btn" data-year="2012">2012</button>
+      <button class="year-btn" data-year="2017">2017</button>
+      <button class="year-btn active" data-year="2022">2022</button>
+    </div>
+
+    <!-- Étape 2 : candidat -->
+    <div class="section-label">2 — Choisir le candidat</div>
+    <div class="candidates-grid" id="candidatesGrid"></div>
+
+    <!-- Étape 3 : comparaison simulé vs réel -->
+    <div class="versus-block" id="versusBlock">
+      <div class="versus-header">
+        <h2 class="versus-title" id="versusTitle">Résultats simulés vs réels</h2>
+        <div id="versusBadges" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+      </div>
+
+      <table class="versus-table" aria-label="Comparaison simulé vs réel">
+        <thead>
+          <tr>
+            <th style="width:30%">Indicateur</th>
+            <th class="col-sim" id="colSimHeader" style="width:23%">— Programme simulé</th>
+            <th class="col-real" style="width:23%">✓ Réalité</th>
+            <th style="width:24%">Écart simulé → réel</th>
+          </tr>
+        </thead>
+        <tbody id="versusBody"></tbody>
+      </table>
+
+      <div class="verdict-box neutral" id="verdictBox">Sélectionnez un candidat pour voir le verdict.</div>
+    </div>
+
+    <!-- Étape 4 : graphique comparatif -->
+    <div class="chart-section">
+      <div style="margin-bottom:18px">
+        <div class="section-label" style="margin-bottom:6px">3 — Trajectoire comparée année par année</div>
+        <div class="chart-metric-tabs" id="chartTabs">
+          <button class="chart-metric-tab active" data-metric="debt">Dette / PIB</button>
+          <button class="chart-metric-tab" data-metric="inflation">Inflation</button>
+          <button class="chart-metric-tab" data-metric="purchasing">Pouvoir d'achat</button>
+        </div>
+        <div class="chart-legend-row">
+          <div class="chart-legend-item"><div class="legend-line" style="background:#f6c343"></div><span id="legendCandidate">Programme candidat sélectionné</span></div>
+          <div class="chart-legend-item"><div class="legend-line" style="background:#5dd6c5"></div><span>Trajectoire réelle</span></div>
+          <div class="chart-legend-item"><div class="legend-line dashed"></div><span id="legendWinner">Programme du vainqueur</span></div>
+        </div>
+      </div>
+      <div class="chart-box" style="height:320px">
+        <svg id="elecSvg" class="svg-chart"></svg>
+      </div>
+      <p id="chartCaption" style="color:var(--muted);font-size:.82rem;margin:10px 0 0;text-align:center"></p>
+    </div>
+
+    <!-- Étape 5 : programme détaillé -->
+    <div id="programSection">
+      <div class="section-label">4 — Détail du programme économique</div>
+      <div class="program-grid">
+        <div class="program-panel">
+          <h3>📋 Mesures fiscales &amp; budgétaires</h3>
+          <div id="programFiscal"></div>
+        </div>
+        <div class="program-panel">
+          <h3>🏛️ Mesures sociales &amp; structurelles</h3>
+          <div id="programSocial"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div style="text-align:center;padding:28px 0 0;border-top:1px solid var(--border)">
+      <p style="color:var(--muted);margin-bottom:14px;font-size:.9rem">Partagez ce simulateur</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a class="share-btn" id="shareTwitter" href="https://twitter.com/intent/tweet?text=Et+si+un+autre+candidat+avait+gagn%C3%A9+%3F+Simulez+l%27impact+%C3%A9conomique+des+programmes+pr%C3%A9sidentiels+de+2002+%C3%A0+2022+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Felections%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+        <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2Felections%2F" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/elections/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : INSEE · Banque de France · OFCE · CAE</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  // ─── Base de données électorale ───────────────────────────────────────────────
+  // Pour chaque candidat :
+  //   projDebt / projInflation / projPurchasing = valeur FIN de mandat simulée
+  //   debtSeries / inflationSeries / purchasingSeries = trajectoire annuelle (6 points : année élection → +5 ans)
+  // Pour actual :
+  //   debtEnd / inflationAvg / purchasingEnd = valeurs réelles fin de mandat
+  //   *Series = trajectoire réelle
+
+  const ELECTIONS = {
+    2022: {
+      label:'Présidentielle 2022 (mandat 2022–2027)',
+      startYear: 2022,
+      actual: {
+        debtEnd: 112.0, inflationAvg: 3.6, purchasingEnd: 97.0,
+        debtSeries:       [111.6, 111.8, 112.2, 112.4, 112.0, 112.0],
+        inflationSeries:  [5.2,   5.9,   4.9,   2.3,   1.8,   2.1],
+        purchasingSeries: [100,   97.5,  96.8,  97.2,  97.5,  97.0]
+      },
+      candidates: [
+        {
+          id:'macron22', name:'Emmanuel Macron', party:'Renaissance (LREM)',
+          color:'#5bc3eb', round:true, winner:true,
+          tagline:'Plein emploi, réforme des retraites à 64 ans, transition écologique.',
+          projDebt:109.7, projInflation:4.7, projPurchasing:102.0,
+          debtSeries:       [111.6,111.2,111.0,110.5,110.1,109.7],
+          inflationSeries:  [5.2,  5.5,  4.4,  2.0,  1.6,  1.8],
+          purchasingSeries: [100,  98.5, 99.0, 100.2,101.0,102.0],
+          fiscal:[
+            {lbl:'Baisse cotisations entreprises',val:'+0,5 pt PIB coût'},
+            {lbl:'Déficit cible 2027',val:'< 3 % PIB'},
+            {lbl:'Suppression cotisation chômage',val:'−3,5 Md€/an'},
+          ],
+          social:[
+            {lbl:'Réforme retraites (64 ans)',val:'−18 Md€ déficit/an'},
+            {lbl:'Revenu d\'engagement jeunes',val:'+500 M€/an'},
+            {lbl:'Hausse SMIC',val:'+100 € net'},
+          ]
+        },
+        {
+          id:'lepen22', name:'Marine Le Pen', party:'Rassemblement National',
+          color:'#3b5bdb', round:true, winner:false,
+          tagline:'Baisse TVA énergie/alim., fin réforme retraites, protectionnisme.',
+          projDebt:120.6, projInflation:3.5, projPurchasing:106.0,
+          debtSeries:       [111.6,113.2,115.0,116.8,118.5,120.6],
+          inflationSeries:  [5.2,  4.8,  4.0,  2.5,  2.2,  2.0],
+          purchasingSeries: [100,  100.5,102.0,103.5,104.8,106.0],
+          fiscal:[
+            {lbl:'Baisse TVA énergie (20→5,5%)',val:'−12 Md€/an recettes'},
+            {lbl:'Baisse TVA alimentation',val:'−4 Md€/an recettes'},
+            {lbl:'Déficit cible',val:'~5 % PIB à court terme'},
+          ],
+          social:[
+            {lbl:'Maintien retraite à 60 ans',val:'+30 Md€/an dépenses'},
+            {lbl:'Gel prix énergie',val:'+8 Md€ coût État'},
+            {lbl:'Préférence nationale emploi public',val:'neutre budgétaire'},
+          ]
+        },
+        {
+          id:'melenchon22', name:'Jean-Luc Mélenchon', party:'La France Insoumise',
+          color:'#e02020', round:false, winner:false,
+          tagline:'Retraite à 60 ans, SMIC 1 400€, planification écologique, 6e République.',
+          projDebt:123.6, projInflation:6.3, projPurchasing:109.0,
+          debtSeries:       [111.6,113.8,116.2,118.8,121.2,123.6],
+          inflationSeries:  [5.2,  6.2,  6.5,  6.0,  5.8,  6.0],
+          purchasingSeries: [100,  101.5,103.5,105.5,107.5,109.0],
+          fiscal:[
+            {lbl:'Hausse IR (tranche 90%)',val:'+25 Md€/an recettes'},
+            {lbl:'ISF élargi rétabli',val:'+10 Md€/an'},
+            {lbl:'Déficit initial (investissement)',val:'~6 % PIB'},
+          ],
+          social:[
+            {lbl:'Retraite à 60 ans',val:'+35 Md€/an dépenses'},
+            {lbl:'SMIC à 1 400 € net',val:'+22 Md€ masse salariale'},
+            {lbl:'Planification écologique',val:'+50 Md€ invest. public'},
+          ]
+        },
+        {
+          id:'zemmour22', name:'Éric Zemmour', party:'Reconquête',
+          color:'#1a3b8c', round:false, winner:false,
+          tagline:'Flat tax 15%, suppression aides sociales, retraite à 65 ans.',
+          projDebt:115.6, projInflation:4.4, projPurchasing:96.0,
+          debtSeries:       [111.6,112.2,113.0,113.8,114.5,115.6],
+          inflationSeries:  [5.2,  5.2,  4.8,  3.8,  3.2,  2.8],
+          purchasingSeries: [100,  99.0, 98.5, 98.0, 97.2, 96.0],
+          fiscal:[
+            {lbl:'Flat tax IR à 15%',val:'−60 Md€/an recettes'},
+            {lbl:'Suppression ISF-PFU',val:'−5 Md€/an'},
+            {lbl:'Baisse dépenses sociales',val:'−50 Md€/an'},
+          ],
+          social:[
+            {lbl:'Suppression CAF / APL réduit',val:'−15 Md€ prestations'},
+            {lbl:'Retraite à 65 ans',val:'−12 Md€/an déficit'},
+            {lbl:'Fin immigration nette zéro',val:'−5 Md€ éco. estimé'},
+          ]
+        }
+      ]
+    },
+
+    2017: {
+      label:'Présidentielle 2017 (mandat 2017–2022)',
+      startYear: 2017,
+      actual: {
+        debtEnd: 112.9, inflationAvg: 1.6, purchasingEnd: 99.5,
+        debtSeries:       [98.3, 98.7, 99.2, 97.4, 115.0,112.9],
+        inflationSeries:  [1.0,  1.8,  1.5,  1.1,  0.5,   2.8],
+        purchasingSeries: [100,  100.4,101.2,102.0, 98.5,  99.5]
+      },
+      candidates: [
+        {
+          id:'macron17', name:'Emmanuel Macron', party:'En Marche',
+          color:'#5bc3eb', round:true, winner:true,
+          tagline:'Transformation libérale, formation, réforme assurance chômage.',
+          projDebt:99.3, projInflation:1.0, projPurchasing:101.0,
+          debtSeries:       [98.3, 98.5, 99.0, 97.5, 98.0, 99.3],
+          inflationSeries:  [1.0,  1.6,  1.4,  1.0,  0.6,  1.2],
+          purchasingSeries: [100,  100.5,101.2,101.8,101.2,101.0],
+          fiscal:[
+            {lbl:'Suppression taxe habitation',val:'−23 Md€ recettes locales'},
+            {lbl:'Flat tax capital (PFU 30%)',val:'−5 Md€/an'},
+            {lbl:'Déficit cible 2022',val:'< 3 % PIB'},
+          ],
+          social:[
+            {lbl:'Réforme assurance chômage',val:'−3 Md€/an dépenses'},
+            {lbl:'Plan investissement 50 Md€',val:'+10 Md€/an'},
+            {lbl:'Hausse CSG retraités',val:'+3 Md€/an recettes'},
+          ]
+        },
+        {
+          id:'lepen17', name:'Marine Le Pen', party:'Front National',
+          color:'#3b5bdb', round:true, winner:false,
+          tagline:'Sortie de l\'euro, protectionnisme, retraite à 60 ans.',
+          projDebt:114.3, projInflation:5.2, projPurchasing:90.0,
+          debtSeries:       [98.3, 101.5,104.8,107.5,110.0,114.3],
+          inflationSeries:  [1.0,  3.5,  5.0,  5.5,  5.2,  5.2],
+          purchasingSeries: [100,  97.0, 94.5, 92.5, 91.2, 90.0],
+          fiscal:[
+            {lbl:'Sortie de l\'euro (choc estimé)',val:'−10 % PIB initial'},
+            {lbl:'Déficit initial estimé',val:'~7 % PIB'},
+            {lbl:'Préférence nationale commandes',val:'+4 Md€ industrie'},
+          ],
+          social:[
+            {lbl:'Retraite à 60 ans',val:'+20 Md€/an dépenses'},
+            {lbl:'Gel immigration légale',val:'impact négatif emploi'},
+            {lbl:'Protections douanières',val:'+2 pts inflation estimés'},
+          ]
+        },
+        {
+          id:'melenchon17', name:'Jean-Luc Mélenchon', party:'La France Insoumise',
+          color:'#e02020', round:false, winner:false,
+          tagline:'Plan B européen, planification écologique, retraite à 60 ans.',
+          projDebt:108.3, projInflation:3.8, projPurchasing:107.5,
+          debtSeries:       [98.3, 100.3,102.5,104.5,106.5,108.3],
+          inflationSeries:  [1.0,  2.2,  3.5,  4.0,  3.8,  3.8],
+          purchasingSeries: [100,  101.8,103.5,105.0,106.5,107.5],
+          fiscal:[
+            {lbl:'100 Md€ investissements publics',val:'+20 Md€/an'},
+            {lbl:'Hausse impôts hauts revenus',val:'+15 Md€/an recettes'},
+            {lbl:'Déficit initial',val:'~6 % PIB'},
+          ],
+          social:[
+            {lbl:'SMIC 1 326 € net',val:'+18 Md€ masse salariale'},
+            {lbl:'Retraite à 60 ans',val:'+22 Md€/an dépenses'},
+            {lbl:'100 000 postes publics créés',val:'+3 Md€/an'},
+          ]
+        },
+        {
+          id:'fillon17', name:'François Fillon', party:'Les Républicains',
+          color:'#4dabf7', round:false, winner:false,
+          tagline:'500 000 suppressions de postes, rigueur budgétaire, libéralisation.',
+          projDebt:93.3, projInflation:0.4, projPurchasing:94.0,
+          debtSeries:       [98.3, 97.3, 96.0, 94.8, 94.0, 93.3],
+          inflationSeries:  [1.0,  0.8,  0.5,  0.4,  0.2,  0.4],
+          purchasingSeries: [100,  99.0, 97.5, 96.5, 95.0, 94.0],
+          fiscal:[
+            {lbl:'500 000 postes FP supprimés',val:'−22 Md€/an dépenses'},
+            {lbl:'Déficit cible moyen terme',val:'0 % PIB'},
+            {lbl:'Suppression 35h dans le public',val:'−2 Md€ coût/an'},
+          ],
+          social:[
+            {lbl:'Recul retraite à 65 ans',val:'−15 Md€/an déficit'},
+            {lbl:'Suppression aides sociales',val:'−10 Md€/an'},
+            {lbl:'Franchise médicale élargie',val:'−4 Md€/an sécu'},
+          ]
+        }
+      ]
+    },
+
+    2012: {
+      label:'Présidentielle 2012 (mandat 2012–2017)',
+      startYear: 2012,
+      actual: {
+        debtEnd: 98.4, inflationAvg: 0.8, purchasingEnd: 99.2,
+        debtSeries:       [90.6, 93.2, 95.0, 94.9, 96.6, 98.4],
+        inflationSeries:  [2.0,  0.9,  0.6,  0.1,  0.0,  0.2],
+        purchasingSeries: [100,  99.8, 99.5, 99.2, 99.0, 99.2]
+      },
+      candidates: [
+        {
+          id:'hollande12', name:'François Hollande', party:'Parti Socialiste',
+          color:'#ff6b6b', round:true, winner:true,
+          tagline:'Emplois d\'avenir, tranche 75%, CICE pour les entreprises.',
+          projDebt:98.6, projInflation:0.8, projPurchasing:99.0,
+          debtSeries:       [90.6, 93.2, 95.0, 94.9, 96.6, 98.6],
+          inflationSeries:  [2.0,  0.8,  0.5,  0.1,  0.0,  0.2],
+          purchasingSeries: [100,  99.8, 99.5, 99.2, 99.0, 99.0],
+          fiscal:[
+            {lbl:'Tranche IR à 75% (>1 M€)',val:'+800 M€ (annulé CC)'},
+            {lbl:'CICE (compétitivité)',val:'−20 Md€ recettes/an'},
+            {lbl:'Déficit maîtrisé',val:'Pacte stabilité UE'},
+          ],
+          social:[
+            {lbl:'Emplois d\'avenir (150 000)',val:'+1,8 Md€/an'},
+            {lbl:'Mariage pour tous',val:'neutre budgétaire'},
+            {lbl:'Allocation rentrée +25%',val:'+500 M€/an'},
+          ]
+        },
+        {
+          id:'sarkozy12', name:'Nicolas Sarkozy', party:'UMP',
+          color:'#4dabf7', round:true, winner:false,
+          tagline:'TVA sociale, rigueur budgétaire, maintien réforme retraites.',
+          projDebt:94.6, projInflation:1.4, projPurchasing:98.0,
+          debtSeries:       [90.6, 91.4, 92.5, 92.5, 93.5, 94.6],
+          inflationSeries:  [2.0,  1.5,  1.2,  0.8,  0.6,  0.8],
+          purchasingSeries: [100,  99.5, 99.0, 98.8, 98.5, 98.0],
+          fiscal:[
+            {lbl:'TVA sociale (+1,6 pt)',val:'+11 Md€ recettes'},
+            {lbl:'Rigueur dépenses maintenue',val:'−10 Md€/an'},
+            {lbl:'Déficit cible 2017',val:'< 1 % PIB'},
+          ],
+          social:[
+            {lbl:'Maintien retraite à 62 ans',val:'−10 Md€/an déficit'},
+            {lbl:'Réforme allocations chômage',val:'−2 Md€/an'},
+            {lbl:'RSA activité renforcé',val:'+1 Md€/an'},
+          ]
+        },
+        {
+          id:'melenchon12', name:'Jean-Luc Mélenchon', party:'Front de Gauche',
+          color:'#e02020', round:false, winner:false,
+          tagline:'SMIC 1 700€ brut, retraite à 60 ans, nationalisations.',
+          projDebt:104.6, projInflation:4.2, projPurchasing:112.5,
+          debtSeries:       [90.6, 93.4, 96.4, 99.5,102.0,104.6],
+          inflationSeries:  [2.0,  3.5,  4.0,  4.2,  4.0,  4.2],
+          purchasingSeries: [100,  102.5,105.5,108.2,110.5,112.5],
+          fiscal:[
+            {lbl:'SMIC à 1 700 € brut',val:'+30 Md€ masse salariale'},
+            {lbl:'Tranche IR à 100% (>360k€)',val:'+3 Md€ recettes'},
+            {lbl:'Déficit initial',val:'~8 % PIB'},
+          ],
+          social:[
+            {lbl:'Retraite à 60 ans',val:'+35 Md€/an dépenses'},
+            {lbl:'Nationalisations banques/énergie',val:'choc incertain'},
+            {lbl:'150 000 postes publics créés',val:'+4,5 Md€/an'},
+          ]
+        },
+        {
+          id:'lepen12', name:'Marine Le Pen', party:'Front National',
+          color:'#3b5bdb', round:false, winner:false,
+          tagline:'Sortie de l\'euro, protectionnisme, fin de l\'austérité.',
+          projDebt:103.1, projInflation:5.5, projPurchasing:82.5,
+          debtSeries:       [90.6, 93.1, 96.0, 98.5,100.8,103.1],
+          inflationSeries:  [2.0,  5.0,  6.0,  5.5,  5.2,  5.0],
+          purchasingSeries: [100,  95.5, 91.5, 88.5, 85.5, 82.5],
+          fiscal:[
+            {lbl:'Sortie de l\'euro (dévaluation)',val:'−8 % PIB choc'},
+            {lbl:'Protectionnisme',val:'+3 pts inflation importée'},
+            {lbl:'Déficit non maîtrisé',val:'~8 % PIB'},
+          ],
+          social:[
+            {lbl:'Retraite à 60 ans',val:'+20 Md€/an dépenses'},
+            {lbl:'Priorité nationale emploi',val:'−60k emplois'},
+            {lbl:'Fin traités européens',val:'incertitude marchés ++'},
+          ]
+        }
+      ]
+    },
+
+    2007: {
+      label:'Présidentielle 2007 (mandat 2007–2012)',
+      startYear: 2007,
+      actual: {
+        debtEnd: 90.6, inflationAvg: 1.6, purchasingEnd: 98.5,
+        debtSeries:       [64.2, 68.0, 79.2, 82.4, 85.3, 90.6],
+        inflationSeries:  [1.5,  2.8,  0.1,  1.5,  2.1,  2.0],
+        purchasingSeries: [100,  100.2, 99.5, 99.0, 98.8, 98.5]
+      },
+      candidates: [
+        {
+          id:'sarkozy07', name:'Nicolas Sarkozy', party:'UMP',
+          color:'#4dabf7', round:true, winner:true,
+          tagline:'Travailler plus pour gagner plus, bouclier fiscal, rupture.',
+          projDebt:90.2, projInflation:1.8, projPurchasing:98.5,
+          debtSeries:       [64.2, 67.8, 78.8, 82.0, 85.0, 90.2],
+          inflationSeries:  [1.5,  2.8,  0.2,  1.5,  2.0,  2.0],
+          purchasingSeries: [100,  100.2, 99.5, 99.0, 98.8, 98.5],
+          fiscal:[
+            {lbl:'Bouclier fiscal (60% revenus)',val:'−700 M€/an recettes'},
+            {lbl:'Heures sup défiscalisées',val:'−4 Md€/an'},
+            {lbl:'Déficit pré-crise',val:'2,7 % PIB → crise 2008'},
+          ],
+          social:[
+            {lbl:'Réforme régimes spéciaux',val:'−2 Md€/an dépenses'},
+            {lbl:'RSA (remplacement RMI)',val:'+1 Md€/an'},
+            {lbl:'Service minimum garanti',val:'neutre'},
+          ]
+        },
+        {
+          id:'royal07', name:'Ségolène Royal', party:'Parti Socialiste',
+          color:'#ff6b6b', round:true, winner:false,
+          tagline:'SMIC 1 500€, logement pour tous, contrat première chance.',
+          projDebt:88.2, projInflation:2.8, projPurchasing:107.5,
+          debtSeries:       [64.2, 66.8, 76.5, 79.8, 83.2, 88.2],
+          inflationSeries:  [1.5,  3.2,  2.2,  2.0,  2.2,  2.5],
+          purchasingSeries: [100,  101.2,102.8,104.5,106.2,107.5],
+          fiscal:[
+            {lbl:'SMIC 1 500 € brut',val:'+20 Md€ masse salariale'},
+            {lbl:'Plan logement 120 000/an',val:'+3 Md€/an'},
+            {lbl:'Déficit cible 2012',val:'0 % PIB'},
+          ],
+          social:[
+            {lbl:'Allocation autonomie jeunes',val:'+3 Md€/an'},
+            {lbl:'Encadrement prix loyers',val:'impact locatif'},
+            {lbl:'Service public petite enfance',val:'+2 Md€/an'},
+          ]
+        },
+        {
+          id:'bayrou07', name:'François Bayrou', party:'MoDem',
+          color:'#f6a623', round:false, winner:false,
+          tagline:'Réduction de la dette, réconciliation nationale, Europe.',
+          projDebt:79.2, projInflation:1.0, projPurchasing:97.5,
+          debtSeries:       [64.2, 65.5, 74.0, 75.8, 77.5, 79.2],
+          inflationSeries:  [1.5,  2.5,  0.1,  1.0,  1.2,  1.5],
+          purchasingSeries: [100,  99.8, 99.0, 98.5, 98.0, 97.5],
+          fiscal:[
+            {lbl:'Rigueur budgétaire immédiate',val:'−15 Md€ dépenses/an'},
+            {lbl:'Déficit cible 2012',val:'< 1 % PIB'},
+            {lbl:'Réforme fiscale neutre',val:'CT neutre'},
+          ],
+          social:[
+            {lbl:'Pas de hausse SMIC majeure',val:'neutre'},
+            {lbl:'Réforme retraites progressive',val:'−5 Md€/an LT'},
+            {lbl:'Service public maintenu',val:'léger recul'},
+          ]
+        },
+        {
+          id:'lepen07', name:'Jean-Marie Le Pen', party:'Front National',
+          color:'#1a3b8c', round:false, winner:false,
+          tagline:'Sortie de l\'euro immédiate, protectionnisme intégral.',
+          projDebt:104.2, projInflation:9.5, projPurchasing:60.0,
+          debtSeries:       [64.2, 70.0, 80.5, 88.0, 96.0,104.2],
+          inflationSeries:  [1.5,  7.0,  10.5,  9.5,  9.5,  9.5],
+          purchasingSeries: [100,  93.0, 83.5, 75.0, 67.0, 60.0],
+          fiscal:[
+            {lbl:'Sortie de l\'euro',val:'−15 % PIB choc estimé'},
+            {lbl:'Nationalisation banques',val:'−5 % confiance'},
+            {lbl:'Déficit explosif',val:'~10 % PIB'},
+          ],
+          social:[
+            {lbl:'Priorité nationale absolue',val:'−200k emplois'},
+            {lbl:'Retraite à 60 ans',val:'+15 Md€/an'},
+            {lbl:'Fin des traités UE',val:'incertitude marchés ++'},
+          ]
+        }
+      ]
+    },
+
+    2002: {
+      label:'Présidentielle 2002 (mandat 2002–2007)',
+      startYear: 2002,
+      actual: {
+        debtEnd: 64.2, inflationAvg: 1.9, purchasingEnd: 102.5,
+        debtSeries:       [58.8, 62.9, 64.9, 66.4, 66.7, 64.2],
+        inflationSeries:  [1.7,  2.1,  2.1,  1.7,  1.7,  1.5],
+        purchasingSeries: [100,  100.8,101.5,102.0,102.2,102.5]
+      },
+      candidates: [
+        {
+          id:'chirac02', name:'Jacques Chirac', party:'RPR/UMP',
+          color:'#4dabf7', round:true, winner:true,
+          tagline:'Fracture sociale, baisse d\'impôts progressive, réforme retraites.',
+          projDebt:63.8, projInflation:2.0, projPurchasing:102.5,
+          debtSeries:       [58.8, 62.9, 64.9, 66.4, 66.7, 63.8],
+          inflationSeries:  [1.7,  2.1,  2.1,  1.7,  1.7,  1.5],
+          purchasingSeries: [100,  100.8,101.5,102.0,102.2,102.5],
+          fiscal:[
+            {lbl:'Baisse IR 5%/an sur 5 ans',val:'−15 Md€ total'},
+            {lbl:'Maîtrise déficit',val:'Pacte stabilité UE'},
+            {lbl:'Réforme retraites 2003',val:'−5 Md€/an dépenses'},
+          ],
+          social:[
+            {lbl:'Plan cohésion sociale',val:'+2 Md€/an'},
+            {lbl:'35h maintenues',val:'neutre'},
+            {lbl:'RMI maintenu',val:'neutre'},
+          ]
+        },
+        {
+          id:'jospin02', name:'Lionel Jospin', party:'Parti Socialiste',
+          color:'#ff6b6b', round:true, winner:false,
+          tagline:'35h pérennisées, emplois-jeunes, hausse SMIC.',
+          projDebt:65.8, projInflation:2.4, projPurchasing:106.0,
+          debtSeries:       [58.8, 61.0, 62.5, 63.5, 64.5, 65.8],
+          inflationSeries:  [1.7,  2.2,  2.5,  2.4,  2.2,  2.0],
+          purchasingSeries: [100,  101.2,102.5,103.8,105.0,106.0],
+          fiscal:[
+            {lbl:'Maintien 35 heures',val:'+4 Md€ coût employeurs'},
+            {lbl:'Emplois-jeunes pérennisés',val:'+2 Md€/an'},
+            {lbl:'Déficit maîtrisé',val:'−3 % PIB engagé'},
+          ],
+          social:[
+            {lbl:'Hausse SMIC +5%/an',val:'+10 Md€ masse salariale'},
+            {lbl:'Retraite maintenue à 60 ans',val:'+8 Md€/an'},
+            {lbl:'APA maintenue et élargie',val:'+1 Md€/an'},
+          ]
+        },
+        {
+          id:'lepen02', name:'Jean-Marie Le Pen', party:'Front National',
+          color:'#1a3b8c', round:false, winner:false,
+          tagline:'Sortie de l\'euro dès 2002, protectionnisme total.',
+          projDebt:103.8, projInflation:8.5, projPurchasing:40.0,
+          debtSeries:       [58.8, 67.8, 78.0, 87.5, 95.8,103.8],
+          inflationSeries:  [1.7,  6.5,  9.0,  8.5,  8.5,  8.5],
+          purchasingSeries: [100,  88.0, 75.0, 62.0, 50.5, 40.0],
+          fiscal:[
+            {lbl:'Sortie de l\'euro 2002',val:'−20 % PIB choc'},
+            {lbl:'Protectionnisme total',val:'+4 pts inflation'},
+            {lbl:'Déficit',val:'> 10 % PIB'},
+          ],
+          social:[
+            {lbl:'Priorité nationale totale',val:'exclusion main d\'œuvre'},
+            {lbl:'Retraite 60 ans maintenue',val:'+8 Md€/an'},
+            {lbl:'Protections douanières',val:'+4 pts inflation'},
+          ]
+        },
+        {
+          id:'chevenement02', name:'Jean-Pierre Chevènement', party:'MDC',
+          color:'#63d471', round:false, winner:false,
+          tagline:'Planification républicaine, industrie nationale, souverainisme de gauche.',
+          projDebt:67.8, projInflation:2.8, projPurchasing:105.0,
+          debtSeries:       [58.8, 61.5, 62.8, 64.0, 65.8, 67.8],
+          inflationSeries:  [1.7,  2.5,  2.8,  2.8,  2.6,  2.4],
+          purchasingSeries: [100,  101.0,102.0,103.0,104.0,105.0],
+          fiscal:[
+            {lbl:'Plan industriel public',val:'+10 Md€/an invest.'},
+            {lbl:'Hausse IS grands groupes',val:'+5 Md€/an'},
+            {lbl:'Déficit cible 2007',val:'~3 % PIB'},
+          ],
+          social:[
+            {lbl:'SMIC 1 200 € brut',val:'+8 Md€ masse salariale'},
+            {lbl:'Retraite à 60 ans',val:'+10 Md€/an'},
+            {lbl:'Relocalisation industries',val:'+3 % emploi estimé'},
+          ]
+        }
+      ]
+    }
+  };
+
+  // ─── État ────────────────────────────────────────────────────────────────────
+  let currentYear = 2022;
+  let selectedId   = 'lepen22';
+  let currentMetric = 'debt';
+
+  // ─── Helpers ─────────────────────────────────────────────────────────────────
+  const $  = id => document.getElementById(id);
+  const f1 = v  => v.toLocaleString('fr-FR', {maximumFractionDigits:1});
+  const fPct = v => f1(v) + ' %';
+
+  function svgEl(tag, attrs) {
+    const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v));
+    return e;
+  }
+
+  // ─── 1. Candidats ────────────────────────────────────────────────────────────
+  function renderCandidates() {
+    const elec = ELECTIONS[currentYear];
+    $('candidatesGrid').innerHTML = '';
+    elec.candidates.forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'candidate-card'
+        + (c.winner ? ' winner-card' : '')
+        + (c.id === selectedId ? ' selected' : '');
+
+      const roundBadge = c.round
+        ? `<span class="badge badge-round">2e tour</span>`
+        : `<span class="badge badge-extreme">Extrême</span>`;
+      const winnerBadge = c.winner ? `<span class="badge badge-winner">VAINQUEUR RÉEL</span>` : '';
+
+      div.innerHTML = `
+        <div class="badge-row">${roundBadge}${winnerBadge}</div>
+        <div class="candidate-name">${c.name}</div>
+        <div class="candidate-party">${c.party}</div>
+        <div class="candidate-tagline">${c.tagline}</div>
+      `;
+      div.addEventListener('click', () => { selectedId = c.id; render(); });
+      $('candidatesGrid').appendChild(div);
+    });
+  }
+
+  // ─── 2. Tableau comparatif simulé vs réel ────────────────────────────────────
+  function renderVersus() {
+    const elec = ELECTIONS[currentYear];
+    const c    = elec.candidates.find(x => x.id === selectedId);
+    if (!c) return;
+
+    $('versusTitle').textContent = c.winner
+      ? `Ce que le programme de ${c.name} a donné — vs projections`
+      : `Si ${c.name} avait gagné — vs ce qui s'est réellement passé`;
+
+    $('colSimHeader').textContent = c.winner
+      ? `★ Programme ${c.name.split(' ').pop()}`
+      : `↗ Scénario ${c.name.split(' ').pop()}`;
+
+    // Badges
+    const badges = [];
+    if (c.winner) badges.push(`<span class="badge badge-winner">PRÉSIDENT ÉLU</span>`);
+    else          badges.push(`<span class="badge badge-round">${c.round ? '2e tour' : 'Extrême'}</span>`);
+    $('versusBadges').innerHTML = badges.join('');
+
+    // Métriques
+    const metrics = [
+      {
+        label: 'Dette publique fin de mandat',
+        unit: '% du PIB',
+        sim: c.projDebt,
+        real: elec.actual.debtEnd,
+        fmtSim:  fPct(c.projDebt),
+        fmtReal: fPct(elec.actual.debtEnd),
+        lowerIsBetter: true
+      },
+      {
+        label: 'Inflation moyenne sur le mandat',
+        unit: '% / an',
+        sim: c.projInflation,
+        real: elec.actual.inflationAvg,
+        fmtSim:  fPct(c.projInflation),
+        fmtReal: fPct(elec.actual.inflationAvg),
+        lowerIsBetter: true
+      },
+      {
+        label: 'Pouvoir d\'achat fin de mandat',
+        unit: 'base 100 au départ',
+        sim: c.projPurchasing,
+        real: elec.actual.purchasingEnd,
+        fmtSim:  f1(c.projPurchasing) + '/100',
+        fmtReal: f1(elec.actual.purchasingEnd) + '/100',
+        lowerIsBetter: false
+      }
+    ];
+
+    $('versusBody').innerHTML = metrics.map(m => {
+      const diff = m.sim - m.real;
+      const absDiff = Math.abs(diff);
+      const simBetter = m.lowerIsBetter ? diff < 0 : diff > 0;
+      const sign = diff >= 0 ? '+' : '−';
+      const diffStr = `${sign}${f1(absDiff)} pts`;
+
+      let deltaClass, deltaLabel;
+      if (Math.abs(diff) < 0.2) {
+        deltaClass = 'delta-neutral'; deltaLabel = `≈ identique (${diffStr})`;
+      } else if (simBetter) {
+        deltaClass = 'delta-better'; deltaLabel = `${diffStr} (meilleur)`;
+      } else {
+        deltaClass = 'delta-worse'; deltaLabel = `${diffStr} (moins bien)`;
+      }
+
+      return `<tr>
+        <td class="col-label">${m.label}<br><span style="font-size:.76rem;opacity:.6">${m.unit}</span></td>
+        <td class="col-sim">${m.fmtSim}</td>
+        <td class="col-real">${m.fmtReal}</td>
+        <td class="col-delta"><span class="${deltaClass}">${deltaLabel}</span></td>
+      </tr>`;
+    }).join('');
+
+    // Verdict narratif
+    const debtDiff  = c.projDebt - elec.actual.debtEnd;
+    const inflDiff  = c.projInflation - elec.actual.inflationAvg;
+    const purchDiff = c.projPurchasing - elec.actual.purchasingEnd;
+    const betterCount = [
+      debtDiff  < -0.5,
+      inflDiff  < -0.5,
+      purchDiff > 0.5
+    ].filter(Boolean).length;
+    const worseCount = [
+      debtDiff  > 0.5,
+      inflDiff  > 0.5,
+      purchDiff < -0.5
+    ].filter(Boolean).length;
+
+    let verdictClass, verdictText;
+    if (c.winner) {
+      verdictText = `C'est la trajectoire réelle sous ${c.name}. Elle intègre des chocs exogènes (Covid, inflation 2022) qui n'étaient pas dans le programme initial — ce qui illustre les limites de toute projection.`;
+      verdictClass = 'neutral';
+    } else if (worseCount >= 2) {
+      verdictText = `Selon notre modèle, le programme de ${c.name} aurait conduit à une situation <strong>significativement plus difficile</strong> que ce qui s'est réellement passé : dette plus élevée, inflation plus forte ou pouvoir d'achat plus bas. Les effets auraient été ressentis dès la première année.`;
+      verdictClass = 'negative';
+    } else if (betterCount >= 2) {
+      verdictText = `Selon notre modèle, le programme de ${c.name} aurait produit une trajectoire <strong>globalement plus favorable</strong> que la réalité sur au moins deux des trois indicateurs. Ces gains simulés doivent être nuancés par les risques politiques et financiers associés.`;
+      verdictClass = 'positive';
+    } else {
+      verdictText = `Le programme de ${c.name} aurait produit des résultats <strong>contrastés</strong> : meilleur sur certains indicateurs, moins bon sur d'autres. Aucun programme n'optimise simultanément la dette, l'inflation et le pouvoir d'achat.`;
+      verdictClass = 'mixed';
+    }
+
+    $('verdictBox').className = `verdict-box ${verdictClass}`;
+    $('verdictBox').innerHTML = `<strong>Verdict :</strong> ${verdictText}`;
+
+    // Share
+    const winner = elec.candidates.find(x => x.winner);
+    const txt = encodeURIComponent(
+      `Si ${c.name} avait gagné en ${currentYear} : dette à ${fPct(c.projDebt)} vs ${fPct(elec.actual.debtEnd)} réel, pouvoir d'achat à ${f1(c.projPurchasing)}/100 vs ${f1(elec.actual.purchasingEnd)}/100 réel. Simulez les autres candidats →`
+    );
+    $('shareTwitter').href = `https://twitter.com/intent/tweet?text=${txt}&url=https%3A%2F%2Fle-francais-moyen.com%2Felections%2F`;
+  }
+
+  // ─── 3. Graphique ────────────────────────────────────────────────────────────
+  function renderChart() {
+    const elec   = ELECTIONS[currentYear];
+    const c      = elec.candidates.find(x => x.id === selectedId);
+    const winner = elec.candidates.find(x => x.winner);
+    if (!c) return;
+
+    // Légende
+    $('legendCandidate').textContent = c.winner
+      ? `Programme ${c.name.split(' ').pop()} (simulé)`
+      : `Scénario ${c.name.split(' ').pop()}`;
+    $('legendWinner').textContent = c.winner
+      ? 'Non affiché (candidat sélectionné = vainqueur)'
+      : `Programme ${winner.name.split(' ').pop()} (vainqueur réel)`;
+
+    // Séries
+    let sSel, sReal, sWinner, yLabel, yUnit;
+    if (currentMetric === 'debt') {
+      sSel = c.debtSeries; sReal = elec.actual.debtSeries; sWinner = winner.debtSeries;
+      yLabel = 'Dette / PIB'; yUnit = '%';
+    } else if (currentMetric === 'inflation') {
+      sSel = c.inflationSeries; sReal = elec.actual.inflationSeries; sWinner = winner.inflationSeries;
+      yLabel = 'Inflation'; yUnit = '%/an';
+    } else {
+      sSel = c.purchasingSeries; sReal = elec.actual.purchasingSeries; sWinner = winner.purchasingSeries;
+      yLabel = 'Pouvoir d\'achat'; yUnit = 'base 100';
+    }
+
+    const svg = $('elecSvg');
+    const W = 900, H = 300, ml = 52, mr = 20, mt = 18, mb = 40;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.innerHTML = '';
+
+    const allV = [...sSel, ...sReal, ...(c.id !== winner.id ? sWinner : [])];
+    const minV = Math.min(...allV) * 0.96;
+    const maxV = Math.max(...allV) * 1.04;
+    const n = sSel.length;
+    const labels = Array.from({length:n}, (_,i) => elec.startYear + i);
+
+    const xS = i => ml + (i / (n-1)) * (W - ml - mr);
+    const yS = v => mt + (H - mt - mb) * (1 - (v - minV) / (maxV - minV));
+
+    // Grille
+    for (let i = 0; i <= 4; i++) {
+      const v = minV + (maxV - minV) * i / 4;
+      const y = yS(v);
+      svg.appendChild(svgEl('line', {x1:ml, y1:y, x2:W-mr, y2:y, stroke:'rgba(255,255,255,.08)', 'stroke-width':1}));
+      const t = svgEl('text', {x:ml-5, y:y+4, 'text-anchor':'end', 'font-size':10, fill:'#7a8aa0'});
+      t.textContent = f1(v) + yUnit;
+      svg.appendChild(t);
+    }
+
+    // Axe X
+    labels.forEach((lab, i) => {
+      const t = svgEl('text', {x:xS(i), y:H-8, 'text-anchor':'middle', 'font-size':11, fill:'#7a8aa0'});
+      t.textContent = lab;
+      svg.appendChild(t);
+    });
+
+    // Zone entre simulé et réel (remplissage)
+    const areaPath = sSel.map((v,i) => `${i===0?'M':'L'}${xS(i)},${yS(v)}`).join(' ')
+      + sReal.map((v,i) => `${i===0?'L':'L'}${xS(n-1-i)},${yS(sReal[n-1-i])}`).join(' ')
+      + 'Z';
+    const areaFill = svgEl('path', {d:areaPath, fill:'rgba(246,195,67,.06)', stroke:'none'});
+    svg.appendChild(areaFill);
+
+    function drawLine(series, color, dashArr, lineWidth, opacity) {
+      const pts = series.map((v,i) => `${xS(i)},${yS(v)}`).join(' ');
+      svg.appendChild(svgEl('polyline', {
+        points:pts, fill:'none', stroke:color,
+        'stroke-width': lineWidth || 2.5,
+        'stroke-dasharray': dashArr || 'none',
+        'stroke-linecap':'round', 'stroke-linejoin':'round',
+        opacity: opacity || 1
+      }));
+      // Point final
+      const last = series.length - 1;
+      svg.appendChild(svgEl('circle', {cx:xS(last), cy:yS(series[last]), r:5, fill:color, opacity: opacity || 1}));
+      // Étiquette finale
+      const lbl = svgEl('text', {x:xS(last)+8, y:yS(series[last])+4, 'font-size':10, fill:color, 'font-weight':800, opacity: opacity || 1});
+      lbl.textContent = f1(series[last]) + yUnit;
+      svg.appendChild(lbl);
+    }
+
+    // Vainqueur en grisé si différent du sélectionné
+    if (c.id !== winner.id) drawLine(sWinner, '#aebbd4', '7,4', 1.8, 0.45);
+    // Réalité
+    drawLine(sReal, '#5dd6c5', 'none', 2.5);
+    // Sélectionné (en avant-plan)
+    drawLine(sSel, '#f6c343', 'none', 3.5);
+
+    // Caption
+    $('chartCaption').textContent = c.winner
+      ? `Programme réel de ${c.name} — trajectoire simulée (jaune) vs trajectoire réelle avec chocs exogènes (vert).`
+      : `Trajectoire simulée de ${c.name} (jaune) vs ce qui s'est réellement passé (vert). Écart de fin de mandat : ${currentMetric === 'debt' ? f1(c.projDebt - elec.actual.debtEnd) + ' pts PIB sur la dette' : currentMetric === 'inflation' ? f1(c.projInflation - elec.actual.inflationAvg) + ' pts sur l\'inflation' : f1(c.projPurchasing - elec.actual.purchasingEnd) + ' pts de pouvoir d\'achat'}.`;
+  }
+
+  // ─── 4. Programme ────────────────────────────────────────────────────────────
+  function renderProgram() {
+    const c = ELECTIONS[currentYear].candidates.find(x => x.id === selectedId);
+    if (!c) return;
+    $('programFiscal').innerHTML = c.fiscal.map(r =>
+      `<div class="program-row"><span class="lbl">${r.lbl}</span><span class="val">${r.val}</span></div>`
+    ).join('');
+    $('programSocial').innerHTML = c.social.map(r =>
+      `<div class="program-row"><span class="lbl">${r.lbl}</span><span class="val">${r.val}</span></div>`
+    ).join('');
+  }
+
+  // ─── Render all ──────────────────────────────────────────────────────────────
+  function render() {
+    renderCandidates();
+    renderVersus();
+    renderChart();
+    renderProgram();
+  }
+
+  // ─── Événements ──────────────────────────────────────────────────────────────
+  $('yearSelector').querySelectorAll('.year-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $('yearSelector').querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentYear = +btn.dataset.year;
+      // Défaut : challenger du 2e tour
+      const elec = ELECTIONS[currentYear];
+      const challenger = elec.candidates.find(c => c.round && !c.winner);
+      selectedId = challenger ? challenger.id : elec.candidates[0].id;
+      render();
+    });
+  });
+
+  $('chartTabs').querySelectorAll('.chart-metric-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      $('chartTabs').querySelectorAll('.chart-metric-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentMetric = tab.dataset.metric;
+      renderChart();
+    });
+  });
+
+  window.addEventListener('resize', renderChart);
+
+  // ─── Init ────────────────────────────────────────────────────────────────────
+  render();
+  </script>
+</body>
+</html>
