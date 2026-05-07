@@ -1,4 +1,4 @@
-const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg',COL=['#f6c343','#5dd6c5','#ff6b6b','#6ea8fe','#63d471','#b892ff','#ff9f43','#e879f9'];
+﻿const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg',COL=['#f6c343','#5dd6c5','#ff6b6b','#6ea8fe','#63d471','#b892ff','#ff9f43','#e879f9'];
 function fmt(v){return v==null?'—':Number(v).toLocaleString('fr-FR',{maximumFractionDigits:1})}
 function pct(a,b){return a&&b?((b/a-1)*100).toFixed(1).replace('.',',')+'%':'—'}
 function el(n,a={}){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e}
@@ -159,10 +159,10 @@ function calcPersonalImpact() {
 
     const shareBtn = document.getElementById('sharePersonal');
     if (shareBtn) {
-      const text = 'Depuis ' + workStart + ', mon panier de courses a augmenté de ' + foodUp + '%, le logement de ' + houseUp + '%… mais les salaires réels de ' + salaryUp + '% seulement. Les chiffres officiels : lefrancaismoyen.fr';
+      const text = 'Depuis ' + workStart + ', mon panier de courses a augmenté de ' + foodUp + '%, le logement de ' + houseUp + '%… mais les salaires réels de ' + salaryUp + '% seulement. Les chiffres officiels : le-francais-moyen.com';
       shareBtn.onclick = function() {
         if (navigator.share) {
-          navigator.share({ title: 'Mon bilan — Le Français Moyen', text: text, url: 'https://lefrancaismoyen.fr/' });
+          navigator.share({ title: 'Mon bilan — Le Français Moyen', text: text, url: 'https://le-francais-moyen.com/' });
         } else if (navigator.clipboard) {
           navigator.clipboard.writeText(text).then(function() { shareBtn.textContent = '✓ Copié !'; setTimeout(function() { shareBtn.textContent = 'Partager mon bilan'; }, 2500); });
         }

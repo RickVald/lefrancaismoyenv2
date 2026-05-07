@@ -1,4 +1,4 @@
-# Stratégie marketing bas coût — Le Français Moyen
+﻿# Stratégie marketing bas coût — Le Français Moyen
 
 Objectif : devenir la référence des Français qui cherchent des données économiques fiables.
 Budget mensuel cible : **0–50 €/mois** (hors temps passé).
@@ -79,10 +79,10 @@ Envoyer un email court (3 lignes max) à :
 - **Podcasts** : "Chaleur humaine", "Splash!", "Politique et éco" — proposer une intervention de 10 min sur un chiffre
 
 **Template email presse :**
-> Objet: Source de données économiques officielles françaises — lefrancaismoyen.fr
+> Objet: Source de données économiques officielles françaises — le-francais-moyen.com
 >
 > Bonjour [Prénom],
-> Je crée lefrancaismoyen.fr, un tableau de bord des données officielles françaises (INSEE, Eurostat, Banque de France) à destination du grand public. Le site met notamment en perspective [sujet de leur dernier article]. 
+> Je crée le-francais-moyen.com, un tableau de bord des données officielles françaises (INSEE, Eurostat, Banque de France) à destination du grand public. Le site met notamment en perspective [sujet de leur dernier article]. 
 > Voici la page la plus pertinente pour vous : [URL].
 > N'hésitez pas à le citer comme source — les données sont vérifiables directement depuis les APIs officielles.
 > Cordialement, [Prénom]
@@ -123,7 +123,7 @@ Ajouter dans le workflow GitHub Actions :
   run: |
     curl -X POST "https://api.twitter.com/2/tweets" \
       -H "Authorization: Bearer ${{ secrets.TWITTER_BEARER_TOKEN }}" \
-      -d '{"text": "📊 Tableau de bord mis à jour — nouvelles données INSEE/Eurostat disponibles ➡ lefrancaismoyen.fr"}'
+      -d '{"text": "📊 Tableau de bord mis à jour — nouvelles données INSEE/Eurostat disponibles ➡ le-francais-moyen.com"}'
 ```
 
 ### Newsletter (Brevo gratuit jusqu'à 300 emails/jour)

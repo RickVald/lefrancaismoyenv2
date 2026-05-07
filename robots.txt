@@ -1,3 +1,3 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
-Sitemap: https://lefrancaismoyen.fr/sitemap.xml
+Sitemap: https://le-francais-moyen.com/sitemap.xml

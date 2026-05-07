@@ -1,4 +1,4 @@
-# Déploiement recommandé
+﻿# Déploiement recommandé
 
 ## Choix conseillé
 GitHub + Netlify.
@@ -13,7 +13,7 @@ Pourquoi : très simple pour un site HTML/CSS/JS, gratuit au départ, déploieme
 5. Build command : laisser vide.
 6. Publish directory : `/`.
 7. Branch : `main`.
-8. Ajouter ensuite le domaine `lefrancaismoyen.fr` dans Domain settings.
+8. Ajouter ensuite le domaine `le-francais-moyen.com` dans Domain settings.
 
 ## Automatisation future
 - Les données sont dans `/data/dashboard-series.json`.

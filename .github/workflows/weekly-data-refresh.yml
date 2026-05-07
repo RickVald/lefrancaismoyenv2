@@ -1,4 +1,4 @@
-name: weekly-data-refresh
+﻿name: weekly-data-refresh
 
 on:
   workflow_dispatch:   # Allow manual trigger from GitHub UI
@@ -39,7 +39,7 @@ jobs:
         run: |
           DATE=$(date +%Y-%m-%d)
           cp index.html weekly/latest.html
-          sed -i "s|<link rel=\"canonical\".*|<link rel=\"canonical\" href=\"https://lefrancaismoyen.fr/weekly/latest.html\">|g" weekly/latest.html
+          sed -i "s|<link rel=\"canonical\".*|<link rel=\"canonical\" href=\"https://le-francais-moyen.com/weekly/latest.html\">|g" weekly/latest.html
           echo "Weekly snapshot updated: $DATE"
 
       - name: Commit and push refreshed data
