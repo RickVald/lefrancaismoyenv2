@@ -69,7 +69,8 @@ option{background:#10172e}
 .source-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .source{border:1px dashed rgba(255,255,255,.2);border-radius:16px;padding:14px;color:var(--muted);background:rgba(255,255,255,.035);font-weight:750;font-size:.92rem}
 .simulator-layout{display:grid;grid-template-columns:380px 1fr;gap:18px;align-items:start}
-.simulator-layout .grid .kpi{grid-column:span 4}
+.simulator-layout .grid{grid-template-columns:repeat(3,1fr)}
+.simulator-layout .grid .kpi{grid-column:span 1}
 .simulator-layout .grid .wide{grid-column:1/-1}
 .simulator-layout .grid .side{grid-column:1/-1}
 .sim-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
