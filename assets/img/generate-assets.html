@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Générateur d'images — Le Français Moyen</title>
+<style>
+  body{font-family:system-ui,sans-serif;background:#0b1020;color:#eef3ff;padding:32px;max-width:900px;margin:auto}
+  h2{color:#f6c343;margin:0 0 8px}
+  p{color:#aebbd4;margin:0 0 16px;font-size:14px}
+  canvas{display:block;border-radius:12px;margin-bottom:12px;max-width:100%}
+  button{background:#f6c343;color:#09101f;border:none;padding:10px 22px;border-radius:8px;font-weight:800;font-size:14px;cursor:pointer;margin-bottom:32px}
+  button:hover{background:#ffe080}
+  .section{margin-bottom:48px}
+</style>
+</head>
+<body>
+<h1 style="font-size:1.4rem;margin-bottom:32px">🖼 Générateur d'images X — Le Français Moyen</h1>
+
+<div class="section">
+  <h2>Bannière de profil (1500 × 500 px)</h2>
+  <p>Clique sur "Télécharger" puis upload sur X : Profil → Modifier → changer la bannière.</p>
+  <canvas id="banner" width="1500" height="500"></canvas>
+  <button onclick="download('banner','lfm-banner.png')">⬇ Télécharger la bannière</button>
+</div>
+
+<div class="section">
+  <h2>Photo de profil (400 × 400 px)</h2>
+  <p>Clique sur "Télécharger" puis upload sur X : Profil → Modifier → changer la photo.</p>
+  <canvas id="avatar" width="400" height="400"></canvas>
+  <button onclick="download('avatar','lfm-avatar.png')">⬇ Télécharger la photo de profil</button>
+</div>
+
+<script>
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function roundRect(ctx, x, y, w, h, r, fill, stroke, strokeW) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = strokeW || 1; ctx.stroke(); }
+}
+
+function download(id, filename) {
+  const canvas = document.getElementById(id);
+  const a = document.createElement('a');
+  a.href = canvas.toDataURL('image/png');
+  a.download = filename;
+  a.click();
+}
+
+// ── BANNER 1500×500 ───────────────────────────────────────────────────────────
+(function drawBanner() {
+  const c = document.getElementById('banner');
+  const ctx = c.getContext('2d');
+  const W = 1500, H = 500;
+
+  // Background gradient
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#18295a');
+  bg.addColorStop(0.4, '#0b1020');
+  bg.addColorStop(1, '#070a14');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  // Radial glow
+  const glow = ctx.createRadialGradient(200, 250, 0, 200, 250, 300);
+  glow.addColorStop(0, 'rgba(246,195,67,0.10)');
+  glow.addColorStop(1, 'rgba(246,195,67,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+  ctx.lineWidth = 1;
+  [125,250,375].forEach(y => { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); });
+  [375,750,1125].forEach(x => { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); });
+
+  // Top accent line
+  const topLine = ctx.createLinearGradient(0,0,W,0);
+  topLine.addColorStop(0,'#f6c343'); topLine.addColorStop(0.5,'#5dd6c5'); topLine.addColorStop(1,'rgba(246,195,67,0)');
+  ctx.fillStyle = topLine; ctx.fillRect(0,0,W,4);
+
+  // Logo box
+  const logoGrad = ctx.createLinearGradient(80,160,152,232);
+  logoGrad.addColorStop(0,'#f6c343'); logoGrad.addColorStop(1,'#fff0aa');
+  roundRect(ctx, 80, 155, 72, 72, 16, logoGrad);
+  ctx.fillStyle = '#101520';
+  ctx.font = 'bold 34px system-ui,sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('FM', 116, 204);
+  ctx.textAlign = 'left';
+
+  // Title
+  ctx.fillStyle = '#eef3ff';
+  ctx.font = 'bold 48px system-ui,sans-serif';
+  ctx.fillText('Le Français Moyen', 178, 200);
+
+  ctx.fillStyle = '#aebbd4';
+  ctx.font = '20px system-ui,sans-serif';
+  ctx.fillText('Données officielles  ·  Ni gauche ni droite  ·  Juste les chiffres', 178, 233);
+
+  // Divider
+  ctx.fillStyle = 'rgba(255,255,255,0.12)';
+  ctx.fillRect(80, 263, 560, 1);
+
+  // URL
+  ctx.fillStyle = '#f6c343';
+  ctx.font = 'bold 18px system-ui,sans-serif';
+  ctx.fillText('le-francais-moyen.com', 80, 295);
+
+  // Stat cards
+  const stats = [
+    { x:760, y:115, color:'#fb923c', label:'DETTE', value:'3 228 Md€', sub:'de dette publique' },
+    { x:980, y:115, color:'#ff6b6b', label:'ALIMENTATION', value:'+7,2 %', sub:'inflation alimentaire' },
+    { x:1200, y:115, color:'#5dd6c5', label:'LOGEMENT', value:'×2,7', sub:'prix depuis 2000' },
+    { x:760, y:250, color:'#a78bfa', label:'PRÉLÈVEMENTS', value:'45,3 %', sub:'du PIB — record EU' },
+    { x:980, y:250, color:'#fbbf24', label:'HÔPITAUX', value:'−31 %', sub:'lits depuis 2000' },
+    { x:1200, y:250, color:'#63d471', label:'GÉNÉRATIONS', value:'−18 pts', sub:'niveau de vie nés 1990' },
+  ];
+
+  stats.forEach(s => {
+    roundRect(ctx, s.x, s.y, 200, 115, 14, 'rgba(255,255,255,0.06)', s.color + '55', 1.5);
+    ctx.fillStyle = s.color;
+    ctx.font = 'bold 11px system-ui,sans-serif';
+    ctx.fillText(s.label, s.x+16, s.y+28);
+    ctx.font = 'bold 38px system-ui,sans-serif';
+    ctx.fillText(s.value, s.x+16, s.y+76);
+    ctx.fillStyle = '#aebbd4';
+    ctx.font = '13px system-ui,sans-serif';
+    ctx.fillText(s.sub, s.x+16, s.y+100);
+  });
+
+  // Bottom tagline
+  ctx.fillStyle = 'rgba(174,187,212,0.45)';
+  ctx.font = '14px system-ui,sans-serif';
+  ctx.fillText('INSEE · Banque de France · Eurostat · données officielles mises en perspective', 80, 450);
+
+  // Bottom accent line
+  ctx.fillStyle = topLine;
+  ctx.fillRect(0, H-4, W, 4);
+})();
+
+// ── AVATAR 400×400 ────────────────────────────────────────────────────────────
+(function drawAvatar() {
+  const c = document.getElementById('avatar');
+  const ctx = c.getContext('2d');
+  const S = 400;
+
+  // Background
+  const bg = ctx.createLinearGradient(0, 0, S, S);
+  bg.addColorStop(0, '#18295a');
+  bg.addColorStop(1, '#0b1020');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, S, S);
+
+  // Radial glow
+  const glow = ctx.createRadialGradient(200, 200, 0, 200, 200, 220);
+  glow.addColorStop(0, 'rgba(246,195,67,0.15)');
+  glow.addColorStop(1, 'rgba(246,195,67,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, S, S);
+
+  // Logo box centered
+  const logoGrad = ctx.createLinearGradient(100, 100, 300, 300);
+  logoGrad.addColorStop(0, '#f6c343');
+  logoGrad.addColorStop(1, '#fff0aa');
+  roundRect(ctx, 100, 100, 200, 200, 48, logoGrad);
+
+  // FM text
+  ctx.fillStyle = '#101520';
+  ctx.font = 'bold 110px system-ui,sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('FM', 200, 205);
+
+  // Bottom label
+  ctx.fillStyle = 'rgba(174,187,212,0.6)';
+  ctx.font = 'bold 22px system-ui,sans-serif';
+  ctx.fillText('Le Français Moyen', 200, 340);
+})();
+</script>
+</body>
+</html>
