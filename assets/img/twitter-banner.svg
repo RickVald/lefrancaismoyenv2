@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#18295a"/>
+      <stop offset="40%" style="stop-color:#0b1020"/>
+      <stop offset="100%" style="stop-color:#070a14"/>
+    </linearGradient>
+    <linearGradient id="accent-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f6c343;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#5dd6c5;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f6c343;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="125" x2="1500" y2="125" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <line x1="0" y1="250" x2="1500" y2="250" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <line x1="0" y1="375" x2="1500" y2="375" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <line x1="375" y1="0" x2="375" y2="500" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <line x1="750" y1="0" x2="750" y2="500" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+  <line x1="1125" y1="0" x2="1125" y2="500" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+
+  <!-- Radial glow left -->
+  <circle cx="200" cy="250" r="280" fill="rgba(246,195,67,.06)"/>
+
+  <!-- Accent top line -->
+  <rect x="0" y="0" width="1500" height="4" fill="url(#accent-line)"/>
+
+  <!-- Logo box -->
+  <rect x="80" y="160" width="72" height="72" rx="18" fill="url(#accent-line)"/>
+  <text x="116" y="207" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="32" font-weight="900" fill="#101520">FM</text>
+
+  <!-- Main title -->
+  <text x="178" y="195" font-family="system-ui,-apple-system,sans-serif" font-size="46" font-weight="900" fill="#eef3ff" letter-spacing="-2">Le Français Moyen</text>
+  <text x="178" y="232" font-family="system-ui,-apple-system,sans-serif" font-size="19" fill="#aebbd4" letter-spacing="0">Données officielles · Ni gauche ni droite · Juste les chiffres</text>
+
+  <!-- Divider -->
+  <rect x="80" y="265" width="560" height="1" fill="rgba(255,255,255,.12)"/>
+
+  <!-- URL -->
+  <text x="80" y="298" font-family="system-ui,-apple-system,sans-serif" font-size="17" fill="#f6c343" font-weight="700">le-francais-moyen.com</text>
+
+  <!-- Stat cards -->
+  <!-- Card 1 — Dette -->
+  <rect x="760" y="120" width="200" height="110" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(251,146,60,.35)" stroke-width="1"/>
+  <text x="780" y="148" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="800" fill="#fb923c" letter-spacing="2" text-transform="uppercase">DETTE</text>
+  <text x="780" y="192" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="#fb923c" letter-spacing="-2" filter="url(#glow)">3 228</text>
+  <text x="780" y="215" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#aebbd4">milliards d'euros</text>
+
+  <!-- Card 2 — Inflation alim -->
+  <rect x="980" y="120" width="200" height="110" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(255,107,107,.35)" stroke-width="1"/>
+  <text x="1000" y="148" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="800" fill="#ff6b6b" letter-spacing="2">ALIMENTATION</text>
+  <text x="1000" y="192" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="#ff6b6b" letter-spacing="-2" filter="url(#glow)">+7,2%</text>
+  <text x="1000" y="215" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#aebbd4">inflation alimentaire</text>
+
+  <!-- Card 3 — Logement -->
+  <rect x="1200" y="120" width="220" height="110" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(93,214,197,.35)" stroke-width="1"/>
+  <text x="1220" y="148" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="800" fill="#5dd6c5" letter-spacing="2">LOGEMENT</text>
+  <text x="1220" y="192" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="#5dd6c5" letter-spacing="-2" filter="url(#glow)">×2,7</text>
+  <text x="1220" y="215" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#aebbd4">prix depuis 2000</text>
+
+  <!-- Card 4 — Prélèvements -->
+  <rect x="760" y="250" width="200" height="110" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(167,139,250,.35)" stroke-width="1"/>
+  <text x="780" y="278" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="800" fill="#a78bfa" letter-spacing="2">PRÉLÈVEMENTS</text>
+  <text x="780" y="322" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="#a78bfa" letter-spacing="-2" filter="url(#glow)">45,3%</text>
+  <text x="780" y="345" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#aebbd4">du PIB — record EU</text>
+
+  <!-- Card 5 — Hôpitaux -->
+  <rect x="980" y="250" width="200" height="110" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(251,191,36,.35)" stroke-width="1"/>
+  <text x="1000" y="278" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="800" fill="#fbbf24" letter-spacing="2">HÔPITAUX</text>
+  <text x="1000" y="322" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="#fbbf24" letter-spacing="-2" filter="url(#glow)">−31%</text>
+  <text x="1000" y="345" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#aebbd4">lits depuis 2000</text>
+
+  <!-- Card 6 — Déclassement -->
+  <rect x="1200" y="250" width="220" height="110" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(99,212,113,.35)" stroke-width="1"/>
+  <text x="1220" y="278" font-family="system-ui,-apple-system,sans-serif" font-size="10" font-weight="800" fill="#63d471" letter-spacing="2">GÉNÉRATIONS</text>
+  <text x="1220" y="322" font-family="system-ui,-apple-system,sans-serif" font-size="36" font-weight="900" fill="#63d471" letter-spacing="-2" filter="url(#glow)">−18 pts</text>
+  <text x="1220" y="345" font-family="system-ui,-apple-system,sans-serif" font-size="13" fill="#aebbd4">niveau de vie nés 1990</text>
+
+  <!-- Bottom tagline -->
+  <text x="80" y="450" font-family="system-ui,-apple-system,sans-serif" font-size="15" fill="rgba(174,187,212,.5)">INSEE · Banque de France · Eurostat · données officielles mises en perspective</text>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="496" width="1500" height="4" fill="url(#accent-line)"/>
+</svg>
