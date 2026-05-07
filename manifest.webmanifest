@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "Le Français Moyen",
   "short_name": "LF Moyen",
   "description": "Tableau de bord statistique des données officielles françaises — inflation, pouvoir d'achat, logement, fiscalité, démographie.",
@@ -19,7 +19,7 @@
   ],
   "screenshots": [
     {
-      "src": "/assets/img/og-image.png",
+      "src": "/assets/img/og-image.svg",
       "sizes": "1200x630",
       "type": "image/png",
       "label": "Tableau de bord principal"

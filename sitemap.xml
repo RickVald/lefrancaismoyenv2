@@ -8,7 +8,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://le-francais-moyen.com/assets/img/og-image.png</image:loc>
+      <image:loc>https://le-francais-moyen.com/assets/img/og-image.svg</image:loc>
       <image:title>Le Français Moyen — Tableau de bord statistique de la France</image:title>
       <image:caption>Inflation, pouvoir d'achat, logement, fiscalité et démographie : les données officielles mises en perspective.</image:caption>
     </image:image>
