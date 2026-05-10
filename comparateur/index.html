@@ -10,7 +10,7 @@
   <meta property="og:url" content="https://le-francais-moyen.com/comparateur/">
   <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=13">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=14">
   <style>
     .country-btn{border:2px solid var(--border);background:rgba(255,255,255,.05);border-radius:14px;padding:10px 16px;cursor:pointer;font-size:.9rem;font-weight:800;transition:all .15s;display:flex;align-items:center;gap:8px}
     .country-btn.active{border-color:transparent;color:#0b1020}
@@ -38,10 +38,20 @@
       <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
       <nav aria-label="Navigation principale">
         <ul>
-          <li><a href="/#dashboard">Indicateurs</a></li>
-          <li><a href="/outils/" style="color:var(--accent)">Outils</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
           <li><a href="/elections/">Élections</a></li>
-          <li><a href="/budget/">📋 Budget</a></li><li><a href="/impot/">💸 Impôt</a></li><li><a href="/logement/">🏠 Logement</a></li><li><a href="/autoroutes/">🛣️ Autoroutes</a></li><li><a href="/#questions">Questions</a></li>
+          <li><a href="/questions/">Questions</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>

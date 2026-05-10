@@ -13,7 +13,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=13">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=14">
   <style>
     /* ── Hero ───────────────────────────────────────────────────── */
     .rp-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(93,214,197,.10) 0%,transparent 65%);position:relative;overflow:hidden}
@@ -101,10 +101,20 @@
       <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
       <nav aria-label="Navigation principale">
         <ul>
-          <li><a href="/#dashboard">Indicateurs</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+            </ul>
+          </li>
           <li><a href="/outils/">Outils</a></li>
           <li><a href="/elections/">Élections</a></li>
-          <li><a href="/budget/">📋 Budget</a></li><li><a href="/impot/">💸 Impôt</a></li><li><a href="/logement/">🏠 Logement</a></li><li><a href="/autoroutes/">🛣️ Autoroutes</a></li><li><a href="/#questions">Questions</a></li>
+          <li><a href="/questions/">Questions</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
