@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>L'Indice Rond-Point — Le Français Moyen</title>
+  <meta name="description" content="La France possède 50 000 ronds-points, soit près de 50% du total mondial, et arrive dernière en Europe pour l'efficacité de sa dépense publique. Coïncidence ?">
+  <link rel="canonical" href="https://le-francais-moyen.com/ronds-points/">
+  <meta property="og:title" content="L'Indice Rond-Point — Le Français Moyen">
+  <meta property="og:description" content="50 000 ronds-points. 50% du total mondial. Dernière en Europe pour l'efficacité de la dépense publique. Coïncidence ?">
+  <meta property="og:url" content="https://le-francais-moyen.com/ronds-points/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=11">
+  <style>
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .rp-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(93,214,197,.10) 0%,transparent 65%);position:relative;overflow:hidden}
+    .rp-roundabout{width:180px;height:180px;margin:0 auto 28px;position:relative}
+    .rp-roundabout svg{width:100%;height:100%}
+    .rp-big{font-size:clamp(3rem,10vw,6rem);font-weight:900;letter-spacing:-.06em;color:#5dd6c5;line-height:1;margin:0 0 6px}
+    .rp-sub{font-size:1.05rem;color:var(--muted);margin-bottom:8px}
+    .rp-claim{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:800;color:var(--text);max-width:640px;margin:0 auto 32px;letter-spacing:-.03em}
+
+    /* ── KPI row ────────────────────────────────────────────────── */
+    .rp-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:780px;margin:0 auto 48px;padding:0 24px}
+    .rp-kpi{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 16px;text-align:center}
+    .rp-kpi .val{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;letter-spacing:-.04em}
+    .rp-kpi .lbl{font-size:.78rem;color:var(--muted);margin-top:5px;line-height:1.4}
+
+    /* ── Timeline ───────────────────────────────────────────────── */
+    .rp-section{max-width:780px;margin:0 auto 48px;padding:0 24px}
+    .rp-timeline{position:relative;padding-left:24px}
+    .rp-timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#5dd6c5,rgba(93,214,197,0))}
+    .rp-tl-item{position:relative;margin-bottom:20px;padding-left:20px}
+    .rp-tl-item::before{content:'';position:absolute;left:-10px;top:6px;width:10px;height:10px;border-radius:50%;background:#5dd6c5;border:2px solid var(--bg)}
+    .rp-tl-year{font-size:.8rem;color:#5dd6c5;font-weight:800;letter-spacing:.06em;margin-bottom:2px}
+    .rp-tl-text{font-size:.95rem;color:var(--text)}
+    .rp-tl-text strong{color:var(--accent)}
+
+    /* ── Classement barres ──────────────────────────────────────── */
+    .rp-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:.88rem}
+    .rp-bar-flag{font-size:1.2rem;width:28px;text-align:center;flex-shrink:0}
+    .rp-bar-country{width:110px;color:var(--muted);font-weight:700;flex-shrink:0}
+    .rp-bar-wrap{flex:1;height:16px;background:rgba(255,255,255,.06);border-radius:8px;overflow:hidden}
+    .rp-bar-fill{height:100%;border-radius:8px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+    .rp-bar-val{width:70px;text-align:right;font-weight:800;font-size:.85rem}
+    .rp-bar-row.highlight .rp-bar-fill{background:linear-gradient(90deg,#5dd6c5,#7eebd8)}
+    .rp-bar-row:not(.highlight) .rp-bar-fill{background:rgba(255,255,255,.18)}
+
+    /* ── Corrélation scatter ────────────────────────────────────── */
+    .rp-scatter-wrap{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;max-width:780px;margin:0 auto 48px}
+    .rp-scatter-title{font-size:1rem;font-weight:800;margin-bottom:4px}
+    .rp-scatter-sub{font-size:.82rem;color:var(--muted);margin-bottom:20px}
+    .rp-scatter-svg{width:100%;height:auto}
+
+    /* ── Équation ───────────────────────────────────────────────── */
+    .rp-equation{background:linear-gradient(135deg,rgba(93,214,197,.08),rgba(93,214,197,.02));border:1px solid rgba(93,214,197,.25);border-radius:20px;padding:32px;text-align:center;max-width:780px;margin:0 auto 48px}
+    .rp-eq-formula{font-size:clamp(1rem,2.5vw,1.35rem);font-weight:800;color:var(--text);margin-bottom:16px;letter-spacing:-.02em;line-height:1.5}
+    .rp-eq-formula span.accent{color:#5dd6c5}
+    .rp-eq-formula span.red{color:var(--red)}
+    .rp-eq-sub{font-size:.88rem;color:var(--muted);line-height:1.6}
+
+    /* ── Efficacité dépense ─────────────────────────────────────── */
+    .rp-eff-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.88rem}
+    .rp-eff-flag{font-size:1.1rem;width:26px;text-align:center;flex-shrink:0}
+    .rp-eff-country{width:120px;font-weight:700;flex-shrink:0}
+    .rp-eff-bar-wrap{flex:1;height:14px;background:rgba(255,255,255,.06);border-radius:7px;overflow:hidden}
+    .rp-eff-bar-fill{height:100%;border-radius:7px}
+    .rp-eff-score{width:50px;text-align:right;font-weight:800;font-size:.82rem}
+    .rp-eff-row.best .rp-eff-bar-fill{background:linear-gradient(90deg,#63d471,#86efac)}
+    .rp-eff-row.mid .rp-eff-bar-fill{background:rgba(255,255,255,.25)}
+    .rp-eff-row.bad .rp-eff-bar-fill{background:linear-gradient(90deg,#ff6b6b,#ff9898)}
+    .rp-eff-row.worst .rp-eff-bar-fill{background:linear-gradient(90deg,#ff3d3d,#ff6b6b)}
+
+    /* ── Note honnête ───────────────────────────────────────────── */
+    .rp-honest{background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.2);border-radius:16px;padding:24px 28px;max-width:780px;margin:0 auto 48px}
+    .rp-honest-title{font-size:.95rem;font-weight:800;color:var(--accent);margin-bottom:10px}
+    .rp-honest p{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0 0 8px}
+    .rp-honest p:last-child{margin:0}
+
+    /* ── Share ──────────────────────────────────────────────────── */
+    .rp-share{text-align:center;padding:40px 24px;background:radial-gradient(ellipse at 50% 100%,rgba(93,214,197,.08),transparent 60%)}
+    .rp-share-text{font-size:1.15rem;font-weight:800;margin-bottom:20px;letter-spacing:-.03em}
+    .rp-share-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media(max-width:640px){
+      .rp-kpis{grid-template-columns:1fr 1fr}
+      .rp-kpis .rp-kpi:last-child{grid-column:1/-1}
+      .rp-bar-country{width:80px}
+      .rp-eff-country{width:90px}
+      .rp-scatter-wrap{padding:18px 14px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Indicateurs</a></li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <a href="/" class="cta">← Tableau de bord</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ──────────────────────────────────────────────────── -->
+    <div class="rp-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:20px">
+        <a href="/">Accueil</a> › <span>L'Indice Rond-Point</span>
+      </nav>
+
+      <!-- Animated roundabout SVG -->
+      <div class="rp-roundabout" aria-hidden="true">
+        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer road -->
+          <circle cx="90" cy="90" r="78" stroke="rgba(255,255,255,.1)" stroke-width="22"/>
+          <!-- Road markings -->
+          <circle cx="90" cy="90" r="78" stroke="rgba(255,255,255,.06)" stroke-width="1" stroke-dasharray="8 6"/>
+          <!-- Center island -->
+          <circle cx="90" cy="90" r="38" fill="rgba(93,214,197,.08)" stroke="rgba(93,214,197,.3)" stroke-width="1.5"/>
+          <!-- Teal ring (animated) -->
+          <circle cx="90" cy="90" r="78" stroke="#5dd6c5" stroke-width="6" stroke-linecap="round"
+            stroke-dasharray="120 370" transform="rotate(-90 90 90)">
+            <animateTransform attributeName="transform" type="rotate" from="-90 90 90" to="270 90 90" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Entry roads -->
+          <rect x="83" y="0" width="14" height="12" rx="2" fill="rgba(255,255,255,.12)"/>
+          <rect x="83" y="168" width="14" height="12" rx="2" fill="rgba(255,255,255,.12)"/>
+          <rect x="0" y="83" width="12" height="14" rx="2" fill="rgba(255,255,255,.12)"/>
+          <rect x="168" y="83" width="12" height="14" rx="2" fill="rgba(255,255,255,.12)"/>
+          <!-- FM text in center -->
+          <text x="90" y="96" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="900" fill="#5dd6c5">🔵</text>
+        </svg>
+      </div>
+
+      <div class="eyebrow">Une donnée sérieuse habillée en rond-point</div>
+      <h1 class="rp-big">L'Indice Rond-Point</h1>
+      <p class="rp-claim">La France possède ~50 000 ronds-points — environ 50 % du total mondial — et arrive dernière en Europe pour l'efficacité de sa dépense publique. Coïncidence ?</p>
+      <p style="font-size:.82rem;color:var(--muted);font-style:italic">(Spoiler : c'est une corrélation humoristique. Les vraies données, elles, ne le sont pas.)</p>
+    </div>
+
+    <!-- ── KPIs ───────────────────────────────────────────────────── -->
+    <div class="rp-kpis">
+      <div class="rp-kpi">
+        <div class="val" style="color:#5dd6c5">~50 000</div>
+        <div class="lbl">ronds-points en France<br><span style="color:var(--muted)">Source : CEREMA 2023</span></div>
+      </div>
+      <div class="rp-kpi">
+        <div class="val" style="color:#5dd6c5">≈ 50 %</div>
+        <div class="lbl">du total mondial<br><span style="color:var(--muted)">France seule = moitié de la planète</span></div>
+      </div>
+      <div class="rp-kpi">
+        <div class="val" style="color:var(--red)">26<sup style="font-size:.5em">e</sup>/27</div>
+        <div class="lbl">rang EU — efficacité dépense publique<br><span style="color:var(--muted)">Source : Commission Européenne</span></div>
+      </div>
+    </div>
+
+    <!-- ── SECTION RONDS-POINTS MONDE ──────────────────────────────── -->
+    <div class="rp-section">
+      <div class="panel-header" style="margin-bottom:20px">
+        <div>
+          <h2 class="panel-title">Ronds-points par pays</h2>
+          <p class="panel-sub">La France, championne incontestée du giratoire depuis 30 ans</p>
+        </div>
+        <div class="tag">Infrastructures</div>
+      </div>
+
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px">
+        <div class="rp-bar-row highlight">
+          <span class="rp-bar-flag">🇫🇷</span>
+          <span class="rp-bar-country">France</span>
+          <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:100%"></div></div>
+          <span class="rp-bar-val" style="color:#5dd6c5">~50 000</span>
+        </div>
+        <div class="rp-bar-row">
+          <span class="rp-bar-flag">🇬🇧</span>
+          <span class="rp-bar-country">Royaume-Uni</span>
+          <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:46%"></div></div>
+          <span class="rp-bar-val">~25 000</span>
+        </div>
+        <div class="rp-bar-row">
+          <span class="rp-bar-flag">🇺🇸</span>
+          <span class="rp-bar-country">États-Unis</span>
+          <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:26%"></div></div>
+          <span class="rp-bar-val">~15 000</span>
+        </div>
+        <div class="rp-bar-row">
+          <span class="rp-bar-flag">🇩🇪</span>
+          <span class="rp-bar-country">Allemagne</span>
+          <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:18%"></div></div>
+          <span class="rp-bar-val">~10 000</span>
+        </div>
+        <div class="rp-bar-row">
+          <span class="rp-bar-flag">🇧🇪</span>
+          <span class="rp-bar-country">Belgique</span>
+          <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:14%"></div></div>
+          <span class="rp-bar-val">~7 000</span>
+        </div>
+        <div class="rp-bar-row">
+          <span class="rp-bar-flag">🇮🇹</span>
+          <span class="rp-bar-country">Italie</span>
+          <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:10%"></div></div>
+          <span class="rp-bar-val">~5 000</span>
+        </div>
+        <div class="rp-bar-row">
+          <span class="rp-bar-flag">🇪🇸</span>
+          <span class="rp-bar-country">Espagne</span>
+          <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:8%"></div></div>
+          <span class="rp-bar-val">~4 500</span>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:18px">Sources : CEREMA, TRL (Transport Research Laboratory UK), FHWA (Federal Highway Administration USA). Estimations 2022-2023.</p>
+      </div>
+    </div>
+
+    <!-- ── TIMELINE ───────────────────────────────────────────────── -->
+    <div class="rp-section">
+      <div class="panel-header" style="margin-bottom:20px">
+        <div>
+          <h2 class="panel-title">L'ascension du giratoire français</h2>
+          <p class="panel-sub">De 5 000 à 50 000 en 30 ans — pendant ce temps, la dette faisait ×4,7</p>
+        </div>
+        <div class="tag">Historique</div>
+      </div>
+
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px">
+        <div class="rp-timeline">
+          <div class="rp-tl-item">
+            <div class="rp-tl-year">1976</div>
+            <div class="rp-tl-text">Premier vrai rond-point moderne en France (Quimper). <strong>≈ 100 ronds-points</strong> dans tout le pays.</div>
+          </div>
+          <div class="rp-tl-item">
+            <div class="rp-tl-year">1990</div>
+            <div class="rp-tl-text">L'État opte massivement pour les giratoires pour remplacer les feux. Dette publique : <strong>540 Md€</strong>. Ronds-points : <strong>5 000</strong>.</div>
+          </div>
+          <div class="rp-tl-item">
+            <div class="rp-tl-year">2000</div>
+            <div class="rp-tl-text">La France devient championne du monde. <strong>15 000 ronds-points</strong>. Dette : <strong>680 Md€</strong>.</div>
+          </div>
+          <div class="rp-tl-item">
+            <div class="rp-tl-year">2010</div>
+            <div class="rp-tl-text"><strong>30 000 ronds-points</strong>. La France construit ~3 giratoires par jour en moyenne depuis 10 ans. Dette : <strong>1 600 Md€</strong>.</div>
+          </div>
+          <div class="rp-tl-item">
+            <div class="rp-tl-year">2018</div>
+            <div class="rp-tl-text">Les Gilets Jaunes occupent les ronds-points. Mouvement social inédit. La France prend conscience qu'elle en a peut-être <em>trop</em>.</div>
+          </div>
+          <div class="rp-tl-item">
+            <div class="rp-tl-year">2024</div>
+            <div class="rp-tl-text"><strong>~50 000 ronds-points</strong>. Soit un pour 1 350 habitants. Dette : <strong>3 228 Md€</strong>. La corrélation est parfaite.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── EFFICACITÉ DÉPENSE ─────────────────────────────────────── -->
+    <div class="rp-section">
+      <div class="panel-header" style="margin-bottom:20px">
+        <div>
+          <h2 class="panel-title">Efficacité de la dépense publique en Europe</h2>
+          <p class="panel-sub">ROI d'un €uro dépensé par l'État — score composite santé, éducation, infrastructure, croissance</p>
+        </div>
+        <div class="tag">Comparaison EU</div>
+      </div>
+
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px">
+        <div class="rp-eff-row best">
+          <span class="rp-eff-flag">🇩🇰</span>
+          <span class="rp-eff-country">Danemark</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:92%"></div></div>
+          <span class="rp-eff-score" style="color:#63d471">0,92</span>
+        </div>
+        <div class="rp-eff-row best">
+          <span class="rp-eff-flag">🇳🇱</span>
+          <span class="rp-eff-country">Pays-Bas</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:88%"></div></div>
+          <span class="rp-eff-score" style="color:#63d471">0,88</span>
+        </div>
+        <div class="rp-eff-row best">
+          <span class="rp-eff-flag">🇸🇪</span>
+          <span class="rp-eff-country">Suède</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:85%"></div></div>
+          <span class="rp-eff-score" style="color:#63d471">0,85</span>
+        </div>
+        <div class="rp-eff-row mid">
+          <span class="rp-eff-flag">🇩🇪</span>
+          <span class="rp-eff-country">Allemagne</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:74%"></div></div>
+          <span class="rp-eff-score">0,74</span>
+        </div>
+        <div class="rp-eff-row mid">
+          <span class="rp-eff-flag">🇪🇸</span>
+          <span class="rp-eff-country">Espagne</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:65%"></div></div>
+          <span class="rp-eff-score">0,65</span>
+        </div>
+        <div class="rp-eff-row mid">
+          <span class="rp-eff-flag">🇵🇹</span>
+          <span class="rp-eff-country">Portugal</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:60%"></div></div>
+          <span class="rp-eff-score">0,60</span>
+        </div>
+        <div class="rp-eff-row bad">
+          <span class="rp-eff-flag">🇧🇪</span>
+          <span class="rp-eff-country">Belgique</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:48%"></div></div>
+          <span class="rp-eff-score" style="color:#ff9898">0,48</span>
+        </div>
+        <div class="rp-eff-row bad">
+          <span class="rp-eff-flag">🇮🇹</span>
+          <span class="rp-eff-country">Italie</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:38%"></div></div>
+          <span class="rp-eff-score" style="color:#ff9898">0,38</span>
+        </div>
+        <div class="rp-eff-row worst" style="border:1px solid rgba(255,61,61,.2);border-radius:10px;padding:6px 0">
+          <span class="rp-eff-flag">🇫🇷</span>
+          <span class="rp-eff-country" style="color:var(--red)">France ★</span>
+          <div class="rp-eff-bar-wrap"><div class="rp-eff-bar-fill" style="width:32%"></div></div>
+          <span class="rp-eff-score" style="color:var(--red)">0,32</span>
+        </div>
+        <div style="margin-top:6px;padding:10px 14px;background:rgba(255,61,61,.06);border-radius:8px;font-size:.82rem;color:var(--muted)">
+          ★ La France dépense <strong style="color:var(--text)">57,3 % du PIB</strong> — record EU — pour un score d'efficacité parmi les plus bas. Autrement dit : on dépense le plus, on en retire le moins.
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:16px">Source : Afonso, Schuknecht & Tanzi — "Public Sector Efficiency : An International Comparison" (ECB Working Paper, mis à jour via données Eurostat/Commission Européenne). Scores illustratifs basés sur le classement relatif.</p>
+      </div>
+    </div>
+
+    <!-- ── ÉQUATION ───────────────────────────────────────────────── -->
+    <div class="rp-equation">
+      <div class="rp-eq-formula">
+        <span class="accent">50 000 ronds-points</span>
+        &nbsp;+&nbsp;
+        <span class="red">57,3 % du PIB dépensé</span>
+        &nbsp;=&nbsp;
+        <span class="accent">26<sup>e</sup>/27 en efficacité</span>
+      </div>
+      <p class="rp-eq-sub">
+        Pour chaque euro prélevé, l'État français en restitue moins en valeur réelle que presque tous ses voisins.<br>
+        Ce n'est pas une question de quantité de dépense — c'est une question d'allocation.
+      </p>
+    </div>
+
+    <!-- ── SCATTER PLOT ────────────────────────────────────────────── -->
+    <div style="max-width:780px;margin:0 auto 48px;padding:0 24px">
+      <div class="rp-scatter-wrap">
+        <div class="rp-scatter-title">La corrélation (non officielle) Ronds-Points / Efficacité</div>
+        <div class="rp-scatter-sub">Axe X : ronds-points pour 100 000 habitants · Axe Y : score d'efficacité dépense publique (1 = max)</div>
+        <svg class="rp-scatter-svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nuage de points corrélation ronds-points et efficacité dépense">
+          <!-- Grid -->
+          <line x1="60" y1="20" x2="60" y2="310" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <line x1="60" y1="310" x2="610" y2="310" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <line x1="60" y1="20" x2="610" y2="20" stroke="rgba(255,255,255,.04)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="60" y1="100" x2="610" y2="100" stroke="rgba(255,255,255,.04)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="60" y1="165" x2="610" y2="165" stroke="rgba(255,255,255,.04)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="60" y1="230" x2="610" y2="230" stroke="rgba(255,255,255,.04)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="195" y1="20" x2="195" y2="310" stroke="rgba(255,255,255,.04)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="335" y1="20" x2="335" y2="310" stroke="rgba(255,255,255,.04)" stroke-width="1" stroke-dasharray="4 4"/>
+          <line x1="470" y1="20" x2="470" y2="310" stroke="rgba(255,255,255,.04)" stroke-width="1" stroke-dasharray="4 4"/>
+
+          <!-- Trend line (negative correlation) -->
+          <line x1="80" y1="50" x2="590" y2="290" stroke="rgba(255,107,107,.25)" stroke-width="2" stroke-dasharray="6 4"/>
+
+          <!-- Axis labels Y -->
+          <text x="52" y="24" text-anchor="end" font-family="system-ui" font-size="11" fill="#aebbd4">1,0</text>
+          <text x="52" y="104" text-anchor="end" font-family="system-ui" font-size="11" fill="#aebbd4">0,7</text>
+          <text x="52" y="169" text-anchor="end" font-family="system-ui" font-size="11" fill="#aebbd4">0,5</text>
+          <text x="52" y="234" text-anchor="end" font-family="system-ui" font-size="11" fill="#aebbd4">0,3</text>
+          <text x="52" y="314" text-anchor="end" font-family="system-ui" font-size="11" fill="#aebbd4">0,0</text>
+
+          <!-- Axis labels X -->
+          <text x="60" y="330" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aebbd4">0</text>
+          <text x="195" y="330" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aebbd4">15</text>
+          <text x="335" y="330" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aebbd4">30</text>
+          <text x="470" y="330" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aebbd4">50</text>
+          <text x="610" y="330" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aebbd4">75</text>
+
+          <!-- Axis titles -->
+          <text x="335" y="350" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aebbd4">Ronds-points / 100 000 hab.</text>
+          <text x="14" y="170" text-anchor="middle" font-family="system-ui" font-size="11" fill="#aebbd4" transform="rotate(-90 14 170)">Score efficacité</text>
+
+          <!-- Data points -->
+          <!-- Danemark: 5 rp/100k, score 0.92 -->
+          <circle cx="96" cy="36" r="8" fill="#63d471" opacity=".85"/>
+          <text x="108" y="34" font-family="system-ui" font-size="11" fill="#aebbd4">🇩🇰 DK</text>
+
+          <!-- Pays-Bas: 8 rp/100k, score 0.88 -->
+          <circle cx="114" cy="52" r="8" fill="#63d471" opacity=".85"/>
+          <text x="126" y="50" font-family="system-ui" font-size="11" fill="#aebbd4">🇳🇱 NL</text>
+
+          <!-- Suède: 6 rp/100k, score 0.85 -->
+          <circle cx="103" cy="70" r="8" fill="#86efac" opacity=".85"/>
+          <text x="115" y="68" font-family="system-ui" font-size="11" fill="#aebbd4">🇸🇪 SE</text>
+
+          <!-- Allemagne: 12 rp/100k, score 0.74 -->
+          <circle cx="148" cy="108" r="8" fill="#aebbd4" opacity=".85"/>
+          <text x="160" y="106" font-family="system-ui" font-size="11" fill="#aebbd4">🇩🇪 DE</text>
+
+          <!-- Espagne: 10 rp/100k, score 0.65 -->
+          <circle cx="134" cy="136" r="8" fill="#aebbd4" opacity=".85"/>
+          <text x="146" y="134" font-family="system-ui" font-size="11" fill="#aebbd4">🇪🇸 ES</text>
+
+          <!-- Portugal: 15 rp/100k, score 0.60 -->
+          <circle cx="162" cy="152" r="8" fill="#aebbd4" opacity=".7"/>
+          <text x="174" y="150" font-family="system-ui" font-size="11" fill="#aebbd4">🇵🇹 PT</text>
+
+          <!-- Belgique: 62 rp/100k, score 0.48 -->
+          <circle cx="480" cy="186" r="8" fill="#ff9898" opacity=".85"/>
+          <text x="492" y="184" font-family="system-ui" font-size="11" fill="#aebbd4">🇧🇪 BE</text>
+
+          <!-- Italie: 8 rp/100k, score 0.38 -->
+          <circle cx="114" cy="220" r="8" fill="#ff9898" opacity=".85"/>
+          <text x="126" y="218" font-family="system-ui" font-size="11" fill="#aebbd4">🇮🇹 IT</text>
+
+          <!-- France: 75 rp/100k, score 0.32 ← THE STAR -->
+          <circle cx="580" cy="244" r="14" fill="#ff3d3d" opacity=".9"/>
+          <text x="557" y="224" font-family="system-ui" font-size="13" font-weight="800" fill="#ff6b6b">🇫🇷 FR</text>
+          <text x="557" y="238" font-family="system-ui" font-size="10" fill="#ff9898">← vous êtes ici</text>
+        </svg>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:8px;text-align:center">⚠️ Graphique illustratif — la corrélation est réelle dans son sens, les valeurs exactes varient selon les études. Ne pas citer en réunion de conseil d'administration.</p>
+      </div>
+    </div>
+
+    <!-- ── ANECDOTES ──────────────────────────────────────────────── -->
+    <div class="rp-section">
+      <div class="panel-header" style="margin-bottom:20px">
+        <div>
+          <h2 class="panel-title">Le saviez-vous ?</h2>
+          <p class="panel-sub">Quelques chiffres sur les ronds-points français qui ne sont pas dans les manuels</p>
+        </div>
+        <div class="tag">Fun facts</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
+          <div style="font-size:1.8rem;margin-bottom:8px">🛞</div>
+          <div style="font-weight:800;margin-bottom:6px">3 giratoires / jour</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0">Rythme de construction moyen en France entre 1990 et 2010. On a construit plus de ronds-points que de crèches sur la même période.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
+          <div style="font-size:1.8rem;margin-bottom:8px">🎨</div>
+          <div style="font-weight:800;margin-bottom:6px">L'art du giratoire</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0">La France dépense environ <strong>25 000 € en moyenne</strong> pour décorer chaque rond-point. Budget total estimé : plus d'un milliard d'euros en œuvres d'art giratoires.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
+          <div style="font-size:1.8rem;margin-bottom:8px">📍</div>
+          <div style="font-weight:800;margin-bottom:6px">Gilets Jaunes</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0">En 2018, les ronds-points sont devenus des places publiques. Ironie : la France a construit des ronds-points à la place d'équipements publics, puis ses citoyens y ont fait leur agora.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
+          <div style="font-size:1.8rem;margin-bottom:8px">💡</div>
+          <div style="font-weight:800;margin-bottom:6px">Les ronds-points, c'est bien</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0">−40 % d'accidents graves vs feux rouges. Moins d'entretien. Flux plus fluides. Les ronds-points sont en réalité une bonne idée. Ce n'est pas eux le problème.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── NOTE HONNÊTE ───────────────────────────────────────────── -->
+    <div class="rp-honest">
+      <div class="rp-honest-title">⚖️ Pour être honnête</div>
+      <p>L'Indice Rond-Point est une corrélation humoristique. Les ronds-points sont en réalité <strong>plus sûrs et moins coûteux à long terme</strong> que les feux tricolores — leur multiplication n'est pas un problème en soi.</p>
+      <p>Le vrai sujet, c'est ce que cette anecdote illustre : <strong>la France dépense proportionnellement plus que n'importe quel autre pays de l'UE</strong> (57,3 % du PIB), pour des résultats qui la placent en bas du classement européen d'efficacité. Ce n'est pas un problème de quantité — c'est un problème d'allocation.</p>
+      <p>La question n'est pas "moins de ronds-points" mais "pourquoi 1 € dépensé par l'État français produit-il moins de valeur que chez ses voisins ?" — et à cette question, il n'y a pas de réponse amusante.</p>
+    </div>
+
+    <!-- ── SHARE ───────────────────────────────────────────────────── -->
+    <div class="rp-share">
+      <p class="rp-share-text">Partagez l'Indice Rond-Point avec quelqu'un qui mérite de le savoir 🔵</p>
+      <div class="rp-share-btns">
+        <a href="https://twitter.com/intent/tweet?text=La%20France%20a%20~50%20000%20ronds-points%20(50%25%20du%20total%20mondial)%20et%20arrive%20derni%C3%A8re%20en%20Europe%20pour%20l%27efficacit%C3%A9%20de%20sa%20d%C3%A9pense%20publique.%20Co%C3%AFncidence%20%3F%20%F0%9F%94%B5&url=https%3A%2F%2Fle-francais-moyen.com%2Fronds-points%2F&via=RobertFrMoyen" target="_blank" rel="noopener" class="button" style="background:var(--card);border:1px solid var(--border)">
+          𝕏 Partager
+        </a>
+        <a href="/" class="button secondary">← Tableau de bord</a>
+        <a href="/dette/" class="button secondary">La dette en direct</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : CEREMA, Eurostat, ECB Working Papers</span>
+  </footer>
+</body>
+</html>
