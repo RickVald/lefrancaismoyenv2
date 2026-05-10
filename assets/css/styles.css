@@ -21,7 +21,7 @@ main{max-width:1440px;margin:auto;padding:32px 24px 74px}
 .hero-card:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-120px;top:-100px;background:radial-gradient(circle,rgba(246,195,67,.26),transparent 62%);pointer-events:none}
 .eyebrow{color:var(--accent);font-weight:850;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;margin-bottom:10px}
 h1{font-size:clamp(2.2rem,5vw,4.8rem);line-height:.96;letter-spacing:-.07em;margin:0 0 16px;max-width:880px}
-.bg-hero h1,.counter-hero h1,.rp-hero h1{margin:0 auto 16px;text-align:center}
+.bg-hero h1,.counter-hero h1,.rp-hero h1,.imp-hero h1,.aut-hero h1,.log-hero h1{margin:0 auto 16px;text-align:center}
 h2,h3{margin:0;letter-spacing:-.04em}
 h2{font-size:1.5rem}
 h3{font-size:1.04rem}
@@ -106,13 +106,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 24px;m
 .share-btn:hover{color:var(--text);border-color:rgba(255,255,255,.28)}
 /* ── Dropdown nav ─────────────────────────────────────────────────────────── */
 .has-dropdown{position:relative}
+/* Pont transparent sur le gap bouton→dropdown pour éviter la perte de hover */
+.has-dropdown::after{content:'';position:absolute;top:100%;left:-12px;right:-12px;height:16px}
 .nav-drop-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:.9rem;font-weight:600;font-family:inherit;padding:0;display:flex;align-items:center;gap:4px;opacity:.85;transition:opacity .15s}
 .nav-drop-btn:hover,.has-dropdown:hover .nav-drop-btn{opacity:1;color:var(--accent)}
 .nav-caret{font-size:.65rem;transition:transform .2s;display:inline-block}
 .has-dropdown:hover .nav-caret,.has-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
 .dropdown{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:rgba(9,16,31,.98);border:1px solid var(--border);border-radius:14px;padding:6px;min-width:210px;z-index:200;backdrop-filter:blur(16px);box-shadow:0 20px 48px rgba(0,0,0,.55)}
 .dropdown::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--border);border-top:none}
-.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{display:block}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown,.has-dropdown.open .dropdown{display:block}
 .dropdown li{list-style:none}
 .dropdown a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:600;transition:all .15s;white-space:nowrap}
 .dropdown a:hover{background:rgba(255,255,255,.07);color:var(--text)}
