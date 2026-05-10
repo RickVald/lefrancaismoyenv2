@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>La vente du siècle — Autoroutes privatisées — Le Français Moyen</title>
+  <meta name="description" content="Cédées 14,8 Md€ en 2006, les autoroutes françaises génèrent 3,5 Md€ de profits nets par an. En 18 ans, les concessionnaires ont récupéré 4× la mise. Données officielles.">
+  <link rel="canonical" href="https://le-francais-moyen.com/autoroutes/">
+  <meta property="og:title" content="La vente du siècle — Autoroutes privatisées">
+  <meta property="og:description" content="Cédées 14,8 Md€ en 2006. 3,5 Md€ de profits par an depuis. En 18 ans, les actionnaires ont empoché ~60 Md€. Les données officielles.">
+  <meta property="og:url" content="https://le-francais-moyen.com/autoroutes/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=13">
+  <style>
+    .aut-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(246,195,67,.10) 0%,transparent 65%)}
+    .aut-big{font-size:clamp(3rem,10vw,6rem);font-weight:900;letter-spacing:-.06em;color:var(--accent);line-height:1;margin:8px 0 4px}
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:28px;margin:24px 0}
+    .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:20px}
+    .tl-dot{position:absolute;left:-22px;top:4px;width:14px;height:14px;border-radius:50%;border:2px solid;flex-shrink:0}
+    .tl-year{font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:3px}
+    .tl-text{font-size:.9rem;line-height:1.6;color:var(--text)}
+
+    /* KPI grid */
+    .aut-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .aut-kpi-card{padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--border);text-align:center}
+    .aut-kpi-card .val{font-size:2rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .aut-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* Bar comparaison */
+    .cmp-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .cmp-flag{font-size:1.1rem;width:28px;text-align:center;flex-shrink:0}
+    .cmp-name{width:150px;font-size:.85rem;flex-shrink:0;color:var(--muted)}
+    .cmp-bar-wrap{flex:1;height:12px;background:rgba(255,255,255,.07);border-radius:6px;overflow:hidden}
+    .cmp-bar{height:100%;border-radius:6px}
+    .cmp-val{width:80px;text-align:right;font-weight:800;font-size:.85rem;flex-shrink:0}
+
+    /* Verdict */
+    .verdict-box{background:rgba(246,195,67,.07);border:1px solid rgba(246,195,67,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Tableau de bord</a></li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/budget/">📋 Budget</a></li>
+          <li><a href="/impot/">💸 Impôt</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget de l'État</a>
+    <a href="/dette/">⏱️ Dette en direct</a>
+    <a href="/impot/">💸 Impôt invisible</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/ronds-points/">🔵 Indice Rond-Point</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <div class="aut-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Autoroutes privatisées</span></nav>
+      <div class="eyebrow">Privatisation 2006 · données Arafer/ART · Cour des Comptes 2023</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:4px">La vente du siècle</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">En 2006, l'État cède ses autoroutes pour <strong style="color:var(--accent)" data-mds="14.8">14,8 Md€</strong>.<br>
+      En 2024, les concessionnaires ont empoché <strong style="color:#ff6b6b">~63 Md€ de profits cumulés</strong>.</p>
+      <div class="aut-big">×4,3</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">retour sur investissement pour les actionnaires — en 18 ans</p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── KPIs ────────────────────────────────────────────────── -->
+      <div class="aut-kpi">
+        <div class="aut-kpi-card">
+          <span class="val" style="color:var(--accent)" data-mds="14.8">14,8 Md€</span>
+          <span class="lbl">Prix de cession 2006<br>(Vinci, Eiffage, Abertis…)</span>
+        </div>
+        <div class="aut-kpi-card">
+          <span class="val" style="color:#ff6b6b" data-mds="63">~63 Md€</span>
+          <span class="lbl">Profits cumulés 2006–2024<br>(estimation Cour des Comptes)</span>
+        </div>
+        <div class="aut-kpi-card">
+          <span class="val" style="color:#fb923c">20–25%</span>
+          <span class="lbl">Rentabilité annuelle moyenne<br>des concessions</span>
+        </div>
+        <div class="aut-kpi-card">
+          <span class="val" style="color:#f6c343">+55%</span>
+          <span class="lbl">Hausse des péages<br>depuis 2006 (inflation +33%)</span>
+        </div>
+      </div>
+
+      <!-- ── Timeline ────────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 16px">La chronologie</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#5dd6c5;border-color:#5dd6c5"></div>
+          <div class="tl-year">1955–2000</div>
+          <div class="tl-text">Construction progressive du réseau autoroutier par des sociétés mixtes publiques-privées, puis rachat progressif par l'État. En 2002, les Sociétés d'Économie Mixte Concessionnaires d'Autoroutes (SEMCA) sont nationalisées à 100%.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#f6c343;border-color:#f6c343"></div>
+          <div class="tl-year">2002–2005</div>
+          <div class="tl-text">Le rapport Rouvillois (2003) recommande la privatisation pour "réduire la dette publique". Débat houleux : des experts avertissent que les concessions sont <em>extrêmement rentables</em> et que le prix de cession sous-évalue les actifs.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#ff6b6b;border-color:#ff6b6b"></div>
+          <div class="tl-year">2006 — La vente</div>
+          <div class="tl-text"><strong style="color:#ff6b6b">14,8 Md€</strong> encaissés. ASF + Escota → Vinci (7,8 Md€). APRR + Area → Eiffage (3,6 Md€). Sanef + SAPN → Abertis (2,2 Md€). COFIROUTE déjà partiellement privée. La Cour des Comptes estimera plus tard que le prix était "nettement sous-évalué".</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#fb923c;border-color:#fb923c"></div>
+          <div class="tl-year">2006–2014</div>
+          <div class="tl-text">Les péages augmentent en moyenne de 2–3% par an, bien au-delà de l'inflation. Les actionnaires remboursent leur dette d'acquisition en moins de 8 ans. Rentabilité constatée : 20–25% par an. En 2014, la Cour des Comptes publie un rapport critique : <em>"l'État a sous-estimé la rentabilité des concessions"</em>.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#ff6b6b;border-color:#ff6b6b"></div>
+          <div class="tl-year">2015 — Le Plan Vert</div>
+          <div class="tl-text">Sous pression parlementaire, l'État négocie le "Plan de relance autoroutier" : 3,2 Md€ de travaux supplémentaires en échange d'une prolongation des concessions de 2 à 4 ans. La Commission européenne ouvre une enquête pour aide d'État — les concessionnaires ont obtenu des prolongations sans mise en concurrence.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#a78bfa;border-color:#a78bfa"></div>
+          <div class="tl-year">2023 — Rapport Cour des Comptes</div>
+          <div class="tl-text">La Cour des Comptes évalue les <strong>surpofits cumulés à ~63 Md€</strong> depuis 2006 et recommande une "contribution exceptionnelle" des concessionnaires. Le gouvernement ne la met pas en place. Les concessions courent jusqu'en 2031–2036.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#63d471;border-color:#63d471"></div>
+          <div class="tl-year">2031–2036 — Fin des concessions</div>
+          <div class="tl-text">Les concessions expirent. L'État devra décider : remise en régie publique, ou nouvelle mise en concession. La valeur résiduelle du réseau (en bon état, déjà amorti) est estimée à <strong>70–90 Md€</strong> — soit 5 à 6× le prix de vente de 2006.</div>
+        </div>
+      </div>
+
+      <!-- ── Comparaison EU ──────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Tarifs péages — comparaison européenne (coût/100 km VP)</h2>
+      <div id="pxCmp"></div>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:8px">Sources : ASFA, ASECAP 2024. VP = voiture particulière, trajet standard.</p>
+
+      <!-- ── Le vrai bilan ───────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 12px">Ce que ça coûte au conducteur</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px">
+        <div style="background:var(--card);border:1px solid rgba(255,107,107,.3);border-radius:14px;padding:18px">
+          <div style="font-size:.75rem;font-weight:800;color:#ff6b6b;margin-bottom:10px">PÉAGES ANNUELS · MÉNAGE MOYEN</div>
+          <div style="font-size:2rem;font-weight:900;color:#ff6b6b">~400 €</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">par an pour un actif faisant ~12 000 km/an dont ~30% en autoroute</div>
+        </div>
+        <div style="background:var(--card);border:1px solid rgba(251,146,60,.3);border-radius:14px;padding:18px">
+          <div style="font-size:.75rem;font-weight:800;color:#fb923c;margin-bottom:10px">MARGE NETTE CONCESSIONNAIRES</div>
+          <div style="font-size:2rem;font-weight:900;color:#fb923c">~35%</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">marge nette sur chiffre d'affaires — vs 6% pour un industriel classique</div>
+        </div>
+      </div>
+
+      <div class="verdict-box">
+        <div style="font-size:.8rem;font-weight:800;color:var(--accent);letter-spacing:.06em;margin-bottom:10px">⚖️ LE VERDICT EN CHIFFRES</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">La vente de 2006 a permis à l'État de <strong style="color:#fff">désendetter de 14,8 Md€</strong> à court terme. En contrepartie, il a cédé un monopole naturel ultra-rentable pour 30 ans. Sur la même période, les actionnaires ont encaissé <strong style="color:#ff6b6b">~63 Md€ de profits nets</strong> et les péages ont augmenté <strong style="color:#ff6b6b">55%</strong> (vs +33% d'inflation). L'équivalent : vendre son appartement pour rembourser un crédit conso, puis le louer à l'acheteur au prix fort pendant 30 ans.</p>
+      </div>
+
+      <!-- ── Note honnête ────────────────────────────────────────── -->
+      <div style="background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">Les concessionnaires ont effectivement investi dans l'entretien et l'extension du réseau (~3 Md€/an). L'État n'aurait pas nécessairement maintenu le même niveau d'investissement sous régie publique. Cependant, la Cour des Comptes a établi que les profits "excèdent largement" ce qui était prévisible lors de la cession, et que le cadre contractuel a favorisé les concessionnaires. La vraie question n'est pas "fallait-il privatiser ?" mais "fallait-il le faire à ce prix-là et sans clause de partage des surpofits ?"</p>
+      </div>
+
+      <!-- ── Sources ────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <strong style="color:var(--text)">Sources :</strong> Cour des Comptes — "Les concessions autoroutières" 2023 · ART (Autorité de Régulation des Transports) — rapport annuel 2024 · ASFA — chiffres clés 2024 · Commission européenne — enquête aide d'État 2015 · Rapport parlementaire Faure-Mignot 2020
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=2006+%3A+l%27État+vend+ses+autoroutes+pour+14%2C8+Md%E2%82%AC.+2024+%3A+les+actionnaires+ont+encaissé+~63+Md%E2%82%AC+de+profits.+Rendement+%3A+×4%2C3+en+18+ans.+Les+données+officielles+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fautoroutes%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : Cour des Comptes · ART · ASFA</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const PX_DATA = [
+    { flag:'🇫🇷', name:'France',       val:9.8,  color:'#ff6b6b' },
+    { flag:'🇮🇹', name:'Italie',        val:8.2,  color:'#fb923c' },
+    { flag:'🇵🇹', name:'Portugal',      val:7.9,  color:'#fb923c' },
+    { flag:'🇪🇸', name:'Espagne',       val:6.1,  color:'#f6c343' },
+    { flag:'🇦🇹', name:'Autriche',      val:5.4,  color:'#f6c343' },
+    { flag:'🇨🇭', name:'Suisse',        val:4.5,  color:'#63d471' },
+    { flag:'🇧🇪', name:'Belgique',      val:0,    color:'#5dd6c5' },
+    { flag:'🇩🇪', name:'Allemagne',     val:0,    color:'#5dd6c5' },
+    { flag:'🇳🇱', name:'Pays-Bas',      val:0,    color:'#5dd6c5' },
+  ];
+  const max = 9.8;
+  const container = document.getElementById('pxCmp');
+  PX_DATA.forEach(d => {
+    const isFR = d.name === 'France';
+    const row = document.createElement('div');
+    row.className = 'cmp-row';
+    const label = d.val === 0 ? 'Gratuit (VP)' : d.val.toFixed(1) + ' €/100 km';
+    row.innerHTML = `
+      <span class="cmp-flag">${d.flag}</span>
+      <span class="cmp-name" style="${isFR ? 'color:#ff6b6b;font-weight:800' : ''}">${d.name}</span>
+      <div class="cmp-bar-wrap">
+        <div class="cmp-bar" style="width:${d.val === 0 ? 2 : (d.val/max*100).toFixed(1)}%;background:${d.color}"></div>
+      </div>
+      <span class="cmp-val" style="color:${d.color}">${label}</span>`;
+    container.appendChild(row);
+  });
+
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('nav-open', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+</body>
+</html>

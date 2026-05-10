@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>L'impôt invisible — Ce que vous payez vraiment — Le Français Moyen</title>
+  <meta name="description" content="TVA, CSG, cotisations patronales, TICPE : le taux d'imposition réel d'un salarié médian dépasse 45% du coût du travail. Bien au-delà de l'IR affiché.">
+  <link rel="canonical" href="https://le-francais-moyen.com/impot/">
+  <meta property="og:title" content="L'impôt invisible — Ce que vous payez vraiment">
+  <meta property="og:description" content="IR affiché ≠ taux réel. En ajoutant cotisations, CSG, TVA et taxes, un salarié médian reverse ~45% du coût de son travail à la collectivité.">
+  <meta property="og:url" content="https://le-francais-moyen.com/impot/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=13">
+  <style>
+    .imp-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(255,107,107,.10) 0%,transparent 65%)}
+    .imp-big{font-size:clamp(3.5rem,12vw,7rem);font-weight:900;letter-spacing:-.06em;color:#ff6b6b;line-height:1;margin:8px 0 4px}
+
+    /* ── Waterfall ─────────────────────────────────────────────── */
+    .waterfall{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;margin-bottom:24px}
+    .wf-title{font-size:.82rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:20px}
+    .wf-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .wf-label{width:200px;font-size:.85rem;flex-shrink:0;text-align:right;color:var(--muted)}
+    .wf-bar-wrap{flex:1;height:28px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;position:relative}
+    .wf-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 10px;font-size:.78rem;font-weight:700;color:#0b1020;white-space:nowrap;transition:width .6s}
+    .wf-val{width:90px;text-align:right;font-weight:800;font-size:.88rem;flex-shrink:0}
+    .wf-sep{border:none;border-top:1px dashed var(--border);margin:14px 0}
+    .wf-total{display:flex;align-items:center;gap:12px;padding:12px 0}
+    .wf-total .wf-label{font-weight:800;color:var(--text)}
+    .wf-total .wf-val{color:#ff6b6b;font-size:1.1rem}
+
+    /* ── Tabs salaire ──────────────────────────────────────────── */
+    .sal-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+    .sal-tab{background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:10px;padding:8px 16px;cursor:pointer;font-size:.85rem;font-weight:700;color:var(--muted);transition:all .2s;font-family:inherit}
+    .sal-tab.active{background:rgba(255,107,107,.15);border-color:rgba(255,107,107,.4);color:#ff6b6b}
+
+    /* ── Résumé chips ──────────────────────────────────────────── */
+    .imp-kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:28px 0}
+    .imp-kpi{padding:18px;border-radius:16px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);text-align:center}
+    .imp-kpi .val{font-size:1.8rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .imp-kpi .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* ── Invisible layers ──────────────────────────────────────── */
+    .layers{display:grid;gap:10px;margin-bottom:24px}
+    .layer{display:flex;align-items:flex-start;gap:16px;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:14px}
+    .layer-icon{font-size:1.5rem;flex-shrink:0;width:36px;text-align:center}
+    .layer-body{flex:1}
+    .layer-title{font-weight:700;font-size:.92rem;margin-bottom:3px}
+    .layer-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
+    .layer-rate{font-size:1.1rem;font-weight:900;flex-shrink:0;min-width:70px;text-align:right}
+
+    /* ── Comparaison EU ────────────────────────────────────────── */
+    .eu-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.88rem}
+    .eu-flag{width:28px;text-align:center;font-size:1.1rem;flex-shrink:0}
+    .eu-name{width:130px;flex-shrink:0;color:var(--muted)}
+    .eu-bar-wrap{flex:1;height:10px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .eu-bar{height:100%;border-radius:5px}
+    .eu-pct{width:50px;text-align:right;font-weight:800}
+
+    @media(max-width:640px){.wf-label{width:130px;font-size:.78rem}.sal-tabs{gap:6px}.sal-tab{padding:7px 12px;font-size:.78rem}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Tableau de bord</a></li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/budget/">📋 Budget</a></li>
+          <li><a href="/ronds-points/">🔵 Rond-Point</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget de l'État</a>
+    <a href="/dette/">⏱️ Dette en direct</a>
+    <a href="/ronds-points/">🔵 Indice Rond-Point</a>
+    <a href="/impot/">💸 Impôt invisible</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <div class="imp-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>L'impôt invisible</span></nav>
+      <div class="eyebrow">Fiscalité réelle · données DGFiP · ACOSS · INSEE 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:4px">L'impôt invisible</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">Vous pensez payer <strong style="color:#fff">6 à 15 % d'IR</strong>.<br>
+      En réalité, entre cotisations, CSG, TVA et taxes, c'est <strong style="color:#ff6b6b">~45 % du coût de votre travail</strong> qui part à la collectivité.</p>
+      <div class="imp-big">~45 %</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">taux de prélèvement effectif total pour un salarié médian</p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── KPI résumé ─────────────────────────────────────────── -->
+      <div class="imp-kpi-grid">
+        <div class="imp-kpi">
+          <span class="val" style="color:#ff6b6b" data-mds="1500">~6–8 %</span>
+          <span class="lbl">Taux IR moyen effectif<br>(salarié médian)</span>
+        </div>
+        <div class="imp-kpi">
+          <span class="val" style="color:#fb923c">~28 %</span>
+          <span class="lbl">Cotisations patronales<br>(invisibles sur fiche)</span>
+        </div>
+        <div class="imp-kpi">
+          <span class="val" style="color:#f6c343">9,7 %</span>
+          <span class="lbl">CSG + CRDS<br>(sur 98,25% du brut)</span>
+        </div>
+        <div class="imp-kpi">
+          <span class="val" style="color:#a78bfa">~15 %</span>
+          <span class="lbl">TVA effective<br>(sur les dépenses)</span>
+        </div>
+      </div>
+
+      <!-- ── Les couches ─────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:0 0 14px">Les 5 couches de prélèvement</h2>
+      <div class="layers">
+        <div class="layer" style="border-color:rgba(255,107,107,.3)">
+          <div class="layer-icon">👔</div>
+          <div class="layer-body">
+            <div class="layer-title">Cotisations patronales</div>
+            <div class="layer-desc">Payées par l'employeur, <strong>invisibles sur votre fiche de paie</strong>. Elles représentent ~28–35 % du salaire brut selon le niveau de rémunération. Financement : retraite, maladie, famille, chômage, accidents du travail.</div>
+          </div>
+          <div class="layer-rate" style="color:#ff6b6b">~28–35%<br><span style="font-size:.7rem;color:var(--muted)">du brut</span></div>
+        </div>
+        <div class="layer" style="border-color:rgba(251,146,60,.3)">
+          <div class="layer-icon">📋</div>
+          <div class="layer-body">
+            <div class="layer-title">Cotisations salariales + CSG/CRDS</div>
+            <div class="layer-desc">Visibles sur la fiche de paie, souvent perçues comme "retraite et sécu". CSG = 9,1 %, CRDS = 0,5 %, cotisations retraite/chômage salariales = ~10–12 % du brut. Total : <strong>~22 % du brut</strong> avant IR.</div>
+          </div>
+          <div class="layer-rate" style="color:#fb923c">~22%<br><span style="font-size:.7rem;color:var(--muted)">du brut</span></div>
+        </div>
+        <div class="layer" style="border-color:rgba(246,195,67,.3)">
+          <div class="layer-icon">📊</div>
+          <div class="layer-body">
+            <div class="layer-title">Impôt sur le revenu (IR)</div>
+            <div class="layer-desc">La seule taxe que la plupart des Français identifient comme "impôt". Barème progressif 0–45 %, mais le taux <em>moyen effectif</em> pour un salarié médian est de <strong>~6–8 %</strong> seulement après quotient familial et déductions.</div>
+          </div>
+          <div class="layer-rate" style="color:#f6c343">~6–8%<br><span style="font-size:.7rem;color:var(--muted)">du net fiscal</span></div>
+        </div>
+        <div class="layer" style="border-color:rgba(167,139,250,.3)">
+          <div class="layer-icon">🛒</div>
+          <div class="layer-body">
+            <div class="layer-title">TVA (Taxe sur la Valeur Ajoutée)</div>
+            <div class="layer-desc">20 % sur la plupart des biens, 5,5 % alimentation, 10 % restauration. Un ménage médian consacre ~70 % de son revenu disponible à des achats soumis à TVA. <strong>Taux effectif moyen : ~14–16 %</strong> du revenu disponible.</div>
+          </div>
+          <div class="layer-rate" style="color:#a78bfa">~15%<br><span style="font-size:.7rem;color:var(--muted)">rev. disponible</span></div>
+        </div>
+        <div class="layer" style="border-color:rgba(93,214,197,.3)">
+          <div class="layer-icon">⛽</div>
+          <div class="layer-body">
+            <div class="layer-title">Taxes invisibles : TICPE, foncier, droits…</div>
+            <div class="layer-desc">TICPE (carburant) : 0,59 €/L SP95 → ~700–900 €/an pour un ménage motorisé. Taxe foncière : ~1 500 €/an en moyenne. Droits d'accises (alcool, tabac). Taxe d'habitation (supprimée RP, maintenue résidences secondaires). Droits de succession.</div>
+          </div>
+          <div class="layer-rate" style="color:#5dd6c5">+2–5%<br><span style="font-size:.7rem;color:var(--muted)">rev. disponible</span></div>
+        </div>
+      </div>
+
+      <!-- ── Waterfall par niveau de salaire ────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px">Du coût employeur au pouvoir d'achat réel</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin:0 0 16px">Sélectionnez un niveau de salaire pour voir la décomposition complète.</p>
+
+      <div class="sal-tabs">
+        <button class="sal-tab active" onclick="showSal(0,this)">SMIC (1 426 € net)</button>
+        <button class="sal-tab" onclick="showSal(1,this)">Médian (2 200 € net)</button>
+        <button class="sal-tab" onclick="showSal(2,this)">Moyen (2 500 € net)</button>
+        <button class="sal-tab" onclick="showSal(3,this)">Cadre (3 600 € net)</button>
+      </div>
+
+      <div class="waterfall" id="wf">
+        <div class="wf-title" id="wfTitle">SMIC — DÉCOMPOSITION DU COÛT TRAVAIL</div>
+        <div id="wfRows"></div>
+        <hr class="wf-sep">
+        <div class="wf-total">
+          <span class="wf-label">Taux effectif total</span>
+          <div class="wf-bar-wrap" style="height:36px">
+            <div class="wf-bar" id="wfTotalBar" style="background:#ff6b6b;font-size:.88rem"></div>
+          </div>
+          <span class="wf-val" id="wfTotalVal" style="color:#ff6b6b;font-size:1.1rem"></span>
+        </div>
+        <p id="wfNote" style="font-size:.75rem;color:var(--muted);margin:10px 0 0;line-height:1.6"></p>
+      </div>
+
+      <!-- ── Comparaison EU ──────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 16px">Prélèvements obligatoires — comparaison européenne</h2>
+      <p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">% du PIB. Source : Eurostat 2024.</p>
+
+      <div id="euChart"></div>
+
+      <!-- ── Insight ─────────────────────────────────────────────── -->
+      <div style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.25);border-radius:16px;padding:20px 24px;margin:28px 0">
+        <div style="font-size:.8rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:10px">💡 CE QUI DISTINGUE LA FRANCE</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin:0">La France n'est pas le pays où le taux marginal d'IR est le plus élevé (c'est le Danemark à 55,9 %). Sa spécificité : des <strong style="color:#fff">cotisations sociales extrêmement élevées</strong> (patronales + salariales) qui financent un système de protection sociale étendu. Ces cotisations sont <em>invisibles</em> dans le ressenti fiscal, car elles n'apparaissent pas dans la déclaration de revenus. C'est pourquoi beaucoup de Français pensent "ne pas payer beaucoup d'impôts" alors que le taux global est le plus élevé de l'OCDE.</p>
+      </div>
+
+      <!-- ── Lien simulateur ────────────────────────────────────── -->
+      <div style="background:linear-gradient(135deg,rgba(246,195,67,.08),rgba(246,195,67,.03));border:1px solid rgba(246,195,67,.3);border-radius:18px;padding:20px 24px;margin:24px 0;text-align:center">
+        <p style="color:var(--muted);margin:0 0 12px;font-size:.92rem">Calculez votre taux d'imposition réel personnalisé — toutes taxes et cotisations confondues.</p>
+        <a href="/#simulateur-fiscal-reel" style="background:var(--accent);color:#0b1020;font-weight:800;padding:.6rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.95rem;display:inline-block">💰 Mon impôt réel personnalisé</a>
+      </div>
+
+      <!-- ── Sources ────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px;margin-top:32px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <strong style="color:var(--text)">Sources :</strong> DGFiP — statistiques IR 2024 · ACOSS/URSSAF — taux de cotisations 2024 · INSEE — Enquête Budget de Famille · OCDE — Taxing Wages 2024 · Eurostat — Government finance statistics · DREES — La protection sociale en France 2024
+        </div>
+      </div>
+
+      <!-- ── Share ──────────────────────────────────────────────── -->
+      <div style="text-align:center;margin-top:32px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=IR+affiché+%3A+~7+%25.+Taux+réel+total+%3A+~45+%25+du+coût+du+travail.+Cotisations%2C+CSG%2C+TVA%2C+TICPE+—+l%27impôt+invisible+expliqué+avec+les+sources+officielles+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fimpot%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Eurostat</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const SAL_DATA = [
+    {
+      title: 'SMIC — DÉCOMPOSITION DU COÛT TRAVAIL',
+      cout: 2100,
+      rows: [
+        { label: 'Coût employeur total', val: 2100, color: '#aebbd4', pct: 100, sub: '= base de référence (100%)' },
+        { label: '− Cotisations patronales', val: -674, color: '#ff6b6b', pct: 32, sub: 'Retraite, maladie, famille, chômage, AT/MP' },
+        { label: '= Salaire brut', val: 1747, color: '#5dd6c5', pct: 83, sub: '', sep: true },
+        { label: '− Cotisations salariales', val: -183, color: '#fb923c', pct: 9, sub: 'Retraite complémentaire, chômage' },
+        { label: '− CSG / CRDS', val: -166, color: '#f6c343', pct: 8, sub: '9,7% × 98,25% du brut' },
+        { label: '= Net avant IR', val: 1398, color: '#5dd6c5', pct: 67, sub: '', sep: true },
+        { label: '− IR (décote SMIC)', val: 0, color: '#a78bfa', pct: 0, sub: 'Exonéré après décote — prime d\'activité +~50€/mois' },
+        { label: '= Net perçu', val: 1426, color: '#63d471', pct: 68, sub: 'Inclut prime d\'activité ≈ 50€/mois', sep: true },
+        { label: '− TVA effective (~14%)', val: -200, color: '#a78bfa', pct: 10, sub: 'Sur ~70% des dépenses soumises à TVA' },
+        { label: '− TICPE + taxes locales', val: -80, color: '#5dd6c5', pct: 4, sub: 'Carburant, taxe foncière locataire inclus estimés' },
+      ],
+      total: 40,
+      note: 'Taux SMIC plus faible grâce à l\'exonération IR et à la prime d\'activité. Le salarié récupère néanmoins environ 60 % du coût total de son travail en pouvoir d\'achat réel. Sources : URSSAF taux 2024, DGFiP, INSEE.'
+    },
+    {
+      title: 'SALARIÉ MÉDIAN — DÉCOMPOSITION (~2 800€ brut)',
+      cout: 3850,
+      rows: [
+        { label: 'Coût employeur total', val: 3850, color: '#aebbd4', pct: 100, sub: '= base de référence (100%)' },
+        { label: '− Cotisations patronales', val: -1050, color: '#ff6b6b', pct: 27, sub: 'Retraite, maladie, famille, chômage, AT/MP' },
+        { label: '= Salaire brut', val: 2800, color: '#5dd6c5', pct: 73, sub: '', sep: true },
+        { label: '− Cotisations salariales', val: -294, color: '#fb923c', pct: 8, sub: 'Retraite complémentaire, chômage' },
+        { label: '− CSG / CRDS', val: -266, color: '#f6c343', pct: 7, sub: '9,7% × 98,25% du brut' },
+        { label: '= Net avant IR', val: 2240, color: '#5dd6c5', pct: 58, sub: '', sep: true },
+        { label: '− IR (~7% taux moyen)', val: -150, color: '#a78bfa', pct: 4, sub: 'Après quotient familial et déductions' },
+        { label: '= Net perçu', val: 2200, color: '#63d471', pct: 57, sub: 'Revenu disponible avant TVA et taxes', sep: true },
+        { label: '− TVA effective (~15%)', val: -330, color: '#a78bfa', pct: 9, sub: 'Sur les dépenses courantes' },
+        { label: '− TICPE + taxes locales', val: -170, color: '#5dd6c5', pct: 4, sub: 'Carburant (~700€/an), foncier, autres' },
+      ],
+      total: 45,
+      note: 'Pour un salarié médian (brut ~2 800€), environ 45% du coût total du travail part en prélèvements obligatoires. Ce chiffre ne comprend pas les droits de succession ni les taxes sur l\'épargne. Sources : URSSAF 2024, DGFiP revenus 2023, INSEE.'
+    },
+    {
+      title: 'SALARIÉ MOYEN — DÉCOMPOSITION (~3 200€ brut)',
+      cout: 4400,
+      rows: [
+        { label: 'Coût employeur total', val: 4400, color: '#aebbd4', pct: 100, sub: '= base de référence (100%)' },
+        { label: '− Cotisations patronales', val: -1200, color: '#ff6b6b', pct: 27, sub: 'Retraite, maladie, famille, chômage, AT/MP' },
+        { label: '= Salaire brut', val: 3200, color: '#5dd6c5', pct: 73, sub: '', sep: true },
+        { label: '− Cotisations salariales', val: -336, color: '#fb923c', pct: 8, sub: 'Retraite complémentaire, chômage' },
+        { label: '− CSG / CRDS', val: -304, color: '#f6c343', pct: 7, sub: '9,7% × 98,25% du brut' },
+        { label: '= Net avant IR', val: 2560, color: '#5dd6c5', pct: 58, sub: '', sep: true },
+        { label: '− IR (~9% taux moyen)', val: -210, color: '#a78bfa', pct: 5, sub: 'Après quotient familial — tranche 30% partiellement' },
+        { label: '= Net perçu', val: 2500, color: '#63d471', pct: 57, sub: 'Revenu disponible avant TVA et taxes', sep: true },
+        { label: '− TVA effective (~15%)', val: -375, color: '#a78bfa', pct: 9, sub: 'Sur les dépenses courantes' },
+        { label: '− TICPE + taxes locales', val: -200, color: '#5dd6c5', pct: 5, sub: 'Carburant, foncier, autres taxes indirectes' },
+      ],
+      total: 47,
+      note: 'À partir du salaire moyen, les taux marginaux commencent à mordre davantage (tranche 30%). Le taux total dépasse 47%. Sources : URSSAF 2024, DGFiP revenus 2023, INSEE.'
+    },
+    {
+      title: 'CADRE — DÉCOMPOSITION (~5 000€ brut)',
+      cout: 6800,
+      rows: [
+        { label: 'Coût employeur total', val: 6800, color: '#aebbd4', pct: 100, sub: '= base de référence (100%)' },
+        { label: '− Cotisations patronales', val: -1800, color: '#ff6b6b', pct: 26, sub: 'Retraite, maladie, famille, chômage, AT/MP' },
+        { label: '= Salaire brut', val: 5000, color: '#5dd6c5', pct: 74, sub: '', sep: true },
+        { label: '− Cotisations salariales', val: -550, color: '#fb923c', pct: 8, sub: 'Retraite complémentaire cadre (AGIRC), chômage' },
+        { label: '− CSG / CRDS', val: -476, color: '#f6c343', pct: 7, sub: '9,7% × 98,25% du brut' },
+        { label: '= Net avant IR', val: 3974, color: '#5dd6c5', pct: 58, sub: '', sep: true },
+        { label: '− IR (~16% taux moyen)', val: -574, color: '#a78bfa', pct: 8, sub: 'Tranches 30% et 41% — hors niches fiscales' },
+        { label: '= Net perçu', val: 3600, color: '#63d471', pct: 53, sub: 'Revenu disponible avant TVA et taxes', sep: true },
+        { label: '− TVA effective (~15%)', val: -540, color: '#a78bfa', pct: 8, sub: 'Sur les dépenses courantes' },
+        { label: '− TICPE + taxes locales', val: -260, color: '#5dd6c5', pct: 4, sub: 'Carburant, foncier, ISF-like, autres' },
+      ],
+      total: 50,
+      note: 'Pour un cadre, les tranches marginales 30–41% pèsent davantage. Le taux effectif total approche 50% du coût du travail. Sans compter les droits de succession (taux jusqu\'à 45% en ligne directe) ni l\'imposition sur le capital. Sources : URSSAF 2024, DGFiP revenus 2023, INSEE.'
+    }
+  ];
+
+  const EU_DATA = [
+    { flag:'🇫🇷', name:'France',      pct:45.3, color:'#ff6b6b' },
+    { flag:'🇩🇰', name:'Danemark',    pct:44.0, color:'#fb923c' },
+    { flag:'🇧🇪', name:'Belgique',    pct:43.3, color:'#fb923c' },
+    { flag:'🇸🇪', name:'Suède',       pct:42.6, color:'#f6c343' },
+    { flag:'🇦🇹', name:'Autriche',    pct:41.9, color:'#f6c343' },
+    { flag:'🇩🇪', name:'Allemagne',   pct:39.5, color:'#63d471' },
+    { flag:'🇳🇱', name:'Pays-Bas',    pct:38.0, color:'#63d471' },
+    { flag:'🇪🇸', name:'Espagne',     pct:37.4, color:'#63d471' },
+    { flag:'🇵🇹', name:'Portugal',    pct:34.3, color:'#5dd6c5' },
+    { flag:'🇨🇭', name:'Suisse',      pct:27.6, color:'#5dd6c5' },
+  ];
+
+  function showSal(idx, btn) {
+    document.querySelectorAll('.sal-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderWF(idx);
+  }
+
+  function renderWF(idx) {
+    const d = SAL_DATA[idx];
+    document.getElementById('wfTitle').textContent = d.title;
+    const container = document.getElementById('wfRows');
+    container.innerHTML = '';
+    d.rows.forEach(r => {
+      if (r.sep) {
+        const sep = document.createElement('hr');
+        sep.className = 'wf-sep';
+        container.appendChild(sep);
+      }
+      const row = document.createElement('div');
+      row.className = 'wf-row';
+      const pctW = Math.max(r.pct, 1);
+      row.innerHTML = `
+        <span class="wf-label">${r.label}</span>
+        <div class="wf-bar-wrap">
+          <div class="wf-bar" style="width:${pctW}%;background:${r.color}">${r.sub}</div>
+        </div>
+        <span class="wf-val" style="color:${r.color}">${r.val > 0 ? r.val.toLocaleString('fr-FR') : r.val === 0 ? '0' : r.val.toLocaleString('fr-FR')} €</span>`;
+      container.appendChild(row);
+    });
+    document.getElementById('wfTotalBar').style.width = d.total + '%';
+    document.getElementById('wfTotalBar').textContent = '';
+    document.getElementById('wfTotalVal').textContent = d.total + ' %';
+    document.getElementById('wfNote').textContent = d.note;
+  }
+
+  function renderEU() {
+    const max = EU_DATA[0].pct;
+    const container = document.getElementById('euChart');
+    EU_DATA.forEach(d => {
+      const isFR = d.name === 'France';
+      const row = document.createElement('div');
+      row.className = 'eu-row';
+      row.innerHTML = `
+        <span class="eu-flag">${d.flag}</span>
+        <span class="eu-name" style="${isFR ? 'color:#ff6b6b;font-weight:800' : ''}">${d.name}</span>
+        <div class="eu-bar-wrap">
+          <div class="eu-bar" style="width:${(d.pct/max*100).toFixed(1)}%;background:${d.color}"></div>
+        </div>
+        <span class="eu-pct" style="color:${d.color}">${d.pct}%</span>`;
+      container.appendChild(row);
+    });
+  }
+
+  // Nav toggle
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('nav-open', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  }));
+
+  renderWF(0);
+  renderEU();
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+</body>
+</html>

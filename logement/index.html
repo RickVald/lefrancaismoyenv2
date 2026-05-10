@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Le logement en heures de travail — Le Français Moyen</title>
+  <meta name="description" content="À Paris, acheter 1 m² coûtait 5 mois de SMIC en 2000. En 2024 : 17 mois. Le logement est la première cause du déclassement du pouvoir d'achat réel des Français.">
+  <link rel="canonical" href="https://le-francais-moyen.com/logement/">
+  <meta property="og:title" content="Le logement en heures de travail — 2000 vs 2024">
+  <meta property="og:description" content="Paris 2000 : 5 mois de SMIC pour 1 m². Paris 2024 : 17 mois. Le logement est devenu la première ponction invisible sur le pouvoir d'achat des Français.">
+  <meta property="og:url" content="https://le-francais-moyen.com/logement/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=13">
+  <style>
+    .log-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(167,139,250,.10) 0%,transparent 65%)}
+    .log-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#a78bfa;line-height:1;margin:8px 0 4px}
+
+    /* City cards */
+    .city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:24px 0}
+    .city-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .city-name{font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:12px}
+    .city-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;font-size:.88rem}
+    .city-year{color:var(--muted)}
+    .city-val{font-weight:800}
+    .city-ratio{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+    .city-arrow{font-size:1.4rem;font-weight:900}
+
+    /* Timeline chart */
+    .log-chart{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;margin:24px 0;position:relative;overflow:hidden}
+    .log-axis{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:8px}
+
+    /* EU comparison */
+    .eu-log-row{display:flex;align-items:center;gap:12px;margin-bottom:8px;font-size:.88rem}
+    .eu-log-flag{width:28px;text-align:center;flex-shrink:0}
+    .eu-log-name{width:140px;flex-shrink:0;color:var(--muted)}
+    .eu-log-bar-wrap{flex:1;height:10px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .eu-log-bar{height:100%;border-radius:5px}
+    .eu-log-val{width:80px;text-align:right;font-weight:800;font-size:.85rem;flex-shrink:0}
+
+    /* Causes */
+    .cause-list{display:grid;gap:10px;margin:20px 0}
+    .cause{display:flex;gap:14px;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;align-items:flex-start}
+    .cause-num{font-size:1.5rem;font-weight:900;color:var(--accent);flex-shrink:0;width:36px;text-align:center}
+    .cause-title{font-weight:700;font-size:.9rem;margin-bottom:3px}
+    .cause-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Tableau de bord</a></li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/budget/">📋 Budget</a></li>
+          <li><a href="/impot/">💸 Impôt</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget de l'État</a>
+    <a href="/dette/">⏱️ Dette en direct</a>
+    <a href="/impot/">💸 Impôt invisible</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/ronds-points/">🔵 Indice Rond-Point</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <div class="log-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Logement</span></nav>
+      <div class="eyebrow">Pouvoir d'achat immobilier · Notaires-INSEE · IGEDD 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:4px">Le logement en heures de travail</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 16px">À Paris, acheter <strong style="color:#fff">1 m²</strong> coûtait <strong style="color:#63d471">5 mois de SMIC</strong> en 2000.<br>
+      En 2024 : <strong style="color:#a78bfa">17 mois de SMIC</strong>. Les salaires ont progressé de 60%. Les prix de 370%.</p>
+      <div class="log-big">×3,4</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">rapport prix/salaire à Paris entre 2000 et 2024</p>
+    </div>
+
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── Villes ──────────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">Prix en mois de SMIC net par m² — grandes villes</h2>
+      <p style="font-size:.82rem;color:var(--muted);margin:0 0 16px">SMIC net mensuel 2024 = 1 426 €. Prix immobilier : Notaires-INSEE, appartement ancien.</p>
+      <div class="city-grid" id="cityGrid"></div>
+
+      <!-- ── Graphique évolution ─────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Évolution 2000–2024 : prix vs salaires</h2>
+      <div class="log-chart">
+        <p style="font-size:.8rem;color:var(--muted);margin:0 0 16px">Indices base 100 en 2000. Sources : Notaires-INSEE (prix), INSEE (salaires nets réels).</p>
+        <svg id="logSvg" viewBox="0 0 800 240" style="width:100%;display:block"></svg>
+        <div class="log-axis">
+          <span>2000</span><span>2004</span><span>2008</span><span>2012</span><span>2016</span><span>2020</span><span>2024</span>
+        </div>
+        <div style="display:flex;gap:20px;margin-top:12px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem">
+            <div style="width:20px;height:3px;background:#a78bfa;border-radius:2px"></div>
+            <span style="color:#a78bfa">Prix immobilier France entière (+190%)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem">
+            <div style="width:20px;height:3px;background:#ff6b6b;border-radius:2px"></div>
+            <span style="color:#ff6b6b">Prix Paris (+370%)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem">
+            <div style="width:20px;height:3px;background:#63d471;border-radius:2px"></div>
+            <span style="color:#63d471">Salaires nets réels (+62%)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Comparaison EU ──────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Effort d'achat — comparaison européenne</h2>
+      <p style="font-size:.82rem;color:var(--muted);margin:0 0 16px">Années de salaire médian brut nécessaires pour acheter 70 m² dans la capitale. Source : Eurostat 2024.</p>
+      <div id="euLogChart"></div>
+
+      <!-- ── Les causes ─────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Pourquoi les prix ont-ils autant décroché ?</h2>
+      <div class="cause-list">
+        <div class="cause">
+          <div class="cause-num">1</div>
+          <div>
+            <div class="cause-title">La baisse des taux (2010–2022)</div>
+            <div class="cause-desc">Le taux moyen d'un crédit immobilier est passé de 5,5% (2000) à 1,0% (2021). Mécaniquement, la capacité d'emprunt double pour la même mensualité → les acheteurs ont pu payer plus cher. Les vendeurs ont capté ce gain. La remontée des taux depuis 2022 a gelé le marché mais pas vraiment corrigé les prix.</div>
+          </div>
+        </div>
+        <div class="cause">
+          <div class="cause-num">2</div>
+          <div>
+            <div class="cause-title">L'offre structurellement insuffisante</div>
+            <div class="cause-desc">La France construit ~350 000 logements/an pour un besoin estimé à 450 000. Les causes : normes de construction de plus en plus contraignantes, délais de permis, résistance politique aux densifications urbaines, règles ZAN (Zéro Artificialisation Nette). Résultat : tension durable entre offre et demande dans les zones tendues.</div>
+          </div>
+        </div>
+        <div class="cause">
+          <div class="cause-num">3</div>
+          <div>
+            <div class="cause-title">La métropolisation</div>
+            <div class="cause-desc">La concentration des emplois qualifiés dans 10 métropoles (Paris, Lyon, Bordeaux, Nantes, Toulouse, Rennes…) a créé une pression de demande localisée. La périurbanisation a suivi, étirant la zone chère et renchérissant les marchés secondaires.</div>
+          </div>
+        </div>
+        <div class="cause">
+          <div class="cause-num">4</div>
+          <div>
+            <div class="cause-title">L'investissement locatif défiscalisé</div>
+            <div class="cause-desc">Pinel, Scellier, Duflot, Robien… 20 ans de dispositifs de défiscalisation ont orienté l'épargne vers l'immobilier. Ces achats d'investissement en concurrence avec les primo-accédants ont soutenu les prix. Coût fiscal estimé : ~2 Md€/an pour Pinel seul, pour un impact sur les loyers jugé "limité" par la Cour des Comptes.</div>
+          </div>
+        </div>
+        <div class="cause">
+          <div class="cause-num">5</div>
+          <div>
+            <div class="cause-title">Airbnb et résidences secondaires</div>
+            <div class="cause-desc">La location courte durée (Airbnb et plateformes) a soustrait des dizaines de milliers de logements du marché résidentiel dans les villes touristiques (Paris, Bordeaux, Biarritz, Nice). Impact estimé : +3 à +5% sur les loyers dans les zones très affectées. La régulation avance lentement.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Loyers ──────────────────────────────────────────────── -->
+      <div style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-radius:16px;padding:20px 24px;margin:24px 0">
+        <div style="font-size:.8rem;font-weight:800;color:#a78bfa;letter-spacing:.06em;margin-bottom:12px">🏘️ ET POUR LES LOCATAIRES ?</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <div style="font-size:1.6rem;font-weight:900;color:#a78bfa">39%</div>
+            <div style="font-size:.78rem;color:var(--muted);margin-top:4px">du revenu disponible consacré au logement par un locataire dans le parc privé en zone tendue (vs 23% en 2000)</div>
+          </div>
+          <div>
+            <div style="font-size:1.6rem;font-weight:900;color:#ff6b6b">2,3 M</div>
+            <div style="font-size:.78rem;color:var(--muted);margin-top:4px">demandeurs en attente d'un logement social (HLM), délai moyen d'attente : 6 ans en Île-de-France</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Sources ────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px;margin-top:28px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <strong style="color:var(--text)">Sources :</strong> Notaires-INSEE — Base des transactions immobilières 2024 · IGEDD — indices prix logements séries longues · INSEE — salaires nets médians séries longues · Eurostat — Housing Price Statistics · CGDD — construction neuve 2024 · Cour des Comptes — évaluation dispositifs Pinel 2023 · UNPI — baromètre loyers 2024
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Paris+2000+%3A+1+m²+%3D+5+mois+de+SMIC.+Paris+2024+%3A+1+m²+%3D+17+mois+de+SMIC.+Les+salaires+ont+progressé+de+62%25.+Les+prix+immobiliers+de+370%25.+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Flogement%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : Notaires-INSEE · IGEDD · Eurostat</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  // City data: [city, prix2000, prix2024, smic2000, smic2024]
+  // prix = €/m², smic net = 762€ en 2000, 1426€ en 2024
+  const CITIES = [
+    { name:'Paris',     p00:2900, p24:10300, color:'#ff6b6b' },
+    { name:'Lyon',      p00:1500, p24:5100,  color:'#fb923c' },
+    { name:'Bordeaux',  p00:1300, p24:4800,  color:'#fb923c' },
+    { name:'Nantes',    p00:1100, p24:4300,  color:'#f6c343' },
+    { name:'Toulouse',  p00:1200, p24:4000,  color:'#f6c343' },
+    { name:'Marseille', p00:1100, p24:3600,  color:'#63d471' },
+    { name:'Rennes',    p00:1000, p24:4000,  color:'#f6c343' },
+    { name:'Lille',     p00: 900, p24:3200,  color:'#63d471' },
+    { name:'Strasbourg',p00:1000, p24:3500,  color:'#63d471' },
+    { name:'France moy.',p00:1050,p24:3100,  color:'#5dd6c5' },
+  ];
+  const SMIC00 = 762, SMIC24 = 1426;
+
+  const grid = document.getElementById('cityGrid');
+  CITIES.forEach(d => {
+    const m00 = (d.p00 / SMIC00).toFixed(1);
+    const m24 = (d.p24 / SMIC24).toFixed(1);
+    const mult = (m24 / m00).toFixed(1);
+    const card = document.createElement('div');
+    card.className = 'city-card';
+    card.innerHTML = `
+      <div class="city-name">${d.name.toUpperCase()}</div>
+      <div class="city-row"><span class="city-year">2000</span><span class="city-val" style="color:#63d471">${d.p00.toLocaleString('fr-FR')} €/m²</span></div>
+      <div class="city-row"><span class="city-year" style="font-size:.72rem;color:var(--muted)">= ${m00} mois SMIC</span></div>
+      <div class="city-row" style="margin-top:6px"><span class="city-year">2024</span><span class="city-val" style="color:${d.color}">${d.p24.toLocaleString('fr-FR')} €/m²</span></div>
+      <div class="city-row"><span class="city-year" style="font-size:.72rem;color:var(--muted)">= ${m24} mois SMIC</span></div>
+      <div class="city-ratio">
+        <span class="city-arrow" style="color:${d.color}">↗</span>
+        <span style="font-weight:800;color:${d.color}">×${mult} l'effort d'achat</span>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  // SVG Line chart
+  const svg = document.getElementById('logSvg');
+  const W = 800, H = 240, PAD = 40;
+  // Data: index base 100 in 2000
+  // Years: 2000,2004,2008,2012,2016,2020,2024
+  const years = [2000,2004,2008,2012,2016,2020,2024];
+  const pricesFR  = [100, 145, 175, 172, 180, 210, 290];
+  const pricesParis = [100, 170, 220, 220, 240, 320, 470];
+  const salaires  = [100, 107, 115, 122, 128, 138, 162];
+
+  function pts(data) {
+    return data.map((v,i) => {
+      const x = PAD + (i / (years.length-1)) * (W - PAD*2);
+      const y = H - PAD - (v / 500) * (H - PAD*2);
+      return `${x},${y}`;
+    }).join(' ');
+  }
+
+  // Grid lines
+  [100,200,300,400,500].forEach(v => {
+    const y = H - PAD - (v/500)*(H-PAD*2);
+    svg.innerHTML += `<line x1="${PAD}" y1="${y}" x2="${W-PAD}" y2="${y}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
+    svg.innerHTML += `<text x="${PAD-4}" y="${y+4}" text-anchor="end" fill="rgba(174,187,212,0.5)" font-size="10">${v}</text>`;
+  });
+
+  // Areas
+  function area(data, color) {
+    const p = data.map((v,i) => {
+      const x = PAD + (i/(years.length-1))*(W-PAD*2);
+      const y = H - PAD - (v/500)*(H-PAD*2);
+      return [x,y];
+    });
+    const top = p.map(([x,y]) => `${x},${y}`).join(' ');
+    const bottom = `${p[p.length-1][0]},${H-PAD} ${p[0][0]},${H-PAD}`;
+    return `<polygon points="${top} ${bottom}" fill="${color}" opacity="0.06"/>`;
+  }
+  svg.innerHTML += area(pricesParis, '#ff6b6b');
+  svg.innerHTML += area(pricesFR, '#a78bfa');
+
+  // Lines
+  svg.innerHTML += `<polyline points="${pts(salaires)}" fill="none" stroke="#63d471" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  svg.innerHTML += `<polyline points="${pts(pricesFR)}" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+  svg.innerHTML += `<polyline points="${pts(pricesParis)}" fill="none" stroke="#ff6b6b" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+
+  // EU chart
+  const EU_LOG = [
+    { flag:'🇩🇪', name:'Berlin',   val:7.2,  color:'#63d471' },
+    { flag:'🇪🇸', name:'Madrid',   val:8.8,  color:'#63d471' },
+    { flag:'🇵🇹', name:'Lisbonne', val:10.1, color:'#f6c343' },
+    { flag:'🇳🇱', name:'Amsterdam',val:11.4, color:'#fb923c' },
+    { flag:'🇫🇷', name:'Paris',    val:14.8, color:'#ff6b6b' },
+    { flag:'🇨🇭', name:'Zurich',   val:15.2, color:'#ff6b6b' },
+    { flag:'🇬🇧', name:'Londres',  val:16.0, color:'#ff6b6b' },
+  ].sort((a,b) => a.val - b.val);
+  const logMax = 16;
+  const euLogCont = document.getElementById('euLogChart');
+  EU_LOG.forEach(d => {
+    const isFR = d.name === 'Paris';
+    const row = document.createElement('div');
+    row.className = 'eu-log-row';
+    row.innerHTML = `
+      <span class="eu-log-flag">${d.flag}</span>
+      <span class="eu-log-name" style="${isFR?'color:#a78bfa;font-weight:800':''}">${d.name}</span>
+      <div class="eu-log-bar-wrap">
+        <div class="eu-log-bar" style="width:${(d.val/logMax*100).toFixed(1)}%;background:${d.color}"></div>
+      </div>
+      <span class="eu-log-val" style="color:${d.color}">${d.val} ans</span>`;
+    euLogCont.appendChild(row);
+  });
+
+  // Nav
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('nav-open', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+</body>
+</html>
