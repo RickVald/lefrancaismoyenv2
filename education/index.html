@@ -17,7 +17,7 @@
     .edu-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(236,72,153,.12) 0%,transparent 65%)}
     .edu-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#ec4899;line-height:1;margin:8px 0 4px}
     .edu-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
-    .edu-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .edu-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center;overflow:hidden;word-break:break-word}
     .edu-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
     .edu-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
     .cmp-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
@@ -29,7 +29,7 @@
     .edu-verdict{background:rgba(236,72,153,.07);border:1px solid rgba(236,72,153,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
     .edu-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
     .paradox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin:20px 0}
-    .paradox-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .paradox-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px;overflow:hidden;word-break:break-word}
     .paradox-card .p-label{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
     .paradox-card .p-val{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:4px}
     .paradox-card .p-sub{font-size:.8rem;color:var(--muted);line-height:1.4}
@@ -105,7 +105,7 @@
 
     <!-- HERO -->
     <section class="edu-hero">
-      <p class="hero-eyebrow">📚 Éducation nationale</p>
+      <p class="eyebrow" style="text-align:center">📚 Éducation nationale</p>
       <div class="edu-big" id="heroVal" data-mds="58">58 Md€</div>
       <p class="hero-sub">1<sup>er</sup> budget de l'État · résultats PISA en recul depuis 20 ans</p>
       <div class="contrib-toggle" style="margin-top:18px">
