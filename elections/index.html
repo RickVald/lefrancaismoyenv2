@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://le-francais-moyen.com/elections/">
   <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=11">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=12">
   <style>
     /* ── Layout ── */
     .year-selector{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
@@ -110,9 +110,22 @@
           <li><a href="/#questions">Questions</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Tableau de bord</a>
     </div>
   </header>
+<div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+  <a href="/">🏠 Tableau de bord</a>
+  <a href="/#dashboard">📊 Indicateurs</a>
+  <a href="/#simulateur-fiscal-reel">💰 Mon impôt réel</a>
+  <a href="/#simulateur">🧮 Simulateur générations</a>
+  <a href="/elections/">🗳️ Élections</a>
+  <a href="/dette/">⏱️ Dette en direct</a>
+  <a href="/outils/">🧰 Boîte à outils</a>
+  <a href="/ronds-points/">🔵 Indice Rond-Point</a>
+  <a href="/questions/">❓ Questions</a>
+  <a href="/#newsletter" class="nav-mobile-cta">📧 Recevoir la newsletter</a>
+</div>
 
   <main style="max-width:1100px;margin:auto;padding:36px 24px 80px">
 
@@ -1073,5 +1086,32 @@
   </script>
 <script src="../assets/js/share.js"></script>
 <script>lfmInitShareWidget('elections');</script>
-</body>
+<script>
+(function(){
+  var btn=document.getElementById('navToggle');
+  var menu=document.getElementById('navMobile');
+  if(!btn||!menu)return;
+  btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded',open);
+    document.body.classList.toggle('nav-open',open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-open');
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&menu.classList.contains('is-open')){
+      menu.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-open');
+      btn.focus();
+    }
+  });
+})();
+</script></body>
 </html>
+

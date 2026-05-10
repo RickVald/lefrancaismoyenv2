@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Érosion de l'épargne – Le Français Moyen</title>
-<link rel="stylesheet" href="../assets/css/styles.css?v=11">
+<link rel="stylesheet" href="../assets/css/styles.css?v=12">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0d0d0d;color:#e8e8e8;font-family:'Segoe UI',sans-serif;min-height:100vh}
@@ -321,5 +321,32 @@ compute();
 </script>
 <script src="../assets/js/share.js"></script>
 <script>lfmInitShareWidget('epargne');</script>
-</body>
+<script>
+(function(){
+  var btn=document.getElementById('navToggle');
+  var menu=document.getElementById('navMobile');
+  if(!btn||!menu)return;
+  btn.addEventListener('click',function(){
+    var open=menu.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded',open);
+    document.body.classList.toggle('nav-open',open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      menu.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-open');
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&menu.classList.contains('is-open')){
+      menu.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-open');
+      btn.focus();
+    }
+  });
+})();
+</script></body>
 </html>
+
