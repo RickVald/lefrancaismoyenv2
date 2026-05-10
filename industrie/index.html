@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>La désindustrialisation française — −2,3 millions d'emplois — Le Français Moyen</title>
+  <meta name="description" content="La France a perdu 2,3 millions d'emplois industriels depuis 1980. Part de l'industrie dans le PIB : 28% → 11%. Balance commerciale : −85 Md€. L'Allemagne a résisté. Pourquoi ?">
+  <link rel="canonical" href="https://le-francais-moyen.com/industrie/">
+  <meta property="og:title" content="Désindustrialisation — −2,3 M d'emplois depuis 1980">
+  <meta property="og:description" content="Part industrie/PIB : 28% → 11%. −2,3M d'emplois. Balance commerciale −85 Md€. L'Allemagne maintient 22%. La divergence en chiffres.">
+  <meta property="og:url" content="https://le-francais-moyen.com/industrie/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=16">
+  <style>
+    .ind-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,.12) 0%,transparent 65%)}
+    .ind-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#6366f1;line-height:1;margin:8px 0 4px}
+    .ind-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .ind-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .ind-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .ind-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+    .cmp-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+    .cmp-flag{font-size:1.1rem;width:28px;text-align:center;flex-shrink:0}
+    .cmp-name{width:150px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .cmp-bar-wrap{flex:1;height:11px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .cmp-bar{height:100%;border-radius:5px}
+    .cmp-val{width:60px;text-align:right;font-weight:800;font-size:.84rem;flex-shrink:0}
+    .ind-verdict{background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .ind-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+    canvas{width:100%;border-radius:12px;display:block}
+    .timeline{position:relative;padding-left:28px;margin:16px 0}
+    .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border)}
+    .tl-item{position:relative;margin-bottom:18px}
+    .tl-dot{position:absolute;left:-22px;top:4px;width:14px;height:14px;border-radius:50%;border:2px solid}
+    .tl-year{font-size:.78rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:3px}
+    .tl-text{font-size:.88rem;line-height:1.6;color:var(--text)}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+  <a href="/">🏠 Tableau de bord</a>
+  <a href="/budget/">📋 Budget</a>
+  <a href="/impot/">💸 Impôt</a>
+  <a href="/dette/">⏱️ Dette</a>
+  <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+  <a href="/retraites/">👴 Retraites</a>
+  <a href="/sante/">🏥 Santé</a>
+  <a href="/education/">📚 Éducation</a>
+  <a href="/industrie/">🏭 Industrie</a>
+  <a href="/logement/">🏠 Logement</a>
+  <a href="/autoroutes/">🛣️ Autoroutes</a>
+  <a href="/normes/">📜 Normes</a>
+  <a href="/ronds-points/">🔵 Rond-Point</a>
+  <a href="/outils/">🧰 Outils</a>
+  <a href="/elections/">🗳️ Élections</a>
+  <a href="/questions/">❓ Questions</a>
+  <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+</div>
+
+  <main id="contenu">
+    <div class="ind-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Désindustrialisation</span></nav>
+      <div class="eyebrow">Données INSEE · Banque de France · OCDE · 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:4px">La désindustrialisation française</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+        En 1980, l'industrie représentait <strong style="color:#6366f1">28 % du PIB</strong> français.<br>
+        En 2023 : <strong style="color:#ff6b6b">11 %</strong>. L'Allemagne maintient <strong style="color:#63d471">22 %</strong>.<br>
+        Ce fossé explique une grande partie de la divergence économique.
+      </p>
+      <div class="ind-big">−2,3 M</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">emplois industriels perdus depuis 1980 en France</p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <div class="ind-kpi">
+        <div class="ind-kpi-card">
+          <span class="val" style="color:#6366f1">11 %</span>
+          <span class="lbl">part de l'industrie dans le PIB 2023<br>Était 28 % en 1980 — Allemagne : 22 %</span>
+        </div>
+        <div class="ind-kpi-card">
+          <span class="val" style="color:#ff6b6b">−85 Md€</span>
+          <span class="lbl">balance commerciale 2023<br>Déficit record — 0 en 2003</span>
+        </div>
+        <div class="ind-kpi-card">
+          <span class="val" style="color:#fb923c">3,1 M</span>
+          <span class="lbl">emplois industriels restants en 2023<br>Vs 5,4 M en 1980</span>
+        </div>
+        <div class="ind-kpi-card">
+          <span class="val" style="color:#f6c343">~15 000</span>
+          <span class="lbl">fermetures de sites industriels<br>depuis 2000 (Trendeo)</span>
+        </div>
+      </div>
+
+      <!-- Divergence France/Allemagne -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">La divergence France–Allemagne depuis 1980</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Emplois industriels (base 100 = 1980). Deux pays, deux choix de politique industrielle.</p>
+      <canvas id="divChart" height="220"></canvas>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Sources : INSEE, Destatis (Allemagne). Emploi salarié dans l'industrie manufacturière.</p>
+
+      <!-- Part industrie PIB -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Part de l'industrie dans le PIB — 2023</h2>
+      <div id="indCmp"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : Banque mondiale, OCDE. Valeur ajoutée manufacturière / PIB.</p>
+
+      <!-- Balance commerciale -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px">La balance commerciale : l'heure de vérité</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">La France était à l'équilibre commercial en 2003. La désindustrialisation s'est traduite mécaniquement par un déficit grandissant.</p>
+      <canvas id="balChart" height="180"></canvas>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : Banque de France — statistiques douanières. Biens et services.</p>
+
+      <!-- Ce qui reste, ce qui est parti -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 12px">Ce que la France a perdu — et ce qu'elle garde</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+        <div style="background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.25);border-radius:14px;padding:18px">
+          <div style="font-size:.75rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:12px">❌ SECTEURS PERDUS (1980–2023)</div>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:7px;font-size:.85rem;color:var(--muted)">
+            <li>🧵 <strong style="color:#fff">Textile-habillement</strong> — −95 % des effectifs</li>
+            <li>📺 <strong style="color:#fff">Électronique grand public</strong> — quasi disparu</li>
+            <li>⚙️ <strong style="color:#fff">Sidérurgie</strong> — −80 % (vs −30 % en DE)</li>
+            <li>🧴 <strong style="color:#fff">Chimie de base</strong> — relocalisée en Asie</li>
+            <li>👟 <strong style="color:#fff">Chaussure</strong> — 1 % survit (luxe)</li>
+          </ul>
+        </div>
+        <div style="background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.25);border-radius:14px;padding:18px">
+          <div style="font-size:.75rem;font-weight:800;color:#6366f1;letter-spacing:.06em;margin-bottom:12px">✅ SECTEURS MAINTENUS / EN CROISSANCE</div>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:7px;font-size:.85rem;color:var(--muted)">
+            <li>✈️ <strong style="color:#fff">Aéronautique</strong> — Airbus, Safran, Dassault</li>
+            <li>💎 <strong style="color:#fff">Luxe & cosmétiques</strong> — LVMH, L'Oréal, Hermès</li>
+            <li>☢️ <strong style="color:#fff">Nucléaire</strong> — EDF, Framatome, Orano</li>
+            <li>🌾 <strong style="color:#fff">Agroalimentaire</strong> — 1er excédent français (+7 Md€)</li>
+            <li>🚅 <strong style="color:#fff">Ferroviaire</strong> — Alstom (fragile)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">La chronologie du décrochage</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#f59e0b;border-color:#f59e0b"></div>
+          <div class="tl-year">1974–1985 — Le premier choc</div>
+          <div class="tl-text">Les deux chocs pétroliers (1973, 1979) fragilisent les industries énergivores. Fermetures massives dans la sidérurgie (Lorraine), les chantiers navals (Dunkerque, La Ciotat). L'État nationalise pour maintenir l'emploi — à court terme.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#6366f1;border-color:#6366f1"></div>
+          <div class="tl-year">1986–2000 — Le tournant libéral et la mondialisation</div>
+          <div class="tl-text">Privatisations sous Chirac, marché unique européen (1992), intégration des pays de l'Est. Les coûts salariaux plus bas attirent les délocalisations. L'Allemagne négocie avec ses syndicats une modération salariale + maintien des savoir-faire.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#ff6b6b;border-color:#ff6b6b"></div>
+          <div class="tl-year">2001–2010 — L'entrée de la Chine dans l'OMC</div>
+          <div class="tl-text">L'entrée de la Chine (2001) provoque une vague de fermetures dans le textile, l'électronique, la chimie. <strong style="color:#ff6b6b">−600 000 emplois industriels</strong> entre 2001 et 2010. La France perd son équilibre commercial en 2005.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#94a3b8;border-color:#94a3b8"></div>
+          <div class="tl-year">2012–2023 — Les plans de "réindustrialisation"</div>
+          <div class="tl-text">BPI France, Plan Industrie du Futur, "France 2030"… Les annonces se succèdent. Résultat : +80 000 emplois industriels entre 2017 et 2023 — soit +3 % sur une base qui avait chuté de −43 % depuis 1980.</div>
+        </div>
+      </div>
+
+      <div class="ind-verdict">
+        <div style="font-size:.8rem;font-weight:800;color:#6366f1;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+          La France a perdu <strong style="color:#fff">17 points de PIB industriel</strong> en 40 ans — l'équivalent de 450 Md€ de valeur ajoutée annuelle. La balance commerciale illustre ce manque : <strong style="color:#ff6b6b">−85 Md€ en 2023</strong>, contre +24 Md€ en Allemagne. Ce déficit n'est pas conjoncturel — il est structurel. La bonne nouvelle : la France conserve des pôles d'excellence mondiaux (aéronautique, luxe, nucléaire, agro). Le défi est de <strong style="color:#6366f1">les amplifier et d'en reconstruire de nouveaux</strong> — ce qui prend des décennies, pas des plans quinquennaux.
+        </p>
+      </div>
+
+      <div class="ind-note">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">La désindustrialisation n'est pas propre à la France : tous les pays riches ont perdu des emplois manufacturiers au profit des services. La différence est d'<strong style="color:#fff">amplitude</strong> : la France a perdu 17 pts de PIB industriel, l'Allemagne seulement 6 pts. L'Allemagne a maintenu son industrie par un modèle de négociation sociale (Kurzarbeit, cogestion), un tissu de PME "Mittelstand" exportatrices, et une spécialisation dans les biens d'équipement à forte valeur ajoutée. Ces choix étaient politiques, pas inévitables.</p>
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <strong style="color:var(--text)">Sources :</strong> INSEE — comptes nationaux, emploi salarié industriel 2024 · Banque de France — balance des paiements 2023 · Destatis (Allemagne) · OCDE — National Accounts · Trendeo — Observatoire de l'investissement et de l'emploi 2023 · Banque mondiale — WDI
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+France+a+perdu+2%2C3+millions+d%27emplois+industriels+depuis+1980.+Part+industrie%2FPIB+%3A+28+%25+%E2%86%92+11+%25.+Balance+commerciale+%3A+%E2%88%9285+Md%E2%82%AC.+L%27Allemagne+maintient+22+%25.+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Findustrie%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : INSEE · Banque de France · OCDE</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const DIV_FR=[
+    {y:1980,v:100},{y:1985,v:89},{y:1990,v:84},{y:1995,v:78},
+    {y:2000,v:74},{y:2005,v:67},{y:2008,v:62},{y:2010,v:58},
+    {y:2015,v:54},{y:2019,v:56},{y:2023,v:57}
+  ];
+  const DIV_DE=[
+    {y:1980,v:100},{y:1985,v:95},{y:1990,v:100},{y:1995,v:90},
+    {y:2000,v:88},{y:2005,v:82},{y:2008,v:82},{y:2010,v:79},
+    {y:2015,v:82},{y:2019,v:80},{y:2023,v:79}
+  ];
+  const IND_CMP=[
+    {flag:'🇩🇪',name:'Allemagne',  pct:22.0,color:'#63d471'},
+    {flag:'🇨🇿',name:'Tchéquie',   pct:24.2,color:'#5dd6c5'},
+    {flag:'🇮🇹',name:'Italie',     pct:19.4,color:'#fb923c'},
+    {flag:'🇪🇸',name:'Espagne',    pct:16.2,color:'#f6c343'},
+    {flag:'🇺🇸',name:'États-Unis', pct:11.5,color:'#94a3b8'},
+    {flag:'🇫🇷',name:'France',     pct:11.0,color:'#ff6b6b'},
+    {flag:'🇬🇧',name:'Royaume-Uni',pct:10.1,color:'#a78bfa'},
+  ];
+  const BAL=[
+    {y:2000,v:0.8},{y:2002,v:1.2},{y:2004,v:0.1},{y:2006,v:-8},
+    {y:2008,v:-45},{y:2010,v:-51},{y:2012,v:-67},{y:2014,v:-40},
+    {y:2016,v:-48},{y:2018,v:-60},{y:2020,v:-65},{y:2022,v:-164},
+    {y:2023,v:-85}
+  ];
+
+  /* Divergence chart */
+  (function(){
+    const cv=document.getElementById('divChart');
+    const dpr=window.devicePixelRatio||1,W=cv.parentElement.clientWidth||800,H=220;
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+    const ctx=cv.getContext('2d');ctx.scale(dpr,dpr);
+    const pad={t:20,r:100,b:34,l:44};
+    const cW=W-pad.l-pad.r,cH=H-pad.t-pad.b;
+    const minY=1980,maxY=2023,minV=45,maxV=105;
+    const xP=y=>pad.l+(y-minY)/(maxY-minY)*cW;
+    const yP=v=>pad.t+cH-(v-minV)/(maxV-minV)*cH;
+
+    [50,60,70,80,90,100].forEach(v=>{
+      ctx.beginPath();ctx.moveTo(pad.l,yP(v));ctx.lineTo(pad.l+cW,yP(v));
+      ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='rgba(174,187,212,.6)';ctx.font='11px system-ui';ctx.textAlign='right';
+      ctx.fillText(v,pad.l-5,yP(v)+4);
+    });
+
+    // FR
+    const gFR=ctx.createLinearGradient(0,pad.t,0,pad.t+cH);
+    gFR.addColorStop(0,'rgba(255,107,107,.20)');gFR.addColorStop(1,'rgba(255,107,107,.02)');
+    ctx.beginPath();DIV_FR.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.v)):ctx.lineTo(xP(d.y),yP(d.v)));
+    ctx.lineTo(xP(2023),pad.t+cH);ctx.lineTo(xP(1980),pad.t+cH);ctx.closePath();
+    ctx.fillStyle=gFR;ctx.fill();
+    ctx.beginPath();DIV_FR.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.v)):ctx.lineTo(xP(d.y),yP(d.v)));
+    ctx.strokeStyle='#ff6b6b';ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.stroke();
+
+    // DE
+    ctx.beginPath();DIV_DE.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.v)):ctx.lineTo(xP(d.y),yP(d.v)));
+    ctx.strokeStyle='#63d471';ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.stroke();
+
+    // Labels
+    ctx.font='11px system-ui';ctx.textAlign='center';ctx.fillStyle='rgba(174,187,212,.6)';
+    [1980,1990,2000,2010,2020,2023].forEach(y=>ctx.fillText(y,xP(y),H-pad.b+18));
+
+    // Legend
+    [[pad.l+cW+8,'#ff6b6b','🇫🇷 France'],[pad.l+cW+8,'#63d471','🇩🇪 Allemagne']].forEach(([x,c,lbl],i)=>{
+      ctx.beginPath();ctx.moveTo(x,pad.t+20+i*20);ctx.lineTo(x+16,pad.t+20+i*20);
+      ctx.strokeStyle=c;ctx.lineWidth=2;ctx.stroke();
+      ctx.fillStyle=c;ctx.font='10px system-ui';ctx.textAlign='left';
+      ctx.fillText(lbl,x+20,pad.t+24+i*20);
+    });
+
+    // End annotations
+    ctx.fillStyle='#ff6b6b';ctx.font='bold 10px system-ui';ctx.textAlign='left';
+    ctx.fillText('57',xP(2023)+6,yP(DIV_FR[DIV_FR.length-1].v)+4);
+    ctx.fillStyle='#63d471';
+    ctx.fillText('79',xP(2023)+6,yP(DIV_DE[DIV_DE.length-1].v)+4);
+  })();
+
+  /* Industrie comparaison */
+  const maxInd=26;
+  document.getElementById('indCmp').innerHTML=IND_CMP.map(d=>{
+    const isFR=d.name==='France';
+    return `<div class="cmp-row">
+      <span class="cmp-flag">${d.flag}</span>
+      <span class="cmp-name" style="${isFR?'color:#ff6b6b;font-weight:800':''}">${d.name}</span>
+      <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${(d.pct/maxInd*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span class="cmp-val" style="color:${d.color}">${d.pct}%</span>
+    </div>`;
+  }).join('');
+
+  /* Balance commerciale */
+  (function(){
+    const cv=document.getElementById('balChart');
+    const dpr=window.devicePixelRatio||1,W=cv.parentElement.clientWidth||800,H=180;
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+    const ctx=cv.getContext('2d');ctx.scale(dpr,dpr);
+    const pad={t:16,r:20,b:32,l:56};
+    const cW=W-pad.l-pad.r,cH=H-pad.t-pad.b;
+    const minY=2000,maxY=2023,minV=-175,maxV=10;
+    const xP=y=>pad.l+(y-minY)/(maxY-minY)*cW;
+    const yP=v=>pad.t+cH-(v-minV)/(maxV-minV)*cH;
+    const zero=yP(0);
+
+    // Zero line
+    ctx.beginPath();ctx.moveTo(pad.l,zero);ctx.lineTo(pad.l+cW,zero);
+    ctx.strokeStyle='rgba(255,255,255,.25)';ctx.lineWidth=1;ctx.stroke();
+
+    // Grid
+    [-50,-100,-150].forEach(v=>{
+      ctx.beginPath();ctx.moveTo(pad.l,yP(v));ctx.lineTo(pad.l+cW,yP(v));
+      ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='rgba(174,187,212,.6)';ctx.font='11px system-ui';ctx.textAlign='right';
+      ctx.fillText(v+'G',pad.l-5,yP(v)+4);
+    });
+
+    // Bars
+    const bw=cW/BAL.length*0.7;
+    BAL.forEach(d=>{
+      const x=xP(d.y)-bw/2;
+      const isPos=d.v>=0;
+      const barH=Math.abs(yP(d.v)-zero);
+      const y=isPos?zero-barH:zero;
+      ctx.fillStyle=isPos?'rgba(99,214,113,.7)':'rgba(255,107,107,.7)';
+      ctx.fillRect(x,y,bw,barH);
+    });
+
+    ctx.fillStyle='rgba(174,187,212,.6)';ctx.font='11px system-ui';ctx.textAlign='center';
+    [2000,2005,2010,2015,2020,2023].forEach(y=>ctx.fillText(y,xP(y),H-pad.b+18));
+
+    // Annotation 2022 crisis
+    ctx.fillStyle='rgba(255,107,107,.8)';ctx.font='bold 10px system-ui';ctx.textAlign='center';
+    ctx.fillText('−164 (2022)',xP(2022),yP(-164)-6);
+    ctx.fillText('−85',xP(2023),yP(-85)-6);
+  })();
+
+  const toggle=document.getElementById('navToggle'),mob=document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{const o=mob.classList.toggle('is-open');toggle.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o);});
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');}));
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>

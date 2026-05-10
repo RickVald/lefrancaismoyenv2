@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>L'éducation nationale en France — 58 Md€, résultats en recul — Le Français Moyen</title>
+  <meta name="description" content="1er budget de l'État à 58 Md€, 7 600€ par élève, mais les scores PISA ont chuté de 43 points depuis 2000. 20% des élèves en difficulté à l'entrée en 6e. L'ascenseur social en panne.">
+  <link rel="canonical" href="https://le-francais-moyen.com/education/">
+  <meta property="og:title" content="Éducation nationale — 58 Md€, −43 pts PISA depuis 2000">
+  <meta property="og:description" content="Premier budget de l'État, mais des résultats en recul constant. La France dépense plus que la moyenne OCDE par élève tout en creusant ses inégalités scolaires.">
+  <meta property="og:url" content="https://le-francais-moyen.com/education/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=16">
+  <style>
+    .edu-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(236,72,153,.12) 0%,transparent 65%)}
+    .edu-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#ec4899;line-height:1;margin:8px 0 4px}
+    .edu-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .edu-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .edu-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .edu-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+    .cmp-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+    .cmp-flag{font-size:1.1rem;width:28px;text-align:center;flex-shrink:0}
+    .cmp-name{width:150px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .cmp-bar-wrap{flex:1;height:11px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .cmp-bar{height:100%;border-radius:5px}
+    .cmp-val{width:60px;text-align:right;font-weight:800;font-size:.84rem;flex-shrink:0}
+    .edu-verdict{background:rgba(236,72,153,.07);border:1px solid rgba(236,72,153,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .edu-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+    .paradox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin:20px 0}
+    .paradox-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .paradox-card .p-label{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .paradox-card .p-val{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:4px}
+    .paradox-card .p-sub{font-size:.8rem;color:var(--muted);line-height:1.4}
+    .split-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
+    @media(max-width:640px){.split-cols{grid-template-columns:1fr}}
+    canvas{width:100%;border-radius:12px;display:block}
+    .budget-donut-wrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:20px 0}
+    .budget-legend{flex:1;min-width:180px}
+    .bleg-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:.85rem}
+    .bleg-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+    .bleg-val{font-weight:800;margin-left:auto;font-size:.9rem}
+    .ineg-band{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .ineg-label{width:120px;font-size:.82rem;color:var(--muted);flex-shrink:0}
+    .ineg-bar-wrap{flex:1;height:14px;background:rgba(255,255,255,.07);border-radius:6px;overflow:hidden}
+    .ineg-bar{height:100%;border-radius:6px}
+    .ineg-val{width:44px;text-align:right;font-size:.82rem;font-weight:800;flex-shrink:0}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+
+    <!-- HERO -->
+    <section class="edu-hero">
+      <p class="hero-eyebrow">📚 Éducation nationale</p>
+      <div class="edu-big" id="heroVal" data-mds="58">58 Md€</div>
+      <p class="hero-sub">1<sup>er</sup> budget de l'État · résultats PISA en recul depuis 20 ans</p>
+      <div class="contrib-toggle" style="margin-top:18px">
+        <button class="ct-btn active" data-mode="total">Total national</button>
+        <button class="ct-btn" data-mode="contrib">Par contribuable</button>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- KPI STRIP -->
+      <div class="edu-kpi">
+        <div class="edu-kpi-card">
+          <span class="val" style="color:#ec4899">−43 pts</span>
+          <span class="lbl">Score PISA mathématiques<br>2000 → 2022</span>
+        </div>
+        <div class="edu-kpi-card">
+          <span class="val" style="color:#f59e0b">7 600 €</span>
+          <span class="lbl">Dépense par élève / an<br>(+22 % depuis 2000)</span>
+        </div>
+        <div class="edu-kpi-card">
+          <span class="val" style="color:#f87171">20 %</span>
+          <span class="lbl">Élèves en difficulté<br>de lecture à l'entrée en 6e</span>
+        </div>
+        <div class="edu-kpi-card">
+          <span class="val" style="color:#a78bfa">870 k</span>
+          <span class="lbl">Enseignants<br>1 pour 13,8 élèves</span>
+        </div>
+      </div>
+
+      <!-- VERDICT -->
+      <div class="edu-verdict">
+        <strong style="color:#ec4899">Le paradoxe français :</strong> la France consacre 58 milliards d'euros à l'éducation — son plus grand poste budgétaire — soit davantage par élève que la moyenne OCDE. Pourtant ses scores PISA ont reculé de 43 points en mathématiques depuis 2000, et ses inégalités scolaires comptent parmi les plus fortes des pays développés. Dépenser plus n'a pas suffi.
+      </div>
+
+      <!-- PISA EVOLUTION -->
+      <section class="card" style="margin-bottom:28px">
+        <h2>Scores PISA mathématiques (2000–2022)</h2>
+        <p class="section-sub">Comparaison France vs moyenne OCDE. PISA évalue les élèves de 15 ans tous les 3 ans.</p>
+        <canvas id="pisaChart" height="260"></canvas>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:10px">Source : OCDE PISA 2000–2022. Moyenne OCDE 2022 : 472 pts.</p>
+      </section>
+
+      <!-- INTERNATIONAL COMPARISON: COST vs RESULTS -->
+      <section class="card" style="margin-bottom:28px">
+        <h2>Dépenses par élève vs score PISA (secondaire)</h2>
+        <p class="section-sub">Dépense annuelle publique par élève en USD (PPA) — enseignement secondaire. Plus c'est à droite, plus on dépense. Plus c'est haut, meilleurs sont les résultats.</p>
+        <canvas id="scatterChart" height="300"></canvas>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:10px">Source : OCDE Regards sur l'éducation 2023. Données 2020–2022.</p>
+      </section>
+
+      <!-- BUDGET BREAKDOWN -->
+      <section class="card" style="margin-bottom:28px">
+        <h2>Où vont les 58 milliards ?</h2>
+        <p class="section-sub">Décomposition du budget de l'Éducation nationale (Mission Enseignement scolaire, PLF 2024).</p>
+        <div class="budget-donut-wrap">
+          <canvas id="donutChart" width="220" height="220" style="width:220px;flex-shrink:0;border-radius:50%"></canvas>
+          <div class="budget-legend">
+            <div class="bleg-row"><div class="bleg-dot" style="background:#ec4899"></div><span>Rémunérations</span><span class="bleg-val">51,7 Md€</span></div>
+            <div class="bleg-row"><div class="bleg-dot" style="background:#f97316"></div><span>Cotisations employeur</span><span class="bleg-val">3,2 Md€</span></div>
+            <div class="bleg-row"><div class="bleg-dot" style="background:#f59e0b"></div><span>Fonctionnement</span><span class="bleg-val">1,9 Md€</span></div>
+            <div class="bleg-row"><div class="bleg-dot" style="background:#a78bfa"></div><span>Investissement</span><span class="bleg-val">0,8 Md€</span></div>
+            <div class="bleg-row"><div class="bleg-dot" style="background:#60a5fa"></div><span>Transferts</span><span class="bleg-val">0,4 Md€</span></div>
+            <p style="font-size:.75rem;color:var(--muted);margin-top:8px">89 % du budget est consacré aux personnels (rémunérations + charges).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INEGALITES SCOLAIRES -->
+      <section class="card" style="margin-bottom:28px">
+        <h2>Inégalités scolaires : l'ascenseur en panne</h2>
+        <p class="section-sub">Part de la variance des scores PISA expliquée par le milieu socio-économique (%). Plus ce chiffre est élevé, plus l'école reproduit les inégalités plutôt que de les corriger.</p>
+        <div style="margin:20px 0">
+          <div class="ineg-band">
+            <div class="ineg-label">🇫🇷 France</div>
+            <div class="ineg-bar-wrap"><div class="ineg-bar" style="width:88%;background:#ec4899"></div></div>
+            <div class="ineg-val" style="color:#ec4899">22 %</div>
+          </div>
+          <div class="ineg-band">
+            <div class="ineg-label">🇩🇪 Allemagne</div>
+            <div class="ineg-bar-wrap"><div class="ineg-bar" style="width:64%;background:#a78bfa"></div></div>
+            <div class="ineg-val">16 %</div>
+          </div>
+          <div class="ineg-band">
+            <div class="ineg-label">Moy. OCDE</div>
+            <div class="ineg-bar-wrap"><div class="ineg-bar" style="width:60%;background:#60a5fa"></div></div>
+            <div class="ineg-val">15 %</div>
+          </div>
+          <div class="ineg-band">
+            <div class="ineg-label">🇫🇮 Finlande</div>
+            <div class="ineg-bar-wrap"><div class="ineg-bar" style="width:48%;background:#10b981"></div></div>
+            <div class="ineg-val">12 %</div>
+          </div>
+          <div class="ineg-band">
+            <div class="ineg-label">🇨🇦 Canada</div>
+            <div class="ineg-bar-wrap"><div class="ineg-bar" style="width:40%;background:#10b981"></div></div>
+            <div class="ineg-val">10 %</div>
+          </div>
+          <div class="ineg-band">
+            <div class="ineg-label">🇯🇵 Japon</div>
+            <div class="ineg-bar-wrap"><div class="ineg-bar" style="width:36%;background:#10b981"></div></div>
+            <div class="ineg-val">9 %</div>
+          </div>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted)">En France, un enfant de cadre supérieur a <strong style="color:var(--text)">4,5 fois plus de chances</strong> d'obtenir un baccalauréat général qu'un enfant d'ouvrier. Source : OCDE PISA 2022, MEN-DEPP.</p>
+      </section>
+
+      <!-- PARADOX GRID -->
+      <section class="card" style="margin-bottom:28px">
+        <h2>Le paradoxe en chiffres</h2>
+        <p class="section-sub">Un système qui dépense beaucoup mais dont les résultats divergent des attentes.</p>
+        <div class="paradox-grid">
+          <div class="paradox-card">
+            <div class="p-label">Budget EN 2024</div>
+            <div class="p-val" style="color:#ec4899">58 Md€</div>
+            <div class="p-sub">1<sup>er</sup> poste du budget de l'État, devant la Défense (47 Md€) et les Retraites civiles (63 Md€).</div>
+          </div>
+          <div class="paradox-card">
+            <div class="p-label">Décrocheurs scolaires</div>
+            <div class="p-val" style="color:#f87171">8,8 %</div>
+            <div class="p-sub">Part des 18-24 ans sans diplôme ni qualification. Moyenne UE : 9,6 %. Coût social estimé à 20 Md€/an.</div>
+          </div>
+          <div class="paradox-card">
+            <div class="p-label">PISA lecture 2022</div>
+            <div class="p-val" style="color:#f59e0b">474 pts</div>
+            <div class="p-sub">−13 pts depuis 2018. Moy. OCDE : 476 pts. La France est passée sous la moyenne après avoir été au-dessus.</div>
+          </div>
+          <div class="paradox-card">
+            <div class="p-label">Salaire enseignant débutant</div>
+            <div class="p-val" style="color:#a78bfa">2 000 €</div>
+            <div class="p-sub">Net mensuel après la revalorisation 2023. Finlande : 2 800 €. Allemagne : 3 200 €. OCDE moy. : 2 400 €.</div>
+          </div>
+          <div class="paradox-card">
+            <div class="p-label">Élèves par classe (secondaire)</div>
+            <div class="p-val" style="color:#60a5fa">25,7</div>
+            <div class="p-sub">France vs OCDE moy. : 23,1. Les classes françaises sont parmi les plus chargées des pays riches.</div>
+          </div>
+          <div class="paradox-card">
+            <div class="p-label">Formation initiale enseignants</div>
+            <div class="p-val" style="color:#34d399">5 ans</div>
+            <div class="p-sub">Durée post-bac. Mais 50 % du temps de formation est consacré aux disciplines, et 50 % à la pédagogie — vs 30/70 en Finlande.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERNATIONAL PISA RANKINGS -->
+      <section class="card" style="margin-bottom:28px">
+        <h2>Classement PISA mathématiques 2022</h2>
+        <p class="section-sub">Score moyen sur 1 000 points. Moyenne OCDE : 472 pts.</p>
+        <div style="margin:16px 0">
+          <div class="cmp-row">
+            <div class="cmp-flag">🇯🇵</div>
+            <div class="cmp-name">Japon</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:96%;background:#10b981"></div></div>
+            <div class="cmp-val" style="color:#10b981">536</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇨🇭</div>
+            <div class="cmp-name">Suisse</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:90%;background:#10b981"></div></div>
+            <div class="cmp-val" style="color:#10b981">508</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇨🇦</div>
+            <div class="cmp-name">Canada</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:87%;background:#10b981"></div></div>
+            <div class="cmp-val" style="color:#10b981">497</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇩🇪</div>
+            <div class="cmp-name">Allemagne</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:83%;background:#60a5fa"></div></div>
+            <div class="cmp-val" style="color:#60a5fa">475</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇫🇷</div>
+            <div class="cmp-name">France</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:83%;background:#ec4899"></div></div>
+            <div class="cmp-val" style="color:#ec4899">474</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇬🇧</div>
+            <div class="cmp-name">Royaume-Uni</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:82%;background:#a78bfa"></div></div>
+            <div class="cmp-val">469</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇺🇸</div>
+            <div class="cmp-name">États-Unis</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:82%;background:#a78bfa"></div></div>
+            <div class="cmp-val">465</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇮🇹</div>
+            <div class="cmp-name">Italie</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:81%;background:#a78bfa"></div></div>
+            <div class="cmp-val">462</div>
+          </div>
+          <div class="cmp-row">
+            <div class="cmp-flag">🇪🇸</div>
+            <div class="cmp-name">Espagne</div>
+            <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:80%;background:#a78bfa"></div></div>
+            <div class="cmp-val">473</div>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--muted)">Source : OCDE PISA 2022. La France était au-dessus de la moyenne OCDE jusqu'en 2009.</p>
+      </section>
+
+      <!-- NOTE + LIENS -->
+      <div class="edu-note">
+        <strong>Pour aller plus loin :</strong> le coût des fonctionnaires de l'EN représente ~89 % du budget. Voir la page <a href="/fonctionnaires/" style="color:var(--accent)">Fonctionnaires</a> pour le contexte général. Le budget de l'État dans son ensemble est analysé sur la page <a href="/budget/" style="color:var(--accent)">Budget de l'État</a>.
+      </div>
+
+      <!-- SOURCES -->
+      <section class="card" style="margin-bottom:40px;background:rgba(255,255,255,.025)">
+        <h2 style="font-size:1rem">Sources</h2>
+        <ul style="font-size:.8rem;color:var(--muted);line-height:2;padding-left:16px">
+          <li>OCDE — PISA 2000–2022 (Programme for International Student Assessment)</li>
+          <li>OCDE — Regards sur l'éducation 2023 (Education at a Glance)</li>
+          <li>MEN-DEPP — Repères et références statistiques 2023</li>
+          <li>PLF 2024 — Mission Enseignement scolaire (Projet de Loi de Finances)</li>
+          <li>Cour des Comptes — rapport « Le bilan de l'école », 2023</li>
+          <li>France Stratégie — Mobilité sociale et éducation, 2022</li>
+        </ul>
+      </section>
+
+    </div><!-- /container -->
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Le Français Moyen — Données officielles sourcées (INSEE, OCDE, Banque de France, PLF).</p>
+      <p style="margin-top:6px;font-size:.8rem;color:var(--muted)">Ce site est indépendant, sans publicité ni financement partisan. Objectif : rendre les données publiques accessibles à tous.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/contrib-toggle.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+  (function(){
+
+    /* ── PISA ÉVOLUTION ── */
+    (function(){
+      var c = document.getElementById('pisaChart');
+      if(!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width = c.offsetWidth * (window.devicePixelRatio||1);
+      var H = c.height = 260 * (window.devicePixelRatio||1);
+      ctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+      var w = c.offsetWidth, h = 260;
+
+      var years = [2000,2003,2006,2009,2012,2015,2018,2022];
+      var fr    = [517, 511, 496, 497, 495, 493, 495, 474];
+      var ocde  = [500, 500, 498, 496, 494, 490, 489, 472];
+
+      var pad = {t:24,r:20,b:48,l:52};
+      var cw = w - pad.l - pad.r;
+      var ch = h - pad.t - pad.b;
+      var minV = 460, maxV = 530;
+
+      function xp(i){ return pad.l + (i/(years.length-1))*cw; }
+      function yp(v){ return pad.t + (1-(v-minV)/(maxV-minV))*ch; }
+
+      ctx.clearRect(0,0,w,h);
+
+      /* grid */
+      ctx.strokeStyle = 'rgba(255,255,255,.07)';
+      ctx.lineWidth = 1;
+      [470,480,490,500,510,520].forEach(function(v){
+        var y = yp(v);
+        ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(pad.l+cw,y); ctx.stroke();
+        ctx.fillStyle='rgba(255,255,255,.35)'; ctx.font='11px system-ui'; ctx.textAlign='right';
+        ctx.fillText(v, pad.l-6, y+4);
+      });
+
+      /* OCDE line */
+      ctx.beginPath();
+      ocde.forEach(function(v,i){ i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)); });
+      ctx.strokeStyle='rgba(96,165,250,.6)'; ctx.lineWidth=2; ctx.setLineDash([6,4]); ctx.stroke();
+      ctx.setLineDash([]);
+
+      /* FR fill */
+      ctx.beginPath();
+      fr.forEach(function(v,i){ i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)); });
+      ctx.lineTo(xp(fr.length-1), pad.t+ch);
+      ctx.lineTo(xp(0), pad.t+ch);
+      ctx.closePath();
+      var grad = ctx.createLinearGradient(0,pad.t,0,pad.t+ch);
+      grad.addColorStop(0,'rgba(236,72,153,.25)'); grad.addColorStop(1,'rgba(236,72,153,.03)');
+      ctx.fillStyle=grad; ctx.fill();
+
+      /* FR line */
+      ctx.beginPath();
+      fr.forEach(function(v,i){ i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)); });
+      ctx.strokeStyle='#ec4899'; ctx.lineWidth=2.5; ctx.stroke();
+
+      /* dots + labels */
+      fr.forEach(function(v,i){
+        ctx.beginPath(); ctx.arc(xp(i),yp(v),4,0,Math.PI*2);
+        ctx.fillStyle='#ec4899'; ctx.fill();
+        if(i===0||i===fr.length-1){
+          ctx.fillStyle='#ec4899'; ctx.font='bold 11px system-ui'; ctx.textAlign='center';
+          ctx.fillText(v, xp(i), yp(v)-10);
+        }
+      });
+
+      /* -43 pts annotation */
+      var x1=xp(0), x2=xp(fr.length-1), y1=yp(fr[0]), y2=yp(fr[fr.length-1]);
+      ctx.strokeStyle='rgba(236,72,153,.4)'; ctx.lineWidth=1; ctx.setLineDash([3,3]);
+      ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y1); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='rgba(236,72,153,.9)'; ctx.font='bold 11px system-ui'; ctx.textAlign='left';
+      ctx.fillText('−43 pts', x2+6>w-40?x2-54:x2+6, (y1+y2)/2+4);
+
+      /* x axis */
+      ctx.fillStyle='rgba(255,255,255,.45)'; ctx.font='11px system-ui'; ctx.textAlign='center';
+      years.forEach(function(y,i){ ctx.fillText(y, xp(i), h-10); });
+
+      /* legend */
+      ctx.fillStyle='#ec4899'; ctx.fillRect(pad.l,8,24,3);
+      ctx.fillStyle='rgba(255,255,255,.7)'; ctx.font='11px system-ui'; ctx.textAlign='left';
+      ctx.fillText('France', pad.l+30, 13);
+      ctx.strokeStyle='rgba(96,165,250,.6)'; ctx.lineWidth=2; ctx.setLineDash([6,4]);
+      ctx.beginPath(); ctx.moveTo(pad.l+90,10); ctx.lineTo(pad.l+114,10); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillText('Moy. OCDE', pad.l+120, 13);
+    })();
+
+    /* ── SCATTER COST vs PISA ── */
+    (function(){
+      var c = document.getElementById('scatterChart');
+      if(!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width = c.offsetWidth * (window.devicePixelRatio||1);
+      var H = c.height = 300 * (window.devicePixelRatio||1);
+      ctx.scale(window.devicePixelRatio||1, window.devicePixelRatio||1);
+      var w = c.offsetWidth, h = 300;
+
+      /* [pays, flag, dépense USD/élève, PISA maths] */
+      var data = [
+        ['Japon',     '🇯🇵', 11500, 536],
+        ['Finlande',  '🇫🇮', 13200, 484],
+        ['Suisse',    '🇨🇭', 22800, 508],
+        ['Canada',    '🇨🇦', 13000, 497],
+        ['Allemagne', '🇩🇪', 14000, 475],
+        ['France',    '🇫🇷', 13000, 474],
+        ['Norvège',   '🇳🇴', 20000, 468],
+        ['R.-Uni',    '🇬🇧', 12500, 469],
+        ['USA',       '🇺🇸', 18000, 465],
+        ['Italie',    '🇮🇹', 10500, 462],
+        ['Espagne',   '🇪🇸', 10000, 473],
+      ];
+
+      var pad = {t:20,r:20,b:50,l:60};
+      var cw = w-pad.l-pad.r, ch = h-pad.t-pad.b;
+      var minX=8000, maxX=25000, minY=455, maxY=545;
+
+      function xp(v){ return pad.l+(v-minX)/(maxX-minX)*cw; }
+      function yp(v){ return pad.t+(1-(v-minY)/(maxY-minY))*ch; }
+
+      ctx.clearRect(0,0,w,h);
+
+      /* grid */
+      ctx.strokeStyle='rgba(255,255,255,.07)'; ctx.lineWidth=1;
+      [460,480,500,520,540].forEach(function(v){
+        var y=yp(v);
+        ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(pad.l+cw,y); ctx.stroke();
+        ctx.fillStyle='rgba(255,255,255,.35)'; ctx.font='10px system-ui'; ctx.textAlign='right';
+        ctx.fillText(v, pad.l-6, y+4);
+      });
+      [10000,15000,20000,25000].forEach(function(v){
+        var x=xp(v);
+        ctx.beginPath(); ctx.moveTo(x,pad.t); ctx.lineTo(x,pad.t+ch); ctx.stroke();
+        ctx.fillStyle='rgba(255,255,255,.35)'; ctx.font='10px system-ui'; ctx.textAlign='center';
+        ctx.fillText((v/1000)+'k$', x, h-8);
+      });
+
+      /* dots */
+      data.forEach(function(d){
+        var x=xp(d[2]), y=yp(d[3]);
+        var isFR = d[0]==='France';
+        ctx.beginPath(); ctx.arc(x,y,isFR?8:6,0,Math.PI*2);
+        ctx.fillStyle = isFR ? '#ec4899' : 'rgba(167,139,250,.65)';
+        ctx.fill();
+        if(isFR){ ctx.strokeStyle='#fff'; ctx.lineWidth=1.5; ctx.stroke(); }
+
+        /* label */
+        ctx.fillStyle = isFR ? '#ec4899' : 'rgba(255,255,255,.65)';
+        ctx.font = (isFR?'bold ':'')+'10px system-ui';
+        ctx.textAlign = d[2]>20000 ? 'right' : 'left';
+        var lx = d[2]>20000 ? x-10 : x+10;
+        ctx.fillText(d[1]+' '+d[0], lx, y-8);
+      });
+
+      /* axis labels */
+      ctx.fillStyle='rgba(255,255,255,.4)'; ctx.font='10px system-ui'; ctx.textAlign='center';
+      ctx.fillText('Dépense publique par élève (secondaire, USD PPA)', pad.l+cw/2, h-2);
+      ctx.save(); ctx.translate(12, pad.t+ch/2); ctx.rotate(-Math.PI/2);
+      ctx.fillText('Score PISA maths 2022', 0, 0); ctx.restore();
+    })();
+
+    /* ── DONUT BUDGET ── */
+    (function(){
+      var c = document.getElementById('donutChart');
+      if(!c) return;
+      var ctx = c.getContext('2d');
+      var dpr = window.devicePixelRatio||1;
+      c.width = 220*dpr; c.height = 220*dpr;
+      ctx.scale(dpr,dpr);
+      var cx=110, cy=110, r=90, ir=55;
+      var slices=[
+        {v:51.7,color:'#ec4899'},
+        {v:3.2, color:'#f97316'},
+        {v:1.9, color:'#f59e0b'},
+        {v:0.8, color:'#a78bfa'},
+        {v:0.4, color:'#60a5fa'},
+      ];
+      var total = slices.reduce(function(s,d){return s+d.v;},0);
+      var angle = -Math.PI/2;
+      slices.forEach(function(d){
+        var span = (d.v/total)*Math.PI*2;
+        ctx.beginPath();
+        ctx.moveTo(cx,cy);
+        ctx.arc(cx,cy,r,angle,angle+span);
+        ctx.closePath();
+        ctx.fillStyle=d.color; ctx.fill();
+        ctx.strokeStyle='rgba(11,16,32,1)'; ctx.lineWidth=2; ctx.stroke();
+        angle+=span;
+      });
+      /* inner hole */
+      ctx.beginPath(); ctx.arc(cx,cy,ir,0,Math.PI*2);
+      ctx.fillStyle='rgba(11,16,32,1)'; ctx.fill();
+      /* center text */
+      ctx.fillStyle='#fff'; ctx.textAlign='center';
+      ctx.font='bold 18px system-ui'; ctx.fillText('58 Md€', cx, cy-4);
+      ctx.font='10px system-ui'; ctx.fillStyle='rgba(255,255,255,.5)';
+      ctx.fillText('budget EN', cx, cy+12);
+    })();
+
+  })();
+  </script>
+</body>
+</html>

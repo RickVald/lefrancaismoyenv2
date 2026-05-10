@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>La santé en France — 285 Md€ par an, 2ème rang mondial — Le Français Moyen</title>
+  <meta name="description" content="La France dépense 285 Md€/an en santé (12,3 % du PIB, 2ème OCDE). Pourtant : 6,3 millions sans médecin traitant, infirmières à 2 100 €/mois, urgences saturées. Où va l'argent ?">
+  <link rel="canonical" href="https://le-francais-moyen.com/sante/">
+  <meta property="og:title" content="Santé en France — 285 Md€/an, 2ème mondial — et pourtant">
+  <meta property="og:description" content="2ème dépenseur mondial en santé. 6,3 millions sans médecin traitant. Infirmières à 2 100€. Urgences fermées. Où vont les 285 Md€ ?">
+  <meta property="og:url" content="https://le-francais-moyen.com/sante/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=16">
+  <style>
+    .snt-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.12) 0%,transparent 65%)}
+    .snt-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#10b981;line-height:1;margin:8px 0 4px}
+    .snt-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .snt-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .snt-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .snt-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+    .cmp-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+    .cmp-flag{font-size:1.1rem;width:28px;text-align:center;flex-shrink:0}
+    .cmp-name{width:150px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .cmp-bar-wrap{flex:1;height:11px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .cmp-bar{height:100%;border-radius:5px}
+    .cmp-val{width:60px;text-align:right;font-weight:800;font-size:.84rem;flex-shrink:0}
+    .paradox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0 24px}
+    .px-card{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+    .px-card .pc-label{font-size:.7rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+    .px-card .pc-fr{font-size:1.35rem;font-weight:900;color:#ff6b6b;letter-spacing:-.04em}
+    .px-card .pc-ref{font-size:.88rem;color:#10b981;font-weight:700;margin-top:2px}
+    .px-card .pc-note{font-size:.72rem;color:var(--muted);margin-top:4px;line-height:1.4}
+    .snt-verdict{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .snt-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+    canvas{width:100%;border-radius:12px;display:block}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+  <a href="/">🏠 Tableau de bord</a>
+  <a href="/budget/">📋 Budget</a>
+  <a href="/impot/">💸 Impôt</a>
+  <a href="/dette/">⏱️ Dette</a>
+  <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+  <a href="/retraites/">👴 Retraites</a>
+  <a href="/sante/">🏥 Santé</a>
+  <a href="/education/">📚 Éducation</a>
+  <a href="/industrie/">🏭 Industrie</a>
+  <a href="/logement/">🏠 Logement</a>
+  <a href="/autoroutes/">🛣️ Autoroutes</a>
+  <a href="/normes/">📜 Normes</a>
+  <a href="/ronds-points/">🔵 Rond-Point</a>
+  <a href="/outils/">🧰 Outils</a>
+  <a href="/elections/">🗳️ Élections</a>
+  <a href="/questions/">❓ Questions</a>
+  <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+</div>
+
+  <main id="contenu">
+    <div class="snt-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Santé</span></nav>
+      <div class="eyebrow">Données OCDE · DREES · CNAM · 2023</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:4px">La santé en France</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+        La France est le <strong style="color:#10b981">2ème pays au monde</strong> pour les dépenses de santé.<br>
+        Pourtant : déserts médicaux, urgences saturées, soignants sous-payés.<br>
+        <strong style="color:#ff6b6b">Où vont les 285 milliards ?</strong>
+      </p>
+      <div class="snt-big" data-mds="285">285 Md€</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">dépensés par an en santé — 12,3 % du PIB</p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <div class="snt-kpi">
+        <div class="snt-kpi-card">
+          <span class="val" style="color:#10b981">12,3 %</span>
+          <span class="lbl">du PIB en santé<br>2ème rang OCDE (après USA 17,4 %)</span>
+        </div>
+        <div class="snt-kpi-card">
+          <span class="val" style="color:#ff6b6b">6,3 M</span>
+          <span class="lbl">Français sans médecin traitant<br>CNAM 2023 — en hausse chaque année</span>
+        </div>
+        <div class="snt-kpi-card">
+          <span class="val" style="color:#fb923c">5,7</span>
+          <span class="lbl">lits pour 1 000 hab.<br>Allemagne : 7,8 — Autriche : 7,2</span>
+        </div>
+        <div class="snt-kpi-card">
+          <span class="val" style="color:#a78bfa">2 100 €</span>
+          <span class="lbl">salaire net infirmier·ère en France<br>Allemagne : 3 400 € — Suisse : 4 200 €</span>
+        </div>
+      </div>
+
+      <!-- Évolution ONDAM -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">L'ONDAM : la progression ininterrompue</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Objectif National des Dépenses d'Assurance Maladie — il n'a jamais baissé en 27 ans.</p>
+      <canvas id="onamChart" height="200"></canvas>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : PLFSS annuels, DREES. En milliards d'euros courants.</p>
+
+      <!-- Comparaison internationale dépenses -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Dépenses de santé / PIB — comparaison mondiale</h2>
+      <div id="depCmp"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE Health Statistics 2023. Dépenses courantes de santé (publiques + privées).</p>
+
+      <!-- Le paradoxe -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 4px">Le paradoxe de l'abondance</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Malgré un budget parmi les plus élevés au monde, les indicateurs d'accès et de conditions de travail sont en décrochage.</p>
+      <div class="paradox-grid">
+        <div class="px-card">
+          <div class="pc-label">🩺 MÉDECINS GÉNÉRALISTES / 100 000 HAB.</div>
+          <div class="pc-fr">🇫🇷 145</div>
+          <div class="pc-ref">🇩🇪 Allemagne : 216</div>
+          <div class="pc-note">OCDE 2022. La France forme moins de médecins depuis 30 ans (numerus clausus)</div>
+        </div>
+        <div class="px-card">
+          <div class="pc-label">🚑 DÉLAI MOYEN AUX URGENCES</div>
+          <div class="pc-fr">🇫🇷 4h30</div>
+          <div class="pc-ref">🇩🇪 Allemagne : 2h15</div>
+          <div class="pc-note">DREES 2022. +35 % en 10 ans. 20 % des patients repartent sans être vus</div>
+        </div>
+        <div class="px-card">
+          <div class="pc-label">🛏️ LITS FERMÉS 2020–2023</div>
+          <div class="pc-fr">🇫🇷 −5 700</div>
+          <div class="pc-ref">🇩🇪 Allemagne : +1 200</div>
+          <div class="pc-note">FHF 2023. Malgré le COVID, la France a continué à fermer des lits faute de personnel</div>
+        </div>
+        <div class="px-card">
+          <div class="pc-label">💊 RESTE À CHARGE MOYEN / AN</div>
+          <div class="pc-fr">🇫🇷 592 €</div>
+          <div class="pc-ref">🇩🇪 Allemagne : 320 €</div>
+          <div class="pc-note">DREES 2022. Optique, dentaire et audiologie : les grands angles morts du remboursement</div>
+        </div>
+      </div>
+
+      <!-- Où va l'argent -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">La décomposition des 285 Md€</h2>
+      <div id="budgetBars"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : DREES — Les dépenses de santé en 2022. Comptes nationaux de la santé.</p>
+
+      <!-- Comparaison résultats -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px">Efficience : dépenses vs espérance de vie en bonne santé</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Années de vie en bonne santé (EVBS) pour 1 000 € de dépenses annuelles par habitant. La France est dans la moyenne malgré son budget élevé.</p>
+      <div id="effCmp"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE 2022. EVBS = Healthy Life Years (Eurostat). Dépenses/hab. en PPA.</p>
+
+      <div class="snt-verdict">
+        <div style="font-size:.8rem;font-weight:800;color:#10b981;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+          La France dépense autant que l'Allemagne en santé (% PIB), mais paie ses infirmières <strong style="color:#fff">38 % moins cher</strong> et dispose de <strong style="color:#ff6b6b">27 % de lits en moins</strong>. L'argent existe — il est absorbé par la complexité administrative (<strong style="color:#fff">~40 organismes complémentaires</strong>, double circuit public/privé, strates de gestion), par les prix pharmaceutiques, et par 30 ans de numerus clausus trop bas qui a créé la pénurie médicale actuelle. La crise de l'hôpital n'est pas un problème de budget : c'est un problème d'<strong style="color:#10b981">allocation et d'organisation</strong>.
+        </p>
+      </div>
+
+      <div class="snt-note">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">La France a d'excellents résultats sur certains indicateurs clés : espérance de vie (82,3 ans, 5ème UE), mortalité infantile (3,6 ‰), cancer du sein (survie à 5 ans : 87 %). Le système de soins primaires reste l'un des meilleurs au monde quand on y a accès. La crise n'est pas homogène : elle touche principalement <strong style="color:#fff">l'accès de premier recours</strong> (médecins généralistes, déserts) et les <strong style="color:#fff">conditions de travail hospitalières</strong>, non la qualité technique des soins spécialisés.</p>
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <strong style="color:var(--text)">Sources :</strong> OCDE — Health Statistics 2023 · DREES — Comptes nationaux de la santé 2022 · CNAM — Rapport charges et produits 2023 · FHF — Baromètre hôpital 2023 · Eurostat — Healthy Life Years 2022 · CEPEJ 2022
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+France+est+le+2%C3%A8me+pays+au+monde+pour+les+d%C3%A9penses+de+sant%C3%A9+%28285+Md%E2%82%AC%2Fan%29.+Infirmi%C3%A8res+%C3%A0+2+100%E2%82%AC%2C+6%2C3M+sans+m%C3%A9decin+traitant.+O%C3%B9+va+l%27argent+%3F+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fsante%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : OCDE · DREES · CNAM</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const ONAM = [
+    {y:1997,v:95},{y:2000,v:111},{y:2003,v:133},{y:2006,v:145},
+    {y:2009,v:162},{y:2012,v:175},{y:2015,v:182},{y:2018,v:195},
+    {y:2020,v:210},{y:2022,v:235},{y:2023,v:244}
+  ];
+  const DEP = [
+    {flag:'🇺🇸',name:'États-Unis',   pct:17.4, color:'#ff6b6b'},
+    {flag:'🇩🇪',name:'Allemagne',    pct:12.7, color:'#f6c343'},
+    {flag:'🇫🇷',name:'France',       pct:12.3, color:'#10b981'},
+    {flag:'🇨🇦',name:'Canada',       pct:11.9, color:'#94a3b8'},
+    {flag:'🇳🇱',name:'Pays-Bas',     pct:11.1, color:'#5dd6c5'},
+    {flag:'🇬🇧',name:'Royaume-Uni',  pct:10.9, color:'#a78bfa'},
+    {flag:'🇯🇵',name:'Japon',        pct:11.5, color:'#94a3b8'},
+    {flag:'🇮🇹',name:'Italie',       pct: 9.5, color:'#fb923c'},
+    {flag:'🇪🇸',name:'Espagne',      pct: 9.4, color:'#fb923c'},
+  ];
+  const BUDGET = [
+    {label:'Hôpitaux publics',           v:106, color:'#10b981'},
+    {label:'Soins de ville (médecins…)', v: 72, color:'#34d399'},
+    {label:'Médicaments & dispositifs',  v: 47, color:'#6ee7b7'},
+    {label:'Complémentaires (mutuelles)',v: 30, color:'#f59e0b'},
+    {label:'Reste à charge ménages',     v: 17, color:'#fb923c'},
+    {label:'Autres (admin, prévention…)',v: 13, color:'#94a3b8'},
+  ];
+  const EFF = [
+    {flag:'🇪🇸',name:'Espagne',    evbs:70.4, dep:3200, color:'#63d471'},
+    {flag:'🇮🇹',name:'Italie',     evbs:67.8, dep:3100, color:'#5dd6c5'},
+    {flag:'🇸🇪',name:'Suède',      evbs:72.1, dep:5400, color:'#a78bfa'},
+    {flag:'🇫🇷',name:'France',     evbs:64.5, dep:4940, color:'#10b981'},
+    {flag:'🇩🇪',name:'Allemagne',  evbs:64.0, dep:5300, color:'#f6c343'},
+    {flag:'🇬🇧',name:'Royaume-Uni',evbs:63.8, dep:4000, color:'#94a3b8'},
+    {flag:'🇺🇸',name:'États-Unis', evbs:65.7, dep:11400,color:'#ff6b6b'},
+  ];
+
+  /* ONAM chart */
+  (function(){
+    const cv = document.getElementById('onamChart');
+    const dpr = window.devicePixelRatio||1, W=cv.parentElement.clientWidth||800, H=200;
+    cv.width=W*dpr; cv.height=H*dpr; cv.style.height=H+'px';
+    const ctx=cv.getContext('2d'); ctx.scale(dpr,dpr);
+    const pad={t:16,r:20,b:34,l:48};
+    const cW=W-pad.l-pad.r, cH=H-pad.t-pad.b;
+    const minY=1997,maxY=2023,minV=80,maxV=260;
+    const xP=y=>pad.l+(y-minY)/(maxY-minY)*cW;
+    const yP=v=>pad.t+cH-(v-minV)/(maxV-minV)*cH;
+    const grad=ctx.createLinearGradient(0,pad.t,0,pad.t+cH);
+    grad.addColorStop(0,'rgba(16,185,129,.30)'); grad.addColorStop(1,'rgba(16,185,129,.02)');
+    ctx.beginPath();
+    ONAM.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.v)):ctx.lineTo(xP(d.y),yP(d.v)));
+    ctx.lineTo(xP(2023),pad.t+cH); ctx.lineTo(xP(1997),pad.t+cH); ctx.closePath();
+    ctx.fillStyle=grad; ctx.fill();
+    ctx.beginPath();
+    ONAM.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.v)):ctx.lineTo(xP(d.y),yP(d.v)));
+    ctx.strokeStyle='#10b981'; ctx.lineWidth=2.5; ctx.lineJoin='round'; ctx.stroke();
+    [100,150,200,244].forEach(v=>{
+      const y=yP(v);
+      ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cW,y);
+      ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='rgba(174,187,212,.6)';ctx.font='11px system-ui';ctx.textAlign='right';
+      ctx.fillText(v+'G',pad.l-6,y+4);
+    });
+    ctx.fillStyle='rgba(174,187,212,.6)';ctx.textAlign='center';
+    [1997,2003,2009,2015,2020,2023].forEach(y=>ctx.fillText(y,xP(y),H-pad.b+18));
+    [[1997,'95 Md€'],[2023,'244 Md€']].forEach(([y,lbl])=>{
+      const d=ONAM.find(d=>d.y===y);
+      ctx.beginPath();ctx.arc(xP(d.y),yP(d.v),4,0,Math.PI*2);ctx.fillStyle='#10b981';ctx.fill();
+      ctx.fillStyle='rgba(16,185,129,.9)';ctx.font='bold 10px system-ui';
+      ctx.textAlign=y===2023?'right':'left';
+      ctx.fillText(lbl,xP(d.y)+(y===2023?-8:8),yP(d.v)-9);
+    });
+  })();
+
+  /* Dépenses comparison */
+  const maxDep=18;
+  document.getElementById('depCmp').innerHTML=DEP.map(d=>{
+    const isFR=d.name==='France';
+    return `<div class="cmp-row">
+      <span class="cmp-flag">${d.flag}</span>
+      <span class="cmp-name" style="${isFR?'color:#10b981;font-weight:800':''}">${d.name}</span>
+      <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${(d.pct/maxDep*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span class="cmp-val" style="color:${d.color}">${d.pct}%</span>
+    </div>`;
+  }).join('');
+
+  /* Budget breakdown */
+  const maxBud=110;
+  document.getElementById('budgetBars').innerHTML=BUDGET.map(d=>`
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
+      <div style="width:200px;font-size:.84rem;color:var(--muted);flex-shrink:0">${d.label}</div>
+      <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${(d.v/maxBud*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span style="width:60px;text-align:right;font-weight:800;font-size:.84rem;color:${d.color}">${d.v} Md€</span>
+    </div>`).join('');
+
+  /* Efficience comparison */
+  const maxEff=80;
+  document.getElementById('effCmp').innerHTML=EFF.sort((a,b)=>b.evbs/b.dep*1000-a.evbs/a.dep*1000).map(d=>{
+    const isFR=d.name==='France';
+    const ratio=(d.evbs/d.dep*1000).toFixed(2);
+    return `<div class="cmp-row">
+      <span class="cmp-flag">${d.flag}</span>
+      <span class="cmp-name" style="${isFR?'color:#10b981;font-weight:800':''}">${d.name}</span>
+      <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${(parseFloat(ratio)/2.5*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span class="cmp-val" style="color:${d.color}">${ratio}</span>
+    </div>`;
+  }).join('');
+
+  const toggle=document.getElementById('navToggle'),mob=document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{const o=mob.classList.toggle('is-open');toggle.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o);});
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');}));
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>

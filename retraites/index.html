@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Les retraites en France — 14,5 % du PIB, le ratio qui menace tout — Le Français Moyen</title>
+  <meta name="description" content="354 Md€/an en retraites. En 1960 : 4 actifs finançaient 1 retraité. En 2050 : 1,4 actif. Le système le plus généreux de l'OCDE face au mur démographique.">
+  <link rel="canonical" href="https://le-francais-moyen.com/retraites/">
+  <meta property="og:title" content="Retraites — Le ratio qui menace tout : 4 actifs/retraité → 1,4">
+  <meta property="og:description" content="354 Md€/an. 14,5% du PIB. 1er rang OCDE. En 1960 : 4 actifs pour 1 retraité. En 2050 : 1,4. Le mur démographique en chiffres.">
+  <meta property="og:url" content="https://le-francais-moyen.com/retraites/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=16">
+  <style>
+    .ret-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(245,158,11,.12) 0%,transparent 65%)}
+    .ret-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#f59e0b;line-height:1;margin:8px 0 4px}
+    .ret-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .ret-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .ret-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .ret-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+    .cmp-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+    .cmp-flag{font-size:1.1rem;width:28px;text-align:center;flex-shrink:0}
+    .cmp-name{width:150px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .cmp-bar-wrap{flex:1;height:11px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .cmp-bar{height:100%;border-radius:5px}
+    .cmp-val{width:70px;text-align:right;font-weight:800;font-size:.84rem;flex-shrink:0}
+    .ret-verdict{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .ret-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+    canvas{width:100%;border-radius:12px;display:block}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+  <a href="/">🏠 Tableau de bord</a>
+  <a href="/budget/">📋 Budget</a>
+  <a href="/impot/">💸 Impôt</a>
+  <a href="/dette/">⏱️ Dette</a>
+  <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+  <a href="/retraites/">👴 Retraites</a>
+  <a href="/sante/">🏥 Santé</a>
+  <a href="/education/">📚 Éducation</a>
+  <a href="/industrie/">🏭 Industrie</a>
+  <a href="/logement/">🏠 Logement</a>
+  <a href="/autoroutes/">🛣️ Autoroutes</a>
+  <a href="/normes/">📜 Normes</a>
+  <a href="/ronds-points/">🔵 Rond-Point</a>
+  <a href="/outils/">🧰 Outils</a>
+  <a href="/elections/">🗳️ Élections</a>
+  <a href="/questions/">❓ Questions</a>
+  <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+</div>
+
+  <main id="contenu">
+    <div class="ret-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Retraites</span></nav>
+      <div class="eyebrow">Données COR · DREES · OCDE · 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:4px">Les retraites en France</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+        En 1960, <strong style="color:#f59e0b">4 actifs finançaient 1 retraité</strong>.<br>
+        En 2050, ce sera <strong style="color:#ff6b6b">1,4 actif pour 1 retraité</strong>.<br>
+        Le système le plus généreux de l'OCDE face au mur démographique.
+      </p>
+      <div class="ret-big" data-mds="354">354 Md€</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">versés en pensions par an — 14,5 % du PIB, 1er rang OCDE</p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <div class="ret-kpi">
+        <div class="ret-kpi-card">
+          <span class="val" style="color:#f59e0b">17,2 M</span>
+          <span class="lbl">retraités en 2023<br>DREES — +3,5 M en 20 ans</span>
+        </div>
+        <div class="ret-kpi-card">
+          <span class="val" style="color:#ff6b6b">1,68</span>
+          <span class="lbl">actifs par retraité en 2023<br>Était 4,0 en 1960</span>
+        </div>
+        <div class="ret-kpi-card">
+          <span class="val" style="color:#fb923c">62,4 ans</span>
+          <span class="lbl">âge effectif moyen de départ<br>OCDE : 64,4 ans — DE : 63,8 ans</span>
+        </div>
+        <div class="ret-kpi-card">
+          <span class="val" style="color:#a78bfa">1 509 €</span>
+          <span class="lbl">pension moyenne nette / mois<br>DREES 2022 (tous régimes)</span>
+        </div>
+      </div>
+
+      <!-- Ratio actifs/retraités -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">Le ratio qui fait tout basculer</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Le système par répartition repose sur un équilibre simple : les actifs financent les retraités. Cet équilibre s'effondre.</p>
+      <canvas id="ratioChart" height="220"></canvas>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Sources : INSEE, COR — rapport annuel 2024. Projections 2030–2070 : scénario central COR.</p>
+
+      <!-- Comparaison internationale % PIB -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Dépenses retraite / PIB — la France en tête</h2>
+      <div id="piбCmp"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE — Pensions at a Glance 2023.</p>
+
+      <!-- Âge de départ vs pension -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px">Âge effectif de départ vs taux de remplacement</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">La France part le plus tôt <em>et</em> touche un taux de remplacement dans la moyenne. Ce n'est pas un arbitrage — c'est un coût double.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px">
+        <div>
+          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px">⏰ ÂGE EFFECTIF DE DÉPART</div>
+          <div id="ageCmp"></div>
+        </div>
+        <div>
+          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px">💰 TAUX DE REMPLACEMENT NET</div>
+          <div id="txCmp"></div>
+        </div>
+      </div>
+
+      <!-- Les 42 régimes -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 12px">Les 42 régimes : une complexité unique au monde</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px">
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
+          <div style="font-size:1.6rem;font-weight:900;color:#f59e0b">42</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">régimes de retraite en France<br>vs <strong style="color:#63d471">1 régime universel</strong> en Suède</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
+          <div style="font-size:1.6rem;font-weight:900;color:#ff6b6b">24 ans</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">durée moyenne de retraite<br>la plus longue d'Europe (OCDE)</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
+          <div style="font-size:1.6rem;font-weight:900;color:#a78bfa" data-mds="63">63 Md€</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">CAS Pensions — fonctionnaires d'État<br>seuls (hors FPT, FPH)</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.3);border-radius:14px;padding:16px">
+          <div style="font-size:1.6rem;font-weight:900;color:#ff6b6b">−13 Md€</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">déficit projeté en 2032<br>scénario central COR</div>
+        </div>
+      </div>
+
+      <!-- Lien fonctionnaires -->
+      <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.25);border-radius:14px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px">
+        <div style="font-size:2rem;flex-shrink:0">🔗</div>
+        <div>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">Fonctionnaires vs privé : l'écart ×22</div>
+          <p style="font-size:.82rem;color:var(--muted);margin:0">L'État dépense <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire (CAS Pensions), contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé (FSV). Analyse détaillée sur <a href="/budget/" style="color:#60a5fa;text-decoration:underline">Budget de l'État</a> et <a href="/fonctionnaires/" style="color:#60a5fa;text-decoration:underline">Fonctionnaires</a>.</p>
+        </div>
+      </div>
+
+      <div class="ret-verdict">
+        <div style="font-size:.8rem;font-weight:800;color:#f59e0b;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+          Le système de retraite français verse <strong style="color:#fff" data-mds="354">354 Md€/an</strong> — soit plus que le budget total de l'État. Il est financé par <strong style="color:#f59e0b">1,68 actif par retraité</strong>, un ratio qui tombera à <strong style="color:#ff6b6b">1,4 d'ici 2050</strong>. La réforme de 2023 (62→64 ans) ne change le ratio que marginalement. Sans réforme structurelle plus profonde ou croissance économique forte, le déficit du système deviendra insoutenable dans les années 2030. Ce n'est pas une opinion politique — c'est une projection démographique.
+        </p>
+      </div>
+
+      <div class="ret-note">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">Les pays nordiques (Suède, Danemark) ont réformé leurs systèmes dans les années 1990 en passant à des comptes notionnels ou à cotisations définies, avec une <strong style="color:#fff">retraite automatiquement indexée sur l'espérance de vie</strong>. Leurs systèmes sont soutenables à long terme. Le débat n'est pas "travailler plus ou moins" mais "comment financer des décennies de retraite dans un pays qui vieillit". La France a le choix entre <strong style="color:#fff">trois leviers</strong> : âge de départ, niveau des pensions, et taux de cotisation.</p>
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <strong style="color:var(--text)">Sources :</strong> COR — Rapport annuel 2024 · DREES — Les retraités et les retraites 2023 · OCDE — Pensions at a Glance 2023 · INSEE — Projections de population 2021–2070 · Cour des Comptes — rapport retraites 2023
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=En+1960+%3A+4+actifs+financaient+1+retrait%C3%A9+en+France.+En+2050+%3A+1%2C4+actif.+354+Md%E2%82%AC%2Fan+en+pensions+%281er+rang+OCDE%29.+Le+mur+d%C3%A9mographique+en+chiffres+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fretraites%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : COR · DREES · OCDE · INSEE</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  const RATIO = [
+    {y:1960,r:4.0},{y:1970,r:3.5},{y:1975,r:3.2},{y:1980,r:2.8},{y:1985,r:2.5},
+    {y:1990,r:2.3},{y:1995,r:2.2},{y:2000,r:2.1},{y:2005,r:2.0},{y:2010,r:1.85},
+    {y:2015,r:1.78},{y:2020,r:1.72},{y:2023,r:1.68},
+    {y:2030,r:1.57,proj:true},{y:2040,r:1.48,proj:true},{y:2050,r:1.40,proj:true},{y:2060,r:1.38,proj:true}
+  ];
+  const PIB_RET = [
+    {flag:'🇮🇹',name:'Italie',       pct:16.2,color:'#fb923c'},
+    {flag:'🇫🇷',name:'France',       pct:14.5,color:'#f59e0b'},
+    {flag:'🇦🇹',name:'Autriche',     pct:14.2,color:'#94a3b8'},
+    {flag:'🇩🇪',name:'Allemagne',    pct:10.3,color:'#f6c343'},
+    {flag:'🇸🇪',name:'Suède',        pct: 9.1,color:'#63d471'},
+    {flag:'🇩🇰',name:'Danemark',     pct: 9.0,color:'#5dd6c5'},
+    {flag:'🇳🇱',name:'Pays-Bas',     pct: 7.4,color:'#a78bfa'},
+    {flag:'⬛',name:'OCDE moy.',     pct: 8.1,color:'#94a3b8'},
+  ];
+  const AGE = [
+    {flag:'🇩🇪',name:'Allemagne',age:63.8,color:'#63d471'},
+    {flag:'🇸🇪',name:'Suède',    age:65.7,color:'#5dd6c5'},
+    {flag:'🇩🇰',name:'Danemark', age:65.2,color:'#a78bfa'},
+    {flag:'⬛',name:'OCDE',      age:64.4,color:'#94a3b8'},
+    {flag:'🇪🇸',name:'Espagne',  age:63.9,color:'#fb923c'},
+    {flag:'🇫🇷',name:'France',   age:62.4,color:'#ff6b6b'},
+  ];
+  const TX = [
+    {flag:'🇳🇱',name:'Pays-Bas',  tx:95.7,color:'#63d471'},
+    {flag:'🇩🇰',name:'Danemark',  tx:84.0,color:'#5dd6c5'},
+    {flag:'🇫🇷',name:'France',    tx:74.7,color:'#f59e0b'},
+    {flag:'🇩🇪',name:'Allemagne', tx:52.9,color:'#f6c343'},
+    {flag:'🇸🇪',name:'Suède',     tx:55.4,color:'#a78bfa'},
+    {flag:'⬛',name:'OCDE',       tx:61.9,color:'#94a3b8'},
+  ];
+
+  /* Ratio chart */
+  (function(){
+    const cv=document.getElementById('ratioChart');
+    const dpr=window.devicePixelRatio||1,W=cv.parentElement.clientWidth||800,H=220;
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+    const ctx=cv.getContext('2d');ctx.scale(dpr,dpr);
+    const pad={t:20,r:20,b:36,l:44};
+    const cW=W-pad.l-pad.r,cH=H-pad.t-pad.b;
+    const minY=1960,maxY=2060,minR=1.2,maxR=4.3;
+    const xP=y=>pad.l+(y-minY)/(maxY-minY)*cW;
+    const yP=r=>pad.t+cH-(r-minR)/(maxR-minR)*cH;
+    const real=RATIO.filter(d=>!d.proj), proj=RATIO.filter(d=>d.proj||d.y===2023);
+
+    // Gradient real
+    const g=ctx.createLinearGradient(0,pad.t,0,pad.t+cH);
+    g.addColorStop(0,'rgba(245,158,11,.28)');g.addColorStop(1,'rgba(245,158,11,.02)');
+    ctx.beginPath();
+    real.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.r)):ctx.lineTo(xP(d.y),yP(d.r)));
+    ctx.lineTo(xP(real[real.length-1].y),pad.t+cH);ctx.lineTo(xP(real[0].y),pad.t+cH);
+    ctx.closePath();ctx.fillStyle=g;ctx.fill();
+
+    // Line real
+    ctx.beginPath();
+    real.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.r)):ctx.lineTo(xP(d.y),yP(d.r)));
+    ctx.strokeStyle='#f59e0b';ctx.lineWidth=2.5;ctx.lineJoin='round';ctx.stroke();
+
+    // Projection dashed
+    ctx.beginPath();ctx.setLineDash([6,4]);
+    proj.forEach((d,i)=>i===0?ctx.moveTo(xP(d.y),yP(d.r)):ctx.lineTo(xP(d.y),yP(d.r)));
+    ctx.strokeStyle='rgba(255,107,107,.7)';ctx.lineWidth=2;ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Grid
+    [1.5,2.0,2.5,3.0,3.5,4.0].forEach(v=>{
+      const y=yP(v);
+      ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+cW,y);
+      ctx.strokeStyle='rgba(255,255,255,.06)';ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle='rgba(174,187,212,.6)';ctx.font='11px system-ui';ctx.textAlign='right';
+      ctx.fillText(v.toFixed(1),pad.l-6,y+4);
+    });
+
+    ctx.fillStyle='rgba(174,187,212,.6)';ctx.font='11px system-ui';ctx.textAlign='center';
+    [1960,1980,2000,2010,2023,2040,2060].forEach(y=>ctx.fillText(y,xP(y),H-pad.b+18));
+
+    // Annotations
+    ctx.fillStyle='rgba(245,158,11,.9)';ctx.font='bold 10px system-ui';ctx.textAlign='left';
+    ctx.fillText('4,0 en 1960',xP(1960)+8,yP(4.0)-8);
+    ctx.fillStyle='rgba(255,107,107,.9)';ctx.textAlign='right';
+    ctx.fillText('1,4 en 2050',xP(2050)-6,yP(1.40)-8);
+
+    // "Projection" label
+    ctx.fillStyle='rgba(255,107,107,.6)';ctx.font='italic 10px system-ui';ctx.textAlign='left';
+    ctx.fillText('▶ projection COR',xP(2026),yP(1.62));
+  })();
+
+  /* PIB retraites */
+  const maxPIB=17;
+  document.getElementById('piбCmp').innerHTML=PIB_RET.map(d=>{
+    const isFR=d.name==='France';
+    return `<div class="cmp-row">
+      <span class="cmp-flag">${d.flag}</span>
+      <span class="cmp-name" style="${isFR?'color:#f59e0b;font-weight:800':''}">${d.name}</span>
+      <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${(d.pct/maxPIB*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span class="cmp-val" style="color:${d.color}">${d.pct}%</span>
+    </div>`;
+  }).join('');
+
+  /* Âge */
+  const maxAge=67;
+  document.getElementById('ageCmp').innerHTML=AGE.sort((a,b)=>b.age-a.age).map(d=>{
+    const isFR=d.name==='France';
+    return `<div class="cmp-row" style="margin-bottom:8px">
+      <span class="cmp-flag">${d.flag}</span>
+      <span class="cmp-name" style="width:90px;${isFR?'color:#ff6b6b;font-weight:800':''}">${d.name}</span>
+      <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${((d.age-58)/(maxAge-58)*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span class="cmp-val" style="color:${d.color};width:50px">${d.age}</span>
+    </div>`;
+  }).join('');
+
+  /* Taux remplacement */
+  const maxTx=100;
+  document.getElementById('txCmp').innerHTML=TX.sort((a,b)=>b.tx-a.tx).map(d=>{
+    const isFR=d.name==='France';
+    return `<div class="cmp-row" style="margin-bottom:8px">
+      <span class="cmp-flag">${d.flag}</span>
+      <span class="cmp-name" style="width:90px;${isFR?'color:#f59e0b;font-weight:800':''}">${d.name}</span>
+      <div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${(d.tx/maxTx*100).toFixed(1)}%;background:${d.color}"></div></div>
+      <span class="cmp-val" style="color:${d.color};width:50px">${d.tx}%</span>
+    </div>`;
+  }).join('');
+
+  const toggle=document.getElementById('navToggle'),mob=document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{const o=mob.classList.toggle('is-open');toggle.setAttribute('aria-expanded',o);document.body.classList.toggle('nav-open',o);});
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');}));
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>
