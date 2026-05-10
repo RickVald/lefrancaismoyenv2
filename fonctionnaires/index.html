@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Le coût des fonctionnaires — 340 Md€ par an — Le Français Moyen</title>
+  <meta name="description" content="5,66 millions d'agents publics, 340 Md€ de masse salariale, +530 000 depuis 2000. La France a 38% d'agents publics de plus par habitant que l'Allemagne — pour des services publics en crise.">
+  <link rel="canonical" href="https://le-francais-moyen.com/fonctionnaires/">
+  <meta property="og:title" content="Le coût des fonctionnaires — 340 Md€ par an">
+  <meta property="og:description" content="5,66 millions d'agents publics. +530 000 depuis 2000. 38% de plus par habitant qu'en Allemagne. Et pourtant : hôpital en crise, justice lente, PISA en recul.">
+  <meta property="og:url" content="https://le-francais-moyen.com/fonctionnaires/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=16">
+  <style>
+    .fnc-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(96,165,250,.12) 0%,transparent 65%)}
+    .fnc-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#60a5fa;line-height:1;margin:8px 0 4px}
+
+    .fnc-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .fnc-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .fnc-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .fnc-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* Barre versants */
+    .vers-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .vers-label{width:220px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .vers-bar-wrap{flex:1;height:28px;background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden}
+    .vers-bar{height:100%;border-radius:8px;display:flex;align-items:center;padding:0 12px;font-size:.78rem;font-weight:700;color:#fff;transition:width .8s}
+    .vers-val{width:70px;text-align:right;font-weight:800;font-size:.85rem;flex-shrink:0}
+
+    /* Comparaison internationale */
+    .cmp-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+    .cmp-flag{font-size:1.1rem;width:28px;text-align:center;flex-shrink:0}
+    .cmp-name{width:150px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .cmp-bar-wrap{flex:1;height:11px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .cmp-bar{height:100%;border-radius:5px}
+    .cmp-val{width:60px;text-align:right;font-weight:800;font-size:.84rem;flex-shrink:0}
+
+    /* Paradoxe tableau */
+    .paradox-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:16px 0 24px}
+    .paradox-card{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+    .paradox-card .pc-label{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+    .paradox-card .pc-fr{font-size:1.4rem;font-weight:900;color:#ff6b6b;letter-spacing:-.04em}
+    .paradox-card .pc-de{font-size:.9rem;color:#63d471;font-weight:700;margin-top:2px}
+    .paradox-card .pc-note{font-size:.72rem;color:var(--muted);margin-top:4px;line-height:1.4}
+
+    /* Évolution chart */
+    canvas{width:100%;border-radius:12px;display:block}
+
+    /* Verdict / note */
+    .fnc-verdict{background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .fnc-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+
+    @media(max-width:640px){
+      .vers-label{width:120px;font-size:.78rem}
+      .cmp-name{width:100px}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/fonctionnaires/">👔 Coût des fonctionnaires</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+  <a href="/">🏠 Tableau de bord</a>
+  <a href="/budget/">📋 Budget de l'État</a>
+  <a href="/impot/">💸 Impôt invisible</a>
+  <a href="/logement/">🏠 Logement</a>
+  <a href="/autoroutes/">🛣️ Autoroutes</a>
+  <a href="/normes/">📜 Millefeuille réglementaire</a>
+  <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+  <a href="/ronds-points/">🔵 Indice Rond-Point</a>
+  <a href="/dette/">⏱️ Dette en direct</a>
+  <a href="/outils/">🧰 Outils</a>
+  <a href="/elections/">🗳️ Élections</a>
+  <a href="/questions/">❓ Questions</a>
+  <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+</div>
+
+  <main id="contenu">
+    <div class="fnc-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Coût des fonctionnaires</span></nav>
+      <div class="eyebrow">Données DGAFP · INSEE · OCDE · 2023</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-bottom:4px">Le coût des fonctionnaires</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+        La France emploie <strong style="color:#60a5fa">5,66 millions d'agents publics</strong>.<br>
+        <strong style="color:#ff6b6b">38 % de plus par habitant</strong> que l'Allemagne — pour des services publics en crise.
+      </p>
+      <div class="fnc-big" data-mds="340">340 Md€</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">masse salariale publique totale par an — premier poste de dépense de France</p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── KPIs ────────────────────────────────────────────────── -->
+      <div class="fnc-kpi">
+        <div class="fnc-kpi-card">
+          <span class="val" style="color:#60a5fa">5,66 M</span>
+          <span class="lbl">agents publics (titulaires + contractuels)<br>DGAFP 2023</span>
+        </div>
+        <div class="fnc-kpi-card">
+          <span class="val" style="color:#ff6b6b">1 / 10,5</span>
+          <span class="lbl">agent public par habitant<br>Allemagne : 1 pour 14</span>
+        </div>
+        <div class="fnc-kpi-card">
+          <span class="val" style="color:#fb923c">+530 000</span>
+          <span class="lbl">agents depuis 2000<br>malgré les promesses de réduction</span>
+        </div>
+        <div class="fnc-kpi-card">
+          <span class="val" style="color:#a78bfa" data-mds="63">63 Md€</span>
+          <span class="lbl">pensions fonctionnaires d'État / an<br>(CAS Pensions — hors FPT et FPH)</span>
+        </div>
+      </div>
+
+      <!-- ── Répartition par versant ─────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Qui sont ces 5,66 millions d'agents ?</h2>
+      <div id="versants"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : DGAFP — Rapport annuel sur l'état de la fonction publique 2023. Titulaires + non-titulaires (contractuels, apprentis).</p>
+
+      <!-- ── Évolution ──────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px">L'évolution depuis 1980</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Chaque président a promis de réduire le nombre de fonctionnaires. La courbe est sans équivoque.</p>
+      <canvas id="evolChart" height="210"></canvas>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : DGAFP, séries historiques des effectifs de la fonction publique 1980–2023.</p>
+
+      <!-- ── Comparaison internationale ────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Emploi public — comparaison internationale</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Part de l'emploi public dans l'emploi total (OCDE 2021). La France n'est pas la plus haute, mais son ratio coût/qualité de service est parmi les moins bons.</p>
+      <div id="intlCmp"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : OCDE — Government at a Glance 2023. Emploi public / emploi civil total.</p>
+
+      <!-- ── Le paradoxe ────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 4px">Le paradoxe : plus d'agents, des services en crise</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">La France a 38 % d'agents publics de plus par habitant que l'Allemagne. Ce surcroît ne se traduit pas en meilleure performance.</p>
+      <div class="paradox-grid">
+        <div class="paradox-card">
+          <div class="pc-label">🚂 SNCF — PONCTUALITÉ TRAINS GRANDES LIGNES</div>
+          <div class="pc-fr">🇫🇷 87 %</div>
+          <div class="pc-de">🇩🇪 DB : 94 %</div>
+          <div class="pc-note">Malgré ~150 000 employés SNCF et 13 Md€ de subventions/an</div>
+        </div>
+        <div class="paradox-card">
+          <div class="pc-label">⚖️ DÉLAI MOYEN JUGEMENT CIVIL</div>
+          <div class="pc-fr">🇫🇷 14 mois</div>
+          <div class="pc-de">🇩🇪 5 mois</div>
+          <div class="pc-note">CEPEJ 2022 — tribunaux de grande instance</div>
+        </div>
+        <div class="paradox-card">
+          <div class="pc-label">🏥 LITS HÔPITAUX / 1 000 HAB.</div>
+          <div class="pc-fr">🇫🇷 5,7 lits</div>
+          <div class="pc-de">🇩🇪 7,8 lits</div>
+          <div class="pc-note">OCDE 2022 — malgré 1,17 M d'agents hospitaliers</div>
+        </div>
+        <div class="paradox-card">
+          <div class="pc-label">📚 PISA 2022 — SCORE MATHÉMATIQUES</div>
+          <div class="pc-fr">🇫🇷 474 pts</div>
+          <div class="pc-de">🇩🇪 475 pts</div>
+          <div class="pc-note">Résultats quasi identiques, mais 12 % d'enseignants de plus en France</div>
+        </div>
+      </div>
+
+      <!-- ── Le coût réel ────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">Ce que coûte vraiment un agent public</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:20px">
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px">
+          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px">CAT. C — AGENT D'EXÉCUTION</div>
+          <div style="font-size:1.5rem;font-weight:900;color:#60a5fa">~42 000 €/an</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">coût employeur total · ~2 400€ nets/mois · + régime retraite bonifié</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px">
+          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px">CAT. B — TECHNICIEN / INFIRMIER</div>
+          <div style="font-size:1.5rem;font-weight:900;color:#60a5fa">~52 000 €/an</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">coût employeur total · ~2 800€ nets/mois · garantie emploi à vie</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px">
+          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px">CAT. A — CADRE / ENSEIGNANT</div>
+          <div style="font-size:1.5rem;font-weight:900;color:#60a5fa">~68 000 €/an</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">coût employeur total · ~3 500€ nets/mois · + pension 75% dernier traitement</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.3);border-radius:14px;padding:18px">
+          <div style="font-size:.72rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:10px">HAUTS FONCTIONNAIRES (CAT. A+)</div>
+          <div style="font-size:1.5rem;font-weight:900;color:#ff6b6b">120 000 €+/an</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">hors avantages en nature · pension calculée sur les 6 derniers mois (vs 25 ans dans le privé)</div>
+        </div>
+      </div>
+
+      <!-- ── Lien retraites ─────────────────────────────────────── -->
+      <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.25);border-radius:14px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px">
+        <div style="font-size:2rem;flex-shrink:0">🔗</div>
+        <div>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">Le coût retraite : ×22 entre public et privé</div>
+          <p style="font-size:.82rem;color:var(--muted);margin:0">L'État verse en moyenne <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire via le CAS Pensions, contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé via le FSV. Une analyse détaillée est disponible sur la page <a href="/budget/" style="color:#a78bfa;text-decoration:underline">Budget de l'État</a>.</p>
+        </div>
+      </div>
+
+      <!-- ── Verdict ────────────────────────────────────────────── -->
+      <div class="fnc-verdict">
+        <div style="font-size:.8rem;font-weight:800;color:#60a5fa;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+          La France consacre <strong style="color:#fff" data-mds="340">340 Md€/an</strong> à sa masse salariale publique — soit <strong style="color:#60a5fa">~18 500 € par foyer fiscal</strong>. Elle compte
+          <strong style="color:#fff">38 % d'agents publics de plus</strong> par habitant que l'Allemagne, mais livre des services publics moins performants sur la majorité des indicateurs mesurables. Ce n'est pas une question d'argent ou d'effectifs bruts : c'est une question d'organisation, de missions, et de capacité à
+          <strong style="color:#ff6b6b">réallouer les moyens là où ils manquent vraiment</strong> (hôpital, justice, police) plutôt que de maintenir des effectifs là où la valeur ajoutée est la plus faible.
+        </p>
+      </div>
+
+      <!-- ── Note honnête ────────────────────────────────────────── -->
+      <div class="fnc-note">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">
+          Tous les fonctionnaires ne se valent pas : comparer le nombre brut sans distinguer les missions est trompeur. Les pays nordiques qui figurent au-dessus de la France pour l'emploi public (Danemark 27 %, Suède 26 %) affichent des services publics nettement meilleurs — parce qu'ils ont supprimé des strates administratives redondantes tout en renforçant les services de terrain. Le problème français n'est pas d'avoir des fonctionnaires, c'est d'avoir trop de <strong style="color:#fff">niveaux de management intermédiaire</strong>, de <strong style="color:#fff">doublons État-collectivités</strong>, et pas assez de personnel au contact des usagers.
+        </p>
+      </div>
+
+      <!-- ── Sources ────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <strong style="color:var(--text)">Sources :</strong>
+          DGAFP — Rapport annuel sur l'état de la fonction publique 2023 ·
+          INSEE — Comptes nationaux, rémunérations des administrations publiques 2023 ·
+          OCDE — Government at a Glance 2023 ·
+          Cour des Comptes — rapport sur la masse salariale de l'État 2023 ·
+          CEPEJ — Rapport européen sur l'efficacité de la justice 2022 ·
+          OCDE — données santé 2022 (lits hospitaliers) ·
+          OCDE PISA 2022 ·
+          Rapport ART (SNCF ponctualité 2023)
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+France+a+5%2C66+millions+d%27agents+publics+%2838+%25+de+plus+par+habitant+qu%27en+Allemagne%29.+Co%C3%BBt+%3A+340+Md%E2%82%AC%2Fan.+R%C3%A9sultat+%3A+h%C3%B4pital+en+crise%2C+justice+lente%2C+PISA+stagnant.+Les+donn%C3%A9es+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Ffonctionnaires%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : DGAFP · INSEE · OCDE · Cour des Comptes</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  /* ── Données ───────────────────────────────────────────────────── */
+  const VERSANTS = [
+    {label:'🇫🇷 FPE — Fonction publique d\'État',    n:2.52, color:'#60a5fa', sub:'Éducation, Défense, Finances, Justice...'},
+    {label:'🏙️ FPT — Territoriale',                  n:1.87, color:'#38bdf8', sub:'Communes, EPCI, Départements, Régions...'},
+    {label:'🏥 FPH — Hospitalière',                  n:1.17, color:'#7dd3fc', sub:'Hôpitaux publics, EHPAD publics, ESMS...'},
+  ];
+
+  const EVOL = [
+    {y:1980,n:4.04},{y:1985,n:4.46},{y:1990,n:4.68},{y:1993,n:4.94},
+    {y:1996,n:4.96},{y:2000,n:5.10},{y:2003,n:5.19},{y:2007,n:5.26},
+    {y:2010,n:5.46},{y:2013,n:5.52},{y:2016,n:5.50},{y:2018,n:5.57},
+    {y:2020,n:5.64},{y:2022,n:5.64},{y:2023,n:5.66}
+  ];
+
+  const INTL = [
+    {flag:'🇩🇰',name:'Danemark',  pct:27.7, color:'#63d471'},
+    {flag:'🇸🇪',name:'Suède',     pct:26.0, color:'#5dd6c5'},
+    {flag:'🇫🇮',name:'Finlande',  pct:24.1, color:'#a78bfa'},
+    {flag:'🇳🇴',name:'Norvège',   pct:30.2, color:'#4ade80'},
+    {flag:'🇫🇷',name:'France',    pct:20.0, color:'#ff6b6b'},
+    {flag:'⬛',name:'OCDE moy.',  pct:17.9, color:'#94a3b8'},
+    {flag:'🇬🇧',name:'Royaume-Uni',pct:16.2,color:'#f6c343'},
+    {flag:'🇪🇸',name:'Espagne',   pct:15.8, color:'#fb923c'},
+    {flag:'🇩🇪',name:'Allemagne', pct:14.5, color:'#4ade80'},
+  ];
+
+  /* ── Versants ──────────────────────────────────────────────────── */
+  const versContainer = document.getElementById('versants');
+  const totalV = VERSANTS.reduce((s,v)=>s+v.n, 0);
+  VERSANTS.forEach(v => {
+    const pct = (v.n / 2.52 * 100).toFixed(0); // relative to FPE=100%
+    const pctTotal = (v.n / totalV * 100).toFixed(1);
+    versContainer.innerHTML += `
+      <div class="vers-row">
+        <div class="vers-label">
+          <div style="font-weight:700;color:var(--text);font-size:.85rem">${v.label}</div>
+          <div style="font-size:.72rem;color:var(--muted)">${v.sub}</div>
+        </div>
+        <div class="vers-bar-wrap">
+          <div class="vers-bar" style="width:${v.n/2.52*100}%;background:${v.color};opacity:.85">
+            ${v.n.toFixed(2)} M
+          </div>
+        </div>
+        <span class="vers-val" style="color:${v.color}">${pctTotal}%</span>
+      </div>`;
+  });
+
+  /* ── Évolution chart ───────────────────────────────────────────── */
+  (function(){
+    const canvas = document.getElementById('evolChart');
+    const dpr = window.devicePixelRatio || 1;
+    const W = canvas.parentElement.clientWidth || 800;
+    const H = 210;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.height = H + 'px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    const pad = {t:20, r:20, b:36, l:48};
+    const cW = W - pad.l - pad.r;
+    const cH = H - pad.t - pad.b;
+    const minN = 3.8, maxN = 5.8;
+    const minY = EVOL[0].y, maxY = EVOL[EVOL.length-1].y;
+
+    function xP(y){ return pad.l + (y - minY)/(maxY - minY)*cW; }
+    function yP(n){ return pad.t + cH - (n-minN)/(maxN-minN)*cH; }
+
+    // Gradient fill
+    const grad = ctx.createLinearGradient(0, pad.t, 0, pad.t+cH);
+    grad.addColorStop(0,'rgba(96,165,250,.30)');
+    grad.addColorStop(1,'rgba(96,165,250,.02)');
+    ctx.beginPath();
+    EVOL.forEach((d,i)=>{ i===0?ctx.moveTo(xP(d.y),yP(d.n)):ctx.lineTo(xP(d.y),yP(d.n)); });
+    ctx.lineTo(xP(EVOL[EVOL.length-1].y), pad.t+cH);
+    ctx.lineTo(xP(EVOL[0].y), pad.t+cH);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Grid lines
+    [4.0,4.5,5.0,5.5].forEach(v=>{
+      const y = yP(v);
+      ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(pad.l+cW,y);
+      ctx.strokeStyle='rgba(255,255,255,.06)'; ctx.lineWidth=1; ctx.stroke();
+      ctx.fillStyle='rgba(174,187,212,.6)'; ctx.font='11px system-ui';
+      ctx.textAlign='right'; ctx.fillText(v.toFixed(1)+'M', pad.l-6, y+4);
+    });
+
+    // Line
+    ctx.beginPath();
+    EVOL.forEach((d,i)=>{ i===0?ctx.moveTo(xP(d.y),yP(d.n)):ctx.lineTo(xP(d.y),yP(d.n)); });
+    ctx.strokeStyle='#60a5fa'; ctx.lineWidth=2.5; ctx.lineJoin='round'; ctx.stroke();
+
+    // X labels
+    ctx.fillStyle='rgba(174,187,212,.6)'; ctx.font='11px system-ui'; ctx.textAlign='center';
+    [1980,1990,2000,2007,2010,2017,2023].forEach(y=>{
+      ctx.fillText(y, xP(y), H-pad.b+18);
+    });
+
+    // Annotations
+    const annots = [
+      {y:2000,n:5.10,txt:'5,10 M',align:'center'},
+      {y:2023,n:5.66,txt:'5,66 M',align:'right'},
+    ];
+    annots.forEach(a=>{
+      const d = EVOL.find(d=>d.y===a.y); if(!d) return;
+      ctx.beginPath(); ctx.arc(xP(a.y),yP(a.n),4,0,Math.PI*2);
+      ctx.fillStyle='#60a5fa'; ctx.fill();
+      ctx.fillStyle='rgba(96,165,250,.9)'; ctx.font='bold 10px system-ui';
+      ctx.textAlign = a.align;
+      ctx.fillText(a.txt, xP(a.y)+(a.align==='right'?-8:0), yP(a.n)-9);
+    });
+
+    // Flèche "+530 000"
+    const x1 = xP(2000), x2 = xP(2023);
+    const y1 = yP(5.10), y2 = yP(5.66);
+    ctx.beginPath(); ctx.moveTo((x1+x2)/2-10, (y1+y2)/2-14);
+    ctx.fillStyle='rgba(251,146,60,.9)'; ctx.font='bold 11px system-ui'; ctx.textAlign='center';
+    ctx.fillText('+530 000 agents', (x1+x2)/2+20, (y1+y2)/2-6);
+  })();
+
+  /* ── Comparaison internationale ────────────────────────────────── */
+  const intlContainer = document.getElementById('intlCmp');
+  const maxPct = 31;
+  INTL.forEach(d=>{
+    const isFR = d.name === 'France';
+    intlContainer.innerHTML += `
+      <div class="cmp-row">
+        <span class="cmp-flag">${d.flag}</span>
+        <span class="cmp-name" style="${isFR?'color:#ff6b6b;font-weight:800':''}">${d.name}</span>
+        <div class="cmp-bar-wrap">
+          <div class="cmp-bar" style="width:${(d.pct/maxPct*100).toFixed(1)}%;background:${d.color}"></div>
+        </div>
+        <span class="cmp-val" style="color:${d.color}">${d.pct}%</span>
+      </div>`;
+  });
+
+  /* ── Nav mobile toggle ──────────────────────────────────────────── */
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded',open);
+    document.body.classList.toggle('nav-open',open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>
