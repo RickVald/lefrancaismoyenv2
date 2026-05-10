@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://le-francais-moyen.com/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,66 +15,38 @@
   </url>
 
   <url>
-    <loc>https://le-francais-moyen.com/questions/la-france-s-appauvrit-elle.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://le-francais-moyen.com/questions/pourquoi-tout-augmente.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://le-francais-moyen.com/questions/combien-coute-l-etat.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://le-francais-moyen.com/questions/dependance-energetique-france.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://le-francais-moyen.com/questions/demographie-france-soutenable.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://le-francais-moyen.com/weekly/latest.html</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <url>
-    <loc>https://le-francais-moyen.com/elections/</loc>
-    <lastmod>2026-05-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <url>
-    <loc>https://le-francais-moyen.com/outils/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://le-francais-moyen.com/budget/</loc>
+    <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://le-francais-moyen.com/dette/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-10</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.85</priority>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/ronds-points/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/elections/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/outils/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
   </url>
 
   <url>
@@ -116,21 +88,49 @@
     <loc>https://le-francais-moyen.com/histoire/</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/la-france-s-appauvrit-elle</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://le-francais-moyen.com/budget/</loc>
+    <loc>https://le-francais-moyen.com/questions/pourquoi-tout-augmente</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
+    <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://le-francais-moyen.com/ronds-points/</loc>
+    <loc>https://le-francais-moyen.com/questions/combien-coute-l-etat</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/dependance-energetique-france</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/demographie-france-soutenable</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/weekly/latest</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
   </url>
 
 </urlset>
