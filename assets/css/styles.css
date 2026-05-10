@@ -21,7 +21,8 @@ main{max-width:1440px;margin:auto;padding:32px 24px 74px}
 .hero-card:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-120px;top:-100px;background:radial-gradient(circle,rgba(246,195,67,.26),transparent 62%);pointer-events:none}
 .eyebrow{color:var(--accent);font-weight:850;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;margin-bottom:10px}
 h1{font-size:clamp(2.2rem,5vw,4.8rem);line-height:.96;letter-spacing:-.07em;margin:0 0 16px;max-width:880px}
-.bg-hero h1,.counter-hero h1,.rp-hero h1,.imp-hero h1,.aut-hero h1,.log-hero h1{margin:0 auto 16px;text-align:center}
+/* Centrage h1 dans toutes les hero sections (sélecteur générique — couvre les futures pages) */
+[class$="-hero"] h1,[class*="-hero "] h1,.bg-hero h1{margin:0 auto 16px;text-align:center}
 h2,h3{margin:0;letter-spacing:-.04em}
 h2{font-size:1.5rem}
 h3{font-size:1.04rem}
