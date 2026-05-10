@@ -14,7 +14,14 @@
 </style>
 </head>
 <body>
-<h1 style="font-size:1.4rem;margin-bottom:32px">🖼 Générateur d'images X — Le Français Moyen</h1>
+<h1 style="font-size:1.4rem;margin-bottom:32px">🖼 Générateur d'images — Le Français Moyen</h1>
+
+<div class="section">
+  <h2>Image de partage / Open Graph (1200 × 630 px)</h2>
+  <p>⚠️ <strong>À faire en premier !</strong> Télécharge ce fichier, renomme-le <code>og-image.png</code> et dépose-le dans <code>assets/img/</code> du projet. C'est ce qui apparaît quand on partage le lien sur X, LinkedIn, etc.</p>
+  <canvas id="ogimage" width="1200" height="630"></canvas>
+  <button onclick="download('ogimage','og-image.png')">⬇ Télécharger og-image.png</button>
+</div>
 
 <div class="section">
   <h2>Bannière de profil (1500 × 500 px)</h2>
@@ -55,6 +62,163 @@ function download(id, filename) {
   a.download = filename;
   a.click();
 }
+
+// ── OG IMAGE 1200×630 ────────────────────────────────────────────────────────
+(function drawOgImage() {
+  const c = document.getElementById('ogimage');
+  const ctx = c.getContext('2d');
+  const W = 1200, H = 630;
+
+  // Background gradient
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#18295a');
+  bg.addColorStop(0.5, '#0b1020');
+  bg.addColorStop(1, '#070a14');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  // Gold glow top-left
+  const glow = ctx.createRadialGradient(180, 180, 0, 180, 180, 320);
+  glow.addColorStop(0, 'rgba(246,195,67,0.18)');
+  glow.addColorStop(1, 'rgba(246,195,67,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, W, H);
+
+  // Teal glow bottom-right
+  const glow2 = ctx.createRadialGradient(1050, 500, 0, 1050, 500, 280);
+  glow2.addColorStop(0, 'rgba(93,214,197,0.07)');
+  glow2.addColorStop(1, 'rgba(93,214,197,0)');
+  ctx.fillStyle = glow2;
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+  ctx.lineWidth = 1;
+  [157, 315, 473].forEach(y => { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); });
+  [300, 600, 900].forEach(x => { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); });
+
+  // Logo box
+  const logoGrad = ctx.createLinearGradient(60, 58, 128, 126);
+  logoGrad.addColorStop(0, '#f6c343');
+  logoGrad.addColorStop(1, '#fff0aa');
+  roundRect(ctx, 60, 58, 68, 68, 16, logoGrad);
+  ctx.fillStyle = '#101520';
+  ctx.font = 'bold 32px system-ui,sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('LF', 94, 106);
+  ctx.textAlign = 'left';
+
+  // Site name
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 28px system-ui,sans-serif';
+  ctx.fillText('Le Français Moyen', 148, 87);
+  ctx.fillStyle = '#aebbd4';
+  ctx.font = '16px system-ui,sans-serif';
+  ctx.fillText('le-francais-moyen.com', 148, 114);
+
+  // Main headline
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 72px system-ui,sans-serif';
+  ctx.fillText('Tableau de bord', 60, 230);
+
+  const goldGrad = ctx.createLinearGradient(60, 260, 620, 330);
+  goldGrad.addColorStop(0, '#f6c343');
+  goldGrad.addColorStop(1, '#fff0aa');
+  ctx.fillStyle = goldGrad;
+  ctx.fillText('statistique', 60, 316);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.font = 'bold 52px system-ui,sans-serif';
+  ctx.fillText('de la France', 60, 400);
+
+  // Tagline
+  ctx.fillStyle = '#aebbd4';
+  ctx.font = '22px system-ui,sans-serif';
+  ctx.fillText('Inflation · Pouvoir d\'achat · Logement · Fiscalité · Démographie', 60, 460);
+
+  // Sources badge
+  roundRect(ctx, 60, 497, 350, 38, 19, 'rgba(255,255,255,0.07)', 'rgba(255,255,255,0.15)', 1);
+  ctx.fillStyle = '#aebbd4';
+  ctx.font = 'bold 13px system-ui,sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Données INSEE · Eurostat · Banque de France', 235, 521);
+  ctx.textAlign = 'left';
+
+  // Right panel — chart card
+  roundRect(ctx, 720, 140, 420, 340, 24, 'rgba(255,255,255,0.05)', 'rgba(255,255,255,0.1)', 1);
+
+  // Chart title
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 16px system-ui,sans-serif';
+  ctx.fillText('Inflation & Pouvoir d\'achat', 740, 175);
+
+  // Legend
+  ctx.beginPath(); ctx.arc(740, 200, 5, 0, Math.PI*2); ctx.fillStyle = '#f6c343'; ctx.fill();
+  ctx.fillStyle = '#aebbd4'; ctx.font = '13px system-ui,sans-serif';
+  ctx.fillText('Inflation réelle', 752, 204);
+  ctx.beginPath(); ctx.arc(860, 200, 5, 0, Math.PI*2); ctx.fillStyle = '#5dd6c5'; ctx.fill();
+  ctx.fillStyle = '#aebbd4';
+  ctx.fillText('Salaire réel', 872, 204);
+
+  // KPI chips
+  roundRect(ctx, 740, 220, 110, 48, 12, 'rgba(246,195,67,0.1)', 'rgba(246,195,67,0.3)', 1);
+  ctx.fillStyle = '#f6c343'; ctx.font = 'bold 20px system-ui,sans-serif'; ctx.textAlign='center';
+  ctx.fillText('+42%', 795, 241);
+  ctx.fillStyle = '#aebbd4'; ctx.font = '11px system-ui,sans-serif';
+  ctx.fillText('Prix depuis 2000', 795, 258);
+
+  roundRect(ctx, 862, 220, 110, 48, 12, 'rgba(93,214,197,0.1)', 'rgba(93,214,197,0.3)', 1);
+  ctx.fillStyle = '#5dd6c5'; ctx.font = 'bold 20px system-ui,sans-serif';
+  ctx.fillText('3 213 €', 917, 241);
+  ctx.fillStyle = '#aebbd4'; ctx.font = '11px system-ui,sans-serif';
+  ctx.fillText('Salaire médian', 917, 258);
+
+  roundRect(ctx, 984, 220, 150, 48, 12, 'rgba(255,107,107,0.1)', 'rgba(255,107,107,0.3)', 1);
+  ctx.fillStyle = '#ff6b6b'; ctx.font = 'bold 18px system-ui,sans-serif';
+  ctx.fillText('3 228 Md€', 1059, 241);
+  ctx.fillStyle = '#aebbd4'; ctx.font = '11px system-ui,sans-serif';
+  ctx.fillText('Dette publique', 1059, 258);
+
+  ctx.textAlign = 'left';
+
+  // Gold line chart (inflation)
+  ctx.beginPath();
+  const goldPts = [[740,380],[780,360],[820,370],[860,340],[900,310],[940,320],[880,290],[960,260],[1000,240],[1040,255],[1080,235],[1120,220]];
+  ctx.moveTo(goldPts[0][0], goldPts[0][1]);
+  goldPts.slice(1).forEach(([x,y]) => ctx.lineTo(x,y));
+  const lineGrad = ctx.createLinearGradient(740, 0, 1120, 0);
+  lineGrad.addColorStop(0,'#f6c343'); lineGrad.addColorStop(1,'#fff0aa');
+  ctx.strokeStyle = lineGrad; ctx.lineWidth = 3;
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  ctx.stroke();
+
+  // Area fill
+  ctx.beginPath();
+  goldPts.forEach(([x,y],i) => i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y));
+  ctx.lineTo(1120, 420); ctx.lineTo(740, 420); ctx.closePath();
+  ctx.fillStyle = 'rgba(246,195,67,0.06)'; ctx.fill();
+
+  // Teal line (salaires)
+  const tealPts = [[740,400],[790,410],[840,390],[890,380],[930,390],[970,370],[1010,355],[1050,345],[1090,335],[1120,330]];
+  ctx.beginPath();
+  ctx.moveTo(tealPts[0][0], tealPts[0][1]);
+  tealPts.slice(1).forEach(([x,y]) => ctx.lineTo(x,y));
+  ctx.strokeStyle = '#5dd6c5'; ctx.lineWidth = 2.5; ctx.stroke();
+
+  // X-axis
+  ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(740,420); ctx.lineTo(1120,420); ctx.stroke();
+  ctx.fillStyle = '#aebbd4'; ctx.font = '12px system-ui,sans-serif';
+  ctx.fillText('2000', 740, 440); ctx.fillText('2012', 920, 440); ctx.fillText('2024', 1080, 440);
+
+  // Bottom gold bar
+  const bottomBar = ctx.createLinearGradient(0, 0, W, 0);
+  bottomBar.addColorStop(0, 'rgba(246,195,67,0.6)');
+  bottomBar.addColorStop(0.5, 'rgba(246,195,67,0.6)');
+  bottomBar.addColorStop(1, 'rgba(246,195,67,0)');
+  ctx.fillStyle = bottomBar;
+  ctx.fillRect(0, 618, W, 12);
+})();
 
 // ── BANNER 1500×500 ───────────────────────────────────────────────────────────
 (function drawBanner() {

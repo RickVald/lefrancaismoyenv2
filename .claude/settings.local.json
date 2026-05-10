@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(wc -l \"/mnt/c/Users/rrica/Downloads/lefrancaismoyen_site_html \\(2\\).html\")",
-      "Bash(dir \"C:\\\\Users\\\\rrica\\\\Desktop\\\\REMY\\\\LEFRANCAISMOYEN\\\\lefrancaismoyen_v1_manager_ready\")"
+      "Bash(dir \"C:\\\\Users\\\\rrica\\\\Desktop\\\\REMY\\\\LEFRANCAISMOYEN\\\\lefrancaismoyen_v1_manager_ready\")",
+      "Bash(npm install *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\rrica\\\\Desktop\\\\REMY\\\\LEFRANCAISMOYEN\\\\lefrancaismoyen_v1_manager_ready\\\\\" -Name | Where-Object { $_ -match \"functions|scripts\" })",
+      "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\Users\\\\rrica\\\\Desktop\\\\REMY\\\\LEFRANCAISMOYEN\\\\lefrancaismoyen_v1_manager_ready\\\\functions\\\\api\" -Force)",
+      "Bash(xargs sed -i 's|og-image\\\\.svg|og-image.png|g')"
     ]
   }
 }
