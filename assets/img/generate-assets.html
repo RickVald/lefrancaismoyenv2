@@ -232,121 +232,137 @@ function download(id, filename) {
   const c = document.getElementById('rondspoints');
   const ctx = c.getContext('2d');
   const W = 1200, H = 675;
+  const LX = 60;   // left column: roundabout center X
+  const RX = 580;  // right column: text start X
+  const RW = W - RX - 40; // right column width
 
-  // Background
+  // ── Background ──────────────────────────────────────────────────
   const bg = ctx.createLinearGradient(0, 0, W, H);
   bg.addColorStop(0, '#0d1f3c');
   bg.addColorStop(0.5, '#0b1020');
   bg.addColorStop(1, '#070a14');
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
 
-  // Teal glow center-left
-  const glow = ctx.createRadialGradient(300, 340, 0, 300, 340, 380);
-  glow.addColorStop(0, 'rgba(93,214,197,0.14)');
+  // Teal glow (left)
+  const glow = ctx.createRadialGradient(310, 338, 0, 310, 338, 360);
+  glow.addColorStop(0, 'rgba(93,214,197,0.13)');
   glow.addColorStop(1, 'rgba(93,214,197,0)');
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = glow; ctx.fillRect(0, 0, W, H);
 
-  // Subtle grid
-  ctx.strokeStyle = 'rgba(255,255,255,0.035)';
-  ctx.lineWidth = 1;
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.035)'; ctx.lineWidth = 1;
   [168,337,506].forEach(y => { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); });
   [300,600,900].forEach(x => { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); });
 
   // Top accent bar
-  const topLine = ctx.createLinearGradient(0,0,W,0);
-  topLine.addColorStop(0,'#5dd6c5'); topLine.addColorStop(0.5,'rgba(93,214,197,0.4)'); topLine.addColorStop(1,'rgba(93,214,197,0)');
-  ctx.fillStyle = topLine; ctx.fillRect(0, 0, W, 4);
+  const accentGrad = ctx.createLinearGradient(0,0,W,0);
+  accentGrad.addColorStop(0,'#5dd6c5');
+  accentGrad.addColorStop(0.6,'rgba(93,214,197,0.35)');
+  accentGrad.addColorStop(1,'rgba(93,214,197,0)');
+  ctx.fillStyle = accentGrad; ctx.fillRect(0, 0, W, 5);
 
-  // --- Roundabout drawing (left side, large) ---
-  const cx = 310, cy = 338, R = 195;
-  // Outer road ring
+  // Vertical separator
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(RX-20, 40); ctx.lineTo(RX-20, H-40); ctx.stroke();
+
+  // ── Roundabout (left) ───────────────────────────────────────────
+  const cx = 300, cy = 338, R = 190;
+
+  // Outer road
   ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.lineWidth = 54; ctx.stroke();
-  // Road dashes
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 52; ctx.stroke();
+
+  // Dashed lane line
   ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 1;
-  ctx.setLineDash([10,8]); ctx.stroke(); ctx.setLineDash([]);
-  // Center island
-  ctx.beginPath(); ctx.arc(cx, cy, 95, 0, Math.PI*2);
+  ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.lineWidth = 1;
+  ctx.setLineDash([12,9]); ctx.stroke(); ctx.setLineDash([]);
+
+  // Center island fill
+  ctx.beginPath(); ctx.arc(cx, cy, 90, 0, Math.PI*2);
   ctx.fillStyle = 'rgba(93,214,197,0.07)'; ctx.fill();
-  ctx.strokeStyle = 'rgba(93,214,197,0.25)'; ctx.lineWidth = 2; ctx.stroke();
-  // Animated-look arc (teal)
-  ctx.beginPath(); ctx.arc(cx, cy, R, -Math.PI/2, Math.PI*0.7);
-  ctx.strokeStyle = '#5dd6c5'; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.stroke(); ctx.lineCap = 'butt';
-  // Entry roads (4 branches)
-  [[cx, cy-R-27, 14, 27],[cx, cy+R, 14, 27],[cx-R-27, cy, 27, 14],[cx+R, cy, 27, 14]].forEach(([x,y,w,h]) => {
-    ctx.fillStyle = 'rgba(255,255,255,0.08)'; ctx.fillRect(x-w/2, y, w, h);
-  });
-  // Center text
-  ctx.fillStyle = '#5dd6c5'; ctx.font = 'bold 52px system-ui,sans-serif';
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillText('🔵', cx, cy);
-  ctx.textBaseline = 'alphabetic';
+  ctx.strokeStyle = 'rgba(93,214,197,0.22)'; ctx.lineWidth = 2; ctx.stroke();
 
-  // --- Right side content ---
-  ctx.textAlign = 'left';
+  // Teal moving arc
+  ctx.beginPath(); ctx.arc(cx, cy, R, -Math.PI/2, Math.PI * 0.75);
+  ctx.strokeStyle = '#5dd6c5'; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.stroke();
+  ctx.lineCap = 'butt';
 
-  // Tag
-  roundRect(ctx, 580, 80, 200, 32, 16, 'rgba(93,214,197,0.12)', 'rgba(93,214,197,0.3)', 1);
-  ctx.fillStyle = '#5dd6c5'; ctx.font = 'bold 13px system-ui,sans-serif';
-  ctx.fillText('L\'INDICE ROND-POINT', 598, 101);
+  // Entry roads (N S W E)
+  const roads = [[cx-7,cy-R-26,14,28],[cx-7,cy+R-2,14,28],[cx-R-26,cy-7,28,14],[cx+R-2,cy-7,28,14]];
+  roads.forEach(([x,y,w,h]) => { ctx.fillStyle='rgba(255,255,255,0.07)'; ctx.fillRect(x,y,w,h); });
 
-  // Big number
+  // Center dot (teal circle)
+  ctx.beginPath(); ctx.arc(cx, cy, 22, 0, Math.PI*2);
+  ctx.fillStyle = '#5dd6c5'; ctx.fill();
+  ctx.beginPath(); ctx.arc(cx, cy, 22, 0, Math.PI*2);
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 2; ctx.stroke();
+
+  // ── Right side — layout ─────────────────────────────────────────
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+
+  // — Tag pill —
+  roundRect(ctx, RX, 62, 220, 34, 17, 'rgba(93,214,197,0.10)', 'rgba(93,214,197,0.28)', 1);
+  ctx.fillStyle = '#5dd6c5'; ctx.font = 'bold 12px system-ui,sans-serif';
+  ctx.fillText('L\'INDICE ROND-POINT', RX + 18, 85);
+
+  // — Big number —
   ctx.fillStyle = '#5dd6c5';
-  ctx.font = 'bold 118px system-ui,sans-serif';
-  ctx.letterSpacing = '-4px';
-  ctx.fillText('50 000', 575, 240);
-  ctx.font = 'bold 26px system-ui,sans-serif';
+  ctx.font = 'bold 100px system-ui,sans-serif';
+  ctx.fillText('50 000', RX, 200);
+
+  // — Subtitle —
   ctx.fillStyle = '#aebbd4';
-  ctx.fillText('ronds-points en France', 578, 278);
+  ctx.font = '500 22px system-ui,sans-serif';
+  ctx.fillText('ronds-points en France', RX, 234);
 
-  // Divider
-  ctx.fillStyle = 'rgba(93,214,197,0.3)';
-  ctx.fillRect(578, 300, 540, 2);
+  // — Divider —
+  ctx.fillStyle = 'rgba(93,214,197,0.25)';
+  ctx.fillRect(RX, 256, RW, 1.5);
 
-  // Stat 1
-  roundRect(ctx, 578, 322, 250, 82, 14, 'rgba(93,214,197,0.08)', 'rgba(93,214,197,0.2)', 1);
-  ctx.fillStyle = '#5dd6c5'; ctx.font = 'bold 34px system-ui,sans-serif';
-  ctx.fillText('≈ 50 %', 600, 368);
-  ctx.fillStyle = '#aebbd4'; ctx.font = '14px system-ui,sans-serif';
-  ctx.fillText('du total mondial', 600, 390);
+  // — Stat cards (y=272, h=78) —
+  // Card 1: 50%
+  roundRect(ctx, RX, 272, 240, 78, 12, 'rgba(93,214,197,0.08)', 'rgba(93,214,197,0.22)', 1);
+  ctx.fillStyle = '#5dd6c5'; ctx.font = 'bold 30px system-ui,sans-serif';
+  ctx.fillText('≈ 50 %', RX + 16, 313);
+  ctx.fillStyle = 'rgba(174,187,212,0.75)'; ctx.font = '500 13px system-ui,sans-serif';
+  ctx.fillText('du total mondial', RX + 16, 335);
 
-  // Stat 2
-  roundRect(ctx, 848, 322, 270, 82, 14, 'rgba(255,107,107,0.08)', 'rgba(255,107,107,0.2)', 1);
-  ctx.fillStyle = '#ff6b6b'; ctx.font = 'bold 34px system-ui,sans-serif';
-  ctx.fillText('26e / 27', 868, 368);
-  ctx.fillStyle = '#aebbd4'; ctx.font = '14px system-ui,sans-serif';
-  ctx.fillText('efficacité dépense EU', 868, 390);
+  // Card 2: 26e/27
+  roundRect(ctx, RX + 256, 272, 258, 78, 12, 'rgba(255,107,107,0.08)', 'rgba(255,107,107,0.22)', 1);
+  ctx.fillStyle = '#ff6b6b'; ctx.font = 'bold 30px system-ui,sans-serif';
+  ctx.fillText('26e / 27', RX + 272, 313);
+  ctx.fillStyle = 'rgba(174,187,212,0.75)'; ctx.font = '500 13px system-ui,sans-serif';
+  ctx.fillText('efficacité dépense EU', RX + 272, 335);
 
-  // Tagline
-  ctx.fillStyle = '#eef3ff'; ctx.font = 'bold 22px system-ui,sans-serif';
-  ctx.fillText('57,3 % du PIB dépensé par l\'État.', 578, 445);
-  ctx.fillStyle = '#aebbd4'; ctx.font = '19px system-ui,sans-serif';
-  ctx.fillText('On dépense le plus. On en retire le moins.', 578, 474);
+  // — Tagline (y=390) —
+  ctx.fillStyle = '#eef3ff'; ctx.font = 'bold 20px system-ui,sans-serif';
+  ctx.fillText('57,3 % du PIB dépensé — record UE.', RX, 390);
+  ctx.fillStyle = '#aebbd4'; ctx.font = '500 18px system-ui,sans-serif';
+  ctx.fillText('On dépense le plus. On en retire le moins.', RX, 420);
 
-  // Branding bottom
-  ctx.fillStyle = 'rgba(255,255,255,0.1)';
-  ctx.fillRect(578, 520, 540, 1);
+  // — Divider —
+  ctx.fillStyle = 'rgba(255,255,255,0.09)';
+  ctx.fillRect(RX, 448, RW, 1);
 
-  // FM logo box
-  roundRect(ctx, 578, 540, 38, 38, 10, '#f6c343');
-  ctx.fillStyle = '#101520'; ctx.font = 'bold 16px system-ui,sans-serif';
-  ctx.textAlign = 'center'; ctx.fillText('FM', 597, 564);
+  // — Branding (y=470) —
+  // FM box
+  roundRect(ctx, RX, 464, 42, 42, 10, '#f6c343');
+  ctx.fillStyle = '#101520'; ctx.font = 'bold 17px system-ui,sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('FM', RX + 21, 491);
   ctx.textAlign = 'left';
 
-  ctx.fillStyle = '#eef3ff'; ctx.font = 'bold 17px system-ui,sans-serif';
-  ctx.fillText('Le Français Moyen', 626, 557);
-  ctx.fillStyle = '#f6c343'; ctx.font = '14px system-ui,sans-serif';
-  ctx.fillText('le-francais-moyen.com/ronds-points', 626, 574);
+  ctx.fillStyle = '#ffffff'; ctx.font = 'bold 16px system-ui,sans-serif';
+  ctx.fillText('Le Français Moyen', RX + 56, 481);
+  ctx.fillStyle = '#f6c343'; ctx.font = '500 13px system-ui,sans-serif';
+  ctx.fillText('le-francais-moyen.com/ronds-points', RX + 56, 500);
 
-  // Sources
-  ctx.fillStyle = 'rgba(174,187,212,0.4)'; ctx.font = '12px system-ui,sans-serif';
-  ctx.fillText('Sources : CEREMA · Commission Européenne · ECB Working Papers', 578, 630);
+  // — Sources —
+  ctx.fillStyle = 'rgba(174,187,212,0.35)'; ctx.font = '11px system-ui,sans-serif';
+  ctx.fillText('Sources : CEREMA · Commission Européenne · ECB Working Papers', RX, 540);
 
   // Bottom bar
-  ctx.fillStyle = topLine; ctx.fillRect(0, H-4, W, 4);
+  ctx.fillStyle = accentGrad; ctx.fillRect(0, H - 5, W, 5);
 })();
 
 // ── BANNER 1500×500 ───────────────────────────────────────────────────────────
