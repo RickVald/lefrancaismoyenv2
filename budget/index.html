@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Le budget de l'État français poste par poste — Le Français Moyen</title>
+  <meta name="description" content="Décryptage complet du budget public français : État, Sécurité sociale, retraites privé vs public, collectivités. En milliards ou en euros par contribuable IR.">
+  <link rel="canonical" href="https://le-francais-moyen.com/budget/">
+  <meta property="og:title" content="Le budget de l'État poste par poste — Le Français Moyen">
+  <meta property="og:description" content="490 Md€ pour l'État, 650 Md€ pour la Sécu, 320 Md€ pour les collectivités. Tout compris : 1 460 Md€. Soit 79 348 € par contribuable IR.">
+  <meta property="og:url" content="https://le-francais-moyen.com/budget/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=12">
+  <style>
+    /* ── Hero ─────────────────────────────────────────────────── */
+    .bg-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(246,195,67,.09) 0%,transparent 65%)}
+    .total-num{font-size:clamp(2.8rem,8vw,5.5rem);font-weight:900;letter-spacing:-.06em;color:var(--accent);line-height:1;margin:8px 0 4px}
+
+    /* ── Tabs ─────────────────────────────────────────────────── */
+    .tabs{display:flex;gap:0;border-bottom:1px solid var(--border);max-width:900px;margin:0 auto 32px;overflow-x:auto}
+    .tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:14px 22px;cursor:pointer;font-size:.95rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:all .2s;font-family:inherit}
+    .tab-btn:hover{color:var(--text)}
+    .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+    .tab-panel{display:none;max-width:900px;margin:0 auto;padding:0 24px 60px}
+    .tab-panel.active{display:block}
+
+    /* ── Section header ───────────────────────────────────────── */
+    .sec-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:32px 0 6px}
+    .sec-title{font-size:1.05rem;font-weight:800;letter-spacing:-.02em}
+    .sec-total{font-size:.85rem;color:var(--muted)}
+
+    /* ── Ministry rows ────────────────────────────────────────── */
+    .ministry{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:10px;overflow:hidden}
+    .ministry-head{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;user-select:none}
+    .ministry-head:hover{background:rgba(255,255,255,.03)}
+    .min-icon{font-size:1.3rem;width:32px;text-align:center;flex-shrink:0}
+    .min-name{flex:1;font-weight:700;font-size:.95rem}
+    .min-bar-wrap{width:160px;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;flex-shrink:0}
+    .min-bar-fill{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+    .min-amount{width:90px;text-align:right;font-weight:800;font-size:.92rem;flex-shrink:0}
+    .min-contrib{width:110px;text-align:right;font-size:.75rem;color:var(--muted);flex-shrink:0}
+    .min-arrow{color:var(--muted);font-size:.75rem;transition:transform .2s;flex-shrink:0}
+    .ministry.open .min-arrow{transform:rotate(180deg)}
+
+    /* ── Sub-items ────────────────────────────────────────────── */
+    .ministry-sub{display:none;border-top:1px solid var(--border);padding:4px 0}
+    .ministry.open .ministry-sub{display:block}
+    .sub-row{display:flex;align-items:center;gap:10px;padding:10px 18px 10px 58px;font-size:.85rem}
+    .sub-name{flex:1;color:var(--muted)}
+    .sub-bar-wrap{width:100px;height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+    .sub-bar-fill{height:100%;border-radius:3px;opacity:.7}
+    .sub-amount{width:80px;text-align:right;font-weight:700;color:var(--text)}
+    .sub-contrib{width:100px;text-align:right;font-size:.72rem;color:var(--muted)}
+
+    /* ── Highlight box ────────────────────────────────────────── */
+    .highlight-box{border-radius:14px;padding:18px 20px;margin-bottom:10px;font-size:.88rem;line-height:1.6}
+    .highlight-box strong{color:var(--text)}
+
+    /* ── Retraites comparison ─────────────────────────────────── */
+    .ret-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+    .ret-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 18px}
+    .ret-card-title{font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+    .ret-stat{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.85rem}
+    .ret-stat:last-child{border-bottom:none}
+    .ret-stat .label{color:var(--muted)}
+    .ret-stat .value{font-weight:800}
+
+    /* ── Cotisation flow ──────────────────────────────────────── */
+    .flow-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.88rem}
+    .flow-row:last-child{border-bottom:none}
+    .flow-label{flex:1;color:var(--muted)}
+    .flow-bar-wrap{width:120px;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden}
+    .flow-bar-fill{height:100%;border-radius:4px}
+    .flow-val{width:80px;text-align:right;font-weight:800}
+
+    /* ── Ratio badge ──────────────────────────────────────────── */
+    .ratio-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:800;margin-top:6px}
+
+    /* ── Collectivités ────────────────────────────────────────── */
+    .coll-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:12px}
+    .coll-table th{text-align:left;padding:8px 12px;color:var(--muted);font-weight:700;font-size:.78rem;border-bottom:1px solid var(--border)}
+    .coll-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05)}
+    .coll-table tr:last-child td{border-bottom:none}
+    .coll-table .num{text-align:right;font-weight:800}
+    .coll-table .sub{font-size:.78rem;color:var(--muted)}
+
+    /* ── Source note ──────────────────────────────────────────── */
+    .source-note{font-size:.75rem;color:var(--muted);margin-top:24px;padding-top:16px;border-top:1px solid var(--border);line-height:1.6}
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media(max-width:640px){
+      .min-bar-wrap{display:none}
+      .min-contrib{display:none}
+      .sub-bar-wrap{display:none}
+      .sub-contrib{display:none}
+      .ret-grid{grid-template-columns:1fr}
+      .ministry-head{gap:8px;padding:12px 14px}
+      .tab-btn{padding:12px 14px;font-size:.85rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/#dashboard">Indicateurs</a></li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/ronds-points/">🔵 Rond-Point</a></li>
+          <li><a href="/#questions">Questions</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Tableau de bord</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/#dashboard">📊 Indicateurs</a>
+    <a href="/#simulateur-fiscal-reel">💰 Mon impôt réel</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/dette/">⏱️ Dette en direct</a>
+    <a href="/outils/">🧰 Boîte à outils</a>
+    <a href="/ronds-points/">🔵 Indice Rond-Point</a>
+    <a href="/budget/">📋 Budget de l'État</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Recevoir la newsletter</a>
+  </div>
+
+  <main>
+    <!-- ── HERO ─────────────────────────────────────────────────── -->
+    <div class="bg-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Budget de l'État</span></nav>
+      <div class="eyebrow">Dépenses publiques françaises 2024</div>
+      <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:4px">Le budget de la France, poste par poste</h1>
+      <div class="total-num"><span data-mds="1460">1 460 Md€</span></div>
+      <p style="color:var(--muted);margin:4px 0 20px;font-size:.95rem">de dépenses publiques totales — État + Sécu + Collectivités</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:8px">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:900;color:var(--accent)" data-mds="490">490 Md€</div>
+          <div style="font-size:.75rem;color:var(--muted)">Budget de l'État</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:900;color:#a78bfa" data-mds="650">650 Md€</div>
+          <div style="font-size:.75rem;color:var(--muted)">Sécurité sociale</div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:900;color:#5dd6c5" data-mds="320">320 Md€</div>
+          <div style="font-size:.75rem;color:var(--muted)">Collectivités</div>
+        </div>
+      </div>
+      <p style="font-size:.78rem;color:var(--muted);font-style:italic">Utilisez le bouton 💶 en bas à droite pour afficher en €/contribuable IR</p>
+    </div>
+
+    <!-- ── TABS ─────────────────────────────────────────────────── -->
+    <div style="padding:0 24px">
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="etat">🏛️ Budget de l'État</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="secu">🏥 Sécu & Retraites</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="coll">🏙️ Collectivités</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- TAB 1 — ÉTAT                                              -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <div class="tab-panel active" id="tab-etat" role="tabpanel">
+
+      <div class="highlight-box" style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.2)">
+        ⚠️ <strong>La charge de la dette (55 Md€/an)</strong> dépasse désormais le budget de la Défense nationale. C'est le poste qui croît le plus vite — et le seul qu'on ne peut pas réduire sans restructuration.
+      </div>
+
+      <!-- Éducation nationale -->
+      <div class="sec-head"><span class="sec-title">Principaux postes — Budget général de l'État</span><span class="sec-total">Total : ~490 Md€</span></div>
+
+      <div class="ministry open" data-color="#f6c343">
+        <div class="ministry-head">
+          <span class="min-icon">📚</span>
+          <span class="min-name">Éducation nationale</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:100%;background:#f6c343"></div></div>
+          <span class="min-amount" data-mds="85.2">85,2 Md€</span>
+          <span class="min-contrib" style="color:#f6c34388">≈ 4 630 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Enseignement public 1er degré (maternelle/primaire)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:80%;background:#f6c343"></div></div><span class="sub-amount" data-mds="26.8">26,8 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Enseignement public 2nd degré (collèges/lycées)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:100%;background:#f6c343"></div></div><span class="sub-amount" data-mds="38.4">38,4 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Vie de l'élève (bourses, restauration, sport…)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:25%;background:#f6c343"></div></div><span class="sub-amount" data-mds="6.8">6,8 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Enseignement privé sous contrat</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:16%;background:#f6c343"></div></div><span class="sub-amount" data-mds="9">9 Md€</span></div>
+          <div class="sub-row" style="padding-top:12px;border-top:1px solid var(--border)">
+            <span style="font-size:.78rem;color:var(--muted)">📌 1,2 M d'enseignants · 12 M d'élèves dans le public · Coût par élève : ~8 500 €/an</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charge de la dette -->
+      <div class="ministry" data-color="#ff6b6b">
+        <div class="ministry-head">
+          <span class="min-icon">💸</span>
+          <span class="min-name">Charge de la dette (intérêts)</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:65%;background:#ff6b6b"></div></div>
+          <span class="min-amount" data-mds="55.4">55,4 Md€</span>
+          <span class="min-contrib" style="color:#ff6b6b88">≈ 3 011 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Intérêts OAT (obligations État à long terme)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:85%;background:#ff6b6b"></div></div><span class="sub-amount" data-mds="47">47 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Intérêts BTF (court terme)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:20%;background:#ff6b6b"></div></div><span class="sub-amount" data-mds="8.4">8,4 Md€</span></div>
+          <div class="sub-row" style="padding-top:12px;border-top:1px solid var(--border)">
+            <span style="font-size:.78rem;color:var(--muted)">📌 En 2022 : 38 Md€. En 2024 : 55 Md€. +45% en 2 ans à cause de la hausse des taux. Poste qui croît le plus vite du budget.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Défense -->
+      <div class="ministry" data-color="#5dd6c5">
+        <div class="ministry-head">
+          <span class="min-icon">🛡️</span>
+          <span class="min-name">Défense nationale</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:59%;background:#5dd6c5"></div></div>
+          <span class="min-amount" data-mds="50.5">50,5 Md€</span>
+          <span class="min-contrib" style="color:#5dd6c588">≈ 2 745 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Préparation et emploi des forces</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:80%;background:#5dd6c5"></div></div><span class="sub-amount" data-mds="30.2">30,2 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Équipement des forces (matériel, armement)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:52%;background:#5dd6c5"></div></div><span class="sub-amount" data-mds="15.8">15,8 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Soutien et logistique</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:15%;background:#5dd6c5"></div></div><span class="sub-amount" data-mds="4.5">4,5 Md€</span></div>
+          <div class="sub-row" style="padding-top:12px;border-top:1px solid var(--border)">
+            <span style="font-size:.78rem;color:var(--muted)">📌 Objectif OTAN : 2% du PIB. La France y est depuis 2024. 270 000 militaires. Programme F-35 / porte-avions inclus.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enseignement supérieur -->
+      <div class="ministry" data-color="#a78bfa">
+        <div class="ministry-head">
+          <span class="min-icon">🎓</span>
+          <span class="min-name">Enseignement supérieur & Recherche</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:38%;background:#a78bfa"></div></div>
+          <span class="min-amount" data-mds="32.1">32,1 Md€</span>
+          <span class="min-contrib" style="color:#a78bfa88">≈ 1 745 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Universités et formations supérieures</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:65%;background:#a78bfa"></div></div><span class="sub-amount" data-mds="15.2">15,2 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Recherche scientifique (CNRS, INSERM…)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:55%;background:#a78bfa"></div></div><span class="sub-amount" data-mds="13">13 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Grandes écoles et formation ingénieurs</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:15%;background:#a78bfa"></div></div><span class="sub-amount" data-mds="3.9">3,9 Md€</span></div>
+        </div>
+      </div>
+
+      <!-- Solidarité -->
+      <div class="ministry" data-color="#fb923c">
+        <div class="ministry-head">
+          <span class="min-icon">🤝</span>
+          <span class="min-name">Solidarité, Handicap & Insertion</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:35%;background:#fb923c"></div></div>
+          <span class="min-amount" data-mds="30.1">30,1 Md€</span>
+          <span class="min-contrib" style="color:#fb923c88">≈ 1 636 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">AAH — Allocation Adulte Handicapé</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:90%;background:#fb923c"></div></div><span class="sub-amount" data-mds="13.5">13,5 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">RSA (part État — hors dép.)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:40%;background:#fb923c"></div></div><span class="sub-amount" data-mds="6.2">6,2 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Établissements médico-sociaux & ESAT</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:30%;background:#fb923c"></div></div><span class="sub-amount" data-mds="4.8">4,8 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Minima sociaux et autres allocations</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:20%;background:#fb923c"></div></div><span class="sub-amount" data-mds="5.6">5,6 Md€</span></div>
+        </div>
+      </div>
+
+      <!-- Travail & Emploi -->
+      <div class="ministry" data-color="#63d471">
+        <div class="ministry-head">
+          <span class="min-icon">💼</span>
+          <span class="min-name">Travail & Emploi</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:24%;background:#63d471"></div></div>
+          <span class="min-amount" data-mds="20.2">20,2 Md€</span>
+          <span class="min-contrib" style="color:#63d47188">≈ 1 098 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Formation professionnelle & apprentissage</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:100%;background:#63d471"></div></div><span class="sub-amount" data-mds="11">11 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">France Travail (ex-Pôle emploi) — subvention</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:45%;background:#63d471"></div></div><span class="sub-amount" data-mds="4.8">4,8 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Contrats aidés et insertion par l'emploi</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:35%;background:#63d471"></div></div><span class="sub-amount" data-mds="4.4">4,4 Md€</span></div>
+        </div>
+      </div>
+
+      <!-- Intérieur / Sécurités -->
+      <div class="ministry" data-color="#38bdf8">
+        <div class="ministry-head">
+          <span class="min-icon">👮</span>
+          <span class="min-name">Sécurités (Police & Gendarmerie)</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:26%;background:#38bdf8"></div></div>
+          <span class="min-amount" data-mds="22.5">22,5 Md€</span>
+          <span class="min-contrib" style="color:#38bdf888">≈ 1 223 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Police nationale</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:100%;background:#38bdf8"></div></div><span class="sub-amount" data-mds="12.1">12,1 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Gendarmerie nationale</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:85%;background:#38bdf8"></div></div><span class="sub-amount" data-mds="10.4">10,4 Md€</span></div>
+          <div class="sub-row" style="padding-top:12px;border-top:1px solid var(--border)">
+            <span style="font-size:.78rem;color:var(--muted)">📌 145 000 policiers + 102 000 gendarmes. Budget en hausse de +22% depuis 2017.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Justice -->
+      <div class="ministry" data-color="#f472b6">
+        <div class="ministry-head">
+          <span class="min-icon">⚖️</span>
+          <span class="min-name">Justice</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:16%;background:#f472b6"></div></div>
+          <span class="min-amount" data-mds="13.4">13,4 Md€</span>
+          <span class="min-contrib" style="color:#f472b688">≈ 728 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Justice judiciaire (tribunaux, cours…)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:90%;background:#f472b6"></div></div><span class="sub-amount" data-mds="5">5 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Administration pénitentiaire (prisons)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:100%;background:#f472b6"></div></div><span class="sub-amount" data-mds="5.2">5,2 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Protection judiciaire de la jeunesse</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:22%;background:#f472b6"></div></div><span class="sub-amount" data-mds="1.1">1,1 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Aide juridictionnelle</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:18%;background:#f472b6"></div></div><span class="sub-amount" data-mds="0.7">0,7 Md€</span></div>
+        </div>
+      </div>
+
+      <!-- Transition écologique -->
+      <div class="ministry" data-color="#4ade80">
+        <div class="ministry-head">
+          <span class="min-icon">🌱</span>
+          <span class="min-name">Transition écologique & Énergie</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:21%;background:#4ade80"></div></div>
+          <span class="min-amount" data-mds="18.2">18,2 Md€</span>
+          <span class="min-contrib" style="color:#4ade8088">≈ 989 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">MaPrimeRénov' & rénovation énergétique</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:45%;background:#4ade80"></div></div><span class="sub-amount" data-mds="4">4 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Bonus véhicules propres & aides mobilité</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:22%;background:#4ade80"></div></div><span class="sub-amount" data-mds="1.5">1,5 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Infrastructures (routes, ports, fleuves)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:60%;background:#4ade80"></div></div><span class="sub-amount" data-mds="5.8">5,8 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Logement (APL part État)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:80%;background:#4ade80"></div></div><span class="sub-amount" data-mds="6.9">6,9 Md€</span></div>
+        </div>
+      </div>
+
+      <!-- Petits postes -->
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 20px;margin-bottom:10px">
+        <div style="font-size:.82rem;font-weight:800;color:var(--muted);margin-bottom:12px;letter-spacing:.06em">AUTRES MINISTÈRES</div>
+        <div class="flow-row"><span class="flow-label">Agriculture & alimentation</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:33%;background:var(--accent)"></div></div><span class="flow-val" data-mds="5.8">5,8 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">Culture (musées, spectacle vivant, patrimoine)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:22%;background:var(--accent)"></div></div><span class="flow-val" data-mds="4.1">4,1 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">Outre-mer</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:14%;background:var(--accent)"></div></div><span class="flow-val" data-mds="2.7">2,7 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">Pouvoirs publics (Élysée, AN, Sénat, CC…)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:9%;background:var(--accent)"></div></div><span class="flow-val" data-mds="1.1">1,1 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">Sport & Jeunesse</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:8%;background:var(--accent)"></div></div><span class="flow-val" data-mds="1.5">1,5 Md€</span></div>
+      </div>
+
+      <p class="source-note">Sources : Loi de finances initiale 2024 (PLF 2024) · Direction du Budget · data.gouv.fr · Les chiffres incluent crédits de paiement, hors remboursements et dégrèvements fiscaux (~140 Md€).</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- TAB 2 — SÉCU & RETRAITES                                  -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-secu" role="tabpanel">
+
+      <!-- Vue d'ensemble Sécu -->
+      <div class="sec-head"><span class="sec-title">Sécurité sociale — Vue d'ensemble</span><span class="sec-total">Total LFSS 2024 : ~650 Md€</span></div>
+
+      <div class="ministry open" data-color="#ff6b6b">
+        <div class="ministry-head">
+          <span class="min-icon">🏥</span>
+          <span class="min-name">Assurance maladie (ONDAM)</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:100%;background:#ff6b6b"></div></div>
+          <span class="min-amount" data-mds="244">244 Md€</span>
+          <span class="min-contrib" style="color:#ff6b6b88">≈ 13 261 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Soins de ville (médecins, pharmacies, kiné…)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:100%;background:#ff6b6b"></div></div><span class="sub-amount" data-mds="110">110 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Hôpitaux publics & cliniques</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:95%;background:#ff6b6b"></div></div><span class="sub-amount" data-mds="105">105 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Médicaments remboursés</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:26%;background:#ff6b6b"></div></div><span class="sub-amount" data-mds="29">29 Md€</span></div>
+          <div class="sub-row" style="padding-top:12px;border-top:1px solid var(--border)">
+            <span style="font-size:.78rem;color:var(--muted)">📌 −31% de lits depuis 2000. Déficit structurel hospitalier : ~1 Md€/an. Reste à charge moyen : 9,4% des dépenses de santé.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ministry" data-color="#fbbf24">
+        <div class="ministry-head">
+          <span class="min-icon">👶</span>
+          <span class="min-name">Branche Famille (CAF)</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:21%;background:#fbbf24"></div></div>
+          <span class="min-amount" data-mds="50">50 Md€</span>
+          <span class="min-contrib" style="color:#fbbf2488">≈ 2 717 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">APL — Aides personnelles au logement</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:100%;background:#fbbf24"></div></div><span class="sub-amount" data-mds="13.5">13,5 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Allocations familiales & PAJE</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:90%;background:#fbbf24"></div></div><span class="sub-amount" data-mds="12.8">12,8 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">RSA (branche famille)</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:70%;background:#fbbf24"></div></div><span class="sub-amount" data-mds="10">10 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Prime d'activité</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:72%;background:#fbbf24"></div></div><span class="sub-amount" data-mds="10.2">10,2 Md€</span></div>
+        </div>
+      </div>
+
+      <div class="ministry" data-color="#a78bfa">
+        <div class="ministry-head">
+          <span class="min-icon">🦺</span>
+          <span class="min-name">Assurance chômage (Unédic)</span>
+          <div class="min-bar-wrap"><div class="min-bar-fill" style="width:18%;background:#a78bfa"></div></div>
+          <span class="min-amount" data-mds="44">44 Md€</span>
+          <span class="min-contrib" style="color:#a78bfa88">≈ 2 391 €/contrib.</span>
+          <span class="min-arrow">▼</span>
+        </div>
+        <div class="ministry-sub">
+          <div class="sub-row"><span class="sub-name">Indemnités chômage versées</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:100%;background:#a78bfa"></div></div><span class="sub-amount" data-mds="38">38 Md€</span></div>
+          <div class="sub-row"><span class="sub-name">Frais de gestion Unédic / France Travail</span><div class="sub-bar-wrap"><div class="sub-bar-fill" style="width:16%;background:#a78bfa"></div></div><span class="sub-amount" data-mds="6">6 Md€</span></div>
+          <div class="sub-row" style="padding-top:12px;border-top:1px solid var(--border)">
+            <span style="font-size:.78rem;color:var(--muted)">📌 2,9 M de chômeurs indemnisés · Financé par cotisations patronales (4% brut). Fonctionnaires exclus (État auto-assureur).</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RETRAITES — Section détaillée -->
+      <div class="sec-head" style="margin-top:40px"><span class="sec-title">Retraites — Privé vs Public & Assimilé</span><span class="sec-total">Total : ~360 Md€/an</span></div>
+
+      <div class="highlight-box" style="background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.2);margin-bottom:20px">
+        💡 La retraite est le premier poste de dépenses publiques en France. Le déséquilibre démographique entre régimes privé et public est l'une des sources de tension majeures du financement.
+      </div>
+
+      <!-- Grille privé / public -->
+      <div class="ret-grid">
+        <!-- PRIVÉ -->
+        <div class="ret-card" style="border-color:rgba(99,212,113,.25)">
+          <div class="ret-card-title" style="color:#63d471">🏭 Secteur PRIVÉ</div>
+          <div class="ret-stat">
+            <span class="label">Régime général (CNAV)</span>
+            <span class="value" data-mds="152" style="color:#63d471">152 Md€</span>
+          </div>
+          <div class="ret-stat">
+            <span class="label">Complémentaires AGIRC-ARRCO</span>
+            <span class="value" data-mds="85">85 Md€</span>
+          </div>
+          <div class="ret-stat">
+            <span class="label"><strong>Total privé</strong></span>
+            <span class="value" data-mds="237" style="color:#63d471"><strong>237 Md€</strong></span>
+          </div>
+          <div style="margin:14px 0 6px;padding-top:12px;border-top:1px solid var(--border)">
+            <div class="ret-stat">
+              <span class="label">Cotisants actifs</span>
+              <span class="value">~22 millions</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Retraités indemnisés</span>
+              <span class="value">~14,5 millions</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Ratio cotisant/retraité</span>
+              <span class="value" style="color:#63d471">1,52 : 1</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Pension moyenne nette</span>
+              <span class="value">1 620 €/mois</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Âge moyen de départ</span>
+              <span class="value">62,8 ans</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Taux de cotisation salarial</span>
+              <span class="value">6,9% brut</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Taux de cotisation patronal</span>
+              <span class="value">8,55% brut</span>
+            </div>
+          </div>
+          <div class="ratio-badge" style="background:rgba(99,212,113,.1);color:#63d471">
+            ✅ Régime à l'équilibre précaire — réformes 2023 pour durer jusqu'à 2030
+          </div>
+        </div>
+
+        <!-- PUBLIC -->
+        <div class="ret-card" style="border-color:rgba(251,146,60,.25)">
+          <div class="ret-card-title" style="color:#fb923c">🏛️ Secteur PUBLIC & Assimilé</div>
+          <div class="ret-stat">
+            <span class="label">Fonctionnaires État (pensions civiles)</span>
+            <span class="value" data-mds="63" style="color:#fb923c">63 Md€</span>
+          </div>
+          <div class="ret-stat">
+            <span class="label">CNRACL (territ. & hospit.)</span>
+            <span class="value" data-mds="29">29 Md€</span>
+          </div>
+          <div class="ret-stat">
+            <span class="label">Militaires (PENSIO)</span>
+            <span class="value" data-mds="9">9 Md€</span>
+          </div>
+          <div class="ret-stat">
+            <span class="label">Régimes spéciaux (SNCF, RATP, mines…)</span>
+            <span class="value" data-mds="7">7 Md€</span>
+          </div>
+          <div class="ret-stat">
+            <span class="label"><strong>Total public</strong></span>
+            <span class="value" data-mds="108" style="color:#fb923c"><strong>~108 Md€</strong></span>
+          </div>
+          <div style="margin:14px 0 6px;padding-top:12px;border-top:1px solid var(--border)">
+            <div class="ret-stat">
+              <span class="label">Cotisants actifs (fonct. État)</span>
+              <span class="value">~2,2 millions</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Retraités État</span>
+              <span class="value">~2,4 millions</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Ratio cotisant/retraité (État)</span>
+              <span class="value" style="color:#fb923c">0,92 : 1</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Pension moyenne nette État</span>
+              <span class="value">2 150 €/mois</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Âge moyen de départ</span>
+              <span class="value">62,1 ans</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Taux de cotisation salarial</span>
+              <span class="value">11,1% traitement</span>
+            </div>
+            <div class="ret-stat">
+              <span class="label">Taux de cotisation patronal (État)</span>
+              <span class="value">74,3% (!)</span>
+            </div>
+          </div>
+          <div class="ratio-badge" style="background:rgba(251,146,60,.1);color:#fb923c">
+            ⚠️ Ratio &lt; 1 : plus de retraités que d'actifs cotisants — déficit structurel
+          </div>
+        </div>
+      </div>
+
+      <!-- Régimes spéciaux détail -->
+      <div style="background:var(--card);border:1px solid rgba(255,107,107,.2);border-radius:16px;padding:20px;margin-bottom:24px">
+        <div style="font-size:.82rem;font-weight:800;color:#ff6b6b;margin-bottom:12px;letter-spacing:.06em">RÉGIMES SPÉCIAUX — RATIOS COTISANT/RETRAITÉ</div>
+        <div class="flow-row">
+          <span class="flow-label">🚂 SNCF</span>
+          <div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:45%;background:#ff6b6b"></div></div>
+          <span class="flow-val" style="color:#ff6b6b">0,74 : 1</span>
+        </div>
+        <div class="flow-row">
+          <span class="flow-label">🚇 RATP</span>
+          <div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:55%;background:#fb923c"></div></div>
+          <span class="flow-val" style="color:#fb923c">0,89 : 1</span>
+        </div>
+        <div class="flow-row">
+          <span class="flow-label">⚓ Marins (ENIM)</span>
+          <div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:20%;background:#ff6b6b"></div></div>
+          <span class="flow-val" style="color:#ff6b6b">0,33 : 1</span>
+        </div>
+        <div class="flow-row">
+          <span class="flow-label">⛏️ Mines (CANSSM)</span>
+          <div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:5%;background:#ff3d3d"></div></div>
+          <span class="flow-val" style="color:#ff3d3d">0,06 : 1</span>
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);margin:12px 0 0">Le régime des mines est en quasi-extinction : 6 cotisants pour 100 retraités. Subventionné intégralement par l'État.</p>
+      </div>
+
+      <!-- Comparatif financement chômage privé/public -->
+      <div class="sec-head" style="margin-top:32px"><span class="sec-title">Assurance chômage — Privé vs Public</span></div>
+      <div class="ret-grid">
+        <div class="ret-card" style="border-color:rgba(99,212,113,.25)">
+          <div class="ret-card-title" style="color:#63d471">🏭 Chômage PRIVÉ (Unédic)</div>
+          <div class="ret-stat"><span class="label">Cotisants indemnisables</span><span class="value">~21 millions</span></div>
+          <div class="ret-stat"><span class="label">Chômeurs indemnisés</span><span class="value">~2,9 millions</span></div>
+          <div class="ret-stat"><span class="label">Taux de chômage couvert</span><span class="value">13,8%</span></div>
+          <div class="ret-stat"><span class="label">Allocation moyenne</span><span class="value">~1 050 €/mois</span></div>
+          <div class="ret-stat"><span class="label">Durée max indemnisation</span><span class="value">18 mois (−50 ans)</span></div>
+          <div class="ret-stat"><span class="label">Coût total</span><span class="value" data-mds="44" style="color:#63d471">44 Md€/an</span></div>
+          <div class="ret-stat"><span class="label">Financement</span><span class="value">Cotisations patronales</span></div>
+        </div>
+        <div class="ret-card" style="border-color:rgba(251,146,60,.25)">
+          <div class="ret-card-title" style="color:#fb923c">🏛️ Chômage PUBLIC</div>
+          <div class="ret-stat"><span class="label">Statut</span><span class="value" style="color:#fb923c">Auto-assurance État</span></div>
+          <div class="ret-stat"><span class="label">Fonctionnaires titulaires</span><span class="value">Non couverts Unédic</span></div>
+          <div class="ret-stat"><span class="label">Contractuels publics</span><span class="value">Couverts depuis 2020</span></div>
+          <div class="ret-stat"><span class="label">Agents en chômage payés</span><span class="value">~180 000</span></div>
+          <div class="ret-stat"><span class="label">Coût pour l'État employeur</span><span class="value" data-mds="0.5">~0,5 Md€/an</span></div>
+          <div class="ret-stat"><span class="label">Financement</span><span class="value">Budget État direct</span></div>
+          <div class="ratio-badge" style="background:rgba(251,146,60,.1);color:#fb923c;margin-top:8px">
+            ⚠️ Un fonctionnaire licencié reste indemnisé par son employeur — l'État
+          </div>
+        </div>
+      </div>
+
+      <p class="source-note">Sources : LFSS 2024 (Loi de financement de la Sécurité Sociale) · DREES · Rapport annuel COR 2024 (Conseil d'Orientation des Retraites) · Unédic · DGFiP · Les montants retraites incluent tous régimes de base. AGIRC-ARRCO séparé (régimes complémentaires privés).</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <!-- TAB 3 — COLLECTIVITÉS                                     -->
+    <!-- ══════════════════════════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-coll" role="tabpanel">
+
+      <div class="highlight-box" style="background:rgba(93,214,197,.07);border:1px solid rgba(93,214,197,.2);margin-bottom:24px">
+        🏙️ <strong>320 Md€</strong> de dépenses pour les collectivités locales — soit <strong data-mds="320">17 391 €/contribuable IR</strong>. Elles emploient <strong>1,9 million d'agents</strong> et financent l'essentiel des services du quotidien.
+      </div>
+
+      <div class="sec-head"><span class="sec-title">Répartition par échelon</span><span class="sec-total">Total : ~320 Md€</span></div>
+
+      <table class="coll-table">
+        <thead>
+          <tr>
+            <th>Échelon</th>
+            <th style="text-align:right">Budget total</th>
+            <th style="text-align:right">€ / contrib. IR</th>
+            <th style="text-align:right">Agents</th>
+            <th style="text-align:right">Entités</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🏘️ Communes & EPCI</strong><br><span class="sub">Mairies, intercommunalités, métropoles</span></td>
+            <td class="num" data-mds="130">130 Md€</td>
+            <td class="num" style="color:#5dd6c5">7 065 €</td>
+            <td class="num">950 000</td>
+            <td class="num">34 900</td>
+          </tr>
+          <tr>
+            <td><strong>🏗️ Départements</strong><br><span class="sub">RSA, aide sociale, collèges, routes</span></td>
+            <td class="num" data-mds="85">85 Md€</td>
+            <td class="num" style="color:#5dd6c5">4 620 €</td>
+            <td class="num">430 000</td>
+            <td class="num">101</td>
+          </tr>
+          <tr>
+            <td><strong>🌍 Régions</strong><br><span class="sub">Lycées, transports régionaux, développement éco.</span></td>
+            <td class="num" data-mds="35">35 Md€</td>
+            <td class="num" style="color:#5dd6c5">1 902 €</td>
+            <td class="num">80 000</td>
+            <td class="num">18</td>
+          </tr>
+          <tr>
+            <td><strong>🏥 Hôpitaux publics (part locale)</strong><br><span class="sub">Investissements hospitaliers hors ONDAM</span></td>
+            <td class="num" data-mds="40">40 Md€</td>
+            <td class="num" style="color:#5dd6c5">2 174 €</td>
+            <td class="num">~800 000</td>
+            <td class="num">~1 300</td>
+          </tr>
+          <tr>
+            <td><strong>🏫 Autres établissements publics</strong><br><span class="sub">SDIS, offices HLM, syndicats…</span></td>
+            <td class="num" data-mds="30">30 Md€</td>
+            <td class="num" style="color:#5dd6c5">1 630 €</td>
+            <td class="num">~300 000</td>
+            <td class="num">—</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,.03);font-weight:800">
+            <td><strong>TOTAL COLLECTIVITÉS</strong></td>
+            <td class="num" data-mds="320"><strong>320 Md€</strong></td>
+            <td class="num" style="color:#5dd6c5"><strong>17 391 €</strong></td>
+            <td class="num"><strong>~2,56 M</strong></td>
+            <td class="num">—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Principaux postes dépenses collectivités -->
+      <div class="sec-head" style="margin-top:32px"><span class="sec-title">Principaux postes de dépenses des collectivités</span></div>
+
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:14px">
+        <div class="flow-row"><span class="flow-label">👨‍💼 Masse salariale agents locaux</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:100%;background:#5dd6c5"></div></div><span class="flow-val" data-mds="120">120 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">🏗️ Investissements (écoles, routes, équipements)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:55%;background:#5dd6c5"></div></div><span class="flow-val" data-mds="60">60 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">🤝 RSA et aide sociale départementale</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:40%;background:#5dd6c5"></div></div><span class="flow-val" data-mds="42">42 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">🚌 Transports (TER, bus, métros…)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:25%;background:#5dd6c5"></div></div><span class="flow-val" data-mds="25">25 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">🏫 Éducation locale (collèges, lycées, périscolaire)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:22%;background:#5dd6c5"></div></div><span class="flow-val" data-mds="22">22 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">🔥 SDIS — Services départementaux incendie</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:7%;background:#5dd6c5"></div></div><span class="flow-val" data-mds="6.5">6,5 Md€</span></div>
+      </div>
+
+      <!-- Financement -->
+      <div class="sec-head" style="margin-top:24px"><span class="sec-title">Comment les collectivités se financent-elles ?</span></div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
+        <div class="flow-row"><span class="flow-label">Dotations de l'État (DGF, etc.)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:45%;background:var(--accent)"></div></div><span class="flow-val" data-mds="55">55 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">Fiscalité locale (taxe foncière, CFE…)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:70%;background:var(--accent)"></div></div><span class="flow-val" data-mds="85">85 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">TVA partagée (ex-taxe habitation)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:45%;background:var(--accent)"></div></div><span class="flow-val" data-mds="45">45 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">Emprunts & endettement local</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:20%;background:#fb923c"></div></div><span class="flow-val" data-mds="22">22 Md€</span></div>
+        <div class="flow-row"><span class="flow-label">Autres recettes (tarifs, fonds européens…)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:90%;background:var(--accent)"></div></div><span class="flow-val" data-mds="113">113 Md€</span></div>
+        <p style="font-size:.75rem;color:var(--muted);margin:12px 0 0">📌 La suppression de la taxe d'habitation (2021) a créé un trou compensé par une part de TVA — les collectivités sont désormais plus dépendantes de l'État central.</p>
+      </div>
+
+      <p class="source-note">Sources : DGCL (Direction Générale des Collectivités Locales) · Rapport de l'Observatoire des finances locales 2024 · Cour des Comptes · INSEE · Les montants sont en crédits de paiement, exercice 2023-2024.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Sources : PLF 2024, LFSS 2024, DGFiP, COR, DREES, DGCL, Eurostat</span>
+  </footer>
+
+  <script>
+  // ── Tab switching ──────────────────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      this.classList.add('active'); this.setAttribute('aria-selected','true');
+      document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ── Accordion ministry rows ────────────────────────────────────
+  document.querySelectorAll('.ministry-head').forEach(head => {
+    head.addEventListener('click', function () {
+      this.closest('.ministry').classList.toggle('open');
+    });
+  });
+
+  // ── Animate bars on scroll ────────────────────────────────────
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.min-bar-fill,.sub-bar-fill,.flow-bar-fill,.rp-bar-fill').forEach(b => {
+          const w = b.style.width; b.style.width = '0';
+          requestAnimationFrame(() => { b.style.transition='width .8s cubic-bezier(.4,0,.2,1)'; b.style.width = w; });
+        });
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.ministry,.ret-card,table').forEach(el => observer.observe(el));
+  </script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+  <script>
+  (function(){
+    var btn=document.getElementById('navToggle');
+    var menu=document.getElementById('navMobile');
+    if(!btn||!menu)return;
+    btn.addEventListener('click',function(){
+      var open=menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded',open);
+      document.body.classList.toggle('nav-open',open);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.classList.remove('nav-open');
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
