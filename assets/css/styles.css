@@ -171,6 +171,8 @@ body.nav-open{overflow:hidden}
   .toolbar{flex-direction:column;align-items:flex-start;gap:10px}
   /* voir-plus header : empile sur mobile */
   .voir-plus-header{flex-wrap:wrap;gap:6px}
+  /* Fix global : tout grid inline "1fr 1fr" → 1 colonne (logement, industrie, autoroutes, budget…) */
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
