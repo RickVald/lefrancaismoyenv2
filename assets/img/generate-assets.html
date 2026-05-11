@@ -409,10 +409,14 @@ function download(id, filename) {
   ctx.fillStyle = topBar; ctx.fillRect(0, 0, W, 5);
 
   // ── Tag pill ────────────────────────────────────────────────────────────────
-  roundRect(ctx, 40, 22, 300, 32, 16, 'rgba(246,195,67,0.12)', 'rgba(246,195,67,0.3)', 1);
-  ctx.fillStyle = '#f6c343'; ctx.font = 'bold 14px system-ui,sans-serif';
+  const tagText = 'RETRAITES · BUDGET DE L\'ÉTAT · @RobertFrMoyen';
+  ctx.font = 'bold 14px system-ui,sans-serif';
+  const tagW = ctx.measureText(tagText).width + 40; // 20px padding each side
+  const tagX = 40;
+  roundRect(ctx, tagX, 22, tagW, 32, 16, 'rgba(246,195,67,0.12)', 'rgba(246,195,67,0.3)', 1);
+  ctx.fillStyle = '#f6c343';
   ctx.textAlign = 'center';
-  ctx.fillText('RETRAITES · BUDGET DE L\'ÉTAT · @RobertFrMoyen', 190, 43);
+  ctx.fillText(tagText, tagX + tagW / 2, 43);
   ctx.textAlign = 'left';
 
   // ── Headline ────────────────────────────────────────────────────────────────
