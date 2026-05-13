@@ -1,3 +1,5 @@
 ﻿User-agent: *
 Allow: /
+Disallow: /partager/
+Disallow: /assets/img/generate-assets.html
 Sitemap: https://le-francais-moyen.com/sitemap.xml
