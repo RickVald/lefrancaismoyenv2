@@ -55,6 +55,16 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
 .thread-badge{background:#1e1e1e;border:1px solid #333;border-radius:20px;padding:4px 12px;font-size:11px;color:#a78bfa;font-weight:700;letter-spacing:1px}
 .btn-copy-all{background:#a78bfa;color:#000;border:none;border-radius:6px;padding:7px 16px;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s}
 .btn-copy-all:hover{background:#9061f9}
+/* ── Thread cover card ────────────────────────── */
+.thread-card-section{background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:14px;margin-bottom:16px}
+.thread-card-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:10px}
+.thread-card-preview{border-radius:6px;overflow:hidden;margin-bottom:10px;background:#0d0d0d}
+.thread-card-preview canvas{width:100%;display:block}
+.thread-card-actions{display:flex;gap:8px}
+.btn-gen-card{flex:1;background:#1e1e1e;border:1px solid #333;border-radius:6px;padding:8px 14px;font-size:12px;font-weight:600;color:#e8e8e8;cursor:pointer;transition:all .15s;text-align:center}
+.btn-gen-card:hover{background:#2a2a2a;border-color:#555}
+.btn-dl-card{flex:1;background:#1e1e1e;border:1px solid #333;border-radius:6px;padding:8px 14px;font-size:12px;font-weight:600;color:#4ade80;cursor:pointer;transition:all .15s;text-align:center}
+.btn-dl-card:hover{background:#1a2a1a}
 .tweet-card{background:#111;border:1px solid #222;border-radius:8px;padding:14px;margin-bottom:10px;position:relative}
 .tweet-card:hover{border-color:#333}
 .tweet-num{font-size:10px;letter-spacing:1px;color:#555;text-transform:uppercase;margin-bottom:6px;font-weight:700}
@@ -150,6 +160,19 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
           <div class="thread-badge" id="threadBadge">THREAD · 0 TWEETS</div>
           <button class="btn-copy-all" onclick="copyAllThread()">📋 Copier tout le thread</button>
         </div>
+
+        <!-- Cover card -->
+        <div class="thread-card-section" id="threadCardSection" style="display:none">
+          <div class="thread-card-label">🖼 Image d'accroche du thread</div>
+          <div class="thread-card-preview" id="threadCardPreview" style="display:none">
+            <canvas id="threadCoverCanvas" width="1200" height="675" style="width:100%"></canvas>
+          </div>
+          <div class="thread-card-actions">
+            <button class="btn-gen-card" onclick="buildThreadCard()">⚡ Générer l'image</button>
+            <button class="btn-dl-card" id="btnDlThreadCard" onclick="downloadThreadCard()" style="display:none">🖼 Télécharger PNG</button>
+          </div>
+        </div>
+
         <div id="tweetList"></div>
       </div>
 
@@ -184,7 +207,7 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
 
         <div class="action-row" id="actionRow" style="display:none">
           <button class="action-btn btn-x" onclick="openX()">𝕏 Ouvrir dans X</button>
-          <button class="action-btn btn-li" onclick="💼 LinkedIn">💼 LinkedIn</button>
+          <button class="action-btn btn-li" onclick="openLI()">💼 LinkedIn</button>
           <button class="action-btn btn-dl" onclick="downloadCard()">🖼 Carte PNG</button>
         </div>
       </div>
@@ -332,6 +355,7 @@ function showThreadUI(topic){
   const threadArea=document.getElementById('threadArea');
 
   if(!hasThread(topic)){
+    document.getElementById('threadCardSection').style.display='none';
     threadArea.innerHTML=`<div class="no-thread-hint">⚠️ Pas encore de thread pré-écrit pour ce sujet.<br>Choisissez un autre format ou une autre thématique.</div>`;
     threadArea.classList.add('active');
     return;
@@ -339,6 +363,12 @@ function showThreadUI(topic){
 
   const tweets=LFM_THREADS[topic];
   document.getElementById('threadBadge').textContent='THREAD · '+tweets.length+' TWEETS';
+
+  // Show card section (reset state)
+  const cardSection=document.getElementById('threadCardSection');
+  cardSection.style.display='block';
+  document.getElementById('threadCardPreview').style.display='none';
+  document.getElementById('btnDlThreadCard').style.display='none';
 
   const listEl=document.getElementById('tweetList');
   listEl.innerHTML=tweets.map((tweet,i)=>{
@@ -406,6 +436,169 @@ function copyText(id){
     if(btn){btn.textContent='✓ Copié';setTimeout(()=>btn.textContent='Copier',2000);}
   });
 }
+
+// ── Thread cover card ────────────────────────────────────────────────────────
+
+const THREAD_SOURCES = {
+  retraites:     'COR, DREES, OCDE 2024',
+  fonctionnaires:'DGAFP, INSEE, OCDE 2023',
+  industrie:     'INSEE, Banque de France, OCDE 2023',
+  dette:         'INSEE, Banque de France, FMI 2025',
+  education:     'OCDE PISA 2022, MEN-DEPP, PLF 2024',
+  sante:         'DREES, Assurance Maladie 2024',
+  logement:      'INSEE, Notaires de France 2024',
+  impot:         'Eurostat, OCDE 2024',
+  normes:        'France Stratégie, CE 2024',
+};
+
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function roundRectFill(ctx, x, y, w, h, r, fill) {
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y);
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r); ctx.lineTo(x+w,y+h-r);
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h);
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r);
+  ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+  ctx.fillStyle=fill; ctx.fill();
+}
+
+function roundRectStroke(ctx, x, y, w, h, r, stroke, lw) {
+  ctx.beginPath();
+  ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y);
+  ctx.quadraticCurveTo(x+w,y,x+w,y+r); ctx.lineTo(x+w,y+h-r);
+  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h);
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r);
+  ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath();
+  ctx.strokeStyle=stroke; ctx.lineWidth=lw||1; ctx.stroke();
+}
+
+function wrapTextCanvas(ctx, text, x, y, maxW, lineH) {
+  const words=text.split(' '); let line='', cy=y;
+  for(let i=0;i<words.length;i++){
+    const test=line+words[i]+' ';
+    if(ctx.measureText(test).width>maxW && i>0){ctx.fillText(line,x,cy);line=words[i]+' ';cy+=lineH;}
+    else{line=test;}
+  }
+  ctx.fillText(line,x,cy);
+}
+
+function buildThreadCard() {
+  const topic = document.getElementById('topicSelect').value;
+  const cfg = TOPICS[topic];
+  if(!cfg) return;
+
+  const W=1200, H=675;
+  const canvas = document.getElementById('threadCoverCanvas');
+  canvas.width=W; canvas.height=H;
+  const ctx = canvas.getContext('2d');
+  const color = cfg.color || '#a78bfa';
+  const tweets = (typeof LFM_THREADS!=='undefined' && LFM_THREADS[topic]) ? LFM_THREADS[topic] : [];
+
+  // ── Background ──────────────────────────────────────────────────────
+  ctx.fillStyle='#0d0d0d';
+  ctx.fillRect(0,0,W,H);
+
+  // Subtle radial glow top-left
+  const grd=ctx.createRadialGradient(80,80,0,80,80,520);
+  grd.addColorStop(0,hexToRgba(color,0.10));
+  grd.addColorStop(1,'rgba(13,13,13,0)');
+  ctx.fillStyle=grd;
+  ctx.fillRect(0,0,W,H);
+
+  // ── Top bar ─────────────────────────────────────────────────────────
+  // Thread badge pill
+  const tweetCount = tweets.length || '?';
+  const badgeText = 'THREAD · '+ tweetCount +' TWEETS';
+  ctx.font='bold 21px -apple-system,Segoe UI,sans-serif';
+  const badgeW = ctx.measureText(badgeText).width + 48;
+  roundRectFill(ctx, 60, 48, badgeW, 40, 20, hexToRgba(color,0.14));
+  roundRectStroke(ctx, 60, 48, badgeW, 40, 20, hexToRgba(color,0.35), 1.5);
+  ctx.fillStyle=color; ctx.textAlign='center';
+  ctx.fillText(badgeText, 60+badgeW/2, 74);
+  ctx.textAlign='left';
+
+  // Handle top-right
+  ctx.fillStyle='#444';
+  ctx.font='500 22px -apple-system,Segoe UI,sans-serif';
+  ctx.textAlign='right';
+  ctx.fillText('@RobertFrMoyen', W-62, 74);
+  ctx.textAlign='left';
+
+  // ── Topic label + accent line ────────────────────────────────────────
+  const topicName = cfg.label.toUpperCase().split(' ').slice(0,3).join(' '); // short
+  ctx.fillStyle='#666';
+  ctx.font='700 26px -apple-system,Segoe UI,sans-serif';
+  ctx.fillText(topicName, 62, 148);
+  ctx.fillStyle=color;
+  ctx.fillRect(62, 158, 72, 4);
+
+  // ── Main stat ────────────────────────────────────────────────────────
+  ctx.fillStyle=color;
+  // Auto-size font so value fits
+  let statFontSize=128;
+  ctx.font='bold '+statFontSize+'px -apple-system,Segoe UI,sans-serif';
+  while(ctx.measureText(cfg.value).width > W-124 && statFontSize>60){
+    statFontSize-=6;
+    ctx.font='bold '+statFontSize+'px -apple-system,Segoe UI,sans-serif';
+  }
+  ctx.fillText(cfg.value, 62, 320);
+
+  // ── Title ────────────────────────────────────────────────────────────
+  ctx.fillStyle='#ffffff';
+  ctx.font='600 40px -apple-system,Segoe UI,sans-serif';
+  wrapTextCanvas(ctx, cfg.label, 62, 388, W-124, 50);
+
+  // ── Subtitle ─────────────────────────────────────────────────────────
+  ctx.fillStyle='#666';
+  ctx.font='400 28px -apple-system,Segoe UI,sans-serif';
+  wrapTextCanvas(ctx, cfg.subtitle, 62, 452, W-124, 38);
+
+  // ── Bottom bar ───────────────────────────────────────────────────────
+  ctx.fillStyle='#111111';
+  ctx.fillRect(0, H-78, W, 78);
+  // Separator
+  ctx.fillStyle='#1e1e1e';
+  ctx.fillRect(0, H-78, W, 1);
+
+  // Source left
+  ctx.fillStyle='#3a3a3a';
+  ctx.font='400 20px -apple-system,Segoe UI,sans-serif';
+  ctx.fillText('Sources : '+(THREAD_SOURCES[topic]||'données officielles'), 62, H-30);
+
+  // URL right + dot
+  const urlText='le-francais-moyen.com';
+  ctx.font='600 22px -apple-system,Segoe UI,sans-serif';
+  ctx.textAlign='right';
+  const urlW=ctx.measureText(urlText).width;
+  ctx.fillStyle='#555';
+  ctx.fillText(urlText, W-62, H-30);
+  ctx.fillStyle=color;
+  ctx.beginPath(); ctx.arc(W-62-urlW-18, H-36, 7, 0, Math.PI*2); ctx.fill();
+  ctx.textAlign='left';
+
+  // Show preview + download button
+  document.getElementById('threadCardPreview').style.display='block';
+  document.getElementById('btnDlThreadCard').style.display='block';
+}
+
+let _threadCardLastTopic = '';
+function downloadThreadCard(){
+  const topic=document.getElementById('topicSelect').value;
+  const canvas=document.getElementById('threadCoverCanvas');
+  const dataURL=canvas.toDataURL('image/png');
+  const a=document.createElement('a');
+  a.href=dataURL;
+  a.download='lfm-thread-'+topic+'.png';
+  a.click();
+}
+
+// ── Thread UI (updated to show card section) ──────────────────────────────────
 
 // Init
 updateHashtags();
