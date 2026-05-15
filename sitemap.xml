@@ -273,4 +273,18 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/questions/pourquoi-les-resultats-scolaires-baissent-en-france</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/quel-est-le-vrai-taux-d-imposition-en-france</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>
