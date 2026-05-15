@@ -630,7 +630,232 @@ onAngleChange();
     }
   });
 })();
-</script><script src="/assets/js/contrib-toggle.js" defer></script>
+</script>
+<script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+
+<!-- ═══════════════════════════════════════════════════
+     CALENDRIER ÉDITORIAL
+     ═══════════════════════════════════════════════════ -->
+<style>
+.cal-wrapper{max-width:1000px;margin:0 auto;padding:0 24px 80px}
+.cal-title-bar{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:28px;padding-top:48px;border-top:1px solid #1a1a1a}
+.cal-title-bar h2{font-size:clamp(18px,3vw,24px);font-weight:800;color:#fff;margin:0}
+.cal-title-bar p{color:#777;font-size:13px;margin:4px 0 0}
+.cal-reset-all{background:transparent;border:1px solid #333;border-radius:6px;padding:6px 14px;font-size:12px;color:#666;cursor:pointer;transition:all .15s}
+.cal-reset-all:hover{border-color:#555;color:#aaa}
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.cal-col{display:flex;flex-direction:column;gap:16px}
+.cal-block{background:#161616;border:1px solid #222;border-radius:10px;padding:18px 20px}
+.cal-block-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.cal-block-label{display:flex;align-items:center;gap:8px}
+.cal-block-label .freq-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cal-block-label span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:#aaa}
+.cal-block-reset{background:transparent;border:none;font-size:11px;color:#444;cursor:pointer;padding:2px 6px;border-radius:4px;transition:all .15s}
+.cal-block-reset:hover{background:#222;color:#888}
+.cal-progress{height:3px;background:#222;border-radius:2px;margin-bottom:14px;overflow:hidden}
+.cal-progress-bar{height:100%;border-radius:2px;transition:width .3s ease}
+.cal-todo-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #1c1c1c;cursor:pointer;user-select:none;transition:opacity .15s}
+.cal-todo-item:last-child{border-bottom:none;padding-bottom:0}
+.cal-todo-item:hover{opacity:.8}
+.cal-todo-item input[type=checkbox]{appearance:none;-webkit-appearance:none;width:16px;height:16px;border:2px solid #444;border-radius:4px;flex-shrink:0;margin-top:2px;cursor:pointer;transition:all .15s;position:relative}
+.cal-todo-item input[type=checkbox]:checked{border-color:var(--check-color,#a78bfa);background:var(--check-color,#a78bfa)}
+.cal-todo-item input[type=checkbox]:checked::after{content:'✓';position:absolute;top:-1px;left:1px;font-size:10px;color:#000;font-weight:900}
+.cal-todo-item.done .cal-todo-text{color:#444;text-decoration:line-through}
+.cal-todo-text{font-size:13px;line-height:1.55;color:#bbb}
+.cal-todo-text strong{color:#e8e8e8;font-weight:700}
+.cal-todo-text .detail{display:block;font-size:11px;color:#555;margin-top:2px}
+.cal-sources{background:#111;border:1px solid #1e1e1e;border-radius:8px;padding:16px 18px;margin-top:20px}
+.cal-sources-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:12px;font-weight:700}
+.cal-source-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;font-size:12px}
+.cal-source-row:last-child{margin-bottom:0}
+.cal-source-name{color:#a78bfa;font-weight:700;min-width:110px;flex-shrink:0}
+.cal-source-detail{color:#666;line-height:1.5}
+.cal-week-tip{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.15);border-radius:8px;padding:14px 16px;margin-top:12px;font-size:12px;color:#888;line-height:1.6}
+.cal-week-tip strong{color:#fb923c;display:block;margin-bottom:4px;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+</style>
+
+<div class="cal-wrapper" id="calendrier">
+  <div class="cal-title-bar">
+    <div>
+      <h2>📅 Calendrier éditorial</h2>
+      <p>To-do list récurrente — cochée = fait. Persistent dans le navigateur. Reset par section ou global.</p>
+    </div>
+    <button class="cal-reset-all" onclick="calResetAll()">↺ Tout réinitialiser</button>
+  </div>
+
+  <div class="cal-grid" id="calGrid"></div>
+
+  <div class="cal-sources">
+    <div class="cal-sources-title">📡 Sources à surveiller — publications clés</div>
+    <div class="cal-source-row"><span class="cal-source-name">INSEE</span><span class="cal-source-detail">IPC mensuel (15 du mois) · Emploi trimestriel · PIB trimestriel · Publication des Indices en continu</span></div>
+    <div class="cal-source-row"><span class="cal-source-name">Banque de France</span><span class="cal-source-detail">Dette publique trimestrielle (mars, juin, sept, déc) · Déficit annuel (mars) · Taux crédit immobilier</span></div>
+    <div class="cal-source-row"><span class="cal-source-name">DREES</span><span class="cal-source-detail">Retraites : rapport annuel juin · Santé : Les dépenses de santé sept · Hôpitaux : SAE annuel</span></div>
+    <div class="cal-source-row"><span class="cal-source-name">COR</span><span class="cal-source-detail">Rapport annuel juin · Note d'actualisation septembre · Données AGIRC-ARRCO</span></div>
+    <div class="cal-source-row"><span class="cal-source-name">OCDE</span><span class="cal-source-detail">PISA : décembre (tous les 3 ans, prochain 2025) · Taxing Wages : avril/mai · Perspectives emploi : juillet</span></div>
+    <div class="cal-source-row"><span class="cal-source-name">Eurostat</span><span class="cal-source-detail">GDP/capita continu · Government finance statistics trimestriel · Labour cost annuel</span></div>
+    <div class="cal-source-row"><span class="cal-source-name">Notaires-INSEE</span><span class="cal-source-detail">Prix immobiliers trimestriels · Publication ~6 semaines après fin de trimestre</span></div>
+  </div>
+
+  <div class="cal-week-tip">
+    <strong>💡 Règle d'or éditoriale</strong>
+    Ne pas poster "voici mon article". Poster le <strong>chiffre choc</strong> d'abord — puis le lien. Ex : <em>"17 mois de SMIC pour acheter 1 m² à Paris en 2024. En 2000, c'était 5 mois."</em> → ensuite le lien. Utiliser le Studio ci-dessus pour générer le post.
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════
+// CALENDRIER ÉDITORIAL — données
+// ══════════════════════════════════════════════════
+const CAL_DATA = [
+  {
+    id: 'lundi',
+    label: '🟠 Chaque lundi',
+    color: '#fb923c',
+    resetLabel: 'Nouvelle semaine',
+    items: [
+      { id: 'nl-1', text: '📧 Envoyer la newsletter', detail: '"Le chiffre du lundi" — 3 chiffres + 1 graphique + 1 phrase à retenir' },
+      { id: 'nl-2', text: '🔄 Mettre à jour les "3 chiffres de la semaine"', detail: 'Dans index.html, section #chiffres-semaine (3 cards éditoriales)' },
+      { id: 'nl-3', text: '𝕏 Post X du lundi', detail: 'Chiffre choc + contexte en 2 lignes + lien article → Studio ci-dessus' },
+      { id: 'nl-4', text: '💼 Post LinkedIn du lundi', detail: 'Version longue (200 mots) du même sujet — ton analytique' },
+    ]
+  },
+  {
+    id: 'mercredi',
+    label: '🟡 Mercredi',
+    color: '#fbbf24',
+    resetLabel: 'Réinitialiser',
+    items: [
+      { id: 'me-1', text: '𝕏 Post comparaison France vs voisin', detail: 'Ex : "France 7,3 % chômage vs Allemagne 2,9 %. Pourquoi ?"' },
+      { id: 'me-2', text: '📊 Vérifier les stats Google Search Console', detail: 'Clics, impressions, positions — noter les requêtes émergentes' },
+      { id: 'me-3', text: '🔁 Répondre aux commentaires & mentions', detail: 'X, LinkedIn, email — entretenir la communauté' },
+    ]
+  },
+  {
+    id: 'vendredi',
+    label: '🟣 Vendredi',
+    color: '#a78bfa',
+    resetLabel: 'Réinitialiser',
+    items: [
+      { id: 've-1', text: '𝕏 Post question rhétorique', detail: 'Ex : "Vous payez 50 % de votre salaire en charges et impôts. En échange, vous obtenez quoi ?"' },
+      { id: 've-2', text: '📈 Vérifier trafic semaine (Analytics/CF)', detail: 'Pages en croissance, pages en recul — décider du sujet lundi suivant' },
+    ]
+  },
+  {
+    id: 'mensuel',
+    label: '🔵 Chaque mois',
+    color: '#60a5fa',
+    resetLabel: 'Nouveau mois',
+    items: [
+      { id: 'mo-1', text: '📝 Écrire et publier 1 nouvel article /questions/', detail: 'Mettre à jour hub index.html (compteur), sitemap.xml, puis commit + push' },
+      { id: 'mo-2', text: '📤 Soumettre sitemap à Google Search Console', detail: 'Search Console → Sitemaps → Soumettre https://le-francais-moyen.com/sitemap.xml' },
+      { id: 'mo-3', text: '🔄 Vérifier et actualiser les chiffres clés', detail: 'Dette %, déficit, inflation, taux chômage — sources : INSEE, Banque de France' },
+      { id: 'mo-4', text: '🔗 Vérifier les liens internes des 5 derniers articles', detail: 'Chaque article doit pointer vers 3-4 articles liés pertinents' },
+      { id: 'mo-5', text: '📸 Créer 3 visuels partageables du mois', detail: 'Grand chiffre + source + logo sur fond sombre — Canva ou Figma' },
+    ]
+  },
+  {
+    id: 'trimestriel',
+    label: '🟢 Chaque trimestre',
+    color: '#34d399',
+    resetLabel: 'Nouveau trimestre',
+    items: [
+      { id: 'tr-1', text: '🔍 Audit complet des données', detail: 'Vérifier cohérence des chiffres sur toutes les pages — dette, déficit, PIB %, inflation' },
+      { id: 'tr-2', text: '📊 Mise à jour données nouvelles publications', detail: 'DREES (retraites juin), COR (juin), Banque de France trimestriel, Eurostat' },
+      { id: 'tr-3', text: '🐛 Vérifier les 404 et liens cassés', detail: 'Screaming Frog ou Ahrefs free — corriger les liens morts dans les articles' },
+      { id: 'tr-4', text: '📝 Ajouter FAQ Schema.org à de nouveaux articles', detail: '4 questions/réponses par article = rich snippets sur Google' },
+      { id: 'tr-5', text: '💡 Réviser les meta descriptions des top 10 pages', detail: 'Search Console → Performance → trier par impressions → optimiser CTR' },
+      { id: 'tr-6', text: '📱 Vérifier Core Web Vitals mobile', detail: 'Google PageSpeed Insights → LCP <2,5s · INP <200ms · CLS <0,1' },
+    ]
+  },
+];
+
+// ══════════════════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════════════════
+function calStorageKey(id){ return 'cal_done_' + id; }
+
+function calLoad(id){
+  try { return JSON.parse(localStorage.getItem(calStorageKey(id)) || '[]'); } catch(e){ return []; }
+}
+function calSave(id, arr){
+  localStorage.setItem(calStorageKey(id), JSON.stringify(arr));
+}
+function calToggle(blockId, itemId){
+  const done = calLoad(blockId);
+  const idx = done.indexOf(itemId);
+  if(idx === -1) done.push(itemId); else done.splice(idx, 1);
+  calSave(blockId, done);
+  renderBlock(blockId);
+}
+function calResetBlock(blockId){
+  calSave(blockId, []);
+  renderBlock(blockId);
+}
+function calResetAll(){
+  CAL_DATA.forEach(b => calSave(b.id, []));
+  renderAllBlocks();
+}
+
+function renderBlock(blockId){
+  const block = CAL_DATA.find(b => b.id === blockId);
+  if(!block) return;
+  const el = document.getElementById('calBlock_' + blockId);
+  if(!el) return;
+  const done = calLoad(blockId);
+  const total = block.items.length;
+  const count = block.items.filter(i => done.includes(i.id)).length;
+  const pct = total > 0 ? Math.round(count / total * 100) : 0;
+
+  // Progress bar
+  const bar = el.querySelector('.cal-progress-bar');
+  if(bar){ bar.style.width = pct + '%'; bar.style.background = pct === 100 ? '#34d399' : block.color; }
+
+  // Items
+  const list = el.querySelector('.cal-todo-list');
+  if(!list) return;
+  list.innerHTML = block.items.map(item => {
+    const isDone = done.includes(item.id);
+    return `<div class="cal-todo-item ${isDone ? 'done' : ''}" onclick="calToggle('${blockId}','${item.id}')">
+      <input type="checkbox" ${isDone ? 'checked' : ''} style="--check-color:${block.color}" onclick="event.stopPropagation();calToggle('${blockId}','${item.id}')">
+      <div class="cal-todo-text">
+        <strong>${item.text}</strong>
+        ${item.detail ? `<span class="detail">${item.detail}</span>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderAllBlocks(){
+  const grid = document.getElementById('calGrid');
+  if(!grid) return;
+
+  // Organiser en 2 colonnes : [lundi+mercredi+vendredi] | [mensuel+trimestriel]
+  const col1 = CAL_DATA.slice(0, 3);
+  const col2 = CAL_DATA.slice(3);
+
+  grid.innerHTML = [col1, col2].map(col =>
+    `<div class="cal-col">` + col.map(block =>
+      `<div class="cal-block" id="calBlock_${block.id}">
+        <div class="cal-block-header">
+          <div class="cal-block-label">
+            <div class="freq-dot" style="background:${block.color}"></div>
+            <span>${block.label}</span>
+          </div>
+          <button class="cal-block-reset" onclick="event.stopPropagation();calResetBlock('${block.id}')" title="Réinitialiser cette section">↺ ${block.resetLabel}</button>
+        </div>
+        <div class="cal-progress"><div class="cal-progress-bar" style="width:0%"></div></div>
+        <div class="cal-todo-list"></div>
+      </div>`
+    ).join('') + `</div>`
+  ).join('');
+
+  // Rendre chaque bloc
+  CAL_DATA.forEach(b => renderBlock(b.id));
+}
+
+// Init au chargement
+document.addEventListener('DOMContentLoaded', renderAllBlocks);
+</script>
 </body>
 </html>
