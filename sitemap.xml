@@ -301,4 +301,18 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/questions/est-il-encore-possible-d-acheter-un-logement-en-france</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>
