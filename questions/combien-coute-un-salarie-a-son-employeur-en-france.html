@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Combien coûte un salarié à son employeur en France ? — Calcul 2024</title>
+  <meta name="description" content="Un salarié au SMIC coûte 1 767 € net mais ~2 100 € à l'employeur. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète du coût total employeur : brut, charges, taxes.">
+  <link rel="canonical" href="https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france">
+  <meta property="og:title" content="Combien coûte un salarié à son employeur en France ?">
+  <meta property="og:description" content="SMIC : 1 767 € net pour ~2 100 € de coût employeur. Cadre à 4 000 € net : ~6 500 €. Le calcul complet des charges sociales patronales et du coût total en France.">
+  <meta property="og:url" content="https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=17">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Combien coûte un salarié à son employeur en France ?","description":"Un salarié au SMIC coûte 1 767 € net mais ~2 100 € à l'employeur. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète du coût total employeur en France.","datePublished":"2026-05-15","dateModified":"2026-05-15","author":{"@type":"Organization","name":"Le Français Moyen","url":"https://le-francais-moyen.com"},"publisher":{"@type":"Organization","name":"Le Français Moyen","logo":{"@type":"ImageObject","url":"https://le-francais-moyen.com/assets/img/og-image.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france"},"inLanguage":"fr-FR"}
+  </script>
+  <style>
+    .q-hero{padding:52px 24px 36px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(96,165,250,.09) 0%,transparent 60%)}
+    .q-container{max-width:760px;margin:0 auto;padding:0 24px 80px}
+    .q-section{margin-bottom:40px}
+    .q-section h2{font-size:1.2rem;font-weight:800;margin-bottom:14px;color:var(--text)}
+    .q-section p{color:var(--muted);line-height:1.85;font-size:.97rem;margin-bottom:14px}
+    .q-section strong{color:var(--text)}
+    .q-section ul{padding-left:20px;color:var(--muted);line-height:1.9;font-size:.95rem}
+    .q-section li{margin-bottom:6px}
+    .stat-highlight{background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.2);border-radius:14px;padding:18px 22px;margin:20px 0}
+    .stat-highlight .s-val{font-size:2rem;font-weight:900;color:#60a5fa;display:block;margin-bottom:4px}
+    .stat-highlight .s-ctx{color:var(--muted);font-size:.9rem;line-height:1.6}
+    .q-sources{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-top:40px;font-size:.82rem;color:var(--muted);line-height:1.7}
+    .q-sources strong{color:var(--text);display:block;margin-bottom:6px}
+    .related{margin-top:48px}
+    .related h3{font-size:.78rem;font-weight:800;margin-bottom:14px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+    .related-links{display:flex;flex-wrap:wrap;gap:10px}
+    .related-link{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--muted);font-size:.88rem;transition:all .15s}
+    .related-link:hover{border-color:#555;color:var(--text)}
+    .salaire-decomp{margin:20px 0}
+    .sd-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .sd-label{min-width:180px;font-size:.83rem;color:var(--muted);text-align:right}
+    .sd-bar-wrap{flex:1;background:rgba(255,255,255,.05);border-radius:6px;height:28px;overflow:hidden}
+    .sd-bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:10px;font-size:.8rem;font-weight:700;color:#fff;white-space:nowrap}
+    .sd-val{min-width:80px;font-size:.85rem;font-weight:700;color:var(--text)}
+    .fill-net{background:#60a5fa}
+    .fill-sal{background:#a78bfa}
+    .fill-pat{background:#fb923c}
+    .fill-tax{background:#ef4444}
+    .profil-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.88rem}
+    .profil-table th{background:rgba(255,255,255,.05);padding:10px 14px;text-align:left;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+    .profil-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted)}
+    .profil-table td:first-child{color:var(--text);font-weight:600}
+    .profil-table .val-cout{color:#60a5fa;font-weight:700}
+    .profil-table .val-ratio{color:#fbbf24;font-weight:700}
+    .profil-table tr:last-child td{border-bottom:none}
+    .cotis-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.85rem}
+    .cotis-table th{background:rgba(255,255,255,.05);padding:8px 12px;text-align:left;font-size:.76rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+    .cotis-table td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted);font-size:.83rem}
+    .cotis-table td:first-child{color:var(--text)}
+    .cotis-table .val-pat{color:#fb923c;font-weight:700}
+    .cotis-table .val-sal{color:#a78bfa;font-weight:700}
+    .cotis-table tr:last-child td{border-bottom:none;font-weight:700}
+    .cotis-table tr:last-child td{color:var(--text)}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header><div class="nav">
+    <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+    <nav aria-label="Navigation principale"><ul>
+      <li class="has-dropdown">
+        <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+        <ul class="dropdown" role="menu">
+          <li role="none"><a role="menuitem" href="/retraites/">🧓 Retraites</a></li>
+          <li role="none"><a role="menuitem" href="/fonctionnaires/">🏛 Fonctionnaires</a></li>
+          <li role="none"><a role="menuitem" href="/industrie/">🏭 Industrie</a></li>
+          <li role="none"><a role="menuitem" href="/education/">🎓 Éducation</a></li>
+          <li role="none"><a role="menuitem" href="/sante/">🏥 Santé</a></li>
+          <li role="none"><a role="menuitem" href="/logement/">🏠 Logement</a></li>
+          <li role="none"><a role="menuitem" href="/impot/">💸 Fiscalité</a></li>
+          <li role="none"><a role="menuitem" href="/normes/">📋 Normes</a></li>
+          <li role="none"><a role="menuitem" href="/dette/">⏱ Dette</a></li>
+          <li role="none"><a role="menuitem" href="/budget/">🏦 Budget</a></li>
+          <li role="none"><a role="menuitem" href="/autoroutes/">🛣 Autoroutes</a></li>
+          <li role="none"><a role="menuitem" href="/ronds-points/">🔵 Ronds-points</a></li>
+        </ul>
+      </li>
+      <li><a href="/outils/">Outils</a></li>
+      <li><a href="/elections/">Élections</a></li>
+      <li><a href="/questions/">Questions</a></li>
+      <li><a href="/a-propos/">À propos</a></li>
+    </ul></nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    <a href="/" class="cta">← Tableau de bord</a>
+  </div></header>
+  <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Menu mobile">
+    <a href="/">🏠 Accueil</a>
+    <a href="/retraites/">🧓 Retraites</a><a href="/fonctionnaires/">🏛 Fonctionnaires</a>
+    <a href="/industrie/">🏭 Industrie</a><a href="/education/">🎓 Éducation</a>
+    <a href="/sante/">🏥 Santé</a><a href="/logement/">🏠 Logement</a>
+    <a href="/impot/">💸 Fiscalité</a><a href="/normes/">📋 Normes</a>
+    <a href="/dette/">⏱ Dette</a><a href="/budget/">🏦 Budget</a>
+    <a href="/outils/">🔧 Outils</a><a href="/elections/">🗳 Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <nav aria-label="Fil d'Ariane" style="max-width:760px;margin:0 auto;padding:24px 24px 0;font-size:.88rem;color:var(--muted)">
+      <a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Coût salarié employeur</span>
+    </nav>
+
+    <div class="q-hero">
+      <p class="eyebrow">Emploi &amp; fiscalité</p>
+      <h1>Combien coûte un salarié à son employeur en France ?</h1>
+      <p style="color:var(--muted);max-width:600px;margin:12px auto 0;line-height:1.7">Le salarié voit son net. L'employeur voit le coût total. Entre les deux, il y a les cotisations patronales — parfois plus importantes que le salaire net lui-même.</p>
+    </div>
+
+    <div class="q-container">
+
+      <div class="stat-highlight">
+        <span class="s-val">× 1,7 à × 2,1</span>
+        <span class="s-ctx">Le coût total employeur est en moyenne 1,7 à 2,1 fois le salaire net du salarié en France.<br>Ratio parmi les plus élevés d'Europe, après avoir bénéficié des allègements Fillon sur les bas salaires.</span>
+      </div>
+
+      <div class="q-section">
+        <h2>La décomposition : du net au coût employeur</h2>
+        <p>Pour comprendre le coût réel, il faut remonter du salaire net vers le coût total employeur :</p>
+        <div class="salaire-decomp">
+          <div class="sd-bar-row">
+            <div class="sd-label">Salaire net</div>
+            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-net" style="width:55%">Ce que le salarié reçoit</div></div>
+            <div class="sd-val" style="color:#60a5fa">~55 %</div>
+          </div>
+          <div class="sd-bar-row">
+            <div class="sd-label">Cotisations salariales</div>
+            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-sal" style="width:22%">Retraite, santé, chômage...</div></div>
+            <div class="sd-val" style="color:#a78bfa">~22 %</div>
+          </div>
+          <div class="sd-bar-row">
+            <div class="sd-label">Cotisations patronales</div>
+            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-pat" style="width:23%">Payées par l'employeur</div></div>
+            <div class="sd-val" style="color:#fb923c">~23 %</div>
+          </div>
+        </div>
+        <p style="font-size:.83rem;color:var(--muted)">Schéma simplifié pour un salarié cadre au niveau médian. Les ratios varient selon le niveau de salaire (allègements au SMIC, taux AGIRC-ARRCO différents...).</p>
+      </div>
+
+      <div class="q-section">
+        <h2>Profils concrets : du SMIC au cadre supérieur</h2>
+        <table class="profil-table">
+          <thead>
+            <tr>
+              <th>Profil</th>
+              <th>Salaire net/mois</th>
+              <th>Brut/mois</th>
+              <th>Coût total employeur</th>
+              <th>Ratio net/coût</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SMIC (2024)</td>
+              <td>1 398 €</td>
+              <td>1 767 €</td>
+              <td class="val-cout">~2 100 €</td>
+              <td class="val-ratio">× 1,5</td>
+            </tr>
+            <tr>
+              <td>Salaire médian</td>
+              <td>2 050 €</td>
+              <td>2 600 €</td>
+              <td class="val-cout">~3 500 €</td>
+              <td class="val-ratio">× 1,7</td>
+            </tr>
+            <tr>
+              <td>Cadre confirmé</td>
+              <td>4 000 €</td>
+              <td>5 200 €</td>
+              <td class="val-cout">~6 500 €</td>
+              <td class="val-ratio">× 1,6</td>
+            </tr>
+            <tr>
+              <td>Cadre sup / ingénieur</td>
+              <td>6 000 €</td>
+              <td>7 900 €</td>
+              <td class="val-cout">~10 200 €</td>
+              <td class="val-ratio">× 1,7</td>
+            </tr>
+            <tr>
+              <td>Haut cadre (plafond SS ×4)</td>
+              <td>10 000 €</td>
+              <td>13 200 €</td>
+              <td class="val-cout">~17 500 €</td>
+              <td class="val-ratio">× 1,75</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:.82rem;color:var(--muted)">Estimations basées sur les taux 2024. Ne comprennent pas les avantages en nature, tickets restaurant, mutuelle, participation, intéressement — qui alourdissent encore le coût réel.</p>
+      </div>
+
+      <div class="q-section">
+        <h2>Détail des principales cotisations patronales (2024)</h2>
+        <table class="cotis-table">
+          <thead>
+            <tr><th>Cotisation</th><th>Base</th><th>Taux patron</th><th>Taux salarié</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Maladie-maternité</td><td>Brut total</td><td class="val-pat">7 %</td><td class="val-sal">—</td></tr>
+            <tr><td>Retraite base (SS)</td><td>≤ 1 PSS</td><td class="val-pat">8,55 %</td><td class="val-sal">6,90 %</td></tr>
+            <tr><td>Retraite base (SS)</td><td>> 1 PSS</td><td class="val-pat">1,90 %</td><td class="val-sal">0,40 %</td></tr>
+            <tr><td>Retraite complémentaire AGIRC-ARRCO T1</td><td>≤ 1 PSS</td><td class="val-pat">4,72 %</td><td class="val-sal">3,15 %</td></tr>
+            <tr><td>Retraite complémentaire AGIRC-ARRCO T2</td><td>1-8 PSS</td><td class="val-pat">12,95 %</td><td class="val-sal">8,64 %</td></tr>
+            <tr><td>Chômage (Assurance chômage)</td><td>≤ 4 PSS</td><td class="val-pat">4,05 %</td><td class="val-sal">—</td></tr>
+            <tr><td>Allocations familiales</td><td>Brut total</td><td class="val-pat">3,45 % (5,25 si > 3,5 SMIC)</td><td class="val-sal">—</td></tr>
+            <tr><td>Accidents du travail</td><td>Brut total</td><td class="val-pat">Variable (1-10 %)</td><td class="val-sal">—</td></tr>
+            <tr><td>Formation professionnelle</td><td>Brut total</td><td class="val-pat">0,55 % à 1 %</td><td class="val-sal">—</td></tr>
+            <tr><td>Taxe d'apprentissage</td><td>Brut total</td><td class="val-pat">0,68 %</td><td class="val-sal">—</td></tr>
+            <tr><td><strong>Total patronal approx.</strong></td><td></td><td class="val-pat"><strong>~45 % du brut</strong></td><td class="val-sal"><strong>~22 % du brut</strong></td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.82rem;color:var(--muted)">PSS = Plafond de la Sécurité Sociale (3 864 €/mois en 2024). Les taux sont indicatifs — ils varient selon la convention collective, l'effectif et le secteur.</p>
+      </div>
+
+      <div class="q-section">
+        <h2>L'exception SMIC : les allègements Fillon</h2>
+        <p>Pour les bas salaires, la France applique depuis 2003 des <strong>allègements de cotisations patronales dits "Fillon"</strong> (ou "réduction générale"). Ils fonctionnent ainsi :</p>
+        <ul>
+          <li>Au SMIC exact : l'allègement représente <strong>environ 32 % du brut</strong> — effaçant presque totalement les cotisations patronales</li>
+          <li>Il décroît progressivement jusqu'à s'annuler à <strong>1,6 fois le SMIC</strong></li>
+          <li>Coût pour l'État : <strong>~65 milliards d'euros par an</strong> (le premier poste de dépense fiscale)</li>
+        </ul>
+        <p>Résultat : un salarié au SMIC ne coûte que 1,5 fois son net à l'employeur — bien moins qu'un salarié à 2 fois le SMIC (ratio ~1,8). Cette dégressivité crée ce qu'on appelle la <strong>"trappe à bas salaires"</strong> : les employeurs évitent d'augmenter au-delà de 1,3-1,4 SMIC pour ne pas perdre les allègements.</p>
+      </div>
+
+      <div class="q-section">
+        <h2>Comparaison internationale : la France est-elle vraiment la plus chère ?</h2>
+        <p>La France a historiquement eu des cotisations sociales parmi les plus élevées d'Europe. Mais comparer est complexe, car les systèmes varient :</p>
+        <ul>
+          <li><strong>Allemagne</strong> : cotisations totales ~40 % du brut (partagées 50/50 employeur/salarié). Système plus équilibré.</li>
+          <li><strong>Suède</strong> : cotisations patronales ~31 % mais salaires nets plus élevés. Le système est financé davantage par l'impôt.</li>
+          <li><strong>Royaume-Uni</strong> : National Insurance ~13,8 % seulement côté employeur, mais salaires nets plus faibles et moins de protection.</li>
+          <li><strong>Pays-Bas</strong> : cotisations patronales ~20 % mais prélèvement supplémentaire sur le revenu (box 1) très élevé.</li>
+        </ul>
+        <p>En termes de <strong>coin fiscal total</strong> (impôts + cotisations sur le coût du travail), la France se classe parmi les 3-4 pays les plus taxés de l'OCDE, derrière la Belgique et la Finlande.</p>
+      </div>
+
+      <div class="q-section">
+        <h2>Ce qui n'est pas dans le salaire : les coûts "cachés"</h2>
+        <p>Au-delà des cotisations, embaucher un salarié implique des coûts non salariaux souvent oubliés :</p>
+        <ul>
+          <li><strong>Mutuelle santé obligatoire</strong> : l'employeur doit financer au minimum 50 % — soit 40-100 €/mois selon le contrat</li>
+          <li><strong>Tickets restaurant</strong> : si proposés, l'employeur paie 50-60 % (environ 7-10 € par jour travaillé)</li>
+          <li><strong>50 % des transports en commun</strong> (obligation légale)</li>
+          <li><strong>Indemnité de congés payés</strong> : en réalité déjà incluse dans le calcul annuel, mais représente 10 % du coût sur les contrats courts</li>
+          <li><strong>Formation obligatoire</strong> : temps passé + coût pédagogique</li>
+          <li><strong>Coût du recrutement</strong> : annonces, entretiens, cabinet si utilisé (15-25 % du salaire annuel brut)</li>
+          <li><strong>Espace de travail, matériel, licences logiciels</strong></li>
+        </ul>
+        <p>En ajoutant tous ces éléments, le coût réel total d'un salarié cadre peut facilement dépasser <strong>2 à 2,5 fois son salaire net</strong>.</p>
+      </div>
+
+      <div class="q-section">
+        <h2>En résumé</h2>
+        <p>En France, le coût d'un salarié pour son employeur est <strong>1,5 à 2,1 fois son salaire net</strong>, selon le niveau de rémunération et les avantages accordés. Cette réalité explique en partie la prudence à l'embauche des petites entreprises et le recours massif aux CDD et à l'intérim.</p>
+        <p>Les allègements Fillon sur les bas salaires ont réduit le coût du travail peu qualifié — mais au prix de 65 Md€ de dépense fiscale annuelle. La question de savoir si ce mécanisme est le plus efficace pour favoriser l'emploi reste débattue.</p>
+      </div>
+
+      <div class="q-sources">
+        <strong>Sources officielles</strong>
+        URSSAF — Taux des cotisations sociales 2024 · DARES — Analyse du coût du travail · OCDE — Taxing Wages 2023 (coin fiscal comparé) · INSEE — Enquête ACEMO, coût du travail · Ministère du Travail — Allègements de cotisations 2024
+      </div>
+
+      <div class="related">
+        <h3>Articles liés</h3>
+        <div class="related-links">
+          <a href="/questions/quel-est-le-vrai-taux-d-imposition-en-france" class="related-link">Le vrai taux d'imposition</a>
+          <a href="/questions/qu-est-ce-que-la-csg-en-france" class="related-link">Qu'est-ce que la CSG ?</a>
+          <a href="/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve" class="related-link">Chômage structurel</a>
+          <a href="/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france" class="related-link">Autant de fonctionnaires ?</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : URSSAF, DARES, INSEE, OCDE</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>
