@@ -129,15 +129,16 @@
     .method-body{display:none;background:rgba(255,255,255,.02);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:18px 20px;font-size:.83rem;color:var(--muted);line-height:1.75}
     .method-body.open{display:block}
     .method-body strong{color:var(--text)}
-    .method-body table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.8rem}
-    .method-body th{background:rgba(255,255,255,.05);padding:7px 10px;text-align:left;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
-    .method-body td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted)}
-    .method-body td:first-child{color:var(--text);font-weight:600}
+    .method-body .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+    .method-body table{width:100%;border-collapse:collapse;font-size:.8rem;min-width:420px}
+    .method-body th{background:rgba(255,255,255,.05);padding:7px 10px;text-align:left;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border);white-space:nowrap}
+    .method-body td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted);vertical-align:top}
+    .method-body td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
 
     /* ── Target age section ──────────────────────────────────── */
     .target-section{margin-bottom:28px;display:none}
     .target-section.visible{display:block}
-    .target-intro{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#34d399;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .target-intro{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#34d399;margin-bottom:16px;line-height:1.6}
     .target-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
     @media(max-width:600px){.target-grid{grid-template-columns:1fr}}
     .target-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px;transition:border-color .2s}
@@ -357,18 +358,18 @@
     </button>
     <div class="method-body" id="methodBody">
       <strong>Hypothèses répartition</strong>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Secteur</th><th>Brut = Net ÷</th><th>Taux de remplacement (plein)</th><th>Annuités requises</th></tr></thead>
         <tbody>
           <tr><td>Salarié privé</td><td>0,78</td><td>50 % du salaire brut annuel moyen</td><td>168 trimestres (42 ans)</td></tr>
           <tr><td>Fonctionnaire</td><td>0,84</td><td>75 % du traitement des 6 derniers mois</td><td>168 trimestres (42 ans)</td></tr>
           <tr><td>Indépendant (TNS)</td><td>0,62</td><td>50 % du revenu de référence</td><td>168 trimestres (42 ans)</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p>L'âge de départ est calculé comme <strong>max(64 ans, âge début + 42 ans)</strong>. Le scénario réforme projette un départ à <strong>+2 ans</strong> (réforme probable 2030-2035 vers 65-66 ans).</p>
       <strong>Hypothèses capitalisation</strong>
       <p>Montant mensuel investi = <strong>brut × 28 %</strong> (cotisations retraite salariales + patronales, régime général + AGIRC-ARRCO, source URSSAF 2024).</p>
-      <table>
+      <div class="table-wrap"><table>
         <thead><tr><th>Support</th><th>Taux nominal</th><th>Taux réel (−2 % inflation)</th></tr></thead>
         <tbody>
           <tr><td>💳 Fonds euros (assurance-vie / PER)</td><td>3,0 %/an</td><td>~1,0 %</td></tr>
@@ -376,7 +377,7 @@
           <tr><td>🏠 SCPI / immobilier papier</td><td>6,0 %/an</td><td>~4,0 %</td></tr>
           <tr><td>📈 Bourse mondiale (ETF MSCI)</td><td>8,0 %/an</td><td>~6,0 %</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p>Le capital accumulé est converti en rente mensuelle sur la base de <strong>l'espérance de vie à la retraite</strong> (Hommes : 81 ans, Femmes : 85 ans — INSEE 2023). La rente correspond au capital divisé par le nombre de mois restants — sans hypothèse de rendement post-retraite (scénario conservateur).</p>
       <p><strong>Sources :</strong> CNAV, AGIRC-ARRCO, URSSAF, COR rapport 2024, INSEE tables de mortalité 2023, Eurostat rendements obligataires.</p>
     </div>
