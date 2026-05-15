@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -57,24 +57,31 @@
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
   <header>
-    <div class="nav-inner">
-      <a href="/" class="logo">🇫🇷 <span>Le Français Moyen</span></a>
-      <nav>
-        <a href="/dette/">💸 Dette</a>
-        <a href="/retraites/">🧓 Retraites</a>
-        <a href="/fonctionnaires/">🏛 Fonctionnaires</a>
-        <a href="/sante/">🏥 Santé</a>
-        <a href="/questions/">❓ Questions</a>
-        <a href="/a-propos/">À propos</a>
-        <a href="/#newsletter" class="nav-cta">📧 Newsletter</a>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="/dette/">💸 Dette</a></li>
+          <li><a href="/retraites/">🧓 Retraites</a></li>
+          <li><a href="/fonctionnaires/">🏛 Fonctionnaires</a></li>
+          <li><a href="/sante/">🏥 Santé</a></li>
+          <li><a href="/questions/">❓ Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+          <li><a href="/#newsletter" class="cta">📧 Newsletter</a></li>
+        </ul>
       </nav>
+      <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
-  <div class="nav-mobile">
+  <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
     <a href="/dette/">💸 Dette</a>
     <a href="/retraites/">🧓 Retraites</a>
     <a href="/fonctionnaires/">🏛 Fonctionnaires</a>
+    <a href="/sante/">🏥 Santé</a>
     <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
     <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
   </div>
 
@@ -294,3 +301,4 @@
   </footer>
 </body>
 </html>
+
