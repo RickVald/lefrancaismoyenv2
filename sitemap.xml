@@ -287,4 +287,18 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/questions/combien-coute-le-systeme-de-retraite-en-france</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/pourquoi-les-hopitaux-ferment-des-lits-en-france</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>
