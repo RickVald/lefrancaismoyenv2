@@ -135,6 +135,38 @@ var LFM_THREADS = {
     `7,3 % de chômage même en croissance.\nC'est 2,4 millions de personnes sans emploi.\nEt 2,5 millions en sous-emploi (temps partiel subi, découragés).\n\nLe plein emploi n'est pas inatteignable.\nMais il exige des réformes structurelles que la France n'a pas encore faites.\n\nSources : INSEE, Eurostat, OCDE 2024.\nRT 🔁\n👉 le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve/`
   ],
 
+  normes: [
+    `La France a plus de 400 000 normes applicables aux entreprises.\n+15 000 textes nouveaux publiés chaque année.\nUn texte officiel au Journal Officiel toutes les 47 minutes.\n\nCoût estimé : 3 à 4 % du PIB — soit 80 à 100 milliards.\nThread 👇`,
+
+    `France Stratégie (2013) : "La France souffre d'une inflation normative chronique."\n\nDepuis ce rapport :\n📋 Nombre de pages du JO : ×2\n📋 Codes législatifs : +40 %\n📋 Réglementations techniques : toujours en hausse\n\nOn a diagnostiqué le problème il y a 10 ans.\nEt on a continué.`,
+
+    `Indice de complexité réglementaire des marchés (OCDE 2023) :\n\n🇩🇰 Danemark : 0,86 (le plus simple)\n🇬🇧 Royaume-Uni : 1,22\n🇩🇪 Allemagne : 1,41\n🇫🇷 France : 1,60 🔴\n\nPlus le score est élevé, plus c'est contraignant.\nNous sommes 26e / 38 pays OCDE.`,
+
+    `L'impact réel sur les PME :\n\nUne PME française consacre en moyenne 2 560 h/an à la conformité réglementaire.\nSoit 1,5 équivalent temps plein payé à ne rien produire.\n🇩🇪 Allemagne : 1 400 h\n\nLes normes sont neutres pour les grands groupes (juristes internes).\nElles étranglent les TPE et PME.`,
+
+    `Des exemples concrets récents :\n\n🔸 ZAN (Zéro Artificialisation Nette) → bloque des projets industriels en zone rurale\n🔸 RE2020 → +8 à +15 % sur le coût de construction\n🔸 CSRD (ESG) → 400+ indicateurs ESG pour les cotées\n🔸 ERP accessibilité → 100+ obligations, 45 Md€ de coût estimé\n\nLe principe est souvent bon.\nLa mise en œuvre, rarement.`,
+
+    `📊 POLL — Les normes françaises, c'est :\n\nA) Trop — elles tuent la compétitivité\nB) Le bon niveau — elles nous protègent\nC) Pas le vrai problème — c'est la fiscalité\nD) Nécessaires mais mal conçues`,
+
+    `400 000 normes. +15 000/an. 80 Md€ de coût estimé.\n26e / 38 à l'OCDE en simplicité réglementaire.\n\nOn ne manque pas de règles.\nOn manque de règles simples, stables et cohérentes.\n\nPendant que nos voisins simplifient, on légifère.\n\nSources : France Stratégie, OCDE, Conseil d'État 2022.\nRT 🔁\n👉 le-francais-moyen.com/normes/`
+  ],
+
+  autoroutes: [
+    `Les autoroutes françaises privatisées en 2006 pour 14,8 milliards d'euros.\nDepuis, les concessionnaires ont versé plus de 50 milliards de dividendes.\nEt les tarifs ont augmenté de +84 % en 18 ans.\n\nThread 👇`,
+
+    `Les 3 grands groupes :\n🏦 Vinci Autoroutes (ASF, Escota, Cofiroute)\n🏦 APRR/AREA (Eiffage)\n🏦 Sanef/SAPN (AXA puis Abertis)\n\nBénéfices nets cumulés 2023 : ~4,8 Md€\nMarges nettes : 25 à 35 %\n\nUn monopole naturel vendu à des actionnaires privés.`,
+
+    `L'évolution des tarifs depuis la privatisation :\n\n2006 → 2024 : +84 % cumulés\nInflation sur la même période : +47 %\n\nSoit +37 points au-dessus de l'inflation.\n\nL'État régule les hausses annuelles via l'ART.\nMais les hausses sont structurellement supérieures à l'inflation.`,
+
+    `Ce que dit la Cour des comptes (rapport 2020) :\n\n"Les concessions ont généré des rentabilités très supérieures aux prévisions initiales."\n"L'État a mal négocié les conditions de cession en 2006."\n"Le retour à la concurrence est difficile — concessions jusqu'en 2036-2052."\n\nOn est coincés pour 25 ans minimum.`,
+
+    `La comparaison européenne :\n\n🇩🇪 Allemagne : autoroutes GRATUITES (financement par l'impôt)\n🇮🇹 Italie : concessions partiellement publiques\n🇪🇸 Espagne : a renationalisé des tronçons après faillite\n🇫🇷 France : 9 300 km privatisés jusqu'en 2052\n\nDes infrastructures construites avec l'argent public.\nDes profits qui vont au privé.`,
+
+    `📊 POLL — La privatisation des autoroutes, c'est :\n\nA) Une erreur historique — il faut racheter\nB) Normal — l'État gère mal les entreprises\nC) Acceptable si les tarifs sont encadrés\nD) Indifférent — je n'utilise pas l'autoroute`,
+
+    `14,8 Md€ encaissés en 2006.\n+50 Md€ de dividendes versés depuis.\n+84 % de hausses tarifaires.\nConcessions jusqu'en 2036-2052.\n\nDu point de vue de l'État : le pire deal de la Ve République.\nDu point de vue des actionnaires : le meilleur.\n\nSources : Cour des comptes 2020, ART, bilans 2023.\nRT 🔁\n👉 le-francais-moyen.com/autoroutes/`
+  ],
+
   sante: [
     `285 milliards d'euros de dépenses de santé en 2025.\n12,3 % du PIB.\n6,3 millions de Français sans médecin traitant.\n\nOn dépense parmi les plus au monde. Et on manque de médecins.\nThread 👇`,
 
