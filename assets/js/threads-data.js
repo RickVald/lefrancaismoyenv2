@@ -103,7 +103,7 @@ var LFM_THREADS = {
     `En 20 ans, les prix ont doublé. Les constructions stagnent.\nLes règles foncières bloquent l'offre. Le foncier reste prisonnier des règles des années 1970.\n\nLe logement est le meilleur exemple d'un marché régulé au point d'être bloqué.\n\nSources : Meilleurs Agents, INSEE, Fondation Abbé Pierre 2024.\nRT 🔁\n👉 le-francais-moyen.com/questions/louer-ou-acheter-que-choisir-en-france/`
   ],
 
-  fiscalite: [
+  impot: [
     `La France est le pays le plus taxé de l'OCDE.\n45,4 % du PIB en prélèvements obligatoires.\nMoyenne OCDE : 34 %.\n\nComment est-ce que ce modèle tient — et jusqu'à quand ?\nThread 👇`,
 
     `Ce que paye réellement un salarié médian :\n\n💳 IR : 5 %\n💳 CSG/CRDS : 9,7 %\n💳 TVA sur sa conso : ~10 %\n💳 Cotisations salariales : 23 %\n\n= ~48 % de son salaire brut part en prélèvements.\nAvant même d'avoir payé sa mutuelle.`,

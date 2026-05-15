@@ -100,6 +100,7 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
             <option value="sante">🏥 Santé</option>
             <option value="logement">🏠 Logement</option>
             <option value="impot">💸 Fiscalité</option>
+            <option value="emploi">💼 Emploi & chômage</option>
             <option value="normes">📋 Normes & réglementation</option>
           </optgroup>
           <optgroup label="🔧 Outils interactifs">
@@ -227,6 +228,7 @@ const TOPICS = {
   sante:         {label:'Le système de santé français',         value:'285 Md€',          subtitle:'12,3 % du PIB · 6,3 M sans médecin traitant · DREES',             color:'#34d399', url:LFM_SITE+'/sante/'},
   logement:      {label:'La crise du logement',                 value:'+147 %',           subtitle:'Prix immobiliers depuis 2000 · INSEE / Notaires',                  color:'#fbbf24', url:LFM_SITE+'/logement/'},
   impot:         {label:'Les prélèvements obligatoires',        value:'45,3 % PIB',       subtitle:'Record d\'Europe occidentale · Eurostat 2024',                     color:'#a78bfa', url:LFM_SITE+'/impot/'},
+  emploi:        {label:'Le chômage structurel français',        value:'7,3 %',           subtitle:'Même en croissance · dualisme CDI/CDD · Eurostat 2024',           color:'#fb923c', url:LFM_SITE+'/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve/'},
   normes:        {label:'L\'inflation normative',               value:'+15 000 normes/an',subtitle:'Coût estimé : 3 % du PIB · France Stratégie',                    color:'#f87171', url:LFM_SITE+'/normes/'},
   // ── Outils interactifs ────────────────────────────────────
   dette:         {label:'La dette publique française',          value:'3 460 Md€',        subtitle:'5 700 € empruntés chaque seconde · 115,6 % du PIB',               color:'#fb923c', url:LFM_SITE+'/dette/'},
@@ -247,6 +249,7 @@ const HASHTAGS = {
   sante:         ['#Santé','#HôpitalFrance','#SécuritéSociale','#DesertMédical','#DREES'],
   logement:      ['#Logement','#ImmoFrance','#CriseDuLogement','#Immobilier','#PouvoirAchat'],
   impot:         ['#Impôts','#FiscalitéFR','#PrélèvementsObligatoires','#OCDE','#France'],
+  emploi:        ['#Chômage','#EmploiFrance','#CDI','#MarchéDuTravail','#FranceReelle'],
   normes:        ['#Normes','#Réglementation','#FranceReelle','#Simplification','#Compétitivité'],
   dette:         ['#DetteFrance','#BudgetFrance','#EconomieFrance','#FiscalitéFR','#Déficit'],
   projections:   ['#France2035','#DetteFrance','#Retraites','#Budget','#Économie'],
