@@ -87,6 +87,54 @@ var LFM_THREADS = {
     `58 Md€. 870 000 enseignants. 12M d'élèves.\nEt 20 % des élèves en difficulté de lecture à l'entrée en 6e.\n\nOn ne peut pas continuer à dépenser plus en espérant des résultats différents.\n\nSources : OCDE PISA 2022, MEN-DEPP, PLF 2024.\nRT 🔁\n👉 le-francais-moyen.com/education/`
   ],
 
+  logement: [
+    `En 20 ans, les prix immobiliers français ont augmenté de +150 %.\nLes salaires : +40 %.\n\nEn 1980, un SMIC permettait d'acheter 40 m² à Paris.\nAujourd'hui : moins de 5 m².\n\nThread 👇`,
+
+    `Le seuil de rentabilité achat/location :\n🇫🇷 France : 5,9 ans en moyenne\nParis : 12+ ans\nLyon : 8 ans\nBordeaux : 9 ans\n\nSi vous pensez déménager dans moins de 10 ans en ville, louer est souvent plus rentable.\nSource : Meilleurs Agents / SeLoger 2024.`,
+
+    `Pourquoi les prix sont-ils si hauts ?\n\n1️⃣ Contrainte foncière (PLU, loi littoral, montagne)\n2️⃣ Coût de construction (+40 % depuis 2010)\n3️⃣ Taux bas 2010-2022 → bulle de valorisation\n4️⃣ 1,2 M de logements vacants NON remis sur le marché\n\nPas de conspiration. Juste des règles qui pénalisent l'offre.`,
+
+    `La génération des moins de 35 ans est la première à être moins bien logée que ses parents.\n\n1965 : les 30-40 ans avaient un taux de propriété de 50 %.\n2023 : 39 %.\n\nEn 60 ans, l'accession à la propriété des jeunes a reculé de 11 points.`,
+
+    `Ce que vous ne savez peut-être pas :\n\n🏚️ 4,1 M de Français mal logés (Fondation Abbé Pierre)\n🏠 1,2 M de demandes HLM en attente\n📉 Logements construits 2023 : −22 %\n🏗️ Permis accordés : −25 %\n\nLa pénurie va s'aggraver dans les 3 ans.`,
+
+    `📊 POLL — La meilleure solution pour le logement en France ?\n\nA) Construire massivement (nouvelles zones)\nB) Rénover les logements vacants\nC) Réformer les règles locatives (Encadrement loyers…)\nD) Baisser les droits de mutation (frais de notaire)`,
+
+    `En 20 ans, les prix ont doublé. Les constructions stagnent.\nLes règles foncières bloquent l'offre. Le foncier reste prisonnier des règles des années 1970.\n\nLe logement est le meilleur exemple d'un marché régulé au point d'être bloqué.\n\nSources : Meilleurs Agents, INSEE, Fondation Abbé Pierre 2024.\nRT 🔁\n👉 le-francais-moyen.com/questions/louer-ou-acheter-que-choisir-en-france/`
+  ],
+
+  fiscalite: [
+    `La France est le pays le plus taxé de l'OCDE.\n45,4 % du PIB en prélèvements obligatoires.\nMoyenne OCDE : 34 %.\n\nComment est-ce que ce modèle tient — et jusqu'à quand ?\nThread 👇`,
+
+    `Ce que paye réellement un salarié médian :\n\n💳 IR : 5 %\n💳 CSG/CRDS : 9,7 %\n💳 TVA sur sa conso : ~10 %\n💳 Cotisations salariales : 23 %\n\n= ~48 % de son salaire brut part en prélèvements.\nAvant même d'avoir payé sa mutuelle.`,
+
+    `La TVA : l'impôt invisible.\n\n216 Md€ collectés en 2024.\n1er impôt de France — devant l'IR (100 Md€).\n\nEt pourtant, c'est l'IR qui fait débat.\nParce que la TVA, tout le monde la paye sans s'en rendre compte.`,
+
+    `Les 10 % les plus riches paient 68 % de l'IR total.\nLes 50 % les moins riches : 6 %.\n\nLe système français de redistribution est parmi les plus redistributifs de l'OCDE.\n\nC'est un choix. Pas une fatalité.`,
+
+    `130 milliards d'euros de cotisations sociales patronales en 2024.\n~9,5 % de la masse salariale.\n\nUn salarié au SMIC coûte 2 100 € à l'employeur pour 1 398 € net.\nUn cadre à 4 000 € net coûte ~6 500 €.\n\nLe travail est la matière fiscale la plus taxée en France.`,
+
+    `📊 POLL — Le problème du système fiscal français c'est :\n\nA) Trop d'impôts en général\nB) Trop d'impôts sur le travail, pas assez sur le capital\nC) Pas assez de redistribution\nD) Trop de complexité (400 niches fiscales)`,
+
+    `45 % du PIB en prélèvements.\n400 niches fiscales (estimées).\n4 administrations fiscales différentes.\n\nLe résultat : un système que personne ne comprend vraiment.\nNi les citoyens. Ni les entreprises.\n\nSources : INSEE, DGFiP, PLF 2025, Eurostat.\nRT 🔁\n👉 le-francais-moyen.com/questions/qui-paye-des-impots-en-france/`
+  ],
+
+  emploi: [
+    `La France affiche 7,3 % de chômage.\nMême en pleine croissance.\nMême quand le reste de l'Europe est à 5 %.\n\nPourquoi le chômage structurel français est-il si élevé ?\nThread 👇`,
+
+    `L'Allemagne était à 11 % de chômage en 2005.\nElle est à 3,4 % aujourd'hui.\n\nLa France était à 9 % en 2005.\nElle est à 7,3 % aujourd'hui.\n\nEn 20 ans, l'Allemagne a réformé massivement (Hartz IV).\nLa France a réformé… à la marge.`,
+
+    `Le dualisme CDI / CDD :\n\n🔴 67 % des embauches se font en CDD\n🔴 Les CDD durent en moyenne 47 jours\n🔴 Les CDI sont quasi irrévocables (coût de licenciement : 12-18 mois)\n\nRésultat : les entreprises n'embauchent en CDI qu'en dernier recours.\nLes jeunes et précaires restent dehors.`,
+
+    `Indemnités de licenciement France vs Europe :\n\n🇫🇷 France : ~12-18 mois de salaire (procédure judiciaire)\n🇩🇪 Allemagne : 0,5 mois / an d'ancienneté\n🇩🇰 Danemark : protection élevée + formation = chômage 5 %\n\nLe "coût" du CDI = frein à l'embauche.`,
+
+    `Le mismatch géographique et sectoriel :\n\n📌 500 000 postes non pourvus dans l'industrie, le BTP, le soin\n📌 Surtout en zones rurales et villes moyennes\n📌 Pendant que des millions cherchent un emploi en métropole\n\nCe n'est pas un problème de nombre d'emplois.\nC'est un problème de localisation et de formation.`,
+
+    `📊 POLL — La vraie cause du chômage structurel français ?\n\nA) Trop de protection du CDI (dualisme)\nB) Manque de formation professionnelle\nC) Inadéquation géographique offre/demande\nD) Les trois à la fois`,
+
+    `7,3 % de chômage même en croissance.\nC'est 2,4 millions de personnes sans emploi.\nEt 2,5 millions en sous-emploi (temps partiel subi, découragés).\n\nLe plein emploi n'est pas inatteignable.\nMais il exige des réformes structurelles que la France n'a pas encore faites.\n\nSources : INSEE, Eurostat, OCDE 2024.\nRT 🔁\n👉 le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve/`
+  ],
+
   sante: [
     `285 milliards d'euros de dépenses de santé en 2025.\n12,3 % du PIB.\n6,3 millions de Français sans médecin traitant.\n\nOn dépense parmi les plus au monde. Et on manque de médecins.\nThread 👇`,
 
