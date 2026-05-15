@@ -240,6 +240,8 @@
       </div>
       <button class="sim-btn" onclick="calculate()">🧮 Simuler ma retraite →</button>
       <p class="sim-hint">Simulation indicative basée sur les paramètres légaux 2024. Ne constitue pas un conseil financier ou juridique.</p>
+      <!-- Error box — lives OUTSIDE simResults so it never destroys result DOM -->
+      <div id="simError" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:16px 20px;color:#ef4444;font-size:.9rem;max-width:640px;margin:16px auto 0;text-align:center"></div>
     </div>
 
     <!-- ── Results ───────────────────────────────────────────── -->
@@ -486,6 +488,8 @@
       return;
     }
 
+    clearError();
+
     /* ── RÉPARTITION ─────────────────────────────────── */
     const brut = salary / NET_TO_BRUT[sector];
     const replRate = REPLACEMENT[sector];
@@ -684,9 +688,15 @@
   }
 
   function showError(msg) {
-    const res = document.getElementById('simResults');
-    res.classList.add('visible');
-    res.innerHTML = `<div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:20px 24px;color:#ef4444;font-size:.9rem;max-width:640px;margin:0 auto">${msg}</div>`;
+    const err = document.getElementById('simError');
+    err.textContent = msg;
+    err.style.display = 'block';
+    err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function clearError() {
+    const err = document.getElementById('simError');
+    err.style.display = 'none';
+    err.textContent = '';
   }
 
   function toggleMethod(btn) {
