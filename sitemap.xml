@@ -413,4 +413,18 @@
     <priority>0.90</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/questions/pourquoi-les-peages-augmentent-ils-en-france</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-ronds-points</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>
