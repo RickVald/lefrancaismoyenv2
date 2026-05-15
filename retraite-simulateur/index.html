@@ -133,6 +133,30 @@
     .method-body th{background:rgba(255,255,255,.05);padding:7px 10px;text-align:left;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
     .method-body td{padding:7px 10px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted)}
     .method-body td:first-child{color:var(--text);font-weight:600}
+
+    /* ── Target age section ──────────────────────────────────── */
+    .target-section{margin-bottom:28px;display:none}
+    .target-section.visible{display:block}
+    .target-intro{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#34d399;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .target-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:14px}
+    @media(max-width:600px){.target-grid{grid-template-columns:1fr}}
+    .target-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px;transition:border-color .2s}
+    .target-card.status-good{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.05)}
+    .target-card.status-ok{border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.04)}
+    .target-card.status-bad{border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.04)}
+    .tc-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+    .tc-icon{font-size:1.2rem}
+    .tc-name{font-size:.82rem;font-weight:700;color:var(--text)}
+    .tc-rate{font-size:.68rem;color:var(--muted)}
+    .tc-age{font-size:2.2rem;font-weight:900;line-height:1;margin-bottom:3px}
+    .tc-sublabel{font-size:.72rem;color:var(--muted);margin-bottom:10px;line-height:1.5}
+    .tc-detail{font-size:.76rem;color:var(--muted);padding:8px 10px;background:rgba(255,255,255,.03);border-radius:6px;margin-bottom:8px;line-height:1.6}
+    .tc-badge{font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:20px;display:inline-block;letter-spacing:.04em}
+    .badge-good{background:rgba(52,211,153,.15);color:#34d399}
+    .badge-ok{background:rgba(251,191,36,.15);color:#fbbf24}
+    .badge-bad{background:rgba(239,68,68,.12);color:#ef4444}
+    .target-rep-compare{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;font-size:.85rem;color:var(--muted);line-height:1.75}
+    .target-rep-compare strong{color:var(--text)}
   </style>
 </head>
 <body>
@@ -208,6 +232,10 @@
             <option value="H">Homme</option>
             <option value="F">Femme</option>
           </select>
+        </div>
+        <div class="sim-field">
+          <label>🎯 Objectif retraite (€/mois) <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.3)">— optionnel</span></label>
+          <input type="number" id="targetMonthly" placeholder="ex : 3 000" min="100" max="50000" step="100">
         </div>
       </div>
       <button class="sim-btn" onclick="calculate()">🧮 Simuler ma retraite →</button>
@@ -293,6 +321,13 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- TARGET AGE SECTION (shown only when objectif is filled) -->
+      <div class="target-section" id="targetSection">
+        <div class="target-intro">🎯 À quel âge atteindre <span id="targetGoalDisplay" style="color:#34d399;margin:0 4px">—</span> €/mois par capitalisation&nbsp;?</div>
+        <div class="target-grid" id="targetGrid"><!-- filled by JS --></div>
+        <div class="target-rep-compare" id="targetRepCompare"></div>
       </div>
 
       <!-- Disclaimer -->
@@ -410,6 +445,27 @@
     return fmt(n, 0) + ' €/mois';
   }
 
+  /* ── Target retirement age finder ──────────────────────────────
+     Finds the first month where accumulated capital / remaining months
+     reaches the target monthly annuity.
+     Returns { age, capital, yearsWorked } or null if unreachable.
+  ─────────────────────────────────────────────────────────────── */
+  function findRetirementAge(target, ageStart, monthlyContrib, vehicleRate, lifeExp) {
+    const r = vehicleRate / 12;
+    // Start searching at max(ageStart+10, 35) to avoid absurd results
+    const minMonths = Math.max(10, 35 - ageStart) * 12;
+    const maxMonths = Math.max(0, (lifeExp - 4) - ageStart) * 12; // need ≥4 yrs retirement
+    for (let m = minMonths; m <= maxMonths; m++) {
+      const retAge    = ageStart + m / 12;
+      const capital   = monthlyContrib * ((Math.pow(1 + r, m) - 1) / r);
+      const mthsLeft  = (lifeExp - retAge) * 12;
+      if (mthsLeft <= 0) break;
+      const annuity   = capital / mthsLeft;
+      if (annuity >= target) return { age: retAge, capital, yearsWorked: m / 12 };
+    }
+    return null; // unreachable within lifetime
+  }
+
   /* ── Core calculation ───────────────────────────────────────── */
   function calculate() {
     const salary   = parseFloat(document.getElementById('salary').value);
@@ -417,6 +473,8 @@
     const ageCurrent = parseFloat(document.getElementById('ageCurrent').value);
     const sector   = document.getElementById('sector').value;
     const gender   = document.getElementById('gender').value;
+    const targetRaw = document.getElementById('targetMonthly').value;
+    const targetMonthly = targetRaw ? parseFloat(targetRaw) : null;
 
     // Basic validation
     if (!salary || !ageStart || !ageCurrent || ageStart >= ageCurrent) {
@@ -476,6 +534,15 @@
       return { ...v, capital, monthlyAnnuity };
     });
 
+    /* ── TARGET AGE (optional) ───────────────────────── */
+    let targetResults = null;
+    if (targetMonthly && targetMonthly > 0) {
+      targetResults = VEHICLES.map(v => {
+        const res = findRetirementAge(targetMonthly, ageStart, monthlyContrib, v.rate, lifeExp);
+        return { ...v, target: res };
+      });
+    }
+
     /* ── DISPLAY ─────────────────────────────────────── */
     renderResults({
       salary, ageStart, ageCurrent, sector, gender,
@@ -483,7 +550,8 @@
       careerYears, quarters, prorata,
       pensionNet, pensionNetReform, tauxRemplacement,
       monthlyContrib, totalContrib,
-      capResults, lifeExp, yearsInRetirement
+      capResults, lifeExp, yearsInRetirement,
+      targetMonthly, targetResults
     });
   }
 
@@ -544,6 +612,75 @@
     // Ratio bar: répartition as baseline (20% of bar width), capitalisation at 100%
     const pct = Math.min(100, (d.pensionNet / bourseResult.monthlyAnnuity) * 100);
     document.getElementById('ratioBarFill').style.width = '100%'; // show full bar; label gives context
+
+    // ── Target age section ──────────────────────
+    const targetSection = document.getElementById('targetSection');
+    if (d.targetResults) {
+      targetSection.classList.add('visible');
+      document.getElementById('targetGoalDisplay').textContent = fmt(d.targetMonthly, 0);
+
+      const gridHTML = d.targetResults.map(v => {
+        if (!v.target) {
+          // Unreachable
+          return `
+            <div class="target-card status-bad">
+              <div class="tc-head">
+                <span class="tc-icon">${v.icon}</span>
+                <div><div class="tc-name">${v.name}</div><div class="tc-rate">${(v.rate*100).toFixed(0)} %/an</div></div>
+              </div>
+              <div class="tc-age" style="color:#ef4444">—</div>
+              <div class="tc-sublabel">Non atteignable avant<br>l'espérance de vie</div>
+              <div class="tc-detail">Les cotisations investies à ce taux ne génèrent pas suffisamment de capital pour couvrir ${fmt(d.targetMonthly,0)} €/mois.</div>
+              <span class="tc-badge badge-bad">❌ Hors portée</span>
+            </div>`;
+        }
+        const age    = v.target.age;
+        const ageInt = Math.floor(age);
+        const months = Math.round((age - ageInt) * 12);
+        const ageStr = months > 0 ? `${ageInt} ans ${months} mois` : `${ageInt} ans`;
+        const delta  = age - d.retirementAge; // vs répartition
+        const deltaStr = delta < 0
+          ? `<strong style="color:#34d399">${Math.abs(delta).toFixed(1)} ans avant</strong> la retraite par répartition`
+          : delta < 0.5
+          ? `<strong>au même âge</strong> que la répartition`
+          : `<strong style="color:#ef4444">${delta.toFixed(1)} ans après</strong> la répartition`;
+
+        let statusClass, badgeClass, badgeLabel;
+        if (age < 60)      { statusClass='status-good'; badgeClass='badge-good'; badgeLabel='✅ Avant 60 ans'; }
+        else if (age < 65) { statusClass='status-good'; badgeClass='badge-good'; badgeLabel='✅ Avant 65 ans'; }
+        else if (age < 70) { statusClass='status-ok';   badgeClass='badge-ok';   badgeLabel='⚡ Entre 65-70 ans'; }
+        else               { statusClass='status-bad';  badgeClass='badge-bad';  badgeLabel='⚠️ Après 70 ans'; }
+
+        return `
+          <div class="target-card ${statusClass}">
+            <div class="tc-head">
+              <span class="tc-icon">${v.icon}</span>
+              <div><div class="tc-name">${v.name}</div><div class="tc-rate">${(v.rate*100).toFixed(0)} %/an</div></div>
+            </div>
+            <div class="tc-age" style="color:${v.color}">${ageStr}</div>
+            <div class="tc-sublabel">après <strong style="color:var(--text)">${v.target.yearsWorked.toFixed(1)} ans</strong> de capitalisation</div>
+            <div class="tc-detail">
+              Capital constitué : <strong style="color:var(--text)">${fmtEur(v.target.capital)}</strong><br>
+              ${deltaStr}
+            </div>
+            <span class="tc-badge ${badgeClass}">${badgeLabel}</span>
+          </div>`;
+      }).join('');
+      document.getElementById('targetGrid').innerHTML = gridHTML;
+
+      // Comparison with répartition
+      document.getElementById('targetRepCompare').innerHTML =
+        '🧓 <strong>Rappel répartition :</strong> vous partez à <strong>' + d.retirementAge + ' ans</strong> ' +
+        'pour <strong>' + fmtMonthly(d.pensionNet) + '</strong>. ' +
+        'Pour atteindre <strong>' + fmtMonthly(d.targetMonthly) + '</strong> par répartition, ' +
+        'il faudrait un taux de remplacement de <strong>' +
+        fmt((d.targetMonthly / (d.brut)) * 100, 0) + ' %</strong> du brut — ' +
+        (d.targetMonthly > d.pensionNet
+          ? 'supérieur à ce que le système peut offrir dans votre cas.'
+          : 'atteignable dans votre cas via la répartition.');
+    } else {
+      targetSection.classList.remove('visible');
+    }
   }
 
   function showError(msg) {
