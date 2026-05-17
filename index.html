@@ -1,10 +1,10 @@
-﻿﻿﻿﻿﻿﻿﻿<!doctype html>
+﻿﻿﻿﻿﻿﻿<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Le Français Moyen — Tableau de bord statistique de la France</title>
-  <meta name="description" content="Mettez des chiffres sur vos ressentis : inflation réelle, pouvoir d'achat, logement, fiscalité, dette, énergie et démographie. Données officielles INSEE, Eurostat, Banque de France. Mise à jour hebdomadaire.">
+  <title>Le Français Moyen — Dette, retraites, fiscalité et pouvoir d'achat en chiffres officiels</title>
+  <meta name="description" content="Données officielles sur la France : dette publique en direct (+5 500 €/s), retraites, fiscalité, logement, industrie. Chiffres INSEE, Banque de France, Eurostat mis en perspective.">
   <meta name="keywords" content="inflation france, pouvoir d'achat, salaire réel france, dette publique france, démographie france, coût de la vie france, fiscalité france, données officielles france">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#0b1020">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Français Moyen">
-  <meta property="og:title" content="Le Français Moyen — Tableau de bord statistique de la France">
+  <meta property="og:title" content="Le Français Moyen — Dette, retraites, fiscalité et pouvoir d'achat en chiffres officiels">
   <meta property="og:description" content="Inflation, pouvoir d'achat, logement, dette, salaires, fiscalité et démographie : les données publiques mises en perspective pour comprendre ce que l'on ressent.">
   <meta property="og:url" content="https://le-francais-moyen.com/">
   <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
@@ -26,7 +26,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Le Français Moyen — Tableau de bord statistique de la France">
+  <meta name="twitter:title" content="Le Français Moyen — Dette, retraites, fiscalité et pouvoir d'achat en chiffres officiels">
   <meta name="twitter:description" content="Inflation réelle, pouvoir d'achat, dette, énergie, démographie : des chiffres sur vos ressentis. Données officielles.">
   <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <meta name="twitter:image:alt" content="Tableau de bord Le Français Moyen">
@@ -224,55 +224,122 @@
   </div>
 
 <main id="contenu">
-  <section class="hero" aria-labelledby="titre-site">
-    <div class="card hero-card">
-      <div>
-        <div class="eyebrow">Données officielles · Mise à jour hebdomadaire</div>
-        <h1 id="titre-site">Mettez des chiffres sur ce que vous ressentez.</h1>
-        <p>Inflation réelle, pouvoir d'achat, logement, fiscalité, dette, énergie, démographie. Tout ce que l'on ressent mais que personne ne vous dit clairement — avec les sources officielles.</p>
-        <div class="actions">
-          <a class="button" href="#dashboard">Voir les chiffres</a>
-          <a class="button secondary" href="#simulateur-fiscal-reel">Mon impôt réel</a>
-          <a class="button secondary" href="/outils/" style="border-color:#a78bfa;color:#a78bfa">🧰 Boîte à outils</a>
-        </div>
-        <div class="share-bar" aria-label="Partager le site">
-          <span style="color:var(--muted);font-size:.82rem;font-weight:750">Partager :</span>
-          <a class="share-btn" href="https://twitter.com/intent/tweet?text=Mettez+des+chiffres+sur+ce+que+vous+ressentez+%3A+inflation+r%C3%A9elle%2C+pouvoir+d%27achat%2C+fiscalit%C3%A9%2C+dette.+Donn%C3%A9es+officielles+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener" aria-label="Partager sur X (Twitter)">𝕏 Twitter</a>
-          <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener" aria-label="Partager sur Facebook">Facebook</a>
-          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener" aria-label="Partager sur LinkedIn">LinkedIn</a>
-          <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/').then(()=>this.textContent='✓ Copié !')" aria-label="Copier le lien">Copier le lien</button>
-        </div>
+
+  <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+  <section aria-labelledby="titre-site" style="padding:64px 0 56px;border-bottom:1px solid #1a1a1a">
+    <div style="max-width:780px;margin:0 auto;padding:0 24px;text-align:center">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:18px;font-weight:700">Données officielles · INSEE · Banque de France · Eurostat</div>
+      <h1 id="titre-site" style="font-size:clamp(2rem,5.5vw,3.4rem);font-weight:900;line-height:1.12;letter-spacing:-.04em;color:#f5f5f5;margin:0 0 20px">
+        Mettez des chiffres sur ce que vous ressentez.
+      </h1>
+      <p style="font-size:1.1rem;color:#999;line-height:1.75;margin:0 auto 36px;max-width:600px">
+        Inflation, dette, retraites, fiscalité, logement — les données publiques officielles mises en perspective, sans filtre ni algorithme.
+      </p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px">
+        <a class="button" href="/dette/" style="padding:14px 28px;font-size:1rem;font-weight:800">⏱️ Dette en direct →</a>
+        <a class="button secondary" href="/questions/" style="padding:14px 28px;font-size:1rem">❓ Explorer les questions</a>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap">
+        <span style="color:#555;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em">Partager :</span>
+        <a style="color:#fb923c;font-size:.82rem;font-weight:700;text-decoration:none" href="https://twitter.com/intent/tweet?text=Mettez+des+chiffres+sur+ce+que+vous+ressentez+%3A+inflation+r%C3%A9elle%2C+pouvoir+d%27achat%2C+fiscalit%C3%A9%2C+dette.+Donn%C3%A9es+officielles+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener">𝕏 Twitter</a>
+        <a style="color:#60a5fa;font-size:.82rem;font-weight:700;text-decoration:none" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener">Facebook</a>
+        <a style="color:#c084fc;font-size:.82rem;font-weight:700;text-decoration:none" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener">LinkedIn</a>
+        <button style="background:none;border:none;color:#888;font-size:.82rem;font-weight:700;cursor:pointer;padding:0" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
       </div>
     </div>
-    <aside class="card status-panel" aria-label="Calculateur d'impact personnel">
-      <div class="score">
-        <div class="score-top">
-          <span class="score-label">Indice de tension du quotidien</span>
-        </div>
-        <div class="score-value" id="dailyScore" style="color:var(--red)">72<span style="font-size:1.4rem;opacity:.7">/100</span></div>
-        <small>Inflation + logement + énergie + fiscalité. Plus le score est élevé, plus la pression sur le quotidien est forte.</small>
-      </div>
-      <div class="score" style="padding-bottom:8px">
-        <div class="eyebrow" style="margin-bottom:10px">Mon bilan personnel</div>
-        <label style="color:var(--muted);font-size:.82rem;display:block;margin-bottom:6px">Votre année de naissance</label>
-        <div style="display:flex;gap:8px;align-items:center">
-          <input type="number" id="birthYear" value="1985" min="1950" max="2005" step="1" style="flex:1;font-size:1.1rem;text-align:center;font-weight:700">
-          <button class="button" type="button" id="calcPersonalBtn" style="white-space:nowrap">Calculer</button>
-        </div>
-        <div id="personalResult" style="margin-top:14px;display:none;gap:8px;display:none">
-          <div class="insight" style="margin-bottom:8px"><strong id="pr1"></strong><span id="pr2" style="color:var(--muted);font-size:.9rem"></span></div>
-          <div class="insight" style="margin-bottom:8px"><strong id="pr3"></strong><span id="pr4" style="color:var(--muted);font-size:.9rem"></span></div>
-          <div class="insight"><strong id="pr5"></strong><span id="pr6" style="color:var(--muted);font-size:.9rem"></span></div>
-          <button class="share-btn" id="sharePersonal" style="margin-top:10px;width:100%;justify-content:center">Partager mon bilan</button>
-        </div>
-      </div>
-    </aside>
   </section>
 
-  <!-- ═══ 3 CHIFFRES DE LA SEMAINE ═══ -->
-  <section id="chiffres-semaine" aria-label="3 chiffres de la semaine" style="padding:40px 0 36px;border-bottom:1px solid #1a1a1a;background:rgba(255,255,255,.01)">
+  <!-- ═══════════════════════════════════════ TICKER ═══════════════════════════════════════ -->
+  <section id="dette-en-direct" aria-label="Indicateurs financiers en direct" style="padding:44px 0 40px;background:rgba(248,113,113,.025);border-bottom:1px solid #1a1a1a">
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:22px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
+        <div style="width:9px;height:9px;border-radius:50%;background:#f87171;box-shadow:0 0 10px #f87171;animation:lfm-pulse 1.5s infinite;flex-shrink:0"></div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#f87171;font-weight:700">En direct · calcul automatique</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px">
+
+        <!-- Bloc 1 : Dette publique en temps réel -->
+        <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.22);border-radius:16px;padding:26px 28px">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:10px">🇫🇷 Dette publique française</div>
+          <div id="tickerDebt" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2;word-break:break-all">3 460 000 000 000 €</div>
+          <div style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Compteur continu · base 01/01/2026 · Banque de France</div>
+          <div style="font-size:.78rem;color:#f87171;margin-top:6px;font-weight:600">+5 500 €/s · 113 % du PIB</div>
+          <a href="/dette/" style="display:inline-block;margin-top:16px;font-size:.82rem;color:#f87171;font-weight:700;text-decoration:none;border:1px solid rgba(248,113,113,.3);border-radius:6px;padding:7px 16px;transition:.15s" onmouseover="this.style.background='rgba(248,113,113,.1)'" onmouseout="this.style.background='transparent'">Voir le compteur complet →</a>
+        </div>
+
+        <!-- Bloc 2 : Intérêts payés depuis ouverture de la page -->
+        <div style="background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.22);border-radius:16px;padding:26px 28px">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:10px">💸 Intérêts payés depuis votre arrivée</div>
+          <div id="tickerInterest" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2">0 €</div>
+          <div style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Intérêts de la dette versés depuis l'ouverture de cette page</div>
+          <div style="font-size:.78rem;color:#fb923c;margin-top:6px;font-weight:600;line-height:1.7">1 840 €/s · 58 Md€/an · soit <strong style="color:#fbbf24">1 526 €/an par foyer fiscal</strong></div>
+        </div>
+
+        <!-- Bloc 3 : Charge future d'intérêts générée -->
+        <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.22);border-radius:16px;padding:26px 28px">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#a78bfa;margin-bottom:10px">📈 Charge future d'intérêts générée</div>
+          <div id="tickerFuture" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2">0 €/an</div>
+          <div style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Charge annuelle future créée par les emprunts depuis votre arrivée</div>
+          <div style="font-size:.78rem;color:#a78bfa;margin-top:6px;font-weight:600;line-height:1.7">Chaque seconde d'emprunt à 3 % = <strong style="color:#c4b5fd">+165 €/an</strong> de charge future perpétuelle</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+  @keyframes lfm-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  </style>
+  <script>
+  (function(){
+    var DEBT_REF  = 3460000000000;
+    var DEBT_RATE = 5500;   // €/s — dette croît de 5 500 €/s
+    var INT_RATE  = 1840;   // €/s — intérêts versés (58 Md€/an ÷ 31 557 600 s)
+    var FUT_RATE  = 165;    // €/an par seconde d'emprunt (5 500 × 3 %)
+    var REF_TS    = new Date('2026-01-01T00:00:00Z').getTime();
+    var PAGE_TS   = Date.now();
+
+    function fmtDebt(v){
+      return Math.round(v).toLocaleString('fr-FR') + ' €';
+    }
+    function fmtInt(v){
+      if(v < 1000)   return Math.round(v).toLocaleString('fr-FR') + ' €';
+      if(v < 1e6)    return (v/1000).toLocaleString('fr-FR',{maximumFractionDigits:1}) + ' k€';
+      if(v < 1e9)    return (v/1e6).toLocaleString('fr-FR',{maximumFractionDigits:2}) + ' M€';
+      return (v/1e9).toLocaleString('fr-FR',{maximumFractionDigits:3}) + ' Md€';
+    }
+    function fmtFut(v){
+      if(v < 1000)   return Math.round(v).toLocaleString('fr-FR') + ' €/an';
+      if(v < 1e6)    return (v/1000).toLocaleString('fr-FR',{maximumFractionDigits:1}) + ' k€/an';
+      if(v < 1e9)    return (v/1e6).toLocaleString('fr-FR',{maximumFractionDigits:2}) + ' M€/an';
+      return (v/1e9).toLocaleString('fr-FR',{maximumFractionDigits:3}) + ' Md€/an';
+    }
+
+    function tick(){
+      var now        = Date.now();
+      var elapsedRef  = (now - REF_TS)  / 1000;
+      var elapsedPage = (now - PAGE_TS) / 1000;
+
+      var debt     = DEBT_REF + DEBT_RATE * elapsedRef;
+      var interest = INT_RATE * elapsedPage;
+      var future   = FUT_RATE * elapsedPage;
+
+      var d = document.getElementById('tickerDebt');
+      var i = document.getElementById('tickerInterest');
+      var f = document.getElementById('tickerFuture');
+      if(d) d.textContent = fmtDebt(debt);
+      if(i) i.textContent = fmtInt(interest);
+      if(f) f.textContent = fmtFut(future);
+    }
+    tick();
+    setInterval(tick, 200);
+  })();
+  </script>
+
+  <!-- ═══════════════════════════════════════ 3 CHIFFRES DE LA SEMAINE ═══════════════════════════════════════ -->
+  <section id="chiffres-semaine" aria-label="3 chiffres de la semaine" style="padding:48px 0 44px;border-bottom:1px solid #1a1a1a;background:rgba(255,255,255,.01)">
+    <div style="max-width:1100px;margin:0 auto;padding:0 24px">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px">
         <div>
           <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:6px;font-weight:700">Semaine du 12 mai 2026</div>
           <h2 style="font-size:1.25rem;font-weight:800;color:#f5f5f5;margin:0">3 chiffres que tout le monde devrait connaître</h2>
@@ -306,8 +373,8 @@
     </div>
   </section>
 
-  <!-- ═══ NEWSLETTER CTA HAUT DE PAGE ═══ -->
-  <section id="newsletter-top" aria-label="Newsletter" style="padding:28px 0;border-bottom:1px solid #1a1a1a;background:linear-gradient(90deg,rgba(251,146,60,.04),rgba(167,139,250,.04))">
+  <!-- ═══════════════════════════════════════ NEWSLETTER CTA HAUT DE PAGE ═══════════════════════════════════════ -->
+  <section aria-label="Newsletter" style="padding:28px 0;border-bottom:1px solid #1a1a1a;background:linear-gradient(90deg,rgba(251,146,60,.04),rgba(167,139,250,.04))">
     <div style="max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
       <div>
         <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:4px">📧 Le chiffre du lundi</div>
@@ -318,733 +385,153 @@
     </div>
   </section>
 
-  <!-- ═══ BOÎTE À OUTILS ═══ -->
-  <section id="outils-section" aria-labelledby="outils-titre" style="padding:48px 0 40px;border-bottom:1px solid #1a1a1a">
+  <!-- ═══════════════════════════════════════ 12 THÈMES ═══════════════════════════════════════ -->
+  <section id="themes" aria-labelledby="themes-titre" style="padding:56px 0 48px;border-bottom:1px solid #1a1a1a">
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:28px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px">
         <div>
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a78bfa;margin-bottom:8px;font-weight:700">Boîte à outils interactifs</div>
-          <h2 id="outils-titre" style="font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin:0">Comprendre, mesurer, simuler.</h2>
-          <p style="color:#888;font-size:14px;margin-top:6px;max-width:500px">8 outils pour mettre des chiffres sur la situation réelle du pays — dette, générations, élections, services publics.</p>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4ade80;margin-bottom:8px;font-weight:700">Analyses thématiques</div>
+          <h2 id="themes-titre" style="font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin:0">12 sujets. Les données officielles.</h2>
+          <p style="color:#888;font-size:14px;margin-top:6px;max-width:500px">Chaque thème : données longue période, sources vérifiables, chiffres clés mis en perspective.</p>
         </div>
-        <a href="/outils/" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:6px;border:1px solid #a78bfa44;color:#a78bfa;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='#a78bfa22'" onmouseout="this.style.background='transparent'">Voir tous les outils →</a>
+        <a href="/outils/" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:6px;border:1px solid #4ade8044;color:#4ade80;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s" onmouseover="this.style.background='#4ade8022'" onmouseout="this.style.background='transparent'">Voir les outils →</a>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
 
-        <a href="/dette/" style="display:block;text-decoration:none;background:#161616;border:1px solid #2a1a00;border-radius:8px;padding:18px;transition:all .18s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='#fb923c';this.style.background='#1a1000'" onmouseout="this.style.borderColor='#2a1a00';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">⏱</div>
-          <div style="font-size:14px;font-weight:700;color:#fb923c;margin-bottom:5px">Compteur de la dette</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">Plus de <span data-mds="3300">3 300 Md€</span> et ça tourne. Regardez en direct.</div>
-          <div style="position:absolute;top:14px;right:14px;width:8px;height:8px;border-radius:50%;background:#fb923c;box-shadow:0 0 8px #fb923c;animation:pulse 1.5s infinite"></div>
+        <a href="/dette/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(248,113,113,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#f87171';this.style.background='rgba(248,113,113,.05)'" onmouseout="this.style.borderColor='rgba(248,113,113,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">⏱️</div>
+          <div style="font-size:13px;font-weight:700;color:#f87171;margin-bottom:5px">Dette en direct</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">3 460 Md€</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">Compteur en direct. 113 % du PIB. +5 500 €/s.</div>
         </a>
 
-        <a href="/projections/" style="display:block;text-decoration:none;background:#161616;border:1px solid #1a1400;border-radius:8px;padding:18px;transition:all .18s" onmouseover="this.style.borderColor='#fbbf24';this.style.background='#111000'" onmouseout="this.style.borderColor='#1a1400';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">📈</div>
-          <div style="font-size:14px;font-weight:700;color:#fbbf24;margin-bottom:5px">Projections 2035</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">3 scénarios : inertie, réforme ou crise. Où va-t-on ?</div>
+        <a href="/budget/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">📋</div>
+          <div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Budget de l'État</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">57 % du PIB</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">Recettes, dépenses, déficit. Le taux le plus élevé de l'OCDE.</div>
         </a>
 
-        <a href="/epargne/" style="display:block;text-decoration:none;background:#161616;border:1px solid #001a08;border-radius:8px;padding:18px;transition:all .18s" onmouseover="this.style.borderColor='#4ade80';this.style.background='#001008'" onmouseout="this.style.borderColor='#001a08';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">💰</div>
-          <div style="font-size:14px;font-weight:700;color:#4ade80;margin-bottom:5px">Érosion de l'épargne</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">Livret A, CAC, immo, or — ce qu'il reste après l'État et l'inflation.</div>
+        <a href="/impot/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fbbf24';this.style.background='rgba(251,191,36,.05)'" onmouseout="this.style.borderColor='rgba(251,191,36,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">💸</div>
+          <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:5px">Impôt invisible</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">47 %</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">Taux réel de prélèvement : IR, TVA, cotisations, énergie.</div>
         </a>
 
-        <a href="/elections/" style="display:block;text-decoration:none;background:#161616;border:1px solid #1a0808;border-radius:8px;padding:18px;transition:all .18s" onmouseover="this.style.borderColor='#f87171';this.style.background='#140808'" onmouseout="this.style.borderColor='#1a0808';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">🗳</div>
-          <div style="font-size:14px;font-weight:700;color:#f87171;margin-bottom:5px">Simulateur élections</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">Et si Juppé, Mélenchon ou Le Pen avait gagné ? 2002–2022.</div>
+        <a href="/retraites/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">👴</div>
+          <div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Retraites</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">354 Md€/an</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">42 régimes. Ratio 1,7 actif/retraité. Réforme 2023.</div>
         </a>
 
-        <a href="/comparateur/" style="display:block;text-decoration:none;background:#161616;border:1px solid #00081a;border-radius:8px;padding:18px;transition:all .18s" onmouseover="this.style.borderColor='#60a5fa';this.style.background='#000810'" onmouseout="this.style.borderColor='#00081a';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">🌍</div>
-          <div style="font-size:14px;font-weight:700;color:#60a5fa;margin-bottom:5px">Comparateur européen</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">France vs Allemagne, Espagne, Suède. Sur 10 indicateurs clés.</div>
+        <a href="/sante/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(74,222,128,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#4ade80';this.style.background='rgba(74,222,128,.05)'" onmouseout="this.style.borderColor='rgba(74,222,128,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">🏥</div>
+          <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:5px">Santé</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">236 Md€/an</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">2e budget mondial. Hôpitaux sous tension. Déserts médicaux.</div>
         </a>
 
-        <a href="/generations/" style="display:block;text-decoration:none;background:#161616;border:1px solid #0d0015;border-radius:8px;padding:18px;transition:all .18s" onmouseover="this.style.borderColor='#a78bfa';this.style.background='#080010'" onmouseout="this.style.borderColor='#0d0015';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">👶</div>
-          <div style="font-size:14px;font-weight:700;color:#a78bfa;margin-bottom:5px">Déclassement générationnel</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">Né en 1970, 1980 ou 1990 : votre génération a-t-elle décroché ?</div>
+        <a href="/education/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#60a5fa';this.style.background='rgba(96,165,250,.05)'" onmouseout="this.style.borderColor='rgba(96,165,250,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">📚</div>
+          <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Éducation</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">160 Md€/an</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">PISA 2022 : 23e/81. Budget élevé, résultats en recul.</div>
         </a>
 
-        <a href="/services/" style="display:block;text-decoration:none;background:#161616;border:1px solid #1a0800;border-radius:8px;padding:18px;transition:all .18s" onmouseover="this.style.borderColor='#f87171';this.style.background='#120500'" onmouseout="this.style.borderColor='#1a0800';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">🏥</div>
-          <div style="font-size:14px;font-weight:700;color:#f87171;margin-bottom:5px">Services publics</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">Hôpitaux, PISA, justice, admin — ce que vous payez et ce que vous obtenez.</div>
+        <a href="/logement/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fbbf24';this.style.background='rgba(251,191,36,.05)'" onmouseout="this.style.borderColor='rgba(251,191,36,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">🏠</div>
+          <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:5px">Logement</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">×2,7</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">Prix du m² depuis 2000. Salaires réels : +4 % sur la même période.</div>
         </a>
 
-        <a href="/histoire/" style="display:block;text-decoration:none;background:#161616;border:1px solid #0d0015;border-radius:8px;padding:18px;transition:all .18s" onmouseover="this.style.borderColor='#a78bfa';this.style.background='#080010'" onmouseout="this.style.borderColor='#0d0015';this.style.background='#161616'">
-          <div style="font-size:24px;margin-bottom:10px">📅</div>
-          <div style="font-size:14px;font-weight:700;color:#a78bfa;margin-bottom:5px">Timeline des ruptures</div>
-          <div style="font-size:12px;color:#777;line-height:1.5">1973–2026 : les 25 décisions qui ont transformé la France.</div>
+        <a href="/industrie/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#a78bfa';this.style.background='rgba(167,139,250,.05)'" onmouseout="this.style.borderColor='rgba(167,139,250,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">🏭</div>
+          <div style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:5px">Désindustrialisation</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">−1 M</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">Emplois industriels perdus depuis 2000. Balance commerciale déficitaire.</div>
+        </a>
+
+        <a href="/fonctionnaires/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#60a5fa';this.style.background='rgba(96,165,250,.05)'" onmouseout="this.style.borderColor='rgba(96,165,250,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">👔</div>
+          <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Fonctionnaires</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">5,7 M</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">20 % de l'emploi total. Masse salariale publique : 340 Md€/an.</div>
+        </a>
+
+        <a href="/autoroutes/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">🛣️</div>
+          <div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Autoroutes</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">+84 %</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">Hausse des péages depuis 2006. Vendues 14,8 Md€. +50 Md€ de dividendes.</div>
+        </a>
+
+        <a href="/normes/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#a78bfa';this.style.background='rgba(167,139,250,.05)'" onmouseout="this.style.borderColor='rgba(167,139,250,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">📜</div>
+          <div style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:5px">Millefeuille réglementaire</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">400 000</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">Normes en vigueur. 47 min de JO par texte. 2 560 h/an pour une PME.</div>
+        </a>
+
+        <a href="/ronds-points/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#60a5fa';this.style.background='rgba(96,165,250,.05)'" onmouseout="this.style.borderColor='rgba(96,165,250,.2)';this.style.background='#161616'">
+          <div style="font-size:22px;margin-bottom:10px">🔵</div>
+          <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Indice Rond-Point</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">~56 000</div>
+          <div style="font-size:11px;color:#666;line-height:1.5">65 % des ronds-points mondiaux. Coût : 1–3 M€ l'unité.</div>
         </a>
 
       </div>
     </div>
   </section>
-  <style>
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  </style>
 
-  <section id="dashboard" class="toolbar">
-    <div>
-      <div class="eyebrow">Pilotage national</div>
-      <h2>Indicateurs de fonctionnement</h2>
-    </div>
-    <div class="filters">
-      <label class="visually-hidden" for="periodSelect">Période</label>
-      <select id="periodSelect">
-        <option value="2024">2024</option>
-        <option value="2020">2020</option>
-        <option value="2010">2010</option>
-        <option value="2000">2000</option>
-        <option value="1980">1980</option>
-        <option value="1960">1960</option>
-        <option value="1900">1900</option>
-      </select>
-      <label class="visually-hidden" for="viewSelect">Vue</label>
-      <select id="viewSelect">
-        <option>Vue ménage</option>
-        <option>Vue État</option>
-        <option>Vue entreprise France</option>
-      </select>
-      <span id="dataLastUpdated" style="color:var(--muted);font-size:.78rem;opacity:.7"></span>
+  <!-- ═══════════════════════════════════════ QUESTIONS POPULAIRES ═══════════════════════════════════════ -->
+  <section id="questions-populaires" aria-labelledby="questions-titre" style="padding:56px 0 52px;border-bottom:1px solid #1a1a1a;background:rgba(255,255,255,.008)">
+    <div style="max-width:1100px;margin:0 auto;padding:0 24px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px">
+        <div>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c084fc;margin-bottom:8px;font-weight:700">Questions fréquentes</div>
+          <h2 id="questions-titre" style="font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin:0">Les vraies questions des Français, avec des données.</h2>
+          <p style="color:#888;font-size:14px;margin-top:6px;max-width:500px">Sources officielles vérifiables. Réponses chiffrées, sans opinion.</p>
+        </div>
+        <a href="/questions/" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:6px;border:1px solid #c084fc44;color:#c084fc;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s" onmouseover="this.style.background='#c084fc22'" onmouseout="this.style.background='transparent'">Voir les 36 articles →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
+
+        <a href="/questions/la-france-s-appauvrit-elle" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(248,113,113,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#f87171'" onmouseout="this.style.borderColor='rgba(248,113,113,.18)'">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:8px">📉 Pouvoir d'achat</div>
+          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">La France s'appauvrit-elle vraiment ?</h3>
+          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">PIB, richesse nette, pouvoir d'achat corrigé — ce que disent vraiment les chiffres INSEE et Banque de France.</p>
+          <div style="font-size:.78rem;color:#f87171;margin-top:10px;font-weight:600">INSEE · Banque de France →</div>
+        </a>
+
+        <a href="/questions/pourquoi-tout-augmente" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,146,60,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fb923c'" onmouseout="this.style.borderColor='rgba(251,146,60,.18)'">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">🛒 Inflation</div>
+          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">Pourquoi les Français ont-ils l'impression que tout augmente ?</h3>
+          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">IPC officiel vs dépenses contraintes réelles. Le fossé entre statistique et ressenti expliqué.</p>
+          <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">IPC INSEE 2024 →</div>
+        </a>
+
+        <a href="/questions/combien-coute-l-etat" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,191,36,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,.18)'">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fbbf24;margin-bottom:8px">🏛️ Fiscalité</div>
+          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">Combien coûte vraiment l'État par habitant ?</h3>
+          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">Dépenses publiques, dette, intérêts : le calcul "entreprise France" par tête de pipe.</p>
+          <div style="font-size:.78rem;color:#fbbf24;margin-top:10px;font-weight:600">INSEE · DGFiP 2024 →</div>
+        </a>
+
+        <a href="/questions/dependance-energetique-france" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(74,222,128,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#4ade80'" onmouseout="this.style.borderColor='rgba(74,222,128,.18)'">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4ade80;margin-bottom:8px">⚡ Énergie</div>
+          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">La France dépend-elle trop de l'énergie étrangère ?</h3>
+          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">Balance énergétique, facture d'importation, vulnérabilité aux chocs de prix.</p>
+          <div style="font-size:.78rem;color:#4ade80;margin-top:10px;font-weight:600">SDES · Eurostat 2024 →</div>
+        </a>
+
+      </div>
     </div>
   </section>
 
-  <section class="grid" id="indicateurs" aria-label="Indicateurs clés">
-    <article class="panel kpi" data-share-label="Pouvoir d'achat réel" data-share-kpi="kpiPurchasing" data-share-ctx="variation annuelle · INSEE">
-      <div class="panel-header"><h3>Pouvoir d'achat réel</h3><span class="tag">Salaires</span></div>
-      <div class="kpi-number" id="kpiPurchasing">+0,8%</div>
-      <div class="delta neutral">Évolution annuelle estimée</div>
-      <small>Source : INSEE séries salaire réel, OCDE.</small>
-    </article>
-    <article class="panel kpi" data-share-label="Inflation alimentaire" data-share-kpi="kpiFood" data-share-ctx="alimentation · IPC INSEE">
-      <div class="panel-header"><h3>Inflation alimentaire</h3><span class="tag">Caddie</span></div>
-      <div class="kpi-number" id="kpiFood">+7,2%</div>
-      <div class="delta up">Pression forte</div>
-      <small>Source : IPC alimentation INSEE.</small>
-    </article>
-    <article class="panel kpi" data-share-label="Prix du logement" data-share-kpi="kpiHousing" data-share-ctx="depuis 2000 · Notaires-INSEE">
-      <div class="panel-header"><h3>Prix du logement</h3><span class="tag">Immobilier</span></div>
-      <div class="kpi-number" id="kpiHousing">×2,7</div>
-      <div class="delta up">Depuis 2000</div>
-      <small>Source : Notaires-INSEE, IGEDD.</small>
-    </article>
-    <article class="panel kpi" data-share-label="Dette publique" data-share-kpi="kpiDebt" data-share-ctx="du PIB · INSEE · Banque de France">
-      <div class="panel-header"><h3>Dette publique</h3><span class="tag">État</span></div>
-      <div class="kpi-number" id="kpiDebt">110%</div>
-      <div class="delta up">du PIB</div>
-      <small>Source : INSEE, Banque de France, Eurostat.</small>
-    </article>
-
-    <article class="panel wide">
-      <div class="panel-header">
-        <div>
-          <h2>Évolution longue des grands signaux</h2>
-          <small>Séries normalisées base 100. Sources : INSEE, Eurostat, Banque de France.</small>
-        </div>
-        <div class="tabs">
-          <button class="tab active" data-view="all" type="button">Tout</button>
-          <button class="tab" data-view="prices" type="button">Prix</button>
-          <button class="tab" data-view="income" type="button">Revenus</button>
-          <button class="tab" data-view="state" type="button">État</button>
-        </div>
-      </div>
-      <div class="chart-box"><svg id="mainSvg" class="svg-chart" role="img" aria-label="Évolution longue des grands signaux économiques français depuis 1900"></svg></div>
-      <div id="mainLegend" class="legend"></div>
-    </article>
-
-    <aside class="panel side">
-      <div class="panel-header"><h2>Ce que ça raconte</h2></div>
-      <div class="insight-list">
-        <div class="insight"><strong>Le salaire nominal ne suffit pas.</strong><span>Il faut le comparer aux prix réels : nourriture, logement, énergie, fiscalité.</span></div>
-        <div class="insight"><strong>Le logement change tout.</strong><span>Une inflation officielle faible peut masquer une explosion du coût d'accès à la propriété.</span></div>
-        <div class="insight"><strong>La dette est un indicateur de gestion.</strong><span>Comme dans une entreprise, il faut regarder stock, flux, coût de financement et capacité de remboursement.</span></div>
-        <div class="insight"><strong>La démographie explique une partie de la pression.</strong><span>Population active, retraités, natalité et immigration modifient les équilibres.</span></div>
-      </div>
-    </aside>
-
-    <article class="panel full" id="compte-resultat-national">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Module central — France comme une entreprise</div>
-          <h2>Compte de résultat national simplifié</h2>
-          <small>Recettes, dépenses, déficit, dette, dette par habitant, charge d'intérêts et poids réel rapporté au salaire annuel.</small>
-        </div>
-        <span class="tag">1900 → aujourd'hui</span>
-      </div>
-      <div class="sim-fields">
-        <div class="field"><label for="crnStart">Année de départ</label><input id="crnStart" type="number" value="1900" min="1900" max="2024" step="1"></div>
-        <div class="field"><label for="crnEnd">Année de fin</label><input id="crnEnd" type="number" value="2024" min="1900" max="2024" step="1"></div>
-        <div class="field"><label for="crnView">Indicateur principal</label><select id="crnView"><option value="ratio">Ratios en % du PIB</option><option value="euros">Montants en Md€ courants</option><option value="habitant">Dette par habitant</option><option value="salaire">Dette / salaire annuel</option></select></div>
-        <div class="field"><label for="crnYear">Année KPI</label><input id="crnYear" type="number" value="2024" min="1900" max="2024" step="1"></div>
-        <div class="field"><label>&nbsp;</label><button class="button" type="button" id="crnUpdate">Calculer</button></div>
-      </div>
-      <div class="grid" style="margin-top:14px">
-        <article class="panel kpi"><h3>Recettes publiques</h3><div class="kpi-number" id="crnRevenue">—</div><div class="delta neutral">du PIB</div></article>
-        <article class="panel kpi"><h3>Dépenses publiques</h3><div class="kpi-number" id="crnExpense">—</div><div class="delta up">du PIB</div></article>
-        <article class="panel kpi"><h3>Déficit annuel</h3><div class="kpi-number" id="crnDeficit">—</div><div class="delta up" id="crnDeficitSign">solde public</div></article>
-        <article class="panel kpi"><h3>Dette totale</h3><div class="kpi-number" id="crnDebt">—</div><div class="delta up">stock</div></article>
-        <article class="panel kpi"><h3>Dette / habitant</h3><div class="kpi-number" id="crnPerCapita">—</div><div class="delta neutral">euros courants</div></article>
-        <article class="panel kpi"><h3>Dette / salaire</h3><div class="kpi-number" id="crnDebtSalary">—</div><div class="delta up">années de salaire net</div></article>
-        <article class="panel wide">
-          <h3 id="crnChartTitle">Évolution des ratios publics</h3>
-          <small>Survolez les courbes. Cliquez sur la légende pour afficher/masquer une série.</small>
-          <div class="chart-box"><svg id="crnSvg" class="svg-chart" role="img" aria-label="Courbes du compte de résultat national français"></svg></div>
-          <div id="crnLegend" class="legend"></div>
-        </article>
-        <aside class="panel side">
-          <h3>Lecture "entreprise France"</h3>
-          <div class="insight-list" style="margin-top:12px">
-            <div class="insight"><strong>Résultat net</strong><span id="crnResult">—</span></div>
-            <div class="insight"><strong>Coût de la dette</strong><span id="crnInterest">—</span></div>
-            <div class="insight"><strong>Dette / recettes</strong><span id="crnDebtRevenue">—</span></div>
-            <div class="insight"><strong>Intérêts / recettes</strong><span id="crnInterestRevenue">—</span></div>
-          </div>
-          <div class="insight" style="margin-top:14px"><strong>Pourquoi dette / salaire ?</strong><span>La dette par habitant donne un montant. Le ratio dette par habitant / salaire annuel donne une consistance : combien d'années de salaire net moyen représente la quote-part théorique.</span></div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="panel full" id="simulateur-fiscal-reel">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Outil citoyen — profil fiscal réel</div>
-          <h2>Simulateur fiscal réel par profil</h2>
-          <small>Estimer ce que l'on paie vraiment : cotisations, impôt sur le revenu, TVA implicite, énergie, carburant, foncier et redistribution estimée.</small>
-        </div>
-        <span class="tag">France — barème paramétrable</span>
-      </div>
-      <div class="simulator-layout">
-        <aside>
-          <div class="sim-fields" style="grid-template-columns:1fr 1fr">
-            <div class="field" style="grid-column:1/-1"><label for="taxGross">Salaire brut annuel</label><input id="taxGross" type="number" value="42000" min="0" step="500"></div>
-            <div class="field"><label for="taxStatus">Situation</label><select id="taxStatus"><option value="single">Célibataire</option><option value="couple">Couple marié/Pacsé</option><option value="singleParent">Parent isolé</option></select></div>
-            <div class="field"><label for="taxChildren">Enfants</label><input id="taxChildren" type="number" value="0" min="0" max="8" step="1"></div>
-            <div class="field"><label for="taxSpouseGross">Brut conjoint</label><input id="taxSpouseGross" type="number" value="0" min="0" step="500"></div>
-            <div class="field"><label for="taxOwner">Logement</label><select id="taxOwner"><option value="tenant">Locataire</option><option value="owner">Propriétaire occupant</option><option value="landlord">Propriétaire bailleur</option></select></div>
-            <div class="field"><label for="taxHomeValue">Patrimoine immo.</label><input id="taxHomeValue" type="number" value="220000" min="0" step="5000"></div>
-            <div class="field"><label for="taxPropertyTax">Taxe foncière</label><input id="taxPropertyTax" type="number" value="1200" min="0" step="50"></div>
-            <div class="field"><label for="taxRentIncome">Loyers bruts/an</label><input id="taxRentIncome" type="number" value="0" min="0" step="500"></div>
-            <div class="field"><label for="taxSpend">Consommation TTC/an</label><input id="taxSpend" type="number" value="22000" min="0" step="500"></div>
-            <div class="field"><label for="taxVatRate">TVA implicite</label><input id="taxVatRate" type="number" value="13" min="0" max="20" step="0.5"></div>
-            <div class="field"><label for="taxFuelLiters">Km/an (voiture)</label><input id="taxFuelLiters" type="number" value="12000" min="0" step="500"></div>
-            <div class="field"><label for="taxEnergyBill">Énergie logement</label><input id="taxEnergyBill" type="number" value="1800" min="0" step="50"></div>
-            <div class="field"><label for="taxBenefits">Aides directes/an</label><input id="taxBenefits" type="number" value="0" min="0" step="100"></div>
-            <div class="field"><label for="taxPublicServices">Services publics</label><select id="taxPublicServices"><option value="standard">Standard</option><option value="low">Faible</option><option value="high">Élevé</option></select></div>
-            <div class="field"><label>&nbsp;</label><button class="button" type="button" id="taxCalc">Calculer</button></div>
-            <div class="field"><label>&nbsp;</label><button class="button secondary" type="button" id="taxReset">Profil moyen</button></div>
-          </div>
-        </aside>
-        <div>
-          <div class="grid">
-            <article class="panel kpi"><h3>Impôt total réel</h3><div class="kpi-number" id="taxTotal">—</div><div class="delta up">cotis. + IR + TVA + énergie + foncier</div></article>
-            <article class="panel kpi"><h3>Taux réel</h3><div class="kpi-number" id="taxRate">—</div><div class="delta up">sur revenus bruts élargis</div></article>
-            <article class="panel kpi"><h3>Redistribution est.</h3><div class="kpi-number" id="taxRedistribution">—</div><div class="delta neutral">intervalle annuel plausible</div></article>
-            <article class="panel wide">
-              <h3>Où part l'argent ?</h3>
-              <small>Répartition estimée. Les cotisations patronales ne sont pas incluses par défaut.</small>
-              <div class="chart-box"><svg id="taxSvg" class="svg-chart" role="img" aria-label="Répartition de la fiscalité réelle estimée"></svg></div>
-              <div id="taxLegend" class="legend"></div>
-            </article>
-            <aside class="panel side">
-              <div class="voir-plus-header">
-                <h3>Lecture nette du profil</h3>
-                <button class="btn-voir-plus" type="button" aria-expanded="false">Voir plus ▾</button>
-              </div>
-              <div class="voir-plus-body" hidden>
-                <div class="details-grid" style="margin-top:12px">
-                  <div class="insight"><strong>Salaire net estimé</strong><span id="taxNetSalary">—</span></div>
-                  <div class="insight"><strong>Revenu disponible après impôts</strong><span id="taxDisposable">—</span></div>
-                  <div class="insight"><strong>Solde fiscal net</strong><span id="taxNetFiscal">—</span></div>
-                  <div class="insight"><strong>Redistribution directe</strong><span id="taxRedisDirect">—</span></div>
-                  <div class="insight"><strong>Redistribution sociale</strong><span id="taxRedisSocial">—</span></div>
-                  <div class="insight"><strong>Redistribution collective</strong><span id="taxRedisCollective">—</span></div>
-                  <div class="insight"><strong>Impôt sur le revenu</strong><span id="taxIncomeTax">—</span></div>
-                  <div class="insight"><strong>Cotisations salariales / CSG-CRDS</strong><span id="taxPayroll">—</span></div>
-                  <div class="insight"><strong>TVA implicite</strong><span id="taxVat">—</span></div>
-                  <div class="insight"><strong>Fiscalité carburant/énergie</strong><span id="taxEnergy">—</span></div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="panel full" id="indice-cout-vie-reel">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Pouvoir de vivre — indice composite</div>
-          <h2>Indice "coût de la vie réel" long terme</h2>
-          <small>Logement, énergie, alimentation, transport et impôts comparés au salaire médian : combien d'heures faut-il travailler pour financer le panier annuel ?</small>
-        </div>
-        <span class="tag">1960 vs aujourd'hui</span>
-      </div>
-      <div class="sim-fields">
-        <div class="field"><label for="lifeStart">Année de départ</label><input id="lifeStart" type="number" value="1960" min="1960" max="2024" step="1"></div>
-        <div class="field"><label for="lifeEnd">Année de fin</label><input id="lifeEnd" type="number" value="2024" min="1960" max="2024" step="1"></div>
-        <div class="field"><label for="lifeHousehold">Profil</label><select id="lifeHousehold"><option value="single">Personne seule</option><option value="couple">Couple sans enfant</option><option value="family">Couple + 2 enfants</option></select></div>
-        <div class="field"><label for="lifeHousingMode">Logement</label><select id="lifeHousingMode"><option value="access">Accès propriété</option><option value="rent">Location</option><option value="owner">Déjà propriétaire</option></select></div>
-        <div class="field"><label for="lifeView">Vue graphique</label><select id="lifeView"><option value="hours">Heures de travail/an</option><option value="index">Indices base 100</option><option value="budget">Panier annuel €</option></select></div>
-        <div class="field"><label>&nbsp;</label><button class="button" type="button" id="lifeUpdate">Calculer</button></div>
-      </div>
-      <div class="grid" style="margin-top:14px">
-        <article class="panel kpi"><h3>Heures départ</h3><div class="kpi-number" id="lifeHoursStart">—</div><div class="delta neutral">heures/an</div></article>
-        <article class="panel kpi"><h3>Heures fin</h3><div class="kpi-number" id="lifeHoursEnd">—</div><div class="delta up">heures/an</div></article>
-        <article class="panel kpi"><h3>Écart de temps</h3><div class="kpi-number" id="lifeHoursGap">—</div><div class="delta up" id="lifeGapLabel">vs départ</div></article>
-        <article class="panel kpi"><h3>Indice coût réel</h3><div class="kpi-number" id="lifeRealIndex">—</div><div class="delta neutral">panier / salaire médian</div></article>
-        <article class="panel wide">
-          <h3 id="lifeChartTitle">Heures de travail nécessaires</h3>
-          <small>Survolez les courbes. Cliquez sur la légende pour afficher/masquer une composante.</small>
-          <div class="chart-box"><svg id="lifeSvg" class="svg-chart" role="img" aria-label="Indice coût de la vie réel long terme France"></svg></div>
-          <div id="lifeLegend" class="legend"></div>
-        </article>
-        <aside class="panel side">
-          <h3>Panier annuel à l'année de fin</h3>
-          <div class="insight-list" style="margin-top:12px">
-            <div class="insight"><strong>Panier total</strong><span id="lifeBasketEnd">—</span></div>
-            <div class="insight"><strong>Salaire horaire médian</strong><span id="lifeHourlyEnd">—</span></div>
-            <div class="insight"><strong>Salaire annuel médian</strong><span id="lifeSalaryEnd">—</span></div>
-            <div class="insight"><strong>Part du panier / salaire</strong><span id="lifeBurdenEnd">—</span></div>
-          </div>
-          <div id="lifeBars" style="display:grid;gap:12px;margin-top:12px"></div>
-        </aside>
-        <article class="panel full">
-          <h3>Poids du panier composite</h3>
-          <div class="sim-fields" style="grid-template-columns:repeat(5,minmax(0,1fr));margin-top:12px">
-            <div class="field"><label for="lifeWHousing">Logement</label><input id="lifeWHousing" type="number" value="35" min="0" step="1"></div>
-            <div class="field"><label for="lifeWEnergy">Énergie</label><input id="lifeWEnergy" type="number" value="12" min="0" step="1"></div>
-            <div class="field"><label for="lifeWFood">Alimentation</label><input id="lifeWFood" type="number" value="22" min="0" step="1"></div>
-            <div class="field"><label for="lifeWTransport">Transport</label><input id="lifeWTransport" type="number" value="16" min="0" step="1"></div>
-            <div class="field"><label for="lifeWTaxes">Impôts</label><input id="lifeWTaxes" type="number" value="15" min="0" step="1"></div>
-          </div>
-        </article>
-      </div>
-    </article>
-
-    <article class="panel full" id="balance-energetique-nationale">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Intrant critique — souveraineté productive</div>
-          <h2>Balance énergétique nationale</h2>
-          <small>Production nationale, importations, dépendance, facture énergétique extérieure et coût par habitant.</small>
-        </div>
-        <span class="tag">1950 → aujourd'hui</span>
-      </div>
-      <div class="sim-fields">
-        <div class="field"><label for="enStart">Année départ</label><input id="enStart" type="number" value="1950" min="1950" max="2024" step="1"></div>
-        <div class="field"><label for="enEnd">Année fin</label><input id="enEnd" type="number" value="2024" min="1950" max="2024" step="1"></div>
-        <div class="field"><label for="enKpiYear">Année KPI</label><input id="enKpiYear" type="number" value="2024" min="1950" max="2024" step="1"></div>
-        <div class="field"><label for="enView">Vue graphique</label><select id="enView"><option value="balance">Balance physique</option><option value="dependency">Dépendance %</option><option value="cost">Coût import énergie</option><option value="percapita">Coût par habitant</option></select></div>
-        <div class="field"><label for="enUnit">Unité énergie</label><select id="enUnit"><option value="twh">TWh</option><option value="mtep">Mtep</option></select></div>
-        <div class="field"><label>&nbsp;</label><button class="button" type="button" id="enUpdate">Calculer</button></div>
-      </div>
-      <div class="grid" style="margin-top:14px">
-        <article class="panel kpi"><h3>Production nationale</h3><div class="kpi-number" id="enProd">—</div><div class="delta neutral">énergie primaire</div></article>
-        <article class="panel kpi"><h3>Importations nettes</h3><div class="kpi-number" id="enImports">—</div><div class="delta up">énergie importée</div></article>
-        <article class="panel kpi"><h3>Dépendance énergétique</h3><div class="kpi-number" id="enDependency">—</div><div class="delta up" id="enDepLabel">du besoin total</div></article>
-        <article class="panel kpi"><h3>Coût import énergie</h3><div class="kpi-number" id="enCost">—</div><div class="delta up">facture annuelle</div></article>
-        <article class="panel kpi"><h3>Coût / habitant</h3><div class="kpi-number" id="enCostCapita">—</div><div class="delta neutral">€/habitant/an</div></article>
-        <article class="panel kpi"><h3>Jours de travail</h3><div class="kpi-number" id="enWorkDays">—</div><div class="delta neutral">au salaire médian</div></article>
-        <article class="panel wide">
-          <h3 id="enChartTitle">Balance physique énergétique</h3>
-          <small>Survolez les courbes. Cliquez sur la légende pour afficher/masquer une série.</small>
-          <div class="chart-box"><svg id="enSvg" class="svg-chart" role="img" aria-label="Balance énergétique nationale France"></svg></div>
-          <div id="enLegend" class="legend"></div>
-        </article>
-        <aside class="panel side">
-          <h3>Lecture chef d'entreprise</h3>
-          <div class="insight-list" style="margin-top:12px">
-            <div class="insight"><strong>Besoin énergétique total</strong><span id="enDemand">—</span></div>
-            <div class="insight"><strong>Production / besoin</strong><span id="enCoverage">—</span></div>
-            <div class="insight"><strong>Import fossile estimé</strong><span id="enFossil">—</span></div>
-            <div class="insight"><strong>Prix moyen importé</strong><span id="enPrice">—</span></div>
-            <div class="insight"><strong>Facture / PIB</strong><span id="enGdpShare">—</span></div>
-          </div>
-          <div id="enBars" style="display:grid;gap:12px;margin-top:12px"></div>
-        </aside>
-        <article class="panel full">
-          <h3>Décomposer la dépendance</h3>
-          <div class="sim-fields" style="grid-template-columns:repeat(5,minmax(0,1fr));margin-top:12px">
-            <div class="field"><label for="enOilShare">Part pétrole importé</label><input id="enOilShare" type="number" value="57" min="0" max="100" step="1"></div>
-            <div class="field"><label for="enGasShare">Part gaz importé</label><input id="enGasShare" type="number" value="26" min="0" max="100" step="1"></div>
-            <div class="field"><label for="enCoalShare">Part charbon importé</label><input id="enCoalShare" type="number" value="5" min="0" max="100" step="1"></div>
-            <div class="field"><label for="enUraniumShare">Uranium / nucléaire importé</label><input id="enUraniumShare" type="number" value="12" min="0" max="100" step="1"></div>
-            <div class="field"><label for="enShock">Stress prix énergie</label><select id="enShock"><option value="1">Normal</option><option value="1.5">Prix ×1,5</option><option value="2">Prix ×2</option><option value="0.75">Détente prix ×0,75</option></select></div>
-          </div>
-        </article>
-      </div>
-    </article>
-
-    <article class="panel full" id="carte-flux-migratoires-internes">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Mobilité interne — attractivité territoriale</div>
-          <h2>Carte des flux migratoires internes</h2>
-          <small>Régions gagnantes, régions perdantes, âge moyen des entrants/sortants, sorties du territoire et impact fiscal local estimé.</small>
-        </div>
-        <span class="tag">Outil différenciant</span>
-      </div>
-      <div class="sim-fields">
-        <div class="field"><label for="mobYear">Année</label><input id="mobYear" type="number" value="2024" min="2000" max="2035" step="1"></div>
-        <div class="field"><label for="mobView">Vue carte</label><select id="mobView"><option value="net">Solde migratoire interne</option><option value="exit">Sorties du territoire</option><option value="fiscal">Impact fiscal local</option><option value="age">Âge moyen entrants</option><option value="flow">Volume de flux</option></select></div>
-        <div class="field"><label for="mobProfile">Profil dominant</label><select id="mobProfile"><option value="all">Tous profils</option><option value="young">Jeunes actifs</option><option value="families">Familles</option><option value="retirees">Retraités</option></select></div>
-        <div class="field"><label for="mobHousing">Pression logement</label><input id="mobHousing" type="number" value="1.0" min="0.5" max="1.8" step="0.1"></div>
-        <div class="field"><label for="mobJob">Attractivité emploi</label><input id="mobJob" type="number" value="1.0" min="0.5" max="1.8" step="0.1"></div>
-        <div class="field"><label for="mobExitStress">Attractivité étranger</label><input id="mobExitStress" type="number" value="1.0" min="0.5" max="2.2" step="0.1"></div>
-        <div class="field"><label for="mobReturnRate">Taux de retour estimé</label><input id="mobReturnRate" type="number" value="38" min="0" max="80" step="1"></div>
-        <div class="field"><label>&nbsp;</label><button class="button" type="button" id="mobUpdate">Calculer</button></div>
-      </div>
-      <div class="grid" style="margin-top:14px">
-        <article class="panel kpi"><h3>Région la plus gagnante</h3><div class="kpi-number" id="mobTopRegion">—</div><div class="delta down">solde interne net</div></article>
-        <article class="panel kpi"><h3>Région la plus perdante</h3><div class="kpi-number" id="mobBottomRegion">—</div><div class="delta up">solde interne net</div></article>
-        <article class="panel kpi"><h3>Impact fiscal max</h3><div class="kpi-number" id="mobFiscalMax">—</div><div class="delta neutral">recettes locales estimées</div></article>
-        <article class="panel kpi"><h3>Sorties du territoire</h3><div class="kpi-number" id="mobExitTotal">—</div><div class="delta neutral">actifs/retraités</div></article>
-        <article class="panel wide">
-          <h3 id="mobMapTitle">Carte des soldes migratoires internes</h3>
-          <small>Cliquez sur une région pour le détail.</small>
-          <div class="chart-box" style="height:540px"><svg id="mobSvg" class="svg-chart" role="img" aria-label="Carte des flux migratoires internes par région française"></svg></div>
-        </article>
-        <aside class="panel side">
-          <h3 id="mobSelectedTitle">Détail région</h3>
-          <div class="insight-list" style="margin-top:12px">
-            <div class="insight"><strong>Entrants internes</strong><span id="mobIn">—</span></div>
-            <div class="insight"><strong>Sortants internes</strong><span id="mobOut">—</span></div>
-            <div class="insight"><strong>Solde net</strong><span id="mobNet">—</span></div>
-            <div class="insight"><strong>Âge moyen entrants</strong><span id="mobAgeIn">—</span></div>
-            <div class="insight"><strong>Âge moyen sortants</strong><span id="mobAgeOut">—</span></div>
-            <div class="insight"><strong>Impact fiscal local</strong><span id="mobFiscal">—</span></div>
-            <div class="insight"><strong>Sorties territoire</strong><span id="mobExit">—</span></div>
-            <div class="insight"><strong>Dont sorties nettes</strong><span id="mobExitNet">—</span></div>
-            <div class="insight"><strong>Profil dominant</strong><span id="mobDominant">—</span></div>
-          </div>
-          <div id="mobBars" style="display:grid;gap:12px;margin-top:12px"></div>
-        </aside>
-        <article class="panel full">
-          <h3>Classement des régions</h3>
-          <div class="matrix" style="grid-template-columns:1fr 1fr">
-            <div><h3 class="down">Régions gagnantes</h3><div id="mobWinners" class="insight-list" style="margin-top:10px"></div></div>
-            <div><h3 class="up">Régions perdantes</h3><div id="mobLosers" class="insight-list" style="margin-top:10px"></div></div>
-          </div>
-        </article>
-      </div>
-    </article>
-
-    <article class="panel full" id="simulateur">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Outil intégré</div>
-          <h2>Simulateur inflation &amp; pouvoir d'achat</h2>
-          <small>Courbes annuelles base 100, avec pouvoir d'achat officiel et pouvoir d'achat "réel" pondéré.</small>
-        </div>
-        <span class="tag">CSV officiel remplaçable</span>
-      </div>
-      <div class="simulator-layout">
-        <div>
-          <div class="sim-fields">
-            <div class="field"><label for="simStartYear">Année de départ</label><input id="simStartYear" type="number" value="1960" inputmode="numeric"></div>
-            <div class="field"><label for="simEndYear">Année de fin</label><input id="simEndYear" type="number" value="2024" inputmode="numeric"></div>
-            <div class="field"><label for="simWageMode">Salaire utilisé</label><select id="simWageMode"><option value="median">Salaire médian</option><option value="mean">Salaire moyen</option></select></div>
-            <div class="field"><label>&nbsp;</label><button class="button" type="button" onclick="drawSimulator()">Calculer</button></div>
-          </div>
-          <div class="sim-fields">
-            <div class="field"><label for="simWFood">Poids nourriture</label><input id="simWFood" type="number" value="25" min="0"></div>
-            <div class="field"><label for="simWEnergy">Poids énergie</label><input id="simWEnergy" type="number" value="15" min="0"></div>
-            <div class="field"><label for="simWHousing">Poids immobilier</label><input id="simWHousing" type="number" value="35" min="0"></div>
-            <div class="field"><label for="simWOfficial">Poids inflation officielle / reste</label><input id="simWOfficial" type="number" value="25" min="0"></div>
-          </div>
-          <div class="chart-box"><svg id="simSvg" class="svg-chart" role="img" aria-label="Simulateur inflation et pouvoir d'achat France long terme"></svg></div>
-          <div id="simSeriesControls" class="series-controls"></div>
-          <small id="simStatus">Modifier les paramètres puis cliquer sur Calculer. Survoler les courbes pour lire les valeurs.</small>
-        </div>
-        <aside>
-          <div class="sim-kpis">
-            <div class="sim-kpi"><small>PA officiel</small><b id="simPaOfficial">—</b></div>
-            <div class="sim-kpi"><small>PA réel pondéré</small><b id="simPaReal">—</b></div>
-            <div class="sim-kpi"><small>Écart réel vs officiel</small><b id="simGap">—</b></div>
-            <div class="sim-kpi"><small>Période couverte</small><b id="simPeriod">—</b></div>
-          </div>
-          <div class="insight" style="margin-top:14px"><strong>Règle méthodologique</strong><span>Les poids ne sont pas ceux de l'IPC. Ils servent à tester une hypothèse de panier ressenti incluant l'achat immobilier.</span></div>
-          <div class="insight" style="margin-top:14px">
-            <strong>Importer une série officielle</strong>
-            <span>Format attendu : CSV avec deux colonnes <code>year,value</code>.</span>
-            <div class="sim-fields" style="grid-template-columns:1fr;margin-top:12px">
-              <label class="visually-hidden" for="simImportKey">Série à importer</label>
-              <select id="simImportKey">
-                <option value="official">Inflation officielle</option>
-                <option value="food">Nourriture</option>
-                <option value="energy">Énergie</option>
-                <option value="housing">Immobilier</option>
-                <option value="wageMean">Salaire moyen</option>
-                <option value="wageMedian">Salaire médian</option>
-              </select>
-              <label class="visually-hidden" for="simCsvFile">Fichier CSV</label>
-              <input id="simCsvFile" type="file" accept=".csv,text/csv">
-              <button class="button secondary" type="button" onclick="importSimulatorCSV()">Importer CSV</button>
-              <button class="button secondary" type="button" onclick="downloadSimulatorTemplate()">Télécharger modèle</button>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="panel full" id="demographie">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Projection démographique</div>
-          <h2>France &amp; régions 1950–2100</h2>
-          <small>Outil expérimental avec période affichée, projection régionale et catégories modélisées.</small>
-        </div>
-        <span class="tag">Modèle par cohortes</span>
-      </div>
-      <div class="simulator-layout">
-        <div>
-          <div class="sim-fields">
-            <div class="field"><label for="demoRegion">Territoire</label><select id="demoRegion"></select></div>
-            <div class="field"><label for="demoStartYear">Année de départ</label><input id="demoStartYear" type="number" value="1950" min="1900" max="2090" step="1"></div>
-            <div class="field"><label for="demoEndYear">Année de fin</label><input id="demoEndYear" type="number" value="2100" min="1910" max="2100" step="1"></div>
-            <div class="field"><label for="demoSelectedYear">Année pyramide</label><input id="demoSelectedYear" type="number" value="2024" min="1900" max="2100" step="1"></div>
-          </div>
-          <div class="sim-fields">
-            <div class="field"><label for="demoMigration">Solde migratoire net/an</label><input id="demoMigration" type="number" value="140000" min="0" max="350000" step="10000"></div>
-            <div class="field"><label for="demoInternalMob">Mobilité interne régionale</label><input id="demoInternalMob" type="number" value="90000" min="0" max="250000" step="10000"></div>
-            <div class="field"><label for="demoFertLong">Fécondité — souche longue</label><input id="demoFertLong" type="number" value="0.92" min="0.65" max="1.25" step="0.01"></div>
-            <div class="field"><label for="demoFertForeign">Fécondité — origine étrangère</label><input id="demoFertForeign" type="number" value="1.16" min="0.80" max="1.70" step="0.01"></div>
-          </div>
-          <div class="sim-fields">
-            <div class="field"><label for="demoMixing">Mixité générationnelle</label><input id="demoMixing" type="number" value="0.24" min="0" max="0.70" step="0.01"></div>
-            <div class="field"><label for="demoAssim">Reclassement vers mixte</label><input id="demoAssim" type="number" value="0.018" min="0" max="0.06" step="0.002"></div>
-            <div class="field"><label>&nbsp;</label><button class="button" type="button" onclick="drawDemo()">Calculer</button></div>
-            <div class="field"><label>&nbsp;</label><button class="button secondary" type="button" onclick="demoToggleMode()" id="demoToggleMode">Afficher en %</button></div>
-            <div class="field"><label>&nbsp;</label><button class="button secondary" type="button" onclick="demoReset()">Réinitialiser</button></div>
-          </div>
-          <div class="chart-box"><svg id="demoSvg" class="svg-chart" role="img" aria-label="Projection démographique France et régions 1950 à 2100"></svg></div>
-          <div id="demoLegend" class="legend"></div>
-          <small id="demoStatus">Modifiez les hypothèses puis cliquez sur Calculer.</small>
-        </div>
-        <aside>
-          <div class="sim-kpis">
-            <div class="sim-kpi"><small>Territoire</small><b id="demoKRegion">—</b></div>
-            <div class="sim-kpi"><small>Population</small><b id="demoKTotal">—</b></div>
-            <div class="sim-kpi"><small>Souche longue</small><b id="demoKLong">—</b></div>
-            <div class="sim-kpi"><small>Étranger / origine étrangère</small><b id="demoKForeign">—</b></div>
-          </div>
-          <div class="chart-box" style="height:340px;margin-top:14px"><svg id="demoAgeSvg" class="svg-chart" role="img" aria-label="Pyramide des âges démographique France"></svg></div>
-          <div class="insight" style="margin-top:14px"><strong>Définitions du modèle</strong><span>Ce module est paramétrique et pédagogique. Ce n'est pas une statistique officielle d'ascendance.</span></div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="panel full" id="tableau-demographique-strategique">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Démographie économique</div>
-          <h2>Tableau démographique stratégique</h2>
-          <small>Actifs, retraités, cotisants, pensionnés, naissances et immigration nécessaires pour tester l'équilibre économique long terme.</small>
-        </div>
-        <span class="tag">2024 → 2100</span>
-      </div>
-      <div class="sim-fields">
-        <div class="field"><label for="deStart">Année départ</label><input id="deStart" type="number" value="2024" min="1950" max="2099" step="1"></div>
-        <div class="field"><label for="deEnd">Année fin</label><input id="deEnd" type="number" value="2050" min="1951" max="2100" step="1"></div>
-        <div class="field"><label for="deRetAge">Âge retraite</label><input id="deRetAge" type="number" value="64" min="58" max="70" step="1"></div>
-        <div class="field"><label for="deActivity">Taux emploi 20-64</label><input id="deActivity" type="number" value="69" min="55" max="85" step="1"></div>
-        <div class="field"><label for="deTargetRatio">Ratio cible cotisants/pensionné</label><input id="deTargetRatio" type="number" value="2.0" min="1.2" max="3.5" step="0.1"></div>
-        <div class="field"><label>&nbsp;</label><button class="button" type="button" id="deUpdate">Calculer</button></div>
-        <div class="field"><label for="deFertility">Fécondité actuelle</label><input id="deFertility" type="number" value="1.68" min="1.1" max="2.3" step="0.01"></div>
-        <div class="field"><label for="deLifeExp">Espérance de vie cible</label><input id="deLifeExp" type="number" value="86" min="80" max="92" step="0.5"></div>
-        <div class="field"><label for="deMig">Solde migratoire net/an</label><input id="deMig" type="number" value="140000" min="-50000" max="500000" step="10000"></div>
-        <div class="field"><label for="deIntegration">Taux emploi nouveaux entrants</label><input id="deIntegration" type="number" value="62" min="30" max="85" step="1"></div>
-        <div class="field"><label for="deView">Vue graphique</label><select id="deView"><option value="ratio">Ratios stratégiques</option><option value="population">Volumes population</option><option value="needs">Besoins d'équilibre</option></select></div>
-        <div class="field"><label for="deScenario">Scénario</label><select id="deScenario"><option value="central">Central</option><option value="stress">Stress retraite</option><option value="optimistic">Redressement emploi</option></select></div>
-      </div>
-      <div class="grid" style="margin-top:14px">
-        <article class="panel kpi"><h3>Actifs / retraités</h3><div class="kpi-number" id="deActiveRetired">—</div><div class="delta neutral">20-retraite / retraités</div></article>
-        <article class="panel kpi"><h3>Cotisants / pensionnés</h3><div class="kpi-number" id="deContribPension">—</div><div class="delta up" id="deRatioLabel">sous tension</div></article>
-        <article class="panel kpi"><h3>Naissances nécessaires</h3><div class="kpi-number" id="deBirthNeed">—</div><div class="delta neutral">par an pour ratio cible</div></article>
-        <article class="panel kpi"><h3>Immigration nécessaire</h3><div class="kpi-number" id="deMigNeed">—</div><div class="delta neutral">net/an pour stabilisation</div></article>
-        <article class="panel wide">
-          <h3 id="deChartTitle">Ratios stratégiques</h3>
-          <small>Survolez les courbes. Cliquez sur la légende pour afficher/masquer une série.</small>
-          <div class="chart-box"><svg id="deSvg" class="svg-chart" role="img" aria-label="Tableau démographique stratégique France retraites cotisants"></svg></div>
-          <div id="deLegend" class="legend"></div>
-        </article>
-        <aside class="panel side">
-          <h3>Lecture économique à l'année de fin</h3>
-          <div class="insight-list" style="margin-top:12px">
-            <div class="insight"><strong>Population totale</strong><span id="dePop">—</span></div>
-            <div class="insight"><strong>Actifs potentiels</strong><span id="deWorking">—</span></div>
-            <div class="insight"><strong>Retraités potentiels</strong><span id="deRetired">—</span></div>
-            <div class="insight"><strong>Cotisants estimés</strong><span id="deContrib">—</span></div>
-            <div class="insight"><strong>Pensionnés estimés</strong><span id="dePensioners">—</span></div>
-            <div class="insight"><strong>Déficit cotisants</strong><span id="deContribGap">—</span></div>
-          </div>
-          <div id="deBars" style="display:grid;gap:12px;margin-top:12px"></div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="panel full" id="indice-soutenabilite-sociale">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">KPI maison — modèle social</div>
-          <h2>Indice de soutenabilité du modèle social</h2>
-          <small>Recettes sociales, prestations sociales et démographie résumées en un score simple : stable, tension ou déséquilibre structurel.</small>
-        </div>
-        <span class="tag">Lecture pédagogique</span>
-      </div>
-      <div class="sim-fields">
-        <div class="field"><label for="socStart">Année départ</label><input id="socStart" type="number" value="2000" min="1950" max="2099" step="1"></div>
-        <div class="field"><label for="socEnd">Année fin</label><input id="socEnd" type="number" value="2050" min="1951" max="2100" step="1"></div>
-        <div class="field"><label for="socKpiYear">Année KPI</label><input id="socKpiYear" type="number" value="2024" min="1950" max="2100" step="1"></div>
-        <div class="field"><label for="socView">Vue graphique</label><select id="socView"><option value="score">Score synthétique</option><option value="finance">Recettes vs prestations</option><option value="demo">Démographie sociale</option><option value="risks">Composantes de risque</option></select></div>
-        <div class="field"><label for="socScenario">Scénario</label><select id="socScenario"><option value="central">Central</option><option value="stress">Stress démographique</option><option value="reform">Réforme / emploi fort</option></select></div>
-        <div class="field"><label>&nbsp;</label><button class="button" type="button" id="socUpdate">Calculer</button></div>
-        <div class="field"><label for="socEmployment">Taux emploi 20-64</label><input id="socEmployment" type="number" value="69" min="55" max="85" step="1"></div>
-        <div class="field"><label for="socRetAge">Âge retraite</label><input id="socRetAge" type="number" value="64" min="58" max="70" step="1"></div>
-        <div class="field"><label for="socFertility">Fécondité</label><input id="socFertility" type="number" value="1.68" min="1.1" max="2.3" step="0.01"></div>
-        <div class="field"><label for="socMig">Solde migratoire net/an</label><input id="socMig" type="number" value="140000" min="-50000" max="500000" step="10000"></div>
-        <div class="field"><label for="socBenefitGrowth">Croissance prestations réelle</label><input id="socBenefitGrowth" type="number" value="0.8" min="-1" max="3" step="0.1"></div>
-        <div class="field"><label for="socRevenueGrowth">Croissance recettes réelle</label><input id="socRevenueGrowth" type="number" value="0.5" min="-1" max="3" step="0.1"></div>
-      </div>
-      <div class="grid" style="margin-top:14px">
-        <article class="panel kpi" style="grid-column:span 4;text-align:center">
-          <div style="font-size:3rem" id="socBadge">🟠</div>
-          <div class="kpi-number" id="socScore">—</div>
-          <h3 id="socStatus">—</h3>
-          <small id="socSentence">—</small>
-        </article>
-        <article class="panel kpi"><h3>Solde social</h3><div class="kpi-number" id="socBalance">—</div><div class="delta up" id="socBalanceLabel">recettes - prestations</div></article>
-        <article class="panel kpi"><h3>Prestations / recettes</h3><div class="kpi-number" id="socBenefitRevenue">—</div><div class="delta neutral">pression budgétaire</div></article>
-        <article class="panel kpi"><h3>Cotisants / prestataires</h3><div class="kpi-number" id="socContribBenef">—</div><div class="delta up" id="socContribLabel">ratio social</div></article>
-        <article class="panel kpi"><h3>Dépendance âgée</h3><div class="kpi-number" id="socOldDependency">—</div><div class="delta neutral">65+ / 20-64</div></article>
-        <article class="panel wide">
-          <h3 id="socChartTitle">Score de soutenabilité</h3>
-          <div class="chart-box"><svg id="socSvg" class="svg-chart" role="img" aria-label="Indice de soutenabilité du modèle social français"></svg></div>
-          <div id="socLegend" class="legend"></div>
-        </article>
-        <aside class="panel side">
-          <h3>Diagnostic à l'année KPI</h3>
-          <div class="insight-list" style="margin-top:12px">
-            <div class="insight"><strong>Recettes sociales</strong><span id="socRevenue">—</span></div>
-            <div class="insight"><strong>Prestations sociales</strong><span id="socBenefits">—</span></div>
-            <div class="insight"><strong>Population active occupée</strong><span id="socWorkers">—</span></div>
-            <div class="insight"><strong>Prestataires pondérés</strong><span id="socBeneficiaries">—</span></div>
-            <div class="insight"><strong>Effort par cotisant</strong><span id="socEffortWorker">—</span></div>
-          </div>
-          <div id="socBars" style="display:grid;gap:12px;margin-top:12px"></div>
-        </aside>
-      </div>
-    </article>
-
-    <article class="panel full" id="ressenti">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Ressenti vs données</div>
-          <h2>Les phrases du quotidien, traduites en chiffres</h2>
-        </div>
-      </div>
-      <div class="matrix">
-        <a href="questions/pourquoi-tout-augmente.html" class="matrix-item" style="text-decoration:none;display:block">
-          <small style="color:var(--muted)">« Les courses coûtent une fortune. »</small>
-          <b style="color:var(--accent)">+7,2 % d'inflation alimentaire</b>
-          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">IPC alimentation INSEE 2024 → voir l'analyse ↗</span>
-        </a>
-        <a href="questions/la-france-s-appauvrit-elle.html" class="matrix-item" style="text-decoration:none;display:block">
-          <small style="color:var(--muted)">« On ne peut plus acheter. »</small>
-          <b style="color:var(--red)">×2,7 le prix du m² depuis 2000</b>
-          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">Notaires-INSEE, IGEDD → voir l'analyse ↗</span>
-        </a>
-        <a href="#indice-cout-vie-reel" class="matrix-item" style="text-decoration:none;display:block">
-          <small style="color:var(--muted)">« Je travaille mais je n'avance pas. »</small>
-          <b style="color:var(--accent2)">+320 h/an pour financer le même panier</b>
-          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">Simulateur coût de la vie 1960→2024 → calculer ↗</span>
-        </a>
-        <a href="#compte-resultat-national" class="matrix-item" style="text-decoration:none;display:block">
-          <small style="color:var(--muted)">« L'État dépense trop. »</small>
-          <b style="color:var(--red)">113 % du PIB de dette publique</b>
-          <span style="color:var(--muted);font-size:.88rem;display:block;margin-top:4px">INSEE, Banque de France → voir le compte de résultat ↗</span>
-        </a>
-      </div>
-    </article>
-
-    <article class="panel wide">
-      <div class="panel-header">
-        <div><h2>Budget type du ménage moyen</h2><small>Répartition illustrative des dépenses contraintes et arbitrables. Source : INSEE Enquête Budget de Famille.</small></div>
-      </div>
-      <div class="chart-box"><svg id="budgetSvg" class="svg-chart" role="img" aria-label="Budget type du ménage moyen français répartition dépenses"></svg></div>
-      <div id="budgetLegend" class="legend"></div>
-    </article>
-
-    <aside class="panel side">
-      <div class="panel-header"><h2>En un coup d'œil</h2></div>
-      <div class="insight-list">
-        <div class="insight"><strong>Le logement a ×2,7 depuis 2000</strong><span>Un bien à 100 000 € en 2000 vaut 270 000 € aujourd'hui. Les salaires réels ont progressé de 4 %.</span></div>
-        <div class="insight"><strong>L'État dépense 57 % du PIB</strong><span>Le taux le plus élevé de l'OCDE. La charge des intérêts de la dette dépasse le budget de l'Éducation nationale.</span></div>
-        <div class="insight"><strong>1,7 actif pour 1 retraité</strong><span>Contre 4 en 1960. Le ratio devrait atteindre 1,4 en 2050 selon les projections centrales INSEE.</span></div>
-      </div>
-    </aside>
-
-    <article class="panel full" id="sources">
-      <div class="panel-header">
-        <div>
-          <div class="eyebrow">Traçabilité</div>
-          <h2>Sources officielles</h2>
-          <small>Toutes les données proviennent de sources publiques officielles et sont vérifiables directement.</small>
-        </div>
-      </div>
-      <div class="source-grid">
-        <div class="source">INSEE — IPC, salaires, PIB, démographie</div>
-        <div class="source">Banque de France — taux, dette, crédit</div>
-        <div class="source">Eurostat — comparaisons européennes</div>
-        <div class="source">OCDE — salaires réels, productivité</div>
-        <div class="source">DREES — santé, retraites, protection sociale</div>
-        <div class="source">DGFiP — fiscalité, impôts, recettes</div>
-        <div class="source">Notaires-INSEE — immobilier ancien</div>
-        <div class="source">CGEDD / IGEDD — séries longues logement</div>
-        <div class="source">SDES — énergie, carburants, logement</div>
-        <div class="source">Data.gouv.fr — jeux consolidés</div>
-      </div>
-      <table class="audit-table" id="simSourcesTable"></table>
-    </article>
-  </section>
 </main>
-
-<!-- Section FAQ / Questions fréquentes -->
-<section class="faq-section" id="questions" aria-labelledby="faq-titre">
-  <div class="eyebrow">Questions fréquentes</div>
-  <h2 id="faq-titre">Les vraies questions des Français, avec des données</h2>
-  <p style="color:var(--muted);margin:8px 0 0">Ces pages répondent aux questions que tout le monde se pose, avec des sources officielles vérifiables.</p>
-  <div class="faq-grid">
-    <a href="questions/la-france-s-appauvrit-elle.html" class="faq-card">
-      <h3>La France s'appauvrit-elle vraiment ?</h3>
-      <p>PIB, richesse nette, pouvoir d'achat corrigé — ce que disent vraiment les chiffres INSEE et Banque de France.</p>
-    </a>
-    <a href="questions/pourquoi-tout-augmente.html" class="faq-card">
-      <h3>Pourquoi les Français ont-ils l'impression que tout augmente ?</h3>
-      <p>IPC officiel vs dépenses contraintes réelles. Le fossé entre statistique et ressenti expliqué.</p>
-    </a>
-    <a href="questions/combien-coute-l-etat.html" class="faq-card">
-      <h3>Combien coûte vraiment l'État par habitant ?</h3>
-      <p>Dépenses publiques, dette, intérêts : le calcul "entreprise France" par tête de pipe.</p>
-    </a>
-    <a href="questions/dependance-energetique-france.html" class="faq-card">
-      <h3>La France dépend-elle trop de l'énergie étrangère ?</h3>
-      <p>Balance énergétique, facture d'importation, vulnérabilité aux chocs de prix : les données SDES et Eurostat.</p>
-    </a>
-    <a href="questions/demographie-france-soutenable.html" class="faq-card">
-      <h3>La démographie française est-elle encore soutenable ?</h3>
-      <p>Fécondité, vieillissement, ratio cotisants/retraités : les projections INSEE et le modèle social.</p>
-    </a>
-    <a href="weekly/latest.html" class="faq-card">
-      <h3>Note hebdomadaire — dernière mise à jour</h3>
-      <p>3 chiffres, 1 graphique, 1 phrase partageable. Chaque semaine une lecture rapide de l'état du pays.</p>
-    </a>
-  </div>
-</section>
 
 <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
 
@@ -1066,7 +553,7 @@
 
 <footer>
   <span>le-francais-moyen.com — Données sources : INSEE · Eurostat · Banque de France · SDES · DREES</span>
-  <span><a href="weekly/latest.html">Note hebdomadaire</a> · <a href="#sources">Sources</a> · <a href="sitemap.xml">Plan du site</a></span>
+  <span><a href="weekly/latest.html">Note hebdomadaire</a> · <a href="/questions/">Questions</a> · <a href="sitemap.xml">Plan du site</a></span>
 </footer>
 
 <script src="assets/js/app.js?v=10" defer></script>
@@ -1135,7 +622,3 @@ async function handleNewsletter(e) {
 <script src="/assets/js/nav.js"></script>
 </body>
 </html>
-
-
-
-
