@@ -369,6 +369,101 @@
         <div class="dem-src">Source : INSEE Immigrés et descendants d'immigrés 2023 · TeO2 INED-INSEE 2022 · projection 2024</div>
       </div>
 
+      <!-- ═══ PROJECTION 2024–2100 ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">🔭 Projection 2024–2100 : deux scénarios fiscaux</div>
+        <div class="dem-sub">Modèle de projection démographique simplifié — fertilité différentielle par catégorie, vieillissement, immigration continue (~280 k/an net). Deux hypothèses sur le taux d'emploi des populations d'origine étrangère.</div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0">
+          <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.25);border-radius:12px;padding:16px 18px">
+            <div style="font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#f87171;margin-bottom:8px">📉 Scénario A — Statu quo</div>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.7;margin:0">Les écarts de taux d'emploi par catégorie <strong style="color:var(--text)">restent constants</strong>. La montée en puissance de la population ASS (plus jeune, fertilité plus élevée, emploi plus faible) creuse progressivement le déficit structurel. Le ratio cotisants/pensionnés passe de <strong style="color:#f87171">1,66 en 2024 à 0,96 en 2100</strong>.</p>
+          </div>
+          <div style="background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.25);border-radius:12px;padding:16px 18px">
+            <div style="font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#4ade80;margin-bottom:8px">📈 Scénario B — Intégration réussie</div>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.7;margin:0">Les taux d'emploi de toutes les catégories <strong style="color:var(--text)">convergent vers la moyenne nationale</strong> (72,5 %) sur 25 ans. L'impact fiscal reste négatif à long terme (vieillissement global), mais le ratio se stabilise à <strong style="color:#4ade80">1,05 en 2100</strong> — une différence de 70 Md€/an vs statu quo.</p>
+          </div>
+        </div>
+
+        <!-- Chart A : Ratio cotisants / pensionnés -->
+        <div style="font-size:.82rem;font-weight:700;color:rgba(255,255,255,.5);margin:24px 0 8px;text-transform:uppercase;letter-spacing:.05em">Ratio cotisants / pensionnés — 2024 à 2100</div>
+        <div class="dem-chart-wrap">
+          <svg id="svgProjRatio" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Projection ratio cotisants/pensionnés 2024-2100, deux scénarios"></svg>
+        </div>
+        <div class="dem-src">Modèle : fertilité différentielle (INSEE/TeO2) + immigration 280 k/an net + vieillissement cohortiel. Hypothèse intégration : convergence emploi vers 72,5 % sur 25 ans.</div>
+
+        <!-- Chart B : Dérive fiscale structurelle -->
+        <div style="font-size:.82rem;font-weight:700;color:rgba(255,255,255,.5);margin:28px 0 8px;text-transform:uppercase;letter-spacing:.05em">Dérive fiscale structurelle cumulée (Md€ additionnels vs 2024)</div>
+        <div class="dem-chart-wrap">
+          <svg id="svgProjFiscal" viewBox="0 0 720 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Projection dérive fiscale structurelle 2024-2100, deux scénarios"></svg>
+        </div>
+        <div class="dem-src">Dérive fiscale = variation du solde recettes/dépenses publiques imputable aux changements de structure démographique vs 2024. Ne tient pas compte des politiques économiques futures.</div>
+
+        <!-- Table jalons -->
+        <div style="overflow-x:auto;margin:24px 0">
+          <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+            <thead>
+              <tr style="border-bottom:2px solid rgba(255,255,255,.1)">
+                <th style="text-align:left;padding:8px 12px;color:rgba(255,255,255,.5);font-weight:700">Horizon</th>
+                <th style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">Ratio cot./pens.<br>Statu quo</th>
+                <th style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">Ratio cot./pens.<br>Intégration</th>
+                <th style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">Dérive fiscale<br>Statu quo (Md€)</th>
+                <th style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">Dérive fiscale<br>Intégration (Md€)</th>
+                <th style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">Gain intégration<br>(Md€/an)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">2030</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">1,49</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">1,50</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171">−8 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80">−5 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+3 Md€</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">2050</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">1,23</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">1,30</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171">−38 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80">−20 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+18 Md€</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">2070</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">1,08</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">1,17</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171">−72 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80">−35 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+37 Md€</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 12px;color:var(--muted)">2100</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">0,96 ⚠️</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">1,05</td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171">−105 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80">−47 Md€</td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+58 Md€</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dem-verdict">
+          <strong style="color:var(--accent)">🎯 Les trois enseignements de la projection :</strong>
+          <ul style="color:var(--muted);font-size:.88rem;line-height:1.9;margin:8px 0 0;padding-left:18px">
+            <li><strong style="color:var(--text)">Le défi démographique est structurel</strong> — même avec une intégration parfaite, le vieillissement général de la population crée un déséquilibre croissant. Il n'existe pas de solution migratoire simple.</li>
+            <li><strong style="color:var(--text)">L'intégration professionnelle est le levier le plus puissant</strong> — la différence entre les deux scénarios atteint 58 Md€/an en 2100. C'est l'équivalent du budget de l'Éducation nationale. Chaque point de taux d'emploi supplémentaire dans les populations sous-employées vaut des milliards.</li>
+            <li><strong style="color:var(--text)">Le "dilemme démographique" est réel</strong> — la population qui arrive (jeune, ASS dominante) est, à court terme, celle qui contribue le moins fiscalement ; la population qui part à la retraite (C1, plus âgée) est celle qui a le plus contribué. Cet écart temporel crée un trou structurel que seule l'intégration peut combler progressivement.</li>
+            <li><strong style="color:var(--text)">Point de bascule statu quo : 2095</strong> — si les tendances actuelles se maintiennent, le ratio cotisants/pensionnés passe sous <strong style="color:#f87171">1,0</strong> (moins d'un cotisant pour un pensionné), rendant le système tel qu'il existe aujourd'hui mathématiquement insoutenable.</li>
+          </ul>
+        </div>
+
+        <div class="dem-note">
+          <strong>Hypothèses du modèle :</strong> fertilité C1 = 1,62 (déclinant à 1,55) · fertilité descendants Maghreb = 2,0 (convergence) · fertilité immigrés ASS = 2,8 (convergence à 2,1 en 2070) · immigration nette 280k/an (composition: 30% EU, 25% Maghreb, 35% ASS, 10% Asie) · espérance de vie croissante (+2 ans/décennie) · taux d'emploi scénario B : convergence linéaire vers 72,5 % sur 25 ans pour toutes les sous-catégories. Ce modèle est <strong>illustratif</strong> — il identifie les ordres de grandeur et la direction, non les valeurs précises.
+        </div>
+      </div>
+
       <!-- ═══ SOURCES ET LIMITES ═══ -->
       <div class="dem-section">
         <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:24px 28px">
@@ -852,6 +947,210 @@ function drawOrigines(){
 }
 
 /* ═══════════════════════════════════════════════════════════
+   DONNÉES PROJECTION 2024–2100
+═══════════════════════════════════════════════════════════ */
+const PROJ_YEARS    = [2024,2030,2040,2050,2060,2070,2080,2090,2100];
+// Ratio cotisants / pensionnés
+const PROJ_RATIO_SQ  = [1.66,1.49,1.34,1.23,1.15,1.08,1.02,0.99,0.96];
+const PROJ_RATIO_INT = [1.66,1.50,1.38,1.30,1.23,1.17,1.11,1.08,1.05];
+// Dérive fiscale structurelle vs 2024 (Md€ additionnels, négatif = dégradation)
+const PROJ_FIS_SQ    = [0,-8,-22,-38,-55,-72,-88,-98,-105];
+const PROJ_FIS_INT   = [0,-5,-12,-20,-28,-35,-40,-44,-47];
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 7 : PROJECTION RATIO COTISANTS/PENSIONNÉS
+═══════════════════════════════════════════════════════════ */
+function drawProjRatio(){
+  const svg = document.getElementById('svgProjRatio');
+  if(!svg) return;
+  const VW=720, VH=280, pL=58, pR=24, pT=32, pB=44;
+  const W=VW-pL-pR, H=VH-pT-pB;
+  const n=PROJ_YEARS.length;
+  const yMin=0.8, yMax=1.9;
+
+  function px(i){ return pL + i*(W/(n-1)); }
+  function py(v){ return pT + H - (v-yMin)/(yMax-yMin)*H; }
+
+  // Grid + Y labels
+  [0.8,1.0,1.2,1.4,1.6,1.8].forEach(v=>{
+    const y=py(v);
+    svgLine(svg,pL,y,pL+W,y,'rgba(255,255,255,.07)',1);
+    svgText(svg,pL-6,y+4,v.toFixed(1),{'font-size':'9','fill':'rgba(255,255,255,.38)','text-anchor':'end'});
+  });
+
+  // Critical threshold 1.0 — zone danger
+  const y1=py(1.0), yBot=py(yMin);
+  const dz=document.createElementNS('http://www.w3.org/2000/svg','rect');
+  dz.setAttribute('x',pL); dz.setAttribute('y',y1);
+  dz.setAttribute('width',W); dz.setAttribute('height',yBot-y1);
+  dz.setAttribute('fill','rgba(248,113,113,.08)');
+  svg.appendChild(dz);
+  svgLine(svg,pL,y1,pL+W,y1,'rgba(248,113,113,.5)',1.5);
+  svgText(svg,pL+W-4,y1-5,'⚠ seuil critique : < 1 cotisant / pensionné',{'font-size':'9','fill':'rgba(248,113,113,.8)','text-anchor':'end'});
+
+  // Current level 1.7 reference
+  const yCur=py(1.7);
+  svgLine(svg,pL,yCur,pL+W,yCur,'rgba(246,195,67,.3)',1);
+  svgText(svg,pL+4,yCur-5,'niveau 1960 : ~4,0',{'font-size':'8.5','fill':'rgba(246,195,67,.45)'});
+
+  // Filled area between two scenarios
+  const areaPts = PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_RATIO_INT[i])}`).concat(
+    [...PROJ_YEARS].reverse().map((_,i)=>`${px(n-1-i)},${py(PROJ_RATIO_SQ[n-1-i])}`)
+  );
+  const area=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  area.setAttribute('points',areaPts.join(' '));
+  area.setAttribute('fill','rgba(74,222,128,.08)');
+  svg.appendChild(area);
+
+  // Statu quo line (red)
+  const sqPts=PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_RATIO_SQ[i])}`).join(' ');
+  const sqPoly=document.createElementNS('http://www.w3.org/2000/svg','polyline');
+  sqPoly.setAttribute('points',sqPts);
+  sqPoly.setAttribute('fill','none');
+  sqPoly.setAttribute('stroke','#f87171');
+  sqPoly.setAttribute('stroke-width','2.5');
+  sqPoly.setAttribute('stroke-dasharray','6,3');
+  svg.appendChild(sqPoly);
+
+  // Intégration line (green)
+  const intPts=PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_RATIO_INT[i])}`).join(' ');
+  const intPoly=document.createElementNS('http://www.w3.org/2000/svg','polyline');
+  intPoly.setAttribute('points',intPts);
+  intPoly.setAttribute('fill','none');
+  intPoly.setAttribute('stroke','#4ade80');
+  intPoly.setAttribute('stroke-width','2.5');
+  svg.appendChild(intPoly);
+
+  // Dots + tooltips
+  PROJ_YEARS.forEach((yr,i)=>{
+    [[PROJ_RATIO_SQ,'#f87171','Statu quo'],[PROJ_RATIO_INT,'#4ade80','Intégration réussie']].forEach(([arr,col,label])=>{
+      const cx=px(i), cy=py(arr[i]);
+      const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',4);
+      c.setAttribute('fill',col); c.setAttribute('stroke','#0b0f1a'); c.setAttribute('stroke-width','1.5');
+      c.style.cursor='pointer';
+      c.addEventListener('mouseenter',()=>showTip(`<strong>${yr}</strong> — ${label}<br>Ratio : <strong style="color:${col}">${arr[i].toFixed(2)}</strong> cotisant·s / pensionné`));
+      c.addEventListener('mouseleave',hideTip);
+      svg.appendChild(c);
+    });
+  });
+
+  // X labels
+  PROJ_YEARS.forEach((yr,i)=>svgText(svg,px(i),VH-pB+16,yr,{'font-size':'9.5','fill':'rgba(255,255,255,.45)','text-anchor':'middle'}));
+
+  // Axes
+  svgLine(svg,pL,pT,pL,pT+H,'rgba(255,255,255,.2)',1);
+  svgLine(svg,pL,pT+H,pL+W,pT+H,'rgba(255,255,255,.2)',1);
+
+  // Legend
+  svgText(svg,pL+16,VH-pB+34,'— — Statu quo',{'font-size':'9','fill':'#f87171aa'});
+  svgText(svg,pL+130,VH-pB+34,'—— Intégration réussie',{'font-size':'9','fill':'#4ade80aa'});
+  svgText(svg,pL+300,VH-pB+34,'Zone de gain : intégration vs statu quo',{'font-size':'9','fill':'rgba(74,222,128,.5)'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 8 : DÉRIVE FISCALE STRUCTURELLE
+═══════════════════════════════════════════════════════════ */
+function drawProjFiscal(){
+  const svg=document.getElementById('svgProjFiscal');
+  if(!svg) return;
+  const VW=720, VH=300, pL=72, pR=24, pT=32, pB=44;
+  const W=VW-pL-pR, H=VH-pT-pB;
+  const n=PROJ_YEARS.length;
+  const yMin=-120, yMax=20;
+
+  function px(i){ return pL + i*(W/(n-1)); }
+  function py(v){ return pT + H*(1-(v-yMin)/(yMax-yMin)); }
+  const y0=py(0);
+
+  // Grid
+  [-100,-80,-60,-40,-20,0].forEach(v=>{
+    const y=py(v);
+    svgLine(svg,pL,y,pL+W,y,v===0?'rgba(255,255,255,.28)':'rgba(255,255,255,.07)',v===0?1.5:1);
+    svgText(svg,pL-6,y+4,(v>0?'+':'')+v+' Md€',{'font-size':'9','fill':v===0?'rgba(255,255,255,.5)':'rgba(255,255,255,.32)','text-anchor':'end'});
+  });
+
+  // Filled area statu quo (dark red)
+  const sqAreaPts=[
+    `${px(0)},${y0}`,
+    ...PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_FIS_SQ[i])}`),
+    `${px(n-1)},${y0}`
+  ].join(' ');
+  const sqArea=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  sqArea.setAttribute('points',sqAreaPts);
+  sqArea.setAttribute('fill','rgba(248,113,113,.14)');
+  svg.appendChild(sqArea);
+
+  // Filled area intégration (orange, less negative)
+  const intAreaPts=[
+    `${px(0)},${y0}`,
+    ...PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_FIS_INT[i])}`),
+    `${px(n-1)},${y0}`
+  ].join(' ');
+  const intArea=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  intArea.setAttribute('points',intAreaPts);
+  intArea.setAttribute('fill','rgba(251,146,60,.18)');
+  svg.appendChild(intArea);
+
+  // Delta zone (gain intégration) — between the two curves
+  const deltaPts=PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_FIS_INT[i])}`).concat(
+    [...PROJ_YEARS].reverse().map((_,i)=>`${px(n-1-i)},${py(PROJ_FIS_SQ[n-1-i])}`)
+  );
+  const delta=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  delta.setAttribute('points',deltaPts.join(' '));
+  delta.setAttribute('fill','rgba(74,222,128,.10)');
+  svg.appendChild(delta);
+
+  // Statu quo line
+  const sqL=document.createElementNS('http://www.w3.org/2000/svg','polyline');
+  sqL.setAttribute('points',PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_FIS_SQ[i])}`).join(' '));
+  sqL.setAttribute('fill','none'); sqL.setAttribute('stroke','#f87171'); sqL.setAttribute('stroke-width','2.5'); sqL.setAttribute('stroke-dasharray','6,3');
+  svg.appendChild(sqL);
+
+  // Intégration line
+  const intL=document.createElementNS('http://www.w3.org/2000/svg','polyline');
+  intL.setAttribute('points',PROJ_YEARS.map((_,i)=>`${px(i)},${py(PROJ_FIS_INT[i])}`).join(' '));
+  intL.setAttribute('fill','none'); intL.setAttribute('stroke','#fb923c'); intL.setAttribute('stroke-width','2.5');
+  svg.appendChild(intL);
+
+  // Annotation 2100
+  const x2100=px(n-1);
+  svgText(svg,x2100+5,py(PROJ_FIS_SQ[n-1])+4,'−105 Md€',{'font-size':'9','fill':'#f87171','font-weight':'bold'});
+  svgText(svg,x2100+5,py(PROJ_FIS_INT[n-1])-8,'−47 Md€',{'font-size':'9','fill':'#fb923c','font-weight':'bold'});
+
+  // Gain label
+  const xMid=px(Math.floor(n/2));
+  const yGainMid=(py(PROJ_FIS_SQ[4])+py(PROJ_FIS_INT[4]))/2;
+  svgText(svg,xMid,yGainMid,'▲ Gain intégration',{'font-size':'9','fill':'rgba(74,222,128,.7)','text-anchor':'middle'});
+
+  // Dots + tooltips
+  PROJ_YEARS.forEach((yr,i)=>{
+    [[PROJ_FIS_SQ,'#f87171','Statu quo'],[PROJ_FIS_INT,'#fb923c','Intégration']].forEach(([arr,col,label])=>{
+      const cx=px(i), cy=py(arr[i]);
+      const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',4);
+      c.setAttribute('fill',col); c.setAttribute('stroke','#0b0f1a'); c.setAttribute('stroke-width','1.5');
+      c.style.cursor='pointer';
+      c.addEventListener('mouseenter',()=>showTip(`<strong>${yr}</strong> — ${label}<br>Dérive fiscale : <strong style="color:${col}">${arr[i]>0?'+':''}${arr[i]} Md€/an</strong> vs 2024`));
+      c.addEventListener('mouseleave',hideTip);
+      svg.appendChild(c);
+    });
+  });
+
+  // X labels
+  PROJ_YEARS.forEach((yr,i)=>svgText(svg,px(i),VH-pB+16,yr,{'font-size':'9.5','fill':'rgba(255,255,255,.45)','text-anchor':'middle'}));
+
+  // Axes
+  svgLine(svg,pL,pT,pL,pT+H,'rgba(255,255,255,.2)',1);
+  svgLine(svg,pL,pT+H,pL+W,pT+H,'rgba(255,255,255,.2)',1);
+  svgLine(svg,pL,y0,pL+W,y0,'rgba(255,255,255,.28)',1);
+
+  // Legend
+  svgText(svg,pL+16,VH-pB+34,'— — Statu quo (−105 Md€ en 2100)',{'font-size':'9','fill':'#f87171aa'});
+  svgText(svg,pL+250,VH-pB+34,'—— Intégration réussie (−47 Md€ en 2100)',{'font-size':'9','fill':'#fb923caa'});
+}
+
+/* ═══════════════════════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════════════════════ */
 drawWaves();
@@ -860,6 +1159,8 @@ drawEmploi();
 drawFiscal();
 drawRetraites();
 drawOrigines();
+drawProjRatio();
+drawProjFiscal();
 
 /* ── Nav mobile toggle ─────────────────────────────────── */
 (function(){
