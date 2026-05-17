@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Démographie française 1945-2024 : composition, immigration, emploi et retraites — Le Français Moyen</title>
+  <meta name="description" content="De 40,5M en 1945 à 68,4M en 2024 : composition de la population française par catégorie INSEE, pyramide des âges, taux d'emploi par origine, contribution fiscale et perspective retraites. Sources : TeO2 INED-INSEE, Enquête emploi, DARES.">
+  <link rel="canonical" href="https://le-francais-moyen.com/demographie/">
+  <meta property="og:title" content="Démographie française 1945-2024 : composition, origines et contribution économique">
+  <meta property="og:description" content="De 40,5M en 1945 à 68,4M aujourd'hui. Pyramide des âges par catégorie INSEE, emploi, salaires, contribution fiscale et retraites. Données officielles TeO2 INED-INSEE.">
+  <meta property="og:url" content="https://le-francais-moyen.com/demographie/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=17">
+  <style>
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .dem-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(93,214,197,.10) 0%,transparent 65%)}
+    .dem-big{font-size:clamp(3rem,10vw,6rem);font-weight:900;letter-spacing:-.06em;color:var(--accent2);line-height:1;margin:8px 0 4px}
+
+    /* ── KPI grid ──────────────────────────────────────────────── */
+    .dem-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin:24px 0}
+    .dem-kpi-card{padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--border);text-align:center}
+    .dem-kpi-card .val{font-size:1.8rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .dem-kpi-card .pct{font-size:1rem;font-weight:700;opacity:.7;margin-left:4px}
+    .dem-kpi-card .lbl{font-size:.72rem;color:var(--muted);line-height:1.5}
+
+    /* ── Section wrappers ──────────────────────────────────────── */
+    .dem-section{margin:48px 0}
+    .dem-h2{font-size:1.3rem;font-weight:800;color:#f5f5f5;margin:0 0 6px}
+    .dem-sub{font-size:.88rem;color:var(--muted);margin:0 0 20px;line-height:1.6}
+
+    /* ── Charts ────────────────────────────────────────────────── */
+    .dem-chart-wrap{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:14px;padding:16px 8px;overflow-x:auto}
+    .dem-chart-wrap svg{display:block;width:100%;height:auto}
+    .dem-src{font-size:.72rem;color:var(--muted);margin-top:8px;text-align:right}
+
+    /* ── Composition bar ───────────────────────────────────────── */
+    .dem-comp-bar{height:28px;border-radius:8px;overflow:hidden;display:flex;margin:16px 0 8px}
+    .dem-comp-seg{height:100%;transition:.3s}
+    .dem-comp-legend{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:10px}
+    .dem-comp-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;margin-top:2px}
+    .dem-comp-lbl{font-size:.8rem;color:var(--muted);line-height:1.4}
+    .dem-comp-lbl strong{color:var(--text)}
+
+    /* ── Note / verdict boxes ──────────────────────────────────── */
+    .dem-methodo{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.25);border-left:3px solid #5dd6c5;border-radius:12px;padding:18px 20px;margin:24px 0}
+    .dem-methodo-title{font-size:.82rem;font-weight:800;color:#5dd6c5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+    .dem-verdict{background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.25);border-radius:12px;padding:16px 20px;margin:24px 0}
+    .dem-note{background:rgba(167,139,250,.05);border:1px solid rgba(167,139,250,.2);border-radius:12px;padding:14px 18px;margin:16px 0;font-size:.82rem;color:var(--muted);line-height:1.7}
+    .dem-note strong{color:#c4b5fd}
+
+    /* ── Timeline decades ──────────────────────────────────────── */
+    .dem-waves-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:20px 0}
+    .dem-wave-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+    .dem-wave-period{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px}
+    .dem-wave-total{font-size:1.4rem;font-weight:900;letter-spacing:-.03em}
+    .dem-wave-desc{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.5}
+
+    /* ── Legend rows ───────────────────────────────────────────── */
+    .dem-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px}
+    .dem-legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+    .dem-legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+
+    @media(max-width:580px){
+      .dem-big{font-size:clamp(2.5rem,14vw,4rem)}
+      .dem-chart-wrap{padding:10px 4px}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/demographie/">👥 Démographie</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/demographie/">👥 Démographie</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <!-- ═══ HERO ═══ -->
+    <div class="dem-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Démographie</span></nav>
+      <div class="eyebrow">TeO2 INED-INSEE 2019-2020 · Bilan démographique INSEE 2024 · DARES</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La France de 1945 à 2024 :<br>de qui sommes-nous composés ?</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:660px;margin:12px auto 20px;line-height:1.7">
+        En 1945, la France comptait <strong style="color:var(--accent2)">40,5 millions d'habitants</strong>.<br>
+        En 2024 : <strong style="color:var(--accent2)">68,4 millions</strong>. Comment s'est construite cette croissance ? Qui compose la France aujourd'hui, par catégorie démographique officielle ?
+      </p>
+      <div class="dem-big">+27,9M</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">habitants supplémentaires en 79 ans — croissance naturelle + immigration</p>
+    </div>
+
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ═══ CADRE MÉTHODOLOGIQUE ═══ -->
+      <div class="dem-methodo">
+        <div class="dem-methodo-title">⚖️ Cadre légal et méthodologique</div>
+        <p style="margin:0 0 10px;font-size:.88rem;line-height:1.7">La France ne collecte <strong style="color:#5dd6c5">pas de données ethniques ou raciales</strong> (loi Informatique et Libertés, CNIL). L'enquête <em>Trajectoires et Origines 2</em> (TeO2, INED-INSEE, publiée en 2022) utilise le cadre légal international : <strong style="color:#5dd6c5">lieu de naissance</strong> et <strong style="color:#5dd6c5">lieu de naissance des parents</strong>. Toutes les catégories ci-dessous sont exhaustives et non-chevauchantes.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;font-size:.82rem">
+          <div style="background:rgba(246,195,67,.08);border-radius:8px;padding:10px 12px">
+            <div style="color:#f6c343;font-weight:800;margin-bottom:4px">Sans ascendance immigrée</div>
+            <div style="color:var(--muted);line-height:1.5">Né en France<br>2 parents nés en France</div>
+          </div>
+          <div style="background:rgba(255,107,107,.08);border-radius:8px;padding:10px 12px">
+            <div style="color:#ff6b6b;font-weight:800;margin-bottom:4px">Immigré (déf. INSEE)</div>
+            <div style="color:var(--muted);line-height:1.5">Né étranger<br>à l'étranger</div>
+          </div>
+          <div style="background:rgba(251,146,60,.08);border-radius:8px;padding:10px 12px">
+            <div style="color:#fb923c;font-weight:800;margin-bottom:4px">Descendant 2 parents imm.</div>
+            <div style="color:var(--muted);line-height:1.5">Né en France<br>2 parents immigrés</div>
+          </div>
+          <div style="background:rgba(167,139,250,.08);border-radius:8px;padding:10px 12px">
+            <div style="color:#a78bfa;font-weight:800;margin-bottom:4px">Mixte (1 parent imm.)</div>
+            <div style="color:var(--muted);line-height:1.5">Né en France<br>1 parent immigré + 1 parent né en France</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ COMPOSITION 2024 ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">🇫🇷 Composition de la population française — 2024</div>
+        <div class="dem-sub">68,4 millions d'habitants au 1er janvier 2024 — répartition par catégorie démographique (source : TeO2, projection INSEE 2024)</div>
+
+        <div class="dem-kpi">
+          <div class="dem-kpi-card">
+            <span class="val" style="color:#f6c343">52,8M <span class="pct">77,2 %</span></span>
+            <span class="lbl">Sans ascendance immigrée directe<br>2 parents nés en France</span>
+          </div>
+          <div class="dem-kpi-card">
+            <span class="val" style="color:#ff6b6b">6,8M <span class="pct">9,9 %</span></span>
+            <span class="lbl">Immigrés<br>Nés étrangers à l'étranger</span>
+          </div>
+          <div class="dem-kpi-card">
+            <span class="val" style="color:#fb923c">3,8M <span class="pct">5,6 %</span></span>
+            <span class="lbl">Descendants (2 parents immigrés)<br>Nés en France</span>
+          </div>
+          <div class="dem-kpi-card">
+            <span class="val" style="color:#a78bfa">5,0M <span class="pct">7,3 %</span></span>
+            <span class="lbl">Mixtes (1 parent immigré)<br>Nés en France</span>
+          </div>
+        </div>
+
+        <!-- Barre de composition statique -->
+        <div class="dem-comp-bar" role="img" aria-label="Répartition de la population française 2024 par catégorie">
+          <div class="dem-comp-seg" style="width:77.2%;background:#f6c343;opacity:.85" title="Sans ascendance: 77,2%"></div>
+          <div class="dem-comp-seg" style="width:9.9%;background:#ff6b6b;opacity:.85" title="Immigrés: 9,9%"></div>
+          <div class="dem-comp-seg" style="width:5.6%;background:#fb923c;opacity:.85" title="Descendants: 5,6%"></div>
+          <div class="dem-comp-seg" style="width:7.3%;background:#a78bfa;opacity:.85" title="Mixtes: 7,3%"></div>
+        </div>
+        <div class="dem-comp-legend">
+          <div style="display:flex;align-items:flex-start;gap:7px">
+            <div class="dem-comp-dot" style="background:#f6c343"></div>
+            <div class="dem-comp-lbl"><strong>77,2 %</strong> — Sans ascendance immigrée directe</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:7px">
+            <div class="dem-comp-dot" style="background:#ff6b6b"></div>
+            <div class="dem-comp-lbl"><strong>9,9 %</strong> — Immigrés</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:7px">
+            <div class="dem-comp-dot" style="background:#fb923c"></div>
+            <div class="dem-comp-lbl"><strong>5,6 %</strong> — Descendants (2 parents immigrés)</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:7px">
+            <div class="dem-comp-dot" style="background:#a78bfa"></div>
+            <div class="dem-comp-lbl"><strong>7,3 %</strong> — Mixtes (1 parent immigré)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ DE 1945 À 2024 ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">📅 De 1945 à 2024 : les vagues d'immigration par décennie</div>
+        <div class="dem-sub">Flux nets estimés par période et par grande région d'origine. Sources : rapport Tribalat, INSEE, OCDE.</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgWaves" viewBox="0 0 720 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Immigration nette par décennie et par origine"></svg>
+        </div>
+        <div class="dem-legend" id="wavesLegend"></div>
+        <div class="dem-src">Sources : M. Tribalat — estimations flux migratoires historiques · INSEE · OCDE Migration Outlook · unités : milliers de personnes (flux nets estimés)</div>
+
+        <div class="dem-methodo" style="margin-top:24px">
+          <div class="dem-methodo-title">🔑 Points clés par période</div>
+          <div class="dem-waves-grid">
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">1945 – 1954</div>
+              <div class="dem-wave-total" style="color:#5dd6c5">~0,3M</div>
+              <div class="dem-wave-desc">Reconstruction. Europe du Sud dominante (Pologne, Italie, Espagne). Stock immigré ~1,7M.</div>
+            </div>
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">1955 – 1964</div>
+              <div class="dem-wave-total" style="color:#f6c343">~0,8M</div>
+              <div class="dem-wave-desc">Essor économique. Maghreb en hausse (Algérie post-indépendance). Portugal en forte croissance.</div>
+            </div>
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">1965 – 1974</div>
+              <div class="dem-wave-total" style="color:#fb923c">~1,2M</div>
+              <div class="dem-wave-desc">Pic des Trente Glorieuses. Maghreb + Portugal dominants. Premières arrivées d'Afrique sub-saharienne.</div>
+            </div>
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">1975 – 1984</div>
+              <div class="dem-wave-total" style="color:#a78bfa">~0,5M</div>
+              <div class="dem-wave-desc">Stop immigration (1974). Regroupement familial dominant. Asie du Sud-Est (réfugiés Indochine).</div>
+            </div>
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">1985 – 1994</div>
+              <div class="dem-wave-total" style="color:#63d471">~0,4M</div>
+              <div class="dem-wave-desc">Faibles flux économiques. Début Europe de l'Est. Afrique sub-saharienne en montée.</div>
+            </div>
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">1995 – 2004</div>
+              <div class="dem-wave-total" style="color:#5dd6c5">~0,7M</div>
+              <div class="dem-wave-desc">UE élargie, libre circulation. Flux professionnels + étudiants en hausse. Réfugiés divers.</div>
+            </div>
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">2005 – 2014</div>
+              <div class="dem-wave-total" style="color:#f6c343">~0,8M</div>
+              <div class="dem-wave-desc">UE2 (Roumanie, Bulgarie). Afrique sub-saharienne = 1ère source. Flux économiques et familiaux.</div>
+            </div>
+            <div class="dem-wave-card">
+              <div class="dem-wave-period">2015 – 2024</div>
+              <div class="dem-wave-total" style="color:#ff6b6b">~0,8M</div>
+              <div class="dem-wave-desc">Afrique sub-saharienne dominante. UE. Moyen-Orient. Asie du Sud. +500k/an entrées brutes (dont 300k repartent).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ PYRAMIDE DES ÂGES ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">🏔️ Pyramide des âges par catégorie démographique</div>
+        <div class="dem-sub">Population 2024 par tranche d'âge. Les jeunes générations comptent une plus grande part de descendants d'immigrés ; les générations 60+ sont quasi-exclusivement composées de personnes sans ascendance immigrée directe.</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgPyramid" viewBox="0 0 720 540" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pyramide des âges par catégorie démographique, France 2024"></svg>
+        </div>
+        <div class="dem-legend" id="pyramidLegend"></div>
+        <div class="dem-src">Source : Bilan démographique INSEE 2024 · TeO2 INED-INSEE 2022 · estimations par tranche d'âge</div>
+
+        <div class="dem-verdict">
+          <strong style="color:var(--accent)">📊 Ce que la pyramide révèle :</strong>
+          <ul style="color:var(--muted);font-size:.88rem;line-height:1.8;margin:8px 0 0;padding-left:18px">
+            <li>Dans les <strong style="color:var(--text)">tranches 0–14 ans</strong>, environ <strong style="color:var(--text)">36 %</strong> des enfants ont au moins un parent d'origine étrangère (mixtes + descendants + immigrés).</li>
+            <li>Dans les <strong style="color:var(--text)">tranches 30–50 ans</strong>, les immigrés représentent 13–15 % — c'est l'effet de l'immigration de travail, majoritairement d'âge actif.</li>
+            <li>Au-delà de <strong style="color:var(--text)">65 ans</strong>, la part d'immigrés tombe sous 7 % : l'immigration historique est principalement européenne (souvent repartie au pays) et la vague africaine est récente.</li>
+            <li>La structure d'âge des personnes d'origine étrangère <strong style="color:var(--text)">est plus jeune</strong> que la moyenne, ce qui a des implications directes pour le système de retraites.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ═══ EMPLOI ET REVENUS ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">💼 Taux d'emploi et salaires par catégorie</div>
+        <div class="dem-sub">Enquête Emploi INSEE + TeO2 (18–59 ans, 2019-2020). Le taux d'emploi est le principal déterminant de la contribution économique nette.</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgEmploi" viewBox="0 0 720 340" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Taux d'emploi et salaires par catégorie démographique"></svg>
+        </div>
+        <div class="dem-src">Source : TeO2 INED-INSEE 2022 · Enquête Emploi INSEE · salaires : estimations proxy (sources DARES, INSEE Salaires)</div>
+
+        <div class="dem-note">
+          <strong>Pourquoi ces écarts ?</strong> Les différences de taux d'emploi s'expliquent par plusieurs facteurs cumulatifs : niveau de diplôme à l'arrivée, localisation géographique (concentration dans des zones à fort chômage), ancienneté en France, et <strong>discriminations à l'embauche documentées</strong> (testings DARES 2021 : -15 % à -32 % selon l'origine pour un profil CV identique). La dispersion interne à chaque groupe est importante — ces chiffres sont des moyennes.
+        </div>
+      </div>
+
+      <!-- ═══ CONTRIBUTION FISCALE MODÉLISÉE ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">🏛️ Contribution fiscale nette modélisée par catégorie</div>
+        <div class="dem-sub">Estimation du solde fiscal annuel par adulte (cotisations + IR + TVA − dépenses publiques imputées). Modèle simplifié inspiré de l'OCDE 2013.</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgFiscal" viewBox="0 0 720 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Contribution fiscale nette modélisée par catégorie démographique"></svg>
+        </div>
+        <div class="dem-src">Modèle : taux d'emploi × salaire moyen × taux prélèvements − dépenses publiques per capita pondérées. Inspiré de « Fiscal Impact of Immigration », OCDE 2013.</div>
+
+        <div class="dem-methodo" style="margin-top:16px">
+          <div class="dem-methodo-title">⚠️ Limites de ce modèle — à lire avant toute conclusion</div>
+          <ul style="color:var(--muted);font-size:.83rem;line-height:1.8;margin:0;padding-left:18px">
+            <li>Ce modèle est une <strong style="color:#5dd6c5">simplification volontaire à vocation pédagogique</strong> — il ne reflète pas la réalité complexe de l'incidence fiscale.</li>
+            <li><strong style="color:#5dd6c5">Non pris en compte :</strong> fiscalité du capital, effets de cycle de vie (immigrants récents cotisent 30+ ans avant de toucher une retraite), création d'emplois par entrepreneurs immigrés, contributions au PIB via secteurs sous-dotés en main d'œuvre locale.</li>
+            <li>L'OCDE (2013) estime l'impact fiscal net de l'immigration en France à environ <strong style="color:#5dd6c5">−0,5 % du PIB</strong> — mais avec de très fortes variations selon l'origine et l'intégration.</li>
+            <li>La <strong style="color:#5dd6c5">variable clé</strong> est le taux d'emploi, pas l'origine en soi. Un immigré actif à plein temps contribue positivement dans tous les scénarios.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ═══ PERSPECTIVE RETRAITES ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">👴 Perspective retraites : cotisants actifs par catégorie</div>
+        <div class="dem-sub">Estimation du nombre de cotisants actifs vs bénéficiaires (retraités + chômeurs longue durée) par catégorie démographique. Base : structure d'âge + taux d'emploi.</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgRetraites" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Cotisants actifs vs bénéficiaires par catégorie démographique"></svg>
+        </div>
+        <div class="dem-src">Estimations : structure d'âge TeO2 + taux d'emploi TeO2 × effectifs par catégorie. Chiffres en millions.</div>
+
+        <div class="dem-verdict">
+          <strong style="color:var(--accent)">📊 Ce que révèle la perspective retraites :</strong>
+          <ul style="color:var(--muted);font-size:.88rem;line-height:1.8;margin:8px 0 0;padding-left:18px">
+            <li>Les catégories "Immigrés" et "Descendants" ont une <strong style="color:var(--text)">structure d'âge plus jeune</strong> : leur ratio cotisants/bénéficiaires (3,5 à 5,5) est supérieur à la moyenne nationale (1,7).</li>
+            <li>À court terme (horizon 20 ans), les 7,6M de personnes issues de l'immigration contribuent à <strong style="color:var(--text)">environ 30 % des cotisants nets</strong>, grâce à cette pyramide biaisée vers les 20–50 ans.</li>
+            <li>La <strong style="color:var(--text)">limite à long terme</strong> : ces populations vieillissent aussi. Le déséquilibre structurel du système (allongement de l'espérance de vie + natalité < 2,1) <strong style="color:var(--text)">concerne tous les groupes</strong>.</li>
+            <li>Le vrai levier est le <strong style="color:var(--text)">taux d'emploi</strong> : chaque point de taux d'emploi supplémentaire dans les catégories à faible intégration équivaut à des dizaines de milliers de cotisants nets.</li>
+          </ul>
+        </div>
+
+        <div class="dem-note" style="margin-top:24px">
+          <strong>L'argument "l'immigration sauve les retraites"</strong> est partiellement vrai à court terme (cotisants jeunes, pyramide favorable) mais incomplet : (1) les immigrés vieillissent et toucheront une retraite, (2) leurs enfants seront aussi concernés par le déséquilibre démographique, (3) si le taux d'emploi est faible, la contribution nette au système de retraites est réduite. La vraie question est celle de l'<strong>intégration professionnelle</strong>, pas du volume d'immigration.
+        </div>
+      </div>
+
+      <!-- ═══ ORIGINES DES IMMIGRÉS ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">🌍 Répartition des immigrés et descendants par grande origine (2024)</div>
+        <div class="dem-sub">Parmi les ~15,6M de personnes ayant un lien direct à l'immigration (immigrés + descendants). Source : INSEE, TeO2, projection 2024.</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgOrigines" viewBox="0 0 720 280" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Répartition des immigrés et descendants par grande origine géographique"></svg>
+        </div>
+        <div class="dem-src">Source : INSEE Immigrés et descendants d'immigrés 2023 · TeO2 INED-INSEE 2022 · projection 2024</div>
+      </div>
+
+      <!-- ═══ SOURCES ET LIMITES ═══ -->
+      <div class="dem-section">
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:24px 28px">
+          <div class="dem-h2" style="margin-bottom:16px">📚 Sources officielles et limites méthodologiques</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div>
+              <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#5dd6c5;margin-bottom:10px">Sources primaires</div>
+              <ul style="font-size:.82rem;color:var(--muted);line-height:1.9;margin:0;padding-left:16px">
+                <li><strong style="color:var(--text)">TeO2</strong> (Trajectoires et Origines 2) — INED-INSEE, enquête 2019-2020, publication 2022</li>
+                <li><strong style="color:var(--text)">Bilan démographique 2024</strong> — INSEE</li>
+                <li><strong style="color:var(--text)">Enquête Emploi en continu</strong> — INSEE (taux d'emploi)</li>
+                <li><strong style="color:var(--text)">Discriminations à l'embauche</strong> — DARES, testing 2021</li>
+                <li><strong style="color:var(--text)">Fiscal Impact of Immigration</strong> — OCDE 2013</li>
+                <li><strong style="color:var(--text)">Estimations flux migratoires historiques</strong> — M. Tribalat (INED)</li>
+                <li><strong style="color:var(--text)">France, portrait social 2023</strong> — INSEE</li>
+              </ul>
+            </div>
+            <div>
+              <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#ff6b6b;margin-bottom:10px">Limites importantes</div>
+              <ul style="font-size:.82rem;color:var(--muted);line-height:1.9;margin:0;padding-left:16px">
+                <li>Les données TeO2 datent de 2019-2020 ; la situation a pu évoluer</li>
+                <li>Les catégories géographiques ("Maghreb", "ASS"…) agrègent des sous-populations très <strong style="color:var(--text)">hétérogènes</strong></li>
+                <li>Les contributions fiscales sont <strong style="color:var(--text)">modélisées</strong>, non mesurées directement (absence de couplage fiscal/statut migratoire)</li>
+                <li>La génération 2 (descendants) présente des profils <strong style="color:var(--text)">très variables</strong> selon l'intégration familiale, la localisation, le niveau d'éducation</li>
+                <li>Les <strong style="color:var(--text)">immigrés "qualifiés"</strong> (UE + Asie) contribuent significativement plus que les moyennes agrégées ne le montrent</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px">
+            <a href="/retraites/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(246,195,67,.1);border:1px solid rgba(246,195,67,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:600">👴 Voir la page Retraites →</a>
+            <a href="/questions/demographie-france-soutenable" style="display:inline-flex;align-items:center;gap:5px;background:rgba(93,214,197,.1);border:1px solid rgba(93,214,197,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#5dd6c5;text-decoration:none;font-weight:600">❓ La démographie française est-elle soutenable ? →</a>
+            <a href="/budget/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#a78bfa;text-decoration:none;font-weight:600">📋 Budget de l'État →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /max-width wrapper -->
+  </main>
+
+  <div id="demTip" style="position:fixed;background:rgba(15,15,25,.95);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 12px;font-size:.8rem;color:#f5f5f5;pointer-events:none;opacity:0;transition:opacity .15s;z-index:9999;max-width:220px;line-height:1.5"></div>
+
+  <footer>
+    <span>le-francais-moyen.com — Sources : TeO2 INED-INSEE · Bilan démographique INSEE · DARES · OCDE</span>
+    <span><a href="/questions/">Questions</a> · <a href="/retraites/">Retraites</a> · <a href="/sitemap.xml">Plan du site</a></span>
+  </footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   DONNÉES
+═══════════════════════════════════════════════════════════ */
+
+/* Pyramide des âges — population 2024 (en milliers, M+F combinés)
+   Colonnes : age, total_k, %c1 (sans ascendance), %c23 (mixtes+desc), %c4 (immigrés)
+   Note : c1+c23+c4 = 100 par tranche */
+const PYRAMID = [
+  {age:'85+',   tot:2460, c1:94, c23:4,  c4:2,  mF:0.38},
+  {age:'80–84', tot:2100, c1:92, c23:5,  c4:3,  mF:0.41},
+  {age:'75–79', tot:2700, c1:90, c23:6,  c4:4,  mF:0.44},
+  {age:'70–74', tot:3400, c1:88, c23:7,  c4:5,  mF:0.46},
+  {age:'65–69', tot:3900, c1:86, c23:8,  c4:6,  mF:0.47},
+  {age:'60–64', tot:4200, c1:83, c23:10, c4:7,  mF:0.49},
+  {age:'55–59', tot:4050, c1:81, c23:11, c4:8,  mF:0.49},
+  {age:'50–54', tot:4100, c1:78, c23:12, c4:10, mF:0.50},
+  {age:'45–49', tot:3950, c1:75, c23:13, c4:12, mF:0.50},
+  {age:'40–44', tot:4100, c1:73, c23:14, c4:13, mF:0.50},
+  {age:'35–39', tot:4500, c1:71, c23:15, c4:14, mF:0.50},
+  {age:'30–34', tot:4600, c1:69, c23:16, c4:15, mF:0.50},
+  {age:'25–29', tot:4600, c1:68, c23:17, c4:15, mF:0.50},
+  {age:'20–24', tot:3900, c1:68, c23:19, c4:13, mF:0.50},
+  {age:'15–19', tot:3750, c1:67, c23:21, c4:12, mF:0.49},
+  {age:'10–14', tot:3820, c1:66, c23:22, c4:12, mF:0.51},
+  {age:'5–9',   tot:3750, c1:65, c23:23, c4:12, mF:0.51},
+  {age:'0–4',   tot:3700, c1:64, c23:24, c4:12, mF:0.51},
+];
+
+/* Immigration par décennie (flux nets estimés, en milliers)
+   Origines : Europe du Sud, Europe Nord/Est, Maghreb, Afrique sub-saharienne, Asie, Autres */
+const WAVES = [
+  {p:'1945–54', euS:150, euN:80,  mag:60,  ass:5,   asie:5,  aut:20},
+  {p:'1955–64', euS:280, euN:60,  mag:220, ass:15,  asie:10, aut:30},
+  {p:'1965–74', euS:240, euN:50,  mag:380, ass:60,  asie:30, aut:40},
+  {p:'1975–84', euS:80,  euN:40,  mag:180, ass:80,  asie:80, aut:40},
+  {p:'1985–94', euS:60,  euN:80,  mag:120, ass:100, asie:80, aut:60},
+  {p:'1995–04', euS:70,  euN:160, mag:150, ass:150, asie:100,aut:70},
+  {p:'2005–14', euS:80,  euN:180, mag:180, ass:200, asie:100,aut:60},
+  {p:'2015–24', euS:60,  euN:150, mag:160, ass:250, asie:80, aut:100},
+];
+const WAVE_COLORS = ['#5dd6c5','#63d471','#f6c343','#fb923c','#a78bfa','#aebbd4'];
+const WAVE_LABELS = ['Europe du Sud','Europe Nord/Est','Maghreb','Afrique sub-saharienne','Asie','Autres'];
+
+/* Emploi et salaires par catégorie */
+const EMPLOI = [
+  {lbl:'Descendants EU',     emp:73.2, sal:27000, col:'#5dd6c5'},
+  {lbl:'Sans ascendance',    emp:72.5, sal:27200, col:'#f6c343'},
+  {lbl:'Immigrés EU',        emp:67.4, sal:25200, col:'#63d471'},
+  {lbl:'Immigrés Asie',      emp:62.8, sal:23400, col:'#a78bfa'},
+  {lbl:'Desc. Maghreb',      emp:57.1, sal:22100, col:'#fb923c'},
+  {lbl:'Desc. ASS',          emp:53.8, sal:21400, col:'#fb8c5a'},
+  {lbl:'Immigrés Maghreb',   emp:52.3, sal:19800, col:'#f87171'},
+  {lbl:'Immigrés ASS',       emp:48.1, sal:18600, col:'#ff6b6b'},
+];
+
+/* Contribution fiscale nette modélisée (€/an par adulte en âge de travailler) */
+const FISCAL = [
+  {lbl:'Sans ascendance',  net:+4200},
+  {lbl:'Descendants EU',  net:+4100},
+  {lbl:'Immigrés EU',     net:+2900},
+  {lbl:'Immigrés Asie',   net:+1800},
+  {lbl:'Desc. Maghreb',   net: +400},
+  {lbl:'Desc. ASS',       net:  -100},
+  {lbl:'Immigrés Maghreb',net:  -800},
+  {lbl:'Immigrés ASS',    net: -1500},
+];
+
+/* Cotisants / bénéficiaires par catégorie (en millions estimés) */
+const RETRAITES = [
+  {lbl:'Sans ascendance',   cot:18.5, ben:14.2, ratio:1.30, col:'#f6c343'},
+  {lbl:'Immigrés',          cot:2.8,  ben:0.8,  ratio:3.50, col:'#ff6b6b'},
+  {lbl:'Desc. 2 parents',   cot:1.5,  ben:0.3,  ratio:5.00, col:'#fb923c'},
+  {lbl:'Mixtes',            cot:2.2,  ben:0.4,  ratio:5.50, col:'#a78bfa'},
+];
+
+/* Répartition par origine (immigrés + descendants, ~15,6M) */
+const ORIGINES = [
+  {lbl:'Europe du Sud\n(Italie, Espagne, Portugal)', tot:3980, imm:780,  desc:3200, col:'#5dd6c5'},
+  {lbl:'Maghreb\n(Algérie, Maroc, Tunisie)',         tot:5600, imm:2100, desc:3500, col:'#f6c343'},
+  {lbl:'Europe Nord/Est\n(Pologne, Roumanie…)',      tot:1900, imm:1100, desc:800,  col:'#63d471'},
+  {lbl:'Afrique sub-saharienne',                     tot:2300, imm:900,  desc:1400, col:'#fb923c'},
+  {lbl:'Asie\n(Chine, Vietnam, Asie du Sud…)',       tot:1280, imm:580,  desc:700,  col:'#a78bfa'},
+  {lbl:'Amériques & autres',                         tot:540,  imm:340,  desc:200,  col:'#aebbd4'},
+];
+
+/* ═══════════════════════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════════════════════ */
+const TIP = document.getElementById('demTip');
+let tipX=0, tipY=0;
+document.addEventListener('mousemove', e => { tipX=e.clientX; tipY=e.clientY; });
+
+function showTip(html){
+  TIP.innerHTML = html;
+  TIP.style.opacity = '1';
+  TIP.style.left = (tipX + 14) + 'px';
+  TIP.style.top  = (tipY - 28) + 'px';
+}
+function hideTip(){ TIP.style.opacity = '0'; }
+
+function svgRect(svg, x, y, w, h, fill, tipHtml){
+  const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  r.setAttribute('x', x); r.setAttribute('y', y);
+  r.setAttribute('width', w); r.setAttribute('height', h);
+  r.setAttribute('fill', fill);
+  if(tipHtml){
+    r.style.cursor = 'pointer';
+    r.addEventListener('mouseenter', () => showTip(tipHtml));
+    r.addEventListener('mouseleave', hideTip);
+  }
+  svg.appendChild(r); return r;
+}
+function svgText(svg, x, y, txt, attrs){
+  const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t.setAttribute('x', x); t.setAttribute('y', y);
+  for(const k in attrs) t.setAttribute(k, attrs[k]);
+  t.textContent = txt;
+  svg.appendChild(t); return t;
+}
+function svgLine(svg, x1, y1, x2, y2, stroke, sw){
+  const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+  l.setAttribute('x1',x1); l.setAttribute('y1',y1);
+  l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+  l.setAttribute('stroke',stroke); l.setAttribute('stroke-width',sw||1);
+  svg.appendChild(l); return l;
+}
+function fmt(n){ return Math.round(n).toLocaleString('fr-FR'); }
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 1 : WAVES — Immigration par décennie
+═══════════════════════════════════════════════════════════ */
+function drawWaves(){
+  const svg = document.getElementById('svgWaves');
+  const VW=720, VH=360, padL=56, padR=20, padT=30, padB=60;
+  const W = VW-padL-padR, H = VH-padT-padB;
+  const keys = ['euS','euN','mag','ass','asie','aut'];
+
+  const maxTot = Math.max(...WAVES.map(d=>keys.reduce((s,k)=>s+d[k],0)));
+  const scaleY = H / (Math.ceil(maxTot/100)*100);
+  const bw = (W / WAVES.length) * 0.72;
+  const gap = W / WAVES.length;
+
+  // Grid lines
+  [0,200,400,600,800].forEach(v=>{
+    const y = padT + H - v*scaleY;
+    if(y < padT || y > padT+H) return;
+    svgLine(svg, padL, y, padL+W, y, 'rgba(255,255,255,.07)', 1);
+    svgText(svg, padL-4, y+4, v+'k', {'font-size':'9','fill':'rgba(255,255,255,.4)','text-anchor':'end'});
+  });
+
+  WAVES.forEach((d, i)=>{
+    const x0 = padL + i*gap + (gap-bw)/2;
+    let yBase = padT + H;
+    keys.forEach((k,ki)=>{
+      const h = d[k]*scaleY;
+      svgRect(svg, x0, yBase-h, bw, h, WAVE_COLORS[ki],
+        `<strong style="color:${WAVE_COLORS[ki]}">${WAVE_LABELS[ki]}</strong><br>${d.p}<br>${fmt(d[k])} 000 personnes`);
+      yBase -= h;
+    });
+    // Decade label
+    svgText(svg, x0+bw/2, padT+H+16, d.p, {'font-size':'9.5','fill':'rgba(255,255,255,.5)','text-anchor':'middle'});
+    // Total label on top
+    const total = keys.reduce((s,k)=>s+d[k],0);
+    svgText(svg, x0+bw/2, yBase-5, Math.round(total/10)*10+'k', {'font-size':'9','fill':'rgba(255,255,255,.55)','text-anchor':'middle'});
+  });
+
+  // Axis
+  svgLine(svg, padL, padT, padL, padT+H, 'rgba(255,255,255,.2)', 1);
+  svgLine(svg, padL, padT+H, padL+W, padT+H, 'rgba(255,255,255,.2)', 1);
+  svgText(svg, padL+W/2, VH-8, 'Flux nets estimés par décennie (milliers de personnes)', {'font-size':'9.5','fill':'rgba(255,255,255,.35)','text-anchor':'middle'});
+
+  // Legend
+  const leg = document.getElementById('wavesLegend');
+  keys.forEach((k,i)=>{
+    const item = document.createElement('div');
+    item.className = 'dem-legend-item';
+    item.innerHTML = `<div class="dem-legend-dot" style="background:${WAVE_COLORS[i]}"></div><span>${WAVE_LABELS[i]}</span>`;
+    leg.appendChild(item);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 2 : PYRAMIDE DES ÂGES
+═══════════════════════════════════════════════════════════ */
+function drawPyramid(){
+  const svg = document.getElementById('svgPyramid');
+  const VW=720, VH=540;
+  const cx = 360, padT=30, padB=40;
+  const bh = (VH-padT-padB) / PYRAMID.length - 1;
+  const maxHalf = Math.max(...PYRAMID.map(d=>d.tot/2));
+  const maxPx = 270;
+  const scale = maxPx / maxHalf;
+
+  const COLORS = ['#f6c343','#5dd6c5','#ff6b6b'];
+  const CATS   = ['Sans ascendance immigrée','Mixtes + Descendants','Immigrés'];
+
+  // Central axis
+  svgLine(svg, cx, padT, cx, VH-padB, 'rgba(255,255,255,.25)', 1);
+
+  // Tick marks on X axis
+  [500,1000,1500,2000].forEach(v=>{
+    const px = v*scale;
+    [cx-px, cx+px].forEach(x=>{
+      svgLine(svg, x, VH-padB-4, x, VH-padB+4, 'rgba(255,255,255,.3)', 1);
+      svgText(svg, x, VH-padB+14, (v/1000).toFixed(1)+'M', {'font-size':'8.5','fill':'rgba(255,255,255,.4)','text-anchor':'middle'});
+    });
+  });
+  svgText(svg, cx-maxPx-4, VH-padB+14, '← Hommes', {'font-size':'9','fill':'rgba(255,255,255,.4)','text-anchor':'end'});
+  svgText(svg, cx+maxPx+4, VH-padB+14, 'Femmes →', {'font-size':'9','fill':'rgba(255,255,255,.4)','text-anchor':'start'});
+
+  PYRAMID.forEach((d, i)=>{
+    const y = padT + i*(bh+1);
+    const halfM = d.tot * d.mF;
+    const halfF = d.tot * (1-d.mF);
+
+    // Men (left)
+    let xM = cx;
+    [{pct:d.c1,col:COLORS[0],cat:CATS[0]},{pct:d.c23,col:COLORS[1],cat:CATS[1]},{pct:d.c4,col:COLORS[2],cat:CATS[2]}].forEach(seg=>{
+      const n = halfM * seg.pct/100;
+      const w = n * scale;
+      svgRect(svg, xM-w, y, w, bh, seg.col,
+        `<strong>${d.age} ans</strong> — ${seg.cat}<br>Hommes : ${fmt(n)}k`);
+      xM -= w;
+    });
+
+    // Women (right)
+    let xF = cx;
+    [{pct:d.c1,col:COLORS[0],cat:CATS[0]},{pct:d.c23,col:COLORS[1],cat:CATS[1]},{pct:d.c4,col:COLORS[2],cat:CATS[2]}].forEach(seg=>{
+      const n = halfF * seg.pct/100;
+      const w = n * scale;
+      svgRect(svg, xF, y, w, bh, seg.col,
+        `<strong>${d.age} ans</strong> — ${seg.cat}<br>Femmes : ${fmt(n)}k`);
+      xF += w;
+    });
+
+    // Age label
+    svgText(svg, cx, y+bh/2+3.5, d.age, {'font-size':'8.5','fill':'rgba(255,255,255,.65)','text-anchor':'middle'});
+  });
+
+  // Legend
+  const leg = document.getElementById('pyramidLegend');
+  CATS.forEach((c,i)=>{
+    const item = document.createElement('div');
+    item.className = 'dem-legend-item';
+    item.innerHTML = `<div class="dem-legend-dot" style="background:${COLORS[i]}"></div><span>${c}</span>`;
+    leg.appendChild(item);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 3 : EMPLOI ET SALAIRES
+═══════════════════════════════════════════════════════════ */
+function drawEmploi(){
+  const svg = document.getElementById('svgEmploi');
+  const VW=720, VH=340;
+  const n = EMPLOI.length;
+  const rowH = (VH-50) / n;
+  const panel = VW/2;
+  const BAR_MAX_E = panel - 130; // px for 80% employment
+  const BAR_MAX_S = panel - 130; // px for 30k€
+  const MAX_E = 80, MAX_S = 30000;
+
+  // Titles
+  svgText(svg, panel/2, 16, 'Taux d\'emploi 18–59 ans (%)', {'font-size':'11','fill':'rgba(255,255,255,.55)','text-anchor':'middle','font-weight':'bold'});
+  svgText(svg, panel + panel/2, 16, 'Salaire net annuel estimé (€)', {'font-size':'11','fill':'rgba(255,255,255,.55)','text-anchor':'middle','font-weight':'bold'});
+
+  // Reference lines (national avg emploi = 70.3%)
+  const refX_E = 96 + (70.3/MAX_E)*BAR_MAX_E;
+  svgLine(svg, refX_E, 24, refX_E, VH-16, 'rgba(246,195,67,.4)', 1);
+  svgText(svg, refX_E+2, 36, '⌀ 70,3%', {'font-size':'8','fill':'rgba(246,195,67,.7)'});
+
+  EMPLOI.forEach((d,i)=>{
+    const y = 28 + i*rowH;
+    const by = y + rowH*0.15;
+    const bh = rowH * 0.62;
+
+    // LEFT: emploi
+    const we = (d.emp/MAX_E)*BAR_MAX_E;
+    svgRect(svg, 96, by, we, bh, d.col+'cc',
+      `<strong style="color:${d.col}">${d.lbl}</strong><br>Taux d'emploi : <strong>${d.emp}%</strong><br>Source : TeO2 INED-INSEE 2022`);
+    svgText(svg, 92, by+bh/2+3.5, d.lbl, {'font-size':'9.5','fill':'rgba(255,255,255,.7)','text-anchor':'end'});
+    svgText(svg, 96+we+4, by+bh/2+3.5, d.emp+'%', {'font-size':'9.5','fill':d.col,'font-weight':'bold'});
+
+    // RIGHT: salaire
+    const ws = (d.sal/MAX_S)*BAR_MAX_S;
+    const rx = panel + 100;
+    svgRect(svg, rx, by, ws, bh, d.col+'cc',
+      `<strong style="color:${d.col}">${d.lbl}</strong><br>Salaire net/an : <strong>${fmt(d.sal)} €</strong><br>Source : estimations DARES/INSEE`);
+    svgText(svg, rx-4, by+bh/2+3.5, d.lbl, {'font-size':'9.5','fill':'rgba(255,255,255,.7)','text-anchor':'end'});
+    svgText(svg, rx+ws+4, by+bh/2+3.5, fmt(d.sal)+'€', {'font-size':'9.5','fill':d.col,'font-weight':'bold'});
+  });
+
+  // Vertical axes
+  svgLine(svg, 96, 24, 96, VH-16, 'rgba(255,255,255,.15)', 1);
+  svgLine(svg, panel+100, 24, panel+100, VH-16, 'rgba(255,255,255,.15)', 1);
+  svgLine(svg, panel, 0, panel, VH, 'rgba(255,255,255,.07)', 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 4 : CONTRIBUTION FISCALE (diverging bars)
+═══════════════════════════════════════════════════════════ */
+function drawFiscal(){
+  const svg = document.getElementById('svgFiscal');
+  const VW=720, VH=320;
+  const n = FISCAL.length;
+  const rowH = (VH-50) / n;
+  const cx = 380, padL = 155;
+  const maxAbs = 5000;
+  const BAR_PX = (VW - padL - 100) / 2;
+
+  svgText(svg, cx, 16, 'Contribution fiscale nette modélisée (€/adulte/an)', {'font-size':'10.5','fill':'rgba(255,255,255,.5)','text-anchor':'middle','font-weight':'bold'});
+
+  // Grid lines
+  [-4000,-2000,0,2000,4000].forEach(v=>{
+    const x = cx + (v/maxAbs)*BAR_PX;
+    svgLine(svg, x, 24, x, VH-24, v===0?'rgba(255,255,255,.35)':'rgba(255,255,255,.08)', v===0?1.5:1);
+    if(v!==0) svgText(svg, x, VH-10, (v>0?'+':'')+fmt(v)+'€', {'font-size':'8.5','fill':'rgba(255,255,255,.35)','text-anchor':'middle'});
+  });
+  svgText(svg, cx, VH-10, '0', {'font-size':'8.5','fill':'rgba(255,255,255,.5)','text-anchor':'middle'});
+
+  FISCAL.forEach((d,i)=>{
+    const y = 28 + i*rowH;
+    const by = y + rowH*0.15;
+    const bh = rowH * 0.64;
+    const bw = Math.abs(d.net/maxAbs)*BAR_PX;
+    const col = d.net >= 0 ? '#4ade80' : '#f87171';
+
+    svgText(svg, cx-4, by+bh/2+3.5, d.lbl, {'font-size':'10','fill':'rgba(255,255,255,.7)','text-anchor':'end'});
+
+    if(d.net >= 0){
+      svgRect(svg, cx, by, bw, bh, col+'bb',
+        `<strong style="color:${col}">${d.lbl}</strong><br>Contribution nette : <strong>+${fmt(d.net)} €/an</strong>`);
+      svgText(svg, cx+bw+5, by+bh/2+3.5, '+'+fmt(d.net)+'€', {'font-size':'9.5','fill':col,'font-weight':'bold'});
+    } else {
+      svgRect(svg, cx-bw, by, bw, bh, col+'bb',
+        `<strong style="color:${col}">${d.lbl}</strong><br>Contribution nette : <strong>${fmt(d.net)} €/an</strong>`);
+      svgText(svg, cx-bw-5, by+bh/2+3.5, fmt(d.net)+'€', {'font-size':'9.5','fill':col,'font-weight':'bold','text-anchor':'end'});
+    }
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 5 : RETRAITES (cotisants vs bénéficiaires)
+═══════════════════════════════════════════════════════════ */
+function drawRetraites(){
+  const svg = document.getElementById('svgRetraites');
+  const VW=720, VH=260;
+  const n = RETRAITES.length;
+  const rowH = (VH-50) / n;
+  const padL = 145, padR = 90;
+  const barW = VW - padL - padR;
+  const maxVal = 20;
+  const scale = barW / maxVal;
+
+  svgText(svg, padL+barW/2, 16, 'Cotisants actifs vs bénéficiaires (millions estimés)', {'font-size':'10.5','fill':'rgba(255,255,255,.5)','text-anchor':'middle','font-weight':'bold'});
+
+  // Grid
+  [0,5,10,15,20].forEach(v=>{
+    const x = padL + v*scale;
+    svgLine(svg, x, 22, x, VH-30, 'rgba(255,255,255,.07)', 1);
+    svgText(svg, x, VH-18, v+'M', {'font-size':'8.5','fill':'rgba(255,255,255,.3)','text-anchor':'middle'});
+  });
+
+  RETRAITES.forEach((d,i)=>{
+    const y = 26 + i*rowH;
+
+    // Category label
+    svgText(svg, padL-6, y+rowH/2+3, d.lbl, {'font-size':'10.5','fill':'rgba(255,255,255,.7)','text-anchor':'end'});
+
+    // Cotisants bar (teal)
+    const wC = d.cot * scale;
+    svgRect(svg, padL, y+3, wC, rowH*0.42, '#5dd6c5cc',
+      `<strong style="color:#5dd6c5">${d.lbl}</strong><br>Cotisants actifs estimés : <strong>${d.cot}M</strong>`);
+    svgText(svg, padL+wC+4, y+3+rowH*0.42/2+3.5, d.cot+'M', {'font-size':'9.5','fill':'#5dd6c5','font-weight':'bold'});
+
+    // Bénéficiaires bar (red)
+    const wB = d.ben * scale;
+    svgRect(svg, padL, y+rowH*0.52+3, wB, rowH*0.42, '#f87171bb',
+      `<strong style="color:#f87171">${d.lbl}</strong><br>Bénéficiaires nets estimés : <strong>${d.ben}M</strong>`);
+    svgText(svg, padL+wB+4, y+rowH*0.52+3+rowH*0.42/2+3.5, d.ben+'M', {'font-size':'9.5','fill':'#f87171','font-weight':'bold'});
+
+    // Ratio badge
+    svgText(svg, VW-padR+10, y+rowH/2+3.5, 'ratio', {'font-size':'8','fill':'rgba(255,255,255,.4)'});
+    svgText(svg, VW-padR+10, y+rowH/2+16, '×'+d.ratio.toFixed(1), {'font-size':'13','fill':d.col,'font-weight':'900'});
+  });
+
+  // Legend
+  svgText(svg, padL+3, VH-6, '■ Cotisants actifs', {'font-size':'9','fill':'#5dd6c5aa'});
+  svgText(svg, padL+110, VH-6, '■ Bénéficiaires nets', {'font-size':'9','fill':'#f87171aa'});
+  svgText(svg, VW-padR+10, VH-6, 'ratio', {'font-size':'8.5','fill':'rgba(255,255,255,.35)'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 6 : ORIGINES (stacked grouped bars)
+═══════════════════════════════════════════════════════════ */
+function drawOrigines(){
+  const svg = document.getElementById('svgOrigines');
+  const VW=720, VH=280;
+  const n = ORIGINES.length;
+  const rowH = (VH-50) / n;
+  const padL = 175, padR = 90;
+  const barW = VW - padL - padR;
+  const maxVal = 6000;
+  const scale = barW / maxVal;
+
+  svgText(svg, padL+barW/2, 16, 'Population totale immigrés + descendants par grande origine (milliers)', {'font-size':'10.5','fill':'rgba(255,255,255,.5)','text-anchor':'middle','font-weight':'bold'});
+
+  [0,1000,2000,3000,4000,5000,6000].forEach(v=>{
+    const x = padL + v*scale;
+    svgLine(svg, x, 22, x, VH-30, 'rgba(255,255,255,.07)', 1);
+    svgText(svg, x, VH-16, (v/1000).toFixed(0)+'M', {'font-size':'8.5','fill':'rgba(255,255,255,.3)','text-anchor':'middle'});
+  });
+
+  ORIGINES.forEach((d,i)=>{
+    const y = 26 + i*rowH;
+    const lbl = d.lbl.replace('\n',' ');
+    svgText(svg, padL-6, y+rowH/2+3, lbl, {'font-size':'9.5','fill':'rgba(255,255,255,.7)','text-anchor':'end'});
+
+    // Immigrés segment
+    const wI = d.imm * scale;
+    svgRect(svg, padL, y+4, wI, rowH*0.46, d.col+'dd',
+      `<strong style="color:${d.col}">${lbl}</strong><br>Immigrés : <strong>${fmt(d.imm)}k</strong>`);
+
+    // Descendants segment
+    const wD = d.desc * scale;
+    svgRect(svg, padL+wI, y+4, wD, rowH*0.46, d.col+'77',
+      `<strong style="color:${d.col}">${lbl}</strong><br>Descendants : <strong>${fmt(d.desc)}k</strong><br>Total : ${fmt(d.tot)}k`);
+
+    svgText(svg, padL+wI+wD+5, y+4+rowH*0.46/2+3.5, fmt(d.tot)+'k', {'font-size':'9.5','fill':d.col,'font-weight':'bold'});
+  });
+
+  svgText(svg, padL+3, VH-6, '■ Immigrés', {'font-size':'9','fill':'rgba(255,255,255,.45)'});
+  svgText(svg, padL+80, VH-6, '■ Descendants (nés en France)', {'font-size':'9','fill':'rgba(255,255,255,.3)'});
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════ */
+drawWaves();
+drawPyramid();
+drawEmploi();
+drawFiscal();
+drawRetraites();
+drawOrigines();
+
+/* ── Nav mobile toggle ─────────────────────────────────── */
+(function(){
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('navMobile');
+  if(!btn||!menu) return;
+  btn.addEventListener('click',()=>{
+    const open = menu.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('nav-open', open);
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.remove('is-open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&menu.classList.contains('is-open')){
+      menu.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-open');
+      btn.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
