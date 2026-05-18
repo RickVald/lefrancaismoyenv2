@@ -6,6 +6,9 @@
   <title>Le coût des fonctionnaires — 340 Md€ par an — Le Français Moyen</title>
   <meta name="description" content="5,66 millions d'agents publics, 340 Md€ de masse salariale, +530 000 depuis 2000. La France a 38% d'agents publics de plus par habitant que l'Allemagne — pour des services publics en crise.">
   <link rel="canonical" href="https://le-francais-moyen.com/fonctionnaires/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/fonctionnaires/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/fonctionnaires/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/fonctionnaires/">
   <meta property="og:title" content="Le coût des fonctionnaires — 340 Md€ par an">
   <meta property="og:description" content="5,66 millions d'agents publics. +530 000 depuis 2000. 38% de plus par habitant qu'en Allemagne. Et pourtant : hôpital en crise, justice lente, PISA en recul.">
   <meta property="og:url" content="https://le-francais-moyen.com/fonctionnaires/">
@@ -91,7 +94,11 @@
         </ul>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Accueil</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -118,22 +125,22 @@
 
   <main id="contenu">
     <div class="fnc-hero">
-      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Coût des fonctionnaires</span></nav>
-      <div class="eyebrow">Données DGAFP · INSEE · OCDE · 2023</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">Le coût des fonctionnaires</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_page">Coût des fonctionnaires</span></nav>
+      <div class="eyebrow" data-i18n="eyebrow">Données DGAFP · INSEE · OCDE · 2023</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">Le coût des fonctionnaires</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_sub">
         La France emploie <strong style="color:#60a5fa">5,66 millions d'agents publics</strong>.<br>
         <strong style="color:#ff6b6b">38 % de plus par habitant</strong> que l'Allemagne — pour des services publics en crise.
       </p>
       <div class="fnc-big" data-mds="340">340 Md€</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">masse salariale publique totale par an — premier poste de dépense de France</p>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0" data-i18n="hero_caption">masse salariale publique totale par an — premier poste de dépense de France</p>
     </div>
 
     <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
 
       <!-- ── Intro SEO ─────────────────────────────────────────────── -->
       <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:28px">
-        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0 0 18px">
+        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0 0 18px" data-i18n="intro_p">
           Avec <strong style="color:#60a5fa">5,66 millions d'agents publics</strong>, la France possède l'une des fonctions publiques les plus importantes des pays développés :
           <strong style="color:#60a5fa">340 milliards d'euros</strong> de masse salariale par an, soit le premier poste de dépense de l'État.
           Rapporté à la population, le ratio français est <strong style="color:#ff6b6b">38 % supérieur</strong> à celui de l'Allemagne —
@@ -145,10 +152,10 @@
           Les pensions des seuls fonctionnaires d'État représentent <strong style="color:#a78bfa">63 milliards d'euros</strong> supplémentaires chaque année.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <a href="/questions/combien-y-a-t-il-de-fonctionnaires-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#60a5fa;text-decoration:none">👥 Combien y en a-t-il ? →</a>
-          <a href="/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">❓ Pourquoi autant ? →</a>
-          <a href="/questions/combien-gagne-un-fonctionnaire-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">💶 Salaires →</a>
-          <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">📊 Coût employeur →</a>
+          <a href="/questions/combien-y-a-t-il-de-fonctionnaires-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#60a5fa;text-decoration:none" data-i18n="link_combien">👥 Combien y en a-t-il ? →</a>
+          <a href="/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_pourquoi">❓ Pourquoi autant ? →</a>
+          <a href="/questions/combien-gagne-un-fonctionnaire-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_salaires">💶 Salaires →</a>
+          <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_cout">📊 Coût employeur →</a>
         </div>
       </div>
 
@@ -156,91 +163,91 @@
       <div class="fnc-kpi">
         <div class="fnc-kpi-card">
           <span class="val" style="color:#60a5fa">5,66 M</span>
-          <span class="lbl">agents publics (titulaires + contractuels)<br>DGAFP 2023</span>
+          <span class="lbl" data-i18n="kpi_agents">agents publics (titulaires + contractuels)<br>DGAFP 2023</span>
         </div>
         <div class="fnc-kpi-card">
           <span class="val" style="color:#ff6b6b">1 / 10,5</span>
-          <span class="lbl">agent public par habitant<br>Allemagne : 1 pour 14</span>
+          <span class="lbl" data-i18n="kpi_ratio">agent public par habitant<br>Allemagne : 1 pour 14</span>
         </div>
         <div class="fnc-kpi-card">
           <span class="val" style="color:#fb923c">+530 000</span>
-          <span class="lbl">agents depuis 2000<br>malgré les promesses de réduction</span>
+          <span class="lbl" data-i18n="kpi_evol">agents depuis 2000<br>malgré les promesses de réduction</span>
         </div>
         <div class="fnc-kpi-card">
           <span class="val" style="color:#a78bfa" data-mds="63">63 Md€</span>
-          <span class="lbl">pensions fonctionnaires d'État / an<br>(CAS Pensions — hors FPT et FPH)</span>
+          <span class="lbl" data-i18n="kpi_pensions">pensions fonctionnaires d'État / an<br>(CAS Pensions — hors FPT et FPH)</span>
         </div>
       </div>
 
       <!-- ── Répartition par versant ─────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Qui sont ces 5,66 millions d'agents ?</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px" data-i18n="h2_versants">Qui sont ces 5,66 millions d'agents ?</h2>
       <div id="versants"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : DGAFP — Rapport annuel sur l'état de la fonction publique 2023. Titulaires + non-titulaires (contractuels, apprentis).</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px" data-i18n="versants_source">Source : DGAFP — Rapport annuel sur l'état de la fonction publique 2023. Titulaires + non-titulaires (contractuels, apprentis).</p>
 
       <!-- ── Évolution ──────────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px">L'évolution depuis 1980</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Chaque président a promis de réduire le nombre de fonctionnaires. La courbe est sans équivoque.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="h2_evol">L'évolution depuis 1980</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="evol_sub">Chaque président a promis de réduire le nombre de fonctionnaires. La courbe est sans équivoque.</p>
       <canvas id="evolChart" height="210"></canvas>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : DGAFP, séries historiques des effectifs de la fonction publique 1980–2023.</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px" data-i18n="evol_source">Source : DGAFP, séries historiques des effectifs de la fonction publique 1980–2023.</p>
 
       <!-- ── Comparaison internationale ────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Emploi public — comparaison internationale</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Part de l'emploi public dans l'emploi total (OCDE 2021). La France n'est pas la plus haute, mais son ratio coût/qualité de service est parmi les moins bons.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_intl">Emploi public — comparaison internationale</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="intl_sub">Part de l'emploi public dans l'emploi total (OCDE 2021). La France n'est pas la plus haute, mais son ratio coût/qualité de service est parmi les moins bons.</p>
       <div id="intlCmp"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : OCDE — Government at a Glance 2023. Emploi public / emploi civil total.</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px" data-i18n="intl_source">Source : OCDE — Government at a Glance 2023. Emploi public / emploi civil total.</p>
 
       <!-- ── Le paradoxe ────────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 4px">Le paradoxe : plus d'agents, des services en crise</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">La France a 38 % d'agents publics de plus par habitant que l'Allemagne. Ce surcroît ne se traduit pas en meilleure performance.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 4px" data-i18n="h2_paradox">Le paradoxe : plus d'agents, des services en crise</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="paradox_sub">La France a 38 % d'agents publics de plus par habitant que l'Allemagne. Ce surcroît ne se traduit pas en meilleure performance.</p>
       <div class="paradox-grid">
         <div class="paradox-card">
-          <div class="pc-label">🚂 SNCF — PONCTUALITÉ TRAINS GRANDES LIGNES</div>
+          <div class="pc-label" data-i18n="paradox_sncf_label">🚂 SNCF — PONCTUALITÉ TRAINS GRANDES LIGNES</div>
           <div class="pc-fr">🇫🇷 87 %</div>
           <div class="pc-de">🇩🇪 DB : 94 %</div>
-          <div class="pc-note">Malgré ~150 000 employés SNCF et 13 Md€ de subventions/an</div>
+          <div class="pc-note" data-i18n="paradox_sncf_note">Malgré ~150 000 employés SNCF et 13 Md€ de subventions/an</div>
         </div>
         <div class="paradox-card">
-          <div class="pc-label">⚖️ DÉLAI MOYEN JUGEMENT CIVIL</div>
+          <div class="pc-label" data-i18n="paradox_justice_label">⚖️ DÉLAI MOYEN JUGEMENT CIVIL</div>
           <div class="pc-fr">🇫🇷 14 mois</div>
           <div class="pc-de">🇩🇪 5 mois</div>
-          <div class="pc-note">CEPEJ 2022 — tribunaux de grande instance</div>
+          <div class="pc-note" data-i18n="paradox_justice_note">CEPEJ 2022 — tribunaux de grande instance</div>
         </div>
         <div class="paradox-card">
-          <div class="pc-label">🏥 LITS HÔPITAUX / 1 000 HAB.</div>
+          <div class="pc-label" data-i18n="paradox_hopital_label">🏥 LITS HÔPITAUX / 1 000 HAB.</div>
           <div class="pc-fr">🇫🇷 5,7 lits</div>
           <div class="pc-de">🇩🇪 7,8 lits</div>
-          <div class="pc-note">OCDE 2022 — malgré 1,17 M d'agents hospitaliers</div>
+          <div class="pc-note" data-i18n="paradox_hopital_note">OCDE 2022 — malgré 1,17 M d'agents hospitaliers</div>
         </div>
         <div class="paradox-card">
-          <div class="pc-label">📚 PISA 2022 — SCORE MATHÉMATIQUES</div>
+          <div class="pc-label" data-i18n="paradox_pisa_label">📚 PISA 2022 — SCORE MATHÉMATIQUES</div>
           <div class="pc-fr">🇫🇷 474 pts</div>
           <div class="pc-de">🇩🇪 475 pts</div>
-          <div class="pc-note">Résultats quasi identiques, mais 12 % d'enseignants de plus en France</div>
+          <div class="pc-note" data-i18n="paradox_pisa_note">Résultats quasi identiques, mais 12 % d'enseignants de plus en France</div>
         </div>
       </div>
 
       <!-- ── Le coût réel ────────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">Ce que coûte vraiment un agent public</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px" data-i18n="h2_cout">Ce que coûte vraiment un agent public</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:20px">
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px">
-          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px">CAT. C — AGENT D'EXÉCUTION</div>
+          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px" data-i18n="cat_c_label">CAT. C — AGENT D'EXÉCUTION</div>
           <div style="font-size:1.5rem;font-weight:900;color:#60a5fa">~42 000 €/an</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">coût employeur total · ~2 400€ nets/mois · + régime retraite bonifié</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="cat_c_note">coût employeur total · ~2 400€ nets/mois · + régime retraite bonifié</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px">
-          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px">CAT. B — TECHNICIEN / INFIRMIER</div>
+          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px" data-i18n="cat_b_label">CAT. B — TECHNICIEN / INFIRMIER</div>
           <div style="font-size:1.5rem;font-weight:900;color:#60a5fa">~52 000 €/an</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">coût employeur total · ~2 800€ nets/mois · garantie emploi à vie</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="cat_b_note">coût employeur total · ~2 800€ nets/mois · garantie emploi à vie</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px">
-          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px">CAT. A — CADRE / ENSEIGNANT</div>
+          <div style="font-size:.72rem;font-weight:800;color:var(--muted);letter-spacing:.06em;margin-bottom:10px" data-i18n="cat_a_label">CAT. A — CADRE / ENSEIGNANT</div>
           <div style="font-size:1.5rem;font-weight:900;color:#60a5fa">~68 000 €/an</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">coût employeur total · ~3 500€ nets/mois · + pension 75% dernier traitement</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="cat_a_note">coût employeur total · ~3 500€ nets/mois · + pension 75% dernier traitement</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.3);border-radius:14px;padding:18px">
-          <div style="font-size:.72rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:10px">HAUTS FONCTIONNAIRES (CAT. A+)</div>
+          <div style="font-size:.72rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:10px" data-i18n="cat_aplus_label">HAUTS FONCTIONNAIRES (CAT. A+)</div>
           <div style="font-size:1.5rem;font-weight:900;color:#ff6b6b">120 000 €+/an</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">hors avantages en nature · pension calculée sur les 6 derniers mois (vs 25 ans dans le privé)</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="cat_aplus_note">hors avantages en nature · pension calculée sur les 6 derniers mois (vs 25 ans dans le privé)</div>
         </div>
       </div>
 
@@ -248,15 +255,15 @@
       <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.25);border-radius:14px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px">
         <div style="font-size:2rem;flex-shrink:0">🔗</div>
         <div>
-          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">Le coût retraite : ×22 entre public et privé</div>
-          <p style="font-size:.82rem;color:var(--muted);margin:0">L'État verse en moyenne <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire via le CAS Pensions, contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé via le FSV. Une analyse détaillée est disponible sur la page <a href="/budget/" style="color:#a78bfa;text-decoration:underline">Budget de l'État</a>.</p>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px" data-i18n="link_ret_title">Le coût retraite : ×22 entre public et privé</div>
+          <p style="font-size:.82rem;color:var(--muted);margin:0" data-i18n="link_ret_desc">L'État verse en moyenne <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire via le CAS Pensions, contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé via le FSV. Une analyse détaillée est disponible sur la page <a href="/budget/" style="color:#a78bfa;text-decoration:underline">Budget de l'État</a>.</p>
         </div>
       </div>
 
       <!-- ── Verdict ────────────────────────────────────────────── -->
       <div class="fnc-verdict">
-        <div style="font-size:.8rem;font-weight:800;color:#60a5fa;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+        <div style="font-size:.8rem;font-weight:800;color:#60a5fa;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_label">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_text">
           La France consacre <strong style="color:#fff" data-mds="340">340 Md€/an</strong> à sa masse salariale publique — soit <strong style="color:#60a5fa">~18 500 € par foyer fiscal</strong>. Elle compte
           <strong style="color:#fff">38 % d'agents publics de plus</strong> par habitant que l'Allemagne, mais livre des services publics moins performants sur la majorité des indicateurs mesurables. Ce n'est pas une question d'argent ou d'effectifs bruts : c'est une question d'organisation, de missions, et de capacité à
           <strong style="color:#ff6b6b">réallouer les moyens là où ils manquent vraiment</strong> (hôpital, justice, police) plutôt que de maintenir des effectifs là où la valeur ajoutée est la plus faible.
@@ -265,8 +272,8 @@
 
       <!-- ── Note honnête ────────────────────────────────────────── -->
       <div class="fnc-note">
-        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
-        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px" data-i18n="note_label">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0" data-i18n="note_text">
           Tous les fonctionnaires ne se valent pas : comparer le nombre brut sans distinguer les missions est trompeur. Les pays nordiques qui figurent au-dessus de la France pour l'emploi public (Danemark 27 %, Suède 26 %) affichent des services publics nettement meilleurs — parce qu'ils ont supprimé des strates administratives redondantes tout en renforçant les services de terrain. Le problème français n'est pas d'avoir des fonctionnaires, c'est d'avoir trop de <strong style="color:#fff">niveaux de management intermédiaire</strong>, de <strong style="color:#fff">doublons État-collectivités</strong>, et pas assez de personnel au contact des usagers.
         </p>
       </div>
@@ -274,7 +281,7 @@
       <!-- ── Sources ────────────────────────────────────────────── -->
       <div style="border-top:1px solid var(--border);padding-top:20px">
         <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
-          <strong style="color:var(--text)">Sources :</strong>
+          <span data-i18n="sources_block"><strong style="color:var(--text)">Sources :</strong>
           DGAFP — Rapport annuel sur l'état de la fonction publique 2023 ·
           INSEE — Comptes nationaux, rémunérations des administrations publiques 2023 ·
           OCDE — Government at a Glance 2023 ·
@@ -282,7 +289,7 @@
           CEPEJ — Rapport européen sur l'efficacité de la justice 2022 ·
           OCDE — données santé 2022 (lits hospitaliers) ·
           OCDE PISA 2022 ·
-          Rapport ART (SNCF ponctualité 2023)
+          Rapport ART (SNCF ponctualité 2023)</span>
         </div>
       </div>
 
@@ -293,8 +300,8 @@
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : DGAFP · INSEE · OCDE · Cour des Comptes</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : DGAFP · INSEE · OCDE · Cour des Comptes</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -452,6 +459,142 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+  <script>
+  (function(){
+    var T={
+      fr:{
+        nav_cta:'← Accueil',
+        breadcrumb_home:'Accueil',
+        breadcrumb_page:'Coût des fonctionnaires',
+        eyebrow:'Données DGAFP · INSEE · OCDE · 2023',
+        h1:'Le coût des fonctionnaires',
+        hero_sub:'La France emploie <strong style="color:#60a5fa">5,66 millions d\'agents publics</strong>.<br><strong style="color:#ff6b6b">38 % de plus par habitant</strong> que l\'Allemagne — pour des services publics en crise.',
+        hero_caption:'masse salariale publique totale par an — premier poste de dépense de France',
+        intro_p:'Avec <strong style="color:#60a5fa">5,66 millions d\'agents publics</strong>, la France possède l\'une des fonctions publiques les plus importantes des pays développés : <strong style="color:#60a5fa">340 milliards d\'euros</strong> de masse salariale par an, soit le premier poste de dépense de l\'État. Rapporté à la population, le ratio français est <strong style="color:#ff6b6b">38 % supérieur</strong> à celui de l\'Allemagne — un agent public pour 10,5 habitants contre 1 pour 14 outre-Rhin. Paradoxalement, cette densité d\'emploi public ne garantit pas des services de meilleure qualité : délais de justice deux fois plus longs qu\'en Allemagne, hôpitaux moins bien dotés en lits, résultats scolaires en recul. Depuis 2000, malgré des promesses répétées de réduction des effectifs par tous les gouvernements successifs, le nombre d\'agents a <strong style="color:#fb923c">augmenté de 530 000</strong>. Les pensions des seuls fonctionnaires d\'État représentent <strong style="color:#a78bfa">63 milliards d\'euros</strong> supplémentaires chaque année.',
+        link_combien:'👥 Combien y en a-t-il ? →',
+        link_pourquoi:'❓ Pourquoi autant ? →',
+        link_salaires:'💶 Salaires →',
+        link_cout:'📊 Coût employeur →',
+        kpi_agents:'agents publics (titulaires + contractuels)<br>DGAFP 2023',
+        kpi_ratio:'agent public par habitant<br>Allemagne : 1 pour 14',
+        kpi_evol:'agents depuis 2000<br>malgré les promesses de réduction',
+        kpi_pensions:'pensions fonctionnaires d\'État / an<br>(CAS Pensions — hors FPT et FPH)',
+        h2_versants:'Qui sont ces 5,66 millions d\'agents ?',
+        versants_source:'Source : DGAFP — Rapport annuel sur l\'état de la fonction publique 2023. Titulaires + non-titulaires (contractuels, apprentis).',
+        h2_evol:'L\'évolution depuis 1980',
+        evol_sub:'Chaque président a promis de réduire le nombre de fonctionnaires. La courbe est sans équivoque.',
+        evol_source:'Source : DGAFP, séries historiques des effectifs de la fonction publique 1980–2023.',
+        h2_intl:'Emploi public — comparaison internationale',
+        intl_sub:'Part de l\'emploi public dans l\'emploi total (OCDE 2021). La France n\'est pas la plus haute, mais son ratio coût/qualité de service est parmi les moins bons.',
+        intl_source:'Source : OCDE — Government at a Glance 2023. Emploi public / emploi civil total.',
+        h2_paradox:'Le paradoxe : plus d\'agents, des services en crise',
+        paradox_sub:'La France a 38 % d\'agents publics de plus par habitant que l\'Allemagne. Ce surcroît ne se traduit pas en meilleure performance.',
+        paradox_sncf_label:'🚂 SNCF — PONCTUALITÉ TRAINS GRANDES LIGNES',
+        paradox_sncf_note:'Malgré ~150 000 employés SNCF et 13 Md€ de subventions/an',
+        paradox_justice_label:'⚖️ DÉLAI MOYEN JUGEMENT CIVIL',
+        paradox_justice_note:'CEPEJ 2022 — tribunaux de grande instance',
+        paradox_hopital_label:'🏥 LITS HÔPITAUX / 1 000 HAB.',
+        paradox_hopital_note:'OCDE 2022 — malgré 1,17 M d\'agents hospitaliers',
+        paradox_pisa_label:'📚 PISA 2022 — SCORE MATHÉMATIQUES',
+        paradox_pisa_note:'Résultats quasi identiques, mais 12 % d\'enseignants de plus en France',
+        h2_cout:'Ce que coûte vraiment un agent public',
+        cat_c_label:'CAT. C — AGENT D\'EXÉCUTION',
+        cat_c_note:'coût employeur total · ~2 400€ nets/mois · + régime retraite bonifié',
+        cat_b_label:'CAT. B — TECHNICIEN / INFIRMIER',
+        cat_b_note:'coût employeur total · ~2 800€ nets/mois · garantie emploi à vie',
+        cat_a_label:'CAT. A — CADRE / ENSEIGNANT',
+        cat_a_note:'coût employeur total · ~3 500€ nets/mois · + pension 75% dernier traitement',
+        cat_aplus_label:'HAUTS FONCTIONNAIRES (CAT. A+)',
+        cat_aplus_note:'hors avantages en nature · pension calculée sur les 6 derniers mois (vs 25 ans dans le privé)',
+        link_ret_title:'Le coût retraite : ×22 entre public et privé',
+        link_ret_desc:'L\'État verse en moyenne <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire via le CAS Pensions, contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé via le FSV. Une analyse détaillée est disponible sur la page <a href="/budget/" style="color:#a78bfa;text-decoration:underline">Budget de l\'État</a>.',
+        verdict_label:'⚖️ CE QUE LES DONNÉES DISENT',
+        verdict_text:'La France consacre <strong style="color:#fff" data-mds="340">340 Md€/an</strong> à sa masse salariale publique — soit <strong style="color:#60a5fa">~18 500 € par foyer fiscal</strong>. Elle compte <strong style="color:#fff">38 % d\'agents publics de plus</strong> par habitant que l\'Allemagne, mais livre des services publics moins performants sur la majorité des indicateurs mesurables. Ce n\'est pas une question d\'argent ou d\'effectifs bruts : c\'est une question d\'organisation, de missions, et de capacité à <strong style="color:#ff6b6b">réallouer les moyens là où ils manquent vraiment</strong> (hôpital, justice, police) plutôt que de maintenir des effectifs là où la valeur ajoutée est la plus faible.',
+        note_label:'📌 NOTE HONNÊTE',
+        note_text:'Tous les fonctionnaires ne se valent pas : comparer le nombre brut sans distinguer les missions est trompeur. Les pays nordiques qui figurent au-dessus de la France pour l\'emploi public (Danemark 27 %, Suède 26 %) affichent des services publics nettement meilleurs — parce qu\'ils ont supprimé des strates administratives redondantes tout en renforçant les services de terrain. Le problème français n\'est pas d\'avoir des fonctionnaires, c\'est d\'avoir trop de <strong style="color:#fff">niveaux de management intermédiaire</strong>, de <strong style="color:#fff">doublons État-collectivités</strong>, et pas assez de personnel au contact des usagers.',
+        sources_block:'<strong style="color:var(--text)">Sources :</strong> DGAFP — Rapport annuel sur l\'état de la fonction publique 2023 · INSEE — Comptes nationaux, rémunérations des administrations publiques 2023 · OCDE — Government at a Glance 2023 · Cour des Comptes — rapport sur la masse salariale de l\'État 2023 · CEPEJ — Rapport européen sur l\'efficacité de la justice 2022 · OCDE — données santé 2022 (lits hospitaliers) · OCDE PISA 2022 · Rapport ART (SNCF ponctualité 2023)',
+        footer_copy:'© 2026 Le Français Moyen — Données : DGAFP · INSEE · OCDE · Cour des Comptes',
+        footer_link:'Tableau de bord principal'
+      },
+      en:{
+        nav_cta:'← Home',
+        breadcrumb_home:'Home',
+        breadcrumb_page:'Cost of Civil Servants',
+        eyebrow:'Data: DGAFP · INSEE · OECD · 2023',
+        h1:'French Civil Servants — 5.7 million, 20% of total employment',
+        hero_sub:'France employs <strong style="color:#60a5fa">5.66 million public-sector workers</strong>.<br><strong style="color:#ff6b6b">38% more per capita</strong> than Germany — for public services in crisis.',
+        hero_caption:'total public-sector payroll per year — France\'s single largest spending item',
+        intro_p:'With <strong style="color:#60a5fa">5.66 million public-sector workers</strong>, France has one of the largest civil services in the developed world: <strong style="color:#60a5fa">€340 billion</strong> in payroll per year, the State\'s top spending item. Per capita, the French ratio is <strong style="color:#ff6b6b">38% higher</strong> than Germany\'s — one public employee for every 10.5 inhabitants versus 1 for 14 in Germany. Paradoxically, this density of public employment does not guarantee better quality services: civil court delays twice as long as Germany, hospitals with fewer beds, declining school results. Since 2000, despite repeated promises to cut headcount by successive governments, the number of civil servants has <strong style="color:#fb923c">increased by 530,000</strong>. Pensions for central-government civil servants alone account for an additional <strong style="color:#a78bfa">€63 billion</strong> per year.',
+        link_combien:'👥 How many are there? →',
+        link_pourquoi:'❓ Why so many? →',
+        link_salaires:'💶 Salaries →',
+        link_cout:'📊 Employer cost →',
+        kpi_agents:'public employees (permanent + contract)<br>DGAFP 2023',
+        kpi_ratio:'public employee per inhabitant<br>Germany: 1 per 14',
+        kpi_evol:'more civil servants since 2000<br>despite repeated promises to cut',
+        kpi_pensions:'central civil servant pensions / year<br>(CAS Pensions — excl. local & hospital)',
+        h2_versants:'Who are these 5.66 million civil servants?',
+        versants_source:'Source: DGAFP — Annual Report on the State of the Civil Service 2023. Permanent + non-permanent (contract, apprentices).',
+        h2_evol:'Headcount trends since 1980',
+        evol_sub:'Every president has promised to cut the number of civil servants. The curve speaks for itself.',
+        evol_source:'Source: DGAFP, historical civil service headcount series 1980–2023.',
+        h2_intl:'Public employment — international comparison',
+        intl_sub:'Share of public employment in total employment (OECD 2021). France is not the highest, but its cost-to-service-quality ratio is among the worst.',
+        intl_source:'Source: OECD — Government at a Glance 2023. Public employment / total civilian employment.',
+        h2_paradox:'The paradox: more civil servants, services in crisis',
+        paradox_sub:'France has 38% more public employees per capita than Germany. This surplus does not translate into better performance.',
+        paradox_sncf_label:'🚂 SNCF — LONG-DISTANCE TRAIN PUNCTUALITY',
+        paradox_sncf_note:'Despite ~150,000 SNCF employees and €13bn in subsidies/year',
+        paradox_justice_label:'⚖️ AVERAGE CIVIL COURT DURATION',
+        paradox_justice_note:'CEPEJ 2022 — courts of first instance',
+        paradox_hopital_label:'🏥 HOSPITAL BEDS / 1,000 INHAB.',
+        paradox_hopital_note:'OECD 2022 — despite 1.17M hospital workers',
+        paradox_pisa_label:'📚 PISA 2022 — MATHEMATICS SCORE',
+        paradox_pisa_note:'Near-identical results, but 12% more teachers in France',
+        h2_cout:'The true cost of a public employee',
+        cat_c_label:'CAT. C — OPERATIONAL STAFF',
+        cat_c_note:'total employer cost · ~€2,400 net/month · + enhanced pension scheme',
+        cat_b_label:'CAT. B — TECHNICIAN / NURSE',
+        cat_b_note:'total employer cost · ~€2,800 net/month · lifetime job guarantee',
+        cat_a_label:'CAT. A — MANAGER / TEACHER',
+        cat_a_note:'total employer cost · ~€3,500 net/month · + pension at 75% of final salary',
+        cat_aplus_label:'SENIOR CIVIL SERVANTS (CAT. A+)',
+        cat_aplus_note:'excl. benefits in kind · pension based on last 6 months\' salary (vs 25 years in private sector)',
+        link_ret_title:'Pension cost: ×22 gap between public and private sector',
+        link_ret_desc:'The State pays on average <strong style="color:#a78bfa">€2,187/month</strong> per retired civil servant via CAS Pensions, versus <strong style="color:#63d471">~€98/month</strong> for a private-sector retiree via FSV. A detailed analysis is available on the <a href="/budget/" style="color:#a78bfa;text-decoration:underline">State Budget</a> page.',
+        verdict_label:'⚖️ WHAT THE DATA SAYS',
+        verdict_text:'France spends <strong style="color:#fff" data-mds="340">€340bn/year</strong> on its public-sector payroll — around <strong style="color:#60a5fa">~€18,500 per tax household</strong>. It has <strong style="color:#fff">38% more public employees per capita</strong> than Germany, yet delivers less efficient public services on most measurable indicators. This is not a question of money or headcount: it is a question of organisation, mission design, and the ability to <strong style="color:#ff6b6b">reallocate resources where they are truly needed</strong> (hospitals, courts, police) rather than maintaining staffing where value added is lowest.',
+        note_label:'📌 HONEST NOTE',
+        note_text:'Not all civil servants are alike: comparing raw numbers without distinguishing missions is misleading. Nordic countries that rank above France in public employment (Denmark 27%, Sweden 26%) deliver significantly better public services — because they removed redundant administrative layers while reinforcing front-line services. France\'s problem is not having civil servants; it is having too many <strong style="color:#fff">layers of middle management</strong>, too many <strong style="color:#fff">State-local authority overlaps</strong>, and too few staff in direct contact with citizens.',
+        sources_block:'<strong style="color:var(--text)">Sources:</strong> DGAFP — Annual Report on the Civil Service 2023 · INSEE — National Accounts, public administration remuneration 2023 · OECD — Government at a Glance 2023 · Cour des Comptes — State payroll report 2023 · CEPEJ — European Report on the Efficiency of Justice 2022 · OECD — Health Data 2022 (hospital beds) · OECD PISA 2022 · ART Report (SNCF punctuality 2023)',
+        footer_copy:'© 2026 The Average French — Data: DGAFP · INSEE · OECD · Cour des Comptes',
+        footer_link:'Main dashboard'
+      }
+    };
+    var lang=localStorage.getItem('lfm-lang')||'fr';
+    function setLang(l){
+      lang=l;
+      localStorage.setItem('lfm-lang',l);
+      document.documentElement.lang=l==='fr'?'fr':'en';
+      document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+      document.getElementById('btn-en').classList.toggle('active',l==='en');
+      var s=T[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k=el.getAttribute('data-i18n');
+        if(s[k]!==undefined)el.innerHTML=s[k];
+      });
+      document.title=l==='fr'
+        ?'Le coût des fonctionnaires — 340 Md€ par an — Le Français Moyen'
+        :'French Civil Servants — 5.7 Million, 20% of Employment | The Average French';
+      var desc=document.querySelector('meta[name="description"]');
+      if(desc)desc.setAttribute('content',l==='fr'
+        ?'5,66 millions d\'agents publics, 340 Md€ de masse salariale, +530 000 depuis 2000. La France a 38% d\'agents publics de plus par habitant que l\'Allemagne — pour des services publics en crise.'
+        :'France has 5.7 million civil servants — 20% of total employment. Public sector payroll: €340bn/year. How does France compare to Germany and the UK? Official data.');
+    }
+    setLang(lang);
+    window.setLang=setLang;
+  })();
+  </script>
 </body>
 </html>
 

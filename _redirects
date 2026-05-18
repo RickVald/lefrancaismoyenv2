@@ -1,2 +1,2 @@
-/questions /questions/index.html 200
-/questions/ /questions/index.html 200
+# Cloudflare Pages gère automatiquement /questions → /questions/ et index.html
+# Aucune règle supplémentaire nécessaire

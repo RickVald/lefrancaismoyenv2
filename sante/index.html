@@ -6,6 +6,9 @@
   <title>La santé en France — 285 Md€ par an, 2ème rang mondial — Le Français Moyen</title>
   <meta name="description" content="La France dépense 285 Md€/an en santé (12,3 % du PIB, 2ème OCDE). Pourtant : 6,3 millions sans médecin traitant, infirmières à 2 100 €/mois, urgences saturées. Où va l'argent ?">
   <link rel="canonical" href="https://le-francais-moyen.com/sante/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/sante/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/sante/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/sante/">
   <meta property="og:title" content="Santé en France — 285 Md€/an, 2ème mondial — et pourtant">
   <meta property="og:description" content="2ème dépenseur mondial en santé. 6,3 millions sans médecin traitant. Infirmières à 2 100€. Urgences fermées. Où vont les 285 Md€ ?">
   <meta property="og:url" content="https://le-francais-moyen.com/sante/">
@@ -70,6 +73,10 @@
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -97,15 +104,15 @@
   <main id="contenu">
     <div class="snt-hero">
       <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Santé</span></nav>
-      <div class="eyebrow">Données OCDE · DREES · CNAM · 2023</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La santé en France</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+      <div class="eyebrow" data-i18n="eyebrow">Données OCDE · DREES · CNAM · 2023</div>
+      <h1 data-i18n="h1" style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La santé en France</h1>
+      <p data-i18n="subtitle" style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
         La France est le <strong style="color:#10b981">2ème pays au monde</strong> pour les dépenses de santé.<br>
         Pourtant : déserts médicaux, urgences saturées, soignants sous-payés.<br>
         <strong style="color:#ff6b6b">Où vont les 285 milliards ?</strong>
       </p>
       <div class="snt-big" data-mds="285">285 Md€</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">dépensés par an en santé — 12,3 % du PIB</p>
+      <p data-i18n="big-sub" style="color:var(--muted);font-size:.88rem;margin:8px 0 0">dépensés par an en santé — 12,3 % du PIB</p>
     </div>
 
     <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
@@ -133,36 +140,36 @@
       <div class="snt-kpi">
         <div class="snt-kpi-card">
           <span class="val" style="color:#10b981">12,3 %</span>
-          <span class="lbl">du PIB en santé<br>2ème rang OCDE (après USA 17,4 %)</span>
+          <span class="lbl" data-i18n="kpi1-lbl">du PIB en santé<br>2ème rang OCDE (après USA 17,4 %)</span>
         </div>
         <div class="snt-kpi-card">
           <span class="val" style="color:#ff6b6b">6,3 M</span>
-          <span class="lbl">Français sans médecin traitant<br>CNAM 2023 — en hausse chaque année</span>
+          <span class="lbl" data-i18n="kpi2-lbl">Français sans médecin traitant<br>CNAM 2023 — en hausse chaque année</span>
         </div>
         <div class="snt-kpi-card">
           <span class="val" style="color:#fb923c">5,7</span>
-          <span class="lbl">lits pour 1 000 hab.<br>Allemagne : 7,8 — Autriche : 7,2</span>
+          <span class="lbl" data-i18n="kpi3-lbl">lits pour 1 000 hab.<br>Allemagne : 7,8 — Autriche : 7,2</span>
         </div>
         <div class="snt-kpi-card">
           <span class="val" style="color:#a78bfa">2 100 €</span>
-          <span class="lbl">salaire net infirmier·ère en France<br>Allemagne : 3 400 € — Suisse : 4 200 €</span>
+          <span class="lbl" data-i18n="kpi4-lbl">salaire net infirmier·ère en France<br>Allemagne : 3 400 € — Suisse : 4 200 €</span>
         </div>
       </div>
 
       <!-- Évolution ONDAM -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">L'ONDAM : la progression ininterrompue</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Objectif National des Dépenses d'Assurance Maladie — il n'a jamais baissé en 27 ans.</p>
+      <h2 data-i18n="h2-ondam" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">L'ONDAM : la progression ininterrompue</h2>
+      <p data-i18n="h2-ondam-sub" style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Objectif National des Dépenses d'Assurance Maladie — il n'a jamais baissé en 27 ans.</p>
       <canvas id="onamChart" height="200"></canvas>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : PLFSS annuels, DREES. En milliards d'euros courants.</p>
+      <p data-i18n="src-ondam" style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : PLFSS annuels, DREES. En milliards d'euros courants.</p>
 
       <!-- Comparaison internationale dépenses -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Dépenses de santé / PIB — comparaison mondiale</h2>
+      <h2 data-i18n="h2-dep" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Dépenses de santé / PIB — comparaison mondiale</h2>
       <div id="depCmp"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE Health Statistics 2023. Dépenses courantes de santé (publiques + privées).</p>
+      <p data-i18n="src-dep" style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE Health Statistics 2023. Dépenses courantes de santé (publiques + privées).</p>
 
       <!-- Le paradoxe -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 4px">Le paradoxe de l'abondance</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Malgré un budget parmi les plus élevés au monde, les indicateurs d'accès et de conditions de travail sont en décrochage.</p>
+      <h2 data-i18n="h2-paradox" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 4px">Le paradoxe de l'abondance</h2>
+      <p data-i18n="h2-paradox-sub" style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Malgré un budget parmi les plus élevés au monde, les indicateurs d'accès et de conditions de travail sont en décrochage.</p>
       <div class="paradox-grid">
         <div class="px-card">
           <div class="pc-label">🩺 MÉDECINS GÉNÉRALISTES / 100 000 HAB.</div>
@@ -191,31 +198,31 @@
       </div>
 
       <!-- Où va l'argent -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">La décomposition des 285 Md€</h2>
+      <h2 data-i18n="h2-budget" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">La décomposition des 285 Md€</h2>
       <div id="budgetBars"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : DREES — Les dépenses de santé en 2022. Comptes nationaux de la santé.</p>
+      <p data-i18n="src-budget" style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : DREES — Les dépenses de santé en 2022. Comptes nationaux de la santé.</p>
 
       <!-- Comparaison résultats -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px">Efficience : dépenses vs espérance de vie en bonne santé</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Années de vie en bonne santé (EVBS) pour 1 000 € de dépenses annuelles par habitant. La France est dans la moyenne malgré son budget élevé.</p>
+      <h2 data-i18n="h2-eff" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px">Efficience : dépenses vs espérance de vie en bonne santé</h2>
+      <p data-i18n="h2-eff-sub" style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Années de vie en bonne santé (EVBS) pour 1 000 € de dépenses annuelles par habitant. La France est dans la moyenne malgré son budget élevé.</p>
       <div id="effCmp"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE 2022. EVBS = Healthy Life Years (Eurostat). Dépenses/hab. en PPA.</p>
+      <p data-i18n="src-eff" style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE 2022. EVBS = Healthy Life Years (Eurostat). Dépenses/hab. en PPA.</p>
 
       <div class="snt-verdict">
-        <div style="font-size:.8rem;font-weight:800;color:#10b981;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+        <div data-i18n="verdict-label" style="font-size:.8rem;font-weight:800;color:#10b981;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p data-i18n="verdict-body" style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
           La France dépense autant que l'Allemagne en santé (% PIB), mais paie ses infirmières <strong style="color:#fff">38 % moins cher</strong> et dispose de <strong style="color:#ff6b6b">27 % de lits en moins</strong>. L'argent existe — il est absorbé par la complexité administrative (<strong style="color:#fff">~40 organismes complémentaires</strong>, double circuit public/privé, strates de gestion), par les prix pharmaceutiques, et par 30 ans de numerus clausus trop bas qui a créé la pénurie médicale actuelle. La crise de l'hôpital n'est pas un problème de budget : c'est un problème d'<strong style="color:#10b981">allocation et d'organisation</strong>.
         </p>
       </div>
 
       <div class="snt-note">
-        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
-        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">La France a d'excellents résultats sur certains indicateurs clés : espérance de vie (82,3 ans, 5ème UE), mortalité infantile (3,6 ‰), cancer du sein (survie à 5 ans : 87 %). Le système de soins primaires reste l'un des meilleurs au monde quand on y a accès. La crise n'est pas homogène : elle touche principalement <strong style="color:#fff">l'accès de premier recours</strong> (médecins généralistes, déserts) et les <strong style="color:#fff">conditions de travail hospitalières</strong>, non la qualité technique des soins spécialisés.</p>
+        <div data-i18n="note-label" style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
+        <p data-i18n="note-body" style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">La France a d'excellents résultats sur certains indicateurs clés : espérance de vie (82,3 ans, 5ème UE), mortalité infantile (3,6 ‰), cancer du sein (survie à 5 ans : 87 %). Le système de soins primaires reste l'un des meilleurs au monde quand on y a accès. La crise n'est pas homogène : elle touche principalement <strong style="color:#fff">l'accès de premier recours</strong> (médecins généralistes, déserts) et les <strong style="color:#fff">conditions de travail hospitalières</strong>, non la qualité technique des soins spécialisés.</p>
       </div>
 
       <div style="border-top:1px solid var(--border);padding-top:20px">
         <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
-          <strong style="color:var(--text)">Sources :</strong> OCDE — Health Statistics 2023 · DREES — Comptes nationaux de la santé 2022 · CNAM — Rapport charges et produits 2023 · FHF — Baromètre hôpital 2023 · Eurostat — Healthy Life Years 2022 · CEPEJ 2022
+          <strong data-i18n="sources-label" style="color:var(--text)">Sources :</strong> <span data-i18n="sources-body">OCDE — Health Statistics 2023 · DREES — Comptes nationaux de la santé 2022 · CNAM — Rapport charges et produits 2023 · FHF — Baromètre hôpital 2023 · Eurostat — Healthy Life Years 2022 · CEPEJ 2022</span>
         </div>
       </div>
       <div style="text-align:center;margin-top:28px">
@@ -225,8 +232,8 @@
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : OCDE · DREES · CNAM</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer-copy">© 2026 Le Français Moyen — Données : OCDE · DREES · CNAM</span>
+    <a data-i18n="footer-link" href="/">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -342,6 +349,91 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+  fr:{
+    "eyebrow":"Données OCDE · DREES · CNAM · 2023",
+    "h1":"La santé en France",
+    "subtitle":"La France est le <strong style=\"color:#10b981\">2ème pays au monde</strong> pour les dépenses de santé.<br>Pourtant : déserts médicaux, urgences saturées, soignants sous-payés.<br><strong style=\"color:#ff6b6b\">Où vont les 285 milliards ?</strong>",
+    "big-sub":"dépensés par an en santé — 12,3 % du PIB",
+    "kpi1-lbl":"du PIB en santé<br>2ème rang OCDE (après USA 17,4 %)",
+    "kpi2-lbl":"Français sans médecin traitant<br>CNAM 2023 — en hausse chaque année",
+    "kpi3-lbl":"lits pour 1 000 hab.<br>Allemagne : 7,8 — Autriche : 7,2",
+    "kpi4-lbl":"salaire net infirmier·ère en France<br>Allemagne : 3 400 € — Suisse : 4 200 €",
+    "h2-ondam":"L'ONDAM : la progression ininterrompue",
+    "h2-ondam-sub":"Objectif National des Dépenses d'Assurance Maladie — il n'a jamais baissé en 27 ans.",
+    "src-ondam":"Source : PLFSS annuels, DREES. En milliards d'euros courants.",
+    "h2-dep":"Dépenses de santé / PIB — comparaison mondiale",
+    "src-dep":"Source : OCDE Health Statistics 2023. Dépenses courantes de santé (publiques + privées).",
+    "h2-paradox":"Le paradoxe de l'abondance",
+    "h2-paradox-sub":"Malgré un budget parmi les plus élevés au monde, les indicateurs d'accès et de conditions de travail sont en décrochage.",
+    "h2-budget":"La décomposition des 285 Md€",
+    "src-budget":"Source : DREES — Les dépenses de santé en 2022. Comptes nationaux de la santé.",
+    "h2-eff":"Efficience : dépenses vs espérance de vie en bonne santé",
+    "h2-eff-sub":"Années de vie en bonne santé (EVBS) pour 1 000 € de dépenses annuelles par habitant. La France est dans la moyenne malgré son budget élevé.",
+    "src-eff":"Source : OCDE 2022. EVBS = Healthy Life Years (Eurostat). Dépenses/hab. en PPA.",
+    "verdict-label":"⚖️ CE QUE LES DONNÉES DISENT",
+    "verdict-body":"La France dépense autant que l'Allemagne en santé (% PIB), mais paie ses infirmières <strong style=\"color:#fff\">38 % moins cher</strong> et dispose de <strong style=\"color:#ff6b6b\">27 % de lits en moins</strong>. L'argent existe — il est absorbé par la complexité administrative (<strong style=\"color:#fff\">~40 organismes complémentaires</strong>, double circuit public/privé, strates de gestion), par les prix pharmaceutiques, et par 30 ans de numerus clausus trop bas qui a créé la pénurie médicale actuelle. La crise de l'hôpital n'est pas un problème de budget : c'est un problème d'<strong style=\"color:#10b981\">allocation et d'organisation</strong>.",
+    "note-label":"📌 NOTE HONNÊTE",
+    "note-body":"La France a d'excellents résultats sur certains indicateurs clés : espérance de vie (82,3 ans, 5ème UE), mortalité infantile (3,6 ‰), cancer du sein (survie à 5 ans : 87 %). Le système de soins primaires reste l'un des meilleurs au monde quand on y a accès. La crise n'est pas homogène : elle touche principalement <strong style=\"color:#fff\">l'accès de premier recours</strong> (médecins généralistes, déserts) et les <strong style=\"color:#fff\">conditions de travail hospitalières</strong>, non la qualité technique des soins spécialisés.",
+    "sources-label":"Sources :",
+    "sources-body":"OCDE — Health Statistics 2023 · DREES — Comptes nationaux de la santé 2022 · CNAM — Rapport charges et produits 2023 · FHF — Baromètre hôpital 2023 · Eurostat — Healthy Life Years 2022 · CEPEJ 2022",
+    "footer-copy":"© 2026 Le Français Moyen — Données : OCDE · DREES · CNAM",
+    "footer-link":"Tableau de bord principal"
+  },
+  en:{
+    "eyebrow":"OECD · DREES · CNAM data · 2023",
+    "h1":"Healthcare in France — €236 billion, 2nd largest budget in the world",
+    "subtitle":"France has one of the most funded healthcare systems on earth — yet hospitals are understaffed, medical deserts cover 30% of the territory, and waiting times keep rising.",
+    "big-sub":"spent per year on healthcare — 12.3% of GDP",
+    "kpi1-lbl":"of GDP on healthcare<br>2nd in OECD (after USA 17.4%)",
+    "kpi2-lbl":"French people without a GP<br>CNAM 2023 — rising every year",
+    "kpi3-lbl":"beds per 1,000 inhabitants<br>Germany: 7.8 — Austria: 7.2",
+    "kpi4-lbl":"avg. net nurse salary in France<br>Germany: €3,400 — Switzerland: €4,200",
+    "h2-ondam":"ONDAM: uninterrupted growth",
+    "h2-ondam-sub":"The National Health Insurance Spending Target has never decreased in 27 years.",
+    "src-ondam":"Source: annual PLFSS, DREES. In billions of current euros.",
+    "h2-dep":"Healthcare spending as % of GDP — global comparison",
+    "src-dep":"Source: OECD Health Statistics 2023. Current health expenditure (public + private).",
+    "h2-paradox":"The abundance paradox",
+    "h2-paradox-sub":"Despite one of the highest budgets in the world, access indicators and working conditions are deteriorating.",
+    "h2-budget":"Breakdown of the €285bn budget",
+    "src-budget":"Source: DREES — Healthcare spending 2022. National Health Accounts.",
+    "h2-eff":"Efficiency: spending vs. healthy life expectancy",
+    "h2-eff-sub":"Healthy Life Years (HLY) per €1,000 of annual per-capita spending. France sits around the average despite its high budget.",
+    "src-eff":"Source: OECD 2022. HLY = Healthy Life Years (Eurostat). Spending/capita in PPP.",
+    "verdict-label":"⚖️ WHAT THE DATA SHOWS",
+    "verdict-body":"France spends as much as Germany on healthcare (% of GDP), yet pays its nurses <strong style=\"color:#fff\">38% less</strong> and has <strong style=\"color:#ff6b6b\">27% fewer beds</strong>. The money exists — it is absorbed by administrative complexity (<strong style=\"color:#fff\">~40 complementary insurers</strong>, dual public/private circuit, management layers), pharmaceutical prices, and 30 years of overly restrictive numerus clausus that created today's medical shortage. The hospital crisis is not a budget problem: it is a problem of <strong style=\"color:#10b981\">allocation and organisation</strong>.",
+    "note-label":"📌 HONEST NOTE",
+    "note-body":"France achieves excellent results on several key indicators: life expectancy (82.3 years, 5th in EU), infant mortality (3.6‰), breast cancer survival at 5 years (87%). The primary care system remains among the best in the world when accessible. The crisis is not uniform: it mainly affects <strong style=\"color:#fff\">first-contact access</strong> (GPs, medical deserts) and <strong style=\"color:#fff\">hospital working conditions</strong>, not the technical quality of specialist care.",
+    "sources-label":"Sources:",
+    "sources-body":"OECD — Health Statistics 2023 · DREES — National Health Accounts 2022 · CNAM — Charges & Products Report 2023 · FHF — Hospital Barometer 2023 · Eurostat — Healthy Life Years 2022 · CEPEJ 2022",
+    "footer-copy":"© 2026 Le Français Moyen — Data: OECD · DREES · CNAM",
+    "footer-link":"Main dashboard"
+  }
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  const s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'La santé en France — 285 Md€ par an, 2ème rang mondial — Le Français Moyen'
+    :'French Healthcare System — €236bn Budget, Hospital Crisis, Medical Deserts | The Average French';
+  const d=document.querySelector('meta[name="description"]');
+  if(d)d.setAttribute('content',l==='fr'
+    ?"La France dépense 285 Md€/an en santé (12,3 % du PIB, 2ème OCDE). Pourtant : 6,3 millions sans médecin traitant, infirmières à 2 100 €/mois, urgences saturées. Où va l'argent ?"
+    :"France spends €236bn/year on healthcare — the 2nd highest globally. Yet hospitals close beds, medical deserts spread, and waiting times grow. Official DREES data.");
+}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

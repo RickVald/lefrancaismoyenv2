@@ -1,11 +1,14 @@
 ﻿<!doctype html>
-<html lang="fr">
+<html lang="fr" id="htmlRoot">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>L'éducation nationale en France — 58 Md€, résultats en recul — Le Français Moyen</title>
-  <meta name="description" content="1er budget de l'État à 58 Md€, 7 600€ par élève, mais les scores PISA ont chuté de 43 points depuis 2000. 20% des élèves en difficulté à l'entrée en 6e. L'ascenseur social en panne.">
+  <title data-i18n="meta_title">L'éducation nationale en France — 58 Md€, résultats en recul — Le Français Moyen</title>
+  <meta name="description" data-i18n-content="meta_desc" content="1er budget de l'État à 58 Md€, 7 600€ par élève, mais les scores PISA ont chuté de 43 points depuis 2000. 20% des élèves en difficulté à l'entrée en 6e. L'ascenseur social en panne.">
   <link rel="canonical" href="https://le-francais-moyen.com/education/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/education/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/education/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/education/">
   <meta property="og:title" content="Éducation nationale — 58 Md€, −43 pts PISA depuis 2000">
   <meta property="og:description" content="Premier budget de l'État, mais des résultats en recul constant. La France dépense plus que la moyenne OCDE par élève tout en creusant ses inégalités scolaires.">
   <meta property="og:url" content="https://le-francais-moyen.com/education/">
@@ -36,6 +39,10 @@
     .split-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
     @media(max-width:640px){.split-cols{grid-template-columns:1fr}}
     canvas{width:100%;border-radius:12px;display:block}
+    .lang-switch{display:flex;gap:4px;align-items:center;margin-left:8px}
+    .lang-btn{background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;transition:background .2s,color .2s}
+    .lang-btn:hover{background:rgba(255,255,255,.13);color:var(--text)}
+    .lang-btn.active{background:rgba(236,72,153,.18);border-color:rgba(236,72,153,.4);color:#ec4899;font-weight:700}
     .budget-donut-wrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin:20px 0}
     .budget-legend{flex:1;min-width:180px}
     .bleg-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:.85rem}
@@ -80,7 +87,11 @@
         </ul>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Accueil</a>
+      <a href="/" class="cta" data-i18n="nav_home">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -109,10 +120,10 @@
 
     <!-- HERO -->
     <section class="edu-hero">
-      <p class="eyebrow" style="text-align:center">📚 Éducation nationale</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">L'éducation nationale en France</h1>
+      <p class="eyebrow" style="text-align:center" data-i18n="eyebrow">📚 Éducation nationale</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">L'éducation nationale en France</h1>
       <div class="edu-big" id="heroVal" data-mds="58">58 Md€</div>
-      <p class="hero-sub">1<sup>er</sup> budget de l'État · résultats PISA en recul depuis 20 ans</p>
+      <p class="hero-sub" data-i18n="hero_sub">1<sup>er</sup> budget de l'État · résultats PISA en recul depuis 20 ans</p>
       <div class="contrib-toggle" style="margin-top:18px">
         <button class="ct-btn active" data-mode="total">Total national</button>
         <button class="ct-btn" data-mode="contrib">Par contribuable</button>
@@ -124,7 +135,7 @@
       <!-- ── Intro SEO ──────────────────────────────────────────── -->
       <div style="max-width:1000px;margin:0 auto 40px;padding:0">
         <div style="background:rgba(236,72,153,.06);border:1px solid rgba(236,72,153,.15);border-radius:16px;padding:24px 28px">
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px">
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px" data-i18n="intro_p">
             <strong style="color:#ec4899">58 milliards d'euros</strong> de budget — 1er poste de l'État. Pourtant, la France est passée sous la moyenne OCDE en mathématiques pour la première fois en 2022 (PISA), après avoir perdu 43 points depuis 2000.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -155,30 +166,30 @@
       </div>
 
       <!-- VERDICT -->
-      <div class="edu-verdict">
+      <div class="edu-verdict" data-i18n="verdict">
         <strong style="color:#ec4899">Le paradoxe français :</strong> la France consacre 58 milliards d'euros à l'éducation — son plus grand poste budgétaire — soit davantage par élève que la moyenne OCDE. Pourtant ses scores PISA ont reculé de 43 points en mathématiques depuis 2000, et ses inégalités scolaires comptent parmi les plus fortes des pays développés. Dépenser plus n'a pas suffi.
       </div>
 
       <!-- PISA EVOLUTION -->
       <section class="card" style="margin-bottom:28px">
-        <h2>Scores PISA mathématiques (2000–2022)</h2>
-        <p class="section-sub">Comparaison France vs moyenne OCDE. PISA évalue les élèves de 15 ans tous les 3 ans.</p>
+        <h2 data-i18n="pisa_h2">Scores PISA mathématiques (2000–2022)</h2>
+        <p class="section-sub" data-i18n="pisa_sub">Comparaison France vs moyenne OCDE. PISA évalue les élèves de 15 ans tous les 3 ans.</p>
         <canvas id="pisaChart" height="260"></canvas>
         <p style="font-size:.75rem;color:var(--muted);margin-top:10px">Source : OCDE PISA 2000–2022. Moyenne OCDE 2022 : 472 pts.</p>
       </section>
 
       <!-- INTERNATIONAL COMPARISON: COST vs RESULTS -->
       <section class="card" style="margin-bottom:28px">
-        <h2>Dépenses par élève vs score PISA (secondaire)</h2>
-        <p class="section-sub">Dépense annuelle publique par élève en USD (PPA) — enseignement secondaire. Plus c'est à droite, plus on dépense. Plus c'est haut, meilleurs sont les résultats.</p>
+        <h2 data-i18n="scatter_h2">Dépenses par élève vs score PISA (secondaire)</h2>
+        <p class="section-sub" data-i18n="scatter_sub">Dépense annuelle publique par élève en USD (PPA) — enseignement secondaire. Plus c'est à droite, plus on dépense. Plus c'est haut, meilleurs sont les résultats.</p>
         <canvas id="scatterChart" height="300"></canvas>
         <p style="font-size:.75rem;color:var(--muted);margin-top:10px">Source : OCDE Regards sur l'éducation 2023. Données 2020–2022.</p>
       </section>
 
       <!-- BUDGET BREAKDOWN -->
       <section class="card" style="margin-bottom:28px">
-        <h2>Où vont les 58 milliards ?</h2>
-        <p class="section-sub">Décomposition du budget de l'Éducation nationale (Mission Enseignement scolaire, PLF 2024).</p>
+        <h2 data-i18n="budget_h2">Où vont les 58 milliards ?</h2>
+        <p class="section-sub" data-i18n="budget_sub">Décomposition du budget de l'Éducation nationale (Mission Enseignement scolaire, PLF 2024).</p>
         <div class="budget-donut-wrap">
           <canvas id="donutChart" width="220" height="220" style="width:220px;flex-shrink:0;border-radius:50%"></canvas>
           <div class="budget-legend">
@@ -194,8 +205,8 @@
 
       <!-- INEGALITES SCOLAIRES -->
       <section class="card" style="margin-bottom:28px">
-        <h2>Inégalités scolaires : l'ascenseur en panne</h2>
-        <p class="section-sub">Part de la variance des scores PISA expliquée par le milieu socio-économique (%). Plus ce chiffre est élevé, plus l'école reproduit les inégalités plutôt que de les corriger.</p>
+        <h2 data-i18n="ineq_h2">Inégalités scolaires : l'ascenseur en panne</h2>
+        <p class="section-sub" data-i18n="ineq_sub">Part de la variance des scores PISA expliquée par le milieu socio-économique (%). Plus ce chiffre est élevé, plus l'école reproduit les inégalités plutôt que de les corriger.</p>
         <div style="margin:20px 0">
           <div class="ineg-band">
             <div class="ineg-label">🇫🇷 France</div>
@@ -233,8 +244,8 @@
 
       <!-- PARADOX GRID -->
       <section class="card" style="margin-bottom:28px">
-        <h2>Le paradoxe en chiffres</h2>
-        <p class="section-sub">Un système qui dépense beaucoup mais dont les résultats divergent des attentes.</p>
+        <h2 data-i18n="paradox_h2">Le paradoxe en chiffres</h2>
+        <p class="section-sub" data-i18n="paradox_sub">Un système qui dépense beaucoup mais dont les résultats divergent des attentes.</p>
         <div class="paradox-grid">
           <div class="paradox-card">
             <div class="p-label">Budget EN 2024</div>
@@ -271,8 +282,8 @@
 
       <!-- INTERNATIONAL PISA RANKINGS -->
       <section class="card" style="margin-bottom:28px">
-        <h2>Classement PISA mathématiques 2022</h2>
-        <p class="section-sub">Score moyen sur 1 000 points. Moyenne OCDE : 472 pts.</p>
+        <h2 data-i18n="ranking_h2">Classement PISA mathématiques 2022</h2>
+        <p class="section-sub" data-i18n="ranking_sub">Score moyen sur 1 000 points. Moyenne OCDE : 472 pts.</p>
         <div style="margin:16px 0">
           <div class="cmp-row">
             <div class="cmp-flag">🇯🇵</div>
@@ -339,7 +350,7 @@
 
       <!-- SOURCES -->
       <section class="card" style="margin-bottom:40px;background:rgba(255,255,255,.025)">
-        <h2 style="font-size:1rem">Sources</h2>
+        <h2 style="font-size:1rem" data-i18n="sources_h2">Sources</h2>
         <ul style="font-size:.8rem;color:var(--muted);line-height:2;padding-left:16px">
           <li>OCDE — PISA 2000–2022 (Programme for International Student Assessment)</li>
           <li>OCDE — Regards sur l'éducation 2023 (Education at a Glance)</li>
@@ -362,6 +373,90 @@
 
   <script src="../assets/js/contrib-toggle.js"></script>
   <script src="../assets/js/nav.js"></script>
+  <script>
+  /* ── i18n FR / EN ── */
+  (function(){
+    var DICT = {
+      fr: {
+        meta_title: "L’éducation nationale en France — 58 Md€, résultats en recul — Le Français Moyen",
+        meta_desc:  "1er budget de l’État à 58 Md€, 7 600€ par élève, mais les scores PISA ont chuté de 43 points depuis 2000. 20% des élèves en difficulté à l’entrée en 6e. L’ascenseur social en panne.",
+        nav_home:   "← Accueil",
+        eyebrow:    "📚 Éducation nationale",
+        h1:         "L’éducation nationale en France",
+        hero_sub:   "1<sup>er</sup> budget de l’État · résultats PISA en recul depuis 20 ans",
+        intro_p:    "<strong style=\"color:#ec4899\">58 milliards d’euros</strong> de budget — 1er poste de l’État. Pourtant, la France est passée sous la moyenne OCDE en mathématiques pour la première fois en 2022 (PISA), après avoir perdu 43 points depuis 2000.",
+        verdict:    "<strong style=\"color:#ec4899\">Le paradoxe français :</strong> la France consacre 58 milliards d’euros à l’éducation — son plus grand poste budgétaire — soit davantage par élève que la moyenne OCDE. Pourtant ses scores PISA ont reculé de 43 points en mathématiques depuis 2000, et ses inégalités scolaires comptent parmi les plus fortes des pays développés. Dépenser plus n’a pas suffi.",
+        pisa_h2:    "Scores PISA mathématiques (2000–2022)",
+        pisa_sub:   "Comparaison France vs moyenne OCDE. PISA évalue les élèves de 15 ans tous les 3 ans.",
+        scatter_h2: "Dépenses par élève vs score PISA (secondaire)",
+        scatter_sub:"Dépense annuelle publique par élève en USD (PPA) — enseignement secondaire. Plus c’est à droite, plus on dépense. Plus c’est haut, meilleurs sont les résultats.",
+        budget_h2:  "Où vont les 58 milliards ?",
+        budget_sub: "Décomposition du budget de l’Éducation nationale (Mission Enseignement scolaire, PLF 2024).",
+        ineq_h2:    "Inégalités scolaires : l’ascenseur en panne",
+        ineq_sub:   "Part de la variance des scores PISA expliquée par le milieu socio-économique (%). Plus ce chiffre est élevé, plus l’école reproduit les inégalités plutôt que de les corriger.",
+        paradox_h2: "Le paradoxe en chiffres",
+        paradox_sub:"Un système qui dépense beaucoup mais dont les résultats divergent des attentes.",
+        ranking_h2: "Classement PISA mathématiques 2022",
+        ranking_sub:"Score moyen sur 1 000 points. Moyenne OCDE : 472 pts.",
+        sources_h2: "Sources"
+      },
+      en: {
+        meta_title: "Education in France — €160bn Budget, PISA 2022 Rank 23rd | The Average French",
+        meta_desc:  "France spends €160bn/year on education yet ranks 23rd in PISA 2022. Budget per pupil among the highest in Europe, results in decline. Official Education Ministry data.",
+        nav_home:   "← Home",
+        eyebrow:    "📚 National Education",
+        h1:         "Education in France — €160 billion, ranked 23rd in PISA 2022",
+        hero_sub:   "No. 1 state budget · PISA results declining for 20 years",
+        intro_p:    "<strong style=\"color:#ec4899\">€160 billion</strong> budget — the largest line item in the French state budget. Yet France fell below the OECD average in mathematics for the first time in PISA 2022, after losing 43 points since 2000.",
+        verdict:    "<strong style=\"color:#ec4899\">The French paradox:</strong> France spends €160 billion a year on education — one of the highest budgets in Europe. Yet its PISA scores have declined by 43 points in mathematics since 2000, and its educational inequalities are among the highest in developed countries. Spending more has not been enough.",
+        pisa_h2:    "PISA Mathematics Scores (2000–2022)",
+        pisa_sub:   "France vs OECD average. PISA tests 15-year-old pupils every 3 years.",
+        scatter_h2: "Spending per pupil vs PISA score (secondary)",
+        scatter_sub:"Annual public spending per secondary pupil in USD (PPP). Further right = more spending. Higher up = better results.",
+        budget_h2:  "Where do the €160 billion go?",
+        budget_sub: "Breakdown of the National Education budget (Teaching Mission, PLF 2024).",
+        ineq_h2:    "Educational inequality: the broken social lift",
+        ineq_sub:   "Share of PISA score variance explained by socio-economic background (%). Higher values mean school reproduces inequalities rather than correcting them.",
+        paradox_h2: "The paradox in numbers",
+        paradox_sub:"A system that spends heavily yet delivers results below expectations.",
+        ranking_h2: "PISA Mathematics Rankings 2022",
+        ranking_sub:"Average score out of 1,000. OECD average: 472 pts.",
+        sources_h2: "Sources"
+      }
+    };
+
+    function applyLang(lang) {
+      var d = DICT[lang];
+      if (!d) return;
+      // <html lang>
+      document.getElementById('htmlRoot').setAttribute('lang', lang);
+      // <title>
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (!d[key]) return;
+        if (el.tagName === 'TITLE') { el.textContent = d[key]; return; }
+        el.innerHTML = d[key];
+      });
+      // <meta name="description">
+      document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-content');
+        if (d[key]) el.setAttribute('content', d[key]);
+      });
+      // toggle buttons
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      // persist
+      try { localStorage.setItem('lfm-lang', lang); } catch(e){}
+    }
+
+    window.setLang = applyLang;
+
+    // init
+    var saved = 'fr';
+    try { saved = localStorage.getItem('lfm-lang') || 'fr'; } catch(e){}
+    applyLang(saved);
+  })();
+  </script>
   <script>
   (function(){
 

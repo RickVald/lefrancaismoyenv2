@@ -6,6 +6,9 @@
   <title>Retraites en France 2024 : système, réforme, chiffres et comparaisons — Le Français Moyen</title>
   <meta name="description" content="Système de retraites en France : 354 Md€/an, 42 régimes, âge de départ, taux de remplacement. Réforme 2023 (64 ans), projections COR 2050 et comparaison avec l'Allemagne et la Suède.">
   <link rel="canonical" href="https://le-francais-moyen.com/retraites/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/retraites/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/retraites/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/retraites/">
   <meta property="og:title" content="Retraites en France 2024 : système, réforme et chiffres officiels">
   <meta property="og:description" content="354 Md€/an. 14,5 % du PIB. 42 régimes. Réforme 2023. Projections COR 2050. Tout comprendre sur le système de retraites français en chiffres.">
   <meta property="og:url" content="https://le-francais-moyen.com/retraites/">
@@ -65,7 +68,11 @@
         </ul>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Accueil</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -92,23 +99,23 @@
 
   <main id="contenu">
     <div class="ret-hero">
-      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Retraites</span></nav>
-      <div class="eyebrow">Données COR · DREES · OCDE · 2024</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">Les retraites en France</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_page">Retraites</span></nav>
+      <div class="eyebrow" data-i18n="eyebrow">Données COR · DREES · OCDE · 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">Les retraites en France</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_sub">
         En 1960, <strong style="color:#f59e0b">4 actifs finançaient 1 retraité</strong>.<br>
         En 2050, ce sera <strong style="color:#ff6b6b">1,4 actif pour 1 retraité</strong>.<br>
         Le système le plus généreux de l'OCDE face au mur démographique.
       </p>
       <div class="ret-big" data-mds="354">354 Md€</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">versés en pensions par an — 14,5 % du PIB, 1er rang OCDE</p>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0" data-i18n="hero_caption">versés en pensions par an — 14,5 % du PIB, 1er rang OCDE</p>
     </div>
 
     <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
 
       <!-- ── Intro SEO ─────────────────────────────────────────────── -->
       <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:28px">
-        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0 0 18px">
+        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0 0 18px" data-i18n="intro_p">
           Le système de retraite français est le <strong style="color:var(--text)">plus coûteux de l'OCDE</strong> :
           <strong style="color:#f59e0b">354 milliards d'euros</strong> versés chaque année en pensions, soit 14,5 % du PIB — un niveau inégalé parmi les grandes économies mondiales.
           Ce poids exceptionnel s'explique par trois facteurs structurels : un départ effectif moyen à <strong style="color:#f59e0b">62,4 ans</strong>,
@@ -118,76 +125,76 @@
           Les <strong style="color:var(--text)">17,2 millions de retraités</strong> d'aujourd'hui seront davantage demain — pendant que la base de cotisants, elle, stagne.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <a href="/retraite-simulateur/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.4);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f59e0b;text-decoration:none;font-weight:700">🧮 Simuler ma retraite →</a>
-          <a href="/questions/a-quel-age-les-francais-partent-ils-a-la-retraite/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f59e0b;text-decoration:none">⏰ Âge réel de départ →</a>
-          <a href="/questions/combien-coute-le-systeme-de-retraite-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">💰 Coût du système →</a>
-          <a href="/questions/pourquoi-la-france-a-t-elle-42-regimes-de-retraite/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">🗂️ Les 42 régimes →</a>
-          <a href="/questions/demographie-france-soutenable/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">📊 Démographie →</a>
+          <a href="/retraite-simulateur/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.4);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f59e0b;text-decoration:none;font-weight:700" data-i18n="link_simulateur">🧮 Simuler ma retraite →</a>
+          <a href="/questions/a-quel-age-les-francais-partent-ils-a-la-retraite/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f59e0b;text-decoration:none" data-i18n="link_age">⏰ Âge réel de départ →</a>
+          <a href="/questions/combien-coute-le-systeme-de-retraite-en-france/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_cout">💰 Coût du système →</a>
+          <a href="/questions/pourquoi-la-france-a-t-elle-42-regimes-de-retraite/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_42">🗂️ Les 42 régimes →</a>
+          <a href="/questions/demographie-france-soutenable/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_demo">📊 Démographie →</a>
         </div>
       </div>
 
       <div class="ret-kpi">
         <div class="ret-kpi-card">
           <span class="val" style="color:#f59e0b">17,2 M</span>
-          <span class="lbl">retraités en 2023<br>DREES — +3,5 M en 20 ans</span>
+          <span class="lbl" data-i18n="kpi_retraites">retraités en 2023<br>DREES — +3,5 M en 20 ans</span>
         </div>
         <div class="ret-kpi-card">
           <span class="val" style="color:#ff6b6b">1,68</span>
-          <span class="lbl">actifs par retraité en 2023<br>Était 4,0 en 1960</span>
+          <span class="lbl" data-i18n="kpi_ratio">actifs par retraité en 2023<br>Était 4,0 en 1960</span>
         </div>
         <div class="ret-kpi-card">
           <span class="val" style="color:#fb923c">62,4 ans</span>
-          <span class="lbl">âge effectif moyen de départ<br>OCDE : 64,4 ans — DE : 63,8 ans</span>
+          <span class="lbl" data-i18n="kpi_age">âge effectif moyen de départ<br>OCDE : 64,4 ans — DE : 63,8 ans</span>
         </div>
         <div class="ret-kpi-card">
           <span class="val" style="color:#a78bfa">1 509 €</span>
-          <span class="lbl">pension moyenne nette / mois<br>DREES 2022 (tous régimes)</span>
+          <span class="lbl" data-i18n="kpi_pension">pension moyenne nette / mois<br>DREES 2022 (tous régimes)</span>
         </div>
       </div>
 
       <!-- Ratio actifs/retraités -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">Le ratio qui fait tout basculer</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Le système par répartition repose sur un équilibre simple : les actifs financent les retraités. Cet équilibre s'effondre.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px" data-i18n="h2_ratio">Le ratio qui fait tout basculer</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="ratio_sub">Le système par répartition repose sur un équilibre simple : les actifs financent les retraités. Cet équilibre s'effondre.</p>
       <canvas id="ratioChart" height="220"></canvas>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Sources : INSEE, COR — rapport annuel 2024. Projections 2030–2070 : scénario central COR.</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px" data-i18n="ratio_source">Sources : INSEE, COR — rapport annuel 2024. Projections 2030–2070 : scénario central COR.</p>
 
       <!-- Comparaison internationale % PIB -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Dépenses retraite / PIB — la France en tête</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_pib">Dépenses retraite / PIB — la France en tête</h2>
       <div id="piбCmp"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : OCDE — Pensions at a Glance 2023.</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px" data-i18n="pib_source">Source : OCDE — Pensions at a Glance 2023.</p>
 
       <!-- Âge de départ vs pension -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px">Âge effectif de départ vs taux de remplacement</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">La France part le plus tôt <em>et</em> touche un taux de remplacement dans la moyenne. Ce n'est pas un arbitrage — c'est un coût double.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px" data-i18n="h2_age">Âge effectif de départ vs taux de remplacement</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="age_sub">La France part le plus tôt <em>et</em> touche un taux de remplacement dans la moyenne. Ce n'est pas un arbitrage — c'est un coût double.</p>
       <div class="ret-dual-col">
         <div>
-          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px">⏰ ÂGE EFFECTIF DE DÉPART</div>
+          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px" data-i18n="col_age_label">⏰ ÂGE EFFECTIF DE DÉPART</div>
           <div id="ageCmp"></div>
         </div>
         <div>
-          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px">💰 TAUX DE REMPLACEMENT NET</div>
+          <div style="font-size:.78rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px" data-i18n="col_tx_label">💰 TAUX DE REMPLACEMENT NET</div>
           <div id="txCmp"></div>
         </div>
       </div>
 
       <!-- Les 42 régimes -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 12px">Les 42 régimes : une complexité unique au monde</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 12px" data-i18n="h2_42">Les 42 régimes : une complexité unique au monde</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:20px">
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
           <div style="font-size:1.6rem;font-weight:900;color:#f59e0b">42</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">régimes de retraite en France<br>vs <strong style="color:#63d471">1 régime universel</strong> en Suède</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="card_42_regimes">régimes de retraite en France<br>vs <strong style="color:#63d471">1 régime universel</strong> en Suède</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
           <div style="font-size:1.6rem;font-weight:900;color:#ff6b6b">24 ans</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">durée moyenne de retraite<br>la plus longue d'Europe (OCDE)</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="card_24_ans">durée moyenne de retraite<br>la plus longue d'Europe (OCDE)</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
           <div style="font-size:1.6rem;font-weight:900;color:#a78bfa" data-mds="63">63 Md€</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">CAS Pensions — fonctionnaires d'État<br>seuls (hors FPT, FPH)</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="card_cas">CAS Pensions — fonctionnaires d'État<br>seuls (hors FPT, FPH)</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,107,107,.3);border-radius:14px;padding:16px">
           <div style="font-size:1.6rem;font-weight:900;color:#ff6b6b">−13 Md€</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:4px">déficit projeté en 2032<br>scénario central COR</div>
+          <div style="font-size:.78rem;color:var(--muted);margin-top:4px" data-i18n="card_deficit">déficit projeté en 2032<br>scénario central COR</div>
         </div>
       </div>
 
@@ -195,26 +202,26 @@
       <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.25);border-radius:14px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:16px">
         <div style="font-size:2rem;flex-shrink:0">🔗</div>
         <div>
-          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">Fonctionnaires vs privé : l'écart ×22</div>
-          <p style="font-size:.82rem;color:var(--muted);margin:0">L'État dépense <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire (CAS Pensions), contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé (FSV). Analyse détaillée sur <a href="/budget/" style="color:#60a5fa;text-decoration:underline">Budget de l'État</a> et <a href="/fonctionnaires/" style="color:#60a5fa;text-decoration:underline">Fonctionnaires</a>.</p>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px" data-i18n="link_fonct_title">Fonctionnaires vs privé : l'écart ×22</div>
+          <p style="font-size:.82rem;color:var(--muted);margin:0" data-i18n="link_fonct_desc">L'État dépense <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire (CAS Pensions), contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé (FSV). Analyse détaillée sur <a href="/budget/" style="color:#60a5fa;text-decoration:underline">Budget de l'État</a> et <a href="/fonctionnaires/" style="color:#60a5fa;text-decoration:underline">Fonctionnaires</a>.</p>
         </div>
       </div>
 
       <div class="ret-verdict">
-        <div style="font-size:.8rem;font-weight:800;color:#f59e0b;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+        <div style="font-size:.8rem;font-weight:800;color:#f59e0b;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_label">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_text">
           Le système de retraite français verse <strong style="color:#fff" data-mds="354">354 Md€/an</strong> — soit plus que le budget total de l'État. Il est financé par <strong style="color:#f59e0b">1,68 actif par retraité</strong>, un ratio qui tombera à <strong style="color:#ff6b6b">1,4 d'ici 2050</strong>. La réforme de 2023 (62→64 ans) ne change le ratio que marginalement. Sans réforme structurelle plus profonde ou croissance économique forte, le déficit du système deviendra insoutenable dans les années 2030. Ce n'est pas une opinion politique — c'est une projection démographique.
         </p>
       </div>
 
       <div class="ret-note">
-        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
-        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">Les pays nordiques (Suède, Danemark) ont réformé leurs systèmes dans les années 1990 en passant à des comptes notionnels ou à cotisations définies, avec une <strong style="color:#fff">retraite automatiquement indexée sur l'espérance de vie</strong>. Leurs systèmes sont soutenables à long terme. Le débat n'est pas "travailler plus ou moins" mais "comment financer des décennies de retraite dans un pays qui vieillit". La France a le choix entre <strong style="color:#fff">trois leviers</strong> : âge de départ, niveau des pensions, et taux de cotisation.</p>
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px" data-i18n="note_label">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0" data-i18n="note_text">Les pays nordiques (Suède, Danemark) ont réformé leurs systèmes dans les années 1990 en passant à des comptes notionnels ou à cotisations définies, avec une <strong style="color:#fff">retraite automatiquement indexée sur l'espérance de vie</strong>. Leurs systèmes sont soutenables à long terme. Le débat n'est pas "travailler plus ou moins" mais "comment financer des décennies de retraite dans un pays qui vieillit". La France a le choix entre <strong style="color:#fff">trois leviers</strong> : âge de départ, niveau des pensions, et taux de cotisation.</p>
       </div>
 
       <div style="border-top:1px solid var(--border);padding-top:20px">
         <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
-          <strong style="color:var(--text)">Sources :</strong> COR — Rapport annuel 2024 · DREES — Les retraités et les retraites 2023 · OCDE — Pensions at a Glance 2023 · INSEE — Projections de population 2021–2070 · Cour des Comptes — rapport retraites 2023
+          <span data-i18n="sources_block"><strong style="color:var(--text)">Sources :</strong> COR — Rapport annuel 2024 · DREES — Les retraités et les retraites 2023 · OCDE — Pensions at a Glance 2023 · INSEE — Projections de population 2021–2070 · Cour des Comptes — rapport retraites 2023</span>
         </div>
       </div>
       <div style="text-align:center;margin-top:28px">
@@ -224,8 +231,8 @@
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : COR · DREES · OCDE · INSEE</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : COR · DREES · OCDE · INSEE</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -359,6 +366,118 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+  <script>
+  (function(){
+    var T={
+      fr:{
+        nav_cta:'← Accueil',
+        breadcrumb_home:'Accueil',
+        breadcrumb_page:'Retraites',
+        eyebrow:'Données COR · DREES · OCDE · 2024',
+        h1:'Les retraites en France',
+        hero_sub:'En 1960, <strong style="color:#f59e0b">4 actifs finançaient 1 retraité</strong>.<br>En 2050, ce sera <strong style="color:#ff6b6b">1,4 actif pour 1 retraité</strong>.<br>Le système le plus généreux de l\'OCDE face au mur démographique.',
+        hero_caption:'versés en pensions par an — 14,5 % du PIB, 1er rang OCDE',
+        intro_p:'Le système de retraite français est le <strong style="color:var(--text)">plus coûteux de l\'OCDE</strong> : <strong style="color:#f59e0b">354 milliards d\'euros</strong> versés chaque année en pensions, soit 14,5 % du PIB — un niveau inégalé parmi les grandes économies mondiales. Ce poids exceptionnel s\'explique par trois facteurs structurels : un départ effectif moyen à <strong style="color:#f59e0b">62,4 ans</strong>, parmi les plus précoces d\'Europe ; <strong style="color:#ff6b6b">42 régimes de retraite</strong> aux règles hétérogènes ; et une démographie défavorable, avec seulement <strong style="color:#ff6b6b">1,68 actif par retraité</strong> en 2023, contre 4 en 1960. Le Conseil d\'orientation des retraites (COR) projette un déséquilibre croissant jusqu\'en 2070 si la trajectoire actuelle se maintient. Les <strong style="color:var(--text)">17,2 millions de retraités</strong> d\'aujourd\'hui seront davantage demain — pendant que la base de cotisants, elle, stagne.',
+        link_simulateur:'🧮 Simuler ma retraite →',
+        link_age:'⏰ Âge réel de départ →',
+        link_cout:'💰 Coût du système →',
+        link_42:'🗂️ Les 42 régimes →',
+        link_demo:'📊 Démographie →',
+        kpi_retraites:'retraités en 2023<br>DREES — +3,5 M en 20 ans',
+        kpi_ratio:'actifs par retraité en 2023<br>Était 4,0 en 1960',
+        kpi_age:'âge effectif moyen de départ<br>OCDE : 64,4 ans — DE : 63,8 ans',
+        kpi_pension:'pension moyenne nette / mois<br>DREES 2022 (tous régimes)',
+        h2_ratio:'Le ratio qui fait tout basculer',
+        ratio_sub:'Le système par répartition repose sur un équilibre simple : les actifs financent les retraités. Cet équilibre s\'effondre.',
+        ratio_source:'Sources : INSEE, COR — rapport annuel 2024. Projections 2030–2070 : scénario central COR.',
+        h2_pib:'Dépenses retraite / PIB — la France en tête',
+        pib_source:'Source : OCDE — Pensions at a Glance 2023.',
+        h2_age:'Âge effectif de départ vs taux de remplacement',
+        age_sub:'La France part le plus tôt <em>et</em> touche un taux de remplacement dans la moyenne. Ce n\'est pas un arbitrage — c\'est un coût double.',
+        col_age_label:'⏰ ÂGE EFFECTIF DE DÉPART',
+        col_tx_label:'💰 TAUX DE REMPLACEMENT NET',
+        h2_42:'Les 42 régimes : une complexité unique au monde',
+        card_42_regimes:'régimes de retraite en France<br>vs <strong style="color:#63d471">1 régime universel</strong> en Suède',
+        card_24_ans:'durée moyenne de retraite<br>la plus longue d\'Europe (OCDE)',
+        card_cas:'CAS Pensions — fonctionnaires d\'État<br>seuls (hors FPT, FPH)',
+        card_deficit:'déficit projeté en 2032<br>scénario central COR',
+        link_fonct_title:'Fonctionnaires vs privé : l\'écart ×22',
+        link_fonct_desc:'L\'État dépense <strong style="color:#a78bfa">2 187 €/mois</strong> par retraité fonctionnaire (CAS Pensions), contre <strong style="color:#63d471">~98 €/mois</strong> pour un retraité du privé (FSV). Analyse détaillée sur <a href="/budget/" style="color:#60a5fa;text-decoration:underline">Budget de l\'État</a> et <a href="/fonctionnaires/" style="color:#60a5fa;text-decoration:underline">Fonctionnaires</a>.',
+        verdict_label:'⚖️ CE QUE LES DONNÉES DISENT',
+        verdict_text:'Le système de retraite français verse <strong style="color:#fff" data-mds="354">354 Md€/an</strong> — soit plus que le budget total de l\'État. Il est financé par <strong style="color:#f59e0b">1,68 actif par retraité</strong>, un ratio qui tombera à <strong style="color:#ff6b6b">1,4 d\'ici 2050</strong>. La réforme de 2023 (62→64 ans) ne change le ratio que marginalement. Sans réforme structurelle plus profonde ou croissance économique forte, le déficit du système deviendra insoutenable dans les années 2030. Ce n\'est pas une opinion politique — c\'est une projection démographique.',
+        note_label:'📌 NOTE HONNÊTE',
+        note_text:'Les pays nordiques (Suède, Danemark) ont réformé leurs systèmes dans les années 1990 en passant à des comptes notionnels ou à cotisations définies, avec une <strong style="color:#fff">retraite automatiquement indexée sur l\'espérance de vie</strong>. Leurs systèmes sont soutenables à long terme. Le débat n\'est pas "travailler plus ou moins" mais "comment financer des décennies de retraite dans un pays qui vieillit". La France a le choix entre <strong style="color:#fff">trois leviers</strong> : âge de départ, niveau des pensions, et taux de cotisation.',
+        sources_block:'<strong style="color:var(--text)">Sources :</strong> COR — Rapport annuel 2024 · DREES — Les retraités et les retraites 2023 · OCDE — Pensions at a Glance 2023 · INSEE — Projections de population 2021–2070 · Cour des Comptes — rapport retraites 2023',
+        footer_copy:'© 2026 Le Français Moyen — Données : COR · DREES · OCDE · INSEE',
+        footer_link:'Tableau de bord principal'
+      },
+      en:{
+        nav_cta:'← Home',
+        breadcrumb_home:'Home',
+        breadcrumb_page:'Pensions',
+        eyebrow:'Data: COR · DREES · OECD · 2024',
+        h1:'French Pensions — 42 schemes, €354 billion a year',
+        hero_sub:'In 1960, <strong style="color:#f59e0b">4 workers funded 1 retiree</strong>.<br>By 2050, it will be <strong style="color:#ff6b6b">1.4 workers per retiree</strong>.<br>The most generous pension system in the OECD facing a demographic wall.',
+        hero_caption:'paid in pensions per year — 14.5% of GDP, #1 in the OECD',
+        intro_p:'The French pension system is the <strong style="color:var(--text)">most expensive in the OECD</strong>: <strong style="color:#f59e0b">€354 billion</strong> paid out in pensions each year, equal to 14.5% of GDP — unmatched among major world economies. This exceptional burden is explained by three structural factors: an average effective retirement age of <strong style="color:#f59e0b">62.4 years</strong>, among the earliest in Europe; <strong style="color:#ff6b6b">42 pension schemes</strong> with heterogeneous rules; and an unfavourable demographic trend, with only <strong style="color:#ff6b6b">1.68 workers per retiree</strong> in 2023, versus 4 in 1960. The Conseil d\'orientation des retraites (COR) projects a growing imbalance through 2070 if the current trajectory is maintained. The <strong style="color:var(--text)">17.2 million retirees</strong> of today will be even more tomorrow — while the contributor base stagnates.',
+        link_simulateur:'🧮 Simulate my pension →',
+        link_age:'⏰ Real retirement age →',
+        link_cout:'💰 System cost →',
+        link_42:'🗂️ The 42 schemes →',
+        link_demo:'📊 Demographics →',
+        kpi_retraites:'retirees in 2023<br>DREES — +3.5M in 20 years',
+        kpi_ratio:'workers per retiree in 2023<br>Was 4.0 in 1960',
+        kpi_age:'average effective retirement age<br>OECD: 64.4 — Germany: 63.8',
+        kpi_pension:'average net monthly pension<br>DREES 2022 (all schemes)',
+        h2_ratio:'The ratio that changes everything',
+        ratio_sub:'The pay-as-you-go system rests on a simple balance: workers fund retirees. That balance is collapsing.',
+        ratio_source:'Sources: INSEE, COR — annual report 2024. Projections 2030–2070: COR central scenario.',
+        h2_pib:'Pension spending / GDP — France leads the OECD',
+        pib_source:'Source: OECD — Pensions at a Glance 2023.',
+        h2_age:'Effective retirement age vs net replacement rate',
+        age_sub:'France retires earliest <em>and</em> receives a replacement rate near the average. This is not a trade-off — it is a double cost.',
+        col_age_label:'⏰ EFFECTIVE RETIREMENT AGE',
+        col_tx_label:'💰 NET REPLACEMENT RATE',
+        h2_42:'42 schemes: a complexity unique in the world',
+        card_42_regimes:'pension schemes in France<br>vs <strong style="color:#63d471">1 universal scheme</strong> in Sweden',
+        card_24_ans:'average retirement duration<br>longest in Europe (OECD)',
+        card_cas:'CAS Pensions — civil servants only<br>(excl. local & hospital sectors)',
+        card_deficit:'projected deficit in 2032<br>COR central scenario',
+        link_fonct_title:'Civil servants vs private sector: a ×22 gap',
+        link_fonct_desc:'The State spends <strong style="color:#a78bfa">€2,187/month</strong> per civil servant retiree (CAS Pensions), versus <strong style="color:#63d471">~€98/month</strong> for a private-sector retiree (FSV). Detailed analysis on <a href="/budget/" style="color:#60a5fa;text-decoration:underline">State Budget</a> and <a href="/fonctionnaires/" style="color:#60a5fa;text-decoration:underline">Civil Servants</a>.',
+        verdict_label:'⚖️ WHAT THE DATA SAYS',
+        verdict_text:'The French pension system pays out <strong style="color:#fff" data-mds="354">€354bn/year</strong> — more than the entire State budget. It is funded by <strong style="color:#f59e0b">1.68 workers per retiree</strong>, a ratio set to fall to <strong style="color:#ff6b6b">1.4 by 2050</strong>. The 2023 reform (62→64 years) changes the ratio only marginally. Without deeper structural reform or strong economic growth, the system\'s deficit will become unsustainable in the 2030s. This is not a political opinion — it is a demographic projection.',
+        note_label:'📌 HONEST NOTE',
+        note_text:'The Nordic countries (Sweden, Denmark) reformed their systems in the 1990s, switching to notional accounts or defined contributions, with pensions <strong style="color:#fff">automatically indexed to life expectancy</strong>. Their systems are sustainable long-term. The debate is not "work more or less" but "how to fund decades of retirement in an ageing country". France has a choice between <strong style="color:#fff">three levers</strong>: retirement age, pension level, and contribution rate.',
+        sources_block:'<strong style="color:var(--text)">Sources:</strong> COR — Annual Report 2024 · DREES — Retirees and Pensions 2023 · OECD — Pensions at a Glance 2023 · INSEE — Population Projections 2021–2070 · Cour des Comptes — Pensions Report 2023',
+        footer_copy:'© 2026 The Average French — Data: COR · DREES · OECD · INSEE',
+        footer_link:'Main dashboard'
+      }
+    };
+    var lang=localStorage.getItem('lfm-lang')||'fr';
+    function setLang(l){
+      lang=l;
+      localStorage.setItem('lfm-lang',l);
+      document.documentElement.lang=l==='fr'?'fr':'en';
+      document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+      document.getElementById('btn-en').classList.toggle('active',l==='en');
+      var s=T[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k=el.getAttribute('data-i18n');
+        if(s[k]!==undefined)el.innerHTML=s[k];
+      });
+      document.title=l==='fr'
+        ?'Retraites en France 2024 : système, réforme, chiffres et comparaisons — Le Français Moyen'
+        :'French Pension System — 42 Schemes, €354bn/year, 2023 Reform | The Average French';
+      var desc=document.querySelector('meta[name="description"]');
+      if(desc)desc.setAttribute('content',l==='fr'
+        ?'Système de retraites en France : 354 Md€/an, 42 régimes, âge de départ, taux de remplacement. Réforme 2023 (64 ans), projections COR 2050 et comparaison avec l\'Allemagne et la Suède.'
+        :'France spends 14% of GDP on pensions — the highest in the OECD. 42 pension schemes, 1.7 workers per retiree, 2023 reform impact. Official INSEE and DREES data.');
+    }
+    setLang(lang);
+    window.setLang=setLang;
+  })();
+  </script>
 </body>
 </html>
 

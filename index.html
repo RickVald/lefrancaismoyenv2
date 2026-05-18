@@ -11,6 +11,9 @@
   <meta name="color-scheme" content="dark light">
   <meta name="author" content="Le Français Moyen">
   <link rel="canonical" href="https://le-francais-moyen.com/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -191,6 +194,10 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a class="cta" href="#newsletter">Recevoir les données</a>
   </div>
@@ -222,23 +229,23 @@
   <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
   <section aria-labelledby="titre-site" style="padding:64px 0 56px;border-bottom:1px solid #1a1a1a">
     <div style="max-width:780px;margin:0 auto;padding:0 24px;text-align:center">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:18px;font-weight:700">Données officielles · INSEE · Banque de France · Eurostat</div>
-      <h1 id="titre-site" style="font-size:clamp(2rem,5.5vw,3.4rem);font-weight:900;line-height:1.12;letter-spacing:-.04em;color:#f5f5f5;margin:0 0 20px">
+      <div data-i18n="hero_eyebrow" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:18px;font-weight:700">Données officielles · INSEE · Banque de France · Eurostat</div>
+      <h1 data-i18n="h1" id="titre-site" style="font-size:clamp(2rem,5.5vw,3.4rem);font-weight:900;line-height:1.12;letter-spacing:-.04em;color:#f5f5f5;margin:0 0 20px">
         Mettez des chiffres sur ce que vous ressentez.
       </h1>
-      <p style="font-size:1.1rem;color:#999;line-height:1.75;margin:0 auto 36px;max-width:600px">
+      <p data-i18n="hero_sub" style="font-size:1.1rem;color:#999;line-height:1.75;margin:0 auto 36px;max-width:600px">
         Inflation, dette, retraites, fiscalité, logement — les données publiques officielles mises en perspective, sans filtre ni algorithme.
       </p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px">
-        <a class="button" href="/dette/" style="padding:14px 28px;font-size:1rem;font-weight:800">⏱️ Dette en direct →</a>
-        <a class="button secondary" href="/questions/" style="padding:14px 28px;font-size:1rem">❓ Explorer les questions</a>
+        <a data-i18n="btn_dette" class="button" href="/dette/" style="padding:14px 28px;font-size:1rem;font-weight:800">⏱️ Dette en direct →</a>
+        <a data-i18n="btn_questions" class="button secondary" href="/questions/" style="padding:14px 28px;font-size:1rem">❓ Explorer les questions</a>
       </div>
       <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap">
-        <span style="color:#555;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em">Partager :</span>
+        <span data-i18n="share_lbl" style="color:#555;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em">Partager :</span>
         <a style="color:#fb923c;font-size:.82rem;font-weight:700;text-decoration:none" href="https://twitter.com/intent/tweet?text=Mettez+des+chiffres+sur+ce+que+vous+ressentez+%3A+inflation+r%C3%A9elle%2C+pouvoir+d%27achat%2C+fiscalit%C3%A9%2C+dette.+Donn%C3%A9es+officielles+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener">𝕏 Twitter</a>
         <a style="color:#60a5fa;font-size:.82rem;font-weight:700;text-decoration:none" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener">Facebook</a>
         <a style="color:#c084fc;font-size:.82rem;font-weight:700;text-decoration:none" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2F" target="_blank" rel="noopener">LinkedIn</a>
-        <button style="background:none;border:none;color:#888;font-size:.82rem;font-weight:700;cursor:pointer;padding:0" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
+        <button data-i18n="copy_link" style="background:none;border:none;color:#888;font-size:.82rem;font-weight:700;cursor:pointer;padding:0" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
       </div>
     </div>
   </section>
@@ -248,32 +255,32 @@
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:28px">
         <div style="width:9px;height:9px;border-radius:50%;background:#f87171;box-shadow:0 0 10px #f87171;animation:lfm-pulse 1.5s infinite;flex-shrink:0"></div>
-        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#f87171;font-weight:700">En direct · calcul automatique</div>
+        <div data-i18n="ticker_live" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#f87171;font-weight:700">En direct · calcul automatique</div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px">
 
         <!-- Bloc 1 : Dette publique en temps réel -->
         <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.22);border-radius:16px;padding:26px 28px">
-          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:10px">🇫🇷 Dette publique française</div>
+          <div data-i18n="ticker_debt_lbl" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:10px">🇫🇷 Dette publique française</div>
           <div id="tickerDebt" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2;word-break:break-all">3 460 000 000 000 €</div>
-          <div style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Compteur continu · base 01/01/2026 · Banque de France</div>
-          <div style="font-size:.78rem;color:#f87171;margin-top:6px;font-weight:600">+5 500 €/s · 113 % du PIB</div>
-          <a href="/dette/" style="display:inline-block;margin-top:16px;font-size:.82rem;color:#f87171;font-weight:700;text-decoration:none;border:1px solid rgba(248,113,113,.3);border-radius:6px;padding:7px 16px;transition:.15s" onmouseover="this.style.background='rgba(248,113,113,.1)'" onmouseout="this.style.background='transparent'">Voir le compteur complet →</a>
+          <div data-i18n="ticker_debt_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Compteur continu · base 01/01/2026 · Banque de France</div>
+          <div data-i18n="ticker_debt_rate" style="font-size:.78rem;color:#f87171;margin-top:6px;font-weight:600">+5 500 €/s · 113 % du PIB</div>
+          <a data-i18n="ticker_debt_cta" href="/dette/" style="display:inline-block;margin-top:16px;font-size:.82rem;color:#f87171;font-weight:700;text-decoration:none;border:1px solid rgba(248,113,113,.3);border-radius:6px;padding:7px 16px;transition:.15s" onmouseover="this.style.background='rgba(248,113,113,.1)'" onmouseout="this.style.background='transparent'">Voir le compteur complet →</a>
         </div>
 
         <!-- Bloc 2 : Intérêts payés depuis ouverture de la page -->
         <div style="background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.22);border-radius:16px;padding:26px 28px">
-          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:10px">💸 Intérêts payés depuis votre arrivée</div>
+          <div data-i18n="ticker_int_lbl" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:10px">💸 Intérêts payés depuis votre arrivée</div>
           <div id="tickerInterest" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2">0 €</div>
-          <div style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Intérêts de la dette versés depuis l'ouverture de cette page</div>
+          <div data-i18n="ticker_int_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Intérêts de la dette versés depuis l'ouverture de cette page</div>
           <div style="font-size:.78rem;color:#fb923c;margin-top:6px;font-weight:600;line-height:1.7">1 840 €/s · 58 Md€/an · soit <strong style="color:#fbbf24">1 526 €/an par foyer fiscal</strong></div>
         </div>
 
         <!-- Bloc 3 : Charge future d'intérêts générée -->
         <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.22);border-radius:16px;padding:26px 28px">
-          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#a78bfa;margin-bottom:10px">📈 Charge future d'intérêts générée</div>
+          <div data-i18n="ticker_fut_lbl" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#a78bfa;margin-bottom:10px">📈 Charge future d'intérêts générée</div>
           <div id="tickerFuture" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2">0 €/an</div>
-          <div style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Charge annuelle future créée par les emprunts depuis votre arrivée</div>
+          <div data-i18n="ticker_fut_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Charge annuelle future créée par les emprunts depuis votre arrivée</div>
           <div style="font-size:.78rem;color:#a78bfa;margin-top:6px;font-weight:600;line-height:1.7">Chaque seconde d'emprunt à 3 % = <strong style="color:#c4b5fd">+165 €/an</strong> de charge future perpétuelle</div>
         </div>
 
@@ -335,31 +342,31 @@
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px">
         <div>
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:6px;font-weight:700">Semaine du 12 mai 2026</div>
-          <h2 style="font-size:1.25rem;font-weight:800;color:#f5f5f5;margin:0">3 chiffres que tout le monde devrait connaître</h2>
+          <div data-i18n="week_label" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:6px;font-weight:700">Semaine du 12 mai 2026</div>
+          <h2 data-i18n="week_h2" style="font-size:1.25rem;font-weight:800;color:#f5f5f5;margin:0">3 chiffres que tout le monde devrait connaître</h2>
         </div>
-        <a href="/questions/" style="font-size:.85rem;color:#fb923c;text-decoration:none;font-weight:700;white-space:nowrap">Voir tous les articles →</a>
+        <a data-i18n="week_all" href="/questions/" style="font-size:.85rem;color:#fb923c;text-decoration:none;font-weight:700;white-space:nowrap">Voir tous les articles →</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px">
 
         <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,146,60,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fb923c'" onmouseout="this.style.borderColor='rgba(251,146,60,.18)'">
-          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">💡 La distinction essentielle</div>
+          <div data-i18n="card1_tag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">💡 La distinction essentielle</div>
           <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">155 Md€ ≠ 3 460 Md€</div>
-          <div style="font-size:.88rem;color:#888;line-height:1.6">Le déficit (annuel) et la dette (cumulée) sont deux choses très différentes — et souvent confondues. Explication en données.</div>
+          <div data-i18n="card1_desc" style="font-size:.88rem;color:#888;line-height:1.6">Le déficit (annuel) et la dette (cumulée) sont deux choses très différentes — et souvent confondues. Explication en données.</div>
           <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">Source : Banque de France 2024 →</div>
         </a>
 
         <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(96,165,250,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#60a5fa'" onmouseout="this.style.borderColor='rgba(96,165,250,.18)'">
-          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#60a5fa;margin-bottom:8px">💼 Ce que l'employeur voit</div>
+          <div data-i18n="card2_tag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#60a5fa;margin-bottom:8px">💼 Ce que l'employeur voit</div>
           <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">× 1,7 à 2,1</div>
-          <div style="font-size:.88rem;color:#888;line-height:1.6">Un salarié à 2 000 € net coûte 3 400–4 200 € à son employeur. Le calcul complet des charges patronales 2024.</div>
+          <div data-i18n="card2_desc" style="font-size:.88rem;color:#888;line-height:1.6">Un salarié à 2 000 € net coûte 3 400–4 200 € à son employeur. Le calcul complet des charges patronales 2024.</div>
           <div style="font-size:.78rem;color:#60a5fa;margin-top:10px;font-weight:600">Source : URSSAF 2024 →</div>
         </a>
 
         <a href="/questions/louer-ou-acheter-que-choisir-en-france" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,191,36,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,.18)'">
-          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fbbf24;margin-bottom:8px">🏠 Immobilier</div>
+          <div data-i18n="card3_tag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fbbf24;margin-bottom:8px">🏠 Immobilier</div>
           <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">5,9 ans</div>
-          <div style="font-size:.88rem;color:#888;line-height:1.6">Il faut désormais 5,9 ans de détention pour que l'achat soit plus rentable que la location — contre 3,5 ans en 2019.</div>
+          <div data-i18n="card3_desc" style="font-size:.88rem;color:#888;line-height:1.6">Il faut désormais 5,9 ans de détention pour que l'achat soit plus rentable que la location — contre 3,5 ans en 2019.</div>
           <div style="font-size:.78rem;color:#fbbf24;margin-top:10px;font-weight:600">Source : Meilleurs Agents 2024 →</div>
         </a>
 
@@ -371,11 +378,11 @@
   <section aria-label="Newsletter" style="padding:28px 0;border-bottom:1px solid #1a1a1a;background:linear-gradient(90deg,rgba(251,146,60,.04),rgba(167,139,250,.04))">
     <div style="max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
       <div>
-        <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:4px">📧 Le chiffre du lundi</div>
-        <div style="font-size:1rem;font-weight:700;color:#f5f5f5">3 chiffres officiels · 1 graphique · 1 phrase à retenir — chaque lundi.</div>
-        <div style="font-size:.82rem;color:#666;margin-top:2px">6 000+ lecteurs · 0 publicité · désinscription en 1 clic</div>
+        <div data-i18n="nl_tag" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:4px">📧 Le chiffre du lundi</div>
+        <div data-i18n="nl_pitch" style="font-size:1rem;font-weight:700;color:#f5f5f5">3 chiffres officiels · 1 graphique · 1 phrase à retenir — chaque lundi.</div>
+        <div data-i18n="nl_social" style="font-size:.82rem;color:#666;margin-top:2px">6 000+ lecteurs · 0 publicité · désinscription en 1 clic</div>
       </div>
-      <a href="#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.92rem;padding:12px 24px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0">S'abonner gratuitement →</a>
+      <a data-i18n="nl_cta" href="#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.92rem;padding:12px 24px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0">S'abonner gratuitement →</a>
     </div>
   </section>
 
@@ -384,96 +391,96 @@
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px">
         <div>
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4ade80;margin-bottom:8px;font-weight:700">Analyses thématiques</div>
-          <h2 id="themes-titre" style="font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin:0">12 sujets. Les données officielles.</h2>
-          <p style="color:#888;font-size:14px;margin-top:6px;max-width:500px">Chaque thème : données longue période, sources vérifiables, chiffres clés mis en perspective.</p>
+          <div data-i18n="themes_eyebrow" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#4ade80;margin-bottom:8px;font-weight:700">Analyses thématiques</div>
+          <h2 data-i18n="themes_h2" id="themes-titre" style="font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin:0">12 sujets. Les données officielles.</h2>
+          <p data-i18n="themes_sub" style="color:#888;font-size:14px;margin-top:6px;max-width:500px">Chaque thème : données longue période, sources vérifiables, chiffres clés mis en perspective.</p>
         </div>
-        <a href="/outils/" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:6px;border:1px solid #4ade8044;color:#4ade80;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s" onmouseover="this.style.background='#4ade8022'" onmouseout="this.style.background='transparent'">Voir les outils →</a>
+        <a data-i18n="themes_tools" href="/outils/" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:6px;border:1px solid #4ade8044;color:#4ade80;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s" onmouseover="this.style.background='#4ade8022'" onmouseout="this.style.background='transparent'">Voir les outils →</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
 
         <a href="/dette/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(248,113,113,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#f87171';this.style.background='rgba(248,113,113,.05)'" onmouseout="this.style.borderColor='rgba(248,113,113,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">⏱️</div>
-          <div style="font-size:13px;font-weight:700;color:#f87171;margin-bottom:5px">Dette en direct</div>
+          <div data-i18n="theme_1_title" style="font-size:13px;font-weight:700;color:#f87171;margin-bottom:5px">Dette en direct</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">3 460 Md€</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">Compteur en direct. 113 % du PIB. +5 500 €/s.</div>
+          <div data-i18n="theme_1_desc" style="font-size:11px;color:#666;line-height:1.5">Compteur en direct. 113 % du PIB. +5 500 €/s.</div>
         </a>
 
         <a href="/budget/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">📋</div>
-          <div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Budget de l'État</div>
+          <div data-i18n="theme_2_title" style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Budget de l'État</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">57 % du PIB</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">Recettes, dépenses, déficit. Le taux le plus élevé de l'OCDE.</div>
+          <div data-i18n="theme_2_desc" style="font-size:11px;color:#666;line-height:1.5">Recettes, dépenses, déficit. Le taux le plus élevé de l'OCDE.</div>
         </a>
 
         <a href="/impot/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fbbf24';this.style.background='rgba(251,191,36,.05)'" onmouseout="this.style.borderColor='rgba(251,191,36,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">💸</div>
-          <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:5px">Impôt invisible</div>
+          <div data-i18n="theme_3_title" style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:5px">Impôt invisible</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">47 %</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">Taux réel de prélèvement : IR, TVA, cotisations, énergie.</div>
+          <div data-i18n="theme_3_desc" style="font-size:11px;color:#666;line-height:1.5">Taux réel de prélèvement : IR, TVA, cotisations, énergie.</div>
         </a>
 
         <a href="/retraites/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">👴</div>
-          <div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Retraites</div>
+          <div data-i18n="theme_4_title" style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Retraites</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">354 Md€/an</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">42 régimes. Ratio 1,7 actif/retraité. Réforme 2023.</div>
+          <div data-i18n="theme_4_desc" style="font-size:11px;color:#666;line-height:1.5">42 régimes. Ratio 1,7 actif/retraité. Réforme 2023.</div>
         </a>
 
         <a href="/sante/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(74,222,128,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#4ade80';this.style.background='rgba(74,222,128,.05)'" onmouseout="this.style.borderColor='rgba(74,222,128,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">🏥</div>
-          <div style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:5px">Santé</div>
+          <div data-i18n="theme_5_title" style="font-size:13px;font-weight:700;color:#4ade80;margin-bottom:5px">Santé</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">236 Md€/an</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">2e budget mondial. Hôpitaux sous tension. Déserts médicaux.</div>
+          <div data-i18n="theme_5_desc" style="font-size:11px;color:#666;line-height:1.5">2e budget mondial. Hôpitaux sous tension. Déserts médicaux.</div>
         </a>
 
         <a href="/education/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#60a5fa';this.style.background='rgba(96,165,250,.05)'" onmouseout="this.style.borderColor='rgba(96,165,250,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">📚</div>
-          <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Éducation</div>
+          <div data-i18n="theme_6_title" style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Éducation</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">160 Md€/an</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">PISA 2022 : 23e/81. Budget élevé, résultats en recul.</div>
+          <div data-i18n="theme_6_desc" style="font-size:11px;color:#666;line-height:1.5">PISA 2022 : 23e/81. Budget élevé, résultats en recul.</div>
         </a>
 
         <a href="/logement/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fbbf24';this.style.background='rgba(251,191,36,.05)'" onmouseout="this.style.borderColor='rgba(251,191,36,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">🏠</div>
-          <div style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:5px">Logement</div>
+          <div data-i18n="theme_7_title" style="font-size:13px;font-weight:700;color:#fbbf24;margin-bottom:5px">Logement</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">×2,7</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">Prix du m² depuis 2000. Salaires réels : +4 % sur la même période.</div>
+          <div data-i18n="theme_7_desc" style="font-size:11px;color:#666;line-height:1.5">Prix du m² depuis 2000. Salaires réels : +4 % sur la même période.</div>
         </a>
 
         <a href="/industrie/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#a78bfa';this.style.background='rgba(167,139,250,.05)'" onmouseout="this.style.borderColor='rgba(167,139,250,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">🏭</div>
-          <div style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:5px">Désindustrialisation</div>
+          <div data-i18n="theme_8_title" style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:5px">Désindustrialisation</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">−1 M</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">Emplois industriels perdus depuis 2000. Balance commerciale déficitaire.</div>
+          <div data-i18n="theme_8_desc" style="font-size:11px;color:#666;line-height:1.5">Emplois industriels perdus depuis 2000. Balance commerciale déficitaire.</div>
         </a>
 
         <a href="/fonctionnaires/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#60a5fa';this.style.background='rgba(96,165,250,.05)'" onmouseout="this.style.borderColor='rgba(96,165,250,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">👔</div>
-          <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Fonctionnaires</div>
+          <div data-i18n="theme_9_title" style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Fonctionnaires</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">5,7 M</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">20 % de l'emploi total. Masse salariale publique : 340 Md€/an.</div>
+          <div data-i18n="theme_9_desc" style="font-size:11px;color:#666;line-height:1.5">20 % de l'emploi total. Masse salariale publique : 340 Md€/an.</div>
         </a>
 
         <a href="/autoroutes/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">🛣️</div>
-          <div style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Autoroutes</div>
+          <div data-i18n="theme_10_title" style="font-size:13px;font-weight:700;color:#fb923c;margin-bottom:5px">Autoroutes</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">+84 %</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">Hausse des péages depuis 2006. Vendues 14,8 Md€. +50 Md€ de dividendes.</div>
+          <div data-i18n="theme_10_desc" style="font-size:11px;color:#666;line-height:1.5">Hausse des péages depuis 2006. Vendues 14,8 Md€. +50 Md€ de dividendes.</div>
         </a>
 
         <a href="/normes/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#a78bfa';this.style.background='rgba(167,139,250,.05)'" onmouseout="this.style.borderColor='rgba(167,139,250,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">📜</div>
-          <div style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:5px">Millefeuille réglementaire</div>
+          <div data-i18n="theme_11_title" style="font-size:13px;font-weight:700;color:#a78bfa;margin-bottom:5px">Millefeuille réglementaire</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">400 000</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">Normes en vigueur. 47 min de JO par texte. 2 560 h/an pour une PME.</div>
+          <div data-i18n="theme_11_desc" style="font-size:11px;color:#666;line-height:1.5">Normes en vigueur. 47 min de JO par texte. 2 560 h/an pour une PME.</div>
         </a>
 
         <a href="/ronds-points/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#60a5fa';this.style.background='rgba(96,165,250,.05)'" onmouseout="this.style.borderColor='rgba(96,165,250,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">🔵</div>
-          <div style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Indice Rond-Point</div>
+          <div data-i18n="theme_12_title" style="font-size:13px;font-weight:700;color:#60a5fa;margin-bottom:5px">Indice Rond-Point</div>
           <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">~56 000</div>
-          <div style="font-size:11px;color:#666;line-height:1.5">65 % des ronds-points mondiaux. Coût : 1–3 M€ l'unité.</div>
+          <div data-i18n="theme_12_desc" style="font-size:11px;color:#666;line-height:1.5">65 % des ronds-points mondiaux. Coût : 1–3 M€ l'unité.</div>
         </a>
 
       </div>
@@ -485,39 +492,39 @@
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
       <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:32px">
         <div>
-          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c084fc;margin-bottom:8px;font-weight:700">Questions fréquentes</div>
-          <h2 id="questions-titre" style="font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin:0">Les vraies questions des Français, avec des données.</h2>
-          <p style="color:#888;font-size:14px;margin-top:6px;max-width:500px">Sources officielles vérifiables. Réponses chiffrées, sans opinion.</p>
+          <div data-i18n="q_eyebrow" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c084fc;margin-bottom:8px;font-weight:700">Questions fréquentes</div>
+          <h2 data-i18n="q_h2" id="questions-titre" style="font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin:0">Les vraies questions des Français, avec des données.</h2>
+          <p data-i18n="q_sub" style="color:#888;font-size:14px;margin-top:6px;max-width:500px">Sources officielles vérifiables. Réponses chiffrées, sans opinion.</p>
         </div>
-        <a href="/questions/" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:6px;border:1px solid #c084fc44;color:#c084fc;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s" onmouseover="this.style.background='#c084fc22'" onmouseout="this.style.background='transparent'">Voir les 36 articles →</a>
+        <a data-i18n="q_all" href="/questions/" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:6px;border:1px solid #c084fc44;color:#c084fc;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.15s" onmouseover="this.style.background='#c084fc22'" onmouseout="this.style.background='transparent'">Voir les 36 articles →</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px">
 
         <a href="/questions/la-france-s-appauvrit-elle" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(248,113,113,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#f87171'" onmouseout="this.style.borderColor='rgba(248,113,113,.18)'">
           <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:8px">📉 Pouvoir d'achat</div>
-          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">La France s'appauvrit-elle vraiment ?</h3>
-          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">PIB, richesse nette, pouvoir d'achat corrigé — ce que disent vraiment les chiffres INSEE et Banque de France.</p>
+          <h3 data-i18n="q1_title" style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">La France s'appauvrit-elle vraiment ?</h3>
+          <p data-i18n="q1_desc" style="font-size:.85rem;color:#777;line-height:1.6;margin:0">PIB, richesse nette, pouvoir d'achat corrigé — ce que disent vraiment les chiffres INSEE et Banque de France.</p>
           <div style="font-size:.78rem;color:#f87171;margin-top:10px;font-weight:600">INSEE · Banque de France →</div>
         </a>
 
         <a href="/questions/pourquoi-tout-augmente" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,146,60,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fb923c'" onmouseout="this.style.borderColor='rgba(251,146,60,.18)'">
           <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">🛒 Inflation</div>
-          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">Pourquoi les Français ont-ils l'impression que tout augmente ?</h3>
-          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">IPC officiel vs dépenses contraintes réelles. Le fossé entre statistique et ressenti expliqué.</p>
+          <h3 data-i18n="q2_title" style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">Pourquoi les Français ont-ils l'impression que tout augmente ?</h3>
+          <p data-i18n="q2_desc" style="font-size:.85rem;color:#777;line-height:1.6;margin:0">IPC officiel vs dépenses contraintes réelles. Le fossé entre statistique et ressenti expliqué.</p>
           <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">IPC INSEE 2024 →</div>
         </a>
 
         <a href="/questions/combien-coute-l-etat" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,191,36,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,.18)'">
           <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fbbf24;margin-bottom:8px">🏛️ Fiscalité</div>
-          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">Combien coûte vraiment l'État par habitant ?</h3>
-          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">Dépenses publiques, dette, intérêts : le calcul "entreprise France" par tête de pipe.</p>
+          <h3 data-i18n="q3_title" style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">Combien coûte vraiment l'État par habitant ?</h3>
+          <p data-i18n="q3_desc" style="font-size:.85rem;color:#777;line-height:1.6;margin:0">Dépenses publiques, dette, intérêts : le calcul "entreprise France" par tête de pipe.</p>
           <div style="font-size:.78rem;color:#fbbf24;margin-top:10px;font-weight:600">INSEE · DGFiP 2024 →</div>
         </a>
 
         <a href="/questions/dependance-energetique-france" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(74,222,128,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#4ade80'" onmouseout="this.style.borderColor='rgba(74,222,128,.18)'">
           <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4ade80;margin-bottom:8px">⚡ Énergie</div>
-          <h3 style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">La France dépend-elle trop de l'énergie étrangère ?</h3>
-          <p style="font-size:.85rem;color:#777;line-height:1.6;margin:0">Balance énergétique, facture d'importation, vulnérabilité aux chocs de prix.</p>
+          <h3 data-i18n="q4_title" style="font-size:1rem;font-weight:800;color:#f5f5f5;margin:0 0 8px;line-height:1.4">La France dépend-elle trop de l'énergie étrangère ?</h3>
+          <p data-i18n="q4_desc" style="font-size:.85rem;color:#777;line-height:1.6;margin:0">Balance énergétique, facture d'importation, vulnérabilité aux chocs de prix.</p>
           <div style="font-size:.78rem;color:#4ade80;margin-top:10px;font-weight:600">SDES · Eurostat 2024 →</div>
         </a>
 
@@ -532,22 +539,22 @@
 <!-- Newsletter -->
 <section id="newsletter" style="background:linear-gradient(135deg,rgba(246,195,67,.08),rgba(93,214,197,.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 24px">
   <div style="max-width:580px;margin:auto;text-align:center">
-    <div class="eyebrow" style="margin-bottom:10px">Chiffre de la semaine</div>
-    <h2 style="font-size:1.8rem;margin-bottom:12px;letter-spacing:-.04em">Un chiffre. Une source. Chaque lundi.</h2>
-    <p style="color:var(--muted);margin-bottom:28px;font-size:1rem">Le tableau de bord est mis à jour chaque semaine avec les dernières données officielles. Recevez le chiffre le plus marquant directement dans votre boîte mail — sans publicité, sans algorithme.</p>
+    <div data-i18n="nl2_eyebrow" class="eyebrow" style="margin-bottom:10px">Chiffre de la semaine</div>
+    <h2 data-i18n="nl2_h2" style="font-size:1.8rem;margin-bottom:12px;letter-spacing:-.04em">Un chiffre. Une source. Chaque lundi.</h2>
+    <p data-i18n="nl2_body" style="color:var(--muted);margin-bottom:28px;font-size:1rem">Le tableau de bord est mis à jour chaque semaine avec les dernières données officielles. Recevez le chiffre le plus marquant directement dans votre boîte mail — sans publicité, sans algorithme.</p>
     <form id="newsletterForm" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center" onsubmit="handleNewsletter(event)">
       <input type="email" id="newsletterEmail" placeholder="votre@email.fr" required
         style="flex:1;min-width:240px;padding:13px 16px;border-radius:14px;font-size:1rem;background:rgba(255,255,255,.1);color:var(--text);border:1px solid var(--border)">
-      <button type="submit" class="button" style="padding:13px 22px;font-size:1rem">S'abonner gratuitement</button>
+      <button data-i18n="nl2_btn" type="submit" class="button" style="padding:13px 22px;font-size:1rem">S'abonner gratuitement</button>
     </form>
     <p id="newsletterMsg" style="margin-top:14px;color:var(--accent2);display:none;font-size:.92rem"></p>
-    <p style="color:var(--muted);font-size:.8rem;margin-top:12px">Désabonnement en un clic · Aucune donnée revendue · RGPD</p>
+    <p data-i18n="nl2_gdpr" style="color:var(--muted);font-size:.8rem;margin-top:12px">Désabonnement en un clic · Aucune donnée revendue · RGPD</p>
   </div>
 </section>
 
 <footer>
-  <span>le-francais-moyen.com — Données sources : INSEE · Eurostat · Banque de France · SDES · DREES</span>
-  <span><a href="weekly/latest.html">Note hebdomadaire</a> · <a href="/questions/">Questions</a> · <a href="sitemap.xml">Plan du site</a></span>
+  <span data-i18n="footer_sources">le-francais-moyen.com — Données sources : INSEE · Eurostat · Banque de France · SDES · DREES</span>
+  <span><a data-i18n="footer_weekly" href="/weekly/latest">Note hebdomadaire</a> · <a data-i18n="footer_questions" href="/questions/">Questions</a> · <a data-i18n="footer_sitemap" href="sitemap.xml">Plan du site</a></span>
 </footer>
 
 <script src="assets/js/app.js?v=10" defer></script>
@@ -614,5 +621,165 @@ async function handleNewsletter(e) {
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  hero_eyebrow:'Données officielles · INSEE · Banque de France · Eurostat',
+  h1:'Mettez des chiffres sur ce que vous ressentez.',
+  hero_sub:'Inflation, dette, retraites, fiscalité, logement — les données publiques officielles mises en perspective, sans filtre ni algorithme.',
+  btn_dette:'⏱️ Dette en direct →',
+  btn_questions:'❓ Explorer les questions',
+  share_lbl:'Partager :',
+  copy_link:'Copier le lien',
+  ticker_live:'En direct · calcul automatique',
+  ticker_debt_lbl:'🇫🇷 Dette publique française',
+  ticker_debt_note:'Compteur continu · base 01/01/2026 · Banque de France',
+  ticker_debt_rate:'+5 500 €/s · 113 % du PIB',
+  ticker_debt_cta:'Voir le compteur complet →',
+  ticker_int_lbl:'💸 Intérêts payés depuis votre arrivée',
+  ticker_int_note:'Intérêts de la dette versés depuis l\'ouverture de cette page',
+  ticker_fut_lbl:'📈 Charge future d\'intérêts générée',
+  ticker_fut_note:'Charge annuelle future créée par les emprunts depuis votre arrivée',
+  week_label:'Semaine du 12 mai 2026',
+  week_h2:'3 chiffres que tout le monde devrait connaître',
+  week_all:'Voir tous les articles →',
+  card1_tag:'💡 La distinction essentielle',
+  card1_desc:'Le déficit (annuel) et la dette (cumulée) sont deux choses très différentes — et souvent confondues. Explication en données.',
+  card2_tag:'💼 Ce que l\'employeur voit',
+  card2_desc:'Un salarié à 2 000 € net coûte 3 400–4 200 € à son employeur. Le calcul complet des charges patronales 2024.',
+  card3_tag:'🏠 Immobilier',
+  card3_desc:'Il faut désormais 5,9 ans de détention pour que l\'achat soit plus rentable que la location — contre 3,5 ans en 2019.',
+  nl_tag:'📧 Le chiffre du lundi',
+  nl_pitch:'3 chiffres officiels · 1 graphique · 1 phrase à retenir — chaque lundi.',
+  nl_social:'6 000+ lecteurs · 0 publicité · désinscription en 1 clic',
+  nl_cta:'S\'abonner gratuitement →',
+  themes_eyebrow:'Analyses thématiques',
+  themes_h2:'12 sujets. Les données officielles.',
+  themes_sub:'Chaque thème : données longue période, sources vérifiables, chiffres clés mis en perspective.',
+  themes_tools:'Voir les outils →',
+  theme_1_title:'Dette en direct',theme_1_desc:'Compteur en direct. 113 % du PIB. +5 500 €/s.',
+  theme_2_title:'Budget de l\'État',theme_2_desc:'Recettes, dépenses, déficit. Le taux le plus élevé de l\'OCDE.',
+  theme_3_title:'Impôt invisible',theme_3_desc:'Taux réel de prélèvement : IR, TVA, cotisations, énergie.',
+  theme_4_title:'Retraites',theme_4_desc:'42 régimes. Ratio 1,7 actif/retraité. Réforme 2023.',
+  theme_5_title:'Santé',theme_5_desc:'2e budget mondial. Hôpitaux sous tension. Déserts médicaux.',
+  theme_6_title:'Éducation',theme_6_desc:'PISA 2022 : 23e/81. Budget élevé, résultats en recul.',
+  theme_7_title:'Logement',theme_7_desc:'Prix du m² depuis 2000. Salaires réels : +4 % sur la même période.',
+  theme_8_title:'Désindustrialisation',theme_8_desc:'Emplois industriels perdus depuis 2000. Balance commerciale déficitaire.',
+  theme_9_title:'Fonctionnaires',theme_9_desc:'20 % de l\'emploi total. Masse salariale publique : 340 Md€/an.',
+  theme_10_title:'Autoroutes',theme_10_desc:'Hausse des péages depuis 2006. Vendues 14,8 Md€. +50 Md€ de dividendes.',
+  theme_11_title:'Millefeuille réglementaire',theme_11_desc:'Normes en vigueur. 47 min de JO par texte. 2 560 h/an pour une PME.',
+  theme_12_title:'Indice Rond-Point',theme_12_desc:'65 % des ronds-points mondiaux. Coût : 1–3 M€ l\'unité.',
+  q_eyebrow:'Questions fréquentes',
+  q_h2:'Les vraies questions des Français, avec des données.',
+  q_sub:'Sources officielles vérifiables. Réponses chiffrées, sans opinion.',
+  q_all:'Voir les 36 articles →',
+  q1_title:'La France s\'appauvrit-elle vraiment ?',q1_desc:'PIB, richesse nette, pouvoir d\'achat corrigé — ce que disent vraiment les chiffres INSEE et Banque de France.',
+  q2_title:'Pourquoi les Français ont-ils l\'impression que tout augmente ?',q2_desc:'IPC officiel vs dépenses contraintes réelles. Le fossé entre statistique et ressenti expliqué.',
+  q3_title:'Combien coûte vraiment l\'État par habitant ?',q3_desc:'Dépenses publiques, dette, intérêts : le calcul "entreprise France" par tête de pipe.',
+  q4_title:'La France dépend-elle trop de l\'énergie étrangère ?',q4_desc:'Balance énergétique, facture d\'importation, vulnérabilité aux chocs de prix.',
+  nl2_eyebrow:'Chiffre de la semaine',
+  nl2_h2:'Un chiffre. Une source. Chaque lundi.',
+  nl2_body:'Le tableau de bord est mis à jour chaque semaine avec les dernières données officielles. Recevez le chiffre le plus marquant directement dans votre boîte mail — sans publicité, sans algorithme.',
+  nl2_btn:'S\'abonner gratuitement',
+  nl2_gdpr:'Désabonnement en un clic · Aucune donnée revendue · RGPD',
+  footer_sources:'le-francais-moyen.com — Sources : INSEE · Eurostat · Banque de France · SDES · DREES',
+  footer_weekly:'Note hebdomadaire',
+  footer_questions:'Questions',
+  footer_sitemap:'Plan du site'
+},
+en:{
+  hero_eyebrow:'Official data · INSEE · Banque de France · Eurostat',
+  h1:'Put numbers to what you feel.',
+  hero_sub:'Inflation, debt, pensions, taxation, housing — official public data in perspective, no filter, no algorithm.',
+  btn_dette:'⏱️ Debt live counter →',
+  btn_questions:'❓ Explore the questions',
+  share_lbl:'Share:',
+  copy_link:'Copy link',
+  ticker_live:'Live · automatic calculation',
+  ticker_debt_lbl:'🇫🇷 French public debt',
+  ticker_debt_note:'Continuous counter · base 01/01/2026 · Banque de France',
+  ticker_debt_rate:'+€5,500/s · 113% of GDP',
+  ticker_debt_cta:'See the full counter →',
+  ticker_int_lbl:'💸 Interest paid since you arrived',
+  ticker_int_note:'Debt interest paid since you opened this page',
+  ticker_fut_lbl:'📈 Future interest burden generated',
+  ticker_fut_note:'Annual future burden created by borrowing since you arrived',
+  week_label:'Week of 12 May 2026',
+  week_h2:'3 numbers everyone should know',
+  week_all:'See all articles →',
+  card1_tag:'💡 The essential distinction',
+  card1_desc:'The deficit (annual) and the debt (cumulative) are very different things — often confused. Explained in data.',
+  card2_tag:'💼 What the employer sees',
+  card2_desc:'An employee on €2,000 net costs their employer €3,400–€4,200. Full breakdown of employer contributions 2024.',
+  card3_tag:'🏠 Real estate',
+  card3_desc:'It now takes 5.9 years of ownership for buying to beat renting — vs 3.5 years in 2019.',
+  nl_tag:'📧 Monday\'s number',
+  nl_pitch:'3 official figures · 1 chart · 1 key insight — every Monday.',
+  nl_social:'6,000+ readers · 0 ads · unsubscribe in 1 click',
+  nl_cta:'Subscribe for free →',
+  themes_eyebrow:'Thematic analyses',
+  themes_h2:'12 topics. Official data.',
+  themes_sub:'Each topic: long-term data, verifiable sources, key figures in perspective.',
+  themes_tools:'See the tools →',
+  theme_1_title:'Debt live',theme_1_desc:'Live counter. 113% of GDP. +€5,500/s.',
+  theme_2_title:'State budget',theme_2_desc:'Revenue, spending, deficit. The highest rate in the OECD.',
+  theme_3_title:'Hidden tax burden',theme_3_desc:'Real total tax rate: income tax, VAT, contributions, energy.',
+  theme_4_title:'Pensions',theme_4_desc:'42 schemes. Ratio 1.7 workers/retiree. 2023 reform.',
+  theme_5_title:'Healthcare',theme_5_desc:'2nd largest healthcare budget globally. Hospitals under strain. Medical deserts.',
+  theme_6_title:'Education',theme_6_desc:'PISA 2022: 23rd/81. High budget, declining results.',
+  theme_7_title:'Housing',theme_7_desc:'Price per m² since 2000. Real wages: +4% over the same period.',
+  theme_8_title:'Deindustrialisation',theme_8_desc:'Industrial jobs lost since 2000. Trade balance in deficit.',
+  theme_9_title:'Civil servants',theme_9_desc:'20% of total employment. Public payroll: €340bn/year.',
+  theme_10_title:'Motorways',theme_10_desc:'Toll increases since 2006. Sold for €14.8bn. +€50bn in dividends.',
+  theme_11_title:'Regulatory overload',theme_11_desc:'Standards in force. 47 min of official gazette per text. 2,560 h/year for a SME.',
+  theme_12_title:'Roundabout index',theme_12_desc:'65% of the world\'s roundabouts. Cost: €1–3M each.',
+  q_eyebrow:'Frequently asked questions',
+  q_h2:'The real questions French people ask, with data.',
+  q_sub:'Verifiable official sources. Quantified answers, no opinion.',
+  q_all:'See all 36 articles →',
+  q1_title:'Is France really getting poorer?',q1_desc:'GDP, net wealth, adjusted purchasing power — what the INSEE and Banque de France figures actually say.',
+  q2_title:'Why do French people feel like everything is getting more expensive?',q2_desc:'Official CPI vs real constrained spending. The gap between statistics and lived experience explained.',
+  q3_title:'What does the state really cost per person?',q3_desc:'Public spending, debt, interest: the "France Inc." calculation per head.',
+  q4_title:'Is France too dependent on foreign energy?',q4_desc:'Energy balance, import bill, vulnerability to price shocks.',
+  nl2_eyebrow:'Figure of the week',
+  nl2_h2:'One number. One source. Every Monday.',
+  nl2_body:'The dashboard is updated every week with the latest official data. Receive the most striking figure straight to your inbox — no ads, no algorithm.',
+  nl2_btn:'Subscribe for free',
+  nl2_gdpr:'Unsubscribe in one click · No data sold · GDPR',
+  footer_sources:'le-francais-moyen.com — Sources: INSEE · Eurostat · Banque de France · SDES · DREES',
+  footer_weekly:'Weekly brief',
+  footer_questions:'Questions',
+  footer_sitemap:'Sitemap'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  const s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  // Title & meta
+  document.title=l==='fr'
+    ?'Le Français Moyen — Dette, retraites, fiscalité et pouvoir d\'achat en chiffres officiels'
+    :'The Average French — Debt, pensions, taxes and purchasing power in official figures';
+  const desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'Données officielles sur la France : dette publique en direct (+5 500 €/s), retraites, fiscalité, logement, industrie. Chiffres INSEE, Banque de France, Eurostat mis en perspective.'
+    :'Official data on France: live national debt (+€5,500/s), pensions, taxation, housing, industry. INSEE, Banque de France, Eurostat figures in perspective.');
+  // Email placeholder
+  const emailInput=document.getElementById('newsletterEmail');
+  if(emailInput)emailInput.placeholder=l==='fr'?'votre@email.fr':'your@email.com';
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

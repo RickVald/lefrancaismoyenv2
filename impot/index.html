@@ -6,6 +6,9 @@
   <title>L'impôt invisible — Ce que vous payez vraiment — Le Français Moyen</title>
   <meta name="description" content="TVA, CSG, cotisations patronales, TICPE : le taux d'imposition réel d'un salarié médian dépasse 45% du coût du travail. Bien au-delà de l'IR affiché.">
   <link rel="canonical" href="https://le-francais-moyen.com/impot/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/impot/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/impot/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/impot/">
   <meta property="og:title" content="L'impôt invisible — Ce que vous payez vraiment">
   <meta property="og:description" content="IR affiché ≠ taux réel. En ajoutant cotisations, CSG, TVA et taxes, un salarié médian reverse ~45% du coût de son travail à la collectivité.">
   <meta property="og:url" content="https://le-francais-moyen.com/impot/">
@@ -95,6 +98,10 @@
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -122,12 +129,12 @@
   <main id="contenu">
     <div class="imp-hero">
       <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>L'impôt invisible</span></nav>
-      <div class="eyebrow">Fiscalité réelle · données DGFiP · ACOSS · INSEE 2024</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">L'impôt invisible</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">Vous pensez payer <strong style="color:#fff">6 à 15 % d'IR</strong>.<br>
+      <div class="eyebrow" data-i18n="hero-eyebrow">Fiscalité réelle · données DGFiP · ACOSS · INSEE 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="hero-h1">L'impôt invisible</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero-sub">Vous pensez payer <strong style="color:#fff">6 à 15 % d'IR</strong>.<br>
       En réalité, entre cotisations, CSG, TVA et taxes, c'est <strong style="color:#ff6b6b">~45 % du coût de votre travail</strong> qui part à la collectivité.</p>
       <div class="imp-big">~45 %</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">taux de prélèvement effectif total pour un salarié médian</p>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0" data-i18n="hero-caption">taux de prélèvement effectif total pour un salarié médian</p>
     </div>
 
     <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
@@ -135,7 +142,7 @@
       <!-- ── Intro SEO ──────────────────────────────────────────── -->
       <div style="max-width:1000px;margin:0 auto 40px;padding:0">
         <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.15);border-radius:16px;padding:24px 28px">
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px">
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px" data-i18n="intro-p">
             La France est le pays le plus taxé de l'OCDE avec <strong style="color:#a78bfa">45,4 % du PIB</strong> en prélèvements obligatoires. Un salarié médian reverse ~48 % de son salaire brut en impôts et cotisations diverses.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -151,70 +158,70 @@
       <div class="imp-kpi-grid">
         <div class="imp-kpi">
           <span class="val" style="color:#ff6b6b" data-mds="1500">~6–8 %</span>
-          <span class="lbl">Taux IR moyen effectif<br>(salarié médian)</span>
+          <span class="lbl" data-i18n="kpi-ir">Taux IR moyen effectif<br>(salarié médian)</span>
         </div>
         <div class="imp-kpi">
           <span class="val" style="color:#fb923c">~28 %</span>
-          <span class="lbl">Cotisations patronales<br>(invisibles sur fiche)</span>
+          <span class="lbl" data-i18n="kpi-patronal">Cotisations patronales<br>(invisibles sur fiche)</span>
         </div>
         <div class="imp-kpi">
           <span class="val" style="color:#f6c343">9,7 %</span>
-          <span class="lbl">CSG + CRDS<br>(sur 98,25% du brut)</span>
+          <span class="lbl" data-i18n="kpi-csg">CSG + CRDS<br>(sur 98,25% du brut)</span>
         </div>
         <div class="imp-kpi">
           <span class="val" style="color:#a78bfa">~15 %</span>
-          <span class="lbl">TVA effective<br>(sur les dépenses)</span>
+          <span class="lbl" data-i18n="kpi-tva">TVA effective<br>(sur les dépenses)</span>
         </div>
       </div>
 
       <!-- ── Les couches ─────────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:0 0 14px">Les 5 couches de prélèvement</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:0 0 14px" data-i18n="sec-layers-title">Les 5 couches de prélèvement</h2>
       <div class="layers">
         <div class="layer" style="border-color:rgba(255,107,107,.3)">
           <div class="layer-icon">👔</div>
           <div class="layer-body">
-            <div class="layer-title">Cotisations patronales</div>
-            <div class="layer-desc">Payées par l'employeur, <strong>invisibles sur votre fiche de paie</strong>. Elles représentent ~28–35 % du salaire brut selon le niveau de rémunération. Financement : retraite, maladie, famille, chômage, accidents du travail.</div>
+            <div class="layer-title" data-i18n="layer1-title">Cotisations patronales</div>
+            <div class="layer-desc" data-i18n="layer1-desc">Payées par l'employeur, <strong>invisibles sur votre fiche de paie</strong>. Elles représentent ~28–35 % du salaire brut selon le niveau de rémunération. Financement : retraite, maladie, famille, chômage, accidents du travail.</div>
           </div>
           <div class="layer-rate" style="color:#ff6b6b">~28–35%<br><span style="font-size:.7rem;color:var(--muted)">du brut</span></div>
         </div>
         <div class="layer" style="border-color:rgba(251,146,60,.3)">
           <div class="layer-icon">📋</div>
           <div class="layer-body">
-            <div class="layer-title">Cotisations salariales + CSG/CRDS</div>
-            <div class="layer-desc">Visibles sur la fiche de paie, souvent perçues comme "retraite et sécu". CSG = 9,1 %, CRDS = 0,5 %, cotisations retraite/chômage salariales = ~10–12 % du brut. Total : <strong>~22 % du brut</strong> avant IR.</div>
+            <div class="layer-title" data-i18n="layer2-title">Cotisations salariales + CSG/CRDS</div>
+            <div class="layer-desc" data-i18n="layer2-desc">Visibles sur la fiche de paie, souvent perçues comme "retraite et sécu". CSG = 9,1 %, CRDS = 0,5 %, cotisations retraite/chômage salariales = ~10–12 % du brut. Total : <strong>~22 % du brut</strong> avant IR.</div>
           </div>
           <div class="layer-rate" style="color:#fb923c">~22%<br><span style="font-size:.7rem;color:var(--muted)">du brut</span></div>
         </div>
         <div class="layer" style="border-color:rgba(246,195,67,.3)">
           <div class="layer-icon">📊</div>
           <div class="layer-body">
-            <div class="layer-title">Impôt sur le revenu (IR)</div>
-            <div class="layer-desc">La seule taxe que la plupart des Français identifient comme "impôt". Barème progressif 0–45 %, mais le taux <em>moyen effectif</em> pour un salarié médian est de <strong>~6–8 %</strong> seulement après quotient familial et déductions.</div>
+            <div class="layer-title" data-i18n="layer3-title">Impôt sur le revenu (IR)</div>
+            <div class="layer-desc" data-i18n="layer3-desc">La seule taxe que la plupart des Français identifient comme "impôt". Barème progressif 0–45 %, mais le taux <em>moyen effectif</em> pour un salarié médian est de <strong>~6–8 %</strong> seulement après quotient familial et déductions.</div>
           </div>
           <div class="layer-rate" style="color:#f6c343">~6–8%<br><span style="font-size:.7rem;color:var(--muted)">du net fiscal</span></div>
         </div>
         <div class="layer" style="border-color:rgba(167,139,250,.3)">
           <div class="layer-icon">🛒</div>
           <div class="layer-body">
-            <div class="layer-title">TVA (Taxe sur la Valeur Ajoutée)</div>
-            <div class="layer-desc">20 % sur la plupart des biens, 5,5 % alimentation, 10 % restauration. Un ménage médian consacre ~70 % de son revenu disponible à des achats soumis à TVA. <strong>Taux effectif moyen : ~14–16 %</strong> du revenu disponible.</div>
+            <div class="layer-title" data-i18n="layer4-title">TVA (Taxe sur la Valeur Ajoutée)</div>
+            <div class="layer-desc" data-i18n="layer4-desc">20 % sur la plupart des biens, 5,5 % alimentation, 10 % restauration. Un ménage médian consacre ~70 % de son revenu disponible à des achats soumis à TVA. <strong>Taux effectif moyen : ~14–16 %</strong> du revenu disponible.</div>
           </div>
           <div class="layer-rate" style="color:#a78bfa">~15%<br><span style="font-size:.7rem;color:var(--muted)">rev. disponible</span></div>
         </div>
         <div class="layer" style="border-color:rgba(93,214,197,.3)">
           <div class="layer-icon">⛽</div>
           <div class="layer-body">
-            <div class="layer-title">Taxes invisibles : TICPE, foncier, droits…</div>
-            <div class="layer-desc">TICPE (carburant) : 0,59 €/L SP95 → ~700–900 €/an pour un ménage motorisé. Taxe foncière : ~1 500 €/an en moyenne. Droits d'accises (alcool, tabac). Taxe d'habitation (supprimée RP, maintenue résidences secondaires). Droits de succession.</div>
+            <div class="layer-title" data-i18n="layer5-title">Taxes invisibles : TICPE, foncier, droits…</div>
+            <div class="layer-desc" data-i18n="layer5-desc">TICPE (carburant) : 0,59 €/L SP95 → ~700–900 €/an pour un ménage motorisé. Taxe foncière : ~1 500 €/an en moyenne. Droits d'accises (alcool, tabac). Taxe d'habitation (supprimée RP, maintenue résidences secondaires). Droits de succession.</div>
           </div>
           <div class="layer-rate" style="color:#5dd6c5">+2–5%<br><span style="font-size:.7rem;color:var(--muted)">rev. disponible</span></div>
         </div>
       </div>
 
       <!-- ── Waterfall par niveau de salaire ────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px">Du coût employeur au pouvoir d'achat réel</h2>
-      <p style="color:var(--muted);font-size:.88rem;margin:0 0 16px">Sélectionnez un niveau de salaire pour voir la décomposition complète.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px" data-i18n="sec-waterfall-title">Du coût employeur au pouvoir d'achat réel</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin:0 0 16px" data-i18n="sec-waterfall-sub">Sélectionnez un niveau de salaire pour voir la décomposition complète.</p>
 
       <div class="sal-tabs">
         <button class="sal-tab active" onclick="showSal(0,this)">SMIC (1 426 € net)</button>
@@ -238,21 +245,21 @@
       </div>
 
       <!-- ── Comparaison EU ──────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 16px">Prélèvements obligatoires — comparaison européenne</h2>
-      <p style="color:var(--muted);font-size:.85rem;margin:0 0 16px">% du PIB. Source : Eurostat 2024.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 16px" data-i18n="sec-eu-title">Prélèvements obligatoires — comparaison européenne</h2>
+      <p style="color:var(--muted);font-size:.85rem;margin:0 0 16px" data-i18n="sec-eu-sub">% du PIB. Source : Eurostat 2024.</p>
 
       <div id="euChart"></div>
 
       <!-- ── Insight ─────────────────────────────────────────────── -->
       <div style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.25);border-radius:16px;padding:20px 24px;margin:28px 0">
-        <div style="font-size:.8rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:10px">💡 CE QUI DISTINGUE LA FRANCE</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin:0">La France n'est pas le pays où le taux marginal d'IR est le plus élevé (c'est le Danemark à 55,9 %). Sa spécificité : des <strong style="color:#fff">cotisations sociales extrêmement élevées</strong> (patronales + salariales) qui financent un système de protection sociale étendu. Ces cotisations sont <em>invisibles</em> dans le ressenti fiscal, car elles n'apparaissent pas dans la déclaration de revenus. C'est pourquoi beaucoup de Français pensent "ne pas payer beaucoup d'impôts" alors que le taux global est le plus élevé de l'OCDE.</p>
+        <div style="font-size:.8rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:10px" data-i18n="insight-label">💡 CE QUI DISTINGUE LA FRANCE</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin:0" data-i18n="insight-p">La France n'est pas le pays où le taux marginal d'IR est le plus élevé (c'est le Danemark à 55,9 %). Sa spécificité : des <strong style="color:#fff">cotisations sociales extrêmement élevées</strong> (patronales + salariales) qui financent un système de protection sociale étendu. Ces cotisations sont <em>invisibles</em> dans le ressenti fiscal, car elles n'apparaissent pas dans la déclaration de revenus. C'est pourquoi beaucoup de Français pensent "ne pas payer beaucoup d'impôts" alors que le taux global est le plus élevé de l'OCDE.</p>
       </div>
 
       <!-- ── Lien simulateur ────────────────────────────────────── -->
       <div style="background:linear-gradient(135deg,rgba(246,195,67,.08),rgba(246,195,67,.03));border:1px solid rgba(246,195,67,.3);border-radius:18px;padding:20px 24px;margin:24px 0;text-align:center">
-        <p style="color:var(--muted);margin:0 0 12px;font-size:.92rem">Calculez votre taux d'imposition réel personnalisé — toutes taxes et cotisations confondues.</p>
-        <a href="/#simulateur-fiscal-reel" style="background:var(--accent);color:#0b1020;font-weight:800;padding:.6rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.95rem;display:inline-block">💰 Mon impôt réel personnalisé</a>
+        <p style="color:var(--muted);margin:0 0 12px;font-size:.92rem" data-i18n="sim-cta-p">Calculez votre taux d'imposition réel personnalisé — toutes taxes et cotisations confondues.</p>
+        <a href="/#simulateur-fiscal-reel" style="background:var(--accent);color:#0b1020;font-weight:800;padding:.6rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.95rem;display:inline-block" data-i18n="sim-cta-btn">💰 Mon impôt réel personnalisé</a>
       </div>
 
       <!-- ── Sources ────────────────────────────────────────────── -->
@@ -270,7 +277,7 @@
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Eurostat</span>
+    <span data-i18n="footer-copy">© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Eurostat</span>
     <a href="/">Tableau de bord principal</a>
   </footer>
 
@@ -434,6 +441,96 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+  fr:{
+    'hero-eyebrow':'Fiscalité réelle · données DGFiP · ACOSS · INSEE 2024',
+    'hero-h1':'L\'impôt invisible',
+    'hero-sub':'Vous pensez payer <strong style="color:#fff">6 à 15 % d\'IR</strong>.<br>En réalité, entre cotisations, CSG, TVA et taxes, c\'est <strong style="color:#ff6b6b">~45 % du coût de votre travail</strong> qui part à la collectivité.',
+    'hero-caption':'taux de prélèvement effectif total pour un salarié médian',
+    'intro-p':'La France est le pays le plus taxé de l\'OCDE avec <strong style="color:#a78bfa">45,4 % du PIB</strong> en prélèvements obligatoires. Un salarié médian reverse ~48 % de son salaire brut en impôts et cotisations diverses.',
+    'kpi-ir':'Taux IR moyen effectif<br>(salarié médian)',
+    'kpi-patronal':'Cotisations patronales<br>(invisibles sur fiche)',
+    'kpi-csg':'CSG + CRDS<br>(sur 98,25% du brut)',
+    'kpi-tva':'TVA effective<br>(sur les dépenses)',
+    'sec-layers-title':'Les 5 couches de prélèvement',
+    'layer1-title':'Cotisations patronales',
+    'layer1-desc':'Payées par l\'employeur, <strong>invisibles sur votre fiche de paie</strong>. Elles représentent ~28–35 % du salaire brut selon le niveau de rémunération. Financement : retraite, maladie, famille, chômage, accidents du travail.',
+    'layer2-title':'Cotisations salariales + CSG/CRDS',
+    'layer2-desc':'Visibles sur la fiche de paie, souvent perçues comme "retraite et sécu". CSG = 9,1 %, CRDS = 0,5 %, cotisations retraite/chômage salariales = ~10–12 % du brut. Total : <strong>~22 % du brut</strong> avant IR.',
+    'layer3-title':'Impôt sur le revenu (IR)',
+    'layer3-desc':'La seule taxe que la plupart des Français identifient comme "impôt". Barème progressif 0–45 %, mais le taux <em>moyen effectif</em> pour un salarié médian est de <strong>~6–8 %</strong> seulement après quotient familial et déductions.',
+    'layer4-title':'TVA (Taxe sur la Valeur Ajoutée)',
+    'layer4-desc':'20 % sur la plupart des biens, 5,5 % alimentation, 10 % restauration. Un ménage médian consacre ~70 % de son revenu disponible à des achats soumis à TVA. <strong>Taux effectif moyen : ~14–16 %</strong> du revenu disponible.',
+    'layer5-title':'Taxes invisibles : TICPE, foncier, droits…',
+    'layer5-desc':'TICPE (carburant) : 0,59 €/L SP95 → ~700–900 €/an pour un ménage motorisé. Taxe foncière : ~1 500 €/an en moyenne. Droits d\'accises (alcool, tabac). Taxe d\'habitation (supprimée RP, maintenue résidences secondaires). Droits de succession.',
+    'sec-waterfall-title':'Du coût employeur au pouvoir d\'achat réel',
+    'sec-waterfall-sub':'Sélectionnez un niveau de salaire pour voir la décomposition complète.',
+    'sec-eu-title':'Prélèvements obligatoires — comparaison européenne',
+    'sec-eu-sub':'% du PIB. Source : Eurostat 2024.',
+    'insight-label':'💡 CE QUI DISTINGUE LA FRANCE',
+    'insight-p':'La France n\'est pas le pays où le taux marginal d\'IR est le plus élevé (c\'est le Danemark à 55,9 %). Sa spécificité : des <strong style="color:#fff">cotisations sociales extrêmement élevées</strong> (patronales + salariales) qui financent un système de protection sociale étendu. Ces cotisations sont <em>invisibles</em> dans le ressenti fiscal, car elles n\'apparaissent pas dans la déclaration de revenus. C\'est pourquoi beaucoup de Français pensent "ne pas payer beaucoup d\'impôts" alors que le taux global est le plus élevé de l\'OCDE.',
+    'sim-cta-p':'Calculez votre taux d\'imposition réel personnalisé — toutes taxes et cotisations confondues.',
+    'sim-cta-btn':'💰 Mon impôt réel personnalisé',
+    'footer-copy':'© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Eurostat'
+  },
+  en:{
+    'hero-eyebrow':'Real taxation · DGFiP · ACOSS · INSEE data 2024',
+    'hero-h1':'The hidden tax burden — 47% real total rate',
+    'hero-sub':'Income tax is just one part of the picture. Add VAT, social contributions, energy levies and local taxes: the real deduction from a French income reaches <strong style="color:#ff6b6b">~47% of total labour cost</strong>.',
+    'hero-caption':'effective total levy rate for a median employee',
+    'intro-p':'France is the most taxed country in the OECD with <strong style="color:#a78bfa">45.4% of GDP</strong> in mandatory levies. A median employee pays back ~48% of gross salary in taxes and contributions.',
+    'kpi-ir':'Effective average income tax rate<br>(median employee)',
+    'kpi-patronal':'Employer contributions<br>(invisible on payslip)',
+    'kpi-csg':'CSG + CRDS<br>(on 98.25% of gross)',
+    'kpi-tva':'Effective VAT rate<br>(on spending)',
+    'sec-layers-title':'The 5 layers of taxation',
+    'layer1-title':'Employer social contributions',
+    'layer1-desc':'Paid by the employer, <strong>invisible on your payslip</strong>. They represent ~28–35% of gross salary depending on pay level. They fund pensions, health, family benefits, unemployment and workplace accident insurance.',
+    'layer2-title':'Employee contributions + CSG/CRDS',
+    'layer2-desc':'Visible on the payslip, often perceived as "pension and health". CSG = 9.1%, CRDS = 0.5%, employee pension/unemployment contributions = ~10–12% of gross. Total: <strong>~22% of gross</strong> before income tax.',
+    'layer3-title':'Income Tax (IR)',
+    'layer3-desc':'The only tax most French people identify as a "tax". Progressive bracket 0–45%, but the <em>effective average rate</em> for a median employee is only <strong>~6–8%</strong> after family quotient and deductions.',
+    'layer4-title':'VAT (Value Added Tax)',
+    'layer4-desc':'20% on most goods, 5.5% on food, 10% on restaurants. A median household spends ~70% of disposable income on VAT-liable purchases. <strong>Average effective rate: ~14–16%</strong> of disposable income.',
+    'layer5-title':'Hidden taxes: TICPE, property tax, duties…',
+    'layer5-desc':'TICPE (fuel duty): €0.59/L SP95 → ~€700–900/year for a car-owning household. Property tax: ~€1,500/year on average. Excise duties (alcohol, tobacco). Housing tax (abolished primary residence, maintained for second homes). Inheritance tax.',
+    'sec-waterfall-title':'From employer cost to real purchasing power',
+    'sec-waterfall-sub':'Select a salary level to see the full breakdown.',
+    'sec-eu-title':'Mandatory levies — European comparison',
+    'sec-eu-sub':'% of GDP. Source: Eurostat 2024.',
+    'insight-label':'💡 WHAT SETS FRANCE APART',
+    'insight-p':'France is not the country with the highest marginal income tax rate (that is Denmark at 55.9%). Its defining feature: <strong style="color:#fff">extremely high social contributions</strong> (employer + employee) that fund an extensive welfare system. These contributions are <em>invisible</em> in the tax experience, as they do not appear in a standard income tax return. This is why many French people feel they "don\'t pay much tax" while the overall rate is the highest in the OECD.',
+    'sim-cta-p':'Calculate your personal real tax rate — all taxes and contributions included.',
+    'sim-cta-btn':'💰 My real personalised tax rate',
+    'footer-copy':'© 2026 The Average French — Data: DGFiP · INSEE · OECD · Eurostat'
+  }
+};
+var lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?"L'impôt invisible — Ce que vous payez vraiment — Le Français Moyen"
+    :"France's Hidden Tax Burden — Real Rate 47% | The Average French";
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"TVA, CSG, cotisations patronales, TICPE : le taux d'imposition réel d'un salarié médian dépasse 45% du coût du travail. Bien au-delà de l'IR affiché."
+    :"The official tax rate is misleading. Add income tax, VAT, social contributions and energy levies: the real total deduction from a French salary reaches 47%. Official data.");
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

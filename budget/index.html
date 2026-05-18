@@ -6,6 +6,9 @@
   <title>Le budget de l'État français poste par poste — Le Français Moyen</title>
   <meta name="description" content="Décryptage complet du budget public français : État, Sécurité sociale, retraites privé vs public, collectivités. En milliards ou en euros par contribuable IR.">
   <link rel="canonical" href="https://le-francais-moyen.com/budget/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/budget/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/budget/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/budget/">
   <meta property="og:title" content="Le budget de l'État poste par poste — Le Français Moyen">
   <meta property="og:description" content="490 Md€ pour l'État, 650 Md€ pour la Sécu, 320 Md€ pour les collectivités. Tout compris : 1 460 Md€. Soit 79 348 € par contribuable IR.">
   <meta property="og:url" content="https://le-francais-moyen.com/budget/">
@@ -134,6 +137,10 @@
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Tableau de bord</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -162,31 +169,31 @@
     <!-- ── HERO ─────────────────────────────────────────────────── -->
     <div class="bg-hero">
       <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Budget de l'État</span></nav>
-      <div class="eyebrow">Dépenses publiques françaises 2024</div>
-      <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);margin:0 auto 4px;text-align:center">Le budget de la France, poste par poste</h1>
+      <div class="eyebrow" data-i18n="hero-eyebrow">Dépenses publiques françaises 2024</div>
+      <h1 style="font-size:clamp(1.5rem,3vw,2.2rem);margin:0 auto 4px;text-align:center" data-i18n="hero-h1">Le budget de la France, poste par poste</h1>
       <div class="total-num"><span data-mds="1460">1 460 Md€</span></div>
-      <p style="color:var(--muted);margin:4px 0 20px;font-size:.95rem">de dépenses publiques totales — État + Sécu + Collectivités</p>
+      <p style="color:var(--muted);margin:4px 0 20px;font-size:.95rem" data-i18n="hero-sub">de dépenses publiques totales — État + Sécu + Collectivités</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:8px">
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;text-align:center">
           <div style="font-size:1.3rem;font-weight:900;color:var(--accent)" data-mds="490">490 Md€</div>
-          <div style="font-size:.75rem;color:var(--muted)">Budget de l'État</div>
+          <div style="font-size:.75rem;color:var(--muted)" data-i18n="kpi-etat">Budget de l'État</div>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;text-align:center">
           <div style="font-size:1.3rem;font-weight:900;color:#a78bfa" data-mds="650">650 Md€</div>
-          <div style="font-size:.75rem;color:var(--muted)">Sécurité sociale</div>
+          <div style="font-size:.75rem;color:var(--muted)" data-i18n="kpi-secu">Sécurité sociale</div>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 18px;text-align:center">
           <div style="font-size:1.3rem;font-weight:900;color:#5dd6c5" data-mds="320">320 Md€</div>
-          <div style="font-size:.75rem;color:var(--muted)">Collectivités</div>
+          <div style="font-size:.75rem;color:var(--muted)" data-i18n="kpi-coll">Collectivités</div>
         </div>
       </div>
-      <p style="font-size:.78rem;color:var(--muted);font-style:italic">Utilisez le bouton 💶 en bas à droite pour afficher en €/contribuable IR</p>
+      <p style="font-size:.78rem;color:var(--muted);font-style:italic" data-i18n="hero-tip">Utilisez le bouton 💶 en bas à droite pour afficher en €/contribuable IR</p>
     </div>
 
     <!-- ── Intro SEO ──────────────────────────────────────────── -->
     <div style="max-width:1000px;margin:0 auto 40px;padding:0 24px">
       <div style="background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.15);border-radius:16px;padding:24px 28px">
-        <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px">
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px" data-i18n="intro-p">
           Le budget de l'État atteint <strong style="color:#fb923c">492 milliards de dépenses en 2025</strong>, financé à 36 % par l'emprunt. Le déficit : −5,1 % du PIB. La charge de la dette dépasse désormais 50 milliards d'euros par an — plus que le budget de la Défense.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -201,9 +208,9 @@
     <!-- ── TABS ─────────────────────────────────────────────────── -->
     <div style="padding:0 24px">
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="etat">🏛️ Budget de l'État</button>
-        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="secu">🏥 Sécu & Retraites</button>
-        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="coll">🏙️ Collectivités</button>
+        <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="etat" data-i18n="tab-etat">🏛️ Budget de l'État</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="secu" data-i18n="tab-secu">🏥 Sécu & Retraites</button>
+        <button class="tab-btn"        role="tab" aria-selected="false" data-tab="coll" data-i18n="tab-coll">🏙️ Collectivités</button>
       </div>
     </div>
 
@@ -212,12 +219,12 @@
     <!-- ══════════════════════════════════════════════════════════ -->
     <div class="tab-panel active" id="tab-etat" role="tabpanel">
 
-      <div class="highlight-box" style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.2)">
+      <div class="highlight-box" style="background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.2)" data-i18n="debt-alert">
         ⚠️ <strong>La charge de la dette (55 Md€/an)</strong> dépasse désormais le budget de la Défense nationale. C'est le poste qui croît le plus vite — et le seul qu'on ne peut pas réduire sans restructuration.
       </div>
 
       <!-- Éducation nationale -->
-      <div class="sec-head"><h2 class="sec-title">Principaux postes — Budget général de l'État</h2><span class="sec-total">Total : ~490 Md€</span></div>
+      <div class="sec-head"><h2 class="sec-title" data-i18n="sec-etat-title">Principaux postes — Budget général de l'État</h2><span class="sec-total" data-i18n="sec-etat-total">Total : ~490 Md€</span></div>
 
       <div class="ministry open" data-color="#f6c343">
         <div class="ministry-head">
@@ -395,7 +402,7 @@
         <div class="flow-row"><span class="flow-label">Sport & Jeunesse</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:8%;background:var(--accent)"></div></div><span class="flow-val" data-mds="1.5">1,5 Md€</span></div>
       </div>
 
-      <p class="source-note">Sources : Loi de finances initiale 2024 (PLF 2024) · Direction du Budget · data.gouv.fr · Les chiffres incluent crédits de paiement, hors remboursements et dégrèvements fiscaux (~140 Md€).</p>
+      <p class="source-note" data-i18n="source-etat">Sources : Loi de finances initiale 2024 (PLF 2024) · Direction du Budget · data.gouv.fr · Les chiffres incluent crédits de paiement, hors remboursements et dégrèvements fiscaux (~140 Md€).</p>
     </div>
 
     <!-- ══════════════════════════════════════════════════════════ -->
@@ -404,7 +411,7 @@
     <div class="tab-panel" id="tab-secu" role="tabpanel">
 
       <!-- Vue d'ensemble Sécu -->
-      <div class="sec-head"><h2 class="sec-title">Sécurité sociale — Vue d'ensemble</h2><span class="sec-total">Total LFSS 2024 : ~650 Md€</span></div>
+      <div class="sec-head"><h2 class="sec-title" data-i18n="sec-secu-title">Sécurité sociale — Vue d'ensemble</h2><span class="sec-total" data-i18n="sec-secu-total">Total LFSS 2024 : ~650 Md€</span></div>
 
       <div class="ministry open" data-color="#ff6b6b">
         <div class="ministry-head">
@@ -461,9 +468,9 @@
       </div>
 
       <!-- RETRAITES — Section détaillée -->
-      <div class="sec-head" style="margin-top:40px"><h2 class="sec-title">Retraites — Privé vs Public & Assimilé</h2><span class="sec-total">Total : ~360 Md€/an</span></div>
+      <div class="sec-head" style="margin-top:40px"><h2 class="sec-title" data-i18n="sec-ret-title">Retraites — Privé vs Public & Assimilé</h2><span class="sec-total" data-i18n="sec-ret-total">Total : ~360 Md€/an</span></div>
 
-      <div class="highlight-box" style="background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.2);margin-bottom:20px">
+      <div class="highlight-box" style="background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.2);margin-bottom:20px" data-i18n="ret-intro">
         💡 La retraite est le premier poste de dépenses publiques en France. Le déséquilibre démographique entre régimes privé et public est l'une des sources de tension majeures du financement.
       </div>
 
@@ -649,7 +656,7 @@
       </div>
 
       <!-- Comparatif financement chômage privé/public -->
-      <div class="sec-head" style="margin-top:32px"><h2 class="sec-title">Assurance chômage — Privé vs Public</h2></div>
+      <div class="sec-head" style="margin-top:32px"><h2 class="sec-title" data-i18n="sec-chomage-title">Assurance chômage — Privé vs Public</h2></div>
       <div class="ret-grid">
         <div class="ret-card" style="border-color:rgba(99,212,113,.25)">
           <div class="ret-card-title" style="color:#63d471">🏭 Chômage PRIVÉ (Unédic)</div>
@@ -675,7 +682,7 @@
         </div>
       </div>
 
-      <p class="source-note">Sources : LFSS 2024 (Loi de financement de la Sécurité Sociale) · DREES · Rapport annuel COR 2024 (Conseil d'Orientation des Retraites) · Unédic · DGFiP · Les montants retraites incluent tous régimes de base. AGIRC-ARRCO séparé (régimes complémentaires privés).</p>
+      <p class="source-note" data-i18n="source-secu">Sources : LFSS 2024 (Loi de financement de la Sécurité Sociale) · DREES · Rapport annuel COR 2024 (Conseil d'Orientation des Retraites) · Unédic · DGFiP · Les montants retraites incluent tous régimes de base. AGIRC-ARRCO séparé (régimes complémentaires privés).</p>
     </div>
 
     <!-- ══════════════════════════════════════════════════════════ -->
@@ -683,11 +690,11 @@
     <!-- ══════════════════════════════════════════════════════════ -->
     <div class="tab-panel" id="tab-coll" role="tabpanel">
 
-      <div class="highlight-box" style="background:rgba(93,214,197,.07);border:1px solid rgba(93,214,197,.2);margin-bottom:24px">
+      <div class="highlight-box" style="background:rgba(93,214,197,.07);border:1px solid rgba(93,214,197,.2);margin-bottom:24px" data-i18n="coll-intro">
         🏙️ <strong>320 Md€</strong> de dépenses pour les collectivités locales — soit <strong data-mds="320">17 391 €/contribuable IR</strong>. Elles emploient <strong>1,9 million d'agents</strong> et financent l'essentiel des services du quotidien.
       </div>
 
-      <div class="sec-head"><h2 class="sec-title">Répartition par échelon</h2><span class="sec-total">Total : ~320 Md€</span></div>
+      <div class="sec-head"><h2 class="sec-title" data-i18n="sec-coll-title">Répartition par échelon</h2><span class="sec-total" data-i18n="sec-coll-total">Total : ~320 Md€</span></div>
 
       <table class="coll-table">
         <thead>
@@ -746,7 +753,7 @@
       </table>
 
       <!-- Principaux postes dépenses collectivités -->
-      <div class="sec-head" style="margin-top:32px"><h2 class="sec-title">Principaux postes de dépenses des collectivités</h2></div>
+      <div class="sec-head" style="margin-top:32px"><h2 class="sec-title" data-i18n="sec-coll-postes">Principaux postes de dépenses des collectivités</h2></div>
 
       <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:14px">
         <div class="flow-row"><span class="flow-label">👨‍💼 Masse salariale agents locaux</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:100%;background:#5dd6c5"></div></div><span class="flow-val" data-mds="120">120 Md€</span></div>
@@ -758,7 +765,7 @@
       </div>
 
       <!-- Financement -->
-      <div class="sec-head" style="margin-top:24px"><h2 class="sec-title">Comment les collectivités se financent-elles ?</h2></div>
+      <div class="sec-head" style="margin-top:24px"><h2 class="sec-title" data-i18n="sec-coll-financement">Comment les collectivités se financent-elles ?</h2></div>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
         <div class="flow-row"><span class="flow-label">Dotations de l'État (DGF, etc.)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:45%;background:var(--accent)"></div></div><span class="flow-val" data-mds="55">55 Md€</span></div>
         <div class="flow-row"><span class="flow-label">Fiscalité locale (taxe foncière, CFE…)</span><div class="flow-bar-wrap"><div class="flow-bar-fill" style="width:70%;background:var(--accent)"></div></div><span class="flow-val" data-mds="85">85 Md€</span></div>
@@ -768,13 +775,13 @@
         <p style="font-size:.75rem;color:var(--muted);margin:12px 0 0">📌 La suppression de la taxe d'habitation (2021) a créé un trou compensé par une part de TVA — les collectivités sont désormais plus dépendantes de l'État central.</p>
       </div>
 
-      <p class="source-note">Sources : DGCL (Direction Générale des Collectivités Locales) · Rapport de l'Observatoire des finances locales 2024 · Cour des Comptes · INSEE · Les montants sont en crédits de paiement, exercice 2023-2024.</p>
+      <p class="source-note" data-i18n="source-coll">Sources : DGCL (Direction Générale des Collectivités Locales) · Rapport de l'Observatoire des finances locales 2024 · Cour des Comptes · INSEE · Les montants sont en crédits de paiement, exercice 2023-2024.</p>
     </div>
 
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Sources : PLF 2024, LFSS 2024, DGFiP, COR, DREES, DGCL, Eurostat</span>
+    <span data-i18n="footer-copy">© 2026 Le Français Moyen — Sources : PLF 2024, LFSS 2024, DGFiP, COR, DREES, DGCL, Eurostat</span>
   </footer>
 
   <script>
@@ -830,6 +837,96 @@
   })();
   </script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+  fr:{
+    'hero-eyebrow':'Dépenses publiques françaises 2024',
+    'hero-h1':'Le budget de la France, poste par poste',
+    'hero-sub':'de dépenses publiques totales — État + Sécu + Collectivités',
+    'hero-tip':'Utilisez le bouton 💶 en bas à droite pour afficher en €/contribuable IR',
+    'kpi-etat':'Budget de l\'État',
+    'kpi-secu':'Sécurité sociale',
+    'kpi-coll':'Collectivités',
+    'intro-p':'Le budget de l\'État atteint <strong style="color:#fb923c">492 milliards de dépenses en 2025</strong>, financé à 36 % par l\'emprunt. Le déficit : −5,1 % du PIB. La charge de la dette dépasse désormais 50 milliards d\'euros par an — plus que le budget de la Défense.',
+    'tab-etat':'🏛️ Budget de l\'État',
+    'tab-secu':'🏥 Sécu & Retraites',
+    'tab-coll':'🏙️ Collectivités',
+    'debt-alert':'⚠️ <strong>La charge de la dette (55 Md€/an)</strong> dépasse désormais le budget de la Défense nationale. C\'est le poste qui croît le plus vite — et le seul qu\'on ne peut pas réduire sans restructuration.',
+    'sec-etat-title':'Principaux postes — Budget général de l\'État',
+    'sec-etat-total':'Total : ~490 Md€',
+    'source-etat':'Sources : Loi de finances initiale 2024 (PLF 2024) · Direction du Budget · data.gouv.fr · Les chiffres incluent crédits de paiement, hors remboursements et dégrèvements fiscaux (~140 Md€).',
+    'sec-secu-title':'Sécurité sociale — Vue d\'ensemble',
+    'sec-secu-total':'Total LFSS 2024 : ~650 Md€',
+    'sec-ret-title':'Retraites — Privé vs Public & Assimilé',
+    'sec-ret-total':'Total : ~360 Md€/an',
+    'ret-intro':'💡 La retraite est le premier poste de dépenses publiques en France. Le déséquilibre démographique entre régimes privé et public est l\'une des sources de tension majeures du financement.',
+    'sec-chomage-title':'Assurance chômage — Privé vs Public',
+    'source-secu':'Sources : LFSS 2024 (Loi de financement de la Sécurité Sociale) · DREES · Rapport annuel COR 2024 (Conseil d\'Orientation des Retraites) · Unédic · DGFiP · Les montants retraites incluent tous régimes de base. AGIRC-ARRCO séparé (régimes complémentaires privés).',
+    'coll-intro':'🏙️ <strong>320 Md€</strong> de dépenses pour les collectivités locales — soit <strong data-mds="320">17 391 €/contribuable IR</strong>. Elles emploient <strong>1,9 million d\'agents</strong> et financent l\'essentiel des services du quotidien.',
+    'sec-coll-title':'Répartition par échelon',
+    'sec-coll-total':'Total : ~320 Md€',
+    'sec-coll-postes':'Principaux postes de dépenses des collectivités',
+    'sec-coll-financement':'Comment les collectivités se financent-elles ?',
+    'source-coll':'Sources : DGCL (Direction Générale des Collectivités Locales) · Rapport de l\'Observatoire des finances locales 2024 · Cour des Comptes · INSEE · Les montants sont en crédits de paiement, exercice 2023-2024.',
+    'footer-copy':'© 2026 Le Français Moyen — Sources : PLF 2024, LFSS 2024, DGFiP, COR, DREES, DGCL, Eurostat'
+  },
+  en:{
+    'hero-eyebrow':'French public spending 2024',
+    'hero-h1':'State Budget — 57% of GDP, the highest in the OECD',
+    'hero-sub':'in total public spending — State + Social Security + Local Government',
+    'hero-tip':'Use the 💶 button at the bottom right to display in €/income-tax payer',
+    'kpi-etat':'State Budget',
+    'kpi-secu':'Social Security',
+    'kpi-coll':'Local Government',
+    'intro-p':'France\'s public spending reaches <strong style="color:#fb923c">492 billion in 2025</strong>, funded 36% by borrowing. Deficit: −5.1% of GDP. Debt servicing now exceeds 50 billion euros per year — more than the Defence budget.',
+    'tab-etat':'🏛️ State Budget',
+    'tab-secu':'🏥 Social Security & Pensions',
+    'tab-coll':'🏙️ Local Government',
+    'debt-alert':'⚠️ <strong>Debt servicing (€55bn/year)</strong> now exceeds the national Defence budget. It is the fastest-growing line item — and the only one that cannot be cut without restructuring.',
+    'sec-etat-title':'Main spending lines — State General Budget',
+    'sec-etat-total':'Total: ~€490bn',
+    'source-etat':'Sources: Initial Finance Law 2024 (PLF 2024) · Budget Directorate · data.gouv.fr · Figures include payment appropriations, excluding tax refunds and reliefs (~€140bn).',
+    'sec-secu-title':'Social Security — Overview',
+    'sec-secu-total':'Total LFSS 2024: ~€650bn',
+    'sec-ret-title':'Pensions — Private vs Public Sector',
+    'sec-ret-total':'Total: ~€360bn/year',
+    'ret-intro':'💡 Pensions are France\'s largest public spending item. The demographic imbalance between private and public sector schemes is one of the main sources of funding pressure.',
+    'sec-chomage-title':'Unemployment Insurance — Private vs Public',
+    'source-secu':'Sources: LFSS 2024 (Social Security Finance Law) · DREES · Annual COR Report 2024 (Pensions Advisory Council) · Unédic · DGFiP · Pension amounts include all basic schemes. AGIRC-ARRCO shown separately (private supplementary schemes).',
+    'coll-intro':'🏙️ <strong>€320bn</strong> in local government spending — equivalent to <strong data-mds="320">€17,391/income-tax payer</strong>. They employ <strong>1.9 million staff</strong> and fund most everyday public services.',
+    'sec-coll-title':'Breakdown by tier',
+    'sec-coll-total':'Total: ~€320bn',
+    'sec-coll-postes':'Main local government spending lines',
+    'sec-coll-financement':'How do local governments raise revenues?',
+    'source-coll':'Sources: DGCL (Directorate General for Local Authorities) · Observatory of Local Public Finance Report 2024 · Court of Auditors · INSEE · Amounts in payment appropriations, fiscal year 2023-2024.',
+    'footer-copy':'© 2026 The Average French — Sources: PLF 2024, LFSS 2024, DGFiP, COR, DREES, DGCL, Eurostat'
+  }
+};
+var lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Le budget de l\'État français poste par poste — Le Français Moyen'
+    :'France State Budget — Revenues, Spending, Deficit 57% of GDP | The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'Décryptage complet du budget public français : État, Sécurité sociale, retraites privé vs public, collectivités. En milliards ou en euros par contribuable IR.'
+    :'France\'s public spending reaches 57% of GDP — the highest in the OECD. Revenues, spending breakdown, deficit: official data from the Ministry of Finance.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

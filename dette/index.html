@@ -6,6 +6,9 @@
   <title>Compteur de la dette française en direct — Le Français Moyen</title>
   <meta name="description" content="Compteur de la dette publique France en direct. +5 500 € par seconde, 3 460 Md€ au total. Votre part : 46 000 €. Données officielles INSEE et Banque de France.">
   <link rel="canonical" href="https://le-francais-moyen.com/dette/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/dette/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/dette/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/dette/">
   <meta property="og:title" content="Compteur de la dette française en direct — Le Français Moyen">
   <meta property="og:description" content="+5 500 € par seconde. 46 000 € par habitant. Regardez la dette publique française augmenter en direct.">
   <meta property="og:url" content="https://le-francais-moyen.com/dette/">
@@ -65,8 +68,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Tableau de bord</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -93,28 +100,28 @@
 
   <main>
     <div class="counter-hero">
-      <nav style="font-size:.88rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <a href="/outils/">Outils</a> › <span>Compteur dette</span></nav>
-      <div class="eyebrow">En ce moment, en direct</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 4px;text-align:center">Compteur de la dette publique française — en direct</h1>
+      <nav style="font-size:.88rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/outils/" data-i18n="breadcrumb_tools">Outils</a> › <span data-i18n="breadcrumb_current">Compteur dette</span></nav>
+      <div class="eyebrow" data-i18n="hero_eyebrow">En ce moment, en direct</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 4px;text-align:center" data-i18n="hero_h1">Compteur de la dette publique française — en direct</h1>
       <div class="debt-counter" id="debtCounter">3 228 000 000 000 €</div>
-      <div class="debt-unit">euros — mise à jour toutes les 100 ms</div>
+      <div class="debt-unit" data-i18n="hero_unit">euros — mise à jour toutes les 100 ms</div>
 
       <div class="ticker-row">
         <div class="ticker-pill">
           <div class="val" id="tickerPerCapita" style="color:var(--red)">47 200 €</div>
-          <div class="lbl">par habitant</div>
+          <div class="lbl" data-i18n="pill_per_capita">par habitant</div>
         </div>
         <div class="ticker-pill">
           <div class="val" id="tickerSinceOpen" style="color:var(--accent)">0 €</div>
-          <div class="lbl">depuis que vous avez ouvert cette page</div>
+          <div class="lbl" data-i18n="pill_since_open">depuis que vous avez ouvert cette page</div>
         </div>
         <div class="ticker-pill">
           <div class="val" id="tickerInterest" style="color:#ff9898">0 €</div>
-          <div class="lbl">d'intérêts payés depuis l'ouverture</div>
+          <div class="lbl" data-i18n="pill_interest">d'intérêts payés depuis l'ouverture</div>
         </div>
         <div class="ticker-pill">
           <div class="val" style="color:var(--accent2)">113 %</div>
-          <div class="lbl">du PIB — seuil critique à 100 %</div>
+          <div class="lbl" data-i18n="pill_gdp">du PIB — seuil critique à 100 %</div>
         </div>
       </div>
     </div>
@@ -123,7 +130,7 @@
 
       <!-- ── Intro SEO ─────────────────────────────────────────────── -->
       <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:28px">
-        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0 0 18px">
+        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0 0 18px" data-i18n="intro_text">
           La dette publique française dépasse <strong style="color:var(--red)">3 300 milliards d'euros</strong>, soit <strong style="color:var(--red)">113 % du PIB</strong> —
           un niveau record, au-dessus du seuil critique de 100 % fixé par les traités européens.
           Chaque seconde, l'État emprunte et s'endette davantage : les <strong style="color:var(--accent)">intérêts seuls coûtent 58 milliards d'euros par an</strong>,
@@ -135,80 +142,80 @@
           Comprendre comment on en est arrivé là — et ce que cela implique concrètement pour les Français — est l'objet de cette page.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <a href="/questions/pourquoi-la-france-est-endettee/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.25);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--accent);text-decoration:none">❓ Pourquoi la France est-elle endettée ? →</a>
-          <a href="/questions/la-france-peut-elle-faire-faillite/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">💥 Peut-elle faire faillite ? →</a>
-          <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">📐 Dette vs déficit →</a>
-          <a href="/questions/combien-coute-l-etat/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none">🏛️ Combien coûte l'État ? →</a>
+          <a href="/questions/pourquoi-la-france-est-endettee/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.25);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--accent);text-decoration:none" data-i18n="link_why_indebted">❓ Pourquoi la France est-elle endettée ? →</a>
+          <a href="/questions/la-france-peut-elle-faire-faillite/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_bankrupt">💥 Peut-elle faire faillite ? →</a>
+          <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_debt_deficit">📐 Dette vs déficit →</a>
+          <a href="/questions/combien-coute-l-etat/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--muted);text-decoration:none" data-i18n="link_state_cost">🏛️ Combien coûte l'État ? →</a>
         </div>
       </div>
 
       <div class="panel" style="padding:28px;margin-bottom:28px">
-        <div class="eyebrow" style="margin-bottom:4px">Contexte européen</div>
-        <h2 style="font-size:1.15rem;margin:0 0 20px">Dette / PIB — France vs voisins (2024)</h2>
+        <div class="eyebrow" style="margin-bottom:4px" data-i18n="europe_eyebrow">Contexte européen</div>
+        <h2 style="font-size:1.15rem;margin:0 0 20px" data-i18n="europe_h2">Dette / PIB — France vs voisins (2024)</h2>
         <div id="europeCompar"></div>
       </div>
 
       <div class="panel" style="padding:28px;margin-bottom:28px">
-        <div class="eyebrow" style="margin-bottom:4px">Évolution historique</div>
-        <h2 style="font-size:1.15rem;margin:0 0 4px">Dette / PIB depuis 2000</h2>
-        <p style="color:var(--muted);font-size:.88rem;margin:0 0 18px">La dette a doublé en 20 ans. Les intérêts coûtent plus que le budget de l'Éducation nationale.</p>
+        <div class="eyebrow" style="margin-bottom:4px" data-i18n="history_eyebrow">Évolution historique</div>
+        <h2 style="font-size:1.15rem;margin:0 0 4px" data-i18n="history_h2">Dette / PIB depuis 2000</h2>
+        <p style="color:var(--muted);font-size:.88rem;margin:0 0 18px" data-i18n="history_desc">La dette a doublé en 20 ans. Les intérêts coûtent plus que le budget de l'Éducation nationale.</p>
         <div class="chart-box" style="height:240px"><svg id="debtHistSvg" class="svg-chart"></svg></div>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px">
         <div class="panel" style="padding:20px;text-align:center">
-          <div class="eyebrow" style="margin-bottom:6px">Charge d'intérêts</div>
+          <div class="eyebrow" style="margin-bottom:6px" data-i18n="kpi1_label">Charge d'intérêts</div>
           <div style="font-size:1.8rem;font-weight:900;color:var(--red)" data-mds="58">58 Md€</div>
-          <div style="color:var(--muted);font-size:.82rem;margin-top:4px">par an — 1 840 €/seconde</div>
+          <div style="color:var(--muted);font-size:.82rem;margin-top:4px" data-i18n="kpi1_sub">par an — 1 840 €/seconde</div>
         </div>
         <div class="panel" style="padding:20px;text-align:center">
-          <div class="eyebrow" style="margin-bottom:6px">Déficit 2024</div>
+          <div class="eyebrow" style="margin-bottom:6px" data-i18n="kpi2_label">Déficit 2024</div>
           <div style="font-size:1.8rem;font-weight:900;color:var(--red)">6,1 % PIB</div>
-          <div style="color:var(--muted);font-size:.82rem;margin-top:4px">~<span data-mds="178">178 Md€</span> ajoutés en 2024</div>
+          <div style="color:var(--muted);font-size:.82rem;margin-top:4px" data-i18n="kpi2_sub">~<span data-mds="178">178 Md€</span> ajoutés en 2024</div>
         </div>
         <div class="panel" style="padding:20px;text-align:center">
-          <div class="eyebrow" style="margin-bottom:6px">Dette en années de salaire</div>
+          <div class="eyebrow" style="margin-bottom:6px" data-i18n="kpi3_label">Dette en années de salaire</div>
           <div style="font-size:1.8rem;font-weight:900;color:var(--accent)">1,44 an</div>
-          <div style="color:var(--muted);font-size:.82rem;margin-top:4px">par habitant / salaire net médian</div>
+          <div style="color:var(--muted);font-size:.82rem;margin-top:4px" data-i18n="kpi3_sub">par habitant / salaire net médian</div>
         </div>
       </div>
 
       <div class="panel" style="padding:24px;margin-bottom:28px;border-left:4px solid var(--red)">
-        <div class="eyebrow" style="margin-bottom:8px">Ce que ça signifie concrètement</div>
+        <div class="eyebrow" style="margin-bottom:8px" data-i18n="concrete_eyebrow">Ce que ça signifie concrètement</div>
         <div style="display:grid;gap:10px">
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
             <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
-            <span>Les intérêts de la dette (<strong data-mds="58">58 Md€</strong>/an) dépassent le budget de la Défense nationale (<strong data-mds="47">47 Md€</strong>).</span>
+            <span data-i18n="fact1">Les intérêts de la dette (<strong data-mds="58">58 Md€</strong>/an) dépassent le budget de la Défense nationale (<strong data-mds="47">47 Md€</strong>).</span>
           </div>
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
             <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
-            <span>Chaque enfant qui naît en France hérite de <strong>46 000 € de dette publique</strong> à sa naissance.</span>
+            <span data-i18n="fact2">Chaque enfant qui naît en France hérite de <strong>46 000 € de dette publique</strong> à sa naissance.</span>
           </div>
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
             <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
-            <span>Si les taux remontaient à 4 %, la charge d'intérêts doublerait à <strong data-mds="120">120 Md€</strong>/an, soit 10 % des recettes fiscales.</span>
+            <span data-i18n="fact3">Si les taux remontaient à 4 %, la charge d'intérêts doublerait à <strong data-mds="120">120 Md€</strong>/an, soit 10 % des recettes fiscales.</span>
           </div>
           <div style="display:flex;gap:10px;align-items:flex-start;font-size:.9rem">
             <span style="color:var(--red);font-size:1.1rem;flex-shrink:0">▸</span>
-            <span>Au rythme actuel des déficits, la dette atteindrait <strong>130 % du PIB en 2032</strong>.</span>
+            <span data-i18n="fact4">Au rythme actuel des déficits, la dette atteindrait <strong>130 % du PIB en 2032</strong>.</span>
           </div>
         </div>
       </div>
 
       <div style="text-align:center;padding:24px 0;border-top:1px solid var(--border)">
-        <p style="color:var(--muted);margin-bottom:14px;font-size:.9rem">Partagez ce compteur</p>
+        <p style="color:var(--muted);margin-bottom:14px;font-size:.9rem" data-i18n="share_label">Partagez ce compteur</p>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a class="share-btn" id="shareTwitterDebt" href="#" target="_blank" rel="noopener">𝕏 Partager</a>
+          <a class="share-btn" id="shareTwitterDebt" href="#" target="_blank" rel="noopener" data-i18n="share_twitter">𝕏 Partager</a>
           <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2Fdette%2F" target="_blank" rel="noopener">LinkedIn</a>
-          <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/dette/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
+          <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/dette/').then(()=>this.textContent='✓ Copié !')" data-i18n="share_copy">Copier le lien</button>
         </div>
       </div>
     </div>
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -350,6 +357,112 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_tools:'Outils',
+  breadcrumb_current:'Compteur dette',
+  hero_eyebrow:'En ce moment, en direct',
+  hero_h1:'Compteur de la dette publique française — en direct',
+  hero_unit:'euros — mise à jour toutes les 100 ms',
+  pill_per_capita:'par habitant',
+  pill_since_open:'depuis que vous avez ouvert cette page',
+  pill_interest:"d'intérêts payés depuis l'ouverture",
+  pill_gdp:'du PIB — seuil critique à 100 %',
+  intro_text:'La dette publique française dépasse <strong style="color:var(--red)">3 300 milliards d\'euros</strong>, soit <strong style="color:var(--red)">113 % du PIB</strong> — un niveau record, au-dessus du seuil critique de 100 % fixé par les traités européens. Chaque seconde, l\'État emprunte et s\'endette davantage : les <strong style="color:var(--accent)">intérêts seuls coûtent 58 milliards d\'euros par an</strong>, davantage que le budget de la Défense nationale. En 2024, le déficit public a atteint <strong style="color:var(--red)">6,1 % du PIB</strong>, ajoutant environ 178 milliards à une ardoise qui a doublé en vingt ans. La trajectoire est structurelle : malgré des plans d\'économies répétés depuis 2010, aucun gouvernement n\'a réussi à ramener le déficit sous les 3 % exigés par Bruxelles. Comprendre comment on en est arrivé là — et ce que cela implique concrètement pour les Français — est l\'objet de cette page.',
+  link_why_indebted:'❓ Pourquoi la France est-elle endettée ? →',
+  link_bankrupt:'💥 Peut-elle faire faillite ? →',
+  link_debt_deficit:'📐 Dette vs déficit →',
+  link_state_cost:"🏛️ Combien coûte l'État ? →",
+  europe_eyebrow:'Contexte européen',
+  europe_h2:'Dette / PIB — France vs voisins (2024)',
+  history_eyebrow:'Évolution historique',
+  history_h2:'Dette / PIB depuis 2000',
+  history_desc:"La dette a doublé en 20 ans. Les intérêts coûtent plus que le budget de l'Éducation nationale.",
+  kpi1_label:"Charge d'intérêts",
+  kpi1_sub:'par an — 1 840 €/seconde',
+  kpi2_label:'Déficit 2024',
+  kpi2_sub:'~<span data-mds="178">178 Md€</span> ajoutés en 2024',
+  kpi3_label:'Dette en années de salaire',
+  kpi3_sub:'par habitant / salaire net médian',
+  concrete_eyebrow:'Ce que ça signifie concrètement',
+  fact1:'Les intérêts de la dette (<strong data-mds="58">58 Md€</strong>/an) dépassent le budget de la Défense nationale (<strong data-mds="47">47 Md€</strong>).',
+  fact2:'Chaque enfant qui naît en France hérite de <strong>46 000 € de dette publique</strong> à sa naissance.',
+  fact3:'Si les taux remontaient à 4 %, la charge d\'intérêts doublerait à <strong data-mds="120">120 Md€</strong>/an, soit 10 % des recettes fiscales.',
+  fact4:'Au rythme actuel des déficits, la dette atteindrait <strong>130 % du PIB en 2032</strong>.',
+  share_label:'Partagez ce compteur',
+  share_twitter:'𝕏 Partager',
+  share_copy:'Copier le lien',
+  footer_copy:'© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_tools:'Tools',
+  breadcrumb_current:'Debt counter',
+  hero_eyebrow:'Right now, live',
+  hero_h1:'French National Debt Live Counter',
+  hero_unit:'euros — updated every 100 ms',
+  pill_per_capita:'per capita',
+  pill_since_open:'since you opened this page',
+  pill_interest:'in interest paid since opening',
+  pill_gdp:'of GDP — critical threshold at 100%',
+  intro_text:'French public debt exceeds <strong style="color:var(--red)">€3.3 trillion</strong>, or <strong style="color:var(--red)">113% of GDP</strong> — a record high, above the critical 100% threshold set by European treaties. Every second, the government borrows more: <strong style="color:var(--accent)">interest alone costs €58 billion per year</strong>, more than the national defence budget. In 2024, the public deficit reached <strong style="color:var(--red)">6.1% of GDP</strong>, adding around €178 billion to a debt that has doubled in twenty years. The trajectory is structural: despite repeated austerity plans since 2010, no government has managed to bring the deficit below the 3% required by Brussels. Understanding how we got here — and what it means concretely for the French — is the purpose of this page.',
+  link_why_indebted:'❓ Why is France in debt? →',
+  link_bankrupt:'💥 Could it go bankrupt? →',
+  link_debt_deficit:'📐 Debt vs deficit →',
+  link_state_cost:'🏛️ How much does the State cost? →',
+  europe_eyebrow:'European context',
+  europe_h2:'Debt / GDP — France vs neighbours (2024)',
+  history_eyebrow:'Historical trend',
+  history_h2:'Debt / GDP since 2000',
+  history_desc:'Debt has doubled in 20 years. Interest costs more than the Education budget.',
+  kpi1_label:'Interest burden',
+  kpi1_sub:'per year — €1,840/second',
+  kpi2_label:'2024 deficit',
+  kpi2_sub:'~<span data-mds="178">€178bn</span> added in 2024',
+  kpi3_label:'Debt in years of wages',
+  kpi3_sub:'per capita / median net wage',
+  concrete_eyebrow:'What this means in practice',
+  fact1:'Debt interest (<strong data-mds="58">€58bn</strong>/year) exceeds the national defence budget (<strong data-mds="47">€47bn</strong>).',
+  fact2:'Every child born in France inherits <strong>€46,000 of public debt</strong> at birth.',
+  fact3:'If rates rose to 4%, interest costs would double to <strong data-mds="120">€120bn</strong>/year — 10% of tax revenues.',
+  fact4:'At the current rate of deficits, debt would reach <strong>130% of GDP by 2032</strong>.',
+  share_label:'Share this counter',
+  share_twitter:'𝕏 Share',
+  share_copy:'Copy link',
+  footer_copy:'© 2026 Le Français Moyen — Data: INSEE · Banque de France · Eurostat',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Compteur de la dette française en direct — Le Français Moyen'
+    :'French National Debt Live Counter — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'Compteur de la dette publique France en direct. +5 500 € par seconde, 3 460 Md€ au total. Votre part : 46 000 €. Données officielles INSEE et Banque de France.'
+    :'French national debt live counter. +€5,500 per second, €3,460bn total. Your share: €46,000. Official INSEE and Banque de France data.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

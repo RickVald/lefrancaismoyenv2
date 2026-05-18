@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>La vente du siècle — Autoroutes privatisées — Le Français Moyen</title>
-  <meta name="description" content="Cédées 14,8 Md€ en 2006, les autoroutes françaises génèrent 3,5 Md€ de profits nets par an. En 18 ans, les concessionnaires ont récupéré 4× la mise. Données officielles.">
+  <title data-i18n="pageTitle">La vente du siècle — Autoroutes privatisées — Le Français Moyen</title>
+  <meta name="description" data-i18n-meta-desc content="Cédées 14,8 Md€ en 2006, les autoroutes françaises génèrent 3,5 Md€ de profits nets par an. En 18 ans, les concessionnaires ont récupéré 4× la mise. Données officielles.">
   <link rel="canonical" href="https://le-francais-moyen.com/autoroutes/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/autoroutes/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/autoroutes/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/autoroutes/">
   <meta property="og:title" content="La vente du siècle — Autoroutes privatisées">
   <meta property="og:description" content="Cédées 14,8 Md€ en 2006. 3,5 Md€ de profits par an depuis. En 18 ans, les actionnaires ont empoché ~60 Md€. Les données officielles.">
   <meta property="og:url" content="https://le-francais-moyen.com/autoroutes/">
@@ -42,6 +45,11 @@
 
     /* Verdict */
     .verdict-box{background:rgba(246,195,67,.07);border:1px solid rgba(246,195,67,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    /* lang switcher */
+    .lang-switch{display:flex;gap:4px;margin-left:8px}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:6px;color:rgba(255,255,255,.55);font-size:.78rem;padding:4px 8px;cursor:pointer;transition:.15s}
+    .lang-btn:hover{border-color:rgba(255,255,255,.45);color:#fff}
+    .lang-btn.active{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#fff;font-weight:700}
   </style>
 </head>
 <body>
@@ -77,6 +85,10 @@
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -105,8 +117,8 @@
     <div class="aut-hero">
       <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Autoroutes privatisées</span></nav>
       <div class="eyebrow">Privatisation 2006 · données Arafer/ART · Cour des Comptes 2023</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La vente du siècle</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">En 2006, l'État cède ses autoroutes pour <strong style="color:var(--accent)" data-mds="14.8">14,8 Md€</strong>.<br>
+      <h1 data-i18n="h1" style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La vente du siècle</h1>
+      <p data-i18n="subtitle" style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">En 2006, l'État cède ses autoroutes pour <strong style="color:var(--accent)" data-mds="14.8">14,8 Md€</strong>.<br>
       En 2024, les concessionnaires ont empoché <strong style="color:#ff6b6b">~63 Md€ de profits cumulés</strong>.</p>
       <div class="aut-big">×4,3</div>
       <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">retour sur investissement pour les actionnaires — en 18 ans</p>
@@ -280,6 +292,45 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+/* ── i18n FR/EN ─────────────────────────────────────────── */
+const I18N_AUT = {
+  fr: {
+    pageTitle: 'La vente du siècle — Autoroutes privatisées — Le Français Moyen',
+    metaDesc:  'Cédées 14,8 Md€ en 2006, les autoroutes françaises génèrent 3,5 Md€ de profits nets par an. En 18 ans, les concessionnaires ont récupéré 4× la mise. Données officielles.',
+    h1:        'La vente du siècle',
+    subtitle:  'En 2006, l\'État cède ses autoroutes pour <strong style="color:var(--accent)" data-mds="14.8">14,8 Md€</strong>.<br>En 2024, les concessionnaires ont empoché <strong style="color:#ff6b6b">~63 Md€ de profits cumulés</strong>.',
+  },
+  en: {
+    pageTitle: 'French Motorways — Tolls +84% Since 2006, Sold for €14.8bn | The Average French',
+    metaDesc:  "French motorway tolls have risen 84% since 2006. Sold to private companies for €14.8bn, they have since generated over €50bn in dividends. Official data on France's motorway privatisation.",
+    h1:        'French Motorways — tolls +84%, sold for €14.8bn, €50bn+ in dividends',
+    subtitle:  'France sold its motorway network to private operators for €14.8 billion in 2006. Since then, tolls have risen 84% and dividends exceed €50 billion. Official government data.',
+  }
+};
+
+window.setLang = function(lang){
+  const d = I18N_AUT[lang];
+  if(!d) return;
+  localStorage.setItem('lfm-lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'fr';
+  document.title = d.pageTitle;
+  const metaEl = document.querySelector('[data-i18n-meta-desc]');
+  if(metaEl) metaEl.setAttribute('content', d.metaDesc);
+  const h1El = document.querySelector('[data-i18n="h1"]');
+  if(h1El) h1El.innerHTML = d.h1;
+  const subEl = document.querySelector('[data-i18n="subtitle"]');
+  if(subEl) subEl.innerHTML = d.subtitle;
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById('btn-' + lang);
+  if(activeBtn) activeBtn.classList.add('active');
+};
+
+(function(){
+  const saved = localStorage.getItem('lfm-lang');
+  if(saved && saved !== 'fr') setLang(saved);
+})();
+</script>
 </body>
 </html>
 

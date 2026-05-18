@@ -120,6 +120,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 24px;m
 .dropdown a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:600;transition:all .15s;white-space:nowrap}
 .dropdown a:hover{background:rgba(255,255,255,.07);color:var(--text)}
 
+/* ── Language switcher ───────────────────────────────────────────────────── */
+.lang-switch{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.lang-btn{background:none;border:1px solid transparent;border-radius:6px;color:var(--muted);cursor:pointer;font-family:inherit;font-size:.78rem;font-weight:700;line-height:1;padding:5px 8px;transition:all .15s;letter-spacing:.03em}
+.lang-btn:hover{border-color:rgba(246,195,67,.4);color:var(--text)}
+.lang-btn.active{border-color:rgba(246,195,67,.55);color:var(--accent);background:rgba(246,195,67,.08)}
+
 /* ── Hamburger menu ───────────────────────────────────────────────────────── */
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px 4px;color:var(--text);flex-direction:column;justify-content:center;gap:5px;flex-shrink:0;z-index:30}
 .nav-toggle span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .25s,opacity .25s}

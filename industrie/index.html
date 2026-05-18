@@ -1,11 +1,14 @@
 ﻿<!doctype html>
-<html lang="fr">
+<html lang="fr" id="htmlRoot">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>La désindustrialisation française — −2,3 millions d'emplois — Le Français Moyen</title>
-  <meta name="description" content="La France a perdu 2,3 millions d'emplois industriels depuis 1980. Part de l'industrie dans le PIB : 28% → 11%. Balance commerciale : −85 Md€. L'Allemagne a résisté. Pourquoi ?">
+  <title data-i18n="meta_title">La désindustrialisation française — −2,3 millions d'emplois — Le Français Moyen</title>
+  <meta name="description" data-i18n-content="meta_desc" content="La France a perdu 2,3 millions d'emplois industriels depuis 1980. Part de l'industrie dans le PIB : 28% → 11%. Balance commerciale : −85 Md€. L'Allemagne a résisté. Pourquoi ?">
   <link rel="canonical" href="https://le-francais-moyen.com/industrie/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/industrie/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/industrie/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/industrie/">
   <meta property="og:title" content="Désindustrialisation — −2,3 M d'emplois depuis 1980">
   <meta property="og:description" content="Part industrie/PIB : 28% → 11%. −2,3M d'emplois. Balance commerciale −85 Md€. L'Allemagne maintient 22%. La divergence en chiffres.">
   <meta property="og:url" content="https://le-francais-moyen.com/industrie/">
@@ -29,6 +32,10 @@
     .ind-verdict{background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
     .ind-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
     canvas{width:100%;border-radius:12px;display:block}
+    .lang-switch{display:flex;gap:4px;align-items:center;margin-left:8px}
+    .lang-btn{background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--muted);border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer;transition:background .2s,color .2s}
+    .lang-btn:hover{background:rgba(255,255,255,.13);color:var(--text)}
+    .lang-btn.active{background:rgba(99,102,241,.18);border-color:rgba(99,102,241,.4);color:#6366f1;font-weight:700}
     .timeline{position:relative;padding-left:28px;margin:16px 0}
     .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border)}
     .tl-item{position:relative;margin-bottom:18px}
@@ -69,7 +76,11 @@
         </ul>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Accueil</a>
+      <a href="/" class="cta" data-i18n="nav_home">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -96,16 +107,16 @@
 
   <main id="contenu">
     <div class="ind-hero">
-      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Désindustrialisation</span></nav>
-      <div class="eyebrow">Données INSEE · Banque de France · OCDE · 2024</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La désindustrialisation française</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_page">Désindustrialisation</span></nav>
+      <div class="eyebrow" data-i18n="eyebrow">Données INSEE · Banque de France · OCDE · 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">La désindustrialisation française</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_sub">
         En 1980, l'industrie représentait <strong style="color:#6366f1">28 % du PIB</strong> français.<br>
         En 2023 : <strong style="color:#ff6b6b">11 %</strong>. L'Allemagne maintient <strong style="color:#63d471">22 %</strong>.<br>
         Ce fossé explique une grande partie de la divergence économique.
       </p>
       <div class="ind-big">−2,3 M</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">emplois industriels perdus depuis 1980 en France</p>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0" data-i18n="big_sub">emplois industriels perdus depuis 1980 en France</p>
     </div>
 
     <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
@@ -113,7 +124,7 @@
       <!-- ── Intro SEO ──────────────────────────────────────────── -->
       <div style="max-width:1000px;margin:0 auto 40px;padding:0">
         <div style="background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.15);border-radius:16px;padding:24px 28px">
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px">
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px" data-i18n="intro_p">
             La France a perdu <strong style="color:#4ade80">2,3 millions d'emplois industriels</strong> depuis 1980. La part de l'industrie dans le PIB est tombée à 11 % — contre 22 % en Allemagne. La balance commerciale affiche −85 milliards de déficit en 2023.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -144,24 +155,24 @@
       </div>
 
       <!-- Divergence France/Allemagne -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">La divergence France–Allemagne depuis 1980</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Emplois industriels (base 100 = 1980). Deux pays, deux choix de politique industrielle.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px" data-i18n="div_h2">La divergence France–Allemagne depuis 1980</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="div_sub">Emplois industriels (base 100 = 1980). Deux pays, deux choix de politique industrielle.</p>
       <canvas id="divChart" height="220"></canvas>
       <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Sources : INSEE, Destatis (Allemagne). Emploi salarié dans l'industrie manufacturière.</p>
 
       <!-- Part industrie PIB -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px">Part de l'industrie dans le PIB — 2023</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="gdp_h2">Part de l'industrie dans le PIB — 2023</h2>
       <div id="indCmp"></div>
       <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : Banque mondiale, OCDE. Valeur ajoutée manufacturière / PIB.</p>
 
       <!-- Balance commerciale -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px">La balance commerciale : l'heure de vérité</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">La France était à l'équilibre commercial en 2003. La désindustrialisation s'est traduite mécaniquement par un déficit grandissant.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="bal_h2">La balance commerciale : l'heure de vérité</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="bal_sub">La France était à l'équilibre commercial en 2003. La désindustrialisation s'est traduite mécaniquement par un déficit grandissant.</p>
       <canvas id="balChart" height="180"></canvas>
       <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : Banque de France — statistiques douanières. Biens et services.</p>
 
       <!-- Ce qui reste, ce qui est parti -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 12px">Ce que la France a perdu — et ce qu'elle garde</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 12px" data-i18n="lost_h2">Ce que la France a perdu — et ce qu'elle garde</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
         <div style="background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.25);border-radius:14px;padding:18px">
           <div style="font-size:.75rem;font-weight:800;color:#ff6b6b;letter-spacing:.06em;margin-bottom:12px">❌ SECTEURS PERDUS (1980–2023)</div>
@@ -186,7 +197,7 @@
       </div>
 
       <!-- Timeline -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">La chronologie du décrochage</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px" data-i18n="timeline_h2">La chronologie du décrochage</h2>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot" style="background:#f59e0b;border-color:#f59e0b"></div>
@@ -211,8 +222,8 @@
       </div>
 
       <div class="ind-verdict">
-        <div style="font-size:.8rem;font-weight:800;color:#6366f1;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+        <div style="font-size:.8rem;font-weight:800;color:#6366f1;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_label">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_p">
           La France a perdu <strong style="color:#fff">17 points de PIB industriel</strong> en 40 ans — l'équivalent de 450 Md€ de valeur ajoutée annuelle. La balance commerciale illustre ce manque : <strong style="color:#ff6b6b">−85 Md€ en 2023</strong>, contre +24 Md€ en Allemagne. Ce déficit n'est pas conjoncturel — il est structurel. La bonne nouvelle : la France conserve des pôles d'excellence mondiaux (aéronautique, luxe, nucléaire, agro). Le défi est de <strong style="color:#6366f1">les amplifier et d'en reconstruire de nouveaux</strong> — ce qui prend des décennies, pas des plans quinquennaux.
         </p>
       </div>
@@ -379,6 +390,86 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+  <script>
+  /* ── i18n FR / EN ── */
+  (function(){
+    var DICT = {
+      fr: {
+        meta_title:      "La désindustrialisation française — −2,3 millions d'emplois — Le Français Moyen",
+        meta_desc:       "La France a perdu 2,3 millions d'emplois industriels depuis 1980. Part de l'industrie dans le PIB : 28% → 11%. Balance commerciale : −85 Md€. L'Allemagne a résisté. Pourquoi ?",
+        nav_home:        "← Accueil",
+        breadcrumb_home: "Accueil",
+        breadcrumb_page: "Désindustrialisation",
+        eyebrow:         "Données INSEE · Banque de France · OCDE · 2024",
+        h1:              "La désindustrialisation française",
+        hero_sub:        "En 1980, l'industrie représentait <strong style=\"color:#6366f1\">28 % du PIB</strong> français.<br>En 2023 : <strong style=\"color:#ff6b6b\">11 %</strong>. L'Allemagne maintient <strong style=\"color:#63d471\">22 %</strong>.<br>Ce fossé explique une grande partie de la divergence économique.",
+        big_sub:         "emplois industriels perdus depuis 1980 en France",
+        intro_p:         "La France a perdu <strong style=\"color:#4ade80\">2,3 millions d'emplois industriels</strong> depuis 1980. La part de l'industrie dans le PIB est tombée à 11 % — contre 22 % en Allemagne. La balance commerciale affiche −85 milliards de déficit en 2023.",
+        div_h2:          "La divergence France–Allemagne depuis 1980",
+        div_sub:         "Emplois industriels (base 100 = 1980). Deux pays, deux choix de politique industrielle.",
+        gdp_h2:          "Part de l'industrie dans le PIB — 2023",
+        bal_h2:          "La balance commerciale : l'heure de vérité",
+        bal_sub:         "La France était à l'équilibre commercial en 2003. La désindustrialisation s'est traduite mécaniquement par un déficit grandissant.",
+        lost_h2:         "Ce que la France a perdu — et ce qu'elle garde",
+        timeline_h2:     "La chronologie du décrochage",
+        verdict_label:   "⚖️ CE QUE LES DONNÉES DISENT",
+        verdict_p:       "La France a perdu <strong style=\"color:#fff\">17 points de PIB industriel</strong> en 40 ans — l'équivalent de 450 Md€ de valeur ajoutée annuelle. La balance commerciale illustre ce manque : <strong style=\"color:#ff6b6b\">−85 Md€ en 2023</strong>, contre +24 Md€ en Allemagne. Ce déficit n'est pas conjoncturel — il est structurel. La bonne nouvelle : la France conserve des pôles d'excellence mondiaux (aéronautique, luxe, nucléaire, agro). Le défi est de <strong style=\"color:#6366f1\">les amplifier et d'en reconstruire de nouveaux</strong> — ce qui prend des décennies, pas des plans quinquennaux."
+      },
+      en: {
+        meta_title:      "France's Deindustrialisation — 1 Million Jobs Lost Since 2000 | The Average French",
+        meta_desc:       "France lost 1 million industrial jobs since 2000. The trade balance is in deficit. Industry's share of GDP fell from 18% to 10%. Official INSEE and Eurostat data.",
+        nav_home:        "← Home",
+        breadcrumb_home: "Home",
+        breadcrumb_page: "Deindustrialisation",
+        eyebrow:         "Data: INSEE · Banque de France · OECD · 2024",
+        h1:              "Deindustrialisation in France — −1 million jobs since 2000",
+        hero_sub:        "In 1980, industry accounted for <strong style=\"color:#6366f1\">28% of GDP</strong> in France.<br>In 2023: <strong style=\"color:#ff6b6b\">11%</strong>. Germany maintains <strong style=\"color:#63d471\">22%</strong>.<br>This gap explains much of the economic divergence between the two countries.",
+        big_sub:         "industrial jobs lost since 1980 in France",
+        intro_p:         "France has lost <strong style=\"color:#4ade80\">1 million industrial jobs since 2000</strong>. Industry's share of GDP fell from 18% to 10%. The trade balance is now in deficit. Official data on France's industrial decline.",
+        div_h2:          "The France–Germany Divergence since 1980",
+        div_sub:         "Industrial employment (index 100 = 1980). Two countries, two industrial policy choices.",
+        gdp_h2:          "Industry's Share of GDP — 2023",
+        bal_h2:          "The Trade Balance: the moment of truth",
+        bal_sub:         "France had a balanced trade account in 2003. Deindustrialisation has mechanically produced a growing deficit.",
+        lost_h2:         "What France has lost — and what it keeps",
+        timeline_h2:     "A timeline of industrial decline",
+        verdict_label:   "⚖️ WHAT THE DATA SAYS",
+        verdict_p:       "France has lost <strong style=\"color:#fff\">17 GDP points of industry</strong> over 40 years — equivalent to €450bn of annual added value. The trade balance illustrates this: <strong style=\"color:#ff6b6b\">−€85bn in 2023</strong>, versus +€24bn in Germany. This deficit is not cyclical — it is structural. The good news: France retains world-class centres of excellence (aerospace, luxury, nuclear, agri-food). The challenge is to <strong style=\"color:#6366f1\">scale them up and build new ones</strong> — which takes decades, not five-year plans."
+      }
+    };
+
+    function applyLang(lang) {
+      var d = DICT[lang];
+      if (!d) return;
+      // <html lang>
+      document.getElementById('htmlRoot').setAttribute('lang', lang);
+      // text / innerHTML nodes
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (!d[key]) return;
+        if (el.tagName === 'TITLE') { el.textContent = d[key]; return; }
+        el.innerHTML = d[key];
+      });
+      // <meta> content
+      document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-content');
+        if (d[key]) el.setAttribute('content', d[key]);
+      });
+      // toggle buttons
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      // persist
+      try { localStorage.setItem('lfm-lang', lang); } catch(e){}
+    }
+
+    window.setLang = applyLang;
+
+    // init
+    var saved = 'fr';
+    try { saved = localStorage.getItem('lfm-lang') || 'fr'; } catch(e){}
+    applyLang(saved);
+  })();
+  </script>
 </body>
 </html>
 

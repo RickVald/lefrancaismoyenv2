@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Démographie française 1945-2024 : composition, immigration, emploi et retraites — Le Français Moyen</title>
-  <meta name="description" content="De 40,5M en 1945 à 68,4M en 2024 : composition de la population française par catégorie INSEE, pyramide des âges, taux d'emploi par origine, contribution fiscale et perspective retraites. Sources : TeO2 INED-INSEE, Enquête emploi, DARES.">
+  <title data-i18n="pageTitle">Démographie française 1945-2024 : composition, immigration, emploi et retraites — Le Français Moyen</title>
+  <meta name="description" data-i18n-meta-desc content="De 40,5M en 1945 à 68,4M en 2024 : composition de la population française par catégorie INSEE, pyramide des âges, taux d'emploi par origine, contribution fiscale et perspective retraites. Sources : TeO2 INED-INSEE, Enquête emploi, DARES.">
   <link rel="canonical" href="https://le-francais-moyen.com/demographie/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/demographie/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/demographie/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/demographie/">
   <meta property="og:title" content="Démographie française 1945-2024 : composition, origines et contribution économique">
   <meta property="og:description" content="De 40,5M en 1945 à 68,4M aujourd'hui. Pyramide des âges par catégorie INSEE, emploi, salaires, contribution fiscale et retraites. Données officielles TeO2 INED-INSEE.">
   <meta property="og:url" content="https://le-francais-moyen.com/demographie/">
@@ -67,6 +70,11 @@
       .dem-big{font-size:clamp(2.5rem,14vw,4rem)}
       .dem-chart-wrap{padding:10px 4px}
     }
+    /* lang switcher */
+    .lang-switch{display:flex;gap:4px;margin-left:8px}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:6px;color:rgba(255,255,255,.55);font-size:.78rem;padding:4px 8px;cursor:pointer;transition:.15s}
+    .lang-btn:hover{border-color:rgba(255,255,255,.45);color:#fff}
+    .lang-btn.active{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#fff;font-weight:700}
   </style>
 </head>
 <body>
@@ -102,6 +110,10 @@
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -131,8 +143,8 @@
     <div class="dem-hero">
       <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Démographie</span></nav>
       <div class="eyebrow">TeO2 INED-INSEE 2019-2020 · Bilan démographique INSEE 2024 · DARES</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La France de 1945 à 2024 :<br>de qui sommes-nous composés ?</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:660px;margin:12px auto 20px;line-height:1.7">
+      <h1 data-i18n="h1" style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">La France de 1945 à 2024 :<br>de qui sommes-nous composés ?</h1>
+      <p data-i18n="subtitle" style="color:var(--muted);font-size:1.05rem;max-width:660px;margin:12px auto 20px;line-height:1.7">
         En 1945, la France comptait <strong style="color:var(--accent2)">40,5 millions d'habitants</strong>.<br>
         En 2024 : <strong style="color:var(--accent2)">68,4 millions</strong>. Comment s'est construite cette croissance ? Qui compose la France aujourd'hui, par catégorie démographique officielle ?
       </p>
@@ -1185,6 +1197,48 @@ drawProjFiscal();
       btn.focus();
     }
   });
+})();
+
+/* ── i18n FR/EN ─────────────────────────────────────────── */
+const I18N_DEM = {
+  fr: {
+    pageTitle: 'Démographie française 1945-2024 : composition, immigration, emploi et retraites — Le Français Moyen',
+    metaDesc:  'De 40,5M en 1945 à 68,4M en 2024 : composition de la population française par catégorie INSEE, pyramide des âges, taux d\'emploi par origine, contribution fiscale et perspective retraites. Sources : TeO2 INED-INSEE, Enquête emploi, DARES.',
+    h1:        'La France de 1945 à 2024 :<br>de qui sommes-nous composés ?',
+    subtitle:  'En 1945, la France comptait <strong style="color:var(--accent2)">40,5 millions d\'habitants</strong>.<br>En 2024 : <strong style="color:var(--accent2)">68,4 millions</strong>. Comment s\'est construite cette croissance ? Qui compose la France aujourd\'hui, par catégorie démographique officielle ?',
+  },
+  en: {
+    pageTitle: 'France Demographics — Fertility 1.68, 1.4 Workers per Retiree by 2050 | The Average French',
+    metaDesc:  "France's fertility rate fell to 1.68 in 2024. By 2050: 1.4 workers per retiree. The demographic transition and its impact on pensions and public finances. Official INSEE data.",
+    h1:        'French Demographics — fertility 1.68, ageing population',
+    subtitle:  "France's fertility rate fell to 1.68 in 2024 — below the 2.1 replacement threshold. By 2050, there will be 1.4 workers for every retiree. Official INSEE projections.",
+  }
+};
+
+window.setLang = function(lang){
+  const d = I18N_DEM[lang];
+  if(!d) return;
+  localStorage.setItem('lfm-lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'fr';
+  // title
+  document.title = d.pageTitle;
+  const metaEl = document.querySelector('[data-i18n-meta-desc]');
+  if(metaEl) metaEl.setAttribute('content', d.metaDesc);
+  // h1
+  const h1El = document.querySelector('[data-i18n="h1"]');
+  if(h1El) h1El.innerHTML = d.h1;
+  // subtitle
+  const subEl = document.querySelector('[data-i18n="subtitle"]');
+  if(subEl) subEl.innerHTML = d.subtitle;
+  // buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById('btn-' + lang);
+  if(activeBtn) activeBtn.classList.add('active');
+};
+
+(function(){
+  const saved = localStorage.getItem('lfm-lang');
+  if(saved && saved !== 'fr') setLang(saved);
 })();
 </script>
 </body>

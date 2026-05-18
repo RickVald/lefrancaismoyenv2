@@ -6,6 +6,9 @@
   <title>Le logement en heures de travail — Le Français Moyen</title>
   <meta name="description" content="À Paris, acheter 1 m² coûtait 5 mois de SMIC en 2000. En 2024 : 17 mois. Le logement est la première cause du déclassement du pouvoir d'achat réel des Français.">
   <link rel="canonical" href="https://le-francais-moyen.com/logement/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/logement/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/logement/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/logement/">
   <meta property="og:title" content="Le logement en heures de travail — 2000 vs 2024">
   <meta property="og:description" content="Paris 2000 : 5 mois de SMIC pour 1 m². Paris 2024 : 17 mois. Le logement est devenu la première ponction invisible sur le pouvoir d'achat des Français.">
   <meta property="og:url" content="https://le-francais-moyen.com/logement/">
@@ -81,6 +84,10 @@
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -108,12 +115,12 @@
   <main id="contenu">
     <div class="log-hero">
       <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Logement</span></nav>
-      <div class="eyebrow">Pouvoir d'achat immobilier · Notaires-INSEE · IGEDD 2024</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">Le logement en heures de travail</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 16px">À Paris, acheter <strong style="color:#fff">1 m²</strong> coûtait <strong style="color:#63d471">5 mois de SMIC</strong> en 2000.<br>
+      <div class="eyebrow" data-i18n="eyebrow">Pouvoir d'achat immobilier · Notaires-INSEE · IGEDD 2024</div>
+      <h1 data-i18n="h1" style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">Le logement en heures de travail</h1>
+      <p data-i18n="subtitle" style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 16px">À Paris, acheter <strong style="color:#fff">1 m²</strong> coûtait <strong style="color:#63d471">5 mois de SMIC</strong> en 2000.<br>
       En 2024 : <strong style="color:#a78bfa">17 mois de SMIC</strong>. Les salaires ont progressé de 60%. Les prix de 370%.</p>
       <div class="log-big">×3,4</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">rapport prix/salaire à Paris entre 2000 et 2024</p>
+      <p data-i18n="big-sub" style="color:var(--muted);font-size:.88rem;margin:8px 0 0">rapport prix/salaire à Paris entre 2000 et 2024</p>
     </div>
 
     <div style="max-width:900px;margin:0 auto;padding:0 24px 80px">
@@ -134,14 +141,14 @@
       </div>
 
       <!-- ── Villes ──────────────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">Prix en mois de SMIC net par m² — grandes villes</h2>
-      <p style="font-size:.82rem;color:var(--muted);margin:0 0 16px">SMIC net mensuel 2024 = 1 426 €. Prix immobilier : Notaires-INSEE, appartement ancien.</p>
+      <h2 data-i18n="h2-cities" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 14px">Prix en mois de SMIC net par m² — grandes villes</h2>
+      <p data-i18n="h2-cities-sub" style="font-size:.82rem;color:var(--muted);margin:0 0 16px">SMIC net mensuel 2024 = 1 426 €. Prix immobilier : Notaires-INSEE, appartement ancien.</p>
       <div class="city-grid" id="cityGrid"></div>
 
       <!-- ── Graphique évolution ─────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Évolution 2000–2024 : prix vs salaires</h2>
+      <h2 data-i18n="h2-chart" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Évolution 2000–2024 : prix vs salaires</h2>
       <div class="log-chart">
-        <p style="font-size:.8rem;color:var(--muted);margin:0 0 16px">Indices base 100 en 2000. Sources : Notaires-INSEE (prix), INSEE (salaires nets réels).</p>
+        <p data-i18n="chart-sub" style="font-size:.8rem;color:var(--muted);margin:0 0 16px">Indices base 100 en 2000. Sources : Notaires-INSEE (prix), INSEE (salaires nets réels).</p>
         <svg id="logSvg" viewBox="0 0 800 240" style="width:100%;display:block"></svg>
         <div class="log-axis">
           <span>2000</span><span>2004</span><span>2008</span><span>2012</span><span>2016</span><span>2020</span><span>2024</span>
@@ -149,75 +156,75 @@
         <div style="display:flex;gap:20px;margin-top:12px;flex-wrap:wrap">
           <div style="display:flex;align-items:center;gap:8px;font-size:.82rem">
             <div style="width:20px;height:3px;background:#a78bfa;border-radius:2px"></div>
-            <span style="color:#a78bfa">Prix immobilier France entière (+190%)</span>
+            <span data-i18n="legend-fr" style="color:#a78bfa">Prix immobilier France entière (+190%)</span>
           </div>
           <div style="display:flex;align-items:center;gap:8px;font-size:.82rem">
             <div style="width:20px;height:3px;background:#ff6b6b;border-radius:2px"></div>
-            <span style="color:#ff6b6b">Prix Paris (+370%)</span>
+            <span data-i18n="legend-paris" style="color:#ff6b6b">Prix Paris (+370%)</span>
           </div>
           <div style="display:flex;align-items:center;gap:8px;font-size:.82rem">
             <div style="width:20px;height:3px;background:#63d471;border-radius:2px"></div>
-            <span style="color:#63d471">Salaires nets réels (+62%)</span>
+            <span data-i18n="legend-wages" style="color:#63d471">Salaires nets réels (+62%)</span>
           </div>
         </div>
       </div>
 
       <!-- ── Comparaison EU ──────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Effort d'achat — comparaison européenne</h2>
-      <p style="font-size:.82rem;color:var(--muted);margin:0 0 16px">Années de salaire médian brut nécessaires pour acheter 70 m² dans la capitale. Source : Eurostat 2024.</p>
+      <h2 data-i18n="h2-eu" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Effort d'achat — comparaison européenne</h2>
+      <p data-i18n="h2-eu-sub" style="font-size:.82rem;color:var(--muted);margin:0 0 16px">Années de salaire médian brut nécessaires pour acheter 70 m² dans la capitale. Source : Eurostat 2024.</p>
       <div id="euLogChart"></div>
 
       <!-- ── Les causes ─────────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Pourquoi les prix ont-ils autant décroché ?</h2>
+      <h2 data-i18n="h2-causes" style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px">Pourquoi les prix ont-ils autant décroché ?</h2>
       <div class="cause-list">
         <div class="cause">
           <div class="cause-num">1</div>
           <div>
-            <div class="cause-title">La baisse des taux (2010–2022)</div>
-            <div class="cause-desc">Le taux moyen d'un crédit immobilier est passé de 5,5% (2000) à 1,0% (2021). Mécaniquement, la capacité d'emprunt double pour la même mensualité → les acheteurs ont pu payer plus cher. Les vendeurs ont capté ce gain. La remontée des taux depuis 2022 a gelé le marché mais pas vraiment corrigé les prix.</div>
+            <div data-i18n="cause1-title" class="cause-title">La baisse des taux (2010–2022)</div>
+            <div data-i18n="cause1-desc" class="cause-desc">Le taux moyen d'un crédit immobilier est passé de 5,5% (2000) à 1,0% (2021). Mécaniquement, la capacité d'emprunt double pour la même mensualité → les acheteurs ont pu payer plus cher. Les vendeurs ont capté ce gain. La remontée des taux depuis 2022 a gelé le marché mais pas vraiment corrigé les prix.</div>
           </div>
         </div>
         <div class="cause">
           <div class="cause-num">2</div>
           <div>
-            <div class="cause-title">L'offre structurellement insuffisante</div>
-            <div class="cause-desc">La France construit ~350 000 logements/an pour un besoin estimé à 450 000. Les causes : normes de construction de plus en plus contraignantes, délais de permis, résistance politique aux densifications urbaines, règles ZAN (Zéro Artificialisation Nette). Résultat : tension durable entre offre et demande dans les zones tendues.</div>
+            <div data-i18n="cause2-title" class="cause-title">L'offre structurellement insuffisante</div>
+            <div data-i18n="cause2-desc" class="cause-desc">La France construit ~350 000 logements/an pour un besoin estimé à 450 000. Les causes : normes de construction de plus en plus contraignantes, délais de permis, résistance politique aux densifications urbaines, règles ZAN (Zéro Artificialisation Nette). Résultat : tension durable entre offre et demande dans les zones tendues.</div>
           </div>
         </div>
         <div class="cause">
           <div class="cause-num">3</div>
           <div>
-            <div class="cause-title">La métropolisation</div>
-            <div class="cause-desc">La concentration des emplois qualifiés dans 10 métropoles (Paris, Lyon, Bordeaux, Nantes, Toulouse, Rennes…) a créé une pression de demande localisée. La périurbanisation a suivi, étirant la zone chère et renchérissant les marchés secondaires.</div>
+            <div data-i18n="cause3-title" class="cause-title">La métropolisation</div>
+            <div data-i18n="cause3-desc" class="cause-desc">La concentration des emplois qualifiés dans 10 métropoles (Paris, Lyon, Bordeaux, Nantes, Toulouse, Rennes…) a créé une pression de demande localisée. La périurbanisation a suivi, étirant la zone chère et renchérissant les marchés secondaires.</div>
           </div>
         </div>
         <div class="cause">
           <div class="cause-num">4</div>
           <div>
-            <div class="cause-title">L'investissement locatif défiscalisé</div>
-            <div class="cause-desc">Pinel, Scellier, Duflot, Robien… 20 ans de dispositifs de défiscalisation ont orienté l'épargne vers l'immobilier. Ces achats d'investissement en concurrence avec les primo-accédants ont soutenu les prix. Coût fiscal estimé : ~2 Md€/an pour Pinel seul, pour un impact sur les loyers jugé "limité" par la Cour des Comptes.</div>
+            <div data-i18n="cause4-title" class="cause-title">L'investissement locatif défiscalisé</div>
+            <div data-i18n="cause4-desc" class="cause-desc">Pinel, Scellier, Duflot, Robien… 20 ans de dispositifs de défiscalisation ont orienté l'épargne vers l'immobilier. Ces achats d'investissement en concurrence avec les primo-accédants ont soutenu les prix. Coût fiscal estimé : ~2 Md€/an pour Pinel seul, pour un impact sur les loyers jugé "limité" par la Cour des Comptes.</div>
           </div>
         </div>
         <div class="cause">
           <div class="cause-num">5</div>
           <div>
-            <div class="cause-title">Airbnb et résidences secondaires</div>
-            <div class="cause-desc">La location courte durée (Airbnb et plateformes) a soustrait des dizaines de milliers de logements du marché résidentiel dans les villes touristiques (Paris, Bordeaux, Biarritz, Nice). Impact estimé : +3 à +5% sur les loyers dans les zones très affectées. La régulation avance lentement.</div>
+            <div data-i18n="cause5-title" class="cause-title">Airbnb et résidences secondaires</div>
+            <div data-i18n="cause5-desc" class="cause-desc">La location courte durée (Airbnb et plateformes) a soustrait des dizaines de milliers de logements du marché résidentiel dans les villes touristiques (Paris, Bordeaux, Biarritz, Nice). Impact estimé : +3 à +5% sur les loyers dans les zones très affectées. La régulation avance lentement.</div>
           </div>
         </div>
       </div>
 
       <!-- ── Loyers ──────────────────────────────────────────────── -->
       <div style="background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-radius:16px;padding:20px 24px;margin:24px 0">
-        <div style="font-size:.8rem;font-weight:800;color:#a78bfa;letter-spacing:.06em;margin-bottom:12px">🏘️ ET POUR LES LOCATAIRES ?</div>
+        <div data-i18n="renters-label" style="font-size:.8rem;font-weight:800;color:#a78bfa;letter-spacing:.06em;margin-bottom:12px">🏘️ ET POUR LES LOCATAIRES ?</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
           <div>
             <div style="font-size:1.6rem;font-weight:900;color:#a78bfa">39%</div>
-            <div style="font-size:.78rem;color:var(--muted);margin-top:4px">du revenu disponible consacré au logement par un locataire dans le parc privé en zone tendue (vs 23% en 2000)</div>
+            <div data-i18n="renters-stat1" style="font-size:.78rem;color:var(--muted);margin-top:4px">du revenu disponible consacré au logement par un locataire dans le parc privé en zone tendue (vs 23% en 2000)</div>
           </div>
           <div>
             <div style="font-size:1.6rem;font-weight:900;color:#ff6b6b">2,3 M</div>
-            <div style="font-size:.78rem;color:var(--muted);margin-top:4px">demandeurs en attente d'un logement social (HLM), délai moyen d'attente : 6 ans en Île-de-France</div>
+            <div data-i18n="renters-stat2" style="font-size:.78rem;color:var(--muted);margin-top:4px">demandeurs en attente d'un logement social (HLM), délai moyen d'attente : 6 ans en Île-de-France</div>
           </div>
         </div>
       </div>
@@ -225,7 +232,7 @@
       <!-- ── Sources ────────────────────────────────────────────── -->
       <div style="border-top:1px solid var(--border);padding-top:20px;margin-top:28px">
         <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
-          <strong style="color:var(--text)">Sources :</strong> Notaires-INSEE — Base des transactions immobilières 2024 · IGEDD — indices prix logements séries longues · INSEE — salaires nets médians séries longues · Eurostat — Housing Price Statistics · CGDD — construction neuve 2024 · Cour des Comptes — évaluation dispositifs Pinel 2023 · UNPI — baromètre loyers 2024
+          <strong data-i18n="sources-label" style="color:var(--text)">Sources :</strong> <span data-i18n="sources-body">Notaires-INSEE — Base des transactions immobilières 2024 · IGEDD — indices prix logements séries longues · INSEE — salaires nets médians séries longues · Eurostat — Housing Price Statistics · CGDD — construction neuve 2024 · Cour des Comptes — évaluation dispositifs Pinel 2023 · UNPI — baromètre loyers 2024</span>
         </div>
       </div>
 
@@ -236,8 +243,8 @@
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : Notaires-INSEE · IGEDD · Eurostat</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer-copy">© 2026 Le Français Moyen — Données : Notaires-INSEE · IGEDD · Eurostat</span>
+    <a data-i18n="footer-link" href="/">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -363,6 +370,97 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+  fr:{
+    "eyebrow":"Pouvoir d'achat immobilier · Notaires-INSEE · IGEDD 2024",
+    "h1":"Le logement en heures de travail",
+    "subtitle":"À Paris, acheter <strong style=\"color:#fff\">1 m²</strong> coûtait <strong style=\"color:#63d471\">5 mois de SMIC</strong> en 2000.<br>En 2024 : <strong style=\"color:#a78bfa\">17 mois de SMIC</strong>. Les salaires ont progressé de 60%. Les prix de 370%.",
+    "big-sub":"rapport prix/salaire à Paris entre 2000 et 2024",
+    "h2-cities":"Prix en mois de SMIC net par m² — grandes villes",
+    "h2-cities-sub":"SMIC net mensuel 2024 = 1 426 €. Prix immobilier : Notaires-INSEE, appartement ancien.",
+    "h2-chart":"Évolution 2000–2024 : prix vs salaires",
+    "chart-sub":"Indices base 100 en 2000. Sources : Notaires-INSEE (prix), INSEE (salaires nets réels).",
+    "legend-fr":"Prix immobilier France entière (+190%)",
+    "legend-paris":"Prix Paris (+370%)",
+    "legend-wages":"Salaires nets réels (+62%)",
+    "h2-eu":"Effort d'achat — comparaison européenne",
+    "h2-eu-sub":"Années de salaire médian brut nécessaires pour acheter 70 m² dans la capitale. Source : Eurostat 2024.",
+    "h2-causes":"Pourquoi les prix ont-ils autant décroché ?",
+    "cause1-title":"La baisse des taux (2010–2022)",
+    "cause1-desc":"Le taux moyen d'un crédit immobilier est passé de 5,5% (2000) à 1,0% (2021). Mécaniquement, la capacité d'emprunt double pour la même mensualité → les acheteurs ont pu payer plus cher. Les vendeurs ont capté ce gain. La remontée des taux depuis 2022 a gelé le marché mais pas vraiment corrigé les prix.",
+    "cause2-title":"L'offre structurellement insuffisante",
+    "cause2-desc":"La France construit ~350 000 logements/an pour un besoin estimé à 450 000. Les causes : normes de construction de plus en plus contraignantes, délais de permis, résistance politique aux densifications urbaines, règles ZAN (Zéro Artificialisation Nette). Résultat : tension durable entre offre et demande dans les zones tendues.",
+    "cause3-title":"La métropolisation",
+    "cause3-desc":"La concentration des emplois qualifiés dans 10 métropoles (Paris, Lyon, Bordeaux, Nantes, Toulouse, Rennes…) a créé une pression de demande localisée. La périurbanisation a suivi, étirant la zone chère et renchérissant les marchés secondaires.",
+    "cause4-title":"L'investissement locatif défiscalisé",
+    "cause4-desc":"Pinel, Scellier, Duflot, Robien… 20 ans de dispositifs de défiscalisation ont orienté l'épargne vers l'immobilier. Ces achats d'investissement en concurrence avec les primo-accédants ont soutenu les prix. Coût fiscal estimé : ~2 Md€/an pour Pinel seul, pour un impact sur les loyers jugé \"limité\" par la Cour des Comptes.",
+    "cause5-title":"Airbnb et résidences secondaires",
+    "cause5-desc":"La location courte durée (Airbnb et plateformes) a soustrait des dizaines de milliers de logements du marché résidentiel dans les villes touristiques (Paris, Bordeaux, Biarritz, Nice). Impact estimé : +3 à +5% sur les loyers dans les zones très affectées. La régulation avance lentement.",
+    "renters-label":"🏘️ ET POUR LES LOCATAIRES ?",
+    "renters-stat1":"du revenu disponible consacré au logement par un locataire dans le parc privé en zone tendue (vs 23% en 2000)",
+    "renters-stat2":"demandeurs en attente d'un logement social (HLM), délai moyen d'attente : 6 ans en Île-de-France",
+    "sources-label":"Sources :",
+    "sources-body":"Notaires-INSEE — Base des transactions immobilières 2024 · IGEDD — indices prix logements séries longues · INSEE — salaires nets médians séries longues · Eurostat — Housing Price Statistics · CGDD — construction neuve 2024 · Cour des Comptes — évaluation dispositifs Pinel 2023 · UNPI — baromètre loyers 2024",
+    "footer-copy":"© 2026 Le Français Moyen — Données : Notaires-INSEE · IGEDD · Eurostat",
+    "footer-link":"Tableau de bord principal"
+  },
+  en:{
+    "eyebrow":"Housing affordability · Notaires-INSEE · IGEDD 2024",
+    "h1":"Housing in France — prices ×2.7, wages +4% since 2000",
+    "subtitle":"The price of a square metre in France has increased 2.7× since 2000. Real wages grew just 4% over the same period. The affordability gap, explained in official data.",
+    "big-sub":"price-to-wage ratio in Paris between 2000 and 2024",
+    "h2-cities":"Price in net monthly minimum wages per m² — major cities",
+    "h2-cities-sub":"Net monthly minimum wage 2024 = €1,426. Property prices: Notaires-INSEE, existing apartments.",
+    "h2-chart":"2000–2024 trend: prices vs. wages",
+    "chart-sub":"Index base 100 in 2000. Sources: Notaires-INSEE (prices), INSEE (real net wages).",
+    "legend-fr":"French property prices nationwide (+190%)",
+    "legend-paris":"Paris prices (+370%)",
+    "legend-wages":"Real net wages (+62%)",
+    "h2-eu":"Purchasing effort — European comparison",
+    "h2-eu-sub":"Years of median gross salary needed to buy 70 m² in the capital city. Source: Eurostat 2024.",
+    "h2-causes":"Why have prices diverged so sharply?",
+    "cause1-title":"The rate drop (2010–2022)",
+    "cause1-desc":"The average mortgage rate fell from 5.5% (2000) to 1.0% (2021). Mechanically, borrowing capacity doubled for the same monthly payment → buyers could pay more. Sellers captured that gain. The rate rebound since 2022 has frozen the market but barely corrected prices.",
+    "cause2-title":"Structurally insufficient supply",
+    "cause2-desc":"France builds ~350,000 homes/year against an estimated need of 450,000. Reasons: increasingly strict building codes, permit delays, political resistance to urban densification, ZAN rules (Zero Net Artificialisation). Result: persistent supply-demand tension in high-pressure areas.",
+    "cause3-title":"Metropolisation",
+    "cause3-desc":"The concentration of skilled jobs in 10 metropolitan areas (Paris, Lyon, Bordeaux, Nantes, Toulouse, Rennes…) created localised demand pressure. Periurbanisation followed, stretching expensive zones and raising secondary-market prices.",
+    "cause4-title":"Tax-incentivised buy-to-let investment",
+    "cause4-desc":"Pinel, Scellier, Duflot, Robien… 20 years of tax-break schemes channelled savings into property. Investment purchases competing with first-time buyers propped up prices. Estimated fiscal cost: ~€2bn/year for Pinel alone, for a rental impact deemed \"limited\" by the Cour des Comptes.",
+    "cause5-title":"Airbnb and second homes",
+    "cause5-desc":"Short-term rentals (Airbnb and platforms) have removed tens of thousands of homes from the residential market in tourist cities (Paris, Bordeaux, Biarritz, Nice). Estimated impact: +3 to +5% on rents in heavily affected areas. Regulation is progressing slowly.",
+    "renters-label":"🏘️ WHAT ABOUT RENTERS?",
+    "renters-stat1":"of disposable income spent on housing by a private-sector tenant in a high-pressure area (vs. 23% in 2000)",
+    "renters-stat2":"applicants waiting for social housing (HLM), average waiting time: 6 years in Île-de-France",
+    "sources-label":"Sources:",
+    "sources-body":"Notaires-INSEE — Property transactions database 2024 · IGEDD — long-run housing price indices · INSEE — median net wage long-run series · Eurostat — Housing Price Statistics · CGDD — new construction 2024 · Cour des Comptes — Pinel scheme evaluation 2023 · UNPI — rent barometer 2024",
+    "footer-copy":"© 2026 Le Français Moyen — Data: Notaires-INSEE · IGEDD · Eurostat",
+    "footer-link":"Main dashboard"
+  }
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  const s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Le logement en heures de travail — Le Français Moyen'
+    :'Housing in France — Prices ×2.7 Since 2000, Real Wages +4% | The Average French';
+  const d=document.querySelector('meta[name="description"]');
+  if(d)d.setAttribute('content',l==='fr'
+    ?"À Paris, acheter 1 m² coûtait 5 mois de SMIC en 2000. En 2024 : 17 mois. Le logement est la première cause du déclassement du pouvoir d'achat réel des Français."
+    :"House prices in France multiplied by 2.7 since 2000. Real wages grew only 4% over the same period. The housing affordability crisis explained with official data.");
+}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

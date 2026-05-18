@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Questions sur l'économie française — Réponses en données officielles</title>
-  <meta name="description" content="36 questions clés sur l'économie française répondues avec les données officielles INSEE, Eurostat, Banque de France. Dette, fonctionnaires, retraites, logement, santé, industrie.">
+  <title data-i18n="pageTitle">Questions sur l'économie française — Réponses en données officielles</title>
+  <meta name="description" data-i18n-meta-desc content="36 questions clés sur l'économie française répondues avec les données officielles INSEE, Eurostat, Banque de France. Dette, fonctionnaires, retraites, logement, santé, industrie.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Français Moyen">
@@ -69,6 +72,11 @@
     .faq-card-dash{border-style:dashed;opacity:.7}
     .faq-card-dash:hover{opacity:1}
     @media(max-width:520px){.faq-grid{grid-template-columns:1fr}}
+    /* lang switcher */
+    .lang-switch{display:flex;gap:4px;margin-left:8px}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:6px;color:rgba(255,255,255,.55);font-size:.78rem;padding:4px 8px;cursor:pointer;transition:.15s}
+    .lang-btn:hover{border-color:rgba(255,255,255,.45);color:#fff}
+    .lang-btn.active{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#fff;font-weight:700}
   </style>
 </head>
 <body>
@@ -102,6 +110,10 @@
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
       <a href="/" class="cta">← Tableau de bord</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Menu mobile">
@@ -124,13 +136,13 @@
 
     <div class="q-hub-hero">
       <p class="eyebrow">Analyses</p>
-      <h1>Questions sur l'économie française</h1>
-      <p>Des réponses chiffrées aux questions que tout le monde se pose — à partir des données officielles INSEE, Eurostat, Banque de France, DREES et OCDE.</p>
+      <h1 data-i18n="h1">Questions sur l'économie française</h1>
+      <p data-i18n="subtitle">Des réponses chiffrées aux questions que tout le monde se pose — à partir des données officielles INSEE, Eurostat, Banque de France, DREES et OCDE.</p>
       <div class="q-count-bar">
-        <div class="q-count-item"><div class="n">36</div><div class="l">articles publiés</div></div>
-        <div class="q-count-item"><div class="n">11</div><div class="l">thématiques</div></div>
-        <div class="q-count-item"><div class="n">15+</div><div class="l">sources officielles</div></div>
-        <div class="q-count-item"><div class="n">0</div><div class="l">publicités</div></div>
+        <div class="q-count-item"><div class="n">36</div><div class="l" data-i18n="stat_articles">articles publiés</div></div>
+        <div class="q-count-item"><div class="n">11</div><div class="l" data-i18n="stat_themes">thématiques</div></div>
+        <div class="q-count-item"><div class="n">15+</div><div class="l" data-i18n="stat_sources">sources officielles</div></div>
+        <div class="q-count-item"><div class="n">0</div><div class="l" data-i18n="stat_ads">publicités</div></div>
       </div>
     </div>
 
@@ -139,33 +151,33 @@
       <h2>⏱ Dette &amp; finances publiques — 5 articles</h2>
       <div class="faq-grid">
         <a href="/questions/pourquoi-la-france-est-endettee" class="faq-card">
-          <span class="fc-tag tag-dette">Dette</span>
-          <h3>Pourquoi la France est-elle autant endettée ?</h3>
-          <p>Déficits chroniques depuis 1974, charges d'intérêts, dépenses sociales : les vraies causes expliquées avec les chiffres officiels.</p>
+          <span class="fc-tag tag-dette" data-i18n="tag_dette">Dette</span>
+          <h3 data-i18n="q_dette_endettee_title">Pourquoi la France est-elle autant endettée ?</h3>
+          <p data-i18n="q_dette_endettee_excerpt">Déficits chroniques depuis 1974, charges d'intérêts, dépenses sociales : les vraies causes expliquées avec les chiffres officiels.</p>
           <span class="fc-stat tag-dette">3 460 Md€ — 115,6 % du PIB</span>
         </a>
         <a href="/questions/combien-coute-l-etat" class="faq-card">
-          <span class="fc-tag tag-dette">Finances</span>
-          <h3>Combien nous coûte l'État ?</h3>
-          <p>3 228 Md€ de dette, 57 % du PIB en dépenses : ce que finance réellement l'État français, et ce que ça nous coûte chaque année.</p>
+          <span class="fc-tag tag-dette" data-i18n="tag_finances">Finances</span>
+          <h3 data-i18n="q_dette_etat_title">Combien nous coûte l'État ?</h3>
+          <p data-i18n="q_dette_etat_excerpt">3 228 Md€ de dette, 57 % du PIB en dépenses : ce que finance réellement l'État français, et ce que ça nous coûte chaque année.</p>
           <span class="fc-stat tag-dette">57 % du PIB en dépenses</span>
         </a>
         <a href="/questions/la-france-peut-elle-faire-faillite" class="faq-card">
-          <span class="fc-tag tag-dette">Dette</span>
-          <h3>La France peut-elle faire faillite ?</h3>
-          <p>Un État peut faire défaut — la Grèce l'a fait. Analyse des risques réels pour la France et comparaison avec les crises historiques.</p>
+          <span class="fc-tag tag-dette" data-i18n="tag_dette">Dette</span>
+          <h3 data-i18n="q_dette_faillite_title">La France peut-elle faire faillite ?</h3>
+          <p data-i18n="q_dette_faillite_excerpt">Un État peut faire défaut — la Grèce l'a fait. Analyse des risques réels pour la France et comparaison avec les crises historiques.</p>
           <span class="fc-stat tag-dette">Notation AA− (Fitch 2024)</span>
         </a>
         <a href="/questions/la-france-s-appauvrit-elle" class="faq-card">
-          <span class="fc-tag tag-dette">Niveau de vie</span>
-          <h3>La France s'appauvrit-elle ?</h3>
-          <p>Niveau de vie médian, salaire réel, patrimoine : que disent vraiment les chiffres depuis 2000 ? La réponse est nuancée.</p>
+          <span class="fc-tag tag-dette" data-i18n="tag_niveauvie">Niveau de vie</span>
+          <h3 data-i18n="q_dette_appauvrit_title">La France s'appauvrit-elle ?</h3>
+          <p data-i18n="q_dette_appauvrit_excerpt">Niveau de vie médian, salaire réel, patrimoine : que disent vraiment les chiffres depuis 2000 ? La réponse est nuancée.</p>
           <span class="fc-stat tag-dette">PIB/hab. +18 % depuis 2000</span>
         </a>
         <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit" class="faq-card">
-          <span class="fc-tag tag-dette">Dette</span>
-          <h3>Quelle est la différence entre la dette et le déficit ?</h3>
-          <p>Deux notions souvent confondues. Le déficit est annuel, la dette est cumulée. Explication simple avec les chiffres 2024.</p>
+          <span class="fc-tag tag-dette" data-i18n="tag_dette">Dette</span>
+          <h3 data-i18n="q_dette_deficit_title">Quelle est la différence entre la dette et le déficit ?</h3>
+          <p data-i18n="q_dette_deficit_excerpt">Deux notions souvent confondues. Le déficit est annuel, la dette est cumulée. Explication simple avec les chiffres 2024.</p>
           <span class="fc-stat tag-dette">155 Md€ déficit · 3 460 Md€ dette</span>
         </a>
       </div>
@@ -176,21 +188,21 @@
       <h2>🏛 Fonctionnaires &amp; État — 3 articles</h2>
       <div class="faq-grid">
         <a href="/questions/combien-y-a-t-il-de-fonctionnaires-en-france" class="faq-card">
-          <span class="fc-tag tag-fonct">Fonctionnaires</span>
-          <h3>Combien y a-t-il de fonctionnaires en France ?</h3>
-          <p>5,66 millions d'agents publics. Répartition État/collectivités/hôpitaux, comparaison européenne et évolution depuis 2000.</p>
+          <span class="fc-tag tag-fonct" data-i18n="tag_fonct">Fonctionnaires</span>
+          <h3 data-i18n="q_fonct_combien_title">Combien y a-t-il de fonctionnaires en France ?</h3>
+          <p data-i18n="q_fonct_combien_excerpt">5,66 millions d'agents publics. Répartition État/collectivités/hôpitaux, comparaison européenne et évolution depuis 2000.</p>
           <span class="fc-stat tag-fonct">5,66 millions — 21,2 % de l'emploi</span>
         </a>
         <a href="/questions/combien-gagne-un-fonctionnaire-en-france" class="faq-card">
-          <span class="fc-tag tag-fonct">Fonctionnaires</span>
-          <h3>Combien gagne un fonctionnaire en France ?</h3>
-          <p>Salaires par catégorie (A+/A/B/C), primes, avantages en matière de retraite et comparaison avec le secteur privé.</p>
+          <span class="fc-tag tag-fonct" data-i18n="tag_fonct">Fonctionnaires</span>
+          <h3 data-i18n="q_fonct_salaire_title">Combien gagne un fonctionnaire en France ?</h3>
+          <p data-i18n="q_fonct_salaire_excerpt">Salaires par catégorie (A+/A/B/C), primes, avantages en matière de retraite et comparaison avec le secteur privé.</p>
           <span class="fc-stat tag-fonct">2 650 € net/mois en moyenne</span>
         </a>
         <a href="/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france" class="faq-card">
-          <span class="fc-tag tag-fonct">Fonctionnaires</span>
-          <h3>Pourquoi y a-t-il autant de fonctionnaires en France ?</h3>
-          <p>Décentralisation, logique anticyclique, secteurs publics que d'autres pays privatisent : les raisons historiques et structurelles.</p>
+          <span class="fc-tag tag-fonct" data-i18n="tag_fonct">Fonctionnaires</span>
+          <h3 data-i18n="q_fonct_pourquoi_title">Pourquoi y a-t-il autant de fonctionnaires en France ?</h3>
+          <p data-i18n="q_fonct_pourquoi_excerpt">Décentralisation, logique anticyclique, secteurs publics que d'autres pays privatisent : les raisons historiques et structurelles.</p>
           <span class="fc-stat tag-fonct">21 % vs 11 % en Allemagne</span>
         </a>
       </div>
@@ -201,33 +213,33 @@
       <h2>💸 Fiscalité &amp; impôts — 5 articles</h2>
       <div class="faq-grid">
         <a href="/questions/qui-paye-des-impots-en-france" class="faq-card">
-          <span class="fc-tag tag-fisc">Fiscalité</span>
-          <h3>Qui paye des impôts en France ?</h3>
-          <p>TVA, CSG, IR, cotisations : la répartition réelle de qui paie quoi, et pourquoi la France est l'un des pays les plus taxés du monde.</p>
+          <span class="fc-tag tag-fisc" data-i18n="tag_fisc">Fiscalité</span>
+          <h3 data-i18n="q_fisc_quipaye_title">Qui paye des impôts en France ?</h3>
+          <p data-i18n="q_fisc_quipaye_excerpt">TVA, CSG, IR, cotisations : la répartition réelle de qui paie quoi, et pourquoi la France est l'un des pays les plus taxés du monde.</p>
           <span class="fc-stat tag-fisc">45,3 % du PIB en prélèvements</span>
         </a>
         <a href="/questions/quel-est-le-vrai-taux-d-imposition-en-france" class="faq-card">
-          <span class="fc-tag tag-fisc">Fiscalité</span>
-          <h3>Quel est le vrai taux d'imposition en France ?</h3>
-          <p>IR + CSG + TVA + cotisations : le taux effectif total d'un salarié médian atteint 50 %. Calcul complet et comparaison européenne.</p>
+          <span class="fc-tag tag-fisc" data-i18n="tag_fisc">Fiscalité</span>
+          <h3 data-i18n="q_fisc_taux_title">Quel est le vrai taux d'imposition en France ?</h3>
+          <p data-i18n="q_fisc_taux_excerpt">IR + CSG + TVA + cotisations : le taux effectif total d'un salarié médian atteint 50 %. Calcul complet et comparaison européenne.</p>
           <span class="fc-stat tag-fisc">~50 % pour un salarié médian</span>
         </a>
         <a href="/questions/pourquoi-tout-augmente" class="faq-card">
-          <span class="fc-tag tag-fisc">Inflation</span>
-          <h3>Pourquoi tout augmente-t-il ?</h3>
-          <p>Énergie, alimentation, loyers, services : les vraies causes de l'inflation depuis 2021 et pourquoi ça ne baisse pas vraiment.</p>
+          <span class="fc-tag tag-fisc" data-i18n="tag_inflation">Inflation</span>
+          <h3 data-i18n="q_fisc_inflation_title">Pourquoi tout augmente-t-il ?</h3>
+          <p data-i18n="q_fisc_inflation_excerpt">Énergie, alimentation, loyers, services : les vraies causes de l'inflation depuis 2021 et pourquoi ça ne baisse pas vraiment.</p>
           <span class="fc-stat tag-fisc">5,2 % d'inflation en 2022</span>
         </a>
         <a href="/questions/qu-est-ce-que-la-csg-en-france" class="faq-card">
-          <span class="fc-tag tag-fisc">Fiscalité</span>
-          <h3>Qu'est-ce que la CSG en France ?</h3>
-          <p>Premier prélèvement obligatoire français : 130 milliards € par an, 9,7 % sur les salaires. Ni vraiment un impôt, ni une cotisation. Explication complète.</p>
+          <span class="fc-tag tag-fisc" data-i18n="tag_fisc">Fiscalité</span>
+          <h3 data-i18n="q_fisc_csg_title">Qu'est-ce que la CSG en France ?</h3>
+          <p data-i18n="q_fisc_csg_excerpt">Premier prélèvement obligatoire français : 130 milliards € par an, 9,7 % sur les salaires. Ni vraiment un impôt, ni une cotisation. Explication complète.</p>
           <span class="fc-stat tag-fisc">130 Md€ / an — 9,7 % sur les salaires</span>
         </a>
         <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france" class="faq-card">
-          <span class="fc-tag tag-fisc">Emploi</span>
-          <h3>Combien coûte un salarié à son employeur ?</h3>
-          <p>Un salarié au SMIC coûte ~2 100 € pour 1 398 € net. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète des charges patronales 2024.</p>
+          <span class="fc-tag tag-fisc" data-i18n="tag_emploi">Emploi</span>
+          <h3 data-i18n="q_fisc_salarie_title">Combien coûte un salarié à son employeur ?</h3>
+          <p data-i18n="q_fisc_salarie_excerpt">Un salarié au SMIC coûte ~2 100 € pour 1 398 € net. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète des charges patronales 2024.</p>
           <span class="fc-stat tag-fisc">× 1,7 à 2,1 le salaire net</span>
         </a>
       </div>
@@ -238,27 +250,27 @@
       <h2>🏠 Pouvoir d'achat &amp; logement — 4 articles</h2>
       <div class="faq-grid">
         <a href="/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse" class="faq-card">
-          <span class="fc-tag tag-pda">Pouvoir d'achat</span>
-          <h3>Le pouvoir d'achat des Français a-t-il baissé ?</h3>
-          <p>Salaires en hausse sur 20 ans, mais logement, énergie et alimentation ont explosé. Ce que disent vraiment les données INSEE.</p>
+          <span class="fc-tag tag-pda" data-i18n="tag_pda">Pouvoir d'achat</span>
+          <h3 data-i18n="q_pda_baisse_title">Le pouvoir d'achat des Français a-t-il baissé ?</h3>
+          <p data-i18n="q_pda_baisse_excerpt">Salaires en hausse sur 20 ans, mais logement, énergie et alimentation ont explosé. Ce que disent vraiment les données INSEE.</p>
           <span class="fc-stat tag-pda">−1,4 % en 2022 (pire en 30 ans)</span>
         </a>
         <a href="/questions/pourquoi-les-prix-immobilier-augmentent-en-france" class="faq-card">
-          <span class="fc-tag tag-log">Logement</span>
-          <h3>Pourquoi les prix immobiliers augmentent-ils ?</h3>
-          <p>+147 % depuis 2000 alors que les salaires progressaient de 22 %. Pénurie de foncier, taux bas, normes : les causes réelles.</p>
+          <span class="fc-tag tag-log" data-i18n="tag_log">Logement</span>
+          <h3 data-i18n="q_log_prix_title">Pourquoi les prix immobiliers augmentent-ils ?</h3>
+          <p data-i18n="q_log_prix_excerpt">+147 % depuis 2000 alors que les salaires progressaient de 22 %. Pénurie de foncier, taux bas, normes : les causes réelles.</p>
           <span class="fc-stat tag-log">+147 % depuis 2000</span>
         </a>
         <a href="/questions/est-il-encore-possible-d-acheter-un-logement-en-france" class="faq-card">
-          <span class="fc-tag tag-log">Logement</span>
-          <h3>Est-il encore possible d'acheter un logement ?</h3>
-          <p>Taux à 4 %, prix ×2,5 en 20 ans, −27 % de capacité d'achat en 2023. Ville par ville, génération par génération.</p>
+          <span class="fc-tag tag-log" data-i18n="tag_log">Logement</span>
+          <h3 data-i18n="q_log_acheter_title">Est-il encore possible d'acheter un logement ?</h3>
+          <p data-i18n="q_log_acheter_excerpt">Taux à 4 %, prix ×2,5 en 20 ans, −27 % de capacité d'achat en 2023. Ville par ville, génération par génération.</p>
           <span class="fc-stat tag-log">−27 % de capacité d'achat en 2023</span>
         </a>
         <a href="/questions/louer-ou-acheter-que-choisir-en-france" class="faq-card">
-          <span class="fc-tag tag-log">Logement</span>
-          <h3>Louer ou acheter : que choisir en 2024 ?</h3>
-          <p>Avec des taux à 3,8 % et des prix élevés, l'achat met 6 à 13 ans à se rentabiliser selon la ville. Le calcul complet selon votre profil.</p>
+          <span class="fc-tag tag-log" data-i18n="tag_log">Logement</span>
+          <h3 data-i18n="q_log_louer_title">Louer ou acheter : que choisir en 2024 ?</h3>
+          <p data-i18n="q_log_louer_excerpt">Avec des taux à 3,8 % et des prix élevés, l'achat met 6 à 13 ans à se rentabiliser selon la ville. Le calcul complet selon votre profil.</p>
           <span class="fc-stat tag-log">5,9 ans pour rentabiliser l'achat (moy. nationale)</span>
         </a>
       </div>
@@ -269,15 +281,15 @@
       <h2>🎓 Éducation — 2 articles</h2>
       <div class="faq-grid">
         <a href="/questions/pourquoi-les-resultats-scolaires-baissent-en-france" class="faq-card">
-          <span class="fc-tag" style="color:#60a5fa">Éducation</span>
-          <h3>Pourquoi les résultats scolaires baissent-ils en France ?</h3>
-          <p>60 milliards de budget, 870 000 enseignants — et pourtant −10 points PISA en maths depuis 2012. Les causes structurelles expliquées.</p>
+          <span class="fc-tag" style="color:#60a5fa" data-i18n="tag_educ">Éducation</span>
+          <h3 data-i18n="q_educ_pisa_title">Pourquoi les résultats scolaires baissent-ils en France ?</h3>
+          <p data-i18n="q_educ_pisa_excerpt">60 milliards de budget, 870 000 enseignants — et pourtant −10 points PISA en maths depuis 2012. Les causes structurelles expliquées.</p>
           <span class="fc-stat" style="color:#60a5fa">474 pts PISA maths (−10 pts en 10 ans)</span>
         </a>
         <a href="/questions/combien-coute-un-eleve-a-l-etat-en-france" class="faq-card">
-          <span class="fc-tag" style="color:#60a5fa">Éducation</span>
-          <h3>Combien coûte un élève à l'État en France ?</h3>
-          <p>7 400 € en maternelle, 11 900 € au lycée, 15 700 € en classe prépa. Le coût réel et comparaison internationale OCDE.</p>
+          <span class="fc-tag" style="color:#60a5fa" data-i18n="tag_educ">Éducation</span>
+          <h3 data-i18n="q_educ_eleve_title">Combien coûte un élève à l'État en France ?</h3>
+          <p data-i18n="q_educ_eleve_excerpt">7 400 € en maternelle, 11 900 € au lycée, 15 700 € en classe prépa. Le coût réel et comparaison internationale OCDE.</p>
           <span class="fc-stat" style="color:#60a5fa">160 Md€ / an — 6,1 % du PIB</span>
         </a>
       </div>
@@ -288,15 +300,15 @@
       <h2>🏥 Santé — 2 articles</h2>
       <div class="faq-grid">
         <a href="/questions/pourquoi-y-a-t-il-des-deserts-medicaux-en-france" class="faq-card">
-          <span class="fc-tag tag-sante">Santé</span>
-          <h3>Pourquoi y a-t-il des déserts médicaux en France ?</h3>
-          <p>285 milliards de budget santé et pourtant 6,3 millions de Français sans médecin traitant. Les causes structurelles expliquées.</p>
+          <span class="fc-tag tag-sante" data-i18n="tag_sante">Santé</span>
+          <h3 data-i18n="q_sante_deserts_title">Pourquoi y a-t-il des déserts médicaux en France ?</h3>
+          <p data-i18n="q_sante_deserts_excerpt">285 milliards de budget santé et pourtant 6,3 millions de Français sans médecin traitant. Les causes structurelles expliquées.</p>
           <span class="fc-stat tag-sante">6,3 millions sans médecin traitant</span>
         </a>
         <a href="/questions/pourquoi-les-hopitaux-ferment-des-lits-en-france" class="faq-card">
-          <span class="fc-tag tag-sante">Santé</span>
-          <h3>Pourquoi les hôpitaux ferment-ils des lits ?</h3>
-          <p>−100 000 lits en 30 ans malgré un budget en hausse. Virage ambulatoire, manque de personnel, T2A : les causes réelles.</p>
+          <span class="fc-tag tag-sante" data-i18n="tag_sante">Santé</span>
+          <h3 data-i18n="q_sante_lits_title">Pourquoi les hôpitaux ferment-ils des lits ?</h3>
+          <p data-i18n="q_sante_lits_excerpt">−100 000 lits en 30 ans malgré un budget en hausse. Virage ambulatoire, manque de personnel, T2A : les causes réelles.</p>
           <span class="fc-stat tag-sante">385 000 lits (−100k en 30 ans)</span>
         </a>
       </div>
@@ -307,21 +319,21 @@
       <h2>🧓 Retraites — 3 articles</h2>
       <div class="faq-grid">
         <a href="/questions/a-quel-age-les-francais-partent-ils-a-la-retraite" class="faq-card">
-          <span class="fc-tag tag-ret">Retraites</span>
-          <h3>À quel âge les Français partent-ils à la retraite ?</h3>
-          <p>L'âge légal est 64 ans depuis 2023, mais l'âge réel de départ est 62,4 ans. Dispositifs de départ anticipé et comparaison européenne.</p>
+          <span class="fc-tag tag-ret" data-i18n="tag_ret">Retraites</span>
+          <h3 data-i18n="q_ret_age_title">À quel âge les Français partent-ils à la retraite ?</h3>
+          <p data-i18n="q_ret_age_excerpt">L'âge légal est 64 ans depuis 2023, mais l'âge réel de départ est 62,4 ans. Dispositifs de départ anticipé et comparaison européenne.</p>
           <span class="fc-stat tag-ret">62,4 ans d'âge réel moyen en 2023</span>
         </a>
         <a href="/questions/combien-coute-le-systeme-de-retraite-en-france" class="faq-card">
-          <span class="fc-tag tag-ret">Retraites</span>
-          <h3>Combien coûte le système de retraite en France ?</h3>
-          <p>345 milliards d'euros par an, le 1er poste de dépenses publiques. Financement, projections COR 2050 et comparaison européenne.</p>
+          <span class="fc-tag tag-ret" data-i18n="tag_ret">Retraites</span>
+          <h3 data-i18n="q_ret_cout_title">Combien coûte le système de retraite en France ?</h3>
+          <p data-i18n="q_ret_cout_excerpt">345 milliards d'euros par an, le 1er poste de dépenses publiques. Financement, projections COR 2050 et comparaison européenne.</p>
           <span class="fc-stat tag-ret">345 Md€ — 13,5 % du PIB</span>
         </a>
         <a href="/questions/pourquoi-la-france-a-t-elle-42-regimes-de-retraite" class="faq-card">
-          <span class="fc-tag tag-ret">Retraites</span>
-          <h3>Pourquoi la France a-t-elle 42 régimes de retraite ?</h3>
-          <p>Cheminots, marins, notaires, avocats : historique du millefeuille des régimes spéciaux et tentatives de réforme.</p>
+          <span class="fc-tag tag-ret" data-i18n="tag_ret">Retraites</span>
+          <h3 data-i18n="q_ret_regimes_title">Pourquoi la France a-t-elle 42 régimes de retraite ?</h3>
+          <p data-i18n="q_ret_regimes_excerpt">Cheminots, marins, notaires, avocats : historique du millefeuille des régimes spéciaux et tentatives de réforme.</p>
           <span class="fc-stat tag-ret">37 régimes de base en 2024</span>
         </a>
       </div>
@@ -332,15 +344,15 @@
       <h2>🏭 Industrie — 2 articles</h2>
       <div class="faq-grid">
         <a href="/questions/pourquoi-la-france-se-desindustrialise" class="faq-card">
-          <span class="fc-tag tag-indus">Industrie</span>
-          <h3>Pourquoi la France se désindustrialise ?</h3>
-          <p>De 24 % à 10 % du PIB en 40 ans. 2,5 millions d'emplois industriels perdus depuis 1980. Les causes réelles analysées avec les données officielles.</p>
+          <span class="fc-tag tag-indus" data-i18n="tag_indus">Industrie</span>
+          <h3 data-i18n="q_indus_desind_title">Pourquoi la France se désindustrialise ?</h3>
+          <p data-i18n="q_indus_desind_excerpt">De 24 % à 10 % du PIB en 40 ans. 2,5 millions d'emplois industriels perdus depuis 1980. Les causes réelles analysées avec les données officielles.</p>
           <span class="fc-stat tag-indus">10 % du PIB (vs 20 % en Allemagne)</span>
         </a>
         <a href="/questions/la-france-a-t-elle-une-balance-commerciale-deficitaire" class="faq-card">
-          <span class="fc-tag tag-indus">Commerce extérieur</span>
-          <h3>La France a-t-elle une balance commerciale déficitaire ?</h3>
-          <p>−99 milliards € en 2023. Énergie, automobile, machines : les secteurs exportateurs et déficitaires analysés en détail.</p>
+          <span class="fc-tag tag-indus" data-i18n="tag_commerce">Commerce extérieur</span>
+          <h3 data-i18n="q_indus_balance_title">La France a-t-elle une balance commerciale déficitaire ?</h3>
+          <p data-i18n="q_indus_balance_excerpt">−99 milliards € en 2023. Énergie, automobile, machines : les secteurs exportateurs et déficitaires analysés en détail.</p>
           <span class="fc-stat tag-indus">−99 Md€ en 2023 (record)</span>
         </a>
       </div>
@@ -351,21 +363,21 @@
       <h2>⚡ Énergie &amp; démographie — 3 articles</h2>
       <div class="faq-grid">
         <a href="/questions/dependance-energetique-france" class="faq-card">
-          <span class="fc-tag tag-energie">Énergie</span>
-          <h3>La France dépend-elle de l'énergie étrangère ?</h3>
-          <p>Bilan énergétique : 44 % de dépendance, 85 Md€ d'imports par an. Nucléaire, renouvelables et vulnérabilités.</p>
+          <span class="fc-tag tag-energie" data-i18n="tag_energie">Énergie</span>
+          <h3 data-i18n="q_ener_dependance_title">La France dépend-elle de l'énergie étrangère ?</h3>
+          <p data-i18n="q_ener_dependance_excerpt">Bilan énergétique : 44 % de dépendance, 85 Md€ d'imports par an. Nucléaire, renouvelables et vulnérabilités.</p>
           <span class="fc-stat tag-energie">44 % de dépendance énergétique</span>
         </a>
         <a href="/questions/demographie-france-soutenable" class="faq-card">
-          <span class="fc-tag tag-demo">Démographie</span>
-          <h3>La démographie française est-elle soutenable ?</h3>
-          <p>Ratio actifs/retraités, natalité, projections 2050 : comment la démographie va-t-elle peser sur nos finances collectives ?</p>
+          <span class="fc-tag tag-demo" data-i18n="tag_demo">Démographie</span>
+          <h3 data-i18n="q_demo_soutenable_title">La démographie française est-elle soutenable ?</h3>
+          <p data-i18n="q_demo_soutenable_excerpt">Ratio actifs/retraités, natalité, projections 2050 : comment la démographie va-t-elle peser sur nos finances collectives ?</p>
           <span class="fc-stat tag-demo">1,8 enfant/femme en 2023</span>
         </a>
         <a href="/questions/comment-fonctionne-le-bouclier-tarifaire" class="faq-card">
-          <span class="fc-tag tag-energie">Énergie</span>
-          <h3>Comment fonctionne le bouclier tarifaire ?</h3>
-          <p>Mis en place en 2021, il a coûté 92 milliards € à l'État pour protéger les ménages de l'explosion des prix du gaz et de l'électricité. Mécanisme et bilan.</p>
+          <span class="fc-tag tag-energie" data-i18n="tag_energie">Énergie</span>
+          <h3 data-i18n="q_ener_bouclier_title">Comment fonctionne le bouclier tarifaire ?</h3>
+          <p data-i18n="q_ener_bouclier_excerpt">Mis en place en 2021, il a coûté 92 milliards € à l'État pour protéger les ménages de l'explosion des prix du gaz et de l'électricité. Mécanisme et bilan.</p>
           <span class="fc-stat tag-energie">92 Md€ dépensés (2021-2023)</span>
         </a>
       </div>
@@ -376,15 +388,15 @@
       <h2>💼 Emploi &amp; réglementation — 2 articles</h2>
       <div class="faq-grid">
         <a href="/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve" class="faq-card">
-          <span class="fc-tag" style="color:#fb923c">Emploi</span>
-          <h3>Pourquoi la France a-t-elle un chômage structurel élevé ?</h3>
-          <p>7,3 % même en croissance : dualisme CDI/CDD, coût du licenciement, mismatch géographique et sectoriel. Les causes profondes du chômage français expliquées.</p>
+          <span class="fc-tag" style="color:#fb923c" data-i18n="tag_emploi">Emploi</span>
+          <h3 data-i18n="q_emp_chomage_title">Pourquoi la France a-t-elle un chômage structurel élevé ?</h3>
+          <p data-i18n="q_emp_chomage_excerpt">7,3 % même en croissance : dualisme CDI/CDD, coût du licenciement, mismatch géographique et sectoriel. Les causes profondes du chômage français expliquées.</p>
           <span class="fc-stat" style="color:#fb923c">7,3 % — vs 2,9 % en Allemagne</span>
         </a>
         <a href="/questions/pourquoi-la-france-a-t-elle-autant-de-normes" class="faq-card">
-          <span class="fc-tag tag-fisc">Réglementation</span>
-          <h3>Pourquoi la France a-t-elle autant de normes ?</h3>
-          <p>400 000 normes en vigueur, 10 500 lois, un coût estimé à 3-4 % du PIB pour les entreprises. Origines historiques et culturelles de l'inflation normative.</p>
+          <span class="fc-tag tag-fisc" data-i18n="tag_regl">Réglementation</span>
+          <h3 data-i18n="q_emp_normes_title">Pourquoi la France a-t-elle autant de normes ?</h3>
+          <p data-i18n="q_emp_normes_excerpt">400 000 normes en vigueur, 10 500 lois, un coût estimé à 3-4 % du PIB pour les entreprises. Origines historiques et culturelles de l'inflation normative.</p>
           <span class="fc-stat tag-fisc">400 000 normes — ~60-80 Md€/an de coût</span>
         </a>
       </div>
@@ -395,13 +407,13 @@
       <h2>🛣️ Autoroutes &amp; ronds-points — 2 articles</h2>
       <div class="faq-grid">
         <a href="/questions/pourquoi-les-peages-augmentent-ils-en-france" class="faq-card">
-          <h3>Pourquoi les péages augmentent-ils chaque année ?</h3>
-          <p>Privatisation 2006, mécanisme tarifaire, dividendes des concessionnaires et rapport de la Cour des comptes.</p>
+          <h3 data-i18n="q_aut_peages_title">Pourquoi les péages augmentent-ils chaque année ?</h3>
+          <p data-i18n="q_aut_peages_excerpt">Privatisation 2006, mécanisme tarifaire, dividendes des concessionnaires et rapport de la Cour des comptes.</p>
           <span class="fc-stat tag-ret">+84 % depuis 2006</span>
         </a>
         <a href="/questions/pourquoi-la-france-a-t-elle-autant-de-ronds-points" class="faq-card">
-          <h3>Pourquoi la France a-t-elle autant de ronds-points ?</h3>
-          <p>65 % des ronds-points du monde, 56 000 carrefours giratoires — l'histoire et le coût d'une exception française.</p>
+          <h3 data-i18n="q_aut_ronds_title">Pourquoi la France a-t-elle autant de ronds-points ?</h3>
+          <p data-i18n="q_aut_ronds_excerpt">65 % des ronds-points du monde, 56 000 carrefours giratoires — l'histoire et le coût d'une exception française.</p>
           <span class="fc-stat tag-ret">~56 000 ronds-points</span>
         </a>
       </div>
@@ -412,21 +424,21 @@
       <h2>🌍 Comparatifs Europe &amp; OCDE — 3 articles</h2>
       <div class="faq-grid">
         <a href="/questions/france-vs-allemagne-comparaison" class="faq-card">
-          <span class="fc-tag tag-dette">Comparatif</span>
-          <h3>France vs Allemagne : le grand comparatif</h3>
-          <p>113 % vs 63 % de dette, 7,3 % vs 3,4 % de chômage, 57 % vs 44 % de dépenses publiques. 10 indicateurs clés pour comparer les deux premières économies de la zone euro.</p>
+          <span class="fc-tag tag-dette" data-i18n="tag_comparatif">Comparatif</span>
+          <h3 data-i18n="q_cmp_allemagne_title">France vs Allemagne : le grand comparatif</h3>
+          <p data-i18n="q_cmp_allemagne_excerpt">113 % vs 63 % de dette, 7,3 % vs 3,4 % de chômage, 57 % vs 44 % de dépenses publiques. 10 indicateurs clés pour comparer les deux premières économies de la zone euro.</p>
           <span class="fc-stat tag-dette">+50 pts d'écart sur la dette / PIB</span>
         </a>
         <a href="/questions/france-vs-suede-comparaison" class="faq-card">
-          <span class="fc-tag tag-ret">Comparatif</span>
-          <h3>France vs Suède : deux modèles sociaux face à face</h3>
-          <p>42 régimes de retraite contre 1, mobilité sociale 22e vs 3e rang, prélèvements quasi-identiques. Les mythes et les réalités du "modèle nordique".</p>
+          <span class="fc-tag tag-ret" data-i18n="tag_comparatif">Comparatif</span>
+          <h3 data-i18n="q_cmp_suede_title">France vs Suède : deux modèles sociaux face à face</h3>
+          <p data-i18n="q_cmp_suede_excerpt">42 régimes de retraite contre 1, mobilité sociale 22e vs 3e rang, prélèvements quasi-identiques. Les mythes et les réalités du "modèle nordique".</p>
           <span class="fc-stat tag-ret">42 régimes de retraite vs 1 en Suède</span>
         </a>
         <a href="/questions/france-vs-ocde-comparaison" class="faq-card">
-          <span class="fc-tag tag-fisc">Comparatif</span>
-          <h3>La France dans l'OCDE : dans la moyenne ou hors-norme ?</h3>
-          <p>1re sur les dépenses retraite, 2e sur la santé, 3e sur les prélèvements, 28e sur le chômage. Sur 8 domaines, la France est rarement dans la norme.</p>
+          <span class="fc-tag tag-fisc" data-i18n="tag_comparatif">Comparatif</span>
+          <h3 data-i18n="q_cmp_ocde_title">La France dans l'OCDE : dans la moyenne ou hors-norme ?</h3>
+          <p data-i18n="q_cmp_ocde_excerpt">1re sur les dépenses retraite, 2e sur la santé, 3e sur les prélèvements, 28e sur le chômage. Sur 8 domaines, la France est rarement dans la norme.</p>
           <span class="fc-stat tag-fisc">1re OCDE — dépenses retraite / PIB</span>
         </a>
       </div>
@@ -436,12 +448,12 @@
     <section class="q-section-hub" style="margin-bottom:80px">
       <div class="faq-grid">
         <a href="/" class="faq-card faq-card-dash">
-          <h3>→ Tableau de bord complet</h3>
-          <p>Explorez toutes les données en temps réel : inflation, simulateur fiscal, dette en direct, énergie, démographie.</p>
+          <h3 data-i18n="q_dash_title">→ Tableau de bord complet</h3>
+          <p data-i18n="q_dash_excerpt">Explorez toutes les données en temps réel : inflation, simulateur fiscal, dette en direct, énergie, démographie.</p>
         </a>
         <a href="/a-propos/" class="faq-card faq-card-dash">
-          <h3>→ Notre démarche</h3>
-          <p>Sources utilisées, méthodologie, ce que ce site est (et n'est pas). Transparence totale.</p>
+          <h3 data-i18n="q_about_title">→ Notre démarche</h3>
+          <p data-i18n="q_about_excerpt">Sources utilisées, méthodologie, ce que ce site est (et n'est pas). Transparence totale.</p>
         </a>
       </div>
     </section>
@@ -455,5 +467,270 @@
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+/* ── i18n FR/EN ─────────────────────────────────────────── */
+const I18N_QST = {
+  fr: {
+    pageTitle: "Questions sur l'économie française — Réponses en données officielles",
+    metaDesc:  "36 questions clés sur l'économie française répondues avec les données officielles INSEE, Eurostat, Banque de France. Dette, fonctionnaires, retraites, logement, santé, industrie.",
+    h1:        "Questions sur l'économie française",
+    subtitle:  "Des réponses chiffrées aux questions que tout le monde se pose — à partir des données officielles INSEE, Eurostat, Banque de France, DREES et OCDE.",
+    stat_articles: "articles publiés",
+    stat_themes:   "thématiques",
+    stat_sources:  "sources officielles",
+    stat_ads:      "publicités",
+    // Tags
+    tag_dette:      "Dette",
+    tag_finances:   "Finances",
+    tag_niveauvie:  "Niveau de vie",
+    tag_fonct:      "Fonctionnaires",
+    tag_fisc:       "Fiscalité",
+    tag_inflation:  "Inflation",
+    tag_emploi:     "Emploi",
+    tag_pda:        "Pouvoir d'achat",
+    tag_log:        "Logement",
+    tag_educ:       "Éducation",
+    tag_sante:      "Santé",
+    tag_ret:        "Retraites",
+    tag_indus:      "Industrie",
+    tag_commerce:   "Commerce extérieur",
+    tag_energie:    "Énergie",
+    tag_demo:       "Démographie",
+    tag_regl:       "Réglementation",
+    tag_comparatif: "Comparatif",
+    // Cards — Dette & finances
+    q_dette_endettee_title:   "Pourquoi la France est-elle autant endettée ?",
+    q_dette_endettee_excerpt: "Déficits chroniques depuis 1974, charges d'intérêts, dépenses sociales : les vraies causes expliquées avec les chiffres officiels.",
+    q_dette_etat_title:   "Combien nous coûte l'État ?",
+    q_dette_etat_excerpt: "3 228 Md€ de dette, 57 % du PIB en dépenses : ce que finance réellement l'État français, et ce que ça nous coûte chaque année.",
+    q_dette_faillite_title:   "La France peut-elle faire faillite ?",
+    q_dette_faillite_excerpt: "Un État peut faire défaut — la Grèce l'a fait. Analyse des risques réels pour la France et comparaison avec les crises historiques.",
+    q_dette_appauvrit_title:   "La France s'appauvrit-elle ?",
+    q_dette_appauvrit_excerpt: "Niveau de vie médian, salaire réel, patrimoine : que disent vraiment les chiffres depuis 2000 ? La réponse est nuancée.",
+    q_dette_deficit_title:   "Quelle est la différence entre la dette et le déficit ?",
+    q_dette_deficit_excerpt: "Deux notions souvent confondues. Le déficit est annuel, la dette est cumulée. Explication simple avec les chiffres 2024.",
+    // Cards — Fonctionnaires
+    q_fonct_combien_title:   "Combien y a-t-il de fonctionnaires en France ?",
+    q_fonct_combien_excerpt: "5,66 millions d'agents publics. Répartition État/collectivités/hôpitaux, comparaison européenne et évolution depuis 2000.",
+    q_fonct_salaire_title:   "Combien gagne un fonctionnaire en France ?",
+    q_fonct_salaire_excerpt: "Salaires par catégorie (A+/A/B/C), primes, avantages en matière de retraite et comparaison avec le secteur privé.",
+    q_fonct_pourquoi_title:   "Pourquoi y a-t-il autant de fonctionnaires en France ?",
+    q_fonct_pourquoi_excerpt: "Décentralisation, logique anticyclique, secteurs publics que d'autres pays privatisent : les raisons historiques et structurelles.",
+    // Cards — Fiscalité
+    q_fisc_quipaye_title:   "Qui paye des impôts en France ?",
+    q_fisc_quipaye_excerpt: "TVA, CSG, IR, cotisations : la répartition réelle de qui paie quoi, et pourquoi la France est l'un des pays les plus taxés du monde.",
+    q_fisc_taux_title:   "Quel est le vrai taux d'imposition en France ?",
+    q_fisc_taux_excerpt: "IR + CSG + TVA + cotisations : le taux effectif total d'un salarié médian atteint 50 %. Calcul complet et comparaison européenne.",
+    q_fisc_inflation_title:   "Pourquoi tout augmente-t-il ?",
+    q_fisc_inflation_excerpt: "Énergie, alimentation, loyers, services : les vraies causes de l'inflation depuis 2021 et pourquoi ça ne baisse pas vraiment.",
+    q_fisc_csg_title:   "Qu'est-ce que la CSG en France ?",
+    q_fisc_csg_excerpt: "Premier prélèvement obligatoire français : 130 milliards € par an, 9,7 % sur les salaires. Ni vraiment un impôt, ni une cotisation. Explication complète.",
+    q_fisc_salarie_title:   "Combien coûte un salarié à son employeur ?",
+    q_fisc_salarie_excerpt: "Un salarié au SMIC coûte ~2 100 € pour 1 398 € net. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète des charges patronales 2024.",
+    // Cards — Pouvoir d'achat & logement
+    q_pda_baisse_title:   "Le pouvoir d'achat des Français a-t-il baissé ?",
+    q_pda_baisse_excerpt: "Salaires en hausse sur 20 ans, mais logement, énergie et alimentation ont explosé. Ce que disent vraiment les données INSEE.",
+    q_log_prix_title:   "Pourquoi les prix immobiliers augmentent-ils ?",
+    q_log_prix_excerpt: "+147 % depuis 2000 alors que les salaires progressaient de 22 %. Pénurie de foncier, taux bas, normes : les causes réelles.",
+    q_log_acheter_title:   "Est-il encore possible d'acheter un logement ?",
+    q_log_acheter_excerpt: "Taux à 4 %, prix ×2,5 en 20 ans, −27 % de capacité d'achat en 2023. Ville par ville, génération par génération.",
+    q_log_louer_title:   "Louer ou acheter : que choisir en 2024 ?",
+    q_log_louer_excerpt: "Avec des taux à 3,8 % et des prix élevés, l'achat met 6 à 13 ans à se rentabiliser selon la ville. Le calcul complet selon votre profil.",
+    // Cards — Education
+    q_educ_pisa_title:   "Pourquoi les résultats scolaires baissent-ils en France ?",
+    q_educ_pisa_excerpt: "60 milliards de budget, 870 000 enseignants — et pourtant −10 points PISA en maths depuis 2012. Les causes structurelles expliquées.",
+    q_educ_eleve_title:   "Combien coûte un élève à l'État en France ?",
+    q_educ_eleve_excerpt: "7 400 € en maternelle, 11 900 € au lycée, 15 700 € en classe prépa. Le coût réel et comparaison internationale OCDE.",
+    // Cards — Santé
+    q_sante_deserts_title:   "Pourquoi y a-t-il des déserts médicaux en France ?",
+    q_sante_deserts_excerpt: "285 milliards de budget santé et pourtant 6,3 millions de Français sans médecin traitant. Les causes structurelles expliquées.",
+    q_sante_lits_title:   "Pourquoi les hôpitaux ferment-ils des lits ?",
+    q_sante_lits_excerpt: "−100 000 lits en 30 ans malgré un budget en hausse. Virage ambulatoire, manque de personnel, T2A : les causes réelles.",
+    // Cards — Retraites
+    q_ret_age_title:     "À quel âge les Français partent-ils à la retraite ?",
+    q_ret_age_excerpt:   "L'âge légal est 64 ans depuis 2023, mais l'âge réel de départ est 62,4 ans. Dispositifs de départ anticipé et comparaison européenne.",
+    q_ret_cout_title:    "Combien coûte le système de retraite en France ?",
+    q_ret_cout_excerpt:  "345 milliards d'euros par an, le 1er poste de dépenses publiques. Financement, projections COR 2050 et comparaison européenne.",
+    q_ret_regimes_title:   "Pourquoi la France a-t-elle 42 régimes de retraite ?",
+    q_ret_regimes_excerpt: "Cheminots, marins, notaires, avocats : historique du millefeuille des régimes spéciaux et tentatives de réforme.",
+    // Cards — Industrie
+    q_indus_desind_title:   "Pourquoi la France se désindustrialise ?",
+    q_indus_desind_excerpt: "De 24 % à 10 % du PIB en 40 ans. 2,5 millions d'emplois industriels perdus depuis 1980. Les causes réelles analysées avec les données officielles.",
+    q_indus_balance_title:   "La France a-t-elle une balance commerciale déficitaire ?",
+    q_indus_balance_excerpt: "−99 milliards € en 2023. Énergie, automobile, machines : les secteurs exportateurs et déficitaires analysés en détail.",
+    // Cards — Énergie & démographie
+    q_ener_dependance_title:   "La France dépend-elle de l'énergie étrangère ?",
+    q_ener_dependance_excerpt: "Bilan énergétique : 44 % de dépendance, 85 Md€ d'imports par an. Nucléaire, renouvelables et vulnérabilités.",
+    q_demo_soutenable_title:   "La démographie française est-elle soutenable ?",
+    q_demo_soutenable_excerpt: "Ratio actifs/retraités, natalité, projections 2050 : comment la démographie va-t-elle peser sur nos finances collectives ?",
+    q_ener_bouclier_title:   "Comment fonctionne le bouclier tarifaire ?",
+    q_ener_bouclier_excerpt: "Mis en place en 2021, il a coûté 92 milliards € à l'État pour protéger les ménages de l'explosion des prix du gaz et de l'électricité. Mécanisme et bilan.",
+    // Cards — Emploi & réglementation
+    q_emp_chomage_title:   "Pourquoi la France a-t-elle un chômage structurel élevé ?",
+    q_emp_chomage_excerpt: "7,3 % même en croissance : dualisme CDI/CDD, coût du licenciement, mismatch géographique et sectoriel. Les causes profondes du chômage français expliquées.",
+    q_emp_normes_title:   "Pourquoi la France a-t-elle autant de normes ?",
+    q_emp_normes_excerpt: "400 000 normes en vigueur, 10 500 lois, un coût estimé à 3-4 % du PIB pour les entreprises. Origines historiques et culturelles de l'inflation normative.",
+    // Cards — Autoroutes & ronds-points
+    q_aut_peages_title:   "Pourquoi les péages augmentent-ils chaque année ?",
+    q_aut_peages_excerpt: "Privatisation 2006, mécanisme tarifaire, dividendes des concessionnaires et rapport de la Cour des comptes.",
+    q_aut_ronds_title:   "Pourquoi la France a-t-elle autant de ronds-points ?",
+    q_aut_ronds_excerpt: "65 % des ronds-points du monde, 56 000 carrefours giratoires — l'histoire et le coût d'une exception française.",
+    // Cards — Comparatifs
+    q_cmp_allemagne_title:   "France vs Allemagne : le grand comparatif",
+    q_cmp_allemagne_excerpt: "113 % vs 63 % de dette, 7,3 % vs 3,4 % de chômage, 57 % vs 44 % de dépenses publiques. 10 indicateurs clés pour comparer les deux premières économies de la zone euro.",
+    q_cmp_suede_title:   "France vs Suède : deux modèles sociaux face à face",
+    q_cmp_suede_excerpt: "42 régimes de retraite contre 1, mobilité sociale 22e vs 3e rang, prélèvements quasi-identiques. Les mythes et les réalités du \"modèle nordique\".",
+    q_cmp_ocde_title:   "La France dans l'OCDE : dans la moyenne ou hors-norme ?",
+    q_cmp_ocde_excerpt: "1re sur les dépenses retraite, 2e sur la santé, 3e sur les prélèvements, 28e sur le chômage. Sur 8 domaines, la France est rarement dans la norme.",
+    // Dashboard
+    q_dash_title:   "→ Tableau de bord complet",
+    q_dash_excerpt: "Explorez toutes les données en temps réel : inflation, simulateur fiscal, dette en direct, énergie, démographie.",
+    q_about_title:   "→ Notre démarche",
+    q_about_excerpt: "Sources utilisées, méthodologie, ce que ce site est (et n'est pas). Transparence totale.",
+  },
+  en: {
+    pageTitle: "Questions about the French Economy — Answers with Official Data | The Average French",
+    metaDesc:  "36 key questions about the French economy answered with official data: INSEE, Eurostat, Banque de France. Debt, civil servants, pensions, housing, healthcare, industry.",
+    h1:        "Questions about France — official data answers",
+    subtitle:  "Debt, civil servants, purchasing power, housing, energy, pensions: 36 questions about France answered with verifiable official data — no opinion, no ideology.",
+    stat_articles: "published articles",
+    stat_themes:   "topics",
+    stat_sources:  "official sources",
+    stat_ads:      "ads",
+    // Tags
+    tag_dette:      "Debt",
+    tag_finances:   "Public Finance",
+    tag_niveauvie:  "Living Standards",
+    tag_fonct:      "Civil Servants",
+    tag_fisc:       "Taxation",
+    tag_inflation:  "Inflation",
+    tag_emploi:     "Employment",
+    tag_pda:        "Purchasing Power",
+    tag_log:        "Housing",
+    tag_educ:       "Education",
+    tag_sante:      "Healthcare",
+    tag_ret:        "Pensions",
+    tag_indus:      "Industry",
+    tag_commerce:   "Trade",
+    tag_energie:    "Energy",
+    tag_demo:       "Demographics",
+    tag_regl:       "Regulation",
+    tag_comparatif: "Comparison",
+    // Cards — Debt & public finances
+    q_dette_endettee_title:   "Why is France so heavily in debt?",
+    q_dette_endettee_excerpt: "Chronic deficits since 1974, interest charges, social spending: the real causes explained with official figures.",
+    q_dette_etat_title:   "How much does the French state cost us?",
+    q_dette_etat_excerpt: "€3,228bn in debt, 57% of GDP in spending: what the French state actually funds and what it costs every year.",
+    q_dette_faillite_title:   "Can France go bankrupt?",
+    q_dette_faillite_excerpt: "States can default — Greece did. Analysis of the real risks for France and comparison with historical crises.",
+    q_dette_appauvrit_title:   "Is France getting poorer?",
+    q_dette_appauvrit_excerpt: "Median living standards, real wages, wealth: what do the figures really say since 2000? The answer is nuanced.",
+    q_dette_deficit_title:   "What is the difference between debt and deficit?",
+    q_dette_deficit_excerpt: "Two often confused concepts. The deficit is annual; the debt is cumulative. A simple explanation with the 2024 figures.",
+    // Cards — Civil servants
+    q_fonct_combien_title:   "How many civil servants are there in France?",
+    q_fonct_combien_excerpt: "5.66 million public-sector employees. Breakdown by state/local government/hospitals, European comparison and trends since 2000.",
+    q_fonct_salaire_title:   "How much does a French civil servant earn?",
+    q_fonct_salaire_excerpt: "Salaries by grade (A+/A/B/C), bonuses, pension benefits and comparison with the private sector.",
+    q_fonct_pourquoi_title:   "Why does France have so many civil servants?",
+    q_fonct_pourquoi_excerpt: "Decentralisation, counter-cyclical logic, public services other countries have privatised: the historical and structural reasons.",
+    // Cards — Taxation
+    q_fisc_quipaye_title:   "Who pays tax in France?",
+    q_fisc_quipaye_excerpt: "VAT, CSG, income tax, social contributions: who actually pays what, and why France is one of the most heavily taxed countries in the world.",
+    q_fisc_taux_title:   "What is the real tax rate in France?",
+    q_fisc_taux_excerpt: "Income tax + CSG + VAT + contributions: the total effective rate for a median earner reaches 50%. Full calculation and European comparison.",
+    q_fisc_inflation_title:   "Why is everything getting more expensive?",
+    q_fisc_inflation_excerpt: "Energy, food, rents, services: the real causes of inflation since 2021 and why prices are not really coming down.",
+    q_fisc_csg_title:   "What is the CSG in France?",
+    q_fisc_csg_excerpt: "France's largest mandatory levy: €130bn per year, 9.7% on wages. Neither quite a tax nor a social contribution. Full explanation.",
+    q_fisc_salarie_title:   "How much does an employee cost an employer in France?",
+    q_fisc_salarie_excerpt: "A minimum-wage worker costs ~€2,100 for €1,398 net. A manager at €4,000 net costs ~€6,500. Full breakdown of employer charges 2024.",
+    // Cards — Purchasing power & housing
+    q_pda_baisse_title:   "Has French purchasing power fallen?",
+    q_pda_baisse_excerpt: "Wages up over 20 years, but housing, energy and food have soared. What INSEE data actually shows.",
+    q_log_prix_title:   "Why do property prices keep rising in France?",
+    q_log_prix_excerpt: "+147% since 2000 while wages grew by 22%. Land scarcity, low rates, regulations: the real causes.",
+    q_log_acheter_title:   "Is it still possible to buy a home in France?",
+    q_log_acheter_excerpt: "Rates at 4%, prices ×2.5 in 20 years, −27% buying power in 2023. City by city, generation by generation.",
+    q_log_louer_title:   "Rent or buy: which is better in 2024?",
+    q_log_louer_excerpt: "With rates at 3.8% and high prices, buying takes 6 to 13 years to break even depending on the city. Full calculation by profile.",
+    // Cards — Education
+    q_educ_pisa_title:   "Why are school results falling in France?",
+    q_educ_pisa_excerpt: "€60bn budget, 870,000 teachers — yet −10 PISA points in maths since 2012. The structural causes explained.",
+    q_educ_eleve_title:   "How much does a pupil cost the French state?",
+    q_educ_eleve_excerpt: "€7,400 in nursery school, €11,900 in secondary, €15,700 in preparatory classes. The real cost and OECD international comparison.",
+    // Cards — Healthcare
+    q_sante_deserts_title:   "Why are there medical deserts in France?",
+    q_sante_deserts_excerpt: "€285bn healthcare budget yet 6.3 million French people have no GP. The structural causes explained.",
+    q_sante_lits_title:   "Why are hospitals closing beds in France?",
+    q_sante_lits_excerpt: "−100,000 beds in 30 years despite a rising budget. Shift to outpatient care, staff shortages, activity-based funding: the real causes.",
+    // Cards — Pensions
+    q_ret_age_title:     "At what age do French people retire?",
+    q_ret_age_excerpt:   "The legal age has been 64 since 2023, but the actual average retirement age is 62.4. Early retirement schemes and European comparison.",
+    q_ret_cout_title:    "How much does France's pension system cost?",
+    q_ret_cout_excerpt:  "€345bn per year, the largest item of public spending. Funding, COR 2050 projections and European comparison.",
+    q_ret_regimes_title:   "Why does France have 42 pension schemes?",
+    q_ret_regimes_excerpt: "Railway workers, sailors, notaries, lawyers: the history of special pension regimes and reform attempts.",
+    // Cards — Industry
+    q_indus_desind_title:   "Why is France deindustrialising?",
+    q_indus_desind_excerpt: "From 24% to 10% of GDP in 40 years. 2.5 million industrial jobs lost since 1980. The real causes analysed with official data.",
+    q_indus_balance_title:   "Does France run a trade deficit?",
+    q_indus_balance_excerpt: "−€99bn in 2023. Energy, cars, machinery: the export and deficit sectors analysed in detail.",
+    // Cards — Energy & demographics
+    q_ener_dependance_title:   "Does France depend on foreign energy?",
+    q_ener_dependance_excerpt: "Energy balance: 44% dependence, €85bn of imports per year. Nuclear, renewables and vulnerabilities.",
+    q_demo_soutenable_title:   "Is French demographics sustainable?",
+    q_demo_soutenable_excerpt: "Workers-to-retirees ratio, birth rate, 2050 projections: how will demographics weigh on public finances?",
+    q_ener_bouclier_title:   "How does France's energy price shield work?",
+    q_ener_bouclier_excerpt: "Launched in 2021, it cost the state €92bn to protect households from soaring gas and electricity prices. Mechanism and assessment.",
+    // Cards — Employment & regulation
+    q_emp_chomage_title:   "Why does France have structurally high unemployment?",
+    q_emp_chomage_excerpt: "7.3% even in growth: permanent/temporary contract dualism, dismissal costs, geographic and sectoral mismatch. The deep causes of French unemployment.",
+    q_emp_normes_title:   "Why does France have so many regulations?",
+    q_emp_normes_excerpt: "400,000 regulations in force, 10,500 laws, an estimated cost of 3–4% of GDP for businesses. Historical and cultural origins of regulatory inflation.",
+    // Cards — Motorways & roundabouts
+    q_aut_peages_title:   "Why do French toll prices rise every year?",
+    q_aut_peages_excerpt: "2006 privatisation, pricing mechanism, concessionaire dividends and the Court of Auditors report.",
+    q_aut_ronds_title:   "Why does France have so many roundabouts?",
+    q_aut_ronds_excerpt: "65% of the world's roundabouts, 56,000 traffic circles — the history and cost of a French exception.",
+    // Cards — Comparisons
+    q_cmp_allemagne_title:   "France vs Germany: the big comparison",
+    q_cmp_allemagne_excerpt: "113% vs 63% debt, 7.3% vs 3.4% unemployment, 57% vs 44% public spending. 10 key indicators comparing the eurozone's two largest economies.",
+    q_cmp_suede_title:   "France vs Sweden: two social models head to head",
+    q_cmp_suede_excerpt: "42 pension schemes vs 1, social mobility 22nd vs 3rd, near-identical tax burdens. The myths and realities of the 'Nordic model'.",
+    q_cmp_ocde_title:   "France in the OECD: average or an outlier?",
+    q_cmp_ocde_excerpt: "1st on pension spending, 2nd on healthcare, 3rd on taxes, 28th on unemployment. Across 8 areas, France is rarely the norm.",
+    // Dashboard
+    q_dash_title:   "→ Full dashboard",
+    q_dash_excerpt: "Explore all data in real time: inflation, tax simulator, live debt clock, energy, demographics.",
+    q_about_title:   "→ Our methodology",
+    q_about_excerpt: "Sources used, methodology, what this site is (and is not). Full transparency.",
+  }
+};
+
+window.setLang = function(lang){
+  const d = I18N_QST[lang];
+  if(!d) return;
+  localStorage.setItem('lfm-lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'fr';
+  document.title = d.pageTitle;
+  const metaEl = document.querySelector('[data-i18n-meta-desc]');
+  if(metaEl) metaEl.setAttribute('content', d.metaDesc);
+  // Translate all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(d[key] !== undefined) el.textContent = d[key];
+  });
+  // Buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById('btn-' + lang);
+  if(activeBtn) activeBtn.classList.add('active');
+};
+
+(function(){
+  const saved = localStorage.getItem('lfm-lang');
+  if(saved && saved !== 'fr') setLang(saved);
+})();
+</script>
 </body>
 </html>
