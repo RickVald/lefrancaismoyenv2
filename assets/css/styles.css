@@ -121,10 +121,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 24px;m
 .dropdown a:hover{background:rgba(255,255,255,.07);color:var(--text)}
 
 /* ── Language switcher ───────────────────────────────────────────────────── */
-.lang-switch{display:flex;align-items:center;gap:4px;flex-shrink:0}
-.lang-btn{background:none;border:1px solid transparent;border-radius:6px;color:var(--muted);cursor:pointer;font-family:inherit;font-size:.78rem;font-weight:700;line-height:1;padding:5px 8px;transition:all .15s;letter-spacing:.03em}
-.lang-btn:hover{border-color:rgba(246,195,67,.4);color:var(--text)}
-.lang-btn.active{border-color:rgba(246,195,67,.55);color:var(--accent);background:rgba(246,195,67,.08)}
+.lang-switch{display:flex;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:3px;gap:2px;flex-shrink:0}
+.lang-btn{background:none;border:none;border-radius:7px;color:rgba(174,187,212,.6);cursor:pointer;font-family:inherit;font-size:.72rem;font-weight:700;line-height:1;padding:5px 10px;transition:all .15s;letter-spacing:.05em}
+.lang-btn:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.lang-btn.active{background:rgba(246,195,67,.15);color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.25)}
 
 /* ── Hamburger menu ───────────────────────────────────────────────────────── */
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px 4px;color:var(--text);flex-direction:column;justify-content:center;gap:5px;flex-shrink:0;z-index:30}
