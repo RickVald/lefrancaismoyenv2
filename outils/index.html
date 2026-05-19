@@ -1,9 +1,19 @@
-﻿﻿﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Outils – Le Français Moyen</title>
+<title>Outils – Simulateurs &amp; Comparateurs – Le Français Moyen</title>
+<meta name="description" content="Simulateurs et comparateurs interactifs pour comprendre l'économie française : dette en direct, projections 2035, comparateur européen, érosion de l'épargne.">
+<link rel="canonical" href="https://le-francais-moyen.com/outils/">
+<link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/outils/">
+<link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/outils/">
+<link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/outils/">
+<meta property="og:title" content="Outils – Le Français Moyen">
+<meta property="og:description" content="Simulateurs et comparateurs interactifs pour comprendre l'économie française.">
+<meta property="og:url" content="https://le-francais-moyen.com/outils/">
+<meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="stylesheet" href="../assets/css/styles.css?v=17">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -41,109 +51,176 @@ h1{font-size:clamp(26px,5vw,42px);font-weight:800;color:#fff;margin-bottom:12px}
 </style>
 </head>
 <body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/demographie/">👥 Démographie</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/demographie/">👥 Démographie</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+<main>
 <div class="page-header">
-  <a href="/" class="back-link">← Accueil</a>
-  <h1>Boîte à outils</h1>
-  <p class="subtitle">Des visualisations interactives pour comprendre, mesurer et contextualiser la situation économique et sociale de la France.</p>
+  <a href="/" class="back-link" data-i18n="back_link">← Accueil</a>
+  <h1 data-i18n="page_h1">Boîte à outils</h1>
+  <p class="subtitle" data-i18n="page_subtitle">Des visualisations interactives pour comprendre, mesurer et contextualiser la situation économique et sociale de la France.</p>
 </div>
 <div class="main">
 
   <div class="intro-stats">
-    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">113%</div><div class="stat-pill-label">Dette / PIB 2024</div></div>
-    <div class="stat-pill"><div class="stat-pill-val" style="color:#fbbf24">6.1%</div><div class="stat-pill-label">Déficit 2024</div></div>
-    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">45.3%</div><div class="stat-pill-label">Prélèvements / PIB</div></div>
-    <div class="stat-pill"><div class="stat-pill-val" style="color:#60a5fa">7.3%</div><div class="stat-pill-label">Chômage 2024</div></div>
-    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">−37</div><div class="stat-pill-label">Points PISA maths depuis 2003</div></div>
-    <div class="stat-pill"><div class="stat-pill-val" style="color:#a78bfa">3e</div><div class="stat-pill-label">Pression fiscale mondiale</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">113%</div><div class="stat-pill-label" data-i18n="stat1_label">Dette / PIB 2024</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#fbbf24">6.1%</div><div class="stat-pill-label" data-i18n="stat2_label">Déficit 2024</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">45.3%</div><div class="stat-pill-label" data-i18n="stat3_label">Prélèvements / PIB</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#60a5fa">7.3%</div><div class="stat-pill-label" data-i18n="stat4_label">Chômage 2024</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#f87171">−37</div><div class="stat-pill-label" data-i18n="stat5_label">Points PISA maths depuis 2003</div></div>
+    <div class="stat-pill"><div class="stat-pill-val" style="color:#a78bfa">3e</div><div class="stat-pill-label" data-i18n="stat6_label">Pression fiscale mondiale</div></div>
   </div>
 
-  <div class="section-label">Finances publiques & fiscalité</div>
+  <div class="section-label" data-i18n="section1_label">Finances publiques &amp; fiscalité</div>
   <div class="grid">
 
     <a href="/dette/" class="tool-card highlight">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">⏱</span>
-      <div class="tool-title">Compteur de la dette</div>
-      <div class="tool-desc">La dette publique française en temps réel : chaque seconde, l'État s'endette davantage. Compteur live, comparaisons européennes, trajectoire historique.</div>
-      <div class="tool-tags"><span class="tag tag-red">Temps réel</span><span class="tag tag-orange">Dette</span><span class="tag tag-blue">Europe</span></div>
+      <div class="tool-title" data-i18n="card1_title">Compteur de la dette</div>
+      <div class="tool-desc" data-i18n="card1_desc">La dette publique française en temps réel : chaque seconde, l'État s'endette davantage. Compteur live, comparaisons européennes, trajectoire historique.</div>
+      <div class="tool-tags"><span class="tag tag-red" data-i18n="tag_realtime">Temps réel</span><span class="tag tag-orange" data-i18n="tag_debt">Dette</span><span class="tag tag-blue" data-i18n="tag_europe">Europe</span></div>
     </a>
 
     <a href="/projections/" class="tool-card">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">📈</span>
-      <div class="tool-title">Projections 2035</div>
-      <div class="tool-desc">Trois scénarios pour la France d'ici 2035 : inertie, réforme ou crise. Évolution de la dette, des taux d'intérêt, des retraites et de la pression fiscale.</div>
-      <div class="tool-tags"><span class="tag tag-yellow">Scénarios</span><span class="tag tag-orange">Prévisions</span><span class="tag tag-red">Risques</span></div>
+      <div class="tool-title" data-i18n="card2_title">Projections 2035</div>
+      <div class="tool-desc" data-i18n="card2_desc">Trois scénarios pour la France d'ici 2035 : inertie, réforme ou crise. Évolution de la dette, des taux d'intérêt, des retraites et de la pression fiscale.</div>
+      <div class="tool-tags"><span class="tag tag-yellow" data-i18n="tag_scenarios">Scénarios</span><span class="tag tag-orange" data-i18n="tag_forecasts">Prévisions</span><span class="tag tag-red" data-i18n="tag_risks">Risques</span></div>
     </a>
 
     <a href="/epargne/" class="tool-card">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">💰</span>
-      <div class="tool-title">Érosion de l'épargne</div>
-      <div class="tool-desc">Simulateur : que vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ? Livret A vs CAC vs immobilier vs or.</div>
-      <div class="tool-tags"><span class="tag tag-green">Simulateur</span><span class="tag tag-yellow">Fiscalité</span><span class="tag tag-blue">Inflation</span></div>
+      <div class="tool-title" data-i18n="card3_title">Érosion de l'épargne</div>
+      <div class="tool-desc" data-i18n="card3_desc">Simulateur : que vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ? Livret A vs CAC vs immobilier vs or.</div>
+      <div class="tool-tags"><span class="tag tag-green" data-i18n="tag_simulator">Simulateur</span><span class="tag tag-yellow" data-i18n="tag_taxation">Fiscalité</span><span class="tag tag-blue" data-i18n="tag_inflation">Inflation</span></div>
     </a>
 
   </div>
 
   <hr class="separator">
-  <div class="section-label">Comparaisons & contexte</div>
+  <div class="section-label" data-i18n="section2_label">Comparaisons &amp; contexte</div>
   <div class="grid">
 
     <a href="/comparateur/" class="tool-card">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">🌍</span>
-      <div class="tool-title">Comparateur européen</div>
-      <div class="tool-desc">France vs Allemagne, Espagne, Italie, Suède, Royaume-Uni sur 10 indicateurs : dette, chômage, fiscalité, PISA, espérance de vie, confiance institutionnelle.</div>
-      <div class="tool-tags"><span class="tag tag-blue">Europe</span><span class="tag tag-purple">Indicateurs</span></div>
+      <div class="tool-title" data-i18n="card4_title">Comparateur européen</div>
+      <div class="tool-desc" data-i18n="card4_desc">France vs Allemagne, Espagne, Italie, Suède, Royaume-Uni sur 10 indicateurs : dette, chômage, fiscalité, PISA, espérance de vie, confiance institutionnelle.</div>
+      <div class="tool-tags"><span class="tag tag-blue" data-i18n="tag_europe2">Europe</span><span class="tag tag-purple" data-i18n="tag_indicators">Indicateurs</span></div>
     </a>
 
     <a href="/elections/" class="tool-card">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">🗳</span>
-      <div class="tool-title">Simulateur élections</div>
-      <div class="tool-desc">2002–2022 : que se serait-il passé si chaque candidat avait gagné ? Projections économiques simulées vs réalité, et comparaison de la pression fiscale par programme.</div>
-      <div class="tool-tags"><span class="tag tag-yellow">Simulation</span><span class="tag tag-red">Politique</span><span class="tag tag-orange">Fiscal</span></div>
+      <div class="tool-title" data-i18n="card5_title">Simulateur élections</div>
+      <div class="tool-desc" data-i18n="card5_desc">2002–2022 : que se serait-il passé si chaque candidat avait gagné ? Projections économiques simulées vs réalité, et comparaison de la pression fiscale par programme.</div>
+      <div class="tool-tags"><span class="tag tag-yellow" data-i18n="tag_simulation">Simulation</span><span class="tag tag-red" data-i18n="tag_politics">Politique</span><span class="tag tag-orange" data-i18n="tag_fiscal">Fiscal</span></div>
     </a>
 
     <a href="/generations/" class="tool-card">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">👶</span>
-      <div class="tool-title">Déclassement générationnel</div>
-      <div class="tool-desc">Né en 1950, 1970 ou 1990 : quelle différence ? Salaire, immobilier, chômage, dette par tête. Mesure le déclassement relatif de chaque génération vs les baby-boomers.</div>
-      <div class="tool-tags"><span class="tag tag-purple">Générations</span><span class="tag tag-blue">Indicateurs</span></div>
+      <div class="tool-title" data-i18n="card6_title">Déclassement générationnel</div>
+      <div class="tool-desc" data-i18n="card6_desc">Né en 1950, 1970 ou 1990 : quelle différence ? Salaire, immobilier, chômage, dette par tête. Mesure le déclassement relatif de chaque génération vs les baby-boomers.</div>
+      <div class="tool-tags"><span class="tag tag-purple" data-i18n="tag_generations">Générations</span><span class="tag tag-blue" data-i18n="tag_indicators2">Indicateurs</span></div>
     </a>
 
   </div>
 
   <hr class="separator">
-  <div class="section-label">Services & histoire</div>
+  <div class="section-label" data-i18n="section3_label">Services &amp; histoire</div>
   <div class="grid">
 
     <a href="/services/" class="tool-card">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">🏥</span>
-      <div class="tool-title">Services publics</div>
-      <div class="tool-desc">L'état réel des services que finance la France avec les impôts les plus élevés d'Europe : hôpitaux, éducation, transports, justice, administration.</div>
-      <div class="tool-tags"><span class="tag tag-red">Santé</span><span class="tag tag-blue">Éducation</span><span class="tag tag-orange">Justice</span></div>
+      <div class="tool-title" data-i18n="card7_title">Services publics</div>
+      <div class="tool-desc" data-i18n="card7_desc">L'état réel des services que finance la France avec les impôts les plus élevés d'Europe : hôpitaux, éducation, transports, justice, administration.</div>
+      <div class="tool-tags"><span class="tag tag-red" data-i18n="tag_health">Santé</span><span class="tag tag-blue" data-i18n="tag_education">Éducation</span><span class="tag tag-orange" data-i18n="tag_justice">Justice</span></div>
     </a>
 
     <a href="/histoire/" class="tool-card">
       <span class="tool-arrow">→</span>
       <span class="tool-icon">📅</span>
-      <div class="tool-title">Timeline des ruptures</div>
-      <div class="tool-desc">Les 50 décisions qui ont transformé la France de 1973 à 2026. Chocs pétroliers, tournant de la rigueur, 35 heures, crises financières, réformes manquées.</div>
-      <div class="tool-tags"><span class="tag tag-purple">Histoire</span><span class="tag tag-yellow">Politique</span><span class="tag tag-red">Économie</span></div>
+      <div class="tool-title" data-i18n="card8_title">Timeline des ruptures</div>
+      <div class="tool-desc" data-i18n="card8_desc">Les 50 décisions qui ont transformé la France de 1973 à 2026. Chocs pétroliers, tournant de la rigueur, 35 heures, crises financières, réformes manquées.</div>
+      <div class="tool-tags"><span class="tag tag-purple" data-i18n="tag_history">Histoire</span><span class="tag tag-yellow" data-i18n="tag_politics2">Politique</span><span class="tag tag-red" data-i18n="tag_economy">Économie</span></div>
     </a>
 
   </div>
 
-  <div style="background:#111;border:1px dashed #222;border-radius:8px;padding:20px;text-align:center;color:#555;font-size:13px">
+  <div style="background:#111;border:1px dashed #222;border-radius:8px;padding:20px;text-align:center;color:#555;font-size:13px" data-i18n="disclaimer">
     Tous les chiffres sont sourcés depuis l'INSEE, la Banque de France, le FMI, l'OCDE et Eurostat.<br>
     Les projections et simulations sont des modèles indicatifs, non des prévisions certifiées.
   </div>
 
 </div>
+</main>
+
+  <footer>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
+  </footer>
+
 <script>
 (function(){
   var btn=document.getElementById('navToggle');
@@ -172,9 +249,145 @@ h1{font-size:clamp(26px,5vw,42px);font-weight:800;color:#fff;margin-bottom:12px}
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  back_link:'← Accueil',
+  page_h1:'Boîte à outils',
+  page_subtitle:'Des visualisations interactives pour comprendre, mesurer et contextualiser la situation économique et sociale de la France.',
+  stat1_label:'Dette / PIB 2024',
+  stat2_label:'Déficit 2024',
+  stat3_label:'Prélèvements / PIB',
+  stat4_label:'Chômage 2024',
+  stat5_label:'Points PISA maths depuis 2003',
+  stat6_label:'Pression fiscale mondiale',
+  section1_label:'Finances publiques & fiscalité',
+  card1_title:'Compteur de la dette',
+  card1_desc:"La dette publique française en temps réel : chaque seconde, l'État s'endette davantage. Compteur live, comparaisons européennes, trajectoire historique.",
+  tag_realtime:'Temps réel',
+  tag_debt:'Dette',
+  tag_europe:'Europe',
+  card2_title:'Projections 2035',
+  card2_desc:"Trois scénarios pour la France d'ici 2035 : inertie, réforme ou crise. Évolution de la dette, des taux d'intérêt, des retraites et de la pression fiscale.",
+  tag_scenarios:'Scénarios',
+  tag_forecasts:'Prévisions',
+  tag_risks:'Risques',
+  card3_title:"Érosion de l'épargne",
+  card3_desc:"Simulateur : que vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ? Livret A vs CAC vs immobilier vs or.",
+  tag_simulator:'Simulateur',
+  tag_taxation:'Fiscalité',
+  tag_inflation:'Inflation',
+  section2_label:'Comparaisons & contexte',
+  card4_title:'Comparateur européen',
+  card4_desc:"France vs Allemagne, Espagne, Italie, Suède, Royaume-Uni sur 10 indicateurs : dette, chômage, fiscalité, PISA, espérance de vie, confiance institutionnelle.",
+  tag_europe2:'Europe',
+  tag_indicators:'Indicateurs',
+  card5_title:'Simulateur élections',
+  card5_desc:"2002–2022 : que se serait-il passé si chaque candidat avait gagné ? Projections économiques simulées vs réalité, et comparaison de la pression fiscale par programme.",
+  tag_simulation:'Simulation',
+  tag_politics:'Politique',
+  tag_fiscal:'Fiscal',
+  card6_title:'Déclassement générationnel',
+  card6_desc:'Né en 1950, 1970 ou 1990 : quelle différence ? Salaire, immobilier, chômage, dette par tête. Mesure le déclassement relatif de chaque génération vs les baby-boomers.',
+  tag_generations:'Générations',
+  tag_indicators2:'Indicateurs',
+  section3_label:'Services & histoire',
+  card7_title:'Services publics',
+  card7_desc:"L'état réel des services que finance la France avec les impôts les plus élevés d'Europe : hôpitaux, éducation, transports, justice, administration.",
+  tag_health:'Santé',
+  tag_education:'Éducation',
+  tag_justice:'Justice',
+  card8_title:'Timeline des ruptures',
+  card8_desc:'Les 50 décisions qui ont transformé la France de 1973 à 2026. Chocs pétroliers, tournant de la rigueur, 35 heures, crises financières, réformes manquées.',
+  tag_history:'Histoire',
+  tag_politics2:'Politique',
+  tag_economy:'Économie',
+  disclaimer:"Tous les chiffres sont sourcés depuis l'INSEE, la Banque de France, le FMI, l'OCDE et Eurostat.<br>Les projections et simulations sont des modèles indicatifs, non des prévisions certifiées.",
+  footer_copy:'© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  back_link:'← Home',
+  page_h1:'Toolkit',
+  page_subtitle:'Interactive visualisations to understand, measure and contextualise the economic and social situation in France.',
+  stat1_label:'Debt / GDP 2024',
+  stat2_label:'Deficit 2024',
+  stat3_label:'Tax burden / GDP',
+  stat4_label:'Unemployment 2024',
+  stat5_label:'PISA maths points since 2003',
+  stat6_label:'Global tax pressure rank',
+  section1_label:'Public finances & taxation',
+  card1_title:'Debt counter',
+  card1_desc:'French public debt in real time: every second, the government borrows more. Live counter, European comparisons, historical trajectory.',
+  tag_realtime:'Real time',
+  tag_debt:'Debt',
+  tag_europe:'Europe',
+  card2_title:'2035 Projections',
+  card2_desc:'Three scenarios for France by 2035: inertia, reform or crisis. Trends in debt, interest rates, pensions and tax pressure.',
+  tag_scenarios:'Scenarios',
+  tag_forecasts:'Forecasts',
+  tag_risks:'Risks',
+  card3_title:'Savings erosion',
+  card3_desc:'Simulator: what is your savings really worth after inflation, taxation and monetary depreciation? Livret A vs CAC vs real estate vs gold.',
+  tag_simulator:'Simulator',
+  tag_taxation:'Taxation',
+  tag_inflation:'Inflation',
+  section2_label:'Comparisons & context',
+  card4_title:'European comparator',
+  card4_desc:'France vs Germany, Spain, Italy, Sweden, United Kingdom across 10 indicators: debt, unemployment, taxation, PISA, life expectancy, institutional trust.',
+  tag_europe2:'Europe',
+  tag_indicators:'Indicators',
+  card5_title:'Election simulator',
+  card5_desc:'2002–2022: what would have happened if each candidate had won? Simulated economic projections vs reality, and comparison of tax pressure by platform.',
+  tag_simulation:'Simulation',
+  tag_politics:'Politics',
+  tag_fiscal:'Fiscal',
+  card6_title:'Generational decline',
+  card6_desc:'Born in 1950, 1970 or 1990: what difference does it make? Wages, housing, unemployment, debt per capita. Measures the relative decline of each generation vs baby-boomers.',
+  tag_generations:'Generations',
+  tag_indicators2:'Indicators',
+  section3_label:'Public services & history',
+  card7_title:'Public services',
+  card7_desc:"The real state of services France funds with Europe's highest taxes: hospitals, education, transport, justice, administration.",
+  tag_health:'Health',
+  tag_education:'Education',
+  tag_justice:'Justice',
+  card8_title:'Timeline of turning points',
+  card8_desc:'The 50 decisions that transformed France from 1973 to 2026. Oil shocks, austerity turns, 35-hour week, financial crises, missed reforms.',
+  tag_history:'History',
+  tag_politics2:'Politics',
+  tag_economy:'Economy',
+  disclaimer:'All figures are sourced from INSEE, Banque de France, IMF, OECD and Eurostat.<br>Projections and simulations are indicative models, not certified forecasts.',
+  footer_copy:'© 2026 Le Français Moyen — Data: INSEE · Banque de France · Eurostat',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Outils – Simulateurs & Comparateurs – Le Français Moyen'
+    :'Tools — Simulators & Comparators — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Simulateurs et comparateurs interactifs pour comprendre l'économie française : dette en direct, projections 2035, comparateur européen, érosion de l'épargne."
+    :'Interactive simulators and comparators to understand the French economy: live debt counter, 2035 projections, European comparator, savings erosion.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
-
-
-
-

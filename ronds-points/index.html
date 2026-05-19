@@ -6,6 +6,9 @@
   <title>L'Indice Rond-Point — Le Français Moyen</title>
   <meta name="description" content="La France possède 50 000 ronds-points, soit près de 50% du total mondial, et arrive dernière en Europe pour l'efficacité de sa dépense publique. Coïncidence ?">
   <link rel="canonical" href="https://le-francais-moyen.com/ronds-points/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/ronds-points/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/ronds-points/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/ronds-points/">
   <meta property="og:title" content="L'Indice Rond-Point — Le Français Moyen">
   <meta property="og:description" content="50 000 ronds-points. 50% du total mondial. Dernière en Europe pour l'efficacité de la dépense publique. Coïncidence ?">
   <meta property="og:url" content="https://le-francais-moyen.com/ronds-points/">
@@ -125,8 +128,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Tableau de bord</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -156,7 +163,7 @@
     <!-- ── HERO ──────────────────────────────────────────────────── -->
     <div class="rp-hero">
       <nav style="font-size:.85rem;color:var(--muted);margin-bottom:20px">
-        <a href="/">Accueil</a> › <span>L'Indice Rond-Point</span>
+        <a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_current">L'Indice Rond-Point</span>
       </nav>
 
       <!-- Animated roundabout SVG -->
@@ -183,25 +190,25 @@
         </svg>
       </div>
 
-      <div class="eyebrow">Une donnée sérieuse habillée en rond-point</div>
-      <h1 class="rp-big">L'Indice Rond-Point</h1>
-      <p class="rp-claim">La France possède ~50 000 ronds-points — environ 50 % du total mondial — et arrive dernière en Europe pour l'efficacité de sa dépense publique. Coïncidence ?</p>
-      <p style="font-size:.82rem;color:var(--muted);font-style:italic">(Spoiler : c'est une corrélation humoristique. Les vraies données, elles, ne le sont pas.)</p>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Une donnée sérieuse habillée en rond-point</div>
+      <h1 class="rp-big" data-i18n="hero_h1">L'Indice Rond-Point</h1>
+      <p class="rp-claim" data-i18n="hero_claim">La France possède ~50 000 ronds-points — environ 50 % du total mondial — et arrive dernière en Europe pour l'efficacité de sa dépense publique. Coïncidence ?</p>
+      <p style="font-size:.82rem;color:var(--muted);font-style:italic" data-i18n="hero_spoiler">(Spoiler : c'est une corrélation humoristique. Les vraies données, elles, ne le sont pas.)</p>
     </div>
 
     <!-- ── KPIs ───────────────────────────────────────────────────── -->
     <div class="rp-kpis">
       <div class="rp-kpi">
         <div class="val" style="color:#5dd6c5">~50 000</div>
-        <div class="lbl">ronds-points en France<br><span style="color:var(--muted)">Source : CEREMA 2023</span></div>
+        <div class="lbl" data-i18n="kpi1_lbl">ronds-points en France<br><span style="color:var(--muted)">Source : CEREMA 2023</span></div>
       </div>
       <div class="rp-kpi">
         <div class="val" style="color:#5dd6c5">≈ 50 %</div>
-        <div class="lbl">du total mondial<br><span style="color:var(--muted)">France seule = moitié de la planète</span></div>
+        <div class="lbl" data-i18n="kpi2_lbl">du total mondial<br><span style="color:var(--muted)">France seule = moitié de la planète</span></div>
       </div>
       <div class="rp-kpi">
         <div class="val" style="color:var(--red)">26<sup style="font-size:.5em">e</sup>/27</div>
-        <div class="lbl">rang EU — efficacité dépense publique<br><span style="color:var(--muted)">Source : Commission Européenne</span></div>
+        <div class="lbl" data-i18n="kpi3_lbl">rang EU — efficacité dépense publique<br><span style="color:var(--muted)">Source : Commission Européenne</span></div>
       </div>
     </div>
 
@@ -209,8 +216,8 @@
     <div class="rp-section">
       <div class="panel-header" style="margin-bottom:20px">
         <div>
-          <h2 class="panel-title">Ronds-points par pays</h2>
-          <p class="panel-sub">La France, championne incontestée du giratoire depuis 30 ans</p>
+          <h2 class="panel-title" data-i18n="rp_h2">Ronds-points par pays</h2>
+          <p class="panel-sub" data-i18n="rp_sub">La France, championne incontestée du giratoire depuis 30 ans</p>
         </div>
         <div class="tag">Infrastructures</div>
       </div>
@@ -258,7 +265,7 @@
           <div class="rp-bar-wrap"><div class="rp-bar-fill" style="width:8%"></div></div>
           <span class="rp-bar-val">~4 500</span>
         </div>
-        <p style="font-size:.78rem;color:var(--muted);margin-top:18px">Sources : CEREMA, TRL (Transport Research Laboratory UK), FHWA (Federal Highway Administration USA). Estimations 2022-2023.</p>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:18px" data-i18n="rp_source">Sources : CEREMA, TRL (Transport Research Laboratory UK), FHWA (Federal Highway Administration USA). Estimations 2022-2023.</p>
       </div>
     </div>
 
@@ -266,8 +273,8 @@
     <div class="rp-section">
       <div class="panel-header" style="margin-bottom:20px">
         <div>
-          <h2 class="panel-title">L'ascension du giratoire français</h2>
-          <p class="panel-sub">De 5 000 à 50 000 en 30 ans — pendant ce temps, la dette faisait ×4,7</p>
+          <h2 class="panel-title" data-i18n="tl_h2">L'ascension du giratoire français</h2>
+          <p class="panel-sub" data-i18n="tl_sub">De 5 000 à 50 000 en 30 ans — pendant ce temps, la dette faisait ×4,7</p>
         </div>
         <div class="tag">Historique</div>
       </div>
@@ -276,27 +283,27 @@
         <div class="rp-timeline">
           <div class="rp-tl-item">
             <div class="rp-tl-year">1976</div>
-            <div class="rp-tl-text">Premier vrai rond-point moderne en France (Quimper). <strong>≈ 100 ronds-points</strong> dans tout le pays.</div>
+            <div class="rp-tl-text" data-i18n="tl_1976">Premier vrai rond-point moderne en France (Quimper). <strong>≈ 100 ronds-points</strong> dans tout le pays.</div>
           </div>
           <div class="rp-tl-item">
             <div class="rp-tl-year">1990</div>
-            <div class="rp-tl-text">L'État opte massivement pour les giratoires pour remplacer les feux. Dette publique : <strong>540 Md€</strong>. Ronds-points : <strong>5 000</strong>.</div>
+            <div class="rp-tl-text" data-i18n="tl_1990">L'État opte massivement pour les giratoires pour remplacer les feux. Dette publique : <strong>540 Md€</strong>. Ronds-points : <strong>5 000</strong>.</div>
           </div>
           <div class="rp-tl-item">
             <div class="rp-tl-year">2000</div>
-            <div class="rp-tl-text">La France devient championne du monde. <strong>15 000 ronds-points</strong>. Dette : <strong>680 Md€</strong>.</div>
+            <div class="rp-tl-text" data-i18n="tl_2000">La France devient championne du monde. <strong>15 000 ronds-points</strong>. Dette : <strong>680 Md€</strong>.</div>
           </div>
           <div class="rp-tl-item">
             <div class="rp-tl-year">2010</div>
-            <div class="rp-tl-text"><strong>30 000 ronds-points</strong>. La France construit ~3 giratoires par jour en moyenne depuis 10 ans. Dette : <strong>1 600 Md€</strong>.</div>
+            <div class="rp-tl-text" data-i18n="tl_2010"><strong>30 000 ronds-points</strong>. La France construit ~3 giratoires par jour en moyenne depuis 10 ans. Dette : <strong>1 600 Md€</strong>.</div>
           </div>
           <div class="rp-tl-item">
             <div class="rp-tl-year">2018</div>
-            <div class="rp-tl-text">Les Gilets Jaunes occupent les ronds-points. Mouvement social inédit. La France prend conscience qu'elle en a peut-être <em>trop</em>.</div>
+            <div class="rp-tl-text" data-i18n="tl_2018">Les Gilets Jaunes occupent les ronds-points. Mouvement social inédit. La France prend conscience qu'elle en a peut-être <em>trop</em>.</div>
           </div>
           <div class="rp-tl-item">
             <div class="rp-tl-year">2024</div>
-            <div class="rp-tl-text"><strong>~50 000 ronds-points</strong>. Soit un pour 1 350 habitants. Dette : <strong>3 228 Md€</strong>. La corrélation est parfaite.</div>
+            <div class="rp-tl-text" data-i18n="tl_2024"><strong>~50 000 ronds-points</strong>. Soit un pour 1 350 habitants. Dette : <strong>3 228 Md€</strong>. La corrélation est parfaite.</div>
           </div>
         </div>
       </div>
@@ -306,8 +313,8 @@
     <div class="rp-section">
       <div class="panel-header" style="margin-bottom:20px">
         <div>
-          <h2 class="panel-title">Efficacité de la dépense publique en Europe</h2>
-          <p class="panel-sub">ROI d'un €uro dépensé par l'État — score composite santé, éducation, infrastructure, croissance</p>
+          <h2 class="panel-title" data-i18n="eff_h2">Efficacité de la dépense publique en Europe</h2>
+          <p class="panel-sub" data-i18n="eff_sub">ROI d'un €uro dépensé par l'État — score composite santé, éducation, infrastructure, croissance</p>
         </div>
         <div class="tag">Comparaison EU</div>
       </div>
@@ -368,9 +375,9 @@
           <span class="rp-eff-score" style="color:var(--red)">0,32</span>
         </div>
         <div style="margin-top:6px;padding:10px 14px;background:rgba(255,61,61,.06);border-radius:8px;font-size:.82rem;color:var(--muted)">
-          ★ La France dépense <strong style="color:var(--text)">57,3 % du PIB</strong> — record EU — pour un score d'efficacité parmi les plus bas. Autrement dit : on dépense le plus, on en retire le moins.
+          <span data-i18n="eff_note">★ La France dépense <strong style="color:var(--text)">57,3 % du PIB</strong> — record EU — pour un score d'efficacité parmi les plus bas. Autrement dit : on dépense le plus, on en retire le moins.</span>
         </div>
-        <p style="font-size:.78rem;color:var(--muted);margin-top:16px">Source : Afonso, Schuknecht & Tanzi — "Public Sector Efficiency : An International Comparison" (ECB Working Paper, mis à jour via données Eurostat/Commission Européenne). Scores illustratifs basés sur le classement relatif.</p>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:16px" data-i18n="eff_source">Source : Afonso, Schuknecht & Tanzi — "Public Sector Efficiency : An International Comparison" (ECB Working Paper, mis à jour via données Eurostat/Commission Européenne). Scores illustratifs basés sur le classement relatif.</p>
       </div>
     </div>
 
@@ -383,7 +390,7 @@
         &nbsp;=&nbsp;
         <span class="accent">26<sup>e</sup>/27 en efficacité</span>
       </div>
-      <p class="rp-eq-sub">
+      <p class="rp-eq-sub" data-i18n="eq_sub">
         Pour chaque euro prélevé, l'État français en restitue moins en valeur réelle que presque tous ses voisins.<br>
         Ce n'est pas une question de quantité de dépense — c'est une question d'allocation.
       </p>
@@ -392,8 +399,8 @@
     <!-- ── SCATTER PLOT ────────────────────────────────────────────── -->
     <div style="max-width:780px;margin:0 auto 48px;padding:0 24px">
       <div class="rp-scatter-wrap">
-        <div class="rp-scatter-title">La corrélation (non officielle) Ronds-Points / Efficacité</div>
-        <div class="rp-scatter-sub">Axe X : ronds-points pour 100 000 habitants · Axe Y : score d'efficacité dépense publique (1 = max)</div>
+        <div class="rp-scatter-title" data-i18n="scatter_title">La corrélation (non officielle) Ronds-Points / Efficacité</div>
+        <div class="rp-scatter-sub" data-i18n="scatter_sub">Axe X : ronds-points pour 100 000 habitants · Axe Y : score d'efficacité dépense publique (1 = max)</div>
         <svg class="rp-scatter-svg" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nuage de points corrélation ronds-points et efficacité dépense">
           <!-- Grid -->
           <line x1="60" y1="20" x2="60" y2="310" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
@@ -465,7 +472,7 @@
           <text x="557" y="224" font-family="system-ui" font-size="13" font-weight="800" fill="#ff6b6b">🇫🇷 FR</text>
           <text x="557" y="238" font-family="system-ui" font-size="10" fill="#ff9898">← vous êtes ici</text>
         </svg>
-        <p style="font-size:.75rem;color:var(--muted);margin-top:8px;text-align:center">⚠️ Graphique illustratif — la corrélation est réelle dans son sens, les valeurs exactes varient selon les études. Ne pas citer en réunion de conseil d'administration.</p>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:8px;text-align:center" data-i18n="scatter_note">⚠️ Graphique illustratif — la corrélation est réelle dans son sens, les valeurs exactes varient selon les études. Ne pas citer en réunion de conseil d'administration.</p>
       </div>
     </div>
 
@@ -473,8 +480,8 @@
     <div class="rp-section">
       <div class="panel-header" style="margin-bottom:20px">
         <div>
-          <h2 class="panel-title">Le saviez-vous ?</h2>
-          <p class="panel-sub">Quelques chiffres sur les ronds-points français qui ne sont pas dans les manuels</p>
+          <h2 class="panel-title" data-i18n="facts_h2">Le saviez-vous ?</h2>
+          <p class="panel-sub" data-i18n="facts_sub">Quelques chiffres sur les ronds-points français qui ne sont pas dans les manuels</p>
         </div>
         <div class="tag">Fun facts</div>
       </div>
@@ -482,51 +489,51 @@
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px">
         <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
           <div style="font-size:1.8rem;margin-bottom:8px">🛞</div>
-          <div style="font-weight:800;margin-bottom:6px">3 giratoires / jour</div>
-          <p style="font-size:.85rem;color:var(--muted);margin:0">Rythme de construction moyen en France entre 1990 et 2010. On a construit plus de ronds-points que de crèches sur la même période.</p>
+          <div style="font-weight:800;margin-bottom:6px" data-i18n="fact1_title">3 giratoires / jour</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0" data-i18n="fact1_text">Rythme de construction moyen en France entre 1990 et 2010. On a construit plus de ronds-points que de crèches sur la même période.</p>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
           <div style="font-size:1.8rem;margin-bottom:8px">🎨</div>
-          <div style="font-weight:800;margin-bottom:6px">L'art du giratoire</div>
-          <p style="font-size:.85rem;color:var(--muted);margin:0">La France dépense environ <strong>25 000 € en moyenne</strong> pour décorer chaque rond-point. Budget total estimé : plus d'un milliard d'euros en œuvres d'art giratoires.</p>
+          <div style="font-weight:800;margin-bottom:6px" data-i18n="fact2_title">L'art du giratoire</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0" data-i18n="fact2_text">La France dépense environ <strong>25 000 € en moyenne</strong> pour décorer chaque rond-point. Budget total estimé : plus d'un milliard d'euros en œuvres d'art giratoires.</p>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
           <div style="font-size:1.8rem;margin-bottom:8px">📍</div>
-          <div style="font-weight:800;margin-bottom:6px">Gilets Jaunes</div>
-          <p style="font-size:.85rem;color:var(--muted);margin:0">En 2018, les ronds-points sont devenus des places publiques. Ironie : la France a construit des ronds-points à la place d'équipements publics, puis ses citoyens y ont fait leur agora.</p>
+          <div style="font-weight:800;margin-bottom:6px" data-i18n="fact3_title">Gilets Jaunes</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0" data-i18n="fact3_text">En 2018, les ronds-points sont devenus des places publiques. Ironie : la France a construit des ronds-points à la place d'équipements publics, puis ses citoyens y ont fait leur agora.</p>
         </div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px">
           <div style="font-size:1.8rem;margin-bottom:8px">💡</div>
-          <div style="font-weight:800;margin-bottom:6px">Les ronds-points, c'est bien</div>
-          <p style="font-size:.85rem;color:var(--muted);margin:0">−40 % d'accidents graves vs feux rouges. Moins d'entretien. Flux plus fluides. Les ronds-points sont en réalité une bonne idée. Ce n'est pas eux le problème.</p>
+          <div style="font-weight:800;margin-bottom:6px" data-i18n="fact4_title">Les ronds-points, c'est bien</div>
+          <p style="font-size:.85rem;color:var(--muted);margin:0" data-i18n="fact4_text">−40 % d'accidents graves vs feux rouges. Moins d'entretien. Flux plus fluides. Les ronds-points sont en réalité une bonne idée. Ce n'est pas eux le problème.</p>
         </div>
       </div>
     </div>
 
     <!-- ── NOTE HONNÊTE ───────────────────────────────────────────── -->
     <div class="rp-honest">
-      <div class="rp-honest-title">⚖️ Pour être honnête</div>
-      <p>L'Indice Rond-Point est une corrélation humoristique. Les ronds-points sont en réalité <strong>plus sûrs et moins coûteux à long terme</strong> que les feux tricolores — leur multiplication n'est pas un problème en soi.</p>
-      <p>Le vrai sujet, c'est ce que cette anecdote illustre : <strong>la France dépense proportionnellement plus que n'importe quel autre pays de l'UE</strong> (57,3 % du PIB), pour des résultats qui la placent en bas du classement européen d'efficacité. Ce n'est pas un problème de quantité — c'est un problème d'allocation.</p>
-      <p>La question n'est pas "moins de ronds-points" mais "pourquoi 1 € dépensé par l'État français produit-il moins de valeur que chez ses voisins ?" — et à cette question, il n'y a pas de réponse amusante.</p>
+      <div class="rp-honest-title" data-i18n="honest_title">⚖️ Pour être honnête</div>
+      <p data-i18n="honest_p1">L'Indice Rond-Point est une corrélation humoristique. Les ronds-points sont en réalité <strong>plus sûrs et moins coûteux à long terme</strong> que les feux tricolores — leur multiplication n'est pas un problème en soi.</p>
+      <p data-i18n="honest_p2">Le vrai sujet, c'est ce que cette anecdote illustre : <strong>la France dépense proportionnellement plus que n'importe quel autre pays de l'UE</strong> (57,3 % du PIB), pour des résultats qui la placent en bas du classement européen d'efficacité. Ce n'est pas un problème de quantité — c'est un problème d'allocation.</p>
+      <p data-i18n="honest_p3">La question n'est pas "moins de ronds-points" mais "pourquoi 1 € dépensé par l'État français produit-il moins de valeur que chez ses voisins ?" — et à cette question, il n'y a pas de réponse amusante.</p>
     </div>
 
     <!-- ── SHARE ───────────────────────────────────────────────────── -->
     <div class="rp-share">
-      <p class="rp-share-text">Partagez l'Indice Rond-Point avec quelqu'un qui mérite de le savoir 🔵</p>
+      <p class="rp-share-text" data-i18n="share_text">Partagez l'Indice Rond-Point avec quelqu'un qui mérite de le savoir 🔵</p>
       <div class="rp-share-btns">
         <a href="https://twitter.com/intent/tweet?text=La%20France%20a%20~50%20000%20ronds-points%20(50%25%20du%20total%20mondial)%20et%20arrive%20derni%C3%A8re%20en%20Europe%20pour%20l%27efficacit%C3%A9%20de%20sa%20d%C3%A9pense%20publique.%20Co%C3%AFncidence%20%3F%20%F0%9F%94%B5&url=https%3A%2F%2Fle-francais-moyen.com%2Fronds-points%2F&via=RobertFrMoyen" target="_blank" rel="noopener" class="button" style="background:var(--card);border:1px solid var(--border)">
-          𝕏 Partager
+          <span data-i18n="share_twitter">𝕏 Partager</span>
         </a>
-        <a href="/" class="button secondary">← Tableau de bord</a>
-        <a href="/dette/" class="button secondary">La dette en direct</a>
+        <a href="/" class="button secondary" data-i18n="share_dashboard">← Tableau de bord</a>
+        <a href="/dette/" class="button secondary" data-i18n="share_debt">La dette en direct</a>
       </div>
     </div>
 
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : CEREMA, Eurostat, ECB Working Papers</span>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : CEREMA, Eurostat, ECB Working Papers</span>
   </footer>
 <script>
 (function(){
@@ -556,6 +563,131 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_current:"L'Indice Rond-Point",
+  hero_eyebrow:'Une donnée sérieuse habillée en rond-point',
+  hero_h1:"L'Indice Rond-Point",
+  hero_claim:"La France possède ~50 000 ronds-points — environ 50 % du total mondial — et arrive dernière en Europe pour l'efficacité de sa dépense publique. Coïncidence ?",
+  hero_spoiler:"(Spoiler : c'est une corrélation humoristique. Les vraies données, elles, ne le sont pas.)",
+  kpi1_lbl:'ronds-points en France<br><span style="color:var(--muted)">Source : CEREMA 2023</span>',
+  kpi2_lbl:'du total mondial<br><span style="color:var(--muted)">France seule = moitié de la planète</span>',
+  kpi3_lbl:'rang EU — efficacité dépense publique<br><span style="color:var(--muted)">Source : Commission Européenne</span>',
+  rp_h2:'Ronds-points par pays',
+  rp_sub:'La France, championne incontestée du giratoire depuis 30 ans',
+  rp_source:'Sources : CEREMA, TRL (Transport Research Laboratory UK), FHWA (Federal Highway Administration USA). Estimations 2022-2023.',
+  tl_h2:"L'ascension du giratoire français",
+  tl_sub:'De 5 000 à 50 000 en 30 ans — pendant ce temps, la dette faisait ×4,7',
+  tl_1976:'Premier vrai rond-point moderne en France (Quimper). <strong>≈ 100 ronds-points</strong> dans tout le pays.',
+  tl_1990:"L'État opte massivement pour les giratoires pour remplacer les feux. Dette publique : <strong>540 Md€</strong>. Ronds-points : <strong>5 000</strong>.",
+  tl_2000:'La France devient championne du monde. <strong>15 000 ronds-points</strong>. Dette : <strong>680 Md€</strong>.',
+  tl_2010:'<strong>30 000 ronds-points</strong>. La France construit ~3 giratoires par jour en moyenne depuis 10 ans. Dette : <strong>1 600 Md€</strong>.',
+  tl_2018:"Les Gilets Jaunes occupent les ronds-points. Mouvement social inédit. La France prend conscience qu'elle en a peut-être <em>trop</em>.",
+  tl_2024:'<strong>~50 000 ronds-points</strong>. Soit un pour 1 350 habitants. Dette : <strong>3 228 Md€</strong>. La corrélation est parfaite.',
+  eff_h2:'Efficacité de la dépense publique en Europe',
+  eff_sub:"ROI d'un €uro dépensé par l'État — score composite santé, éducation, infrastructure, croissance",
+  eff_note:'★ La France dépense <strong style="color:var(--text)">57,3 % du PIB</strong> — record EU — pour un score d\'efficacité parmi les plus bas. Autrement dit : on dépense le plus, on en retire le moins.',
+  eff_source:'Source : Afonso, Schuknecht & Tanzi — "Public Sector Efficiency : An International Comparison" (ECB Working Paper, mis à jour via données Eurostat/Commission Européenne). Scores illustratifs basés sur le classement relatif.',
+  eq_sub:"Pour chaque euro prélevé, l'État français en restitue moins en valeur réelle que presque tous ses voisins.<br>Ce n'est pas une question de quantité de dépense — c'est une question d'allocation.",
+  scatter_title:'La corrélation (non officielle) Ronds-Points / Efficacité',
+  scatter_sub:"Axe X : ronds-points pour 100 000 habitants · Axe Y : score d'efficacité dépense publique (1 = max)",
+  scatter_note:"⚠️ Graphique illustratif — la corrélation est réelle dans son sens, les valeurs exactes varient selon les études. Ne pas citer en réunion de conseil d'administration.",
+  facts_h2:'Le saviez-vous ?',
+  facts_sub:"Quelques chiffres sur les ronds-points français qui ne sont pas dans les manuels",
+  fact1_title:'3 giratoires / jour',
+  fact1_text:'Rythme de construction moyen en France entre 1990 et 2010. On a construit plus de ronds-points que de crèches sur la même période.',
+  fact2_title:"L'art du giratoire",
+  fact2_text:'La France dépense environ <strong>25 000 € en moyenne</strong> pour décorer chaque rond-point. Budget total estimé : plus d\'un milliard d\'euros en œuvres d\'art giratoires.',
+  fact3_title:'Gilets Jaunes',
+  fact3_text:"En 2018, les ronds-points sont devenus des places publiques. Ironie : la France a construit des ronds-points à la place d'équipements publics, puis ses citoyens y ont fait leur agora.",
+  fact4_title:"Les ronds-points, c'est bien",
+  fact4_text:"−40 % d'accidents graves vs feux rouges. Moins d'entretien. Flux plus fluides. Les ronds-points sont en réalité une bonne idée. Ce n'est pas eux le problème.",
+  honest_title:'⚖️ Pour être honnête',
+  honest_p1:"L'Indice Rond-Point est une corrélation humoristique. Les ronds-points sont en réalité <strong>plus sûrs et moins coûteux à long terme</strong> que les feux tricolores — leur multiplication n'est pas un problème en soi.",
+  honest_p2:"Le vrai sujet, c'est ce que cette anecdote illustre : <strong>la France dépense proportionnellement plus que n'importe quel autre pays de l'UE</strong> (57,3 % du PIB), pour des résultats qui la placent en bas du classement européen d'efficacité. Ce n'est pas un problème de quantité — c'est un problème d'allocation.",
+  honest_p3:'La question n\'est pas "moins de ronds-points" mais "pourquoi 1 € dépensé par l\'État français produit-il moins de valeur que chez ses voisins ?" — et à cette question, il n\'y a pas de réponse amusante.',
+  share_text:"Partagez l'Indice Rond-Point avec quelqu'un qui mérite de le savoir 🔵",
+  share_twitter:'𝕏 Partager',
+  share_dashboard:'← Tableau de bord',
+  share_debt:'La dette en direct',
+  footer_copy:'© 2026 Le Français Moyen — Données : CEREMA, Eurostat, ECB Working Papers'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_current:'The Roundabout Index',
+  hero_eyebrow:'Serious data dressed up as a roundabout',
+  hero_h1:'The Roundabout Index',
+  hero_claim:'France has ~50,000 roundabouts — roughly 50% of the world total — and ranks last in Europe for public spending efficiency. Coincidence?',
+  hero_spoiler:'(Spoiler: this is a humorous correlation. The real data, however, is not.)',
+  kpi1_lbl:'roundabouts in France<br><span style="color:var(--muted)">Source: CEREMA 2023</span>',
+  kpi2_lbl:'of the world total<br><span style="color:var(--muted)">France alone = half the planet</span>',
+  kpi3_lbl:'EU rank — public spending efficiency<br><span style="color:var(--muted)">Source: European Commission</span>',
+  rp_h2:'Roundabouts by country',
+  rp_sub:'France, undisputed roundabout champion for 30 years',
+  rp_source:'Sources: CEREMA, TRL (Transport Research Laboratory UK), FHWA (Federal Highway Administration USA). Estimates 2022-2023.',
+  tl_h2:'The rise of the French roundabout',
+  tl_sub:'From 5,000 to 50,000 in 30 years — meanwhile, public debt multiplied by 4.7',
+  tl_1976:'First real modern roundabout in France (Quimper). <strong>≈ 100 roundabouts</strong> in the entire country.',
+  tl_1990:'The State massively opts for roundabouts to replace traffic lights. Public debt: <strong>€540bn</strong>. Roundabouts: <strong>5,000</strong>.',
+  tl_2000:'France becomes world champion. <strong>15,000 roundabouts</strong>. Debt: <strong>€680bn</strong>.',
+  tl_2010:'<strong>30,000 roundabouts</strong>. France builds ~3 roundabouts per day on average over 10 years. Debt: <strong>€1,600bn</strong>.',
+  tl_2018:'The Gilets Jaunes (Yellow Vests) occupy the roundabouts. Unprecedented social movement. France realises it may have <em>too many</em>.',
+  tl_2024:'<strong>~50,000 roundabouts</strong>. One per 1,350 inhabitants. Debt: <strong>€3,228bn</strong>. The correlation is perfect.',
+  eff_h2:'Public spending efficiency in Europe',
+  eff_sub:'ROI per euro spent by the State — composite score: health, education, infrastructure, growth',
+  eff_note:'★ France spends <strong style="color:var(--text)">57.3% of GDP</strong> — EU record — for one of the lowest efficiency scores. In other words: spend the most, get the least.',
+  eff_source:'Source: Afonso, Schuknecht & Tanzi — "Public Sector Efficiency: An International Comparison" (ECB Working Paper, updated via Eurostat/European Commission data). Illustrative scores based on relative ranking.',
+  eq_sub:'For every euro collected, the French State returns less real value than almost all its neighbours.<br>This is not a question of spending quantity — it is a question of allocation.',
+  scatter_title:'The (unofficial) Roundabout / Efficiency Correlation',
+  scatter_sub:'X-axis: roundabouts per 100,000 inhabitants · Y-axis: public spending efficiency score (1 = max)',
+  scatter_note:'⚠️ Illustrative chart — the correlation is real in direction; exact values vary by study. Do not cite in board meetings.',
+  facts_h2:'Did you know?',
+  facts_sub:'A few figures about French roundabouts not found in textbooks',
+  fact1_title:'3 roundabouts / day',
+  fact1_text:'Average construction pace in France between 1990 and 2010. More roundabouts were built than nurseries during the same period.',
+  fact2_title:'Roundabout art',
+  fact2_text:'France spends about <strong>€25,000 on average</strong> to decorate each roundabout. Total estimated budget: over one billion euros in roundabout artwork.',
+  fact3_title:'Yellow Vests',
+  fact3_text:"In 2018, roundabouts became public squares. The irony: France built roundabouts instead of public amenities, and its citizens then used them as their agora.",
+  fact4_title:"Roundabouts are actually good",
+  fact4_text:'−40% serious accidents vs traffic lights. Less maintenance. Smoother traffic flow. Roundabouts are actually a good idea. They are not the problem.',
+  honest_title:'⚖️ To be fair',
+  honest_p1:'The Roundabout Index is a humorous correlation. Roundabouts are in fact <strong>safer and less costly in the long run</strong> than traffic lights — their proliferation is not a problem in itself.',
+  honest_p2:'The real issue is what this anecdote illustrates: <strong>France spends proportionally more than any other EU country</strong> (57.3% of GDP), for results that place it at the bottom of the European efficiency ranking. This is not a quantity problem — it is an allocation problem.',
+  honest_p3:'The question is not "fewer roundabouts" but "why does €1 spent by the French State produce less value than it does in neighbouring countries?" — and to that question, there is no amusing answer.',
+  share_text:'Share the Roundabout Index with someone who deserves to know 🔵',
+  share_twitter:'𝕏 Share',
+  share_dashboard:'← Dashboard',
+  share_debt:'Live debt counter',
+  footer_copy:'© 2026 Le Français Moyen — Data: CEREMA, Eurostat, ECB Working Papers'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?"L'Indice Rond-Point — Le Français Moyen"
+    :'The Roundabout Index — The Average French';
+  var d=document.querySelector('meta[name="description"]');
+  if(d)d.setAttribute('content',l==='fr'
+    ?"La France possède 50 000 ronds-points, soit près de 50% du total mondial, et arrive dernière en Europe pour l'efficacité de sa dépense publique. Coïncidence ?"
+    :'France has 50,000 roundabouts — nearly 50% of the world total — and ranks last in Europe for public spending efficiency. Coincidence?');
+}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

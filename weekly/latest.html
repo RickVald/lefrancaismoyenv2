@@ -6,6 +6,9 @@
   <title>Note de la semaine — Le Français Moyen</title>
   <meta name="description" content="3 chiffres officiels cette semaine : inflation, dette, pouvoir d'achat. Le tableau de bord du pays en lecture rapide.">
   <link rel="canonical" href="https://le-francais-moyen.com/weekly/latest">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/weekly/latest">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/weekly/latest">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/weekly/latest">
   <meta property="og:title" content="Note de la semaine — Le Français Moyen">
   <meta property="og:description" content="3 chiffres, 1 tendance. L'état du pays en moins de 2 minutes.">
   <meta property="og:url" content="https://le-francais-moyen.com/weekly/latest.html">
@@ -42,8 +45,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Tableau de bord</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -70,65 +77,65 @@
   <main style="max-width:780px;margin:auto;padding:40px 24px 80px">
 
     <nav aria-label="Fil d'Ariane" style="margin-bottom:24px;font-size:.88rem;color:var(--muted)">
-      <a href="/">Accueil</a> › <span>Note hebdomadaire</span>
+      <a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_current">Note hebdomadaire</span>
     </nav>
 
-    <div class="eyebrow">Semaine du 5 mai 2026</div>
-    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:8px">3 chiffres à retenir cette semaine</h1>
-    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:36px">L'état du pays en moins de 2 minutes. Données officielles, sources vérifiables.</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Semaine du 5 mai 2026</div>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:8px" data-i18n="hero_h1">3 chiffres à retenir cette semaine</h1>
+    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:36px" data-i18n="hero_sub">L'état du pays en moins de 2 minutes. Données officielles, sources vérifiables.</p>
 
     <div style="display:grid;gap:18px;margin-bottom:40px">
 
       <div class="panel" style="padding:24px;border-left:4px solid var(--red)">
-        <div class="eyebrow" style="margin-bottom:6px">Dette publique</div>
-        <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.05em">113 % du PIB</div>
-        <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem">
+        <div class="eyebrow" style="margin-bottom:6px" data-i18n="stat1_label">Dette publique</div>
+        <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.05em" data-i18n="stat1_value">113 % du PIB</div>
+        <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem" data-i18n="stat1_text">
           La dette publique française dépasse 3 300 milliards d'euros, soit environ <strong>47 000 € par habitant</strong>. Le coût annuel des intérêts dépasse désormais 58 milliards d'euros — plus que le budget de la Défense nationale.
         </p>
-        <small style="color:var(--muted);font-size:.8rem">Source : INSEE, Banque de France — comptes nationaux T1 2026</small>
+        <small style="color:var(--muted);font-size:.8rem" data-i18n="stat1_source">Source : INSEE, Banque de France — comptes nationaux T1 2026</small>
       </div>
 
       <div class="panel" style="padding:24px;border-left:4px solid var(--accent)">
-        <div class="eyebrow" style="margin-bottom:6px">Inflation alimentaire</div>
-        <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.05em">+7,2 % sur 1 an</div>
-        <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem">
+        <div class="eyebrow" style="margin-bottom:6px" data-i18n="stat2_label">Inflation alimentaire</div>
+        <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.05em" data-i18n="stat2_value">+7,2 % sur 1 an</div>
+        <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem" data-i18n="stat2_text">
           L'alimentation reste le poste le plus sensible pour les ménages modestes, qui y consacrent jusqu'à <strong>25 % de leur budget</strong>. Sur 3 ans (2021-2024), le panier alimentaire moyen a augmenté de près de 20 %.
         </p>
-        <small style="color:var(--muted);font-size:.8rem">Source : INSEE — IPC alimentation, indice base 100 = 2015</small>
+        <small style="color:var(--muted);font-size:.8rem" data-i18n="stat2_source">Source : INSEE — IPC alimentation, indice base 100 = 2015</small>
       </div>
 
       <div class="panel" style="padding:24px;border-left:4px solid var(--accent2)">
-        <div class="eyebrow" style="margin-bottom:6px">Pouvoir d'achat réel</div>
-        <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.05em">−3,1 % (2021-2023)</div>
-        <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem">
+        <div class="eyebrow" style="margin-bottom:6px" data-i18n="stat3_label">Pouvoir d'achat réel</div>
+        <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.05em" data-i18n="stat3_value">−3,1 % (2021-2023)</div>
+        <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem" data-i18n="stat3_text">
           Sur la période de forte inflation, le pouvoir d'achat réel du ménage médian a reculé de 3,1 points, effaçant une décennie de gains. La reprise partielle de 2024 (+0,8 %) ne compense pas encore cette perte.
         </p>
-        <small style="color:var(--muted);font-size:.8rem">Source : INSEE — comptes des ménages, revenus disponibles réels</small>
+        <small style="color:var(--muted);font-size:.8rem" data-i18n="stat3_source">Source : INSEE — comptes des ménages, revenus disponibles réels</small>
       </div>
 
     </div>
 
     <div class="panel" style="padding:22px;margin-bottom:36px;text-align:center">
-      <div class="eyebrow" style="margin-bottom:8px">Phrase de la semaine</div>
-      <p style="font-size:1.15rem;font-style:italic;margin:0;max-width:600px;margin:auto">« La France ne manque pas de données ; elle manque d'un tableau de bord lisible. »</p>
+      <div class="eyebrow" style="margin-bottom:8px" data-i18n="quote_label">Phrase de la semaine</div>
+      <p style="font-size:1.15rem;font-style:italic;margin:0;max-width:600px;margin:auto" data-i18n="quote_text">« La France ne manque pas de données ; elle manque d'un tableau de bord lisible. »</p>
       <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Cette+semaine+%3A+110+%25+du+PIB+de+dette+%2B+%2B7%2C2+%25+d%27inflation+alimentaire.+Le+tableau+de+bord+complet+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fweekly%2Flatest" target="_blank" rel="noopener">𝕏 Partager</a>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Cette+semaine+%3A+110+%25+du+PIB+de+dette+%2B+%2B7%2C2+%25+d%27inflation+alimentaire.+Le+tableau+de+bord+complet+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fweekly%2Flatest" target="_blank" rel="noopener" data-i18n="share_twitter">𝕏 Partager</a>
         <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2Fweekly%2Flatest" target="_blank" rel="noopener">LinkedIn</a>
-        <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/weekly/latest').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
+        <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/weekly/latest').then(()=>this.textContent='✓ Copié !')" data-i18n="share_copy">Copier le lien</button>
       </div>
     </div>
 
     <div style="text-align:center;padding:32px 0">
-      <p style="color:var(--muted);margin-bottom:16px">Recevez ce chiffre chaque lundi dans votre boîte mail.</p>
-      <a href="/a-propos/">À propos</a>
-    <a href="/#newsletter" class="button">S'abonner gratuitement →</a>
+      <p style="color:var(--muted);margin-bottom:16px" data-i18n="newsletter_cta">Recevez ce chiffre chaque lundi dans votre boîte mail.</p>
+      <a href="/a-propos/" data-i18n="link_about">À propos</a>
+    <a href="/#newsletter" class="button" data-i18n="link_subscribe">S'abonner gratuitement →</a>
     </div>
 
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 <script>
 (function(){
@@ -158,6 +165,92 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_current:'Note hebdomadaire',
+  hero_eyebrow:'Semaine du 5 mai 2026',
+  hero_h1:'3 chiffres à retenir cette semaine',
+  hero_sub:"L'état du pays en moins de 2 minutes. Données officielles, sources vérifiables.",
+  stat1_label:'Dette publique',
+  stat1_value:'113 % du PIB',
+  stat1_text:"La dette publique française dépasse 3 300 milliards d'euros, soit environ <strong>47 000 € par habitant</strong>. Le coût annuel des intérêts dépasse désormais 58 milliards d'euros — plus que le budget de la Défense nationale.",
+  stat1_source:'Source : INSEE, Banque de France — comptes nationaux T1 2026',
+  stat2_label:'Inflation alimentaire',
+  stat2_value:'+7,2 % sur 1 an',
+  stat2_text:"L'alimentation reste le poste le plus sensible pour les ménages modestes, qui y consacrent jusqu'à <strong>25 % de leur budget</strong>. Sur 3 ans (2021-2024), le panier alimentaire moyen a augmenté de près de 20 %.",
+  stat2_source:'Source : INSEE — IPC alimentation, indice base 100 = 2015',
+  stat3_label:"Pouvoir d'achat réel",
+  stat3_value:'−3,1 % (2021-2023)',
+  stat3_text:'Sur la période de forte inflation, le pouvoir d\'achat réel du ménage médian a reculé de 3,1 points, effaçant une décennie de gains. La reprise partielle de 2024 (+0,8 %) ne compense pas encore cette perte.',
+  stat3_source:'Source : INSEE — comptes des ménages, revenus disponibles réels',
+  quote_label:'Phrase de la semaine',
+  quote_text:"« La France ne manque pas de données ; elle manque d'un tableau de bord lisible. »",
+  share_twitter:'𝕏 Partager',
+  share_copy:'Copier le lien',
+  newsletter_cta:'Recevez ce chiffre chaque lundi dans votre boîte mail.',
+  link_about:'À propos',
+  link_subscribe:'S\'abonner gratuitement →',
+  footer_copy:'© 2026 Le Français Moyen — Données : INSEE · Banque de France · Eurostat',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_current:'Weekly briefing',
+  hero_eyebrow:'Week of 5 May 2026',
+  hero_h1:'3 key figures this week',
+  hero_sub:'The state of the country in under 2 minutes. Official data, verifiable sources.',
+  stat1_label:'Public debt',
+  stat1_value:'113% of GDP',
+  stat1_text:'French public debt exceeds €3.3 trillion, or roughly <strong>€47,000 per capita</strong>. Annual interest costs now exceed €58 billion — more than the national defence budget.',
+  stat1_source:'Source: INSEE, Banque de France — national accounts Q1 2026',
+  stat2_label:'Food inflation',
+  stat2_value:'+7.2% year-on-year',
+  stat2_text:'Food remains the most sensitive spending category for lower-income households, who devote up to <strong>25% of their budget</strong> to it. Over three years (2021–2024), the average food basket rose by nearly 20%.',
+  stat2_source:'Source: INSEE — CPI food, base 100 = 2015',
+  stat3_label:'Real purchasing power',
+  stat3_value:'−3.1% (2021–2023)',
+  stat3_text:'During the high-inflation period, the real purchasing power of the median household fell by 3.1 points, wiping out a decade of gains. The partial recovery in 2024 (+0.8%) has not yet made up for this loss.',
+  stat3_source:'Source: INSEE — household accounts, real disposable income',
+  quote_label:'Quote of the week',
+  quote_text:'"France does not lack data; it lacks a readable dashboard."',
+  share_twitter:'𝕏 Share',
+  share_copy:'Copy link',
+  newsletter_cta:'Receive this briefing every Monday in your inbox.',
+  link_about:'About',
+  link_subscribe:'Subscribe for free →',
+  footer_copy:'© 2026 Le Français Moyen — Data: INSEE · Banque de France · Eurostat',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Note de la semaine — Le Français Moyen'
+    :'Weekly Briefing — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"3 chiffres officiels cette semaine : inflation, dette, pouvoir d'achat. Le tableau de bord du pays en lecture rapide."
+    :'3 official figures this week: inflation, debt, purchasing power. The country\'s dashboard at a glance.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
   <link rel="canonical" href="https://le-francais-moyen.com/epargne/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/epargne/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/epargne/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/epargne/">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Érosion de l'épargne – Le Français Moyen</title>
+<meta name="description" content="Combien vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ? Simulateur Livret A, assurance-vie, CAC 40, immobilier et or.">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="stylesheet" href="../assets/css/styles.css?v=17">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -44,49 +49,108 @@ svg.chart{width:100%;display:block}
 </style>
 </head>
 <body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/demographie/">👥 Démographie</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/demographie/">👥 Démographie</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
 <div class="page-header">
-  <a href="/outils/" class="back-link">← Outils</a>
-  <h1>Érosion de l'épargne</h1>
-  <p class="subtitle">Combien vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ?</p>
+  <a href="/outils/" class="back-link" data-i18n="back_link">← Outils</a>
+  <h1 data-i18n="hero_h1">Érosion de l'épargne</h1>
+  <p class="subtitle" data-i18n="hero_subtitle">Combien vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ?</p>
 </div>
 <div class="main">
 
   <div class="card">
-    <div class="section-label">Paramètres</div>
+    <div class="section-label" data-i18n="params_label">Paramètres</div>
     <div class="input-grid">
-      <div class="input-group"><label>Capital initial (€)</label><input id="capital" type="number" value="10000" min="1000"></div>
-      <div class="input-group"><label>Durée (années)</label><input id="duree" type="number" value="20" min="1" max="40"></div>
-      <div class="input-group"><label>Versement mensuel (€)</label><input id="mensuel" type="number" value="200" min="0"></div>
-      <div class="input-group"><label>TMI (% IR)</label><input id="tmi" type="number" value="30" min="0" max="45"></div>
+      <div class="input-group"><label data-i18n="label_capital">Capital initial (€)</label><input id="capital" type="number" value="10000" min="1000"></div>
+      <div class="input-group"><label data-i18n="label_duree">Durée (années)</label><input id="duree" type="number" value="20" min="1" max="40"></div>
+      <div class="input-group"><label data-i18n="label_mensuel">Versement mensuel (€)</label><input id="mensuel" type="number" value="200" min="0"></div>
+      <div class="input-group"><label data-i18n="label_tmi">TMI (% IR)</label><input id="tmi" type="number" value="30" min="0" max="45"></div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-primary" onclick="compute()">Calculer</button>
+      <button class="btn btn-primary" onclick="compute()" data-i18n="btn_calculate">Calculer</button>
     </div>
   </div>
 
   <div class="tabs">
-    <div class="tab active" onclick="switchTab('evolution')">Évolution du capital</div>
-    <div class="tab" onclick="switchTab('pouvoir')">Pouvoir d'achat réel</div>
-    <div class="tab" onclick="switchTab('fisc')">Fiscalité</div>
+    <div class="tab active" onclick="switchTab('evolution')" data-i18n="tab_evolution">Évolution du capital</div>
+    <div class="tab" onclick="switchTab('pouvoir')" data-i18n="tab_pouvoir">Pouvoir d'achat réel</div>
+    <div class="tab" onclick="switchTab('fisc')" data-i18n="tab_fisc">Fiscalité</div>
   </div>
 
   <div id="tab-evolution">
     <div class="legend" id="legend1">
-      <div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>Livret A</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div>Assurance-vie fonds €</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div>CAC 40 net</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div>Immobilier moyen</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>Or</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#888;border-bottom:2px dashed #888;height:0"></div>Inflation (pouvoir d'achat figé)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div><span data-i18n="legend_livret">Livret A</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div><span data-i18n="legend_av">Assurance-vie fonds €</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div><span data-i18n="legend_cac">CAC 40 net</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div><span data-i18n="legend_immo">Immobilier moyen</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div><span data-i18n="legend_or">Or</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:#888;border-bottom:2px dashed #888;height:0"></div><span data-i18n="legend_inflation">Inflation (pouvoir d'achat figé)</span></div>
     </div>
     <svg id="chart1" class="chart" height="320" viewBox="0 0 860 320"></svg>
-    <div class="note">Rendements nets de frais, bruts de fiscalité (sauf Livret A exonéré). Hypothèses : Livret A 3%, AV fonds € 2.5%, CAC 40 brut 7%/an, immo 4%/an, or 5%/an, inflation 2.5%/an.</div>
+    <div class="note" data-i18n="note_evolution">Rendements nets de frais, bruts de fiscalité (sauf Livret A exonéré). Hypothèses : Livret A 3%, AV fonds € 2.5%, CAC 40 brut 7%/an, immo 4%/an, or 5%/an, inflation 2.5%/an.</div>
   </div>
 
   <div id="tab-pouvoir" style="display:none">
     <div class="kpi-grid" id="kpiPouvoir"></div>
     <svg id="chart2" class="chart" height="280" viewBox="0 0 860 280"></svg>
-    <div class="note">Pouvoir d'achat réel = capital final / (1+inflation)^n. Montre combien vaut votre argent en euros constants d'aujourd'hui.</div>
+    <div class="note" data-i18n="note_pouvoir">Pouvoir d'achat réel = capital final / (1+inflation)^n. Montre combien vaut votre argent en euros constants d'aujourd'hui.</div>
   </div>
 
   <div id="tab-fisc" style="display:none">
@@ -350,6 +414,80 @@ compute();
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  back_link:'← Outils',
+  hero_h1:"Érosion de l'épargne",
+  hero_subtitle:"Combien vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ?",
+  params_label:'Paramètres',
+  label_capital:'Capital initial (€)',
+  label_duree:'Durée (années)',
+  label_mensuel:'Versement mensuel (€)',
+  label_tmi:'TMI (% IR)',
+  btn_calculate:'Calculer',
+  tab_evolution:'Évolution du capital',
+  tab_pouvoir:"Pouvoir d'achat réel",
+  tab_fisc:'Fiscalité',
+  legend_livret:'Livret A',
+  legend_av:'Assurance-vie fonds €',
+  legend_cac:'CAC 40 net',
+  legend_immo:'Immobilier moyen',
+  legend_or:'Or',
+  legend_inflation:"Inflation (pouvoir d'achat figé)",
+  note_evolution:"Rendements nets de frais, bruts de fiscalité (sauf Livret A exonéré). Hypothèses : Livret A 3%, AV fonds € 2.5%, CAC 40 brut 7%/an, immo 4%/an, or 5%/an, inflation 2.5%/an.",
+  note_pouvoir:"Pouvoir d'achat réel = capital final / (1+inflation)^n. Montre combien vaut votre argent en euros constants d'aujourd'hui."
+},
+en:{
+  nav_cta:'← Dashboard',
+  back_link:'← Tools',
+  hero_h1:'Savings Erosion',
+  hero_subtitle:'How much is your savings really worth after inflation, taxation and monetary depreciation?',
+  params_label:'Parameters',
+  label_capital:'Initial capital (€)',
+  label_duree:'Duration (years)',
+  label_mensuel:'Monthly contribution (€)',
+  label_tmi:'Marginal income tax rate (%)',
+  btn_calculate:'Calculate',
+  tab_evolution:'Capital growth',
+  tab_pouvoir:'Real purchasing power',
+  tab_fisc:'Taxation',
+  legend_livret:'Livret A',
+  legend_av:'Life insurance (€ fund)',
+  legend_cac:'CAC 40 net',
+  legend_immo:'Average real estate',
+  legend_or:'Gold',
+  legend_inflation:'Inflation (frozen purchasing power)',
+  note_evolution:'Returns net of fees, gross of tax (except Livret A which is tax-exempt). Assumptions: Livret A 3%, life insurance 2.5%, CAC 40 gross 7%/yr, real estate 4%/yr, gold 5%/yr, inflation 2.5%/yr.',
+  note_pouvoir:'Real purchasing power = final capital / (1+inflation)^n. Shows how much your money is worth in today\'s constant euros.'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?"Érosion de l'épargne – Le Français Moyen"
+    :'French Household Savings — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Combien vaut vraiment votre épargne après inflation, fiscalité et dépréciation monétaire ? Simulateur Livret A, assurance-vie, CAC 40, immobilier et or."
+    :'How much is your savings really worth after inflation, tax and monetary depreciation? Simulator for Livret A, life insurance, CAC 40, real estate and gold.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

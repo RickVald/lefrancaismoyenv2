@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Studio de publication – Le Français Moyen</title>
 <meta name="robots" content="noindex">
+<link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/partager/">
+<link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/partager/">
+<link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/partager/">
 <link rel="stylesheet" href="../assets/css/styles.css?v=17">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -79,16 +82,22 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
 </head>
 <body>
 <div class="page-header">
-  <a href="/" class="back-link">← Accueil</a>
-  <h1>🎯 Studio de publication</h1>
-  <p class="subtitle">Générez des posts prêts à publier sur X et LinkedIn à partir des données du site</p>
+  <a href="/" class="back-link" data-i18n="back_link">← Accueil</a>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <h1 data-i18n="hero_h1">🎯 Studio de publication</h1>
+    <div class="lang-switch" id="langSwitch" style="display:flex;gap:6px">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+  <p class="subtitle" data-i18n="hero_subtitle">Générez des posts prêts à publier sur X et LinkedIn à partir des données du site</p>
 </div>
 
 <div class="main">
   <!-- LEFT: Controls -->
   <div>
     <div class="panel" style="margin-bottom:16px">
-      <div class="section-label">1 — Choisir le sujet</div>
+      <div class="section-label" data-i18n="step1_label">1 — Choisir le sujet</div>
       <div class="select-group">
         <label>Thématique</label>
         <select id="topicSelect" onchange="onTopicChange()">
@@ -130,7 +139,7 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
     </div>
 
     <div class="panel" style="margin-bottom:16px" id="customizePanel">
-      <div class="section-label">2 — Personnaliser</div>
+      <div class="section-label" data-i18n="step2_label">2 — Personnaliser</div>
       <div class="select-group">
         <label>Événement d'actualité (optionnel)</label>
         <input type="text" id="actuality" placeholder="ex: annonce BCE, chiffres INSEE…">
@@ -142,9 +151,9 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
     </div>
 
     <div class="panel">
-      <div class="section-label">3 — Hashtags</div>
+      <div class="section-label" data-i18n="step3_label">3 — Hashtags</div>
       <div class="tag-list" id="tagList"></div>
-      <p class="hint">Cliquez pour copier un hashtag</p>
+      <p class="hint" data-i18n="hashtag_hint">Cliquez pour copier un hashtag</p>
     </div>
   </div>
 
@@ -152,8 +161,8 @@ h1{font-size:clamp(20px,3.5vw,28px);font-weight:800;color:#fff;margin-bottom:6px
   <div>
     <div class="panel">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-        <div class="section-label" style="margin:0">Prévisualisation</div>
-        <button class="btn btn-primary" style="width:auto;margin:0;padding:8px 20px" onclick="generate()">⚡ Générer</button>
+        <div class="section-label" style="margin:0" data-i18n="preview_label">Prévisualisation</div>
+        <button class="btn btn-primary" style="width:auto;margin:0;padding:8px 20px" onclick="generate()" data-i18n="btn_generate">⚡ Générer</button>
       </div>
 
       <!-- Thread mode output -->
@@ -862,6 +871,53 @@ function renderAllBlocks(){
 
 // Init au chargement
 document.addEventListener('DOMContentLoaded', renderAllBlocks);
+</script>
+<script>
+(function(){
+const T={
+fr:{
+  back_link:'← Accueil',
+  hero_h1:'🎯 Studio de publication',
+  hero_subtitle:'Générez des posts prêts à publier sur X et LinkedIn à partir des données du site',
+  step1_label:'1 — Choisir le sujet',
+  step2_label:'2 — Personnaliser',
+  step3_label:'3 — Hashtags',
+  hashtag_hint:'Cliquez pour copier un hashtag',
+  preview_label:'Prévisualisation',
+  btn_generate:'⚡ Générer'
+},
+en:{
+  back_link:'← Home',
+  hero_h1:'🎯 Publishing Studio',
+  hero_subtitle:'Generate ready-to-publish posts for X and LinkedIn from the site\'s data',
+  step1_label:'1 — Choose a topic',
+  step2_label:'2 — Customise',
+  step3_label:'3 — Hashtags',
+  hashtag_hint:'Click to copy a hashtag',
+  preview_label:'Preview',
+  btn_generate:'⚡ Generate'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Studio de publication – Le Français Moyen'
+    :'Share — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
 </script>
 </body>
 </html>

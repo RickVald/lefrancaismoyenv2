@@ -6,6 +6,9 @@
   <title>Indice de déclassement générationnel — Le Français Moyen</title>
   <meta name="description" content="Entrez votre année de naissance. Comparez vos conditions de vie à 30 ans avec celles de la génération de vos parents. Salaire réel, logement, chômage, dette héritée.">
   <link rel="canonical" href="https://le-francais-moyen.com/generations/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/generations/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/generations/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/generations/">
   <meta property="og:title" content="Êtes-vous plus pauvre que vos parents au même âge ?">
   <meta property="og:description" content="Entrez votre année de naissance et comparez salaire d'entrée, accès au logement, taux de chômage et dette héritée avec la génération baby-boom.">
   <meta property="og:url" content="https://le-francais-moyen.com/generations/">
@@ -57,8 +60,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Tableau de bord</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -83,103 +90,103 @@
   </div>
 
   <main style="max-width:920px;margin:auto;padding:36px 24px 80px">
-    <nav style="font-size:.88rem;color:var(--muted);margin-bottom:20px"><a href="/">Accueil</a> › <a href="/outils/">Outils</a> › <span>Déclassement générationnel</span></nav>
+    <nav style="font-size:.88rem;color:var(--muted);margin-bottom:20px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/outils/" data-i18n="breadcrumb_tools">Outils</a> › <span data-i18n="breadcrumb_current">Déclassement générationnel</span></nav>
 
-    <div class="eyebrow">Comparateur intergénérationnel</div>
-    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:10px">Êtes-vous plus pauvre que vos parents au même âge ?</h1>
-    <p style="color:var(--muted);font-size:1rem;max-width:680px;margin:0 0 32px">Entrez votre année de naissance. Nous comparons vos conditions de vie à 30 ans avec celles de la génération née dans les années 1955–1965 (les "baby-boomers") au même âge.</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Comparateur intergénérationnel</div>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:10px" data-i18n="hero_h1">Êtes-vous plus pauvre que vos parents au même âge ?</h1>
+    <p style="color:var(--muted);font-size:1rem;max-width:680px;margin:0 0 32px" data-i18n="hero_intro">Entrez votre année de naissance. Nous comparons vos conditions de vie à 30 ans avec celles de la génération née dans les années 1955–1965 (les "baby-boomers") au même âge.</p>
 
     <div class="gen-input-block">
-      <label style="color:var(--muted);font-size:.9rem;font-weight:750">Votre année de naissance</label>
+      <label style="color:var(--muted);font-size:.9rem;font-weight:750" data-i18n="input_label">Votre année de naissance</label>
       <div class="gen-year-display" id="yearDisplay">1990</div>
       <input type="range" class="gen-slider" id="birthSlider" min="1950" max="1998" value="1990">
       <div style="display:flex;justify-content:space-between;max-width:480px;margin:0 auto;color:var(--muted);font-size:.78rem">
         <span>1950</span><span>1998</span>
       </div>
-      <p style="color:var(--muted);font-size:.85rem;margin:14px 0 0">Votre génération à 30 ans : <strong id="at30year" style="color:var(--text)">2020</strong> · Génération de référence à 30 ans : <strong style="color:var(--accent2)">~1985</strong></p>
+      <p style="color:var(--muted);font-size:.85rem;margin:14px 0 0" data-i18n="input_sublabel">Votre génération à 30 ans : <strong id="at30year" style="color:var(--text)">2020</strong> · Génération de référence à 30 ans : <strong style="color:var(--accent2)">~1985</strong></p>
     </div>
 
     <div id="verdictBanner" class="verdict-banner"></div>
 
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="eyebrow">Salaire d'entrée réel</div>
+        <div class="eyebrow" data-i18n="card1_title">Salaire d'entrée réel</div>
         <div class="metric-row">
-          <span class="lbl">Votre génération (30 ans)</span>
+          <span class="lbl" data-i18n="card1_row1">Votre génération (30 ans)</span>
           <span class="val" id="mSalaryYou">—</span>
         </div>
         <div class="metric-row">
-          <span class="lbl">Génération 1960 (30 ans)</span>
+          <span class="lbl" data-i18n="card1_row2">Génération 1960 (30 ans)</span>
           <span class="val" style="color:var(--accent2)">—</span>
         </div>
         <div class="metric-row" id="mSalaryDiff"></div>
-        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0">Salaire médian 25–34 ans, corrigé inflation (€ 2024)</p>
+        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0" data-i18n="card1_note">Salaire médian 25–34 ans, corrigé inflation (€ 2024)</p>
       </div>
 
       <div class="metric-card">
-        <div class="eyebrow">Accès à la propriété</div>
+        <div class="eyebrow" data-i18n="card2_title">Accès à la propriété</div>
         <div class="metric-row">
-          <span class="lbl">Prix 60 m² / salaire annuel</span>
+          <span class="lbl" data-i18n="card2_row1">Prix 60 m² / salaire annuel</span>
           <span class="val" id="mHousingYou">—</span>
         </div>
         <div class="metric-row">
-          <span class="lbl">Génération 1960</span>
+          <span class="lbl" data-i18n="card2_row2">Génération 1960</span>
           <span class="val" style="color:var(--accent2)">—</span>
         </div>
         <div class="metric-row" id="mHousingDiff"></div>
-        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0">Nombre d'années de salaire pour acheter 60 m² (prix médian national)</p>
+        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0" data-i18n="card2_note">Nombre d'années de salaire pour acheter 60 m² (prix médian national)</p>
       </div>
 
       <div class="metric-card">
-        <div class="eyebrow">Chômage des 25–34 ans</div>
+        <div class="eyebrow" data-i18n="card3_title">Chômage des 25–34 ans</div>
         <div class="metric-row">
-          <span class="lbl">Votre génération à 30 ans</span>
+          <span class="lbl" data-i18n="card3_row1">Votre génération à 30 ans</span>
           <span class="val" id="mUnempYou">—</span>
         </div>
         <div class="metric-row">
-          <span class="lbl">Génération 1960 à 30 ans</span>
+          <span class="lbl" data-i18n="card3_row2">Génération 1960 à 30 ans</span>
           <span class="val" style="color:var(--accent2)">—</span>
         </div>
         <div class="metric-row" id="mUnempDiff"></div>
-        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0">Taux de chômage pour la tranche 25–34 ans</p>
+        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0" data-i18n="card3_note">Taux de chômage pour la tranche 25–34 ans</p>
       </div>
 
       <div class="metric-card">
-        <div class="eyebrow">Dette héritée par tête</div>
+        <div class="eyebrow" data-i18n="card4_title">Dette héritée par tête</div>
         <div class="metric-row">
-          <span class="lbl">Dette pub./habitant à vos 30 ans</span>
+          <span class="lbl" data-i18n="card4_row1">Dette pub./habitant à vos 30 ans</span>
           <span class="val" id="mDebtYou">—</span>
         </div>
         <div class="metric-row">
-          <span class="lbl">Génération 1960 à 30 ans</span>
+          <span class="lbl" data-i18n="card4_row2">Génération 1960 à 30 ans</span>
           <span class="val" style="color:var(--accent2)">—</span>
         </div>
         <div class="metric-row" id="mDebtDiff"></div>
-        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0">Dette publique totale divisée par la population (€ courants)</p>
+        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0" data-i18n="card4_note">Dette publique totale divisée par la population (€ courants)</p>
       </div>
     </div>
 
     <div class="panel" style="padding:24px;margin-bottom:28px">
-      <div class="eyebrow" style="margin-bottom:4px">Indice de déclassement par génération</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:0 0 18px">Indice composite normalisé — 100 = conditions génération 1960. Au-dessus de 100 = meilleures conditions, en-dessous = déclassement.</p>
+      <div class="eyebrow" style="margin-bottom:4px" data-i18n="chart_title">Indice de déclassement par génération</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:0 0 18px" data-i18n="chart_desc">Indice composite normalisé — 100 = conditions génération 1960. Au-dessus de 100 = meilleures conditions, en-dessous = déclassement.</p>
       <div class="chart-box" style="height:220px"><svg id="genSvg" class="svg-chart"></svg></div>
     </div>
 
-    <div style="background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.25);border-radius:16px;padding:16px 20px;font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:28px">
+    <div style="background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.25);border-radius:16px;padding:16px 20px;font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:28px" data-i18n="methodology_block">
       <strong style="color:var(--accent)">Méthodologie :</strong> Données INSEE (salaires, chômage), Banque de France (dette), notaires/CGEDD (immobilier). Salaires corrigés par l'IPC base 2024. L'indice composite pondère : salaire réel 35 %, accès logement 35 %, chômage 20 %, dette héritée 10 %. Les données individuelles varient selon le territoire, le niveau d'études et la situation familiale.
     </div>
 
     <div style="text-align:center;border-top:1px solid var(--border);padding-top:24px">
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <a class="share-btn" id="genShare" href="#" target="_blank" rel="noopener">𝕏 Partager mon résultat</a>
-        <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/generations/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
+        <a class="share-btn" id="genShare" href="#" target="_blank" rel="noopener" data-i18n="share_twitter">𝕏 Partager mon résultat</a>
+        <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/generations/').then(()=>this.textContent='✓ Copié !')" data-i18n="share_copy">Copier le lien</button>
       </div>
     </div>
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : INSEE · Banque de France · CGEDD</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE · Banque de France · CGEDD</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -367,6 +374,102 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_tools:'Outils',
+  breadcrumb_current:'Déclassement générationnel',
+  hero_eyebrow:'Comparateur intergénérationnel',
+  hero_h1:'Êtes-vous plus pauvre que vos parents au même âge ?',
+  hero_intro:'Entrez votre année de naissance. Nous comparons vos conditions de vie à 30 ans avec celles de la génération née dans les années 1955–1965 (les "baby-boomers") au même âge.',
+  input_label:'Votre année de naissance',
+  input_sublabel:'Votre génération à 30 ans : <strong id="at30year" style="color:var(--text)">2020</strong> · Génération de référence à 30 ans : <strong style="color:var(--accent2)">~1985</strong>',
+  card1_title:"Salaire d'entrée réel",
+  card1_row1:'Votre génération (30 ans)',
+  card1_row2:'Génération 1960 (30 ans)',
+  card1_note:'Salaire médian 25–34 ans, corrigé inflation (€ 2024)',
+  card2_title:'Accès à la propriété',
+  card2_row1:'Prix 60 m² / salaire annuel',
+  card2_row2:'Génération 1960',
+  card2_note:"Nombre d'années de salaire pour acheter 60 m² (prix médian national)",
+  card3_title:'Chômage des 25–34 ans',
+  card3_row1:'Votre génération à 30 ans',
+  card3_row2:'Génération 1960 à 30 ans',
+  card3_note:'Taux de chômage pour la tranche 25–34 ans',
+  card4_title:'Dette héritée par tête',
+  card4_row1:'Dette pub./habitant à vos 30 ans',
+  card4_row2:'Génération 1960 à 30 ans',
+  card4_note:'Dette publique totale divisée par la population (€ courants)',
+  chart_title:'Indice de déclassement par génération',
+  chart_desc:'Indice composite normalisé — 100 = conditions génération 1960. Au-dessus de 100 = meilleures conditions, en-dessous = déclassement.',
+  methodology_block:'<strong style="color:var(--accent)">Méthodologie :</strong> Données INSEE (salaires, chômage), Banque de France (dette), notaires/CGEDD (immobilier). Salaires corrigés par l\'IPC base 2024. L\'indice composite pondère : salaire réel 35 %, accès logement 35 %, chômage 20 %, dette héritée 10 %. Les données individuelles varient selon le territoire, le niveau d\'études et la situation familiale.',
+  share_twitter:'𝕏 Partager mon résultat',
+  share_copy:'Copier le lien',
+  footer_copy:'© 2026 Le Français Moyen — Données : INSEE · Banque de France · CGEDD',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_tools:'Tools',
+  breadcrumb_current:'Generational Downgrading',
+  hero_eyebrow:'Intergenerational Comparator',
+  hero_h1:'Are you worse off than your parents at the same age?',
+  hero_intro:'Enter your birth year. We compare your living conditions at 30 with those of the generation born between 1955 and 1965 (the "baby boomers") at the same age.',
+  input_label:'Your birth year',
+  input_sublabel:'Your generation at 30: <strong id="at30year" style="color:var(--text)">2020</strong> · Reference generation at 30: <strong style="color:var(--accent2)">~1985</strong>',
+  card1_title:'Real entry-level wage',
+  card1_row1:'Your generation (age 30)',
+  card1_row2:'1960 generation (age 30)',
+  card1_note:'Median wage aged 25–34, inflation-adjusted (€ 2024)',
+  card2_title:'Home ownership access',
+  card2_row1:'60 m² price / annual wage',
+  card2_row2:'1960 generation',
+  card2_note:'Number of annual wages needed to buy 60 m² (national median price)',
+  card3_title:'Unemployment aged 25–34',
+  card3_row1:'Your generation at age 30',
+  card3_row2:'1960 generation at age 30',
+  card3_note:'Unemployment rate for the 25–34 age bracket',
+  card4_title:'Inherited debt per capita',
+  card4_row1:'Public debt/capita at your age 30',
+  card4_row2:'1960 generation at age 30',
+  card4_note:'Total public debt divided by population (current €)',
+  chart_title:'Downgrading index by generation',
+  chart_desc:'Normalised composite index — 100 = 1960 generation conditions. Above 100 = better conditions, below = downgrading.',
+  methodology_block:'<strong style="color:var(--accent)">Methodology:</strong> Data from INSEE (wages, unemployment), Banque de France (debt), notaires/CGEDD (real estate). Wages adjusted by CPI (base 2024). The composite index weights: real wage 35%, housing access 35%, unemployment 20%, inherited debt 10%. Individual data vary by region, education level and family situation.',
+  share_twitter:'𝕏 Share my result',
+  share_copy:'Copy link',
+  footer_copy:'© 2026 Le Français Moyen — Data: INSEE · Banque de France · CGEDD',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Indice de déclassement générationnel — Le Français Moyen'
+    :'Generational Inequality in France — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'Entrez votre année de naissance. Comparez vos conditions de vie à 30 ans avec celles de la génération de vos parents. Salaire réel, logement, chômage, dette héritée.'
+    :'Enter your birth year. Compare your living conditions at 30 with those of your parents\' generation. Real wage, housing, unemployment, inherited debt.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

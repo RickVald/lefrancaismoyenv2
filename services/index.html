@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="description" content="Les services publics français en chiffres : hôpitaux, éducation, justice, transports. Qualité, délais, coûts — comparaison internationale.">
 <link rel="canonical" href="https://le-francais-moyen.com/services/">
+<link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/services/">
+<link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/services/">
+<link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/services/">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Services publics – Le Français Moyen</title>
 <link rel="stylesheet" href="../assets/css/styles.css?v=17">
@@ -56,18 +59,24 @@ svg.chart{width:100%;display:block}
 </head>
 <body>
 <div class="page-header">
-  <a href="/outils/" class="back-link">← Outils</a>
-  <h1>Services publics</h1>
-  <p class="subtitle">L'état réel des services que la France finance avec les impôts les plus élevés d'Europe</p>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <a href="/outils/" class="back-link" data-i18n="back_link">← Outils</a>
+    <div class="lang-switch" id="langSwitch" style="display:flex;gap:6px">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+  <h1 data-i18n="hero_h1">Services publics</h1>
+  <p class="subtitle" data-i18n="hero_subtitle">L'état réel des services que la France finance avec les impôts les plus élevés d'Europe</p>
 </div>
 <div class="main">
 
   <div class="tabs">
-    <div class="tab active" onclick="setDomain('sante')">Santé</div>
-    <div class="tab" onclick="setDomain('education')">Éducation</div>
-    <div class="tab" onclick="setDomain('transport')">Transports</div>
-    <div class="tab" onclick="setDomain('justice')">Justice</div>
-    <div class="tab" onclick="setDomain('admin')">Administration</div>
+    <div class="tab active" onclick="setDomain('sante')" data-i18n="tab_sante">Santé</div>
+    <div class="tab" onclick="setDomain('education')" data-i18n="tab_education">Éducation</div>
+    <div class="tab" onclick="setDomain('transport')" data-i18n="tab_transport">Transports</div>
+    <div class="tab" onclick="setDomain('justice')" data-i18n="tab_justice">Justice</div>
+    <div class="tab" onclick="setDomain('admin')" data-i18n="tab_admin">Administration</div>
   </div>
 
   <!-- SANTE -->
@@ -81,7 +90,7 @@ svg.chart{width:100%;display:block}
       <div class="kpi"><div class="kpi-label">Reste à charge moyen</div><div class="kpi-value yellow">9.4%</div><div class="kpi-sub">Europe : 12% (mais protection inégale)</div></div>
     </div>
     <div class="chart-section">
-      <div class="section-label">Évolution lits hospitaliers (pour 1 000 hab.)</div>
+      <div class="section-label" data-i18n="sante_chart_label">Évolution lits hospitaliers (pour 1 000 hab.)</div>
       <svg id="chartSante" class="chart" height="220" viewBox="0 0 820 220"></svg>
     </div>
     <table class="stat-table">
@@ -106,7 +115,7 @@ svg.chart{width:100%;display:block}
       <div class="kpi"><div class="kpi-label">Enseignants non remplacés/an</div><div class="kpi-value red">~900 000</div><div class="kpi-sub">heures de cours perdues (estimation)</div></div>
     </div>
     <div class="chart-section">
-      <div class="section-label">Score PISA mathématiques (France vs OCDE)</div>
+      <div class="section-label" data-i18n="edu_chart_label">Score PISA mathématiques (France vs OCDE)</div>
       <svg id="chartEdu" class="chart" height="220" viewBox="0 0 820 220"></svg>
     </div>
     <table class="stat-table">
@@ -281,6 +290,58 @@ drawSanteChart();
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  back_link:'← Outils',
+  hero_h1:'Services publics',
+  hero_subtitle:"L'état réel des services que la France finance avec les impôts les plus élevés d'Europe",
+  tab_sante:'Santé',
+  tab_education:'Éducation',
+  tab_transport:'Transports',
+  tab_justice:'Justice',
+  tab_admin:'Administration',
+  sante_chart_label:'Évolution lits hospitaliers (pour 1 000 hab.)',
+  edu_chart_label:'Score PISA mathématiques (France vs OCDE)'
+},
+en:{
+  back_link:'← Tools',
+  hero_h1:'Public Services',
+  hero_subtitle:"The real state of services France funds with Europe's highest taxes",
+  tab_sante:'Healthcare',
+  tab_education:'Education',
+  tab_transport:'Transport',
+  tab_justice:'Justice',
+  tab_admin:'Administration',
+  sante_chart_label:'Hospital beds per 1,000 inhabitants (trend)',
+  edu_chart_label:'PISA mathematics score (France vs OECD)'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Services publics – Le Français Moyen'
+    :'Public Services in France — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Les services publics français en chiffres : hôpitaux, éducation, justice, transports. Qualité, délais, coûts — comparaison internationale."
+    :"French public services in numbers: hospitals, education, justice, transport. Quality, waiting times, costs — international comparison.");
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

@@ -6,6 +6,9 @@
   <title>France vs Europe — Comparateur économique — Le Français Moyen</title>
   <meta name="description" content="Comparez la France avec l'Allemagne, le Royaume-Uni, la Suède, l'Espagne et l'Italie sur 10 indicateurs : dette, inflation, chômage, dépenses publiques, PISA, espérance de vie.">
   <link rel="canonical" href="https://le-francais-moyen.com/comparateur/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/comparateur/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/comparateur/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/comparateur/">
   <meta property="og:title" content="France vs Europe — 10 indicateurs comparés">
   <meta property="og:url" content="https://le-francais-moyen.com/comparateur/">
   <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
@@ -61,8 +64,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Tableau de bord</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -87,20 +94,20 @@
   </div>
 
   <main style="max-width:1100px;margin:auto;padding:36px 24px 80px">
-    <nav style="font-size:.88rem;color:var(--muted);margin-bottom:20px"><a href="/">Accueil</a> › <a href="/outils/">Outils</a> › <span>Comparateur Europe</span></nav>
-    <div class="eyebrow">Benchmark européen · données 2024</div>
-    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:10px">France vs Europe — 10 indicateurs</h1>
-    <p style="color:var(--muted);font-size:1rem;max-width:700px;margin:0 0 28px">Sélectionnez les pays et l'indicateur pour comparer. Sources : Eurostat, OCDE, OMS, PISA 2022.</p>
+    <nav style="font-size:.88rem;color:var(--muted);margin-bottom:20px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/outils/" data-i18n="breadcrumb_tools">Outils</a> › <span data-i18n="breadcrumb_current">Comparateur Europe</span></nav>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Benchmark européen · données 2024</div>
+    <h1 style="font-size:clamp(1.8rem,4vw,3rem);margin-bottom:10px" data-i18n="hero_h1">France vs Europe — 10 indicateurs</h1>
+    <p style="color:var(--muted);font-size:1rem;max-width:700px;margin:0 0 28px" data-i18n="hero_desc">Sélectionnez les pays et l'indicateur pour comparer. Sources : Eurostat, OCDE, OMS, PISA 2022.</p>
 
     <!-- Sélection pays -->
     <div style="margin-bottom:24px">
-      <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px">Pays à comparer</div>
+      <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px" data-i18n="label_countries">Pays à comparer</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap" id="countryBtns"></div>
     </div>
 
     <!-- Sélection indicateur -->
     <div style="margin-bottom:28px">
-      <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px">Indicateur</div>
+      <div style="font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px" data-i18n="label_indicator">Indicateur</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap" id="indicatorTabs"></div>
     </div>
 
@@ -113,8 +120,8 @@
         <div id="chartLegend" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:.8rem"></div>
       </div>
       <div class="panel" style="padding:20px">
-        <div style="font-weight:900;font-size:.95rem;margin-bottom:14px">Classement 2024</div>
-        <table class="ranking-table"><thead><tr><th>#</th><th>Pays</th><th id="rankHeader">Valeur</th></tr></thead>
+        <div style="font-weight:900;font-size:.95rem;margin-bottom:14px" data-i18n="ranking_title">Classement 2024</div>
+        <table class="ranking-table"><thead><tr><th>#</th><th data-i18n="ranking_col_country">Pays</th><th id="rankHeader">Valeur</th></tr></thead>
         <tbody id="rankingBody"></tbody></table>
         <div id="frVerdict" style="margin-top:16px;padding:14px;background:rgba(255,255,255,.05);border-radius:12px;font-size:.84rem;color:var(--muted);line-height:1.55"></div>
       </div>
@@ -122,8 +129,8 @@
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : Eurostat · OCDE · OMS · PISA</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : Eurostat · OCDE · OMS · PISA</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -322,6 +329,64 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_tools:'Outils',
+  breadcrumb_current:'Comparateur Europe',
+  hero_eyebrow:'Benchmark européen · données 2024',
+  hero_h1:'France vs Europe — 10 indicateurs',
+  hero_desc:'Sélectionnez les pays et l\'indicateur pour comparer. Sources : Eurostat, OCDE, OMS, PISA 2022.',
+  label_countries:'Pays à comparer',
+  label_indicator:'Indicateur',
+  ranking_title:'Classement 2024',
+  ranking_col_country:'Pays',
+  footer_copy:'© 2026 Le Français Moyen — Données : Eurostat · OCDE · OMS · PISA',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_tools:'Tools',
+  breadcrumb_current:'Europe Comparator',
+  hero_eyebrow:'European benchmark · 2024 data',
+  hero_h1:'France vs Europe — 10 indicators',
+  hero_desc:'Select countries and an indicator to compare. Sources: Eurostat, OECD, WHO, PISA 2022.',
+  label_countries:'Countries to compare',
+  label_indicator:'Indicator',
+  ranking_title:'2024 Ranking',
+  ranking_col_country:'Country',
+  footer_copy:'© 2026 Le Français Moyen — Data: Eurostat · OECD · WHO · PISA',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'France vs Europe — Comparateur économique — Le Français Moyen'
+    :'France vs Europe — Country Comparator — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'Comparez la France avec l\'Allemagne, le Royaume-Uni, la Suède, l\'Espagne et l\'Italie sur 10 indicateurs : dette, inflation, chômage, dépenses publiques, PISA, espérance de vie.'
+    :'Compare France with Germany, the UK, Sweden, Spain and Italy on 10 indicators: debt, inflation, unemployment, public spending, PISA scores, life expectancy.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

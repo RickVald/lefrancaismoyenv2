@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -6,6 +6,9 @@
   <title>À propos — Le Français Moyen | Méthodologie, sources et démarche</title>
   <meta name="description" content="Qui sommes-nous, pourquoi ce site, comment nous travaillons. Méthodologie, sources officielles utilisées et principes éditoriaux de Le Français Moyen.">
   <link rel="canonical" href="https://le-francais-moyen.com/a-propos/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/a-propos/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/a-propos/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/a-propos/">
   <meta property="og:title" content="À propos — Le Français Moyen">
   <meta property="og:description" content="Un projet de datajournalisme indépendant : rendre les données économiques officielles accessibles à tous les Français, sans parti pris politique.">
   <meta property="og:url" content="https://le-francais-moyen.com/a-propos/">
@@ -77,9 +80,14 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
@@ -105,82 +113,82 @@
   <main id="contenu">
 
     <div class="about-hero">
-      <p class="eyebrow" style="text-align:center">Le projet</p>
-      <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);margin:0 auto 12px;text-align:center;max-width:640px">À propos de<br>Le Français Moyen</h1>
-      <p style="color:var(--muted);max-width:560px;margin:0 auto;font-size:1rem;line-height:1.7">Rendre les données économiques officielles lisibles, accessibles et vérifiables par n'importe quel Français — sans jargon, sans parti pris.</p>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">Le projet</p>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);margin:0 auto 12px;text-align:center;max-width:640px" data-i18n="hero_h1">À propos de<br>Le Français Moyen</h1>
+      <p style="color:var(--muted);max-width:560px;margin:0 auto;font-size:1rem;line-height:1.7" data-i18n="hero_desc">Rendre les données économiques officielles lisibles, accessibles et vérifiables par n'importe quel Français — sans jargon, sans parti pris.</p>
     </div>
 
     <div class="about-container">
 
       <div style="text-align:center;margin-bottom:40px">
-        <div class="update-badge">● Mis à jour en mai 2025</div>
+        <div class="update-badge" data-i18n="update_badge">● Mis à jour en mai 2025</div>
       </div>
 
       <!-- Chiffres clés du projet -->
       <div class="stat-row">
         <div class="stat-item">
           <span class="s-val">20+</span>
-          <span class="s-lbl">pages de données interactives</span>
+          <span class="s-lbl" data-i18n="kpi1_lbl">pages de données interactives</span>
         </div>
         <div class="stat-item">
           <span class="s-val">15+</span>
-          <span class="s-lbl">sources officielles croisées</span>
+          <span class="s-lbl" data-i18n="kpi2_lbl">sources officielles croisées</span>
         </div>
         <div class="stat-item">
           <span class="s-val">0</span>
-          <span class="s-lbl">publicité ou financement partisan</span>
+          <span class="s-lbl" data-i18n="kpi3_lbl">publicité ou financement partisan</span>
         </div>
         <div class="stat-item">
           <span class="s-val">100%</span>
-          <span class="s-lbl">données publiques vérifiables</span>
+          <span class="s-lbl" data-i18n="kpi4_lbl">données publiques vérifiables</span>
         </div>
       </div>
 
       <!-- Pourquoi ce site -->
       <div class="about-section">
-        <h2><span class="icon">💡</span> Pourquoi ce site existe</h2>
-        <p>La France produit des données économiques d'une richesse remarquable : l'INSEE publie chaque trimestre des centaines d'indicateurs sur le niveau de vie, l'emploi, les prix. La Cour des Comptes détaille les dépenses publiques. Le COR modélise l'avenir des retraites à l'horizon 2070. L'OCDE compare nos performances à celles de 38 pays.</p>
-        <p>Ces données sont <strong>publiques, gratuites et rigoureuses</strong>. Elles sont pourtant rarement accessibles au grand public — noyées dans des rapports de 200 pages, présentées dans des tableaux illisibles, ou résumées par des médias qui en retiennent ce qui sert leur ligne éditoriale.</p>
-        <p><strong>Le Français Moyen est né de cette frustration.</strong> L'idée est simple : prendre ces chiffres officiels, les visualiser clairement, les contextualiser avec des comparaisons internationales, et les rendre compréhensibles par n'importe qui — sans formation en économie nécessaire.</p>
+        <h2><span class="icon">💡</span> <span data-i18n="section1_h2">Pourquoi ce site existe</span></h2>
+        <p data-i18n="section1_p1">La France produit des données économiques d'une richesse remarquable : l'INSEE publie chaque trimestre des centaines d'indicateurs sur le niveau de vie, l'emploi, les prix. La Cour des Comptes détaille les dépenses publiques. Le COR modélise l'avenir des retraites à l'horizon 2070. L'OCDE compare nos performances à celles de 38 pays.</p>
+        <p data-i18n="section1_p2">Ces données sont <strong>publiques, gratuites et rigoureuses</strong>. Elles sont pourtant rarement accessibles au grand public — noyées dans des rapports de 200 pages, présentées dans des tableaux illisibles, ou résumées par des médias qui en retiennent ce qui sert leur ligne éditoriale.</p>
+        <p data-i18n="section1_p3"><strong>Le Français Moyen est né de cette frustration.</strong> L'idée est simple : prendre ces chiffres officiels, les visualiser clairement, les contextualiser avec des comparaisons internationales, et les rendre compréhensibles par n'importe qui — sans formation en économie nécessaire.</p>
       </div>
 
       <!-- Démarche éditoriale -->
       <div class="about-section">
-        <h2><span class="icon">🎯</span> Notre démarche</h2>
+        <h2><span class="icon">🎯</span> <span data-i18n="section2_h2">Notre démarche</span></h2>
         <ul class="principle-list">
           <li>
             <span class="icon">📊</span>
             <div>
-              <strong>Données officielles uniquement</strong>
-              Chaque chiffre publié sur ce site est issu d'une source gouvernementale, européenne ou internationale vérifiable (INSEE, COR, DREES, OCDE, Eurostat, Banque de France, FMI…). Nous ne citons pas de think tanks, d'associations ou de médias comme source primaire.
+              <strong data-i18n="principle1_title">Données officielles uniquement</strong>
+              <span data-i18n="principle1_desc">Chaque chiffre publié sur ce site est issu d'une source gouvernementale, européenne ou internationale vérifiable (INSEE, COR, DREES, OCDE, Eurostat, Banque de France, FMI…). Nous ne citons pas de think tanks, d'associations ou de médias comme source primaire.</span>
             </div>
           </li>
           <li>
             <span class="icon">🔗</span>
             <div>
-              <strong>Transparence totale des sources</strong>
-              Chaque page indique ses sources en bas de page. Les données sont datées. Quand un chiffre est une estimation ou une projection, c'est explicitement indiqué.
+              <strong data-i18n="principle2_title">Transparence totale des sources</strong>
+              <span data-i18n="principle2_desc">Chaque page indique ses sources en bas de page. Les données sont datées. Quand un chiffre est une estimation ou une projection, c'est explicitement indiqué.</span>
             </div>
           </li>
           <li>
             <span class="icon">⚖️</span>
             <div>
-              <strong>Neutralité politique stricte</strong>
-              Le site présente des faits, pas des opinions. Nous ne préconisons pas de politique économique particulière, ne soutenons aucun parti et n'évaluons pas les gouvernements. Les données sont ce qu'elles sont — à chacun d'en tirer ses propres conclusions.
+              <strong data-i18n="principle3_title">Neutralité politique stricte</strong>
+              <span data-i18n="principle3_desc">Le site présente des faits, pas des opinions. Nous ne préconisons pas de politique économique particulière, ne soutenons aucun parti et n'évaluons pas les gouvernements. Les données sont ce qu'elles sont — à chacun d'en tirer ses propres conclusions.</span>
             </div>
           </li>
           <li>
             <span class="icon">🌍</span>
             <div>
-              <strong>Comparaison internationale systématique</strong>
-              Un chiffre isolé ne veut rien dire. 340 milliards de masse salariale publique, c'est beaucoup ou peu ? La comparaison avec l'Allemagne, la Suède ou le Royaume-Uni donne la réponse. Chaque page inclut une mise en perspective européenne ou mondiale.
+              <strong data-i18n="principle4_title">Comparaison internationale systématique</strong>
+              <span data-i18n="principle4_desc">Un chiffre isolé ne veut rien dire. 340 milliards de masse salariale publique, c'est beaucoup ou peu ? La comparaison avec l'Allemagne, la Suède ou le Royaume-Uni donne la réponse. Chaque page inclut une mise en perspective européenne ou mondiale.</span>
             </div>
           </li>
           <li>
             <span class="icon">📅</span>
             <div>
-              <strong>Mise à jour régulière</strong>
-              Les données sont mises à jour à chaque publication des sources officielles. La date de dernière mise à jour est indiquée sur chaque page.
+              <strong data-i18n="principle5_title">Mise à jour régulière</strong>
+              <span data-i18n="principle5_desc">Les données sont mises à jour à chaque publication des sources officielles. La date de dernière mise à jour est indiquée sur chaque page.</span>
             </div>
           </li>
         </ul>
@@ -188,89 +196,89 @@
 
       <!-- Ce que ce site n'est pas -->
       <div class="about-section">
-        <h2><span class="icon">🚫</span> Ce que ce site n'est pas</h2>
+        <h2><span class="icon">🚫</span> <span data-i18n="section3_h2">Ce que ce site n'est pas</span></h2>
         <div class="notpolitics-box">
-          <p><strong>Le Français Moyen n'est pas un site politique.</strong> Les chiffres sur la dette, les fonctionnaires ou les retraites peuvent sembler à charge contre tel ou tel camp selon la grille de lecture. Ce n'est pas notre intention. Les mêmes données peuvent légitimement conduire à des conclusions très différentes selon les valeurs de chacun.</p>
-          <p style="margin-top:10px">Ce site ne milite pas pour la réduction de la dépense publique, ni pour son augmentation. Il ne milite pas pour ou contre une réforme particulière. <strong>Il milite pour que les Français aient accès aux faits</strong> — et décident eux-mêmes de ce qu'ils en font.</p>
+          <p data-i18n="notpolitics_p1"><strong>Le Français Moyen n'est pas un site politique.</strong> Les chiffres sur la dette, les fonctionnaires ou les retraites peuvent sembler à charge contre tel ou tel camp selon la grille de lecture. Ce n'est pas notre intention. Les mêmes données peuvent légitimement conduire à des conclusions très différentes selon les valeurs de chacun.</p>
+          <p style="margin-top:10px" data-i18n="notpolitics_p2">Ce site ne milite pas pour la réduction de la dépense publique, ni pour son augmentation. Il ne milite pas pour ou contre une réforme particulière. <strong>Il milite pour que les Français aient accès aux faits</strong> — et décident eux-mêmes de ce qu'ils en font.</p>
         </div>
       </div>
 
       <!-- Sources -->
       <div class="about-section">
-        <h2><span class="icon">📚</span> Nos sources principales</h2>
-        <p>Voici les organismes dont nous utilisons régulièrement les données. Toutes sont des institutions publiques indépendantes ou des organisations internationales reconnues.</p>
+        <h2><span class="icon">📚</span> <span data-i18n="section4_h2">Nos sources principales</span></h2>
+        <p data-i18n="section4_intro">Voici les organismes dont nous utilisons régulièrement les données. Toutes sont des institutions publiques indépendantes ou des organisations internationales reconnues.</p>
         <div class="source-grid">
           <div class="source-pill">
             <span class="src-name">INSEE</span>
-            <span class="src-desc">Comptes nationaux, niveau de vie, prix, emploi, démographie</span>
+            <span class="src-desc" data-i18n="src1_desc">Comptes nationaux, niveau de vie, prix, emploi, démographie</span>
           </div>
           <div class="source-pill">
             <span class="src-name">COR</span>
-            <span class="src-desc">Conseil d'Orientation des Retraites — rapports annuels et projections</span>
+            <span class="src-desc" data-i18n="src2_desc">Conseil d'Orientation des Retraites — rapports annuels et projections</span>
           </div>
           <div class="source-pill">
             <span class="src-name">DREES</span>
-            <span class="src-desc">Santé, protection sociale, dépenses de sécurité sociale</span>
+            <span class="src-desc" data-i18n="src3_desc">Santé, protection sociale, dépenses de sécurité sociale</span>
           </div>
           <div class="source-pill">
             <span class="src-name">DGAFP</span>
-            <span class="src-desc">Fonction publique — effectifs, rémunérations, pensions</span>
+            <span class="src-desc" data-i18n="src4_desc">Fonction publique — effectifs, rémunérations, pensions</span>
           </div>
           <div class="source-pill">
             <span class="src-name">Banque de France</span>
-            <span class="src-desc">Dette publique, balance des paiements, taux d'intérêt</span>
+            <span class="src-desc" data-i18n="src5_desc">Dette publique, balance des paiements, taux d'intérêt</span>
           </div>
           <div class="source-pill">
             <span class="src-name">OCDE</span>
-            <span class="src-desc">Comparaisons internationales éducation, santé, fiscalité, emploi</span>
+            <span class="src-desc" data-i18n="src6_desc">Comparaisons internationales éducation, santé, fiscalité, emploi</span>
           </div>
           <div class="source-pill">
             <span class="src-name">Eurostat</span>
-            <span class="src-desc">Statistiques de l'Union européenne — fiscalité, PIB, dette</span>
+            <span class="src-desc" data-i18n="src7_desc">Statistiques de l'Union européenne — fiscalité, PIB, dette</span>
           </div>
           <div class="source-pill">
             <span class="src-name">FMI</span>
-            <span class="src-desc">Perspectives économiques mondiales, dette souveraine</span>
+            <span class="src-desc" data-i18n="src8_desc">Perspectives économiques mondiales, dette souveraine</span>
           </div>
           <div class="source-pill">
             <span class="src-name">Vie Publique / PLF</span>
-            <span class="src-desc">Projets de loi de finances, rapports parlementaires</span>
+            <span class="src-desc" data-i18n="src9_desc">Projets de loi de finances, rapports parlementaires</span>
           </div>
           <div class="source-pill">
             <span class="src-name">Cour des Comptes</span>
-            <span class="src-desc">Rapports sur les finances publiques et les politiques publiques</span>
+            <span class="src-desc" data-i18n="src10_desc">Rapports sur les finances publiques et les politiques publiques</span>
           </div>
           <div class="source-pill">
             <span class="src-name">France Stratégie</span>
-            <span class="src-desc">Analyses prospectives, évaluations des politiques publiques</span>
+            <span class="src-desc" data-i18n="src11_desc">Analyses prospectives, évaluations des politiques publiques</span>
           </div>
           <div class="source-pill">
             <span class="src-name">OCDE PISA</span>
-            <span class="src-desc">Programme d'évaluation internationale des élèves (tous les 3 ans)</span>
+            <span class="src-desc" data-i18n="src12_desc">Programme d'évaluation internationale des élèves (tous les 3 ans)</span>
           </div>
         </div>
       </div>
 
       <!-- Qui -->
       <div class="about-section">
-        <h2><span class="icon">👤</span> Qui sommes-nous</h2>
-        <p><strong>Le Français Moyen</strong> est un projet indépendant de datajournalisme lancé en 2025. Il est développé et maintenu par une équipe réduite passionnée par la data et par la pédagogie économique.</p>
-        <p>Le projet fonctionne sans publicité, sans financement institutionnel et sans lien avec un parti politique ou un syndicat. Son financement repose uniquement sur le bouche-à-oreille et la communauté de lecteurs qui le soutiennent.</p>
-        <p>Nous opérons sous le nom de plume <strong>@RobertFrMoyen</strong> sur X / Twitter — un personnage fictif qui incarne ce Français moyen curieux de comprendre les chiffres qui structurent son quotidien.</p>
+        <h2><span class="icon">👤</span> <span data-i18n="section5_h2">Qui sommes-nous</span></h2>
+        <p data-i18n="section5_p1"><strong>Le Français Moyen</strong> est un projet indépendant de datajournalisme lancé en 2025. Il est développé et maintenu par une équipe réduite passionnée par la data et par la pédagogie économique.</p>
+        <p data-i18n="section5_p2">Le projet fonctionne sans publicité, sans financement institutionnel et sans lien avec un parti politique ou un syndicat. Son financement repose uniquement sur le bouche-à-oreille et la communauté de lecteurs qui le soutiennent.</p>
+        <p data-i18n="section5_p3">Nous opérons sous le nom de plume <strong>@RobertFrMoyen</strong> sur X / Twitter — un personnage fictif qui incarne ce Français moyen curieux de comprendre les chiffres qui structurent son quotidien.</p>
       </div>
 
       <!-- Méthodologie technique -->
       <div class="about-section">
-        <h2><span class="icon">⚙️</span> Méthodologie technique</h2>
-        <p>Les visualisations de données sont construites à partir de données brutes issues des sources listées ci-dessus. Les données sont saisies manuellement et vérifiées contre les publications officielles. Aucune donnée n'est interpolée ou estimée sans indication explicite.</p>
-        <p>Les <strong>projections</strong> (page Projections 2035, page Générations) sont des modèles paramétriques construits à partir des hypothèses publiées par le COR, le FMI et l'INSEE. Ils sont présentés comme des scénarios indicatifs, pas comme des prévisions.</p>
-        <p>Le simulateur Élections est basé sur les programmes officiels des candidats et les analyses publiées par des instituts économiques reconnus (OFCE, CAE). Il est présenté à titre pédagogique pour visualiser les ordres de grandeur — pas pour prédire l'avenir.</p>
+        <h2><span class="icon">⚙️</span> <span data-i18n="section6_h2">Méthodologie technique</span></h2>
+        <p data-i18n="section6_p1">Les visualisations de données sont construites à partir de données brutes issues des sources listées ci-dessus. Les données sont saisies manuellement et vérifiées contre les publications officielles. Aucune donnée n'est interpolée ou estimée sans indication explicite.</p>
+        <p data-i18n="section6_p2">Les <strong>projections</strong> (page Projections 2035, page Générations) sont des modèles paramétriques construits à partir des hypothèses publiées par le COR, le FMI et l'INSEE. Ils sont présentés comme des scénarios indicatifs, pas comme des prévisions.</p>
+        <p data-i18n="section6_p3">Le simulateur Élections est basé sur les programmes officiels des candidats et les analyses publiées par des instituts économiques reconnus (OFCE, CAE). Il est présenté à titre pédagogique pour visualiser les ordres de grandeur — pas pour prédire l'avenir.</p>
       </div>
 
       <!-- Contact & Suivre -->
       <div class="about-section">
-        <h2><span class="icon">📬</span> Suivre & contacter</h2>
-        <p>Les meilleures façons de suivre les mises à jour du site et de nous contacter :</p>
+        <h2><span class="icon">📬</span> <span data-i18n="section7_h2">Suivre &amp; contacter</span></h2>
+        <p data-i18n="section7_intro">Les meilleures façons de suivre les mises à jour du site et de nous contacter :</p>
         <div class="contact-row">
           <a href="https://twitter.com/RobertFrMoyen" target="_blank" rel="noopener" class="contact-btn contact-btn-x">
             𝕏 @RobertFrMoyen
@@ -280,17 +288,17 @@
             📧 Newsletter
           </a>
           <a href="/" class="contact-btn contact-btn-site" style="background:rgba(255,255,255,.05);border-color:var(--border);color:var(--muted)">
-            🏠 Accueil
+            🏠 <span data-i18n="btn_home">Accueil</span>
           </a>
         </div>
-        <p style="margin-top:16px">Pour signaler une erreur de données, suggérer une nouvelle thématique ou nous contacter, le plus simple est de nous écrire sur X / Twitter.</p>
+        <p style="margin-top:16px" data-i18n="section7_outro">Pour signaler une erreur de données, suggérer une nouvelle thématique ou nous contacter, le plus simple est de nous écrire sur X / Twitter.</p>
       </div>
 
     </div>
   </main>
 
   <footer style="text-align:center;padding:32px 24px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border)">
-    <p>© 2025 Le Français Moyen — Données issues de sources officielles publiques · <a href="/a-propos/" style="color:var(--muted)">À propos</a> · <a href="/questions/" style="color:var(--muted)">Questions</a></p>
+    <p data-i18n="footer_copy">© 2025 Le Français Moyen — Données issues de sources officielles publiques · <a href="/a-propos/" style="color:var(--muted)">À propos</a> · <a href="/questions/" style="color:var(--muted)">Questions</a></p>
   </footer>
 
   <script>
@@ -322,5 +330,145 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  hero_eyebrow:'Le projet',
+  hero_h1:'À propos de<br>Le Français Moyen',
+  hero_desc:"Rendre les données économiques officielles lisibles, accessibles et vérifiables par n'importe quel Français — sans jargon, sans parti pris.",
+  update_badge:'● Mis à jour en mai 2025',
+  kpi1_lbl:'pages de données interactives',
+  kpi2_lbl:'sources officielles croisées',
+  kpi3_lbl:'publicité ou financement partisan',
+  kpi4_lbl:'données publiques vérifiables',
+  section1_h2:'Pourquoi ce site existe',
+  section1_p1:"La France produit des données économiques d'une richesse remarquable : l'INSEE publie chaque trimestre des centaines d'indicateurs sur le niveau de vie, l'emploi, les prix. La Cour des Comptes détaille les dépenses publiques. Le COR modélise l'avenir des retraites à l'horizon 2070. L'OCDE compare nos performances à celles de 38 pays.",
+  section1_p2:'Ces données sont <strong>publiques, gratuites et rigoureuses</strong>. Elles sont pourtant rarement accessibles au grand public — noyées dans des rapports de 200 pages, présentées dans des tableaux illisibles, ou résumées par des médias qui en retiennent ce qui sert leur ligne éditoriale.',
+  section1_p3:"<strong>Le Français Moyen est né de cette frustration.</strong> L'idée est simple : prendre ces chiffres officiels, les visualiser clairement, les contextualiser avec des comparaisons internationales, et les rendre compréhensibles par n'importe qui — sans formation en économie nécessaire.",
+  section2_h2:'Notre démarche',
+  principle1_title:'Données officielles uniquement',
+  principle1_desc:"Chaque chiffre publié sur ce site est issu d'une source gouvernementale, européenne ou internationale vérifiable (INSEE, COR, DREES, OCDE, Eurostat, Banque de France, FMI…). Nous ne citons pas de think tanks, d'associations ou de médias comme source primaire.",
+  principle2_title:'Transparence totale des sources',
+  principle2_desc:"Chaque page indique ses sources en bas de page. Les données sont datées. Quand un chiffre est une estimation ou une projection, c'est explicitement indiqué.",
+  principle3_title:'Neutralité politique stricte',
+  principle3_desc:"Le site présente des faits, pas des opinions. Nous ne préconisons pas de politique économique particulière, ne soutenons aucun parti et n'évaluons pas les gouvernements. Les données sont ce qu'elles sont — à chacun d'en tirer ses propres conclusions.",
+  principle4_title:'Comparaison internationale systématique',
+  principle4_desc:"Un chiffre isolé ne veut rien dire. 340 milliards de masse salariale publique, c'est beaucoup ou peu ? La comparaison avec l'Allemagne, la Suède ou le Royaume-Uni donne la réponse. Chaque page inclut une mise en perspective européenne ou mondiale.",
+  principle5_title:'Mise à jour régulière',
+  principle5_desc:"Les données sont mises à jour à chaque publication des sources officielles. La date de dernière mise à jour est indiquée sur chaque page.",
+  section3_h2:"Ce que ce site n'est pas",
+  notpolitics_p1:"<strong>Le Français Moyen n'est pas un site politique.</strong> Les chiffres sur la dette, les fonctionnaires ou les retraites peuvent sembler à charge contre tel ou tel camp selon la grille de lecture. Ce n'est pas notre intention. Les mêmes données peuvent légitimement conduire à des conclusions très différentes selon les valeurs de chacun.",
+  notpolitics_p2:"Ce site ne milite pas pour la réduction de la dépense publique, ni pour son augmentation. Il ne milite pas pour ou contre une réforme particulière. <strong>Il milite pour que les Français aient accès aux faits</strong> — et décident eux-mêmes de ce qu'ils en font.",
+  section4_h2:'Nos sources principales',
+  section4_intro:"Voici les organismes dont nous utilisons régulièrement les données. Toutes sont des institutions publiques indépendantes ou des organisations internationales reconnues.",
+  src1_desc:"Comptes nationaux, niveau de vie, prix, emploi, démographie",
+  src2_desc:"Conseil d'Orientation des Retraites — rapports annuels et projections",
+  src3_desc:"Santé, protection sociale, dépenses de sécurité sociale",
+  src4_desc:"Fonction publique — effectifs, rémunérations, pensions",
+  src5_desc:"Dette publique, balance des paiements, taux d'intérêt",
+  src6_desc:"Comparaisons internationales éducation, santé, fiscalité, emploi",
+  src7_desc:"Statistiques de l'Union européenne — fiscalité, PIB, dette",
+  src8_desc:"Perspectives économiques mondiales, dette souveraine",
+  src9_desc:"Projets de loi de finances, rapports parlementaires",
+  src10_desc:"Rapports sur les finances publiques et les politiques publiques",
+  src11_desc:"Analyses prospectives, évaluations des politiques publiques",
+  src12_desc:"Programme d'évaluation internationale des élèves (tous les 3 ans)",
+  section5_h2:'Qui sommes-nous',
+  section5_p1:"<strong>Le Français Moyen</strong> est un projet indépendant de datajournalisme lancé en 2025. Il est développé et maintenu par une équipe réduite passionnée par la data et par la pédagogie économique.",
+  section5_p2:"Le projet fonctionne sans publicité, sans financement institutionnel et sans lien avec un parti politique ou un syndicat. Son financement repose uniquement sur le bouche-à-oreille et la communauté de lecteurs qui le soutiennent.",
+  section5_p3:"Nous opérons sous le nom de plume <strong>@RobertFrMoyen</strong> sur X / Twitter — un personnage fictif qui incarne ce Français moyen curieux de comprendre les chiffres qui structurent son quotidien.",
+  section6_h2:'Méthodologie technique',
+  section6_p1:"Les visualisations de données sont construites à partir de données brutes issues des sources listées ci-dessus. Les données sont saisies manuellement et vérifiées contre les publications officielles. Aucune donnée n'est interpolée ou estimée sans indication explicite.",
+  section6_p2:"Les <strong>projections</strong> (page Projections 2035, page Générations) sont des modèles paramétriques construits à partir des hypothèses publiées par le COR, le FMI et l'INSEE. Ils sont présentés comme des scénarios indicatifs, pas comme des prévisions.",
+  section6_p3:"Le simulateur Élections est basé sur les programmes officiels des candidats et les analyses publiées par des instituts économiques reconnus (OFCE, CAE). Il est présenté à titre pédagogique pour visualiser les ordres de grandeur — pas pour prédire l'avenir.",
+  section7_h2:'Suivre & contacter',
+  section7_intro:'Les meilleures façons de suivre les mises à jour du site et de nous contacter :',
+  btn_home:'Accueil',
+  section7_outro:"Pour signaler une erreur de données, suggérer une nouvelle thématique ou nous contacter, le plus simple est de nous écrire sur X / Twitter.",
+  footer_copy:'© 2025 Le Français Moyen — Données issues de sources officielles publiques · <a href="/a-propos/" style="color:var(--muted)">À propos</a> · <a href="/questions/" style="color:var(--muted)">Questions</a>'
+},
+en:{
+  nav_cta:'← Dashboard',
+  hero_eyebrow:'The project',
+  hero_h1:'About<br>The Average French',
+  hero_desc:'Making official economic data readable, accessible and verifiable for everyone — no jargon, no political bias.',
+  update_badge:'● Updated May 2025',
+  kpi1_lbl:'pages of interactive data',
+  kpi2_lbl:'cross-referenced official sources',
+  kpi3_lbl:'advertising or partisan funding',
+  kpi4_lbl:'verifiable public data',
+  section1_h2:'Why this site exists',
+  section1_p1:'France produces remarkably rich economic data: INSEE publishes hundreds of indicators every quarter on living standards, employment and prices. The Cour des Comptes details public spending. The COR models the future of pensions to 2070. The OECD benchmarks our performance against 38 countries.',
+  section1_p2:'This data is <strong>public, free and rigorous</strong>. Yet it rarely reaches the general public — buried in 200-page reports, presented in unreadable tables, or summarised by media outlets that cherry-pick what suits their editorial line.',
+  section1_p3:'<strong>Le Français Moyen was born from this frustration.</strong> The idea is simple: take these official figures, visualise them clearly, put them in context with international comparisons, and make them understandable to anyone — no economics degree required.',
+  section2_h2:'Our approach',
+  principle1_title:'Official data only',
+  principle1_desc:'Every figure published on this site comes from a verifiable governmental, European or international source (INSEE, COR, DREES, OECD, Eurostat, Banque de France, IMF…). We do not cite think tanks, associations or media outlets as primary sources.',
+  principle2_title:'Full source transparency',
+  principle2_desc:'Every page lists its sources at the bottom. Data is dated. When a figure is an estimate or projection, this is explicitly stated.',
+  principle3_title:'Strict political neutrality',
+  principle3_desc:'The site presents facts, not opinions. We do not advocate any particular economic policy, support any party or evaluate governments. The data is what it is — each reader draws their own conclusions.',
+  principle4_title:'Systematic international comparison',
+  principle4_desc:'An isolated figure means nothing. Is €340 billion in public sector wages a lot or a little? The comparison with Germany, Sweden or the United Kingdom provides the answer. Every page includes a European or global perspective.',
+  principle5_title:'Regular updates',
+  principle5_desc:'Data is updated with each publication from official sources. The date of last update is shown on every page.',
+  section3_h2:'What this site is not',
+  notpolitics_p1:"<strong>Le Français Moyen is not a political site.</strong> Figures on debt, civil servants or pensions may appear partisan depending on one's reading. That is not our intention. The same data can legitimately lead to very different conclusions depending on each person's values.",
+  notpolitics_p2:'This site does not advocate cutting public spending, nor increasing it. It does not campaign for or against any particular reform. <strong>It campaigns for French citizens to have access to the facts</strong> — and to decide for themselves what to make of them.',
+  section4_h2:'Our main sources',
+  section4_intro:'These are the organisations whose data we regularly use. All are independent public institutions or recognised international organisations.',
+  src1_desc:'National accounts, living standards, prices, employment, demographics',
+  src2_desc:'Pensions Advisory Council — annual reports and projections',
+  src3_desc:'Health, social protection, social security expenditure',
+  src4_desc:'Civil service — headcounts, pay, pensions',
+  src5_desc:'Public debt, balance of payments, interest rates',
+  src6_desc:'International comparisons: education, health, taxation, employment',
+  src7_desc:'European Union statistics — taxation, GDP, debt',
+  src8_desc:'World Economic Outlook, sovereign debt',
+  src9_desc:'Finance bills, parliamentary reports',
+  src10_desc:'Reports on public finances and public policy',
+  src11_desc:'Prospective analyses, public policy evaluations',
+  src12_desc:'Programme for International Student Assessment (every 3 years)',
+  section5_h2:'Who we are',
+  section5_p1:'<strong>Le Français Moyen</strong> is an independent data journalism project launched in 2025. It is developed and maintained by a small team passionate about data and economic literacy.',
+  section5_p2:'The project operates without advertising, without institutional funding and without ties to any political party or trade union. It is funded solely by word of mouth and the community of readers who support it.',
+  section5_p3:'We operate under the pen name <strong>@RobertFrMoyen</strong> on X / Twitter — a fictional character embodying the average French citizen who is curious to understand the figures that shape everyday life.',
+  section6_h2:'Technical methodology',
+  section6_p1:'Data visualisations are built from raw data drawn from the sources listed above. Data is entered manually and verified against official publications. No data is interpolated or estimated without explicit indication.',
+  section6_p2:'<strong>Projections</strong> (2035 Projections page, Generations page) are parametric models built from assumptions published by the COR, IMF and INSEE. They are presented as indicative scenarios, not forecasts.',
+  section6_p3:'The Election simulator is based on official candidate platforms and analyses published by recognised economic institutes (OFCE, CAE). It is presented for educational purposes to visualise orders of magnitude — not to predict the future.',
+  section7_h2:'Follow & contact',
+  section7_intro:'The best ways to follow site updates and get in touch:',
+  btn_home:'Home',
+  section7_outro:'To report a data error, suggest a new topic or contact us, the easiest way is to write to us on X / Twitter.',
+  footer_copy:'© 2025 Le Français Moyen — Data from official public sources · <a href="/a-propos/" style="color:var(--muted)">About</a> · <a href="/questions/" style="color:var(--muted)">Questions</a>'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'À propos — Le Français Moyen | Méthodologie, sources et démarche'
+    :'About — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Qui sommes-nous, pourquoi ce site, comment nous travaillons. Méthodologie, sources officielles utilisées et principes éditoriaux de Le Français Moyen."
+    :'Who we are, why this site exists, how we work. Methodology, official sources used and editorial principles of Le Français Moyen.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

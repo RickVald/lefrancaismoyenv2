@@ -6,6 +6,9 @@
   <title>Le millefeuille réglementaire — Volume de normes en France — Le Français Moyen</title>
   <meta name="description" content="La France a multiplié par 14 son volume réglementaire depuis 1950. ~400 000 normes en vigueur, 46 000 actes européens. Comparatif OCDE : les pays les moins réglementés croissent deux fois plus vite.">
   <link rel="canonical" href="https://le-francais-moyen.com/normes/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/normes/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/normes/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/normes/">
   <meta property="og:title" content="Le millefeuille réglementaire — ×14 depuis 1950">
   <meta property="og:description" content="~400 000 normes en vigueur en France. Les pays les moins réglementés (Danemark, Pays-Bas) croissent 2× plus vite. La corrélation est accablante.">
   <meta property="og:url" content="https://le-francais-moyen.com/normes/">
@@ -85,8 +88,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Accueil</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Accueil</a>
     </div>
   </header>
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -113,15 +120,15 @@
 
   <main id="contenu">
     <div class="nrm-hero">
-      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <span>Millefeuille réglementaire</span></nav>
-      <div class="eyebrow">Données DILA · OCDE · EUR-Lex · CNEN · 2024</div>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">Le millefeuille réglementaire</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_current">Millefeuille réglementaire</span></nav>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Données DILA · OCDE · EUR-Lex · CNEN · 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="hero_h1">Le millefeuille réglementaire</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_intro">
         La France produit <strong style="color:#f97316">~10 000 textes réglementaires par an</strong>.<br>
         Les pays qui réglementent le moins <strong style="color:#63d471">croissent deux fois plus vite</strong>.
       </p>
       <div class="nrm-big">×14</div>
-      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">textes publiés au Journal Officiel en 2023 vs 1950</p>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0" data-i18n="hero_sub">textes publiés au Journal Officiel en 2023 vs 1950</p>
     </div>
 
     <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
@@ -129,13 +136,13 @@
       <!-- ── Intro SEO ──────────────────────────────────────────── -->
       <div style="max-width:1000px;margin:0 auto 40px;padding:0">
         <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.15);border-radius:16px;padding:24px 28px">
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px">
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.8;margin:0 0 16px" data-i18n="intro_text">
             La France cumule plus de <strong style="color:#f87171">400 000 normes</strong> applicables aux entreprises, avec +15 000 textes nouveaux par an. Coût estimé : 3 à 4 % du PIB. La France est classée 26e/38 à l'OCDE pour la simplicité réglementaire.
           </p>
           <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <a href="/questions/pourquoi-la-france-a-t-elle-autant-de-normes" style="display:inline-flex;align-items:center;gap:5px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f87171;text-decoration:none;font-weight:600">❓ Pourquoi autant de normes ? →</a>
-            <a href="/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve" style="display:inline-flex;align-items:center;gap:5px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f87171;text-decoration:none;font-weight:600">❓ Chômage structurel élevé ? →</a>
-            <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france" style="display:inline-flex;align-items:center;gap:5px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f87171;text-decoration:none;font-weight:600">❓ Combien coûte un salarié ? →</a>
+            <a href="/questions/pourquoi-la-france-a-t-elle-autant-de-normes" style="display:inline-flex;align-items:center;gap:5px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f87171;text-decoration:none;font-weight:600" data-i18n="link_why_norms">❓ Pourquoi autant de normes ? →</a>
+            <a href="/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve" style="display:inline-flex;align-items:center;gap:5px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f87171;text-decoration:none;font-weight:600" data-i18n="link_unemployment">❓ Chômage structurel élevé ? →</a>
+            <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france" style="display:inline-flex;align-items:center;gap:5px;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#f87171;text-decoration:none;font-weight:600" data-i18n="link_employee_cost">❓ Combien coûte un salarié ? →</a>
           </div>
         </div>
       </div>
@@ -144,63 +151,63 @@
       <div class="nrm-kpi">
         <div class="nrm-kpi-card">
           <span class="val" style="color:#f97316">~400 000</span>
-          <span class="lbl">normes en vigueur en France<br>(État + UE + collectivités · CNEN)</span>
+          <span class="lbl" data-i18n="kpi1_lbl">normes en vigueur en France<br>(État + UE + collectivités · CNEN)</span>
         </div>
         <div class="nrm-kpi-card">
           <span class="val" style="color:#ff6b6b">~10 000</span>
-          <span class="lbl">textes publiés au JO en 2023<br>(lois, décrets, arrêtés, circulaires)</span>
+          <span class="lbl" data-i18n="kpi2_lbl">textes publiés au JO en 2023<br>(lois, décrets, arrêtés, circulaires)</span>
         </div>
         <div class="nrm-kpi-card">
           <span class="val" style="color:#a78bfa">~46 000</span>
-          <span class="lbl">actes européens en vigueur<br>(EUR-Lex 2024, +1 500 % depuis 1970)</span>
+          <span class="lbl" data-i18n="kpi3_lbl">actes européens en vigueur<br>(EUR-Lex 2024, +1 500 % depuis 1970)</span>
         </div>
         <div class="nrm-kpi-card">
           <span class="val" style="color:#5dd6c5">~3–4 %</span>
-          <span class="lbl">du PIB : coût de mise en conformité<br>réglementaire pour les entreprises (OCDE)</span>
+          <span class="lbl" data-i18n="kpi4_lbl">du PIB : coût de mise en conformité<br>réglementaire pour les entreprises (OCDE)</span>
         </div>
       </div>
 
       <!-- ── Croissance JO ──────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px">Textes publiés au Journal Officiel depuis 1950</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Lois, décrets, arrêtés, circulaires — production réglementaire nationale. Hors actes européens transposés.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 6px" data-i18n="jo_h2">Textes publiés au Journal Officiel depuis 1950</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="jo_desc">Lois, décrets, arrêtés, circulaires — production réglementaire nationale. Hors actes européens transposés.</p>
       <div class="chart-wrap">
         <canvas id="joChart" height="200"></canvas>
       </div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Sources : DILA (Direction de l'information légale et administrative), Legifrance, Conseil d'État — rapports annuels.</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px" data-i18n="jo_source">Sources : DILA (Direction de l'information légale et administrative), Legifrance, Conseil d'État — rapports annuels.</p>
 
       <!-- ── Code du travail ────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 10px">Exemple : le Code du travail</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Le Code du travail est l'exemple le plus cité. Initialement ~600 articles en 1910, il dépasse aujourd'hui <strong style="color:#fff">10 500 articles</strong> (L + R + D) — hors accords de branche et conventions collectives.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 10px" data-i18n="cdt_h2">Exemple : le Code du travail</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="cdt_desc">Le Code du travail est l'exemple le plus cité. Initialement ~600 articles en 1910, il dépasse aujourd'hui <strong style="color:#fff">10 500 articles</strong> (L + R + D) — hors accords de branche et conventions collectives.</p>
       <div id="cdtBars"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">* La recodification de 2008 a restructuré sans supprimer ; le nombre réel d'obligations a continué d'augmenter.</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px" data-i18n="cdt_note">* La recodification de 2008 a restructuré sans supprimer ; le nombre réel d'obligations a continué d'augmenter.</p>
 
       <!-- ── Empilement européen ────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px">L'empilement européen en sus</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px">Au corpus national s'ajoutent les actes européens directement applicables (règlements) ou à transposer (directives). Le stock d'actes en vigueur à Bruxelles a été multiplié par <strong style="color:#a78bfa">×15 depuis 1970</strong>.</p>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="eu_h2">L'empilement européen en sus</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="eu_desc">Au corpus national s'ajoutent les actes européens directement applicables (règlements) ou à transposer (directives). Le stock d'actes en vigueur à Bruxelles a été multiplié par <strong style="color:#a78bfa">×15 depuis 1970</strong>.</p>
       <div id="euBars"></div>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:8px">Source : EUR-Lex, base de données officielle du droit de l'Union européenne. Actes en vigueur toutes catégories.</p>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px" data-i18n="eu_source">Source : EUR-Lex, base de données officielle du droit de l'Union européenne. Actes en vigueur toutes catégories.</p>
 
       <!-- ── Comparatif OCDE ─────────────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px">La corrélation qui dérange : PMR vs croissance</h2>
-      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px">
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="pmr_h2">La corrélation qui dérange : PMR vs croissance</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px" data-i18n="pmr_desc">
         L'<strong style="color:#fff">Indice PMR de l'OCDE</strong> (<em>Product Market Regulation</em>) mesure la lourdeur réglementaire sur les marchés (0 = libre, 6 = hyper-réglementé). Croisé avec la croissance réelle du PIB/habitant sur 2015–2022, le message est sans ambiguïté.
       </p>
       <div class="pmr-grid">
         <div>
-          <div class="pmr-col-title">⛓️ LOURDEUR RÉGLEMENTAIRE (PMR OCDE 2018)<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Plus la barre est longue = plus c'est réglementé</span></div>
+          <div class="pmr-col-title" data-i18n="pmr_col_title">⛓️ LOURDEUR RÉGLEMENTAIRE (PMR OCDE 2018)<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Plus la barre est longue = plus c'est réglementé</span></div>
           <div id="pmrBars"></div>
         </div>
         <div>
-          <div class="pmr-col-title">📈 CROISSANCE PIB/HABITANT RÉELLE 2015–2022<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Plus la barre est longue = plus le pays a prospéré</span></div>
+          <div class="pmr-col-title" data-i18n="gdp_col_title">📈 CROISSANCE PIB/HABITANT RÉELLE 2015–2022<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Plus la barre est longue = plus le pays a prospéré</span></div>
           <div id="gdpBars"></div>
         </div>
       </div>
-      <p style="font-size:.75rem;color:var(--muted);margin-top:4px">Sources : OCDE — PMR indicator 2018 (dernière édition complète) · Banque mondiale — PIB/habitant PPA constant 2015–2022.</p>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:4px" data-i18n="pmr_source">Sources : OCDE — PMR indicator 2018 (dernière édition complète) · Banque mondiale — PIB/habitant PPA constant 2015–2022.</p>
 
       <!-- ── Verdict ────────────────────────────────────────────── -->
       <div class="nrm-verdict">
-        <div style="font-size:.8rem;font-weight:800;color:#f97316;letter-spacing:.06em;margin-bottom:10px">⚖️ CE QUE LES DONNÉES DISENT</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0">
+        <div style="font-size:.8rem;font-weight:800;color:#f97316;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_eyebrow">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_text">
           Le Danemark et les Pays-Bas — les deux pays de l'UE les moins réglementés selon l'OCDE — ont crû
           <strong style="color:#63d471">2× plus vite</strong> que la France sur 2015–2022 (+17 % vs +9 %). La France et l'Italie, en haut du classement PMR, sont les lanternes rouges de croissance. Ce n'est pas une coïncidence : chaque norme supplémentaire représente un coût de mise en conformité, un frein à l'embauche, un obstacle à la création d'entreprise. La Commission européenne elle-même estime que réduire les barrières réglementaires de 25 % augmenterait le PIB européen de
           <strong style="color:#f97316">+1,5 point</strong> à l'horizon 2030.
@@ -208,34 +215,34 @@
       </div>
 
       <!-- ── Qui produit les normes ──────────────────────────────── -->
-      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 12px">D'où viennent les ~400 000 normes ?</h2>
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 12px" data-i18n="origins_h2">D'où viennent les ~400 000 normes ?</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px">
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
           <div style="font-size:1.4rem;margin-bottom:6px">🇫🇷</div>
-          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">État central</div>
-          <div style="font-size:.78rem;color:var(--muted);line-height:1.5">Lois, ordonnances, décrets, arrêtés ministériels. ~3 500 textes/an. Code du travail, Code civil, CGI...</div>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px" data-i18n="origin1_title">État central</div>
+          <div style="font-size:.78rem;color:var(--muted);line-height:1.5" data-i18n="origin1_text">Lois, ordonnances, décrets, arrêtés ministériels. ~3 500 textes/an. Code du travail, Code civil, CGI...</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
           <div style="font-size:1.4rem;margin-bottom:6px">🇪🇺</div>
-          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">Union européenne</div>
-          <div style="font-size:.78rem;color:var(--muted);line-height:1.5">~80 % des normes économiques et environnementales. Règlements d'application directe + directives à transposer.</div>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px" data-i18n="origin2_title">Union européenne</div>
+          <div style="font-size:.78rem;color:var(--muted);line-height:1.5" data-i18n="origin2_text">~80 % des normes économiques et environnementales. Règlements d'application directe + directives à transposer.</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
           <div style="font-size:1.4rem;margin-bottom:6px">🏙️</div>
-          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">Collectivités</div>
-          <div style="font-size:.78rem;color:var(--muted);line-height:1.5">Communes, EPCI, départements, régions. ~160 000 normes spécifiques (PLU, règlements locaux, arrêtés...).</div>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px" data-i18n="origin3_title">Collectivités</div>
+          <div style="font-size:.78rem;color:var(--muted);line-height:1.5" data-i18n="origin3_text">Communes, EPCI, départements, régions. ~160 000 normes spécifiques (PLU, règlements locaux, arrêtés...).</div>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px">
           <div style="font-size:1.4rem;margin-bottom:6px">🏛️</div>
-          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px">Autorités indépendantes</div>
-          <div style="font-size:.78rem;color:var(--muted);line-height:1.5">ACPR, AMF, ARCEP, Arcom, ANS... ~400 autorités productrices de normes sectorielles.</div>
+          <div style="font-weight:800;font-size:.9rem;margin-bottom:4px" data-i18n="origin4_title">Autorités indépendantes</div>
+          <div style="font-size:.78rem;color:var(--muted);line-height:1.5" data-i18n="origin4_text">ACPR, AMF, ARCEP, Arcom, ANS... ~400 autorités productrices de normes sectorielles.</div>
         </div>
       </div>
 
       <!-- ── Note honnête ────────────────────────────────────────── -->
       <div class="nrm-note">
-        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px">📌 NOTE HONNÊTE</div>
-        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px" data-i18n="note_eyebrow">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0" data-i18n="note_text">
           Toutes les normes ne se valent pas : une réglementation sur la sécurité alimentaire ou la qualité de l'air n'est pas équivalente à une obligation déclarative administrative. La corrélation PMR/croissance ne prouve pas la causalité — des pays comme le Danemark combinent forte protection sociale <em>et</em> faible réglementation des marchés. Ce que l'OCDE mesure, c'est la <strong style="color:#fff">complexité administrative et les barrières à l'entrée</strong>, non la protection des travailleurs ou de l'environnement. Le problème français n'est pas d'avoir des normes, c'est d'en produire <strong style="color:#fff">sans jamais en supprimer</strong>.
         </p>
       </div>
@@ -243,7 +250,7 @@
       <!-- ── Sources ────────────────────────────────────────────── -->
       <div style="border-top:1px solid var(--border);padding-top:20px">
         <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
-          <strong style="color:var(--text)">Sources :</strong>
+          <span data-i18n="sources_text"><strong style="color:var(--text)">Sources :</strong>
           DILA / Legifrance — statistiques annuelles du Journal Officiel ·
           Conseil d'État — rapport annuel 2023 "Simplification et qualité du droit" ·
           CNEN (Commission nationale d'évaluation des normes) — rapport 2022 ·
@@ -251,19 +258,19 @@
           EUR-Lex — base de données droit UE (actes en vigueur) ·
           Banque mondiale — WDI, PIB/habitant PPA constant ·
           Commission européenne — rapport sur le coût réglementaire 2023 ·
-          iFRAP — "Le poids des normes en France" 2021
+          iFRAP — "Le poids des normes en France" 2021</span>
         </div>
       </div>
 
       <div style="text-align:center;margin-top:28px">
-        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+France+a+multipli%C3%A9+par+14+son+volume+r%C3%A9glementaire+depuis+1950.+Les+pays+les+moins+r%C3%A9glement%C3%A9s+(Danemark%2C+Pays-Bas)+croissent+2%C3%97+plus+vite.+Les+donn%C3%A9es+OCDE+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fnormes%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+France+a+multipli%C3%A9+par+14+son+volume+r%C3%A9glementaire+depuis+1950.+Les+pays+les+moins+r%C3%A9glement%C3%A9s+(Danemark%2C+Pays-Bas)+croissent+2%C3%97+plus+vite.+Les+donn%C3%A9es+OCDE+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fnormes%2F" target="_blank" rel="noopener" data-i18n="share_btn">𝕏 Partager</a>
       </div>
     </div>
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : OCDE · EUR-Lex · DILA · CNEN</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : OCDE · EUR-Lex · DILA · CNEN</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -461,6 +468,127 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Accueil',
+  breadcrumb_home:'Accueil',
+  breadcrumb_current:'Millefeuille réglementaire',
+  hero_eyebrow:'Données DILA · OCDE · EUR-Lex · CNEN · 2024',
+  hero_h1:'Le millefeuille réglementaire',
+  hero_intro:'La France produit <strong style="color:#f97316">~10 000 textes réglementaires par an</strong>.<br>Les pays qui réglementent le moins <strong style="color:#63d471">croissent deux fois plus vite</strong>.',
+  hero_sub:'textes publiés au Journal Officiel en 2023 vs 1950',
+  intro_text:'La France cumule plus de <strong style="color:#f87171">400 000 normes</strong> applicables aux entreprises, avec +15 000 textes nouveaux par an. Coût estimé : 3 à 4 % du PIB. La France est classée 26e/38 à l\'OCDE pour la simplicité réglementaire.',
+  link_why_norms:'❓ Pourquoi autant de normes ? →',
+  link_unemployment:'❓ Chômage structurel élevé ? →',
+  link_employee_cost:'❓ Combien coûte un salarié ? →',
+  kpi1_lbl:'normes en vigueur en France<br>(État + UE + collectivités · CNEN)',
+  kpi2_lbl:'textes publiés au JO en 2023<br>(lois, décrets, arrêtés, circulaires)',
+  kpi3_lbl:'actes européens en vigueur<br>(EUR-Lex 2024, +1 500 % depuis 1970)',
+  kpi4_lbl:'du PIB : coût de mise en conformité<br>réglementaire pour les entreprises (OCDE)',
+  jo_h2:'Textes publiés au Journal Officiel depuis 1950',
+  jo_desc:'Lois, décrets, arrêtés, circulaires — production réglementaire nationale. Hors actes européens transposés.',
+  jo_source:'Sources : DILA (Direction de l\'information légale et administrative), Legifrance, Conseil d\'État — rapports annuels.',
+  cdt_h2:'Exemple : le Code du travail',
+  cdt_desc:'Le Code du travail est l\'exemple le plus cité. Initialement ~600 articles en 1910, il dépasse aujourd\'hui <strong style="color:#fff">10 500 articles</strong> (L + R + D) — hors accords de branche et conventions collectives.',
+  cdt_note:'* La recodification de 2008 a restructuré sans supprimer ; le nombre réel d\'obligations a continué d\'augmenter.',
+  eu_h2:'L\'empilement européen en sus',
+  eu_desc:'Au corpus national s\'ajoutent les actes européens directement applicables (règlements) ou à transposer (directives). Le stock d\'actes en vigueur à Bruxelles a été multiplié par <strong style="color:#a78bfa">×15 depuis 1970</strong>.',
+  eu_source:'Source : EUR-Lex, base de données officielle du droit de l\'Union européenne. Actes en vigueur toutes catégories.',
+  pmr_h2:'La corrélation qui dérange : PMR vs croissance',
+  pmr_desc:'L\'<strong style="color:#fff">Indice PMR de l\'OCDE</strong> (<em>Product Market Regulation</em>) mesure la lourdeur réglementaire sur les marchés (0 = libre, 6 = hyper-réglementé). Croisé avec la croissance réelle du PIB/habitant sur 2015–2022, le message est sans ambiguïté.',
+  pmr_col_title:'⛓️ LOURDEUR RÉGLEMENTAIRE (PMR OCDE 2018)<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Plus la barre est longue = plus c\'est réglementé</span>',
+  gdp_col_title:'📈 CROISSANCE PIB/HABITANT RÉELLE 2015–2022<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Plus la barre est longue = plus le pays a prospéré</span>',
+  pmr_source:'Sources : OCDE — PMR indicator 2018 (dernière édition complète) · Banque mondiale — PIB/habitant PPA constant 2015–2022.',
+  verdict_eyebrow:'⚖️ CE QUE LES DONNÉES DISENT',
+  verdict_text:'Le Danemark et les Pays-Bas — les deux pays de l\'UE les moins réglementés selon l\'OCDE — ont crû <strong style="color:#63d471">2× plus vite</strong> que la France sur 2015–2022 (+17 % vs +9 %). La France et l\'Italie, en haut du classement PMR, sont les lanternes rouges de croissance. Ce n\'est pas une coïncidence : chaque norme supplémentaire représente un coût de mise en conformité, un frein à l\'embauche, un obstacle à la création d\'entreprise. La Commission européenne elle-même estime que réduire les barrières réglementaires de 25 % augmenterait le PIB européen de <strong style="color:#f97316">+1,5 point</strong> à l\'horizon 2030.',
+  origins_h2:'D\'où viennent les ~400 000 normes ?',
+  origin1_title:'État central',
+  origin1_text:'Lois, ordonnances, décrets, arrêtés ministériels. ~3 500 textes/an. Code du travail, Code civil, CGI...',
+  origin2_title:'Union européenne',
+  origin2_text:'~80 % des normes économiques et environnementales. Règlements d\'application directe + directives à transposer.',
+  origin3_title:'Collectivités',
+  origin3_text:'Communes, EPCI, départements, régions. ~160 000 normes spécifiques (PLU, règlements locaux, arrêtés...).',
+  origin4_title:'Autorités indépendantes',
+  origin4_text:'ACPR, AMF, ARCEP, Arcom, ANS... ~400 autorités productrices de normes sectorielles.',
+  note_eyebrow:'📌 NOTE HONNÊTE',
+  note_text:'Toutes les normes ne se valent pas : une réglementation sur la sécurité alimentaire ou la qualité de l\'air n\'est pas équivalente à une obligation déclarative administrative. La corrélation PMR/croissance ne prouve pas la causalité — des pays comme le Danemark combinent forte protection sociale <em>et</em> faible réglementation des marchés. Ce que l\'OCDE mesure, c\'est la <strong style="color:#fff">complexité administrative et les barrières à l\'entrée</strong>, non la protection des travailleurs ou de l\'environnement. Le problème français n\'est pas d\'avoir des normes, c\'est d\'en produire <strong style="color:#fff">sans jamais en supprimer</strong>.',
+  sources_text:'<strong style="color:var(--text)">Sources :</strong> DILA / Legifrance — statistiques annuelles du Journal Officiel · Conseil d\'État — rapport annuel 2023 "Simplification et qualité du droit" · CNEN (Commission nationale d\'évaluation des normes) — rapport 2022 · OCDE — Product Market Regulation indicator 2018 · EUR-Lex — base de données droit UE (actes en vigueur) · Banque mondiale — WDI, PIB/habitant PPA constant · Commission européenne — rapport sur le coût réglementaire 2023 · iFRAP — "Le poids des normes en France" 2021',
+  share_btn:'𝕏 Partager',
+  footer_copy:'© 2026 Le Français Moyen — Données : OCDE · EUR-Lex · DILA · CNEN',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Home',
+  breadcrumb_home:'Home',
+  breadcrumb_current:'Regulatory Burden',
+  hero_eyebrow:'Data: DILA · OECD · EUR-Lex · CNEN · 2024',
+  hero_h1:"France's Regulatory Millefeuille",
+  hero_intro:'France produces <strong style="color:#f97316">~10,000 regulatory texts per year</strong>.<br>The least-regulated countries <strong style="color:#63d471">grow twice as fast</strong>.',
+  hero_sub:'texts published in the Official Journal in 2023 vs 1950',
+  intro_text:'France has accumulated over <strong style="color:#f87171">400,000 applicable regulations</strong> for businesses, with +15,000 new texts per year. Estimated cost: 3 to 4% of GDP. France ranks 26th out of 38 in the OECD for regulatory simplicity.',
+  link_why_norms:'❓ Why so many regulations? →',
+  link_unemployment:'❓ High structural unemployment? →',
+  link_employee_cost:'❓ How much does an employee cost? →',
+  kpi1_lbl:'active regulations in France<br>(State + EU + local authorities · CNEN)',
+  kpi2_lbl:'texts published in the Official Journal in 2023<br>(laws, decrees, orders, circulars)',
+  kpi3_lbl:'EU acts in force<br>(EUR-Lex 2024, +1,500% since 1970)',
+  kpi4_lbl:'of GDP: compliance cost<br>for businesses (OECD estimate)',
+  jo_h2:'Texts published in the Official Journal since 1950',
+  jo_desc:'Laws, decrees, orders, circulars — national regulatory output. Excluding transposed EU acts.',
+  jo_source:'Sources: DILA (French Legal Information Directorate), Legifrance, Conseil d\'État — annual reports.',
+  cdt_h2:'Example: the French Labour Code',
+  cdt_desc:'The Labour Code is the most-cited example. Starting with ~600 articles in 1910, it now exceeds <strong style="color:#fff">10,500 articles</strong> (L + R + D) — excluding collective agreements and sector-level deals.',
+  cdt_note:'* The 2008 recodification restructured without removing; the actual number of obligations continued to rise.',
+  eu_h2:'The EU layer on top',
+  eu_desc:'On top of national law come EU acts that are directly applicable (regulations) or must be transposed (directives). The stock of acts in force in Brussels has been multiplied by <strong style="color:#a78bfa">×15 since 1970</strong>.',
+  eu_source:'Source: EUR-Lex, official database of EU law. All categories of acts in force.',
+  pmr_h2:'The inconvenient correlation: PMR vs growth',
+  pmr_desc:'The <strong style="color:#fff">OECD PMR Index</strong> (<em>Product Market Regulation</em>) measures regulatory burden in markets (0 = free, 6 = hyper-regulated). Cross-referenced with real GDP-per-capita growth 2015–2022, the message is unambiguous.',
+  pmr_col_title:'⛓️ REGULATORY BURDEN (OECD PMR 2018)<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Longer bar = more regulated</span>',
+  gdp_col_title:'📈 REAL GDP/CAPITA GROWTH 2015–2022<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Longer bar = more prosperity</span>',
+  pmr_source:'Sources: OECD — PMR indicator 2018 (latest complete edition) · World Bank — GDP/capita PPP constant 2015–2022.',
+  verdict_eyebrow:'⚖️ WHAT THE DATA SAY',
+  verdict_text:'Denmark and the Netherlands — the two least-regulated EU countries according to the OECD — grew <strong style="color:#63d471">twice as fast</strong> as France over 2015–2022 (+17% vs +9%). France and Italy, at the top of the PMR ranking, are the growth laggards. This is no coincidence: each additional regulation represents a compliance cost, a hiring barrier, an obstacle to entrepreneurship. The European Commission itself estimates that reducing regulatory barriers by 25% would boost European GDP by <strong style="color:#f97316">+1.5 points</strong> by 2030.',
+  origins_h2:'Where do the ~400,000 regulations come from?',
+  origin1_title:'Central government',
+  origin1_text:'Laws, ordinances, decrees, ministerial orders. ~3,500 texts/year. Labour Code, Civil Code, Tax Code...',
+  origin2_title:'European Union',
+  origin2_text:'~80% of economic and environmental regulations. Directly applicable regulations + directives to be transposed.',
+  origin3_title:'Local authorities',
+  origin3_text:'Municipalities, inter-municipal bodies, departments, regions. ~160,000 specific regulations (land-use plans, local rules, orders...).',
+  origin4_title:'Independent regulators',
+  origin4_text:'ACPR, AMF, ARCEP, Arcom, ANS... ~400 bodies producing sector-specific regulations.',
+  note_eyebrow:'📌 HONEST NOTE',
+  note_text:'Not all regulations are equal: food safety rules or air quality standards are not the same as administrative reporting obligations. The PMR/growth correlation does not prove causation — countries like Denmark combine strong social protection <em>and</em> low market regulation. What the OECD measures is <strong style="color:#fff">administrative complexity and barriers to entry</strong>, not worker or environmental protection. France\'s problem is not having regulations — it\'s producing them <strong style="color:#fff">without ever repealing any</strong>.',
+  sources_text:'<strong style="color:var(--text)">Sources:</strong> DILA / Legifrance — Official Journal annual statistics · Conseil d\'État — 2023 annual report "Simplification and Quality of Law" · CNEN (National Commission for the Evaluation of Norms) — 2022 report · OECD — Product Market Regulation indicator 2018 · EUR-Lex — EU law database (acts in force) · World Bank — WDI, GDP/capita PPP constant · European Commission — regulatory cost report 2023 · iFRAP — "The Weight of Regulations in France" 2021',
+  share_btn:'𝕏 Share',
+  footer_copy:'© 2026 Le Français Moyen — Data: OECD · EUR-Lex · DILA · CNEN',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Le millefeuille réglementaire — Volume de normes en France — Le Français Moyen'
+    :"France's Regulatory Burden — ×14 since 1950 — The Average French";
+  var d=document.querySelector('meta[name="description"]');
+  if(d)d.setAttribute('content',l==='fr'
+    ?'La France a multiplié par 14 son volume réglementaire depuis 1950. ~400 000 normes en vigueur, 46 000 actes européens. Comparatif OCDE : les pays les moins réglementés croissent deux fois plus vite.'
+    :"France has multiplied its regulatory volume by 14 since 1950. ~400,000 active norms, 46,000 EU acts. OECD comparison: least-regulated countries grow twice as fast.");
+}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

@@ -6,6 +6,9 @@
   <title>Simulateur retraite : répartition vs capitalisation — Le Français Moyen</title>
   <meta name="description" content="Simulez votre pension par répartition et comparez-la à ce que vous toucheriez si vos cotisations retraite étaient investies (livret, obligations, SCPI, bourse). Calcul basé sur les vrais taux de cotisations 2024.">
   <link rel="canonical" href="https://le-francais-moyen.com/retraite-simulateur/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/retraite-simulateur/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/retraite-simulateur/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/retraite-simulateur/">
   <meta property="og:title" content="Simulateur retraite : répartition vs capitalisation">
   <meta property="og:description" content="Et si vos cotisations retraite étaient investies pour vous ? Comparez votre future pension par répartition à une rente par capitalisation (livret, bourse, SCPI).">
   <meta property="og:url" content="https://le-francais-moyen.com/retraite-simulateur/">
@@ -173,9 +176,13 @@
           <li><a href="/sante/">🏥 Santé</a></li>
           <li><a href="/questions/">❓ Questions</a></li>
           <li><a href="/a-propos/">À propos</a></li>
-          <li><a href="/#newsletter" class="cta">📧 Newsletter</a></li>
+          <li><a href="/#newsletter" class="cta" data-i18n="nav_cta">📧 Newsletter</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
@@ -195,10 +202,10 @@
 
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <div class="sim-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/retraites/">Retraites</a> › <span>Simulateur</span></nav>
-      <div class="sim-eyebrow">Simulation · Données CNAV · AGIRC-ARRCO · 2024</div>
-      <h1 style="font-size:clamp(1.5rem,3.5vw,2.4rem);max-width:680px;margin:8px auto 14px">Votre retraite par répartition<br>vs par capitalisation</h1>
-      <p style="color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.7">
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/retraites/" data-i18n="breadcrumb_retraites">Retraites</a> › <span data-i18n="breadcrumb_current">Simulateur</span></nav>
+      <div class="sim-eyebrow" data-i18n="hero_eyebrow">Simulation · Données CNAV · AGIRC-ARRCO · 2024</div>
+      <h1 style="font-size:clamp(1.5rem,3.5vw,2.4rem);max-width:680px;margin:8px auto 14px" data-i18n="hero_h1">Votre retraite par répartition<br>vs par capitalisation</h1>
+      <p style="color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto;line-height:1.7" data-i18n="hero_sub">
         Entrez votre salaire net et votre âge de début de carrière.<br>
         Nous calculons votre pension <em>et</em> ce que vous toucheriez si vos<br>cotisations retraite avaient été investies à votre place.
       </p>
@@ -208,39 +215,39 @@
     <div class="sim-form">
       <div class="sim-inputs">
         <div class="sim-field">
-          <label>Salaire net mensuel</label>
+          <label data-i18n="field_salary">Salaire net mensuel</label>
           <input type="number" id="salary" placeholder="ex : 2 500" min="500" max="30000" step="100">
         </div>
         <div class="sim-field">
-          <label>Âge de début de travail</label>
+          <label data-i18n="field_age_start">Âge de début de travail</label>
           <input type="number" id="ageStart" placeholder="ex : 22" min="14" max="40" step="1">
         </div>
         <div class="sim-field">
-          <label>Âge actuel</label>
+          <label data-i18n="field_age_current">Âge actuel</label>
           <input type="number" id="ageCurrent" placeholder="ex : 35" min="18" max="63" step="1">
         </div>
         <div class="sim-field">
-          <label>Secteur</label>
+          <label data-i18n="field_sector">Secteur</label>
           <select id="sector">
-            <option value="prive">Salarié du privé</option>
-            <option value="fonctionnaire">Fonctionnaire (FPE/FPT/FPH)</option>
-            <option value="independant">Indépendant / TNS</option>
+            <option value="prive" data-i18n="sector_prive">Salarié du privé</option>
+            <option value="fonctionnaire" data-i18n="sector_fonctionnaire">Fonctionnaire (FPE/FPT/FPH)</option>
+            <option value="independant" data-i18n="sector_independant">Indépendant / TNS</option>
           </select>
         </div>
         <div class="sim-field">
-          <label>Genre (espérance de vie)</label>
+          <label data-i18n="field_gender">Genre (espérance de vie)</label>
           <select id="gender">
-            <option value="H">Homme</option>
-            <option value="F">Femme</option>
+            <option value="H" data-i18n="gender_h">Homme</option>
+            <option value="F" data-i18n="gender_f">Femme</option>
           </select>
         </div>
         <div class="sim-field">
-          <label>🎯 Objectif retraite (€/mois) <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.3)">— optionnel</span></label>
+          <label>🎯 <span data-i18n="field_target">Objectif retraite (€/mois)</span> <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.3)" data-i18n="field_optional">— optionnel</span></label>
           <input type="number" id="targetMonthly" placeholder="ex : 3 000" min="100" max="50000" step="100">
         </div>
       </div>
-      <button class="sim-btn" onclick="calculate()">🧮 Simuler ma retraite →</button>
-      <p class="sim-hint">Simulation indicative basée sur les paramètres légaux 2024. Ne constitue pas un conseil financier ou juridique.</p>
+      <button class="sim-btn" onclick="calculate()" data-i18n="btn_simulate">🧮 Simuler ma retraite →</button>
+      <p class="sim-hint" data-i18n="sim_hint">Simulation indicative basée sur les paramètres légaux 2024. Ne constitue pas un conseil financier ou juridique.</p>
       <!-- Error box — lives OUTSIDE simResults so it never destroys result DOM -->
       <div id="simError" style="display:none;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:12px;padding:16px 20px;color:#ef4444;font-size:.9rem;max-width:640px;margin:16px auto 0;text-align:center"></div>
     </div>
@@ -251,19 +258,19 @@
       <!-- Comparison banner -->
       <div class="comparison-banner" id="compBanner">
         <div class="cb-left">
-          <div class="cb-label">En bourse (MSCI World, 8 %/an), votre rente serait</div>
+          <div class="cb-label" data-i18n="banner_label">En bourse (MSCI World, 8 %/an), votre rente serait</div>
           <div class="cb-stat" id="multiplieur">× —</div>
           <div class="cb-sub" id="multSub">votre pension par répartition</div>
         </div>
         <div class="cb-right">
           <div class="ratio-bar-wrap">
             <div class="ratio-bar-label">
-              <span>Répartition</span>
-              <span>Capitalisation bourse</span>
+              <span data-i18n="bar_rep">Répartition</span>
+              <span data-i18n="bar_cap">Capitalisation bourse</span>
             </div>
             <div class="ratio-bar"><div class="ratio-bar-fill" id="ratioBarFill" style="width:0%;background:linear-gradient(90deg,#f59e0b,#a78bfa)"></div></div>
           </div>
-          <div style="font-size:.78rem;color:var(--muted)">Contributions investies pendant <strong id="careerYearsDisplay" style="color:var(--text)">—</strong> ans au lieu d'aller dans le pot commun</div>
+          <div style="font-size:.78rem;color:var(--muted)" data-i18n="banner_career_prefix">Contributions investies pendant <strong id="careerYearsDisplay" style="color:var(--text)">—</strong> ans au lieu d'aller dans le pot commun</div>
         </div>
       </div>
 
@@ -272,7 +279,7 @@
 
         <!-- RÉPARTITION -->
         <div class="rep-card">
-          <div class="card-title">🧓 Votre retraite par répartition</div>
+          <div class="card-title" data-i18n="rep_title">🧓 Votre retraite par répartition</div>
 
           <div class="rep-pension" id="repPension">—</div>
           <div class="rep-pension-label" id="repPensionLabel">pension mensuelle nette estimée</div>
@@ -280,43 +287,43 @@
           <div class="rep-stats">
             <div class="rep-stat">
               <div class="sv" id="repAge">—</div>
-              <div class="sl">âge de départ<br>estimé</div>
+              <div class="sl" data-i18n="rep_stat_age">âge de départ<br>estimé</div>
             </div>
             <div class="rep-stat">
               <div class="sv" id="repCareer">—</div>
-              <div class="sl">années de<br>cotisation</div>
+              <div class="sl" data-i18n="rep_stat_career">années de<br>cotisation</div>
             </div>
             <div class="rep-stat">
               <div class="sv" id="repTaux">—</div>
-              <div class="sl">taux de<br>remplacement</div>
+              <div class="sl" data-i18n="rep_stat_rate">taux de<br>remplacement</div>
             </div>
             <div class="rep-stat">
               <div class="sv" id="repTotalCotis">—</div>
-              <div class="sl">total des<br>cotisations versées</div>
+              <div class="sl" data-i18n="rep_stat_total">total des<br>cotisations versées</div>
             </div>
           </div>
 
           <div class="rep-reform">
-            <div class="rr-label">⚠️ Scénario réforme probable (65–66 ans)</div>
+            <div class="rr-label" data-i18n="reform_label">⚠️ Scénario réforme probable (65–66 ans)</div>
             <div class="rr-val" id="repReformText">—</div>
           </div>
         </div>
 
         <!-- CAPITALISATION -->
         <div class="cap-section">
-          <div class="card-title">💰 Votre retraite par capitalisation</div>
+          <div class="card-title" data-i18n="cap_title">💰 Votre retraite par capitalisation</div>
           <div class="cap-contrib" id="capContrib">—</div>
 
           <!-- Livret A warning -->
           <div style="background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-left:3px solid #fbbf24;border-radius:0 10px 10px 0;padding:14px 16px;margin-bottom:12px;font-size:.8rem;color:var(--muted);line-height:1.7">
-            <div style="font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#fbbf24;margin-bottom:8px">ℹ️ Pourquoi le Livret A n'est pas utilisé ici</div>
-            Les livrets d'épargne bancaire réglementée (Livret A, LDDS, LEP) <strong style="color:var(--text)">ne sont pas adaptés à la construction d'une retraite par capitalisation</strong> pour trois raisons :
+            <div style="font-size:.68rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#fbbf24;margin-bottom:8px" data-i18n="livret_title">ℹ️ Pourquoi le Livret A n'est pas utilisé ici</div>
+            <span data-i18n="livret_intro">Les livrets d'épargne bancaire réglementée (Livret A, LDDS, LEP) <strong style="color:var(--text)">ne sont pas adaptés à la construction d'une retraite par capitalisation</strong> pour trois raisons :</span>
             <ul style="margin:8px 0 0;padding-left:18px">
-              <li><strong style="color:var(--text)">Plafonnement</strong> — Livret A limité à 23 950 €, LDDS à 12 000 € : impossible d'y loger des décennies de cotisations.</li>
-              <li><strong style="color:var(--text)">Rendement non pilotable</strong> — taux fixé discrétionnairement par l'État (actuellement 3 %, peut descendre à 0,5 % du jour au lendemain).</li>
-              <li><strong style="color:var(--text)">Destination des capitaux décidée par l'État</strong> — vos dépôts financent le logement social et les PME via la Caisse des Dépôts, pas votre retraite.</li>
+              <li data-i18n="livret_li1"><strong style="color:var(--text)">Plafonnement</strong> — Livret A limité à 23 950 €, LDDS à 12 000 € : impossible d'y loger des décennies de cotisations.</li>
+              <li data-i18n="livret_li2"><strong style="color:var(--text)">Rendement non pilotable</strong> — taux fixé discrétionnairement par l'État (actuellement 3 %, peut descendre à 0,5 % du jour au lendemain).</li>
+              <li data-i18n="livret_li3"><strong style="color:var(--text)">Destination des capitaux décidée par l'État</strong> — vos dépôts financent le logement social et les PME via la Caisse des Dépôts, pas votre retraite.</li>
             </ul>
-            <div style="margin-top:8px">Le support <strong style="color:#fbbf24">Fonds euros</strong> représente ici un contrat d'assurance-vie ou un PER (Plan d'Épargne Retraite) en fonds euros — sans plafond, au rendement garanti, et dédié à votre retraite.</div>
+            <div style="margin-top:8px" data-i18n="livret_footer">Le support <strong style="color:#fbbf24">Fonds euros</strong> représente ici un contrat d'assurance-vie ou un PER (Plan d'Épargne Retraite) en fonds euros — sans plafond, au rendement garanti, et dédié à votre retraite.</div>
           </div>
 
           <div class="cap-vehicles" id="capVehicles">
@@ -334,16 +341,16 @@
       </div>
 
       <!-- Disclaimer -->
-      <div class="sim-disclaimer">
+      <div class="sim-disclaimer" data-i18n="disclaimer">
         <strong>⚠️ Avertissement important</strong>
         Cette simulation <strong>grossit volontairement le trait</strong> en supposant que la totalité des cotisations retraite (salariales + patronales) serait investie à votre bénéfice exclusif. En réalité, la répartition finance aussi les pensions des personnes âgées actuelles et comporte des mécanismes de solidarité (invalidité, chômage, minimum vieillesse). La capitalisation comporte un risque de marché — les rendements passés ne garantissent pas les rendements futurs. Il ne s'agit pas d'un conseil financier.
       </div>
 
       <!-- Newsletter CTA -->
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:24px 28px;text-align:center;margin-bottom:32px">
-        <h3 style="font-size:1rem;font-weight:800;margin:0 0 8px;color:var(--text)">📧 Chaque lundi : 3 chiffres officiels sur les retraites et les finances publiques</h3>
-        <p style="color:var(--muted);font-size:.88rem;margin:0 0 14px">Sans publicité, sans militantisme — juste les données INSEE, COR et Eurostat.</p>
-        <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem">S'abonner gratuitement →</a>
+        <h3 style="font-size:1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_title">📧 Chaque lundi : 3 chiffres officiels sur les retraites et les finances publiques</h3>
+        <p style="color:var(--muted);font-size:.88rem;margin:0 0 14px" data-i18n="nl_sub">Sans publicité, sans militantisme — juste les données INSEE, COR et Eurostat.</p>
+        <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem" data-i18n="nl_btn">S'abonner gratuitement →</a>
       </div>
 
     </div><!-- /sim-results -->
@@ -353,7 +360,7 @@
   <!-- ── Methodology ───────────────────────────────────────────── -->
   <div class="method-details">
     <button class="method-toggle" onclick="toggleMethod(this)">
-      <span>📐 Voir la méthodologie de calcul</span>
+      <span data-i18n="method_toggle">📐 Voir la méthodologie de calcul</span>
       <span id="methodArrow">▾</span>
     </button>
     <div class="method-body" id="methodBody">
@@ -395,7 +402,7 @@
 
   <footer>
     <div class="footer-inner">
-      <p>© 2024 Le Français Moyen — Données officielles uniquement (INSEE, COR, CNAV, URSSAF)</p>
+      <p data-i18n="footer_copy">© 2024 Le Français Moyen — Données officielles uniquement (INSEE, COR, CNAV, URSSAF)</p>
       <nav><a href="/a-propos/">À propos</a> · <a href="/questions/">Questions</a> · <a href="/retraites/">Retraites</a></nav>
     </div>
   </footer>
@@ -707,6 +714,126 @@
     arrow.textContent = body.classList.contains('open') ? '▴' : '▾';
   }
   </script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'📧 Newsletter',
+  breadcrumb_home:'Accueil',
+  breadcrumb_retraites:'Retraites',
+  breadcrumb_current:'Simulateur',
+  hero_eyebrow:'Simulation · Données CNAV · AGIRC-ARRCO · 2024',
+  hero_h1:'Votre retraite par répartition<br>vs par capitalisation',
+  hero_sub:'Entrez votre salaire net et votre âge de début de carrière.<br>Nous calculons votre pension <em>et</em> ce que vous toucheriez si vos<br>cotisations retraite avaient été investies à votre place.',
+  field_salary:'Salaire net mensuel',
+  field_age_start:'Âge de début de travail',
+  field_age_current:'Âge actuel',
+  field_sector:'Secteur',
+  sector_prive:'Salarié du privé',
+  sector_fonctionnaire:'Fonctionnaire (FPE/FPT/FPH)',
+  sector_independant:'Indépendant / TNS',
+  field_gender:'Genre (espérance de vie)',
+  gender_h:'Homme',
+  gender_f:'Femme',
+  field_target:'Objectif retraite (€/mois)',
+  field_optional:'— optionnel',
+  btn_simulate:'🧮 Simuler ma retraite →',
+  sim_hint:'Simulation indicative basée sur les paramètres légaux 2024. Ne constitue pas un conseil financier ou juridique.',
+  banner_label:'En bourse (MSCI World, 8 %/an), votre rente serait',
+  bar_rep:'Répartition',
+  bar_cap:'Capitalisation bourse',
+  banner_career_prefix:'Contributions investies pendant <strong id="careerYearsDisplay" style="color:var(--text)">—</strong> ans au lieu d\'aller dans le pot commun',
+  rep_title:'🧓 Votre retraite par répartition',
+  rep_stat_age:'âge de départ<br>estimé',
+  rep_stat_career:'années de<br>cotisation',
+  rep_stat_rate:'taux de<br>remplacement',
+  rep_stat_total:'total des<br>cotisations versées',
+  reform_label:'⚠️ Scénario réforme probable (65–66 ans)',
+  cap_title:'💰 Votre retraite par capitalisation',
+  livret_title:"ℹ️ Pourquoi le Livret A n'est pas utilisé ici",
+  livret_intro:'Les livrets d\'épargne bancaire réglementée (Livret A, LDDS, LEP) <strong style="color:var(--text)">ne sont pas adaptés à la construction d\'une retraite par capitalisation</strong> pour trois raisons :',
+  livret_li1:'<strong style="color:var(--text)">Plafonnement</strong> — Livret A limité à 23 950 €, LDDS à 12 000 € : impossible d\'y loger des décennies de cotisations.',
+  livret_li2:'<strong style="color:var(--text)">Rendement non pilotable</strong> — taux fixé discrétionnairement par l\'État (actuellement 3 %, peut descendre à 0,5 % du jour au lendemain).',
+  livret_li3:'<strong style="color:var(--text)">Destination des capitaux décidée par l\'État</strong> — vos dépôts financent le logement social et les PME via la Caisse des Dépôts, pas votre retraite.',
+  livret_footer:'Le support <strong style="color:#fbbf24">Fonds euros</strong> représente ici un contrat d\'assurance-vie ou un PER (Plan d\'Épargne Retraite) en fonds euros — sans plafond, au rendement garanti, et dédié à votre retraite.',
+  disclaimer:'<strong>⚠️ Avertissement important</strong> Cette simulation <strong>grossit volontairement le trait</strong> en supposant que la totalité des cotisations retraite (salariales + patronales) serait investie à votre bénéfice exclusif. En réalité, la répartition finance aussi les pensions des personnes âgées actuelles et comporte des mécanismes de solidarité (invalidité, chômage, minimum vieillesse). La capitalisation comporte un risque de marché — les rendements passés ne garantissent pas les rendements futurs. Il ne s\'agit pas d\'un conseil financier.',
+  nl_title:'📧 Chaque lundi : 3 chiffres officiels sur les retraites et les finances publiques',
+  nl_sub:'Sans publicité, sans militantisme — juste les données INSEE, COR et Eurostat.',
+  nl_btn:'S\'abonner gratuitement →',
+  method_toggle:'📐 Voir la méthodologie de calcul',
+  footer_copy:'© 2024 Le Français Moyen — Données officielles uniquement (INSEE, COR, CNAV, URSSAF)'
+},
+en:{
+  nav_cta:'📧 Newsletter',
+  breadcrumb_home:'Home',
+  breadcrumb_retraites:'Retirement',
+  breadcrumb_current:'Simulator',
+  hero_eyebrow:'Simulation · CNAV · AGIRC-ARRCO data · 2024',
+  hero_h1:'Your pay-as-you-go pension<br>vs funded (capitalisation)',
+  hero_sub:'Enter your net salary and the age you started working.<br>We calculate your pension <em>and</em> what you would receive if your<br>retirement contributions had been invested on your behalf.',
+  field_salary:'Monthly net salary',
+  field_age_start:'Age you started working',
+  field_age_current:'Current age',
+  field_sector:'Sector',
+  sector_prive:'Private-sector employee',
+  sector_fonctionnaire:'Civil servant (FPE/FPT/FPH)',
+  sector_independant:'Self-employed / TNS',
+  field_gender:'Gender (life expectancy)',
+  gender_h:'Male',
+  gender_f:'Female',
+  field_target:'Retirement target (€/month)',
+  field_optional:'— optional',
+  btn_simulate:'🧮 Simulate my retirement →',
+  sim_hint:'Indicative simulation based on 2024 legal parameters. Does not constitute financial or legal advice.',
+  banner_label:'Invested in global equities (MSCI World, 8%/yr), your annuity would be',
+  bar_rep:'Pay-as-you-go',
+  bar_cap:'Equity capitalisation',
+  banner_career_prefix:'Contributions invested for <strong id="careerYearsDisplay" style="color:var(--text)">—</strong> years instead of going into the common pool',
+  rep_title:'🧓 Your pay-as-you-go pension',
+  rep_stat_age:'estimated<br>retirement age',
+  rep_stat_career:'years of<br>contributions',
+  rep_stat_rate:'replacement<br>rate',
+  rep_stat_total:'total contributions<br>paid in',
+  reform_label:'⚠️ Likely reform scenario (ages 65–66)',
+  cap_title:'💰 Your funded (capitalisation) retirement',
+  livret_title:'ℹ️ Why the Livret A is not used here',
+  livret_intro:'Regulated bank savings accounts (Livret A, LDDS, LEP) <strong style="color:var(--text)">are not suited for building a funded retirement</strong> for three reasons:',
+  livret_li1:'<strong style="color:var(--text)">Caps</strong> — Livret A capped at €23,950, LDDS at €12,000: it is impossible to hold decades of contributions there.',
+  livret_li2:'<strong style="color:var(--text)">Non-controllable return</strong> — rate set at the State\'s discretion (currently 3%, can drop to 0.5% overnight).',
+  livret_li3:'<strong style="color:var(--text)">State-directed capital</strong> — your deposits fund social housing and SMEs via the Caisse des Dépôts, not your retirement.',
+  livret_footer:'The <strong style="color:#fbbf24">euro fund</strong> vehicle here represents a life-insurance policy or PER (Retirement Savings Plan) in a guaranteed-return euro fund — uncapped, guaranteed yield, dedicated to your retirement.',
+  disclaimer:'<strong>⚠️ Important disclaimer</strong> This simulation <strong>deliberately overstates the contrast</strong> by assuming that the full retirement contribution (employee + employer) would be invested exclusively for your benefit. In reality, pay-as-you-go also funds current retirees and includes solidarity mechanisms (disability, unemployment, minimum pension). Funded investing carries market risk — past returns do not guarantee future performance. This is not financial advice.',
+  nl_title:'📧 Every Monday: 3 official figures on pensions and public finances',
+  nl_sub:'No ads, no advocacy — just INSEE, COR and Eurostat data.',
+  nl_btn:'Subscribe for free →',
+  method_toggle:'📐 View the calculation methodology',
+  footer_copy:'© 2024 Le Français Moyen — Official data only (INSEE, COR, CNAV, URSSAF)'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Simulateur retraite : répartition vs capitalisation — Le Français Moyen'
+    :'Retirement Simulator — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Simulez votre pension par répartition et comparez-la à ce que vous toucheriez si vos cotisations retraite étaient investies (livret, obligations, SCPI, bourse). Calcul basé sur les vrais taux de cotisations 2024."
+    :'Simulate your pay-as-you-go pension and compare it to what you would receive if your retirement contributions were invested (bonds, real estate, equities). Based on real 2024 contribution rates.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

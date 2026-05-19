@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="description" content="La timeline des grandes ruptures économiques françaises : chocs pétroliers, désindustrialisation, crises. Les tournants qui ont façonné le niveau de vie d'aujourd'hui.">
 <link rel="canonical" href="https://le-francais-moyen.com/histoire/">
+<link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/histoire/">
+<link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/histoire/">
+<link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/histoire/">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Timeline des ruptures – Le Français Moyen</title>
 <link rel="stylesheet" href="../assets/css/styles.css?v=17">
@@ -51,24 +54,30 @@ h1{font-size:clamp(22px,4vw,32px);font-weight:700;color:#fff;margin-bottom:8px}
 </head>
 <body>
 <div class="page-header">
-  <a href="/outils/" class="back-link">← Outils</a>
-  <h1>Timeline des ruptures</h1>
-  <p class="subtitle">Les 50 ans de décisions qui ont transformé – et fragilisé – la France (1973–2026)</p>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <a href="/outils/" class="back-link" data-i18n="back_link">← Outils</a>
+    <div class="lang-switch" id="langSwitch" style="display:flex;gap:6px">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+  <h1 data-i18n="hero_h1">Timeline des ruptures</h1>
+  <p class="subtitle" data-i18n="hero_subtitle">Les 50 ans de décisions qui ont transformé – et fragilisé – la France (1973–2026)</p>
 </div>
 <div class="main">
 
-  <div class="note-box">
+  <div class="note-box" data-i18n="note_box">
     Cliquez sur chaque événement pour voir les indicateurs chiffrés. Filtrez par catégorie. Les dates marquent le moment de décision ou d'entrée en vigueur.
   </div>
 
   <div class="filters">
-    <button class="filter-btn active" onclick="setFilter('all')">Tout</button>
-    <button class="filter-btn" onclick="setFilter('fiscal')">Fiscal</button>
-    <button class="filter-btn" onclick="setFilter('économique')">Économique</button>
-    <button class="filter-btn" onclick="setFilter('social')">Social</button>
-    <button class="filter-btn" onclick="setFilter('politique')">Politique</button>
-    <button class="filter-btn" onclick="setFilter('géopolitique')">Géopolitique</button>
-    <button class="filter-btn" onclick="setFilter('institutionnel')">Institutionnel</button>
+    <button class="filter-btn active" onclick="setFilter('all')" data-i18n="filter_all">Tout</button>
+    <button class="filter-btn" onclick="setFilter('fiscal')" data-i18n="filter_fiscal">Fiscal</button>
+    <button class="filter-btn" onclick="setFilter('économique')" data-i18n="filter_economic">Économique</button>
+    <button class="filter-btn" onclick="setFilter('social')" data-i18n="filter_social">Social</button>
+    <button class="filter-btn" onclick="setFilter('politique')" data-i18n="filter_political">Politique</button>
+    <button class="filter-btn" onclick="setFilter('géopolitique')" data-i18n="filter_geopolitical">Géopolitique</button>
+    <button class="filter-btn" onclick="setFilter('institutionnel')" data-i18n="filter_institutional">Institutionnel</button>
   </div>
 
   <div class="timeline" id="timeline"></div>
@@ -233,6 +242,60 @@ renderTimeline();
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  back_link:'← Outils',
+  hero_h1:'Timeline des ruptures',
+  hero_subtitle:'Les 50 ans de décisions qui ont transformé – et fragilisé – la France (1973–2026)',
+  note_box:'Cliquez sur chaque événement pour voir les indicateurs chiffrés. Filtrez par catégorie. Les dates marquent le moment de décision ou d\'entrée en vigueur.',
+  filter_all:'Tout',
+  filter_fiscal:'Fiscal',
+  filter_economic:'Économique',
+  filter_social:'Social',
+  filter_political:'Politique',
+  filter_geopolitical:'Géopolitique',
+  filter_institutional:'Institutionnel'
+},
+en:{
+  back_link:'← Tools',
+  hero_h1:'Timeline of Turning Points',
+  hero_subtitle:'50 years of decisions that transformed – and weakened – France (1973–2026)',
+  note_box:'Click on each event to see key figures. Filter by category. Dates mark the moment of decision or entry into force.',
+  filter_all:'All',
+  filter_fiscal:'Fiscal',
+  filter_economic:'Economic',
+  filter_social:'Social',
+  filter_political:'Political',
+  filter_geopolitical:'Geopolitical',
+  filter_institutional:'Institutional'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Timeline des ruptures – Le Français Moyen'
+    :'France\'s Economic History — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"La timeline des grandes ruptures économiques françaises : chocs pétroliers, désindustrialisation, crises. Les tournants qui ont façonné le niveau de vie d'aujourd'hui."
+    :"The timeline of France's major economic turning points: oil shocks, deindustrialisation, crises. The decisions that shaped today's standard of living.");
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

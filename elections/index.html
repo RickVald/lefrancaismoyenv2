@@ -6,6 +6,9 @@
   <title>Simulateur de programmes présidentiels — Le Français Moyen</title>
   <meta name="description" content="Et si un autre candidat avait gagné ? Simulez l'impact économique des programmes présidentiels de 2002 à 2022 sur la dette, l'inflation et le pouvoir d'achat — et comparez avec ce qui s'est réellement passé.">
   <link rel="canonical" href="https://le-francais-moyen.com/elections/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/elections/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/elections/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/elections/">
   <meta property="og:title" content="Et si un autre candidat avait gagné ? — Le Français Moyen">
   <meta property="og:description" content="Simulez l'impact des programmes présidentiels de 2002 à 2022 sur la dette, l'inflation et le pouvoir d'achat. Comparez avec la réalité.">
   <meta property="og:url" content="https://le-francais-moyen.com/elections/">
@@ -127,8 +130,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Tableau de bord</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -155,23 +162,23 @@
   <main style="max-width:1100px;margin:auto;padding:36px 24px 80px">
 
     <nav aria-label="Fil d'Ariane" style="margin-bottom:20px;font-size:.88rem;color:var(--muted)">
-      <a href="/">Accueil</a> › <span>Simulateur présidentiel</span>
+      <a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_current">Simulateur présidentiel</span>
     </nav>
 
     <div style="margin-bottom:32px">
-      <div class="eyebrow">Outil interactif · données officielles</div>
-      <h1 style="font-size:clamp(1.9rem,4.5vw,3.2rem);margin-bottom:12px;line-height:1.05">Et si un autre candidat avait gagné ?</h1>
-      <p style="color:var(--muted);font-size:1.05rem;max-width:700px;margin:0">
+      <div class="eyebrow" data-i18n="hero_eyebrow">Outil interactif · données officielles</div>
+      <h1 style="font-size:clamp(1.9rem,4.5vw,3.2rem);margin-bottom:12px;line-height:1.05" data-i18n="hero_h1">Et si un autre candidat avait gagné ?</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:700px;margin:0" data-i18n="hero_desc">
         Sélectionnez une élection et un candidat pour voir l'impact simulé de son programme — puis comparez ligne à ligne avec <strong style="color:var(--accent2)">ce qui s'est réellement passé</strong>.
       </p>
     </div>
 
-    <div class="disclaimer">
+    <div class="disclaimer" data-i18n="disclaimer">
       <strong style="color:var(--accent)">Méthodologie :</strong> Projections construites à partir des programmes officiels et des analyses d'instituts économiques (OFCE, CAE, FMI). Les effets sont appliqués aux données réelles de départ via un modèle paramétrique. Objectif pédagogique : visualiser les ordres de grandeur des choix politiques, pas prédire l'avenir. L'exécution réelle dépend de la conjoncture mondiale, du Parlement et des arbitrages budgétaires.
     </div>
 
     <!-- Étape 1 : année -->
-    <div class="section-label">1 — Choisir l'élection</div>
+    <div class="section-label" data-i18n="step1_label">1 — Choisir l'élection</div>
     <div class="year-selector" id="yearSelector">
       <button class="year-btn" data-year="2002">2002</button>
       <button class="year-btn" data-year="2007">2007</button>
@@ -181,7 +188,7 @@
     </div>
 
     <!-- Étape 2 : candidat -->
-    <div class="section-label">2 — Choisir le candidat</div>
+    <div class="section-label" data-i18n="step2_label">2 — Choisir le candidat</div>
     <div class="candidates-grid" id="candidatesGrid"></div>
 
     <!-- Étape 3 : comparaison simulé vs réel -->
@@ -195,31 +202,31 @@
       <table class="versus-table" aria-label="Comparaison simulé vs réel" style="min-width:480px">
         <thead>
           <tr>
-            <th style="width:30%">Indicateur</th>
+            <th style="width:30%" data-i18n="th_indicator">Indicateur</th>
             <th class="col-sim" id="colSimHeader" style="width:23%">— Programme simulé</th>
-            <th class="col-real" style="width:23%">✓ Réalité</th>
-            <th style="width:24%">Écart simulé → réel</th>
+            <th class="col-real" style="width:23%" data-i18n="th_reality">✓ Réalité</th>
+            <th style="width:24%" data-i18n="th_gap">Écart simulé → réel</th>
           </tr>
         </thead>
         <tbody id="versusBody"></tbody>
       </table>
       </div>
 
-      <div class="verdict-box neutral" id="verdictBox">Sélectionnez un candidat pour voir le verdict.</div>
+      <div class="verdict-box neutral" id="verdictBox" data-i18n="verdict_placeholder">Sélectionnez un candidat pour voir le verdict.</div>
     </div>
 
     <!-- Étape 4 : graphique comparatif -->
     <div class="chart-section">
       <div style="margin-bottom:18px">
-        <div class="section-label" style="margin-bottom:6px">3 — Trajectoire comparée année par année</div>
+        <div class="section-label" style="margin-bottom:6px" data-i18n="step3_label">3 — Trajectoire comparée année par année</div>
         <div class="chart-metric-tabs" id="chartTabs">
-          <button class="chart-metric-tab active" data-metric="debt">Dette / PIB</button>
-          <button class="chart-metric-tab" data-metric="inflation">Inflation</button>
-          <button class="chart-metric-tab" data-metric="purchasing">Pouvoir d'achat</button>
+          <button class="chart-metric-tab active" data-metric="debt" data-i18n="tab_debt">Dette / PIB</button>
+          <button class="chart-metric-tab" data-metric="inflation" data-i18n="tab_inflation">Inflation</button>
+          <button class="chart-metric-tab" data-metric="purchasing" data-i18n="tab_purchasing">Pouvoir d'achat</button>
         </div>
         <div class="chart-legend-row">
           <div class="chart-legend-item"><div class="legend-line" style="background:#f6c343"></div><span id="legendCandidate">Programme candidat sélectionné</span></div>
-          <div class="chart-legend-item"><div class="legend-line" style="background:#5dd6c5"></div><span>Trajectoire réelle</span></div>
+          <div class="chart-legend-item"><div class="legend-line" style="background:#5dd6c5"></div><span data-i18n="legend_real">Trajectoire réelle</span></div>
           <div class="chart-legend-item"><div class="legend-line dashed"></div><span id="legendWinner">Programme du vainqueur</span></div>
         </div>
       </div>
@@ -231,21 +238,21 @@
 
     <!-- Pression fiscale -->
     <div class="chart-section" style="margin-bottom:24px">
-      <div class="section-label" style="margin-bottom:8px">4 — Pression fiscale comparée</div>
-      <p style="color:var(--muted);font-size:.9rem;margin:0 0 20px;max-width:700px">Charges patronales &amp; salariales sur le travail, impôt sur le revenu, TVA, TICPE carburant, impôts indirects — programme simulé vs trajectoire réelle. Pondération : travail 35 %, revenus 25 %, consommation 20 %, énergie 15 %, indirects 5 %.</p>
+      <div class="section-label" style="margin-bottom:8px" data-i18n="step4_label">4 — Pression fiscale comparée</div>
+      <p style="color:var(--muted);font-size:.9rem;margin:0 0 20px;max-width:700px" data-i18n="fp_desc">Charges patronales &amp; salariales sur le travail, impôt sur le revenu, TVA, TICPE carburant, impôts indirects — programme simulé vs trajectoire réelle. Pondération : travail 35 %, revenus 25 %, consommation 20 %, énergie 15 %, indirects 5 %.</p>
       <div id="fpContent"></div>
     </div>
 
     <!-- Étape 5 : programme détaillé -->
     <div id="programSection">
-      <div class="section-label">5 — Détail du programme économique</div>
+      <div class="section-label" data-i18n="step5_label">5 — Détail du programme économique</div>
       <div class="program-grid">
         <div class="program-panel">
-          <h3>📋 Mesures fiscales &amp; budgétaires</h3>
+          <h3 data-i18n="program_fiscal_h3">📋 Mesures fiscales &amp; budgétaires</h3>
           <div id="programFiscal"></div>
         </div>
         <div class="program-panel">
-          <h3>🏛️ Mesures sociales &amp; structurelles</h3>
+          <h3 data-i18n="program_social_h3">🏛️ Mesures sociales &amp; structurelles</h3>
           <div id="programSocial"></div>
         </div>
       </div>
@@ -253,19 +260,19 @@
 
     <!-- Share -->
     <div style="text-align:center;padding:28px 0 0;border-top:1px solid var(--border)">
-      <p style="color:var(--muted);margin-bottom:14px;font-size:.9rem">Partagez ce simulateur</p>
+      <p style="color:var(--muted);margin-bottom:14px;font-size:.9rem" data-i18n="share_label">Partagez ce simulateur</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <a class="share-btn" id="shareTwitter" href="https://twitter.com/intent/tweet?text=Et+si+un+autre+candidat+avait+gagn%C3%A9+%3F+Simulez+l%27impact+%C3%A9conomique+des+programmes+pr%C3%A9sidentiels+de+2002+%C3%A0+2022+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Felections%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+        <a class="share-btn" id="shareTwitter" href="https://twitter.com/intent/tweet?text=Et+si+un+autre+candidat+avait+gagn%C3%A9+%3F+Simulez+l%27impact+%C3%A9conomique+des+programmes+pr%C3%A9sidentiels+de+2002+%C3%A0+2022+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Felections%2F" target="_blank" rel="noopener" data-i18n="share_twitter">𝕏 Partager</a>
         <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fle-francais-moyen.com%2Felections%2F" target="_blank" rel="noopener">LinkedIn</a>
-        <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/elections/').then(()=>this.textContent='✓ Copié !')">Copier le lien</button>
+        <button class="share-btn" onclick="navigator.clipboard&&navigator.clipboard.writeText('https://le-francais-moyen.com/elections/').then(()=>this.textContent='✓ Copié !')" data-i18n="share_copy">Copier le lien</button>
       </div>
     </div>
 
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : INSEE · Banque de France · OFCE · CAE</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE · Banque de France · OFCE · CAE</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>
@@ -1139,6 +1146,94 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_current:'Simulateur présidentiel',
+  hero_eyebrow:'Outil interactif · données officielles',
+  hero_h1:'Et si un autre candidat avait gagné ?',
+  hero_desc:'Sélectionnez une élection et un candidat pour voir l\'impact simulé de son programme — puis comparez ligne à ligne avec <strong style="color:var(--accent2)">ce qui s\'est réellement passé</strong>.',
+  disclaimer:'<strong style="color:var(--accent)">Méthodologie :</strong> Projections construites à partir des programmes officiels et des analyses d\'instituts économiques (OFCE, CAE, FMI). Les effets sont appliqués aux données réelles de départ via un modèle paramétrique. Objectif pédagogique : visualiser les ordres de grandeur des choix politiques, pas prédire l\'avenir. L\'exécution réelle dépend de la conjoncture mondiale, du Parlement et des arbitrages budgétaires.',
+  step1_label:'1 — Choisir l\'élection',
+  step2_label:'2 — Choisir le candidat',
+  th_indicator:'Indicateur',
+  th_reality:'✓ Réalité',
+  th_gap:'Écart simulé → réel',
+  verdict_placeholder:'Sélectionnez un candidat pour voir le verdict.',
+  step3_label:'3 — Trajectoire comparée année par année',
+  tab_debt:'Dette / PIB',
+  tab_inflation:'Inflation',
+  tab_purchasing:'Pouvoir d\'achat',
+  legend_real:'Trajectoire réelle',
+  step4_label:'4 — Pression fiscale comparée',
+  fp_desc:'Charges patronales & salariales sur le travail, impôt sur le revenu, TVA, TICPE carburant, impôts indirects — programme simulé vs trajectoire réelle. Pondération : travail 35 %, revenus 25 %, consommation 20 %, énergie 15 %, indirects 5 %.',
+  step5_label:'5 — Détail du programme économique',
+  program_fiscal_h3:'📋 Mesures fiscales & budgétaires',
+  program_social_h3:'🏛️ Mesures sociales & structurelles',
+  share_label:'Partagez ce simulateur',
+  share_twitter:'𝕏 Partager',
+  share_copy:'Copier le lien',
+  footer_copy:'© 2026 Le Français Moyen — Données : INSEE · Banque de France · OFCE · CAE',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_current:'Presidential simulator',
+  hero_eyebrow:'Interactive tool · official data',
+  hero_h1:'What if another candidate had won?',
+  hero_desc:'Select an election and a candidate to see the simulated impact of their programme — then compare line by line with <strong style="color:var(--accent2)">what actually happened</strong>.',
+  disclaimer:'<strong style="color:var(--accent)">Methodology:</strong> Projections built from official manifestos and analyses by economic institutes (OFCE, CAE, IMF). Effects are applied to real baseline data via a parametric model. Educational purpose: to visualise the order of magnitude of political choices, not to predict the future. Real-world outcomes depend on global conditions, Parliament, and budget trade-offs.',
+  step1_label:'1 — Choose the election',
+  step2_label:'2 — Choose the candidate',
+  th_indicator:'Indicator',
+  th_reality:'✓ Reality',
+  th_gap:'Gap simulated → actual',
+  verdict_placeholder:'Select a candidate to see the verdict.',
+  step3_label:'3 — Year-by-year comparative trajectory',
+  tab_debt:'Debt / GDP',
+  tab_inflation:'Inflation',
+  tab_purchasing:'Purchasing power',
+  legend_real:'Actual trajectory',
+  step4_label:'4 — Comparative tax burden',
+  fp_desc:'Employer & employee social contributions, income tax, VAT, fuel duty, indirect taxes — simulated programme vs actual trajectory. Weighting: labour 35%, income 25%, consumption 20%, energy 15%, indirect 5%.',
+  step5_label:'5 — Economic programme details',
+  program_fiscal_h3:'📋 Fiscal & budgetary measures',
+  program_social_h3:'🏛️ Social & structural measures',
+  share_label:'Share this simulator',
+  share_twitter:'𝕏 Share',
+  share_copy:'Copy link',
+  footer_copy:'© 2026 Le Français Moyen — Data: INSEE · Banque de France · OFCE · CAE',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Simulateur de programmes présidentiels — Le Français Moyen'
+    :'French Elections — Results & Trends — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Et si un autre candidat avait gagné ? Simulez l'impact économique des programmes présidentiels de 2002 à 2022 sur la dette, l'inflation et le pouvoir d'achat — et comparez avec ce qui s'est réellement passé."
+    :'What if another candidate had won? Simulate the economic impact of French presidential programmes from 2002 to 2022 on debt, inflation and purchasing power — and compare with what actually happened.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 
