@@ -6,6 +6,9 @@
   <title>À quel âge les Français partent-ils à la retraite ? — Données DREES 2024</title>
   <meta name="description" content="L'âge légal est 64 ans, mais l'âge réel de départ à la retraite en France est 62,4 ans en 2023. Comparaison internationale, réforme 2023 et disparités selon les catégories.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/a-quel-age-les-francais-partent-ils-a-la-retraite">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/a-quel-age-les-francais-partent-ils-a-la-retraite">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/a-quel-age-les-francais-partent-ils-a-la-retraite">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/a-quel-age-les-francais-partent-ils-a-la-retraite">
   <meta property="og:title" content="À quel âge les Français partent-ils à la retraite ?">
   <meta property="og:description" content="Âge légal 64 ans, âge réel 62,4 ans. Comparaison internationale, réforme 2023 et disparités expliquées avec les données DREES et COR.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/a-quel-age-les-francais-partent-ils-a-la-retraite">
@@ -73,7 +76,12 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
   </div></header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
     <a href="/retraites/">🧓 Retraites</a><a href="/fonctionnaires/">🏛 Fonctionnaires</a>
@@ -89,10 +97,10 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Retraites</span></nav>
-      <p class="eyebrow" style="text-align:center">🧓 Retraites</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">À quel âge les Français partent-ils à la retraite ?</h1>
-      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7">La réforme de 2023 a repoussé l'âge légal à 64 ans. Mais l'âge réel de départ ne suit pas. Explications avec les données DREES et COR.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Retraites</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">🧓 Retraites</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">À quel âge les Français partent-ils à la retraite ?</h1>
+      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">La réforme de 2023 a repoussé l'âge légal à 64 ans. Mais l'âge réel de départ ne suit pas. Explications avec les données DREES et COR.</p>
     </div>
 
     <div class="q-container">
@@ -217,7 +225,7 @@
   
     <section class="q-container" style="padding-top:0;padding-bottom:0">
       <div class="q-section faq-block">
-        <h2>Questions fréquentes</h2>
+        <h2 data-i18n="faq_title">Questions fréquentes</h2>
         <style>
           .faq-block{border-top:1px solid var(--border);margin-top:0}
           .faq-item{border-bottom:1px solid var(--border);padding:16px 0}
@@ -225,17 +233,17 @@
           .faq-a{color:var(--muted);font-size:.9rem;line-height:1.75}
         </style>
         <div class="faq-item">
-          <div class="faq-q">À quel âge part-on à la retraite en France ?</div>
-          <div class="faq-a">L'âge légal de départ est 64 ans depuis la réforme de 2023. Mais l'âge réel moyen de départ est de 62,4 ans, grâce aux dispositifs de départ anticipé (carrières longues, pénibilité, handicap).</div>
+          <div class="faq-q" data-i18n="faq1_q">À quel âge part-on à la retraite en France ?</div>
+          <div class="faq-a" data-i18n="faq1_a">L'âge légal de départ est 64 ans depuis la réforme de 2023. Mais l'âge réel moyen de départ est de 62,4 ans, grâce aux dispositifs de départ anticipé (carrières longues, pénibilité, handicap).</div>
         </div>        <div class="faq-item">
-          <div class="faq-q">Quel est l'âge minimum pour partir à la retraite en France ?</div>
-          <div class="faq-a">Depuis 2023, l'âge minimum légal est 64 ans pour la génération 1968 et suivantes. Mais les personnes ayant commencé à travailler avant 20 ans peuvent partir dès 58 ou 60 ans via le dispositif carrières longues.</div>
+          <div class="faq-q" data-i18n="faq2_q">Quel est l'âge minimum pour partir à la retraite en France ?</div>
+          <div class="faq-a" data-i18n="faq2_a">Depuis 2023, l'âge minimum légal est 64 ans pour la génération 1968 et suivantes. Mais les personnes ayant commencé à travailler avant 20 ans peuvent partir dès 58 ou 60 ans via le dispositif carrières longues.</div>
         </div>        <div class="faq-item">
-          <div class="faq-q">La France part-elle à la retraite plus tôt que ses voisins ?</div>
-          <div class="faq-a">L'âge réel de départ (62,4 ans) est inférieur à la moyenne de l'OCDE (64,4 ans) et à l'Allemagne (64,1 ans). Mais l'espérance de vie en retraite en France (26 ans) est parmi les plus longues d'Europe.</div>
+          <div class="faq-q" data-i18n="faq3_q">La France part-elle à la retraite plus tôt que ses voisins ?</div>
+          <div class="faq-a" data-i18n="faq3_a">L'âge réel de départ (62,4 ans) est inférieur à la moyenne de l'OCDE (64,4 ans) et à l'Allemagne (64,1 ans). Mais l'espérance de vie en retraite en France (26 ans) est parmi les plus longues d'Europe.</div>
         </div>        <div class="faq-item">
-          <div class="faq-q">Combien d'années cotise-t-on pour une retraite pleine en France ?</div>
-          <div class="faq-a">Il faut 172 trimestres (43 ans) pour une retraite à taux plein pour les générations nées à partir de 1965, conformément à la réforme de 2023.</div>
+          <div class="faq-q" data-i18n="faq4_q">Combien d'années cotise-t-on pour une retraite pleine en France ?</div>
+          <div class="faq-a" data-i18n="faq4_a">Il faut 172 trimestres (43 ans) pour une retraite à taux plein pour les générations nées à partir de 1965, conformément à la réforme de 2023.</div>
         </div>
       </div>
     </section>
@@ -243,15 +251,84 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Retraites',
+  hero_eyebrow:'🧓 Retraites',
+  hero_h1:'À quel âge les Français partent-ils à la retraite ?',
+  hero_intro:'La réforme de 2023 a repoussé l\'âge légal à 64 ans. Mais l\'âge réel de départ ne suit pas. Explications avec les données DREES et COR.',
+  faq_title:'Questions fréquentes',
+  faq1_q:'À quel âge part-on à la retraite en France ?',
+  faq1_a:'L\'âge légal de départ est 64 ans depuis la réforme de 2023. Mais l\'âge réel moyen de départ est de 62,4 ans, grâce aux dispositifs de départ anticipé (carrières longues, pénibilité, handicap).',
+  faq2_q:'Quel est l\'âge minimum pour partir à la retraite en France ?',
+  faq2_a:'Depuis 2023, l\'âge minimum légal est 64 ans pour la génération 1968 et suivantes. Mais les personnes ayant commencé à travailler avant 20 ans peuvent partir dès 58 ou 60 ans via le dispositif carrières longues.',
+  faq3_q:'La France part-elle à la retraite plus tôt que ses voisins ?',
+  faq3_a:'L\'âge réel de départ (62,4 ans) est inférieur à la moyenne de l\'OCDE (64,4 ans) et à l\'Allemagne (64,1 ans). Mais l\'espérance de vie en retraite en France (26 ans) est parmi les plus longues d\'Europe.',
+  faq4_q:'Combien d\'années cotise-t-on pour une retraite pleine en France ?',
+  faq4_a:'Il faut 172 trimestres (43 ans) pour une retraite à taux plein pour les générations nées à partir de 1965, conformément à la réforme de 2023.',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Retirement',
+  hero_eyebrow:'🧓 Retirement',
+  hero_h1:'At what age do the French retire?',
+  hero_intro:'The 2023 reform raised the legal retirement age to 64. But the actual average retirement age has not followed. Analysis with DREES and COR data.',
+  faq_title:'Frequently asked questions',
+  faq1_q:'At what age do people retire in France?',
+  faq1_a:'The legal retirement age is 64 since the 2023 reform. But the actual average retirement age is 62.4, thanks to early-departure schemes (long careers, arduous work, disability).',
+  faq2_q:'What is the minimum retirement age in France?',
+  faq2_a:'Since 2023, the minimum legal age is 64 for the 1968 generation and later. However, people who started working before age 20 can retire from 58 or 60 under the long-career scheme.',
+  faq3_q:'Does France retire earlier than its neighbours?',
+  faq3_a:'The actual retirement age (62.4) is below the OECD average (64.4) and Germany (64.1). But life expectancy in retirement in France (26 years) is among the longest in Europe.',
+  faq4_q:'How many years of contributions are required for a full pension in France?',
+  faq4_a:'172 quarters (43 years) are required for a full-rate pension for generations born from 1965 onwards, in line with the 2023 reform.',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'À quel âge les Français partent-ils à la retraite ? — Données DREES 2024'
+    :'At what age do the French retire? — DREES 2024 Data';
+  var d=document.querySelector('meta[name="description"]');
+  if(d)d.setAttribute('content',l==='fr'
+    ?"L'âge légal est 64 ans, mais l'âge réel de départ à la retraite en France est 62,4 ans en 2023. Comparaison internationale, réforme 2023 et disparités selon les catégories."
+    :'The legal age is 64, but the actual retirement age in France is 62.4 in 2023. International comparison, 2023 reform and disparities by category.');
+}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

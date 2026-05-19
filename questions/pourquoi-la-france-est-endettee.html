@@ -6,6 +6,9 @@
   <title>Pourquoi la France est-elle autant endettée ? — Causes et chiffres officiels</title>
   <meta name="description" content="La dette publique française atteint 3 460 milliards d'euros (115 % du PIB). Déficits chroniques depuis 50 ans, charges d'intérêts, dépenses sociales : les vraies causes expliquées avec les chiffres officiels.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/pourquoi-la-france-est-endettee">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/pourquoi-la-france-est-endettee">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/pourquoi-la-france-est-endettee">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/pourquoi-la-france-est-endettee">
   <meta property="og:title" content="Pourquoi la France est-elle autant endettée ?">
   <meta property="og:description" content="3 460 milliards d'euros de dette. Depuis 1974, pas un seul budget en excédent. Les causes réelles expliquées en données officielles.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/pourquoi-la-france-est-endettee">
@@ -74,9 +77,14 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
@@ -93,96 +101,96 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Dette</span></nav>
-      <p class="eyebrow" style="text-align:center">⏱ Dette publique</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">Pourquoi la France est-elle autant endettée ?</h1>
-      <p style="color:var(--muted);max-width:560px;margin:0 auto;font-size:.95rem;line-height:1.7">3 460 milliards d'euros — 115 % du PIB. 50 ans de déficits ininterrompus. Les vraies causes expliquées chiffres à l'appui.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Dette</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">⏱ Dette publique</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">Pourquoi la France est-elle autant endettée ?</h1>
+      <p style="color:var(--muted);max-width:560px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">3 460 milliards d'euros — 115 % du PIB. 50 ans de déficits ininterrompus. Les vraies causes expliquées chiffres à l'appui.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
         <span class="s-val">3 460 Md€</span>
-        <span class="s-ctx">Dette publique française en 2025 — soit <strong>115,6 % du PIB</strong>. Pour comparaison, l'Allemagne est à 63 % du PIB. La France emprunte en ce moment <strong>5 700 € par seconde</strong>.<br>Source : Banque de France / INSEE 2025.</span>
+        <span class="s-ctx" data-i18n="stat_ctx">Dette publique française en 2025 — soit <strong>115,6 % du PIB</strong>. Pour comparaison, l'Allemagne est à 63 % du PIB. La France emprunte en ce moment <strong>5 700 € par seconde</strong>.<br>Source : Banque de France / INSEE 2025.</span>
       </div>
 
       <div class="q-section">
-        <h2>Le point de départ : 1974</h2>
-        <p>La dette publique française est une accumulation, pas une catastrophe soudaine. En 1974, la France affichait une dette proche de <strong>15 % du PIB</strong> — un niveau sain et courant parmi les pays développés. Depuis cette date, la France n'a pas connu un seul exercice budgétaire en excédent. Chaque année, l'État dépense plus qu'il ne reçoit, et emprunte la différence.</p>
-        <p>Cinquante ans de déficits ininterrompus ont mécaniquement produit la dette actuelle. La question n'est donc pas "pourquoi la France s'est endettée en 2025" — mais "pourquoi n'a-t-elle jamais réussi à équilibrer ses comptes depuis 1974 ?"</p>
+        <h2 data-i18n="s1_h2">Le point de départ : 1974</h2>
+        <p data-i18n="s1_p1">La dette publique française est une accumulation, pas une catastrophe soudaine. En 1974, la France affichait une dette proche de <strong>15 % du PIB</strong> — un niveau sain et courant parmi les pays développés. Depuis cette date, la France n'a pas connu un seul exercice budgétaire en excédent. Chaque année, l'État dépense plus qu'il ne reçoit, et emprunte la différence.</p>
+        <p data-i18n="s1_p2">Cinquante ans de déficits ininterrompus ont mécaniquement produit la dette actuelle. La question n'est donc pas "pourquoi la France s'est endettée en 2025" — mais "pourquoi n'a-t-elle jamais réussi à équilibrer ses comptes depuis 1974 ?"</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause n°1 : des dépenses publiques structurellement supérieures aux recettes</h2>
-        <p>La France dépense chaque année environ <strong>57 % de son PIB</strong> en dépenses publiques (État + Sécurité sociale + collectivités), selon l'INSEE. C'est le niveau le plus élevé de l'OCDE. Ses recettes fiscales et sociales, elles aussi parmi les plus élevées du monde (45,3 % du PIB selon Eurostat 2024), ne suffisent pas à couvrir ces dépenses.</p>
-        <p>Le résultat est un <strong>déficit structurel</strong> : même en période de croissance, les dépenses dépassent les recettes. En 2025, le déficit prévu est de 5,1 % du PIB — soit 152,5 milliards d'euros empruntés sur les marchés.</p>
+        <h2 data-i18n="s2_h2">Cause n°1 : des dépenses publiques structurellement supérieures aux recettes</h2>
+        <p data-i18n="s2_p1">La France dépense chaque année environ <strong>57 % de son PIB</strong> en dépenses publiques (État + Sécurité sociale + collectivités), selon l'INSEE. C'est le niveau le plus élevé de l'OCDE. Ses recettes fiscales et sociales, elles aussi parmi les plus élevées du monde (45,3 % du PIB selon Eurostat 2024), ne suffisent pas à couvrir ces dépenses.</p>
+        <p data-i18n="s2_p2">Le résultat est un <strong>déficit structurel</strong> : même en période de croissance, les dépenses dépassent les recettes. En 2025, le déficit prévu est de 5,1 % du PIB — soit 152,5 milliards d'euros empruntés sur les marchés.</p>
         <div class="stat-row-mini">
-          <div class="stat-mini"><span class="v">57 %</span><span class="l">Dépenses publiques / PIB (OCDE : ~42 %)</span></div>
-          <div class="stat-mini"><span class="v">45,3 %</span><span class="l">Prélèvements obligatoires / PIB (record Europe occid.)</span></div>
-          <div class="stat-mini"><span class="v">−5,1 %</span><span class="l">Déficit public 2025 (limite Maastricht : −3 %)</span></div>
+          <div class="stat-mini"><span class="v">57 %</span><span class="l" data-i18n="mini1_l">Dépenses publiques / PIB (OCDE : ~42 %)</span></div>
+          <div class="stat-mini"><span class="v">45,3 %</span><span class="l" data-i18n="mini2_l">Prélèvements obligatoires / PIB (record Europe occid.)</span></div>
+          <div class="stat-mini"><span class="v">−5,1 %</span><span class="l" data-i18n="mini3_l">Déficit public 2025 (limite Maastricht : −3 %)</span></div>
         </div>
       </div>
 
       <div class="q-section">
-        <h2>Cause n°2 : la charge des intérêts s'emballe</h2>
-        <p>Emprunter coûte. En 2025, la France consacre <strong>plus de 55 milliards d'euros</strong> par an au simple paiement des intérêts de sa dette — soit davantage que le budget de la Défense nationale. Ce montant a doublé en moins de dix ans à mesure que les taux d'intérêt remontaient (de proches de zéro en 2021 à plus de 3 % en 2024).</p>
-        <p>Ce phénomène crée un cercle vicieux : pour payer les intérêts, on emprunte davantage, ce qui augmente la dette, ce qui augmente les intérêts. La Cour des Comptes alerte régulièrement sur ce risque de <strong>"boule de neige"</strong> si le déficit n'est pas réduit rapidement.</p>
+        <h2 data-i18n="s3_h2">Cause n°2 : la charge des intérêts s'emballe</h2>
+        <p data-i18n="s3_p1">Emprunter coûte. En 2025, la France consacre <strong>plus de 55 milliards d'euros</strong> par an au simple paiement des intérêts de sa dette — soit davantage que le budget de la Défense nationale. Ce montant a doublé en moins de dix ans à mesure que les taux d'intérêt remontaient (de proches de zéro en 2021 à plus de 3 % en 2024).</p>
+        <p data-i18n="s3_p2">Ce phénomène crée un cercle vicieux : pour payer les intérêts, on emprunte davantage, ce qui augmente la dette, ce qui augmente les intérêts. La Cour des Comptes alerte régulièrement sur ce risque de <strong>"boule de neige"</strong> si le déficit n'est pas réduit rapidement.</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause n°3 : les dépenses sociales, premier poste de dépenses</h2>
-        <p>Les deux premiers postes du budget public sont les <strong>retraites</strong> (354 milliards d'euros en 2025, source COR) et la <strong>masse salariale des agents publics</strong> (340 milliards, source DGAFP). Ces deux postes représentent à eux seuls près de la moitié des dépenses totales de l'État et de la Sécurité sociale.</p>
-        <p>Ces dépenses sont structurellement rigides : elles ne peuvent pas être réduites rapidement sans réforme profonde. La réforme des retraites de 2023 (passage à 64 ans) est estimée à une économie de 5 milliards d'euros par an — soit à peine 3 % du déficit actuel.</p>
+        <h2 data-i18n="s4_h2">Cause n°3 : les dépenses sociales, premier poste de dépenses</h2>
+        <p data-i18n="s4_p1">Les deux premiers postes du budget public sont les <strong>retraites</strong> (354 milliards d'euros en 2025, source COR) et la <strong>masse salariale des agents publics</strong> (340 milliards, source DGAFP). Ces deux postes représentent à eux seuls près de la moitié des dépenses totales de l'État et de la Sécurité sociale.</p>
+        <p data-i18n="s4_p2">Ces dépenses sont structurellement rigides : elles ne peuvent pas être réduites rapidement sans réforme profonde. La réforme des retraites de 2023 (passage à 64 ans) est estimée à une économie de 5 milliards d'euros par an — soit à peine 3 % du déficit actuel.</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause n°4 : les crises et "chocs" répétés</h2>
-        <p>La trajectoire de la dette a été accélérée par plusieurs crises majeures, chacune ayant nécessité un endettement d'urgence :</p>
+        <h2 data-i18n="s5_h2">Cause n°4 : les crises et "chocs" répétés</h2>
+        <p data-i18n="s5_p1">La trajectoire de la dette a été accélérée par plusieurs crises majeures, chacune ayant nécessité un endettement d'urgence :</p>
         <ul>
-          <li><strong>2008–2009</strong> : crise financière mondiale → la dette passe de 68 % à 83 % du PIB en deux ans</li>
-          <li><strong>2020</strong> : Covid-19 et "quoi qu'il en coûte" → +200 milliards en un an, dette à 115 % du PIB</li>
-          <li>Chacune de ces crises a laissé un "palier" d'endettement supplémentaire, jamais résorbé entre les crises</li>
+          <li data-i18n="s5_li1"><strong>2008–2009</strong> : crise financière mondiale → la dette passe de 68 % à 83 % du PIB en deux ans</li>
+          <li data-i18n="s5_li2"><strong>2020</strong> : Covid-19 et "quoi qu'il en coûte" → +200 milliards en un an, dette à 115 % du PIB</li>
+          <li data-i18n="s5_li3">Chacune de ces crises a laissé un "palier" d'endettement supplémentaire, jamais résorbé entre les crises</li>
         </ul>
       </div>
 
       <div class="q-section">
-        <h2>Comparaison : pourquoi l'Allemagne s'en sort mieux ?</h2>
-        <p>L'Allemagne a adopté en 2009 un <strong>"frein à l'endettement"</strong> constitutionnel (<em>Schuldenbremse</em>), qui limite structurellement le déficit fédéral à 0,35 % du PIB. Résultat : entre 2014 et 2019, l'Allemagne a enregistré des excédents budgétaires consécutifs et ramené sa dette de 82 % à 59 % du PIB.</p>
-        <p>La France a tenté des règles similaires (traité sur la stabilité budgétaire de 2012, règle d'or) sans jamais les contraindre constitutionnellement. La différence de trajectoire depuis 20 ans est frappante : <strong>France +35 points de dette/PIB, Allemagne −20 points</strong> sur la même période.</p>
+        <h2 data-i18n="s6_h2">Comparaison : pourquoi l'Allemagne s'en sort mieux ?</h2>
+        <p data-i18n="s6_p1">L'Allemagne a adopté en 2009 un <strong>"frein à l'endettement"</strong> constitutionnel (<em>Schuldenbremse</em>), qui limite structurellement le déficit fédéral à 0,35 % du PIB. Résultat : entre 2014 et 2019, l'Allemagne a enregistré des excédents budgétaires consécutifs et ramené sa dette de 82 % à 59 % du PIB.</p>
+        <p data-i18n="s6_p2">La France a tenté des règles similaires (traité sur la stabilité budgétaire de 2012, règle d'or) sans jamais les contraindre constitutionnellement. La différence de trajectoire depuis 20 ans est frappante : <strong>France +35 points de dette/PIB, Allemagne −20 points</strong> sur la même période.</p>
       </div>
 
       <div class="q-section">
-        <h2>Peut-on s'en sortir ?</h2>
-        <p>La trajectoire actuelle n'est pas soutenable indéfiniment, mais la France ne risque pas un défaut imminent. Sa dette est libellée en euros, sa banque centrale (la BCE) peut intervenir, et les marchés lui font encore confiance — pour l'instant. Les taux auxquels elle emprunte (autour de 3,2 % à 10 ans en 2025) restent inférieurs à son taux de croissance nominale.</p>
-        <p>Les économistes s'accordent sur une chose : <strong>réduire le déficit structurel est inévitable</strong>, la question est seulement de savoir si c'est fait volontairement ou sous contrainte externe (comme la Grèce en 2010 ou la France en 1983). Chaque année d'attente ajoute de la dette et réduit la marge de manœuvre.</p>
+        <h2 data-i18n="s7_h2">Peut-on s'en sortir ?</h2>
+        <p data-i18n="s7_p1">La trajectoire actuelle n'est pas soutenable indéfiniment, mais la France ne risque pas un défaut imminent. Sa dette est libellée en euros, sa banque centrale (la BCE) peut intervenir, et les marchés lui font encore confiance — pour l'instant. Les taux auxquels elle emprunte (autour de 3,2 % à 10 ans en 2025) restent inférieurs à son taux de croissance nominale.</p>
+        <p data-i18n="s7_p2">Les économistes s'accordent sur une chose : <strong>réduire le déficit structurel est inévitable</strong>, la question est seulement de savoir si c'est fait volontairement ou sous contrainte externe (comme la Grèce en 2010 ou la France en 1983). Chaque année d'attente ajoute de la dette et réduit la marge de manœuvre.</p>
       </div>
 
       <!-- ── Ce que le chiffre ne dit pas ──────────────────────────── -->
       <div style="background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.15);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0">
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:10px">⚠️ Ce que le chiffre ne dit pas</div>
+        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;margin-bottom:10px" data-i18n="caveat_eyebrow">⚠️ Ce que le chiffre ne dit pas</div>
         <ul style="margin:0;padding:0 0 0 18px;color:var(--muted);font-size:.88rem;line-height:1.75">
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">Dette brute ≠ dette nette.</strong> Les 113 % du PIB correspondent à la dette brute. Une fois les actifs financiers de l'État soustraits, la dette nette tombe à environ 80 % du PIB — chiffre plus pertinent pour évaluer la solvabilité réelle.</li>
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">Qui détient la dette ?</strong> Plus de la moitié est détenue par des investisseurs étrangers, mais une large part est dans les mains de la BCE (via les rachats de titres). Cette structure réduit le risque de crise auto-réalisatrice comparable à 2011-2012.</li>
-          <li><strong style="color:var(--text)">L'État possède aussi des actifs.</strong> Participations dans de grandes entreprises (EDF, Safran, Airbus…), immobilier public, prêts accordés : le patrimoine net de l'État, rarement évoqué, atténue partiellement le bilan.</li>
+          <li style="margin-bottom:8px" data-i18n="caveat_li1"><strong style="color:var(--text)">Dette brute ≠ dette nette.</strong> Les 113 % du PIB correspondent à la dette brute. Une fois les actifs financiers de l'État soustraits, la dette nette tombe à environ 80 % du PIB — chiffre plus pertinent pour évaluer la solvabilité réelle.</li>
+          <li style="margin-bottom:8px" data-i18n="caveat_li2"><strong style="color:var(--text)">Qui détient la dette ?</strong> Plus de la moitié est détenue par des investisseurs étrangers, mais une large part est dans les mains de la BCE (via les rachats de titres). Cette structure réduit le risque de crise auto-réalisatrice comparable à 2011-2012.</li>
+          <li data-i18n="caveat_li3"><strong style="color:var(--text)">L'État possède aussi des actifs.</strong> Participations dans de grandes entreprises (EDF, Safran, Airbus…), immobilier public, prêts accordés : le patrimoine net de l'État, rarement évoqué, atténue partiellement le bilan.</li>
         </ul>
       </div>
 
       <div class="q-sources">
-        <strong>Sources</strong>
-        Banque de France — Bulletin mensuel · INSEE Comptes nationaux 2024 · COR Rapport annuel 2024 · Cour des Comptes — Rapport sur la situation et les perspectives des finances publiques 2024 · Vie Publique / PLF 2025 · Eurostat — General government statistics 2024 · FMI — World Economic Outlook 2025.
+        <strong data-i18n="sources_label">Sources</strong>
+        <span data-i18n="sources_text">Banque de France — Bulletin mensuel · INSEE Comptes nationaux 2024 · COR Rapport annuel 2024 · Cour des Comptes — Rapport sur la situation et les perspectives des finances publiques 2024 · Vie Publique / PLF 2025 · Eurostat — General government statistics 2024 · FMI — World Economic Outlook 2025.</span>
       </div>
 
       <div class="related">
-        <h3>Approfondir</h3>
+        <h3 data-i18n="related_h3">Approfondir</h3>
         <div class="related-links">
-          <a href="/dette/" class="related-link">⏱ Compteur de la dette en direct</a>
-          <a href="/budget/" class="related-link">🏦 Le budget poste par poste</a>
-          <a href="/projections/" class="related-link">📈 Projections 2035</a>
-          <a href="/questions/combien-coute-l-etat" class="related-link">❓ Combien coûte l'État ?</a>
-          <a href="/histoire/" class="related-link">📅 50 ans de décisions économiques</a>
-          <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit/" class="related-link">📐 Dette vs déficit : quelle différence ?</a>
-          <a href="/questions/la-france-peut-elle-faire-faillite/" class="related-link">💥 La France peut-elle faire faillite ?</a>
-          <a href="/questions/combien-coute-le-systeme-de-retraite-en-france/" class="related-link">🧓 Coût du système de retraite</a>
+          <a href="/dette/" class="related-link" data-i18n="rel1">⏱ Compteur de la dette en direct</a>
+          <a href="/budget/" class="related-link" data-i18n="rel2">🏦 Le budget poste par poste</a>
+          <a href="/projections/" class="related-link" data-i18n="rel3">📈 Projections 2035</a>
+          <a href="/questions/combien-coute-l-etat" class="related-link" data-i18n="rel4">❓ Combien coûte l'État ?</a>
+          <a href="/histoire/" class="related-link" data-i18n="rel5">📅 50 ans de décisions économiques</a>
+          <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit/" class="related-link" data-i18n="rel6">📐 Dette vs déficit : quelle différence ?</a>
+          <a href="/questions/la-france-peut-elle-faire-faillite/" class="related-link" data-i18n="rel7">💥 La France peut-elle faire faillite ?</a>
+          <a href="/questions/combien-coute-le-systeme-de-retraite-en-france/" class="related-link" data-i18n="rel8">🧓 Coût du système de retraite</a>
         </div>
       </div>
 
@@ -190,7 +198,7 @@
   
     <section class="q-container" style="padding-top:0;padding-bottom:0">
       <div class="q-section faq-block">
-        <h2>Questions fréquentes</h2>
+        <h2 data-i18n="faq_h2">Questions fréquentes</h2>
         <style>
           .faq-block{border-top:1px solid var(--border);margin-top:0}
           .faq-item{border-bottom:1px solid var(--border);padding:16px 0}
@@ -198,17 +206,17 @@
           .faq-a{color:var(--muted);font-size:.9rem;line-height:1.75}
         </style>
         <div class="faq-item">
-          <div class="faq-q">Pourquoi la France est-elle endettée ?</div>
-          <div class="faq-a">La France accumule des déficits depuis 1974. Chaque année, les dépenses dépassent les recettes, creusant une dette qui atteint 3 460 Md€ en 2024, soit 115,6 % du PIB.</div>
+          <div class="faq-q" data-i18n="faq1_q">Pourquoi la France est-elle endettée ?</div>
+          <div class="faq-a" data-i18n="faq1_a">La France accumule des déficits depuis 1974. Chaque année, les dépenses dépassent les recettes, creusant une dette qui atteint 3 460 Md€ en 2024, soit 115,6 % du PIB.</div>
         </div>        <div class="faq-item">
-          <div class="faq-q">Quel est le taux d'endettement de la France ?</div>
-          <div class="faq-a">La dette publique française représente 115,6 % du PIB en 2024 selon la Banque de France, soit environ 47 000 € par habitant.</div>
+          <div class="faq-q" data-i18n="faq2_q">Quel est le taux d'endettement de la France ?</div>
+          <div class="faq-a" data-i18n="faq2_a">La dette publique française représente 115,6 % du PIB en 2024 selon la Banque de France, soit environ 47 000 € par habitant.</div>
         </div>        <div class="faq-item">
-          <div class="faq-q">Combien d'intérêts la France paye-t-elle sur sa dette ?</div>
-          <div class="faq-a">En 2024, la France paye environ 58 milliards d'euros d'intérêts par an, soit plus que le budget de la Défense nationale (47 Md€).</div>
+          <div class="faq-q" data-i18n="faq3_q">Combien d'intérêts la France paye-t-elle sur sa dette ?</div>
+          <div class="faq-a" data-i18n="faq3_a">En 2024, la France paye environ 58 milliards d'euros d'intérêts par an, soit plus que le budget de la Défense nationale (47 Md€).</div>
         </div>        <div class="faq-item">
-          <div class="faq-q">La France est-elle le pays le plus endetté d'Europe ?</div>
-          <div class="faq-a">Non. La Grèce dépasse 160 % du PIB, l'Italie approche 140 %. La France est dans la moyenne haute avec 115,6 %, mais son rythme d'endettement est l'un des plus rapides.</div>
+          <div class="faq-q" data-i18n="faq4_q">La France est-elle le pays le plus endetté d'Europe ?</div>
+          <div class="faq-a" data-i18n="faq4_a">Non. La Grèce dépasse 160 % du PIB, l'Italie approche 140 %. La France est dans la moyenne haute avec 115,6 %, mais son rythme d'endettement est l'un des plus rapides.</div>
         </div>
       </div>
     </section>
@@ -216,10 +224,10 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
@@ -235,5 +243,163 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Dette',
+  hero_eyebrow:'⏱ Dette publique',
+  hero_h1:'Pourquoi la France est-elle autant endettée ?',
+  hero_intro:'3 460 milliards d\'euros — 115 % du PIB. 50 ans de déficits ininterrompus. Les vraies causes expliquées chiffres à l\'appui.',
+  stat_ctx:'Dette publique française en 2025 — soit <strong>115,6 % du PIB</strong>. Pour comparaison, l\'Allemagne est à 63 % du PIB. La France emprunte en ce moment <strong>5 700 € par seconde</strong>.<br>Source : Banque de France / INSEE 2025.',
+  s1_h2:'Le point de départ : 1974',
+  s1_p1:'La dette publique française est une accumulation, pas une catastrophe soudaine. En 1974, la France affichait une dette proche de <strong>15 % du PIB</strong> — un niveau sain et courant parmi les pays développés. Depuis cette date, la France n\'a pas connu un seul exercice budgétaire en excédent. Chaque année, l\'État dépense plus qu\'il ne reçoit, et emprunte la différence.',
+  s1_p2:'Cinquante ans de déficits ininterrompus ont mécaniquement produit la dette actuelle. La question n\'est donc pas "pourquoi la France s\'est endettée en 2025" — mais "pourquoi n\'a-t-elle jamais réussi à équilibrer ses comptes depuis 1974 ?"',
+  s2_h2:'Cause n°1 : des dépenses publiques structurellement supérieures aux recettes',
+  s2_p1:'La France dépense chaque année environ <strong>57 % de son PIB</strong> en dépenses publiques (État + Sécurité sociale + collectivités), selon l\'INSEE. C\'est le niveau le plus élevé de l\'OCDE. Ses recettes fiscales et sociales, elles aussi parmi les plus élevées du monde (45,3 % du PIB selon Eurostat 2024), ne suffisent pas à couvrir ces dépenses.',
+  s2_p2:'Le résultat est un <strong>déficit structurel</strong> : même en période de croissance, les dépenses dépassent les recettes. En 2025, le déficit prévu est de 5,1 % du PIB — soit 152,5 milliards d\'euros empruntés sur les marchés.',
+  mini1_l:'Dépenses publiques / PIB (OCDE : ~42 %)',
+  mini2_l:'Prélèvements obligatoires / PIB (record Europe occid.)',
+  mini3_l:'Déficit public 2025 (limite Maastricht : −3 %)',
+  s3_h2:'Cause n°2 : la charge des intérêts s\'emballe',
+  s3_p1:'Emprunter coûte. En 2025, la France consacre <strong>plus de 55 milliards d\'euros</strong> par an au simple paiement des intérêts de sa dette — soit davantage que le budget de la Défense nationale. Ce montant a doublé en moins de dix ans à mesure que les taux d\'intérêt remontaient (de proches de zéro en 2021 à plus de 3 % en 2024).',
+  s3_p2:'Ce phénomène crée un cercle vicieux : pour payer les intérêts, on emprunte davantage, ce qui augmente la dette, ce qui augmente les intérêts. La Cour des Comptes alerte régulièrement sur ce risque de <strong>"boule de neige"</strong> si le déficit n\'est pas réduit rapidement.',
+  s4_h2:'Cause n°3 : les dépenses sociales, premier poste de dépenses',
+  s4_p1:'Les deux premiers postes du budget public sont les <strong>retraites</strong> (354 milliards d\'euros en 2025, source COR) et la <strong>masse salariale des agents publics</strong> (340 milliards, source DGAFP). Ces deux postes représentent à eux seuls près de la moitié des dépenses totales de l\'État et de la Sécurité sociale.',
+  s4_p2:'Ces dépenses sont structurellement rigides : elles ne peuvent pas être réduites rapidement sans réforme profonde. La réforme des retraites de 2023 (passage à 64 ans) est estimée à une économie de 5 milliards d\'euros par an — soit à peine 3 % du déficit actuel.',
+  s5_h2:'Cause n°4 : les crises et "chocs" répétés',
+  s5_p1:'La trajectoire de la dette a été accélérée par plusieurs crises majeures, chacune ayant nécessité un endettement d\'urgence :',
+  s5_li1:'<strong>2008–2009</strong> : crise financière mondiale → la dette passe de 68 % à 83 % du PIB en deux ans',
+  s5_li2:'<strong>2020</strong> : Covid-19 et "quoi qu\'il en coûte" → +200 milliards en un an, dette à 115 % du PIB',
+  s5_li3:'Chacune de ces crises a laissé un "palier" d\'endettement supplémentaire, jamais résorbé entre les crises',
+  s6_h2:'Comparaison : pourquoi l\'Allemagne s\'en sort mieux ?',
+  s6_p1:'L\'Allemagne a adopté en 2009 un <strong>"frein à l\'endettement"</strong> constitutionnel (<em>Schuldenbremse</em>), qui limite structurellement le déficit fédéral à 0,35 % du PIB. Résultat : entre 2014 et 2019, l\'Allemagne a enregistré des excédents budgétaires consécutifs et ramené sa dette de 82 % à 59 % du PIB.',
+  s6_p2:'La France a tenté des règles similaires (traité sur la stabilité budgétaire de 2012, règle d\'or) sans jamais les contraindre constitutionnellement. La différence de trajectoire depuis 20 ans est frappante : <strong>France +35 points de dette/PIB, Allemagne −20 points</strong> sur la même période.',
+  s7_h2:'Peut-on s\'en sortir ?',
+  s7_p1:'La trajectoire actuelle n\'est pas soutenable indéfiniment, mais la France ne risque pas un défaut imminent. Sa dette est libellée en euros, sa banque centrale (la BCE) peut intervenir, et les marchés lui font encore confiance — pour l\'instant. Les taux auxquels elle emprunte (autour de 3,2 % à 10 ans en 2025) restent inférieurs à son taux de croissance nominale.',
+  s7_p2:'Les économistes s\'accordent sur une chose : <strong>réduire le déficit structurel est inévitable</strong>, la question est seulement de savoir si c\'est fait volontairement ou sous contrainte externe (comme la Grèce en 2010 ou la France en 1983). Chaque année d\'attente ajoute de la dette et réduit la marge de manœuvre.',
+  caveat_eyebrow:'⚠️ Ce que le chiffre ne dit pas',
+  caveat_li1:'<strong style="color:var(--text)">Dette brute ≠ dette nette.</strong> Les 113 % du PIB correspondent à la dette brute. Une fois les actifs financiers de l\'État soustraits, la dette nette tombe à environ 80 % du PIB — chiffre plus pertinent pour évaluer la solvabilité réelle.',
+  caveat_li2:'<strong style="color:var(--text)">Qui détient la dette ?</strong> Plus de la moitié est détenue par des investisseurs étrangers, mais une large part est dans les mains de la BCE (via les rachats de titres). Cette structure réduit le risque de crise auto-réalisatrice comparable à 2011-2012.',
+  caveat_li3:'<strong style="color:var(--text)">L\'État possède aussi des actifs.</strong> Participations dans de grandes entreprises (EDF, Safran, Airbus…), immobilier public, prêts accordés : le patrimoine net de l\'État, rarement évoqué, atténue partiellement le bilan.',
+  sources_label:'Sources',
+  sources_text:'Banque de France — Bulletin mensuel · INSEE Comptes nationaux 2024 · COR Rapport annuel 2024 · Cour des Comptes — Rapport sur la situation et les perspectives des finances publiques 2024 · Vie Publique / PLF 2025 · Eurostat — General government statistics 2024 · FMI — World Economic Outlook 2025.',
+  related_h3:'Approfondir',
+  rel1:'⏱ Compteur de la dette en direct',
+  rel2:'🏦 Le budget poste par poste',
+  rel3:'📈 Projections 2035',
+  rel4:'❓ Combien coûte l\'État ?',
+  rel5:'📅 50 ans de décisions économiques',
+  rel6:'📐 Dette vs déficit : quelle différence ?',
+  rel7:'💥 La France peut-elle faire faillite ?',
+  rel8:'🧓 Coût du système de retraite',
+  faq_h2:'Questions fréquentes',
+  faq1_q:'Pourquoi la France est-elle endettée ?',
+  faq1_a:'La France accumule des déficits depuis 1974. Chaque année, les dépenses dépassent les recettes, creusant une dette qui atteint 3 460 Md€ en 2024, soit 115,6 % du PIB.',
+  faq2_q:'Quel est le taux d\'endettement de la France ?',
+  faq2_a:'La dette publique française représente 115,6 % du PIB en 2024 selon la Banque de France, soit environ 47 000 € par habitant.',
+  faq3_q:'Combien d\'intérêts la France paye-t-elle sur sa dette ?',
+  faq3_a:'En 2024, la France paye environ 58 milliards d\'euros d\'intérêts par an, soit plus que le budget de la Défense nationale (47 Md€).',
+  faq4_q:'La France est-elle le pays le plus endetté d\'Europe ?',
+  faq4_a:'Non. La Grèce dépasse 160 % du PIB, l\'Italie approche 140 %. La France est dans la moyenne haute avec 115,6 %, mais son rythme d\'endettement est l\'un des plus rapides.',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Debt',
+  hero_eyebrow:'⏱ Public Debt',
+  hero_h1:'Why Is France So Heavily in Debt?',
+  hero_intro:'€3.46 trillion — 115% of GDP. 50 years of uninterrupted deficits. The real causes explained with official figures.',
+  stat_ctx:'French public debt in 2025 — equal to <strong>115.6% of GDP</strong>. For comparison, Germany is at 63% of GDP. France is currently borrowing at <strong>€5,700 per second</strong>.<br>Source: Banque de France / INSEE 2025.',
+  s1_h2:'The starting point: 1974',
+  s1_p1:'French public debt is an accumulation, not a sudden catastrophe. In 1974, France had a debt close to <strong>15% of GDP</strong> — a healthy level common among developed countries. Since then, France has not recorded a single budget surplus. Every year, the state spends more than it receives, borrowing the difference.',
+  s1_p2:'Fifty years of uninterrupted deficits have mechanically produced the current debt. The question is therefore not "why did France go into debt in 2025" — but "why has it never managed to balance its books since 1974?"',
+  s2_h2:'Cause 1: Public spending structurally exceeding revenues',
+  s2_p1:'France spends around <strong>57% of its GDP</strong> on public expenditure (central government + Social Security + local authorities) each year, according to INSEE. This is the highest level in the OECD. Its tax and social revenues, also among the highest in the world (45.3% of GDP, Eurostat 2024), are not enough to cover this spending.',
+  s2_p2:'The result is a <strong>structural deficit</strong>: even during periods of growth, spending exceeds revenues. In 2025, the projected deficit is 5.1% of GDP — representing €152.5 billion borrowed on financial markets.',
+  mini1_l:'Public spending / GDP (OECD: ~42%)',
+  mini2_l:'Mandatory levies / GDP (record in Western Europe)',
+  mini3_l:'Public deficit 2025 (Maastricht limit: −3%)',
+  s3_h2:'Cause 2: The interest burden spiralling out of control',
+  s3_p1:'Borrowing has a cost. In 2025, France devotes <strong>over €55 billion</strong> per year just to paying interest on its debt — more than the national defence budget. This amount has doubled in under ten years as interest rates rose (from near zero in 2021 to over 3% in 2024).',
+  s3_p2:'This creates a vicious cycle: to pay the interest, more is borrowed, which increases the debt, which increases the interest. The Cour des Comptes regularly warns of a <strong>"snowball" risk</strong> if the deficit is not reduced quickly.',
+  s4_h2:'Cause 3: Social spending, the largest budget item',
+  s4_p1:'The two largest items in the public budget are <strong>pensions</strong> (€354 billion in 2025, COR) and the <strong>public sector wage bill</strong> (€340 billion, DGAFP). Together these two items represent nearly half of all government and Social Security expenditure.',
+  s4_p2:'This spending is structurally rigid: it cannot be reduced quickly without fundamental reform. The 2023 pension reform (raising the retirement age to 64) is estimated to save €5 billion per year — barely 3% of the current deficit.',
+  s5_h2:'Cause 4: Repeated crises and "shocks"',
+  s5_p1:'The debt trajectory has been accelerated by several major crises, each requiring emergency borrowing:',
+  s5_li1:'<strong>2008–2009</strong>: Global financial crisis → debt rose from 68% to 83% of GDP in two years',
+  s5_li2:'<strong>2020</strong>: Covid-19 and "whatever it takes" → +€200 billion in one year, debt at 115% of GDP',
+  s5_li3:'Each of these crises left an additional "step" in the debt level, never absorbed between crises',
+  s6_h2:'Comparison: why does Germany do better?',
+  s6_p1:'Germany adopted a constitutional <strong>"debt brake"</strong> (<em>Schuldenbremse</em>) in 2009, which structurally limits the federal deficit to 0.35% of GDP. Result: between 2014 and 2019, Germany recorded consecutive budget surpluses and brought its debt from 82% to 59% of GDP.',
+  s6_p2:'France has attempted similar rules (the 2012 fiscal stability treaty, the "golden rule") without ever making them constitutionally binding. The difference in trajectory over the past 20 years is striking: <strong>France +35 points of debt/GDP, Germany −20 points</strong> over the same period.',
+  s7_h2:'Can France escape this trajectory?',
+  s7_p1:'The current trajectory is not indefinitely sustainable, but France is not at risk of imminent default. Its debt is denominated in euros, its central bank (the ECB) can intervene, and markets still trust it — for now. The rates at which it borrows (around 3.2% at 10 years in 2025) remain below its nominal growth rate.',
+  s7_p2:'Economists agree on one thing: <strong>reducing the structural deficit is inevitable</strong>; the only question is whether this is done voluntarily or under external pressure (as in Greece in 2010 or France in 1983). Every year of delay adds to the debt and reduces room for manoeuvre.',
+  caveat_eyebrow:'⚠️ What the figures don\'t show',
+  caveat_li1:'<strong style="color:var(--text)">Gross debt ≠ net debt.</strong> The 113% of GDP figure is gross debt. Once the state\'s financial assets are deducted, net debt falls to around 80% of GDP — a more relevant figure for assessing true solvency.',
+  caveat_li2:'<strong style="color:var(--text)">Who holds the debt?</strong> More than half is held by foreign investors, but a large share is in the hands of the ECB (via bond purchases). This structure reduces the risk of a self-fulfilling crisis comparable to 2011–2012.',
+  caveat_li3:'<strong style="color:var(--text)">The state also holds assets.</strong> Stakes in major companies (EDF, Safran, Airbus…), public real estate, loans extended: the state\'s net worth, rarely mentioned, partially offsets the balance sheet.',
+  sources_label:'Sources',
+  sources_text:'Banque de France — Monthly Bulletin · INSEE National Accounts 2024 · COR Annual Report 2024 · Cour des Comptes — Report on public finances 2024 · Vie Publique / PLF 2025 · Eurostat — General government statistics 2024 · IMF — World Economic Outlook 2025.',
+  related_h3:'Further reading',
+  rel1:'⏱ Live debt counter',
+  rel2:'🏦 The budget item by item',
+  rel3:'📈 Projections to 2035',
+  rel4:'❓ How much does the state cost?',
+  rel5:'📅 50 years of economic decisions',
+  rel6:'📐 Debt vs deficit: what\'s the difference?',
+  rel7:'💥 Can France go bankrupt?',
+  rel8:'🧓 Cost of the pension system',
+  faq_h2:'Frequently asked questions',
+  faq1_q:'Why is France in debt?',
+  faq1_a:'France has been running deficits since 1974. Every year, spending exceeds revenues, driving debt to €3,460bn in 2024, or 115.6% of GDP.',
+  faq2_q:'What is France\'s debt-to-GDP ratio?',
+  faq2_a:'French public debt represents 115.6% of GDP in 2024 according to the Banque de France, or about €47,000 per inhabitant.',
+  faq3_q:'How much interest does France pay on its debt?',
+  faq3_a:'In 2024, France pays around €58 billion in interest per year, more than the national defence budget (€47bn).',
+  faq4_q:'Is France the most indebted country in Europe?',
+  faq4_a:'No. Greece exceeds 160% of GDP, Italy approaches 140%. France is in the upper-middle range at 115.6%, but its rate of accumulation is one of the fastest.',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Pourquoi la France est-elle autant endettée ? — Causes et chiffres officiels'
+    :'Why Is France So Heavily in Debt? — Causes and Official Figures';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"La dette publique française atteint 3 460 milliards d'euros (115 % du PIB). Déficits chroniques depuis 50 ans, charges d'intérêts, dépenses sociales : les vraies causes expliquées avec les chiffres officiels."
+    :'French public debt stands at €3.46 trillion (115% of GDP). Chronic deficits for 50 years, interest burden, social spending: the real causes explained with official figures.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -6,6 +6,9 @@
   <title>La France dans l'OCDE : dans la moyenne ou hors-norme ? — Comparatif 2024</title>
   <meta name="description" content="Retraites, dette, fiscalité, santé, éducation, emploi : où la France se situe-t-elle vraiment par rapport aux 38 pays de l'OCDE ? Bilan complet en chiffres.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/france-vs-ocde-comparaison">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/france-vs-ocde-comparaison">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/france-vs-ocde-comparaison">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/france-vs-ocde-comparaison">
   <meta property="og:title" content="La France dans l'OCDE : dans la moyenne ou hors-norme ?">
   <meta property="og:description" content="1ère sur les dépenses retraite, 2ème sur les dépenses santé, 45 % de prélèvements. La France au crible de l'OCDE — 8 domaines analysés.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/france-vs-ocde-comparaison">
@@ -67,9 +70,13 @@
           <li><a href="/sante/">🏥 Santé</a></li>
           <li><a href="/questions/">❓ Questions</a></li>
           <li><a href="/a-propos/">À propos</a></li>
-          <li><a href="/#newsletter" class="cta">📧 Newsletter</a></li>
+          <li><a href="/#newsletter" class="cta" data-i18n="nav_cta">📧 Newsletter</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
@@ -87,10 +94,10 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Comparatif</span></nav>
-      <div class="eyebrow">Données OCDE · Eurostat · FMI · 2024</div>
-      <h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);max-width:640px;margin:8px auto 12px">La France dans l'OCDE : dans la moyenne ou hors-norme ?</h1>
-      <p style="color:var(--muted);font-size:1rem;max-width:580px;margin:0 auto 20px;line-height:1.7">
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Comparatif</span></nav>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Données OCDE · Eurostat · FMI · 2024</div>
+      <h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);max-width:640px;margin:8px auto 12px" data-i18n="hero_h1">La France dans l'OCDE : dans la moyenne ou hors-norme ?</h1>
+      <p style="color:var(--muted);font-size:1rem;max-width:580px;margin:0 auto 20px;line-height:1.7" data-i18n="hero_intro">
         L'OCDE regroupe 38 pays développés. Sur 8 domaines clés,<br>la France est-elle un cas ordinaire — ou une exception ?
       </p>
     </div>
@@ -98,158 +105,158 @@
     <div class="q-container">
 
       <div class="q-section">
-        <h2>Rang de la France dans l'OCDE — 8 domaines</h2>
-        <p>Sur 38 pays membres, voici où se situe la France, avec sa valeur et la moyenne OCDE pour comparaison.</p>
+        <h2 data-i18n="s1_h2">Rang de la France dans l'OCDE — 8 domaines</h2>
+        <p data-i18n="s1_p">Sur 38 pays membres, voici où se situe la France, avec sa valeur et la moyenne OCDE pour comparaison.</p>
 
         <div class="ocde-grid">
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">🧓 Dépenses retraite / PIB</div>
+              <div class="oc-domain" data-i18n="card1_domain">🧓 Dépenses retraite / PIB</div>
               <div class="oc-fr" style="color:#f59e0b">14,5 %</div>
-              <div class="oc-ocde">Moyenne OCDE : 9,0 %</div>
+              <div class="oc-ocde" data-i18n="card1_ocde">Moyenne OCDE : 9,0 %</div>
             </div>
             <div>
-              <div class="oc-rank rank-top">1ère</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-top" data-i18n="card1_rank">1ère</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">🏥 Dépenses santé / PIB</div>
+              <div class="oc-domain" data-i18n="card2_domain">🏥 Dépenses santé / PIB</div>
               <div class="oc-fr" style="color:#10b981">12,3 %</div>
-              <div class="oc-ocde">Moyenne OCDE : 9,2 %</div>
+              <div class="oc-ocde" data-i18n="card2_ocde">Moyenne OCDE : 9,2 %</div>
             </div>
             <div>
-              <div class="oc-rank rank-top">2ème</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-top" data-i18n="card2_rank">2ème</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">💰 Prélèvements obligatoires / PIB</div>
+              <div class="oc-domain" data-i18n="card3_domain">💰 Prélèvements obligatoires / PIB</div>
               <div class="oc-fr" style="color:#a78bfa">45,4 %</div>
-              <div class="oc-ocde">Moyenne OCDE : 34,0 %</div>
+              <div class="oc-ocde" data-i18n="card3_ocde">Moyenne OCDE : 34,0 %</div>
             </div>
             <div>
-              <div class="oc-rank rank-top">3ème</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-top" data-i18n="card3_rank">3ème</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">🏛️ Dépenses publiques / PIB</div>
+              <div class="oc-domain" data-i18n="card4_domain">🏛️ Dépenses publiques / PIB</div>
               <div class="oc-fr" style="color:#fb923c">57 %</div>
-              <div class="oc-ocde">Moyenne OCDE : 43 %</div>
+              <div class="oc-ocde" data-i18n="card4_ocde">Moyenne OCDE : 43 %</div>
             </div>
             <div>
-              <div class="oc-rank rank-top">2ème</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-top" data-i18n="card4_rank">2ème</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">💸 Dette publique / PIB</div>
+              <div class="oc-domain" data-i18n="card5_domain">💸 Dette publique / PIB</div>
               <div class="oc-fr" style="color:#ef4444">113 %</div>
-              <div class="oc-ocde">Moyenne OCDE : 83 %</div>
+              <div class="oc-ocde" data-i18n="card5_ocde">Moyenne OCDE : 83 %</div>
             </div>
             <div>
-              <div class="oc-rank rank-top">8ème</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-top" data-i18n="card5_rank">8ème</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">📚 PISA — mathématiques (2022)</div>
+              <div class="oc-domain" data-i18n="card6_domain">📚 PISA — mathématiques (2022)</div>
               <div class="oc-fr" style="color:#60a5fa">474 pts</div>
-              <div class="oc-ocde">Moyenne OCDE : 472 pts</div>
+              <div class="oc-ocde" data-i18n="card6_ocde">Moyenne OCDE : 472 pts</div>
             </div>
             <div>
-              <div class="oc-rank rank-mid">17ème</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-mid" data-i18n="card6_rank">17ème</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">💼 Taux de chômage</div>
+              <div class="oc-domain" data-i18n="card7_domain">💼 Taux de chômage</div>
               <div class="oc-fr" style="color:#fbbf24">7,3 %</div>
-              <div class="oc-ocde">Moyenne OCDE : 4,9 %</div>
+              <div class="oc-ocde" data-i18n="card7_ocde">Moyenne OCDE : 4,9 %</div>
             </div>
             <div>
-              <div class="oc-rank rank-top">28ème</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-top" data-i18n="card7_rank">28ème</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
           <div class="ocde-card">
             <div>
-              <div class="oc-domain">🏠 Espérance de vie à la naissance</div>
+              <div class="oc-domain" data-i18n="card8_domain">🏠 Espérance de vie à la naissance</div>
               <div class="oc-fr" style="color:#34d399">82,4 ans</div>
-              <div class="oc-ocde">Moyenne OCDE : 80,3 ans</div>
+              <div class="oc-ocde" data-i18n="card8_ocde">Moyenne OCDE : 80,3 ans</div>
             </div>
             <div>
-              <div class="oc-rank rank-good">7ème</div>
-              <div class="oc-rank-label">sur 38 pays</div>
+              <div class="oc-rank rank-good" data-i18n="card8_rank">7ème</div>
+              <div class="oc-rank-label" data-i18n="card_of38">sur 38 pays</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="q-section">
-        <h2>Ce que ce bilan révèle</h2>
-        <p>La France n'est pas "dans la moyenne" de l'OCDE — elle est une valeur extrême sur presque tous les indicateurs de dépenses publiques :</p>
+        <h2 data-i18n="s2_h2">Ce que ce bilan révèle</h2>
+        <p data-i18n="s2_p1">La France n'est pas "dans la moyenne" de l'OCDE — elle est une valeur extrême sur presque tous les indicateurs de dépenses publiques :</p>
         <ul>
-          <li><strong>Elle dépense le plus en retraites</strong> (1re sur 38), le plus en santé (2e), le plus en prélèvements (3e), et le plus en dépenses publiques globales (2e). Ce n'est pas une coïncidence — c'est un modèle cohérent d'État-providence maximal.</li>
-          <li><strong>Les résultats ne sont pas toujours à la hauteur.</strong> En éducation (17e sur les scores PISA), en emploi (28e pour le chômage) et en mobilité sociale (22e), la France est dans la seconde moitié du classement OCDE malgré des dépenses exceptionnelles.</li>
-          <li><strong>Là où la France excelle vraiment :</strong> l'espérance de vie (7e), la fécondité (1re en Europe hors immigration), les infrastructures de transport (réseau ferroviaire dense), et la productivité horaire du travail (dans le top 5 OCDE).</li>
+          <li data-i18n="s2_li1"><strong>Elle dépense le plus en retraites</strong> (1re sur 38), le plus en santé (2e), le plus en prélèvements (3e), et le plus en dépenses publiques globales (2e). Ce n'est pas une coïncidence — c'est un modèle cohérent d'État-providence maximal.</li>
+          <li data-i18n="s2_li2"><strong>Les résultats ne sont pas toujours à la hauteur.</strong> En éducation (17e sur les scores PISA), en emploi (28e pour le chômage) et en mobilité sociale (22e), la France est dans la seconde moitié du classement OCDE malgré des dépenses exceptionnelles.</li>
+          <li data-i18n="s2_li3"><strong>Là où la France excelle vraiment :</strong> l'espérance de vie (7e), la fécondité (1re en Europe hors immigration), les infrastructures de transport (réseau ferroviaire dense), et la productivité horaire du travail (dans le top 5 OCDE).</li>
         </ul>
       </div>
 
       <div class="q-section">
-        <h2>La France vs la moyenne OCDE : tableau synthétique</h2>
+        <h2 data-i18n="s3_h2">La France vs la moyenne OCDE : tableau synthétique</h2>
         <table class="cmp-table">
           <thead>
             <tr>
-              <th>Domaine</th>
-              <th style="text-align:center">🇫🇷 France</th>
-              <th style="text-align:center">📊 Moy. OCDE</th>
-              <th style="text-align:center">Résultat</th>
+              <th data-i18n="th_domain">Domaine</th>
+              <th style="text-align:center" data-i18n="th_fr">🇫🇷 France</th>
+              <th style="text-align:center" data-i18n="th_ocde">📊 Moy. OCDE</th>
+              <th style="text-align:center" data-i18n="th_result">Résultat</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Dépenses vs résultats en santé</td>
-              <td class="val-fr">2e / 17e accès</td>
-              <td class="val-ocde">Moyen</td>
-              <td class="val-worse">Paradoxe</td>
+              <td data-i18n="row1_domain">Dépenses vs résultats en santé</td>
+              <td class="val-fr" data-i18n="row1_fr">2e / 17e accès</td>
+              <td class="val-ocde" data-i18n="row1_ocde">Moyen</td>
+              <td class="val-worse" data-i18n="row1_result">Paradoxe</td>
             </tr>
             <tr>
-              <td>Dépenses vs résultats en éducation</td>
-              <td class="val-fr">3e dép. / 17e résultats</td>
-              <td class="val-ocde">Moyen</td>
-              <td class="val-worse">Paradoxe</td>
+              <td data-i18n="row2_domain">Dépenses vs résultats en éducation</td>
+              <td class="val-fr" data-i18n="row2_fr">3e dép. / 17e résultats</td>
+              <td class="val-ocde" data-i18n="row2_ocde">Moyen</td>
+              <td class="val-worse" data-i18n="row2_result">Paradoxe</td>
             </tr>
             <tr>
-              <td>Productivité horaire du travail</td>
-              <td class="val-fr">Top 5</td>
-              <td class="val-ocde">Moyen</td>
-              <td class="val-better">Avantage FR</td>
+              <td data-i18n="row3_domain">Productivité horaire du travail</td>
+              <td class="val-fr" data-i18n="row3_fr">Top 5</td>
+              <td class="val-ocde" data-i18n="row3_ocde">Moyen</td>
+              <td class="val-better" data-i18n="row3_result">Avantage FR</td>
             </tr>
             <tr>
-              <td>Espérance de vie</td>
-              <td class="val-fr">7ème</td>
+              <td data-i18n="row4_domain">Espérance de vie</td>
+              <td class="val-fr" data-i18n="row4_fr">7ème</td>
               <td class="val-ocde">80,3 ans</td>
-              <td class="val-better">Avantage FR</td>
+              <td class="val-better" data-i18n="row4_result">Avantage FR</td>
             </tr>
             <tr>
-              <td>Chômage structurel</td>
+              <td data-i18n="row5_domain">Chômage structurel</td>
               <td class="val-fr">7,3 %</td>
               <td class="val-ocde">4,9 %</td>
-              <td class="val-worse">Retard FR</td>
+              <td class="val-worse" data-i18n="row5_result">Retard FR</td>
             </tr>
             <tr>
-              <td>Mobilité sociale</td>
-              <td class="val-fr">22ème</td>
-              <td class="val-ocde">Variable</td>
-              <td class="val-worse">Retard FR</td>
+              <td data-i18n="row6_domain">Mobilité sociale</td>
+              <td class="val-fr" data-i18n="row6_fr">22ème</td>
+              <td class="val-ocde" data-i18n="row6_ocde">Variable</td>
+              <td class="val-worse" data-i18n="row6_result">Retard FR</td>
             </tr>
           </tbody>
         </table>
@@ -257,27 +264,27 @@
 
       <!-- ── Ce que le chiffre ne dit pas ──────────────────────────── -->
       <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.15);border-left:4px solid #60a5fa;border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0">
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#60a5fa;text-transform:uppercase;margin-bottom:10px">⚠️ Ce que les classements ne disent pas</div>
+        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#60a5fa;text-transform:uppercase;margin-bottom:10px" data-i18n="caveat_title">⚠️ Ce que les classements ne disent pas</div>
         <ul style="margin:0;padding:0 0 0 18px;color:var(--muted);font-size:.88rem;line-height:1.75">
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">L'OCDE n'est pas homogène.</strong> Elle regroupe des économies aussi différentes que le Mexique (PIB/hab. : 11 000 $) et la Suisse (86 000 $). Comparer la France à la "moyenne OCDE" est pertinent seulement si on sélectionne des pays comparables (G7, zone euro).</li>
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">Le rang ne dit pas tout.</strong> Être 17e en mathématiques PISA avec 474 points versus une moyenne de 472, c'est quasi-équivalent. L'écart entre le 10e et le 25e rang est souvent statistiquement non significatif.</li>
-          <li><strong style="color:var(--text)">Les comparaisons de dépenses ignorent la structure économique.</strong> Un pays avec beaucoup de retraités mécaniquement dépense plus en pensions. La démographie, la géographie et l'histoire institutionnelle expliquent une grande partie des écarts bruts.</li>
+          <li style="margin-bottom:8px" data-i18n="caveat1"><strong style="color:var(--text)">L'OCDE n'est pas homogène.</strong> Elle regroupe des économies aussi différentes que le Mexique (PIB/hab. : 11 000 $) et la Suisse (86 000 $). Comparer la France à la "moyenne OCDE" est pertinent seulement si on sélectionne des pays comparables (G7, zone euro).</li>
+          <li style="margin-bottom:8px" data-i18n="caveat2"><strong style="color:var(--text)">Le rang ne dit pas tout.</strong> Être 17e en mathématiques PISA avec 474 points versus une moyenne de 472, c'est quasi-équivalent. L'écart entre le 10e et le 25e rang est souvent statistiquement non significatif.</li>
+          <li data-i18n="caveat3"><strong style="color:var(--text)">Les comparaisons de dépenses ignorent la structure économique.</strong> Un pays avec beaucoup de retraités mécaniquement dépense plus en pensions. La démographie, la géographie et l'histoire institutionnelle expliquent une grande partie des écarts bruts.</li>
         </ul>
       </div>
 
       <div class="q-sources">
-        <strong>Sources</strong>
-        OCDE — Perspectives économiques 2024 · OCDE — Pensions at a Glance 2023 · OCDE — Health at a Glance 2023 · OCDE — Revenue Statistics 2023 · OCDE — Education at a Glance 2023 · OCDE — PISA 2022 · OCDE — A Broken Social Elevator? 2023 · Eurostat — Employment statistics 2024 · FMI — World Economic Outlook 2025.
+        <strong data-i18n="sources_label">Sources</strong>
+        <span data-i18n="sources_text">OCDE — Perspectives économiques 2024 · OCDE — Pensions at a Glance 2023 · OCDE — Health at a Glance 2023 · OCDE — Revenue Statistics 2023 · OCDE — Education at a Glance 2023 · OCDE — PISA 2022 · OCDE — A Broken Social Elevator? 2023 · Eurostat — Employment statistics 2024 · FMI — World Economic Outlook 2025.</span>
       </div>
 
       <div class="related">
-        <h3>Approfondir</h3>
+        <h3 data-i18n="related_title">Approfondir</h3>
         <div class="related-links">
-          <a href="/questions/pourquoi-la-france-est-endettee/" class="related-link">❓ Pourquoi la France est-elle endettée ?</a>
-          <a href="/questions/combien-coute-le-systeme-de-retraite-en-france/" class="related-link">🧓 Coût du système de retraite</a>
-          <a href="/questions/pourquoi-les-resultats-scolaires-baissent-en-france/" class="related-link">📚 Résultats scolaires en recul</a>
-          <a href="/questions/france-vs-allemagne-comparaison/" class="related-link">🇩🇪 France vs Allemagne</a>
-          <a href="/questions/france-vs-suede-comparaison/" class="related-link">🇸🇪 France vs Suède</a>
+          <a href="/questions/pourquoi-la-france-est-endettee/" class="related-link" data-i18n="related1">❓ Pourquoi la France est-elle endettée ?</a>
+          <a href="/questions/combien-coute-le-systeme-de-retraite-en-france/" class="related-link" data-i18n="related2">🧓 Coût du système de retraite</a>
+          <a href="/questions/pourquoi-les-resultats-scolaires-baissent-en-france/" class="related-link" data-i18n="related3">📚 Résultats scolaires en recul</a>
+          <a href="/questions/france-vs-allemagne-comparaison/" class="related-link" data-i18n="related4">🇩🇪 France vs Allemagne</a>
+          <a href="/questions/france-vs-suede-comparaison/" class="related-link" data-i18n="related5">🇸🇪 France vs Suède</a>
         </div>
       </div>
 
@@ -287,18 +294,215 @@
   <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
     <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
       <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-      <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-      <p style="color:var(--muted);font-size:.9rem;margin:0 0 16px">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-      <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem">S'abonner gratuitement →</a>
+      <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+      <p style="color:var(--muted);font-size:.9rem;margin:0 0 16px" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+      <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem" data-i18n="nl_cta">S'abonner gratuitement →</a>
+      <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
     </div>
   </div>
 
   <footer>
     <div class="footer-inner">
       <p>© 2024 Le Français Moyen — Données officielles uniquement (INSEE, Eurostat, Banque de France, OCDE)</p>
-      <nav><a href="/a-propos/">À propos</a> · <a href="/questions/">Toutes les questions</a> · <a href="/partager/">Partager</a></nav>
+      <nav><a href="/a-propos/">À propos</a> · <a href="/questions/">Toutes les questions</a> · <a href="/" data-i18n="footer_link">Tableau de bord principal</a></nav>
     </div>
   </footer>
+
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'📧 Newsletter',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Comparatif',
+  hero_eyebrow:'Données OCDE · Eurostat · FMI · 2024',
+  hero_h1:"La France dans l'OCDE : dans la moyenne ou hors-norme ?",
+  hero_intro:"L'OCDE regroupe 38 pays développés. Sur 8 domaines clés,<br>la France est-elle un cas ordinaire — ou une exception ?",
+  s1_h2:'Rang de la France dans l\'OCDE — 8 domaines',
+  s1_p:'Sur 38 pays membres, voici où se situe la France, avec sa valeur et la moyenne OCDE pour comparaison.',
+  card1_domain:'🧓 Dépenses retraite / PIB',
+  card1_ocde:'Moyenne OCDE : 9,0 %',
+  card1_rank:'1ère',
+  card2_domain:'🏥 Dépenses santé / PIB',
+  card2_ocde:'Moyenne OCDE : 9,2 %',
+  card2_rank:'2ème',
+  card3_domain:'💰 Prélèvements obligatoires / PIB',
+  card3_ocde:'Moyenne OCDE : 34,0 %',
+  card3_rank:'3ème',
+  card4_domain:'🏛️ Dépenses publiques / PIB',
+  card4_ocde:'Moyenne OCDE : 43 %',
+  card4_rank:'2ème',
+  card5_domain:'💸 Dette publique / PIB',
+  card5_ocde:'Moyenne OCDE : 83 %',
+  card5_rank:'8ème',
+  card6_domain:'📚 PISA — mathématiques (2022)',
+  card6_ocde:'Moyenne OCDE : 472 pts',
+  card6_rank:'17ème',
+  card7_domain:'💼 Taux de chômage',
+  card7_ocde:'Moyenne OCDE : 4,9 %',
+  card7_rank:'28ème',
+  card8_domain:'🏠 Espérance de vie à la naissance',
+  card8_ocde:'Moyenne OCDE : 80,3 ans',
+  card8_rank:'7ème',
+  card_of38:'sur 38 pays',
+  s2_h2:'Ce que ce bilan révèle',
+  s2_p1:'La France n\'est pas "dans la moyenne" de l\'OCDE — elle est une valeur extrême sur presque tous les indicateurs de dépenses publiques :',
+  s2_li1:'<strong>Elle dépense le plus en retraites</strong> (1re sur 38), le plus en santé (2e), le plus en prélèvements (3e), et le plus en dépenses publiques globales (2e). Ce n\'est pas une coïncidence — c\'est un modèle cohérent d\'État-providence maximal.',
+  s2_li2:'<strong>Les résultats ne sont pas toujours à la hauteur.</strong> En éducation (17e sur les scores PISA), en emploi (28e pour le chômage) et en mobilité sociale (22e), la France est dans la seconde moitié du classement OCDE malgré des dépenses exceptionnelles.',
+  s2_li3:'<strong>Là où la France excelle vraiment :</strong> l\'espérance de vie (7e), la fécondité (1re en Europe hors immigration), les infrastructures de transport (réseau ferroviaire dense), et la productivité horaire du travail (dans le top 5 OCDE).',
+  s3_h2:'La France vs la moyenne OCDE : tableau synthétique',
+  th_domain:'Domaine',
+  th_fr:'🇫🇷 France',
+  th_ocde:'📊 Moy. OCDE',
+  th_result:'Résultat',
+  row1_domain:'Dépenses vs résultats en santé',
+  row1_fr:'2e / 17e accès',
+  row1_ocde:'Moyen',
+  row1_result:'Paradoxe',
+  row2_domain:'Dépenses vs résultats en éducation',
+  row2_fr:'3e dép. / 17e résultats',
+  row2_ocde:'Moyen',
+  row2_result:'Paradoxe',
+  row3_domain:'Productivité horaire du travail',
+  row3_fr:'Top 5',
+  row3_ocde:'Moyen',
+  row3_result:'Avantage FR',
+  row4_domain:'Espérance de vie',
+  row4_fr:'7ème',
+  row4_result:'Avantage FR',
+  row5_domain:'Chômage structurel',
+  row5_result:'Retard FR',
+  row6_domain:'Mobilité sociale',
+  row6_fr:'22ème',
+  row6_ocde:'Variable',
+  row6_result:'Retard FR',
+  caveat_title:'⚠️ Ce que les classements ne disent pas',
+  caveat1:'<strong style="color:var(--text)">L\'OCDE n\'est pas homogène.</strong> Elle regroupe des économies aussi différentes que le Mexique (PIB/hab. : 11 000 $) et la Suisse (86 000 $). Comparer la France à la "moyenne OCDE" est pertinent seulement si on sélectionne des pays comparables (G7, zone euro).',
+  caveat2:'<strong style="color:var(--text)">Le rang ne dit pas tout.</strong> Être 17e en mathématiques PISA avec 474 points versus une moyenne de 472, c\'est quasi-équivalent. L\'écart entre le 10e et le 25e rang est souvent statistiquement non significatif.',
+  caveat3:'<strong style="color:var(--text)">Les comparaisons de dépenses ignorent la structure économique.</strong> Un pays avec beaucoup de retraités mécaniquement dépense plus en pensions. La démographie, la géographie et l\'histoire institutionnelle expliquent une grande partie des écarts bruts.',
+  sources_label:'Sources',
+  sources_text:'OCDE — Perspectives économiques 2024 · OCDE — Pensions at a Glance 2023 · OCDE — Health at a Glance 2023 · OCDE — Revenue Statistics 2023 · OCDE — Education at a Glance 2023 · OCDE — PISA 2022 · OCDE — A Broken Social Elevator? 2023 · Eurostat — Employment statistics 2024 · FMI — World Economic Outlook 2025.',
+  related_title:'Approfondir',
+  related1:'❓ Pourquoi la France est-elle endettée ?',
+  related2:'🧓 Coût du système de retraite',
+  related3:'📚 Résultats scolaires en recul',
+  related4:'🇩🇪 France vs Allemagne',
+  related5:'🇸🇪 France vs Suède',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'📧 Newsletter',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Comparison',
+  hero_eyebrow:'OECD · Eurostat · IMF data · 2024',
+  hero_h1:'France in the OECD: Average or Outlier?',
+  hero_intro:'The OECD groups 38 developed countries. Across 8 key areas,<br>is France an ordinary case — or an exception?',
+  s1_h2:"France's ranking in the OECD — 8 domains",
+  s1_p:'Among 38 member countries, here is where France stands, with its value and the OECD average for comparison.',
+  card1_domain:'🧓 Pension spending / GDP',
+  card1_ocde:'OECD average: 9.0%',
+  card1_rank:'1st',
+  card2_domain:'🏥 Health spending / GDP',
+  card2_ocde:'OECD average: 9.2%',
+  card2_rank:'2nd',
+  card3_domain:'💰 Compulsory levies / GDP',
+  card3_ocde:'OECD average: 34.0%',
+  card3_rank:'3rd',
+  card4_domain:'🏛️ Public spending / GDP',
+  card4_ocde:'OECD average: 43%',
+  card4_rank:'2nd',
+  card5_domain:'💸 Public debt / GDP',
+  card5_ocde:'OECD average: 83%',
+  card5_rank:'8th',
+  card6_domain:'📚 PISA — mathematics (2022)',
+  card6_ocde:'OECD average: 472 pts',
+  card6_rank:'17th',
+  card7_domain:'💼 Unemployment rate',
+  card7_ocde:'OECD average: 4.9%',
+  card7_rank:'28th',
+  card8_domain:'🏠 Life expectancy at birth',
+  card8_ocde:'OECD average: 80.3 yrs',
+  card8_rank:'7th',
+  card_of38:'out of 38 countries',
+  s2_h2:'What this assessment reveals',
+  s2_p1:'France is not "average" within the OECD — it is an extreme outlier on almost every public spending indicator:',
+  s2_li1:'<strong>It spends the most on pensions</strong> (1st of 38), the most on healthcare (2nd), the most in levies (3rd), and the most on total public spending (2nd). This is not a coincidence — it is a coherent model of maximum welfare state.',
+  s2_li2:'<strong>Results do not always match spending.</strong> In education (17th on PISA scores), employment (28th for unemployment) and social mobility (22nd), France ranks in the lower half of the OECD despite exceptional spending.',
+  s2_li3:'<strong>Where France genuinely excels:</strong> life expectancy (7th), fertility (1st in Europe excluding immigration), transport infrastructure (dense rail network), and hourly labour productivity (top 5 OECD).',
+  s3_h2:'France vs the OECD average: summary table',
+  th_domain:'Domain',
+  th_fr:'🇫🇷 France',
+  th_ocde:'📊 OECD avg.',
+  th_result:'Assessment',
+  row1_domain:'Spending vs outcomes in health',
+  row1_fr:'2nd / 17th access',
+  row1_ocde:'Average',
+  row1_result:'Paradox',
+  row2_domain:'Spending vs outcomes in education',
+  row2_fr:'3rd spend. / 17th results',
+  row2_ocde:'Average',
+  row2_result:'Paradox',
+  row3_domain:'Hourly labour productivity',
+  row3_fr:'Top 5',
+  row3_ocde:'Average',
+  row3_result:'FR advantage',
+  row4_domain:'Life expectancy',
+  row4_fr:'7th',
+  row4_result:'FR advantage',
+  row5_domain:'Structural unemployment',
+  row5_result:'FR behind',
+  row6_domain:'Social mobility',
+  row6_fr:'22nd',
+  row6_ocde:'Variable',
+  row6_result:'FR behind',
+  caveat_title:'⚠️ What the rankings do not tell you',
+  caveat1:'<strong style="color:var(--text)">The OECD is not homogeneous.</strong> It groups economies as different as Mexico (GDP/capita: $11,000) and Switzerland ($86,000). Comparing France to the "OECD average" is only meaningful when selecting comparable countries (G7, euro zone).',
+  caveat2:'<strong style="color:var(--text)">Rank does not tell the whole story.</strong> Being 17th in PISA mathematics with 474 points versus an average of 472 is nearly equivalent. The gap between 10th and 25th place is often statistically insignificant.',
+  caveat3:'<strong style="color:var(--text)">Spending comparisons ignore economic structure.</strong> A country with many retirees mechanically spends more on pensions. Demographics, geography, and institutional history explain much of the raw differences.',
+  sources_label:'Sources',
+  sources_text:'OECD — Economic Outlook 2024 · OECD — Pensions at a Glance 2023 · OECD — Health at a Glance 2023 · OECD — Revenue Statistics 2023 · OECD — Education at a Glance 2023 · OECD — PISA 2022 · OECD — A Broken Social Elevator? 2023 · Eurostat — Employment statistics 2024 · IMF — World Economic Outlook 2025.',
+  related_title:'Go deeper',
+  related1:'❓ Why is France in debt?',
+  related2:'🧓 Cost of the pension system',
+  related3:'📚 Falling school results',
+  related4:'🇩🇪 France vs Germany',
+  related5:'🇸🇪 France vs Sweden',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?"La France dans l'OCDE : dans la moyenne ou hors-norme ? — Comparatif 2024"
+    :'France in the OECD: Average or Outlier? — 2024 Comparison';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Retraites, dette, fiscalité, santé, éducation, emploi : où la France se situe-t-elle vraiment par rapport aux 38 pays de l'OCDE ? Bilan complet en chiffres."
+    :'Pensions, debt, taxation, health, education, employment: where does France really stand among the 38 OECD countries? Complete data-driven assessment.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
-

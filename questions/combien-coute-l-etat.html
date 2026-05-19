@@ -7,6 +7,9 @@
   <meta name="description" content="L'État français dépense 1 500 milliards d'euros par an — 57% du PIB. Qui paie quoi, où va l'argent.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/combien-coute-l-etat">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/combien-coute-l-etat">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/combien-coute-l-etat">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/combien-coute-l-etat">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Français Moyen">
@@ -120,8 +123,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/#dashboard" class="cta">← Tableau de bord</a>
+      <a href="/#dashboard" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -147,16 +154,16 @@
 
   <main id="contenu" style="max-width:860px;margin:auto;padding:40px 24px 80px">
     <nav aria-label="Fil d'Ariane" style="margin-bottom:24px;font-size:.88rem;color:var(--muted)">
-      <a href="/">Accueil</a> › <a href="/#questions">Questions</a> › <span>Combien coûte l'État ?</span>
+      <a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/#questions" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Combien coûte l'État ?</span>
     </nav>
 
-    <div class="eyebrow">Analyse · Fiscalité &amp; dépenses publiques</div>
-    <h1 style="font-size:clamp(1.7rem,4vw,2.8rem);margin-bottom:12px">Combien coûte l'État français ?<br>Dépenses publiques, fiscalité et retour sur impôts</h1>
-    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:28px">Données INSEE · PLF 2026 · Eurostat · Mise à jour mai 2026</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Analyse · Fiscalité &amp; dépenses publiques</div>
+    <h1 style="font-size:clamp(1.7rem,4vw,2.8rem);margin-bottom:12px" data-i18n="hero_h1">Combien coûte l'État français ?<br>Dépenses publiques, fiscalité et retour sur impôts</h1>
+    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:28px" data-i18n="hero_sub">Données INSEE · PLF 2026 · Eurostat · Mise à jour mai 2026</p>
 
     <div class="panel" style="padding:22px;margin-bottom:28px;border-left:4px solid var(--accent)">
-      <div class="eyebrow" style="margin-bottom:8px">Réponse courte</div>
-      <p style="margin:0;font-size:1.02rem;line-height:1.65">
+      <div class="eyebrow" style="margin-bottom:8px" data-i18n="short_answer_eyebrow">Réponse courte</div>
+      <p style="margin:0;font-size:1.02rem;line-height:1.65" data-i18n="short_answer_p">
         <strong>1 500 Md€ de dépenses, 57% du PIB, pas d'excédent depuis 1974.</strong> La France est le pays de l'OCDE qui dépense le plus en proportion de son économie. En contrepartie, elle offre une protection sociale parmi les plus étendues au monde. La question n'est pas le montant brut, mais l'efficience : obtenons-nous assez en retour de cet investissement collectif ?
       </p>
     </div>
@@ -168,110 +175,110 @@
       <div class="stat-kpi"><span class="val" style="color:var(--red)" data-mds="170">170 Md€</span><span class="lbl">Déficit annuel (2024)</span></div>
     </div>
 
-    <h2 class="article-h2">Les 5 postes qui absorbent l'essentiel</h2>
+    <h2 class="article-h2" data-i18n="h2_top5">Les 5 postes qui absorbent l'essentiel</h2>
     <div class="bar-chart">
       <div class="bar-row">
-        <span class="bar-label">Retraites</span>
+        <span class="bar-label" data-i18n="bar_retraites">Retraites</span>
         <div class="bar-track"><div class="bar-fill" style="width:72%;background:var(--red)">350 Md€</div></div>
         <span class="bar-val" data-mds="350">350 Md€</span>
       </div>
       <div class="bar-row">
-        <span class="bar-label">Masse salariale</span>
+        <span class="bar-label" data-i18n="bar_masse_sal">Masse salariale</span>
         <div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--accent)">340 Md€</div></div>
         <span class="bar-val" data-mds="340">340 Md€</span>
       </div>
       <div class="bar-row">
-        <span class="bar-label">Santé</span>
+        <span class="bar-label" data-i18n="bar_sante">Santé</span>
         <div class="bar-track"><div class="bar-fill" style="width:56%;background:var(--accent2)">270 Md€</div></div>
         <span class="bar-val" data-mds="270">270 Md€</span>
       </div>
       <div class="bar-row">
-        <span class="bar-label">Intérêts dette</span>
+        <span class="bar-label" data-i18n="bar_interets">Intérêts dette</span>
         <div class="bar-track"><div class="bar-fill" style="width:12%;background:#ff6b6b">58 Md€</div></div>
         <span class="bar-val" data-mds="58">58 Md€</span>
       </div>
       <div class="bar-row">
-        <span class="bar-label">Déficit</span>
+        <span class="bar-label" data-i18n="bar_deficit">Déficit</span>
         <div class="bar-track"><div class="bar-fill" style="width:35%;background:#888">170 Md€</div></div>
         <span class="bar-val" data-mds="170">170 Md€</span>
       </div>
     </div>
 
-    <h2 class="article-h2">Ce que vous payez réellement (~47% du coût travail)</h2>
-    <p class="article-p">Un salarié au salaire médian (2 000 € net/mois) coûte environ <strong>3 100 € brut charges patronales incluses</strong> à son employeur. Entre les cotisations salariales, patronales, la CSG et la CRDS, c'est <strong>environ 47% du coût total du travail</strong> qui part en prélèvements avant que le salarié n'ait dépensé un centime. En ajoutant la TVA (20% sur la plupart des achats) et les taxes indirectes, un ménage moyen reverse entre 45 et 55% de son revenu brut à la collectivité sous une forme ou une autre.</p>
+    <h2 class="article-h2" data-i18n="h2_real_cost">Ce que vous payez réellement (~47% du coût travail)</h2>
+    <p class="article-p" data-i18n="p_real_cost">Un salarié au salaire médian (2 000 € net/mois) coûte environ <strong>3 100 € brut charges patronales incluses</strong> à son employeur. Entre les cotisations salariales, patronales, la CSG et la CRDS, c'est <strong>environ 47% du coût total du travail</strong> qui part en prélèvements avant que le salarié n'ait dépensé un centime. En ajoutant la TVA (20% sur la plupart des achats) et les taxes indirectes, un ménage moyen reverse entre 45 et 55% de son revenu brut à la collectivité sous une forme ou une autre.</p>
 
-    <h2 class="article-h2">Pourquoi autant ? Retraites, fonctionnaires, transferts</h2>
+    <h2 class="article-h2" data-i18n="h2_why">Pourquoi autant ? Retraites, fonctionnaires, transferts</h2>
     <div class="insight-list" style="margin-bottom:1.5rem">
       <div class="insight">
-        <strong>Les retraites : 13,8% du PIB</strong>
-        <span>La France consacre une part record de son PIB aux retraites (OCDE : moyenne 8%). Avec un âge effectif moyen de départ à 62 ans et une espérance de vie à 82 ans, la durée moyenne de retraite atteint 20 ans — l'une des plus longues d'Europe.</span>
+        <strong data-i18n="insight1_title">Les retraites : 13,8% du PIB</strong>
+        <span data-i18n="insight1_body">La France consacre une part record de son PIB aux retraites (OCDE : moyenne 8%). Avec un âge effectif moyen de départ à 62 ans et une espérance de vie à 82 ans, la durée moyenne de retraite atteint 20 ans — l'une des plus longues d'Europe.</span>
       </div>
       <div class="insight">
-        <strong>La fonction publique : 5,7 millions d'agents</strong>
-        <span>La France compte 83 fonctionnaires pour 1 000 habitants, contre 50 en Allemagne. La masse salariale de la fonction publique (<span data-mds="340">340 Md€</span>) représente le 2e poste de dépenses, devant la santé.</span>
+        <strong data-i18n="insight2_title">La fonction publique : 5,7 millions d'agents</strong>
+        <span data-i18n="insight2_body">La France compte 83 fonctionnaires pour 1 000 habitants, contre 50 en Allemagne. La masse salariale de la fonction publique (<span data-mds="340">340 Md€</span>) représente le 2e poste de dépenses, devant la santé.</span>
       </div>
       <div class="insight">
-        <strong>Les transferts sociaux : amortisseur ou trappe ?</strong>
-        <span>Les minima sociaux (RSA, APL, AAH...) représentent environ <span data-mds="80">80 Md€</span>/an. Ils limitent la pauvreté mais créent parfois des effets de seuil qui découragent la reprise d'emploi. Le débat sur leur efficience est central dans toute discussion budgétaire.</span>
+        <strong data-i18n="insight3_title">Les transferts sociaux : amortisseur ou trappe ?</strong>
+        <span data-i18n="insight3_body">Les minima sociaux (RSA, APL, AAH...) représentent environ <span data-mds="80">80 Md€</span>/an. Ils limitent la pauvreté mais créent parfois des effets de seuil qui découragent la reprise d'emploi. Le débat sur leur efficience est central dans toute discussion budgétaire.</span>
       </div>
     </div>
 
-    <h2 class="article-h2">Soutenabilité : pas d'excédent depuis 1974</h2>
-    <p class="article-p">La France n'a pas voté un budget en excédent depuis plus de 50 ans. La dette publique atteint <strong data-mds="3228">3 228 milliards d'euros</strong> (111,6% du PIB en 2025). Les intérêts de cette dette (<span data-mds="58">58 Md€</span>/an) dépassent le budget de l'Éducation nationale. Avec la remontée des taux directeurs de la BCE, chaque point de taux supplémentaire coûte environ <span data-mds="32">32 Md€</span> supplémentaires sur 10 ans au fur et à mesure des refinancements.</p>
+    <h2 class="article-h2" data-i18n="h2_sustainability">Soutenabilité : pas d'excédent depuis 1974</h2>
+    <p class="article-p" data-i18n="p_sustainability">La France n'a pas voté un budget en excédent depuis plus de 50 ans. La dette publique atteint <strong data-mds="3228">3 228 milliards d'euros</strong> (111,6% du PIB en 2025). Les intérêts de cette dette (<span data-mds="58">58 Md€</span>/an) dépassent le budget de l'Éducation nationale. Avec la remontée des taux directeurs de la BCE, chaque point de taux supplémentaire coûte environ <span data-mds="32">32 Md€</span> supplémentaires sur 10 ans au fur et à mesure des refinancements.</p>
 
     <div class="faq-block">
-      <h2 class="article-h2">Questions fréquentes</h2>
+      <h2 class="article-h2" data-i18n="faq_title">Questions fréquentes</h2>
       <div class="faq-item">
-        <div class="faq-q">Le budget a-t-il déjà été à l'équilibre ?</div>
-        <div class="faq-a">La France n'a pas voté un budget en excédent depuis 1974. Plus de 50 ans de déficit ininterrompu. La dette publique a mécaniquement grossi chaque année pour atteindre 3 228 milliards d'euros, soit 111,6% du PIB.</div>
+        <div class="faq-q" data-i18n="faq1_q">Le budget a-t-il déjà été à l'équilibre ?</div>
+        <div class="faq-a" data-i18n="faq1_a">La France n'a pas voté un budget en excédent depuis 1974. Plus de 50 ans de déficit ininterrompu. La dette publique a mécaniquement grossi chaque année pour atteindre 3 228 milliards d'euros, soit 111,6% du PIB.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Peut-on réduire les dépenses sans casser les services publics ?</div>
-        <div class="faq-a">Des marges existent. La France dépense plus que des pays offrant des services comparables (Suède, Danemark à 42-45% du PIB). Mais la majorité des dépenses est contrainte : retraites (350 Md€), masse salariale (340 Md€), santé (270 Md€) et intérêts de la dette (58 Md€) représentent à eux seuls l'essentiel du budget.</div>
+        <div class="faq-q" data-i18n="faq2_q">Peut-on réduire les dépenses sans casser les services publics ?</div>
+        <div class="faq-a" data-i18n="faq2_a">Des marges existent. La France dépense plus que des pays offrant des services comparables (Suède, Danemark à 42-45% du PIB). Mais la majorité des dépenses est contrainte : retraites (350 Md€), masse salariale (340 Md€), santé (270 Md€) et intérêts de la dette (58 Md€) représentent à eux seuls l'essentiel du budget.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Combien paie quelqu'un au SMIC ?</div>
-        <div class="faq-a">Un salarié au SMIC (1 426 € net/mois) coûte environ 2 100 € brut charges patronales incluses à son employeur. Le coût total du travail dépasse donc 47% du salaire net perçu. En ajoutant TVA et taxes indirectes, un ménage modeste reverse environ 35-40% de son revenu disponible à la collectivité.</div>
+        <div class="faq-q" data-i18n="faq3_q">Combien paie quelqu'un au SMIC ?</div>
+        <div class="faq-a" data-i18n="faq3_a">Un salarié au SMIC (1 426 € net/mois) coûte environ 2 100 € brut charges patronales incluses à son employeur. Le coût total du travail dépasse donc 47% du salaire net perçu. En ajoutant TVA et taxes indirectes, un ménage modeste reverse environ 35-40% de son revenu disponible à la collectivité.</div>
       </div>
     </div>
 
     <div class="cta-box">
-      <p>Quel est votre taux d'imposition réel, toutes taxes et cotisations confondues ? La réponse peut surprendre.</p>
-      <a href="/#simulateur-fiscal-reel">Calculez votre taux d'imposition réel</a>
+      <p data-i18n="cta_p">Quel est votre taux d'imposition réel, toutes taxes et cotisations confondues ? La réponse peut surprendre.</p>
+      <a href="/#simulateur-fiscal-reel" data-i18n="cta_a">Calculez votre taux d'imposition réel</a>
     </div>
 
-    <h2 class="article-h2" style="margin-top:2.5rem">Questions connexes</h2>
+    <h2 class="article-h2" style="margin-top:2.5rem" data-i18n="h2_related">Questions connexes</h2>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:32px">
       <a href="/questions/la-france-s-appauvrit-elle" class="faq-card">
-        <h3>La France s'appauvrit-elle ?</h3>
-        <p>Pouvoir d'achat, déclassement et comparaisons européennes.</p>
+        <h3 data-i18n="related1_h3">La France s'appauvrit-elle ?</h3>
+        <p data-i18n="related1_p">Pouvoir d'achat, déclassement et comparaisons européennes.</p>
       </a>
       <a href="/questions/demographie-france-soutenable" class="faq-card">
-        <h3>La démographie est-elle soutenable ?</h3>
-        <p>Ratio actifs/retraités et avenir du financement des retraites.</p>
+        <h3 data-i18n="related2_h3">La démographie est-elle soutenable ?</h3>
+        <p data-i18n="related2_p">Ratio actifs/retraités et avenir du financement des retraites.</p>
       </a>
     </div>
 
     <div class="share-bar">
-      <span style="color:var(--muted);font-size:.9rem">Partager :</span>
-      <a href="https://twitter.com/intent/tweet?text=Combien%20co%C3%BBte%20vraiment%20l%27%C3%89tat%20fran%C3%A7ais%20%3F%201%20500%20Md%E2%82%AC%2C%2057%25%20du%20PIB%20%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fcombien-coute-l-etat" target="_blank" rel="noopener" class="share-btn">𝕏 Twitter</a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fcombien-coute-l-etat" target="_blank" rel="noopener" class="share-btn">Facebook</a>
+      <span style="color:var(--muted);font-size:.9rem" data-i18n="share_label">Partager :</span>
+      <a href="https://twitter.com/intent/tweet?text=Combien%20co%C3%BBte%20vraiment%20l%27%C3%89tat%20fran%C3%A7ais%20%3F%201%20500%20Md%E2%82%AC%2C%2057%25%20du%20PIB%20%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fcombien-coute-l-etat" target="_blank" rel="noopener" class="share-btn" data-i18n="share_tw">𝕏 Twitter</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fcombien-coute-l-etat" target="_blank" rel="noopener" class="share-btn" data-i18n="share_fb">Facebook</a>
     </div>
   
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : INSEE, PLF 2026, Eurostat</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE, PLF 2026, Eurostat</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 <script>
 (function(){
@@ -301,6 +308,133 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:"Combien coûte l'État ?",
+  hero_eyebrow:'Analyse · Fiscalité &amp; dépenses publiques',
+  hero_h1:"Combien coûte l'État français ?<br>Dépenses publiques, fiscalité et retour sur impôts",
+  hero_sub:'Données INSEE · PLF 2026 · Eurostat · Mise à jour mai 2026',
+  short_answer_eyebrow:'Réponse courte',
+  short_answer_p:"<strong>1 500 Md€ de dépenses, 57% du PIB, pas d'excédent depuis 1974.</strong> La France est le pays de l'OCDE qui dépense le plus en proportion de son économie. En contrepartie, elle offre une protection sociale parmi les plus étendues au monde. La question n'est pas le montant brut, mais l'efficience : obtenons-nous assez en retour de cet investissement collectif ?",
+  h2_top5:"Les 5 postes qui absorbent l'essentiel",
+  bar_retraites:'Retraites',
+  bar_masse_sal:'Masse salariale',
+  bar_sante:'Santé',
+  bar_interets:'Intérêts dette',
+  bar_deficit:'Déficit',
+  h2_real_cost:'Ce que vous payez réellement (~47% du coût travail)',
+  p_real_cost:"Un salarié au salaire médian (2 000 € net/mois) coûte environ <strong>3 100 € brut charges patronales incluses</strong> à son employeur. Entre les cotisations salariales, patronales, la CSG et la CRDS, c'est <strong>environ 47% du coût total du travail</strong> qui part en prélèvements avant que le salarié n'ait dépensé un centime. En ajoutant la TVA (20% sur la plupart des achats) et les taxes indirectes, un ménage moyen reverse entre 45 et 55% de son revenu brut à la collectivité sous une forme ou une autre.",
+  h2_why:'Pourquoi autant ? Retraites, fonctionnaires, transferts',
+  insight1_title:'Les retraites : 13,8% du PIB',
+  insight1_body:"La France consacre une part record de son PIB aux retraites (OCDE : moyenne 8%). Avec un âge effectif moyen de départ à 62 ans et une espérance de vie à 82 ans, la durée moyenne de retraite atteint 20 ans — l'une des plus longues d'Europe.",
+  insight2_title:"La fonction publique : 5,7 millions d'agents",
+  insight2_body:'La France compte 83 fonctionnaires pour 1 000 habitants, contre 50 en Allemagne. La masse salariale de la fonction publique (<span data-mds="340">340 Md€</span>) représente le 2e poste de dépenses, devant la santé.',
+  insight3_title:'Les transferts sociaux : amortisseur ou trappe ?',
+  insight3_body:'Les minima sociaux (RSA, APL, AAH...) représentent environ <span data-mds="80">80 Md€</span>/an. Ils limitent la pauvreté mais créent parfois des effets de seuil qui découragent la reprise d\'emploi. Le débat sur leur efficience est central dans toute discussion budgétaire.',
+  h2_sustainability:"Soutenabilité : pas d'excédent depuis 1974",
+  p_sustainability:"La France n'a pas voté un budget en excédent depuis plus de 50 ans. La dette publique atteint <strong data-mds=\"3228\">3 228 milliards d'euros</strong> (111,6% du PIB en 2025). Les intérêts de cette dette (<span data-mds=\"58\">58 Md€</span>/an) dépassent le budget de l'Éducation nationale. Avec la remontée des taux directeurs de la BCE, chaque point de taux supplémentaire coûte environ <span data-mds=\"32\">32 Md€</span> supplémentaires sur 10 ans au fur et à mesure des refinancements.",
+  faq_title:'Questions fréquentes',
+  faq1_q:"Le budget a-t-il déjà été à l'équilibre ?",
+  faq1_a:"La France n'a pas voté un budget en excédent depuis 1974. Plus de 50 ans de déficit ininterrompu. La dette publique a mécaniquement grossi chaque année pour atteindre 3 228 milliards d'euros, soit 111,6% du PIB.",
+  faq2_q:'Peut-on réduire les dépenses sans casser les services publics ?',
+  faq2_a:'Des marges existent. La France dépense plus que des pays offrant des services comparables (Suède, Danemark à 42-45% du PIB). Mais la majorité des dépenses est contrainte : retraites (350 Md€), masse salariale (340 Md€), santé (270 Md€) et intérêts de la dette (58 Md€) représentent à eux seuls l\'essentiel du budget.',
+  faq3_q:'Combien paie quelqu\'un au SMIC ?',
+  faq3_a:"Un salarié au SMIC (1 426 € net/mois) coûte environ 2 100 € brut charges patronales incluses à son employeur. Le coût total du travail dépasse donc 47% du salaire net perçu. En ajoutant TVA et taxes indirectes, un ménage modeste reverse environ 35-40% de son revenu disponible à la collectivité.",
+  cta_p:"Quel est votre taux d'imposition réel, toutes taxes et cotisations confondues ? La réponse peut surprendre.",
+  cta_a:"Calculez votre taux d'imposition réel",
+  h2_related:'Questions connexes',
+  related1_h3:"La France s'appauvrit-elle ?",
+  related1_p:'Pouvoir d\'achat, déclassement et comparaisons européennes.',
+  related2_h3:'La démographie est-elle soutenable ?',
+  related2_p:'Ratio actifs/retraités et avenir du financement des retraites.',
+  share_label:'Partager :',
+  share_tw:'𝕏 Twitter',
+  share_fb:'Facebook',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_copy:'© 2026 Le Français Moyen — Données : INSEE, PLF 2026, Eurostat',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'How much does the State cost?',
+  hero_eyebrow:'Analysis · Taxation &amp; public spending',
+  hero_h1:'How much does the French State cost?<br>Public spending, taxation and return on taxes',
+  hero_sub:'Data: INSEE · PLF 2026 · Eurostat · Updated May 2026',
+  short_answer_eyebrow:'Short answer',
+  short_answer_p:'<strong>€1,500bn in spending, 57% of GDP, no surplus since 1974.</strong> France is the OECD country that spends the most relative to its economy. In return, it offers one of the most extensive social safety nets in the world. The issue is not the gross amount, but efficiency: do we get enough back from this collective investment?',
+  h2_top5:'The 5 spending lines that absorb most of the budget',
+  bar_retraites:'Pensions',
+  bar_masse_sal:'Public payroll',
+  bar_sante:'Healthcare',
+  bar_interets:'Debt interest',
+  bar_deficit:'Deficit',
+  h2_real_cost:'What you actually pay (~47% of labour cost)',
+  p_real_cost:'A worker earning the median salary (€2,000 net/month) costs their employer roughly <strong>€3,100 gross including employer contributions</strong>. Between employee contributions, employer contributions, CSG and CRDS, <strong>about 47% of the total labour cost</strong> goes to levies before the worker has spent a cent. Adding VAT (20% on most purchases) and indirect taxes, an average household transfers between 45% and 55% of gross income to the collective in one form or another.',
+  h2_why:'Why so much? Pensions, civil servants, transfers',
+  insight1_title:'Pensions: 13.8% of GDP',
+  insight1_body:'France devotes a record share of GDP to pensions (OECD average: 8%). With an average effective retirement age of 62 and a life expectancy of 82, the average retirement lasts 20 years — one of the longest in Europe.',
+  insight2_title:'The public sector: 5.7 million employees',
+  insight2_body:'France has 83 civil servants per 1,000 inhabitants, versus 50 in Germany. The public-sector payroll (<span data-mds="340">€340bn</span>) is the second-largest spending item, ahead of healthcare.',
+  insight3_title:'Social transfers: safety net or poverty trap?',
+  insight3_body:'Minimum-income benefits (RSA, APL, AAH...) total roughly <span data-mds="80">€80bn</span>/year. They limit poverty but can create threshold effects that discourage return to work. The debate over their efficiency is central to any budget discussion.',
+  h2_sustainability:'Sustainability: no surplus since 1974',
+  p_sustainability:'France has not passed a balanced budget in over 50 years. Public debt stands at <strong data-mds="3228">€3,228 billion</strong> (111.6% of GDP in 2025). Interest on this debt (<span data-mds="58">€58bn</span>/year) exceeds the Education budget. With rising ECB rates, every additional percentage point costs roughly <span data-mds="32">€32bn</span> extra over 10 years as debt is refinanced.',
+  faq_title:'Frequently asked questions',
+  faq1_q:'Has the budget ever been balanced?',
+  faq1_a:'France has not passed a surplus budget since 1974 — more than 50 consecutive years of deficit. Public debt has grown mechanically every year to reach €3,228 billion, or 111.6% of GDP.',
+  faq2_q:'Can spending be cut without breaking public services?',
+  faq2_a:'There is room. France spends more than countries offering comparable services (Sweden, Denmark at 42-45% of GDP). But most spending is rigid: pensions (€350bn), payroll (€340bn), healthcare (€270bn) and debt interest (€58bn) alone account for the bulk of the budget.',
+  faq3_q:'How much does someone on minimum wage pay?',
+  faq3_a:'A worker on the minimum wage (€1,426 net/month) costs roughly €2,100 gross including employer contributions. The total labour cost therefore exceeds 47% of the net wage received. Adding VAT and indirect taxes, a low-income household transfers roughly 35-40% of disposable income to the collective.',
+  cta_p:'What is your real tax rate, including all taxes and contributions? The answer may surprise you.',
+  cta_a:'Calculate your real tax rate',
+  h2_related:'Related questions',
+  related1_h3:'Is France getting poorer?',
+  related1_p:'Purchasing power, downward mobility and European comparisons.',
+  related2_h3:'Is the demographics sustainable?',
+  related2_p:'Active-to-retiree ratio and the future of pension funding.',
+  share_label:'Share:',
+  share_tw:'𝕏 Twitter',
+  share_fb:'Facebook',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_copy:'© 2026 Le Français Moyen — Data: INSEE, PLF 2026, Eurostat',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?"Combien coûte l'État français ? Dépenses publiques, fiscalité et retour sur impôts"
+    :'How much does the French State cost? Public spending, taxation and return on taxes';
+  var d=document.querySelector('meta[name="description"]');
+  if(d)d.setAttribute('content',l==='fr'
+    ?"L'État français dépense 1 500 milliards d'euros par an — 57% du PIB. Qui paie quoi, où va l'argent."
+    :'The French State spends €1,500 billion per year — 57% of GDP. Who pays what, and where the money goes.');
+}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

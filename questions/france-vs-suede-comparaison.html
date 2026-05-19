@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -6,6 +6,9 @@
   <title>France vs Suède : deux modèles sociaux face à face — Comparatif 2024</title>
   <meta name="description" content="La Suède est souvent citée comme modèle. Mais la comparaison avec la France est plus nuancée qu'il n'y paraît : retraites, fiscalité, éducation, santé en chiffres.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/france-vs-suede-comparaison">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/france-vs-suede-comparaison">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/france-vs-suede-comparaison">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/france-vs-suede-comparaison">
   <meta property="og:title" content="France vs Suède : deux modèles sociaux face à face">
   <meta property="og:description" content="42 régimes de retraite contre 1. 45 % vs 42 % de prélèvements. PISA 474 vs 482. La comparaison franco-suédoise en chiffres.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/france-vs-suede-comparaison">
@@ -60,9 +63,13 @@
           <li><a href="/sante/">🏥 Santé</a></li>
           <li><a href="/questions/">❓ Questions</a></li>
           <li><a href="/a-propos/">À propos</a></li>
-          <li><a href="/#newsletter" class="cta">📧 Newsletter</a></li>
+          <li><a href="/#newsletter" class="cta" data-i18n="nav_cta">📧 Newsletter</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
@@ -80,10 +87,10 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Comparatif</span></nav>
-      <div class="eyebrow">Données OCDE · Eurostat · BCE · 2024</div>
-      <h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);max-width:640px;margin:8px auto 12px">France vs Suède : deux modèles sociaux face à face</h1>
-      <p style="color:var(--muted);font-size:1rem;max-width:580px;margin:0 auto 20px;line-height:1.7">
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Comparatif</span></nav>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Données OCDE · Eurostat · BCE · 2024</div>
+      <h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);max-width:640px;margin:8px auto 12px" data-i18n="hero_h1">France vs Suède : deux modèles sociaux face à face</h1>
+      <p style="color:var(--muted);font-size:1rem;max-width:580px;margin:0 auto 20px;line-height:1.7" data-i18n="hero_intro">
         La Suède est souvent citée comme l'idéal du modèle social européen.<br>
         La réalité des chiffres est plus nuancée — et plus instructive.
       </p>
@@ -92,135 +99,135 @@
     <div class="q-container">
 
       <div class="q-section">
-        <h2>Le comparatif en 10 indicateurs</h2>
-        <p>La Suède a une population de 10,5 millions d'habitants (contre 68 M pour la France), ce qui limite certaines comparaisons directes. Mais les ratios — dépenses/PIB, taux d'imposition, résultats — permettent un bilan équitable.</p>
+        <h2 data-i18n="s1_h2">Le comparatif en 10 indicateurs</h2>
+        <p data-i18n="s1_p">La Suède a une population de 10,5 millions d'habitants (contre 68 M pour la France), ce qui limite certaines comparaisons directes. Mais les ratios — dépenses/PIB, taux d'imposition, résultats — permettent un bilan équitable.</p>
 
         <table class="cmp-table">
           <thead>
             <tr>
-              <th>Indicateur</th>
+              <th data-i18n="th_indicator">Indicateur</th>
               <th style="text-align:center">🇫🇷 France</th>
               <th style="text-align:center">🇸🇪 Suède</th>
-              <th style="text-align:center">Écart</th>
+              <th style="text-align:center" data-i18n="th_gap">Écart</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Prélèvements obligatoires / PIB</td>
+              <td data-i18n="row1_ind">Prélèvements obligatoires / PIB</td>
               <td class="val-fr">45,4 %</td>
               <td class="val-se">42,6 %</td>
-              <td class="val-worse">FR +2,8 pts</td>
+              <td class="val-worse" data-i18n="row1_gap">FR +2,8 pts</td>
             </tr>
             <tr>
-              <td>Dépenses publiques / PIB</td>
+              <td data-i18n="row2_ind">Dépenses publiques / PIB</td>
               <td class="val-fr">57 %</td>
               <td class="val-se">50 %</td>
-              <td class="val-worse">FR +7 pts</td>
+              <td class="val-worse" data-i18n="row2_gap">FR +7 pts</td>
             </tr>
             <tr>
-              <td>Dette publique / PIB (2024)</td>
+              <td data-i18n="row3_ind">Dette publique / PIB (2024)</td>
               <td class="val-fr">113 %</td>
               <td class="val-se">32 %</td>
-              <td class="val-worse">FR +81 pts</td>
+              <td class="val-worse" data-i18n="row3_gap">FR +81 pts</td>
             </tr>
             <tr>
-              <td>Taux de chômage (2024)</td>
+              <td data-i18n="row4_ind">Taux de chômage (2024)</td>
               <td class="val-fr">7,3 %</td>
               <td class="val-se">8,5 %</td>
-              <td class="val-better">FR −1,2 pt</td>
+              <td class="val-better" data-i18n="row4_gap">FR −1,2 pt</td>
             </tr>
             <tr>
-              <td>Régimes de retraite</td>
+              <td data-i18n="row5_ind">Régimes de retraite</td>
               <td class="val-fr">42</td>
               <td class="val-se">1</td>
-              <td class="val-worse">FR +41</td>
+              <td class="val-worse" data-i18n="row5_gap">FR +41</td>
             </tr>
             <tr>
-              <td>Dépenses retraite / PIB</td>
+              <td data-i18n="row6_ind">Dépenses retraite / PIB</td>
               <td class="val-fr">14,5 %</td>
               <td class="val-se">8,9 %</td>
-              <td class="val-worse">FR +5,6 pts</td>
+              <td class="val-worse" data-i18n="row6_gap">FR +5,6 pts</td>
             </tr>
             <tr>
-              <td>PISA — mathématiques (2022)</td>
+              <td data-i18n="row7_ind">PISA — mathématiques (2022)</td>
               <td class="val-fr">474 pts</td>
               <td class="val-se">482 pts</td>
-              <td class="val-worse">SE +8 pts</td>
+              <td class="val-worse" data-i18n="row7_gap">SE +8 pts</td>
             </tr>
             <tr>
-              <td>Mobilité sociale intergénérationnelle</td>
-              <td class="val-fr">Rang 22</td>
-              <td class="val-se">Rang 3</td>
-              <td class="val-worse">SE bien meilleur</td>
+              <td data-i18n="row8_ind">Mobilité sociale intergénérationnelle</td>
+              <td class="val-fr" data-i18n="row8_fr">Rang 22</td>
+              <td class="val-se" data-i18n="row8_se">Rang 3</td>
+              <td class="val-worse" data-i18n="row8_gap">SE bien meilleur</td>
             </tr>
             <tr>
-              <td>Espérance de vie à la naissance</td>
+              <td data-i18n="row9_ind">Espérance de vie à la naissance</td>
               <td class="val-fr">82,4 ans</td>
               <td class="val-se">82,6 ans</td>
-              <td class="val-equal">Quasi-égalité</td>
+              <td class="val-equal" data-i18n="row9_gap">Quasi-égalité</td>
             </tr>
             <tr>
-              <td>Coefficient de Gini (inégalités)</td>
+              <td data-i18n="row10_ind">Coefficient de Gini (inégalités)</td>
               <td class="val-fr">0,30</td>
               <td class="val-se">0,27</td>
-              <td class="val-worse">SE plus égalitaire</td>
+              <td class="val-worse" data-i18n="row10_gap">SE plus égalitaire</td>
             </tr>
           </tbody>
         </table>
-        <p style="font-size:.72rem;color:var(--muted);margin-top:4px">Sources : Eurostat, OCDE — données 2022-2024.</p>
+        <p style="font-size:.72rem;color:var(--muted);margin-top:4px" data-i18n="table_note">Sources : Eurostat, OCDE — données 2022-2024.</p>
       </div>
 
       <div class="q-section">
-        <h2>3 idées reçues sur le "modèle suédois"</h2>
+        <h2 data-i18n="s2_h2">3 idées reçues sur le "modèle suédois"</h2>
 
         <div class="myth-block">
-          <div class="myth-tag">❌ Idée reçue n°1</div>
-          <p><strong style="color:var(--text)">"La Suède taxe plus que la France."</strong> Faux — ou du moins inexact. Les prélèvements obligatoires suédois (42,6 % du PIB) sont inférieurs aux français (45,4 %). La différence : les Suédois ont réduit leur taux marginal d'imposition sur le revenu dans les années 1990, tout en maintenant de larges services publics grâce à une base fiscale plus large et moins d'évasion.</p>
+          <div class="myth-tag" data-i18n="myth1_tag">❌ Idée reçue n°1</div>
+          <p data-i18n="myth1_p"><strong style="color:var(--text)">"La Suède taxe plus que la France."</strong> Faux — ou du moins inexact. Les prélèvements obligatoires suédois (42,6 % du PIB) sont inférieurs aux français (45,4 %). La différence : les Suédois ont réduit leur taux marginal d'imposition sur le revenu dans les années 1990, tout en maintenant de larges services publics grâce à une base fiscale plus large et moins d'évasion.</p>
         </div>
 
         <div class="myth-block">
-          <div class="myth-tag">❌ Idée reçue n°2</div>
-          <p><strong style="color:var(--text)">"Le chômage est plus bas en Suède."</strong> Pas en 2024. La Suède affiche 8,5 % de chômage, contre 7,3 % en France — en partie en raison d'une politique monétaire plus restrictive et d'un secteur immobilier en crise. Le plein-emploi suédois des années 2010 n'est plus la réalité de 2024.</p>
+          <div class="myth-tag" data-i18n="myth2_tag">❌ Idée reçue n°2</div>
+          <p data-i18n="myth2_p"><strong style="color:var(--text)">"Le chômage est plus bas en Suède."</strong> Pas en 2024. La Suède affiche 8,5 % de chômage, contre 7,3 % en France — en partie en raison d'une politique monétaire plus restrictive et d'un secteur immobilier en crise. Le plein-emploi suédois des années 2010 n'est plus la réalité de 2024.</p>
         </div>
 
         <div class="myth-block">
-          <div class="myth-tag">✅ Ce que la Suède fait vraiment mieux</div>
-          <p><strong style="color:var(--text)">La mobilité sociale et l'égalité des chances.</strong> La Suède est l'un des pays où le revenu des parents détermine le moins le revenu des enfants (rang 3 OCDE). La France, malgré son universalisme affiché, est au rang 22 — un échec structurel que les statistiques éducatives confirment.</p>
+          <div class="myth-tag" data-i18n="myth3_tag">✅ Ce que la Suède fait vraiment mieux</div>
+          <p data-i18n="myth3_p"><strong style="color:var(--text)">La mobilité sociale et l'égalité des chances.</strong> La Suède est l'un des pays où le revenu des parents détermine le moins le revenu des enfants (rang 3 OCDE). La France, malgré son universalisme affiché, est au rang 22 — un échec structurel que les statistiques éducatives confirment.</p>
         </div>
       </div>
 
       <div class="q-section">
-        <h2>Ce que la France pourrait apprendre</h2>
+        <h2 data-i18n="s3_h2">Ce que la France pourrait apprendre</h2>
         <ul>
-          <li><strong>L'universalité des systèmes.</strong> Le régime de retraite universel suédois (1 seul régime, comptes notionnels par points) évite 42 régimes aux règles hétérogènes. Chaque Suédois comprend ce qu'il cotise et ce qu'il touchera.</li>
-          <li><strong>La décentralisation réelle.</strong> Les communes suédoises ont un véritable pouvoir fiscal et une autonomie de gestion qui permet une expérimentation locale et une adaptation aux besoins. La décentralisation française est davantage un empilement de compétences qu'un réel transfert de pouvoir.</li>
-          <li><strong>L'investissement dans la petite enfance.</strong> Les crèches et l'éducation de 0 à 6 ans sont massivement financées en Suède. C'est là que se joue la mobilité sociale — avant même l'école primaire.</li>
+          <li data-i18n="s3_li1"><strong>L'universalité des systèmes.</strong> Le régime de retraite universel suédois (1 seul régime, comptes notionnels par points) évite 42 régimes aux règles hétérogènes. Chaque Suédois comprend ce qu'il cotise et ce qu'il touchera.</li>
+          <li data-i18n="s3_li2"><strong>La décentralisation réelle.</strong> Les communes suédoises ont un véritable pouvoir fiscal et une autonomie de gestion qui permet une expérimentation locale et une adaptation aux besoins. La décentralisation française est davantage un empilement de compétences qu'un réel transfert de pouvoir.</li>
+          <li data-i18n="s3_li3"><strong>L'investissement dans la petite enfance.</strong> Les crèches et l'éducation de 0 à 6 ans sont massivement financées en Suède. C'est là que se joue la mobilité sociale — avant même l'école primaire.</li>
         </ul>
       </div>
 
       <!-- ── Ce que le chiffre ne dit pas ──────────────────────────── -->
       <div style="background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.15);border-left:4px solid #a78bfa;border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0">
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#a78bfa;text-transform:uppercase;margin-bottom:10px">⚠️ Ce que le comparatif ne dit pas</div>
+        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#a78bfa;text-transform:uppercase;margin-bottom:10px" data-i18n="caveat_title">⚠️ Ce que le comparatif ne dit pas</div>
         <ul style="margin:0;padding:0 0 0 18px;color:var(--muted);font-size:.88rem;line-height:1.75">
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">La Suède a réformé drastiquement dans les années 1990.</strong> Suite à une grave crise bancaire, la Suède a coupé dans ses dépenses publiques, privatisé des services, et réformé ses retraites. Ces réformes douloureuses expliquent sa solidité actuelle — pas un modèle qu'on "adopte" facilement.</li>
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">La taille compte.</strong> Gérer un pays de 10,5 millions d'habitants (dont 98 % parlent la même langue, avec une tradition de consensus social très forte) est différent de gérer 68 millions de Français aux histoires régionales, culturelles et institutionnelles distinctes.</li>
-          <li><strong style="color:var(--text)">La Suède a ses propres crises.</strong> En 2024, l'immobilier suédois est en crise profonde (−20 % sur les prix), le chômage remonte, et la réforme scolaire des années 2010 (privatisation des lycées) est désormais considérée comme un échec par les Suédois eux-mêmes.</li>
+          <li style="margin-bottom:8px" data-i18n="caveat1"><strong style="color:var(--text)">La Suède a réformé drastiquement dans les années 1990.</strong> Suite à une grave crise bancaire, la Suède a coupé dans ses dépenses publiques, privatisé des services, et réformé ses retraites. Ces réformes douloureuses expliquent sa solidité actuelle — pas un modèle qu'on "adopte" facilement.</li>
+          <li style="margin-bottom:8px" data-i18n="caveat2"><strong style="color:var(--text)">La taille compte.</strong> Gérer un pays de 10,5 millions d'habitants (dont 98 % parlent la même langue, avec une tradition de consensus social très forte) est différent de gérer 68 millions de Français aux histoires régionales, culturelles et institutionnelles distinctes.</li>
+          <li data-i18n="caveat3"><strong style="color:var(--text)">La Suède a ses propres crises.</strong> En 2024, l'immobilier suédois est en crise profonde (−20 % sur les prix), le chômage remonte, et la réforme scolaire des années 2010 (privatisation des lycées) est désormais considérée comme un échec par les Suédois eux-mêmes.</li>
         </ul>
       </div>
 
       <div class="q-sources">
-        <strong>Sources</strong>
-        Eurostat — Government Finance Statistics 2024 · OCDE — Revenue Statistics 2023 · OCDE — Pensions at a Glance 2023 · OCDE — PISA 2022 · OCDE — A Broken Social Elevator? How to Promote Social Mobility 2023 · Eurostat — Gini coefficient 2023 · Eurostat — Espérance de vie 2022 · BCE — Rapport de stabilité financière 2024.
+        <strong data-i18n="sources_label">Sources</strong>
+        <span data-i18n="sources_text">Eurostat — Government Finance Statistics 2024 · OCDE — Revenue Statistics 2023 · OCDE — Pensions at a Glance 2023 · OCDE — PISA 2022 · OCDE — A Broken Social Elevator? How to Promote Social Mobility 2023 · Eurostat — Gini coefficient 2023 · Eurostat — Espérance de vie 2022 · BCE — Rapport de stabilité financière 2024.</span>
       </div>
 
       <div class="related">
-        <h3>Approfondir</h3>
+        <h3 data-i18n="related_title">Approfondir</h3>
         <div class="related-links">
-          <a href="/questions/pourquoi-la-france-a-t-elle-42-regimes-de-retraite/" class="related-link">🗂️ Les 42 régimes de retraite</a>
-          <a href="/questions/pourquoi-les-resultats-scolaires-baissent-en-france/" class="related-link">📚 Les résultats scolaires en recul</a>
-          <a href="/questions/quel-est-le-vrai-taux-d-imposition-en-france/" class="related-link">📊 Le vrai taux d'imposition</a>
-          <a href="/questions/france-vs-allemagne-comparaison/" class="related-link">🇩🇪 France vs Allemagne</a>
-          <a href="/questions/france-vs-ocde-comparaison/" class="related-link">🌍 France vs OCDE moyenne</a>
+          <a href="/questions/pourquoi-la-france-a-t-elle-42-regimes-de-retraite/" class="related-link" data-i18n="related1">🗂️ Les 42 régimes de retraite</a>
+          <a href="/questions/pourquoi-les-resultats-scolaires-baissent-en-france/" class="related-link" data-i18n="related2">📚 Les résultats scolaires en recul</a>
+          <a href="/questions/quel-est-le-vrai-taux-d-imposition-en-france/" class="related-link" data-i18n="related3">📊 Le vrai taux d'imposition</a>
+          <a href="/questions/france-vs-allemagne-comparaison/" class="related-link" data-i18n="related4">🇩🇪 France vs Allemagne</a>
+          <a href="/questions/france-vs-ocde-comparaison/" class="related-link" data-i18n="related5">🌍 France vs OCDE moyenne</a>
         </div>
       </div>
 
@@ -230,18 +237,175 @@
   <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
     <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
       <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-      <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-      <p style="color:var(--muted);font-size:.9rem;margin:0 0 16px">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-      <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem">S'abonner gratuitement →</a>
+      <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+      <p style="color:var(--muted);font-size:.9rem;margin:0 0 16px" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+      <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem" data-i18n="nl_cta">S'abonner gratuitement →</a>
+      <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
     </div>
   </div>
 
   <footer>
     <div class="footer-inner">
       <p>© 2024 Le Français Moyen — Données officielles uniquement (INSEE, Eurostat, Banque de France, OCDE)</p>
-      <nav><a href="/a-propos/">À propos</a> · <a href="/questions/">Toutes les questions</a> · <a href="/partager/">Partager</a></nav>
+      <nav><a href="/a-propos/">À propos</a> · <a href="/questions/">Toutes les questions</a> · <a href="/" data-i18n="footer_link">Tableau de bord principal</a></nav>
     </div>
   </footer>
+
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'📧 Newsletter',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Comparatif',
+  hero_eyebrow:'Données OCDE · Eurostat · BCE · 2024',
+  hero_h1:'France vs Suède : deux modèles sociaux face à face',
+  hero_intro:"La Suède est souvent citée comme l'idéal du modèle social européen.<br>La réalité des chiffres est plus nuancée — et plus instructive.",
+  s1_h2:'Le comparatif en 10 indicateurs',
+  s1_p:"La Suède a une population de 10,5 millions d'habitants (contre 68 M pour la France), ce qui limite certaines comparaisons directes. Mais les ratios — dépenses/PIB, taux d'imposition, résultats — permettent un bilan équitable.",
+  th_indicator:'Indicateur',
+  th_gap:'Écart',
+  row1_ind:'Prélèvements obligatoires / PIB',
+  row1_gap:'FR +2,8 pts',
+  row2_ind:'Dépenses publiques / PIB',
+  row2_gap:'FR +7 pts',
+  row3_ind:'Dette publique / PIB (2024)',
+  row3_gap:'FR +81 pts',
+  row4_ind:'Taux de chômage (2024)',
+  row4_gap:'FR −1,2 pt',
+  row5_ind:'Régimes de retraite',
+  row5_gap:'FR +41',
+  row6_ind:'Dépenses retraite / PIB',
+  row6_gap:'FR +5,6 pts',
+  row7_ind:'PISA — mathématiques (2022)',
+  row7_gap:'SE +8 pts',
+  row8_ind:'Mobilité sociale intergénérationnelle',
+  row8_fr:'Rang 22',
+  row8_se:'Rang 3',
+  row8_gap:'SE bien meilleur',
+  row9_ind:'Espérance de vie à la naissance',
+  row9_gap:'Quasi-égalité',
+  row10_ind:'Coefficient de Gini (inégalités)',
+  row10_gap:'SE plus égalitaire',
+  table_note:'Sources : Eurostat, OCDE — données 2022-2024.',
+  s2_h2:'3 idées reçues sur le "modèle suédois"',
+  myth1_tag:'❌ Idée reçue n°1',
+  myth1_p:'<strong style="color:var(--text)">"La Suède taxe plus que la France."</strong> Faux — ou du moins inexact. Les prélèvements obligatoires suédois (42,6 % du PIB) sont inférieurs aux français (45,4 %). La différence : les Suédois ont réduit leur taux marginal d\'imposition sur le revenu dans les années 1990, tout en maintenant de larges services publics grâce à une base fiscale plus large et moins d\'évasion.',
+  myth2_tag:'❌ Idée reçue n°2',
+  myth2_p:'<strong style="color:var(--text)">"Le chômage est plus bas en Suède."</strong> Pas en 2024. La Suède affiche 8,5 % de chômage, contre 7,3 % en France — en partie en raison d\'une politique monétaire plus restrictive et d\'un secteur immobilier en crise. Le plein-emploi suédois des années 2010 n\'est plus la réalité de 2024.',
+  myth3_tag:'✅ Ce que la Suède fait vraiment mieux',
+  myth3_p:'<strong style="color:var(--text)">La mobilité sociale et l\'égalité des chances.</strong> La Suède est l\'un des pays où le revenu des parents détermine le moins le revenu des enfants (rang 3 OCDE). La France, malgré son universalisme affiché, est au rang 22 — un échec structurel que les statistiques éducatives confirment.',
+  s3_h2:'Ce que la France pourrait apprendre',
+  s3_li1:'<strong>L\'universalité des systèmes.</strong> Le régime de retraite universel suédois (1 seul régime, comptes notionnels par points) évite 42 régimes aux règles hétérogènes. Chaque Suédois comprend ce qu\'il cotise et ce qu\'il touchera.',
+  s3_li2:"<strong>La décentralisation réelle.</strong> Les communes suédoises ont un véritable pouvoir fiscal et une autonomie de gestion qui permet une expérimentation locale et une adaptation aux besoins. La décentralisation française est davantage un empilement de compétences qu'un réel transfert de pouvoir.",
+  s3_li3:"<strong>L'investissement dans la petite enfance.</strong> Les crèches et l'éducation de 0 à 6 ans sont massivement financées en Suède. C'est là que se joue la mobilité sociale — avant même l'école primaire.",
+  caveat_title:'⚠️ Ce que le comparatif ne dit pas',
+  caveat1:'<strong style="color:var(--text)">La Suède a réformé drastiquement dans les années 1990.</strong> Suite à une grave crise bancaire, la Suède a coupé dans ses dépenses publiques, privatisé des services, et réformé ses retraites. Ces réformes douloureuses expliquent sa solidité actuelle — pas un modèle qu\'on "adopte" facilement.',
+  caveat2:'<strong style="color:var(--text)">La taille compte.</strong> Gérer un pays de 10,5 millions d\'habitants (dont 98 % parlent la même langue, avec une tradition de consensus social très forte) est différent de gérer 68 millions de Français aux histoires régionales, culturelles et institutionnelles distinctes.',
+  caveat3:"<strong style=\"color:var(--text)\">La Suède a ses propres crises.</strong> En 2024, l'immobilier suédois est en crise profonde (−20 % sur les prix), le chômage remonte, et la réforme scolaire des années 2010 (privatisation des lycées) est désormais considérée comme un échec par les Suédois eux-mêmes.",
+  sources_label:'Sources',
+  sources_text:'Eurostat — Government Finance Statistics 2024 · OCDE — Revenue Statistics 2023 · OCDE — Pensions at a Glance 2023 · OCDE — PISA 2022 · OCDE — A Broken Social Elevator? How to Promote Social Mobility 2023 · Eurostat — Gini coefficient 2023 · Eurostat — Espérance de vie 2022 · BCE — Rapport de stabilité financière 2024.',
+  related_title:'Approfondir',
+  related1:'🗂️ Les 42 régimes de retraite',
+  related2:'📚 Les résultats scolaires en recul',
+  related3:"📊 Le vrai taux d'imposition",
+  related4:'🇩🇪 France vs Allemagne',
+  related5:'🌍 France vs OCDE moyenne',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'📧 Newsletter',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Comparison',
+  hero_eyebrow:'OECD · Eurostat · ECB data · 2024',
+  hero_h1:'France vs Sweden: Two Social Models Head to Head',
+  hero_intro:"Sweden is often cited as the ideal European social model.<br>The real numbers are more nuanced — and more instructive.",
+  s1_h2:'10-indicator comparison',
+  s1_p:"Sweden has a population of 10.5 million (vs 68M for France), which limits some direct comparisons. But ratios — spending/GDP, tax rates, outcomes — allow a fair assessment.",
+  th_indicator:'Indicator',
+  th_gap:'Gap',
+  row1_ind:'Compulsory levies / GDP',
+  row1_gap:'FR +2.8 pts',
+  row2_ind:'Public spending / GDP',
+  row2_gap:'FR +7 pts',
+  row3_ind:'Public debt / GDP (2024)',
+  row3_gap:'FR +81 pts',
+  row4_ind:'Unemployment rate (2024)',
+  row4_gap:'FR −1.2 pt',
+  row5_ind:'Pension schemes',
+  row5_gap:'FR +41',
+  row6_ind:'Pension spending / GDP',
+  row6_gap:'FR +5.6 pts',
+  row7_ind:'PISA — mathematics (2022)',
+  row7_gap:'SE +8 pts',
+  row8_ind:'Intergenerational social mobility',
+  row8_fr:'Rank 22',
+  row8_se:'Rank 3',
+  row8_gap:'SE far better',
+  row9_ind:'Life expectancy at birth',
+  row9_gap:'Near-equal',
+  row10_ind:'Gini coefficient (inequality)',
+  row10_gap:'SE more equal',
+  table_note:'Sources: Eurostat, OECD — 2022-2024 data.',
+  s2_h2:'3 myths about the "Swedish model"',
+  myth1_tag:'❌ Myth #1',
+  myth1_p:'<strong style="color:var(--text)">"Sweden taxes more than France."</strong> False — or at least inaccurate. Swedish compulsory levies (42.6% of GDP) are lower than France\'s (45.4%). The difference: Sweden cut its marginal income tax rates in the 1990s while maintaining broad public services through a wider tax base and less evasion.',
+  myth2_tag:'❌ Myth #2',
+  myth2_p:'<strong style="color:var(--text)">"Unemployment is lower in Sweden."</strong> Not in 2024. Sweden shows 8.5% unemployment, versus 7.3% in France — partly due to a tighter monetary policy and a real-estate sector in crisis. Sweden\'s near-full-employment of the 2010s is no longer 2024 reality.',
+  myth3_tag:'✅ Where Sweden genuinely does better',
+  myth3_p:'<strong style="color:var(--text)">Social mobility and equal opportunity.</strong> Sweden is one of the countries where parental income least determines children\'s income (OECD rank 3). France, despite its stated universalism, ranks 22nd — a structural failure confirmed by educational statistics.',
+  s3_h2:'What France could learn',
+  s3_li1:"<strong>Universal systems.</strong> Sweden's single pension scheme (one regime, notional accounts by points) avoids 42 schemes with heterogeneous rules. Every Swede understands what they contribute and what they will receive.",
+  s3_li2:'<strong>Real decentralisation.</strong> Swedish municipalities have genuine fiscal power and management autonomy that enables local experimentation. French decentralisation is more a stacking of competencies than a real transfer of power.',
+  s3_li3:"<strong>Investment in early childhood.</strong> Nurseries and education from ages 0 to 6 are heavily funded in Sweden. Social mobility is determined there — before primary school even begins.",
+  caveat_title:'⚠️ What the comparison does not tell you',
+  caveat1:'<strong style="color:var(--text)">Sweden reformed drastically in the 1990s.</strong> Following a severe banking crisis, Sweden cut public spending, privatised services, and reformed pensions. These painful reforms explain its current resilience — not a model easily "adopted".',
+  caveat2:'<strong style="color:var(--text)">Size matters.</strong> Managing a country of 10.5 million inhabitants (98% speaking the same language, with a strong tradition of social consensus) is different from governing 68 million French people with distinct regional, cultural, and institutional histories.',
+  caveat3:'<strong style="color:var(--text)">Sweden has its own crises.</strong> In 2024, Swedish real estate is in deep crisis (−20% on prices), unemployment is rising, and the school reform of the 2010s (privatisation of secondary schools) is now considered a failure by the Swedes themselves.',
+  sources_label:'Sources',
+  sources_text:'Eurostat — Government Finance Statistics 2024 · OECD — Revenue Statistics 2023 · OECD — Pensions at a Glance 2023 · OECD — PISA 2022 · OECD — A Broken Social Elevator? 2023 · Eurostat — Gini coefficient 2023 · Eurostat — Life expectancy 2022 · ECB — Financial Stability Report 2024.',
+  related_title:'Go deeper',
+  related1:'🗂️ The 42 pension schemes',
+  related2:'📚 Falling school results',
+  related3:'📊 The real tax rate',
+  related4:'🇩🇪 France vs Germany',
+  related5:'🌍 France vs OECD average',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'France vs Suède : deux modèles sociaux face à face — Comparatif 2024'
+    :'France vs Sweden: Two Social Models Head to Head — 2024 Comparison';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"La Suède est souvent citée comme modèle. Mais la comparaison avec la France est plus nuancée qu'il n'y paraît : retraites, fiscalité, éducation, santé en chiffres."
+    :'Sweden is often held up as a model. But the comparison with France is more nuanced than it appears: pensions, taxation, education, health — the numbers explained.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
-

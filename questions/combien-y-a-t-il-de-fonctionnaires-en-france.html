@@ -6,6 +6,9 @@
   <title>Combien y a-t-il de fonctionnaires en France ? — Chiffres officiels 2024</title>
   <meta name="description" content="5,66 millions d'agents publics en France en 2024. État, collectivités, hôpitaux : répartition complète. Comparaison avec l'Allemagne, le Royaume-Uni et la Suède. Source DGAFP.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/combien-y-a-t-il-de-fonctionnaires-en-france">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/combien-y-a-t-il-de-fonctionnaires-en-france">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/combien-y-a-t-il-de-fonctionnaires-en-france">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/combien-y-a-t-il-de-fonctionnaires-en-france">
   <meta property="og:title" content="Combien y a-t-il de fonctionnaires en France ?">
   <meta property="og:description" content="5,66 millions d'agents publics. 1 Français sur 5 travaille pour l'État. Répartition, comparaison européenne et évolution depuis 2000.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/combien-y-a-t-il-de-fonctionnaires-en-france">
@@ -78,9 +81,14 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
@@ -97,22 +105,22 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Fonctionnaires</span></nav>
-      <p class="eyebrow" style="text-align:center">🏛 Fonction publique</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">Combien y a-t-il de fonctionnaires en France ?</h1>
-      <p style="color:var(--muted);max-width:560px;margin:0 auto;font-size:.95rem;line-height:1.7">5,66 millions d'agents publics. 1 actif sur 5 travaille pour l'État ou une collectivité. La répartition, l'évolution et la comparaison européenne.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Fonctionnaires</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">🏛 Fonction publique</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">Combien y a-t-il de fonctionnaires en France ?</h1>
+      <p style="color:var(--muted);max-width:560px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">5,66 millions d'agents publics. 1 actif sur 5 travaille pour l'État ou une collectivité. La répartition, l'évolution et la comparaison européenne.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
         <span class="s-val">5,66 millions</span>
-        <span class="s-ctx">d'agents publics en France en 2024 — soit <strong>21,2 % de l'emploi total</strong>. La masse salariale correspondante atteint <strong>340 milliards d'euros par an</strong>, premier poste de dépense de l'État avant même les retraites.<br>Source : DGAFP — Rapport annuel sur l'état de la fonction publique 2023.</span>
+        <span class="s-ctx" data-i18n="short_answer">d'agents publics en France en 2024 — soit <strong>21,2 % de l'emploi total</strong>. La masse salariale correspondante atteint <strong>340 milliards d'euros par an</strong>, premier poste de dépense de l'État avant même les retraites.<br>Source : DGAFP — Rapport annuel sur l'état de la fonction publique 2023.</span>
       </div>
 
       <div class="q-section">
-        <h2>Répartition des 5,66 millions d'agents</h2>
-        <p>La fonction publique française est organisée en trois versants :</p>
+        <h2 data-i18n="h2_breakdown">Répartition des 5,66 millions d'agents</h2>
+        <p data-i18n="p_breakdown">La fonction publique française est organisée en trois versants :</p>
         <div class="breakdown-grid">
           <div class="breakdown-card">
             <span class="bc-val">2,53 M</span>
@@ -130,12 +138,12 @@
             <span class="bc-sub">Hôpitaux publics, EHPAD publics</span>
           </div>
         </div>
-        <p>L'Éducation nationale est de loin le premier employeur de l'État : elle représente à elle seule <strong>environ 870 000 agents</strong>, soit plus d'un tiers de la fonction publique d'État.</p>
+        <p data-i18n="p_education">L'Éducation nationale est de loin le premier employeur de l'État : elle représente à elle seule <strong>environ 870 000 agents</strong>, soit plus d'un tiers de la fonction publique d'État.</p>
       </div>
 
       <div class="q-section">
-        <h2>La France comparée à ses voisins européens</h2>
-        <p>La part de l'emploi public dans l'emploi total place la France en tête des grandes économies européennes :</p>
+        <h2 data-i18n="h2_europe">La France comparée à ses voisins européens</h2>
+        <p data-i18n="p_europe">La part de l'emploi public dans l'emploi total place la France en tête des grandes économies européennes :</p>
 
         <div style="margin:16px 0">
           <div class="cmp-row">
@@ -175,36 +183,36 @@
             <span class="cmp-val" style="color:#fb923c">11,9 %</span>
           </div>
         </div>
-        <p style="font-size:.8rem;color:var(--muted)">Source : OCDE — Panorama des administrations publiques 2023.</p>
-        <p>Nuance importante : la Suède et le Danemark ont aussi un emploi public élevé, mais leurs services publics affichent des performances supérieures (santé, éducation). Le problème français n'est donc pas uniquement le <em>nombre</em> de fonctionnaires, mais aussi leur <strong>organisation et leur productivité</strong>.</p>
+        <p style="font-size:.8rem;color:var(--muted)" data-i18n="p_europe_src">Source : OCDE — Panorama des administrations publiques 2023.</p>
+        <p data-i18n="p_europe_nuance">Nuance importante : la Suède et le Danemark ont aussi un emploi public élevé, mais leurs services publics affichent des performances supérieures (santé, éducation). Le problème français n'est donc pas uniquement le <em>nombre</em> de fonctionnaires, mais aussi leur <strong>organisation et leur productivité</strong>.</p>
       </div>
 
       <div class="q-section">
-        <h2>L'évolution depuis 2000 : +530 000 agents</h2>
-        <p>Entre 2000 et 2023, la fonction publique française a augmenté d'environ <strong>530 000 agents</strong>, malgré plusieurs plans de réduction des effectifs successifs. Cette hausse s'explique principalement par :</p>
+        <h2 data-i18n="h2_evolution">L'évolution depuis 2000 : +530 000 agents</h2>
+        <p data-i18n="p_evolution">Entre 2000 et 2023, la fonction publique française a augmenté d'environ <strong>530 000 agents</strong>, malgré plusieurs plans de réduction des effectifs successifs. Cette hausse s'explique principalement par :</p>
         <ul>
           <li>La <strong>décentralisation</strong> : transfert de compétences vers les collectivités (et donc transfert de personnel)</li>
           <li>La montée en charge de l'hôpital public et des EHPAD</li>
           <li>La création de nouvelles missions et agences publiques</li>
         </ul>
-        <p>Cette augmentation est paradoxale : elle s'est produite alors que les performances mesurables des services publics (résultats PISA, lits d'hôpitaux, délais de justice) <strong>reculaient simultanément</strong>. Le rapport entre effectifs et résultats est donc au cœur du débat sur la réforme de l'État.</p>
+        <p data-i18n="p_evolution2">Cette augmentation est paradoxale : elle s'est produite alors que les performances mesurables des services publics (résultats PISA, lits d'hôpitaux, délais de justice) <strong>reculaient simultanément</strong>. Le rapport entre effectifs et résultats est donc au cœur du débat sur la réforme de l'État.</p>
       </div>
 
       <div class="q-section">
-        <h2>Ce que coûte réellement un fonctionnaire</h2>
-        <p>Le coût d'un agent public ne se limite pas à son salaire brut. Il faut y ajouter les cotisations patronales, et surtout la <strong>retraite</strong> : l'État finance 22 fois plus la retraite d'un fonctionnaire que celle d'un salarié du privé (source : rapport CAS Pensions 2024). Le régime spécial de retraite des fonctionnaires d'État coûte à lui seul <strong>63 milliards d'euros par an</strong>.</p>
-        <p>Rapportée au nombre d'habitants, la France dépense <strong>38 % de plus que l'Allemagne</strong> pour sa fonction publique — à services rendus équivalents ou inférieurs selon les indicateurs OCDE.</p>
+        <h2 data-i18n="h2_cost">Ce que coûte réellement un fonctionnaire</h2>
+        <p data-i18n="p_cost1">Le coût d'un agent public ne se limite pas à son salaire brut. Il faut y ajouter les cotisations patronales, et surtout la <strong>retraite</strong> : l'État finance 22 fois plus la retraite d'un fonctionnaire que celle d'un salarié du privé (source : rapport CAS Pensions 2024). Le régime spécial de retraite des fonctionnaires d'État coûte à lui seul <strong>63 milliards d'euros par an</strong>.</p>
+        <p data-i18n="p_cost2">Rapportée au nombre d'habitants, la France dépense <strong>38 % de plus que l'Allemagne</strong> pour sa fonction publique — à services rendus équivalents ou inférieurs selon les indicateurs OCDE.</p>
       </div>
 
       <div class="q-section">
-        <h2>Le "paradoxe" de la fonction publique française</h2>
-        <p>Le plus grand paradoxe est celui-ci : la France dispose d'un des plus grands services publics du monde occidental, et pourtant :</p>
+        <h2 data-i18n="h2_paradox">Le "paradoxe" de la fonction publique française</h2>
+        <p data-i18n="p_paradox">Le plus grand paradoxe est celui-ci : la France dispose d'un des plus grands services publics du monde occidental, et pourtant :</p>
         <ul>
           <li>Les délais de justice civile atteignent <strong>14 mois</strong> en moyenne (contre 5 mois en Allemagne)</li>
           <li>Les hôpitaux publics ont perdu <strong>15 % de leurs lits</strong> depuis 2000</li>
           <li>Les scores PISA en mathématiques ont chuté de <strong>43 points</strong> depuis 2000</li>
         </ul>
-        <p>Ce paradoxe suggère que la question n'est pas tant le nombre d'agents que la manière dont ils sont déployés, managés et évalués. C'est la conclusion principale du rapport Guillot (2023) sur la réforme de la fonction publique commandé par le gouvernement.</p>
+        <p data-i18n="p_paradox2">Ce paradoxe suggère que la question n'est pas tant le nombre d'agents que la manière dont ils sont déployés, managés et évalués. C'est la conclusion principale du rapport Guillot (2023) sur la réforme de la fonction publique commandé par le gouvernement.</p>
       </div>
 
       <!-- ── Ce que le chiffre ne dit pas ──────────────────────────── -->
@@ -223,7 +231,7 @@
       </div>
 
       <div class="related">
-        <h3>Approfondir</h3>
+        <h3 data-i18n="related_h3">Approfondir</h3>
         <div class="related-links">
           <a href="/fonctionnaires/" class="related-link">🏛 Analyse complète fonctionnaires</a>
           <a href="/budget/" class="related-link">🏦 Budget de l'État poste par poste</a>
@@ -240,10 +248,10 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
@@ -259,5 +267,103 @@
   </script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Fonctionnaires',
+  hero_eyebrow:'🏛 Fonction publique',
+  hero_h1:'Combien y a-t-il de fonctionnaires en France ?',
+  hero_intro:"5,66 millions d'agents publics. 1 actif sur 5 travaille pour l'État ou une collectivité. La répartition, l'évolution et la comparaison européenne.",
+  short_answer:"d'agents publics en France en 2024 — soit <strong>21,2 % de l'emploi total</strong>. La masse salariale correspondante atteint <strong>340 milliards d'euros par an</strong>, premier poste de dépense de l'État avant même les retraites.<br>Source : DGAFP — Rapport annuel sur l'état de la fonction publique 2023.",
+  h2_breakdown:'Répartition des 5,66 millions d\'agents',
+  p_breakdown:'La fonction publique française est organisée en trois versants :',
+  p_education:"L'Éducation nationale est de loin le premier employeur de l'État : elle représente à elle seule <strong>environ 870 000 agents</strong>, soit plus d'un tiers de la fonction publique d'État.",
+  h2_europe:'La France comparée à ses voisins européens',
+  p_europe:"La part de l'emploi public dans l'emploi total place la France en tête des grandes économies européennes :",
+  p_europe_src:'Source : OCDE — Panorama des administrations publiques 2023.',
+  p_europe_nuance:"Nuance importante : la Suède et le Danemark ont aussi un emploi public élevé, mais leurs services publics affichent des performances supérieures (santé, éducation). Le problème français n'est donc pas uniquement le <em>nombre</em> de fonctionnaires, mais aussi leur <strong>organisation et leur productivité</strong>.",
+  h2_evolution:"L'évolution depuis 2000 : +530 000 agents",
+  p_evolution:'Entre 2000 et 2023, la fonction publique française a augmenté d\'environ <strong>530 000 agents</strong>, malgré plusieurs plans de réduction des effectifs successifs. Cette hausse s\'explique principalement par :',
+  p_evolution2:"Cette augmentation est paradoxale : elle s'est produite alors que les performances mesurables des services publics (résultats PISA, lits d'hôpitaux, délais de justice) <strong>reculaient simultanément</strong>. Le rapport entre effectifs et résultats est donc au cœur du débat sur la réforme de l'État.",
+  h2_cost:'Ce que coûte réellement un fonctionnaire',
+  p_cost1:"Le coût d'un agent public ne se limite pas à son salaire brut. Il faut y ajouter les cotisations patronales, et surtout la <strong>retraite</strong> : l'État finance 22 fois plus la retraite d'un fonctionnaire que celle d'un salarié du privé (source : rapport CAS Pensions 2024). Le régime spécial de retraite des fonctionnaires d'État coûte à lui seul <strong>63 milliards d'euros par an</strong>.",
+  p_cost2:"Rapportée au nombre d'habitants, la France dépense <strong>38 % de plus que l'Allemagne</strong> pour sa fonction publique — à services rendus équivalents ou inférieurs selon les indicateurs OCDE.",
+  h2_paradox:'Le "paradoxe" de la fonction publique française',
+  p_paradox:"Le plus grand paradoxe est celui-ci : la France dispose d'un des plus grands services publics du monde occidental, et pourtant :",
+  p_paradox2:"Ce paradoxe suggère que la question n'est pas tant le nombre d'agents que la manière dont ils sont déployés, managés et évalués. C'est la conclusion principale du rapport Guillot (2023) sur la réforme de la fonction publique commandé par le gouvernement.",
+  related_h3:'Approfondir',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  share_label:'Partager :',
+  share_tw:'𝕏 Twitter',
+  share_fb:'Facebook',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Civil servants',
+  hero_eyebrow:'🏛 Public sector',
+  hero_h1:'How many civil servants are there in France?',
+  hero_intro:'5.66 million public employees. 1 in 5 workers is employed by the State or a local authority. The breakdown, the trend, and the European comparison.',
+  short_answer:'public employees in France in 2024 — <strong>21.2% of total employment</strong>. The corresponding wage bill reaches <strong>€340 billion per year</strong>, the largest item of State expenditure, ahead of pensions.<br>Source: DGAFP — Annual report on the state of the civil service 2023.',
+  h2_breakdown:'Breakdown of the 5.66 million employees',
+  p_breakdown:'The French civil service is organised into three branches:',
+  p_education:'The National Education system is by far the largest State employer: it alone accounts for <strong>around 870,000 staff</strong>, more than a third of the central civil service.',
+  h2_europe:'France compared with its European neighbours',
+  p_europe:'The share of public employment in total employment places France at the top of the major European economies:',
+  p_europe_src:'Source: OECD — Government at a Glance 2023.',
+  p_europe_nuance:'An important nuance: Sweden and Denmark also have high public employment, but their public services deliver better outcomes (health, education). The French problem is therefore not solely the <em>number</em> of civil servants, but also their <strong>organisation and productivity</strong>.',
+  h2_evolution:'The trend since 2000: +530,000 employees',
+  p_evolution:'Between 2000 and 2023, the French civil service grew by around <strong>530,000 employees</strong>, despite successive workforce reduction plans. This increase is mainly explained by:',
+  p_evolution2:'This increase is paradoxical: it occurred while measurable public service performance (PISA results, hospital beds, justice delays) <strong>was simultaneously declining</strong>. The link between staffing levels and outcomes is therefore at the heart of the debate on State reform.',
+  h2_cost:'The real cost of a civil servant',
+  p_cost1:'The cost of a public employee is not limited to their gross salary. Employer contributions must be added, and above all <strong>pension costs</strong>: the State funds the pension of a civil servant 22 times more than that of a private-sector worker (source: CAS Pensions report 2024). The special pension scheme for central civil servants alone costs <strong>€63 billion per year</strong>.',
+  p_cost2:'On a per-capita basis, France spends <strong>38% more than Germany</strong> on its public sector — for equivalent or inferior services according to OECD indicators.',
+  h2_paradox:'The "paradox" of the French civil service',
+  p_paradox:'The greatest paradox is this: France has one of the largest public services in the Western world, and yet:',
+  p_paradox2:'This paradox suggests that the question is not so much the number of employees but the way they are deployed, managed and evaluated. This is the main conclusion of the Guillot report (2023) on civil service reform commissioned by the government.',
+  related_h3:'Further reading',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  share_label:'Share:',
+  share_tw:'𝕏 Twitter',
+  share_fb:'Facebook',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Combien y a-t-il de fonctionnaires en France ? — Chiffres officiels 2024'
+    :'How Many Civil Servants Are There in France? — Official Figures 2024';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"5,66 millions d'agents publics en France en 2024. État, collectivités, hôpitaux : répartition complète. Comparaison avec l'Allemagne, le Royaume-Uni et la Suède. Source DGAFP."
+    :'5.66 million public employees in France in 2024. Central, local and hospital sectors: full breakdown. Comparison with Germany, UK and Sweden. Source: DGAFP.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
