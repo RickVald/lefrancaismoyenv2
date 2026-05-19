@@ -6,6 +6,9 @@
   <title>Pourquoi la France a-t-elle autant de normes ? — Données et origines</title>
   <meta name="description" content="400 000 normes en vigueur en France, 10 000 textes de loi, 400 000 articles réglementaires. Pourquoi la France est-elle championne du monde des normes ? Histoire, coûts et comparaisons.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-normes">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-normes">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-normes">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-normes">
   <meta property="og:title" content="Pourquoi la France a-t-elle autant de normes ?">
   <meta property="og:description" content="400 000 normes, 10 500 lois en vigueur. La France est l'un des pays les plus normés du monde. Origines, coûts économiques et comparaison avec les pays voisins.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-normes">
@@ -79,8 +82,12 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-    <a href="/" class="cta">← Tableau de bord</a>
+    <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
   </div></header>
   <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Menu mobile">
     <a href="/">🏠 Accueil</a>
@@ -97,24 +104,24 @@
 
   <main id="contenu">
     <nav aria-label="Fil d'Ariane" style="max-width:760px;margin:0 auto;padding:24px 24px 0;font-size:.88rem;color:var(--muted)">
-      <a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Normes en France</span>
+      <a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Normes en France</span>
     </nav>
 
     <div class="q-hero">
-      <p class="eyebrow">Réglementation</p>
-      <h1>Pourquoi la France a-t-elle autant de normes ?</h1>
-      <p style="color:var(--muted);max-width:600px;margin:12px auto 0;line-height:1.7">400 000 normes en vigueur, 10 500 lois, 400 000 articles réglementaires. La France est parmi les pays les plus normés du monde. D'où ça vient ? Qu'est-ce que ça coûte ?</p>
+      <p class="eyebrow" data-i18n="hero_eyebrow">Réglementation</p>
+      <h1 data-i18n="hero_h1">Pourquoi la France a-t-elle autant de normes ?</h1>
+      <p style="color:var(--muted);max-width:600px;margin:12px auto 0;line-height:1.7" data-i18n="hero_intro">400 000 normes en vigueur, 10 500 lois, 400 000 articles réglementaires. La France est parmi les pays les plus normés du monde. D'où ça vient ? Qu'est-ce que ça coûte ?</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">400 000</span>
-        <span class="s-ctx">Nombre de normes techniques et réglementaires en vigueur en France (AFNOR, 2023).<br>S'ajoutent : 10 500 lois, 400 000 articles de codes, et des centaines de milliers de circulaires.</span>
+        <span class="s-val" data-i18n="stat_val">400 000</span>
+        <span class="s-ctx" data-i18n="stat_ctx">Nombre de normes techniques et réglementaires en vigueur en France (AFNOR, 2023).<br>S'ajoutent : 10 500 lois, 400 000 articles de codes, et des centaines de milliers de circulaires.</span>
       </div>
 
       <div class="q-section">
-        <h2>Ce qu'on appelle "norme" : plusieurs catégories distinctes</h2>
+        <h2 data-i18n="s1_h2">Ce qu'on appelle "norme" : plusieurs catégories distinctes</h2>
         <div class="norme-counter">
           <div class="norme-card">
             <span class="nc-val">10 500</span>
@@ -138,7 +145,7 @@
       </div>
 
       <div class="q-section">
-        <h2>D'où viennent ces normes ? Les 4 sources principales</h2>
+        <h2 data-i18n="s2_h2">D'où viennent ces normes ? Les 4 sources principales</h2>
         <div class="norme-origins">
           <div class="norme-origin-card">
             <div class="noc-title">Union européenne</div>
@@ -164,7 +171,7 @@
       </div>
 
       <div class="q-section">
-        <h2>Les 5 raisons profondes de l'inflation normative</h2>
+        <h2 data-i18n="s3_h2">Les 5 raisons profondes de l'inflation normative</h2>
         <ul class="cause-list">
           <li>
             <div class="cl-content">
@@ -200,7 +207,7 @@
       </div>
 
       <div class="q-section">
-        <h2>Ce que ça coûte à l'économie</h2>
+        <h2 data-i18n="s4_h2">Ce que ça coûte à l'économie</h2>
         <p>La quantification du coût des normes est difficile mais plusieurs études donnent des ordres de grandeur :</p>
         <ul>
           <li>Le <strong>rapport Warsmann (2011)</strong> estimait le coût des normes inutiles ou excessives à <strong>3-4 % du PIB</strong> pour les entreprises françaises, soit 60-80 Md€ par an.</li>
@@ -212,7 +219,7 @@
       </div>
 
       <div class="q-section">
-        <h2>Les tentatives de simplification : un bilan décevant</h2>
+        <h2 data-i18n="s5_h2">Les tentatives de simplification : un bilan décevant</h2>
         <p>Tous les gouvernements depuis 30 ans ont promis de simplifier. Les résultats sont maigres :</p>
         <ul>
           <li><strong>1995</strong> : Alain Juppé lance la "chasse aux normes". Résultat : aucune mesure durable.</li>
@@ -225,18 +232,18 @@
       </div>
 
       <div class="q-section">
-        <h2>En résumé</h2>
+        <h2 data-i18n="s6_h2">En résumé</h2>
         <p>La France n'a pas "trop de normes" par hasard. C'est le produit d'une culture juridique légicentrique, d'une tendance à légiférer après chaque crise, d'une sur-transposition des directives européennes, et d'un millefeuille territorial. Le coût économique est réel — estimé à plusieurs dizaines de milliards d'euros par an.</p>
         <p>La solution n'est pas l'anarchie réglementaire, mais une <strong>révision systématique des normes existantes</strong>, comme l'Allemagne le fait régulièrement via le "Normenkontrollrat" (Conseil de contrôle des normes), avec des résultats mesurables.</p>
       </div>
 
       <div class="q-sources">
-        <strong>Sources officielles</strong>
+        <strong data-i18n="sources_label">Sources officielles</strong>
         AFNOR — État des normes françaises 2023 · Légifrance — Statistiques législatives 2024 · CNEN — Rapport annuel 2023 · Rapport Warsmann — Simplification du droit (2011) · OCDE — Politique réglementaire, rapport France 2023 · FFB — Coût de construction logement neuf 2023
       </div>
 
       <div class="related">
-        <h3>Articles liés</h3>
+        <h3 data-i18n="related_h3">Articles liés</h3>
         <div class="related-links">
           <a href="/questions/pourquoi-la-france-se-desindustrialise" class="related-link">Désindustrialisation</a>
           <a href="/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france" class="related-link">Autant de fonctionnaires ?</a>
@@ -250,21 +257,99 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : AFNOR, Légifrance, OCDE, CNEN</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : AFNOR, Légifrance, OCDE, CNEN</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Normes en France',
+  hero_eyebrow:'Réglementation',
+  hero_h1:'Pourquoi la France a-t-elle autant de normes ?',
+  hero_intro:'400 000 normes en vigueur, 10 500 lois, 400 000 articles réglementaires. La France est parmi les pays les plus normés du monde. D\'où ça vient ? Qu\'est-ce que ça coûte ?',
+  stat_val:'400 000',
+  stat_ctx:'Nombre de normes techniques et réglementaires en vigueur en France (AFNOR, 2023).<br>S\'ajoutent : 10 500 lois, 400 000 articles de codes, et des centaines de milliers de circulaires.',
+  s1_h2:'Ce qu\'on appelle "norme" : plusieurs catégories distinctes',
+  s2_h2:'D\'où viennent ces normes ? Les 4 sources principales',
+  s3_h2:'Les 5 raisons profondes de l\'inflation normative',
+  s4_h2:'Ce que ça coûte à l\'économie',
+  s5_h2:'Les tentatives de simplification : un bilan décevant',
+  s6_h2:'En résumé',
+  sources_label:'Sources officielles',
+  related_h3:'Articles liés',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_copy:'© 2026 Le Français Moyen — Données : AFNOR, Légifrance, OCDE, CNEN',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Regulations in France',
+  hero_eyebrow:'Regulation',
+  hero_h1:'Why does France have so many regulations?',
+  hero_intro:'400,000 standards in force, 10,500 laws, 400,000 regulatory articles. France is among the most regulated countries in the world. Where does this come from? What does it cost?',
+  stat_val:'400,000',
+  stat_ctx:'Number of technical and regulatory standards in force in France (AFNOR, 2023).<br>On top: 10,500 laws, 400,000 code articles, and hundreds of thousands of circulars.',
+  s1_h2:'What we call a "standard": several distinct categories',
+  s2_h2:'Where do these standards come from? The 4 main sources',
+  s3_h2:'The 5 deep causes of regulatory inflation',
+  s4_h2:'What it costs the economy',
+  s5_h2:'Simplification attempts: a disappointing track record',
+  s6_h2:'Summary',
+  sources_label:'Official sources',
+  related_h3:'Related articles',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_copy:'© 2026 Le Français Moyen — Data: AFNOR, Légifrance, OECD, CNEN',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Pourquoi la France a-t-elle autant de normes ? — Données et origines'
+    :'Why Does France Have So Many Regulations? — Data and Origins';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'400 000 normes en vigueur en France, 10 000 textes de loi, 400 000 articles réglementaires. Pourquoi la France est-elle championne du monde des normes ? Histoire, coûts et comparaisons.'
+    :'400,000 standards in force in France, 10,000 laws, 400,000 regulatory articles. Why is France a world champion of regulation? History, costs and comparisons.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

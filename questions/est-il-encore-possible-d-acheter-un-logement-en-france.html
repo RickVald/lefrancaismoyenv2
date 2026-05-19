@@ -6,6 +6,9 @@
   <title>Est-il encore possible d'acheter un logement en France ? — Données 2024</title>
   <meta name="description" content="Taux d'intérêt à 4 %, prix immobiliers multipliés par 2,5 en 20 ans : la primo-accession est-elle encore possible ? Analyse par ville, revenu et génération avec les données INSEE et Banque de France.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/est-il-encore-possible-d-acheter-un-logement-en-france">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/est-il-encore-possible-d-acheter-un-logement-en-france">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/est-il-encore-possible-d-acheter-un-logement-en-france">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/est-il-encore-possible-d-acheter-un-logement-en-france">
   <meta property="og:title" content="Est-il encore possible d'acheter un logement en France ?">
   <meta property="og:description" content="Prix multipliés par 2,5 en 20 ans, taux à 4 %. La primo-accession est-elle encore accessible ? Analyse par ville, revenu et génération.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/est-il-encore-possible-d-acheter-un-logement-en-france">
@@ -81,6 +84,10 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div></header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
@@ -97,21 +104,21 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Logement</span></nav>
-      <p class="eyebrow" style="text-align:center">🏠 Logement</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">Est-il encore possible d'acheter un logement en France ?</h1>
-      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7">Prix ×2,5 en 20 ans, taux à 4 % depuis 2023. La réponse dépend de où vous habitez, de votre revenu — et surtout de votre génération.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Logement</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">🏠 Logement</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">Est-il encore possible d'acheter un logement en France ?</h1>
+      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">Prix ×2,5 en 20 ans, taux à 4 % depuis 2023. La réponse dépend de où vous habitez, de votre revenu — et surtout de votre génération.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">−27 %</span>
-        <span class="s-ctx">de capacité d'achat en 2023 vs 2021 pour un ménage médian français. La combinaison hausse des prix (+5 % en 2022) et surtout <strong>montée des taux</strong> (0,9 % → 4,2 % entre jan. 2022 et déc. 2023) a réduit le pouvoir d'achat immobilier de plus d'un quart en moins de 2 ans.<br>Source : Crédit Logement / CSA, Banque de France 2024.</span>
+        <span class="s-val" data-i18n="stat_val">−27 %</span>
+        <span class="s-ctx" data-i18n="stat_ctx">de capacité d'achat en 2023 vs 2021 pour un ménage médian français. La combinaison hausse des prix (+5 % en 2022) et surtout <strong>montée des taux</strong> (0,9 % → 4,2 % entre jan. 2022 et déc. 2023) a réduit le pouvoir d'achat immobilier de plus d'un quart en moins de 2 ans.<br>Source : Crédit Logement / CSA, Banque de France 2024.</span>
       </div>
 
       <div class="q-section">
-        <h2>La double peine : prix hauts + taux hauts</h2>
+        <h2 data-i18n="s1_h2">La double peine : prix hauts + taux hauts</h2>
         <p>Pendant 10 ans (2012–2022), des taux d'intérêt historiquement bas (jusqu'à 1 % en 2021) ont partiellement compensé la hausse des prix immobiliers. Un ménage empruntant à 1 % pouvait acheter significativement plus qu'à 4 %. C'est ce mécanisme qui a maintenu l'accession à la propriété malgré des prix élevés.</p>
         <p>Depuis 2022, les deux facteurs jouent désormais dans le même sens défavorable :</p>
         <ul>
@@ -122,7 +129,7 @@
       </div>
 
       <div class="q-section">
-        <h2>Ville par ville : une accessibilité très variable</h2>
+        <h2 data-i18n="s2_h2">Ville par ville : une accessibilité très variable</h2>
         <p>La situation est radicalement différente selon les villes. Pour un appartement de 60 m², voici le nombre d'années de salaire médian local nécessaires en 2024 :</p>
 
         <table class="city-table">
@@ -185,7 +192,7 @@
       </div>
 
       <div class="q-section">
-        <h2>La question générationnelle : les baby-boomers ont gagné à la loterie</h2>
+        <h2 data-i18n="s3_h2">La question générationnelle : les baby-boomers ont gagné à la loterie</h2>
         <p>L'inégalité de destin selon la génération est frappante :</p>
 
         <div class="gen-compare">
@@ -205,14 +212,14 @@
       </div>
 
       <div class="q-section">
-        <h2>La correction 2023–2024 : réelle mais insuffisante</h2>
+        <h2 data-i18n="s4_h2">La correction 2023–2024 : réelle mais insuffisante</h2>
         <p>Les prix immobiliers ont effectivement baissé dans certaines villes en 2023–2024 : −8 % à Paris, −6 % à Lyon, −5 % à Bordeaux (Notaires de France, T1 2024). Cette correction est liée à la montée des taux et à la compression du crédit.</p>
         <p>Mais cette baisse reste bien inférieure à la hausse des taux d'emprunt. Pour que l'accessibilité revienne au niveau de 2021, les prix devraient encore baisser de <strong>20 à 30 %</strong> dans les grandes villes, ou les taux redescendre significativement vers 2 %. Aucun de ces scénarios n'est attendu à court terme par les économistes.</p>
         <p>La Banque de France anticipe une stabilisation des prix à leur niveau actuel (2024–2025), avec un retour progressif à la hausse à mesure que les taux se normalisent. La fenêtre de correction est peut-être en train de se refermer.</p>
       </div>
 
       <div class="q-section">
-        <h2>Que faire concrètement ?</h2>
+        <h2 data-i18n="s5_h2">Que faire concrètement ?</h2>
         <p>Pour un ménage qui souhaite acheter en 2024 :</p>
         <ul>
           <li><strong>Hors grandes métropoles</strong> : l'achat reste possible à des conditions correctes dans les villes moyennes (Clermont, Le Mans, Reims, Amiens, Caen…). Le prix moyen national est à 3 100 €/m², contre 9 500 € à Paris.</li>
@@ -240,7 +247,7 @@
   
     <section class="q-container" style="padding-top:0;padding-bottom:0">
       <div class="q-section faq-block">
-        <h2>Questions fréquentes</h2>
+        <h2 data-i18n="faq_h2">Questions fréquentes</h2>
         <style>
           .faq-block{border-top:1px solid var(--border);margin-top:0}
           .faq-item{border-bottom:1px solid var(--border);padding:16px 0}
@@ -266,15 +273,87 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Logement',
+  hero_eyebrow:'🏠 Logement',
+  hero_h1:"Est-il encore possible d'acheter un logement en France ?",
+  hero_intro:"Prix ×2,5 en 20 ans, taux à 4 % depuis 2023. La réponse dépend de où vous habitez, de votre revenu — et surtout de votre génération.",
+  stat_val:'−27 %',
+  stat_ctx:"de capacité d'achat en 2023 vs 2021 pour un ménage médian français. La combinaison hausse des prix (+5 % en 2022) et surtout <strong>montée des taux</strong> (0,9 % → 4,2 % entre jan. 2022 et déc. 2023) a réduit le pouvoir d'achat immobilier de plus d'un quart en moins de 2 ans.<br>Source : Crédit Logement / CSA, Banque de France 2024.",
+  s1_h2:'La double peine : prix hauts + taux hauts',
+  s2_h2:'Ville par ville : une accessibilité très variable',
+  s3_h2:'La question générationnelle : les baby-boomers ont gagné à la loterie',
+  s4_h2:'La correction 2023–2024 : réelle mais insuffisante',
+  s5_h2:'Que faire concrètement ?',
+  faq_h2:'Questions fréquentes',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Housing',
+  hero_eyebrow:'🏠 Housing',
+  hero_h1:'Is it still possible to buy a home in France?',
+  hero_intro:'Prices ×2.5 in 20 years, rates at 4% since 2023. The answer depends on where you live, your income — and above all, your generation.',
+  stat_val:'−27%',
+  stat_ctx:'drop in purchasing power in 2023 vs 2021 for a median French household. The combination of rising prices (+5% in 2022) and above all <strong>rising rates</strong> (0.9% → 4.2% between Jan. 2022 and Dec. 2023) cut real estate purchasing power by more than a quarter in under 2 years.<br>Source: Crédit Logement / CSA, Banque de France 2024.',
+  s1_h2:'The double bind: high prices + high rates',
+  s2_h2:'City by city: widely varying affordability',
+  s3_h2:'The generational divide: baby boomers won the lottery',
+  s4_h2:'The 2023–2024 correction: real but insufficient',
+  s5_h2:'What to do in practice?',
+  faq_h2:'Frequently asked questions',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?"Est-il encore possible d'acheter un logement en France ? — Données 2024"
+    :'Is it still possible to buy a home in France? — 2024 Data';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Taux d'intérêt à 4 %, prix immobiliers multipliés par 2,5 en 20 ans : la primo-accession est-elle encore possible ? Analyse par ville, revenu et génération avec les données INSEE et Banque de France."
+    :'Interest rates at 4%, property prices up 2.5× in 20 years: is first-time buying still possible? Analysis by city, income and generation with INSEE and Banque de France data.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

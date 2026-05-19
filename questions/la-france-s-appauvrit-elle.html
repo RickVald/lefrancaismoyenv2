@@ -7,6 +7,9 @@
   <meta name="description" content="PIB par habitant, salaires réels, inégalités, déclassement générationnel. L'analyse complète avec les données officielles.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/la-france-s-appauvrit-elle">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/la-france-s-appauvrit-elle">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/la-france-s-appauvrit-elle">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/la-france-s-appauvrit-elle">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Français Moyen">
@@ -114,8 +117,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/#dashboard" class="cta">← Tableau de bord</a>
+      <a href="/#dashboard" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -144,58 +151,58 @@
       <a href="/">Accueil</a> › <a href="/#questions">Questions</a> › <span>La France s'appauvrit-elle ?</span>
     </nav>
 
-    <div class="eyebrow">Analyse · Pouvoir d'achat &amp; déclassement</div>
-    <h1 style="font-size:clamp(1.7rem,4vw,2.8rem);margin-bottom:12px">La France s'appauvrit-elle ?<br>Niveau de vie, pouvoir d'achat et déclassement en chiffres</h1>
-    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:28px">Données INSEE · OCDE · Eurostat · Mise à jour mai 2026</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Analyse · Pouvoir d'achat &amp; déclassement</div>
+    <h1 style="font-size:clamp(1.7rem,4vw,2.8rem);margin-bottom:12px" data-i18n="hero_h1">La France s'appauvrit-elle ?<br>Niveau de vie, pouvoir d'achat et déclassement en chiffres</h1>
+    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:28px" data-i18n="hero_sub">Données INSEE · OCDE · Eurostat · Mise à jour mai 2026</p>
 
     <div class="panel" style="padding:22px;margin-bottom:28px;border-left:4px solid var(--accent)">
-      <div class="eyebrow" style="margin-bottom:8px">Réponse courte</div>
-      <p style="margin:0;font-size:1.02rem;line-height:1.65">
+      <div class="eyebrow" style="margin-bottom:8px" data-i18n="answer_label">Réponse courte</div>
+      <p style="margin:0;font-size:1.02rem;line-height:1.65" data-i18n="answer_p">
         <strong>En termes absolus, non — en termes relatifs, oui.</strong> Le niveau de vie médian a progressé de +15% en 25 ans en termes réels. Mais la France décroche de ses voisins européens : son PIB/habitant (36 800 €) est aujourd'hui bien en-deçà de l'Allemagne (44 500 €) ou de la Suède (58 300 €). Et pour les jeunes générations, l'immobilier et la constitution d'un patrimoine sont devenus structurellement plus difficiles.
       </p>
     </div>
 
     <div class="stat-kpi-grid">
-      <div class="stat-kpi"><span class="val" style="color:var(--accent2)">36 800 €</span><span class="lbl">PIB/hab France (vs 44 500 € Allemagne)</span></div>
-      <div class="stat-kpi"><span class="val" style="color:var(--red)">12e rang</span><span class="lbl">Mondial (était 5e il y a 25 ans)</span></div>
-      <div class="stat-kpi"><span class="val" style="color:var(--red)">×2,7</span><span class="lbl">Années de salaire pour l'immo (nés 1990 vs 1960)</span></div>
-      <div class="stat-kpi"><span class="val" style="color:var(--green)">+15%</span><span class="lbl">Niveau de vie réel médian en 25 ans</span></div>
+      <div class="stat-kpi"><span class="val" style="color:var(--accent2)">36 800 €</span><span class="lbl" data-i18n="kpi1_lbl">PIB/hab France (vs 44 500 € Allemagne)</span></div>
+      <div class="stat-kpi"><span class="val" style="color:var(--red)">12e rang</span><span class="lbl" data-i18n="kpi2_lbl">Mondial (était 5e il y a 25 ans)</span></div>
+      <div class="stat-kpi"><span class="val" style="color:var(--red)">×2,7</span><span class="lbl" data-i18n="kpi3_lbl">Années de salaire pour l'immo (nés 1990 vs 1960)</span></div>
+      <div class="stat-kpi"><span class="val" style="color:var(--green)">+15%</span><span class="lbl" data-i18n="kpi4_lbl">Niveau de vie réel médian en 25 ans</span></div>
     </div>
 
-    <h2 class="article-h2">Niveau de vie absolu : la France a progressé</h2>
-    <p class="article-p">Sur le long terme, les Français vivent mieux qu'il y a 25 ans : le niveau de vie médian réel a progressé de <strong>+15% depuis 2000</strong> (INSEE, données corrigées de l'inflation). L'accès aux soins, à l'éducation et aux équipements s'est amélioré. Les transferts sociaux (santé, famille, retraites) représentent une part croissante du revenu disponible des ménages modestes. Ce progrès est réel, mais il masque des dynamiques très inégales selon les catégories sociales et les générations.</p>
+    <h2 class="article-h2" data-i18n="s1_h2">Niveau de vie absolu : la France a progressé</h2>
+    <p class="article-p" data-i18n="s1_p">Sur le long terme, les Français vivent mieux qu'il y a 25 ans : le niveau de vie médian réel a progressé de <strong>+15% depuis 2000</strong> (INSEE, données corrigées de l'inflation). L'accès aux soins, à l'éducation et aux équipements s'est amélioré. Les transferts sociaux (santé, famille, retraites) représentent une part croissante du revenu disponible des ménages modestes. Ce progrès est réel, mais il masque des dynamiques très inégales selon les catégories sociales et les générations.</p>
 
-    <h2 class="article-h2">Le décrochage relatif face à l'Europe</h2>
-    <p class="article-p">La France était la 5e économie mondiale par habitant en termes de richesse au début des années 2000. Elle est aujourd'hui <strong>12e</strong>. Son PIB par habitant (36 800 €) est inférieur à l'Allemagne (44 500 €), aux Pays-Bas (52 000 €), à la Suède (58 300 €) ou au Danemark. Ce décrochage s'explique par une croissance de la productivité plus faible, un taux d'emploi des seniors plus bas et un coût du travail élevé qui pèse sur la compétitivité.</p>
+    <h2 class="article-h2" data-i18n="s2_h2">Le décrochage relatif face à l'Europe</h2>
+    <p class="article-p" data-i18n="s2_p">La France était la 5e économie mondiale par habitant en termes de richesse au début des années 2000. Elle est aujourd'hui <strong>12e</strong>. Son PIB par habitant (36 800 €) est inférieur à l'Allemagne (44 500 €), aux Pays-Bas (52 000 €), à la Suède (58 300 €) ou au Danemark. Ce décrochage s'explique par une croissance de la productivité plus faible, un taux d'emploi des seniors plus bas et un coût du travail élevé qui pèse sur la compétitivité.</p>
 
-    <h2 class="article-h2">Le déclassement générationnel</h2>
-    <p class="article-p">C'est la fracture la plus documentée. Pour les nés en 1990, l'immobilier représente <strong>2,7 fois plus d'années de salaire</strong> que pour les nés en 1960 pour acquérir un même bien (données Notaires de France / INSEE). Résultat : le taux de propriétaires baisse chez les moins de 40 ans pour la première fois depuis l'après-guerre. Le patrimoine médian des 30-39 ans a stagné en termes réels pendant que celui des 60-69 ans progressait de +40%.</p>
+    <h2 class="article-h2" data-i18n="s3_h2">Le déclassement générationnel</h2>
+    <p class="article-p" data-i18n="s3_p">C'est la fracture la plus documentée. Pour les nés en 1990, l'immobilier représente <strong>2,7 fois plus d'années de salaire</strong> que pour les nés en 1960 pour acquérir un même bien (données Notaires de France / INSEE). Résultat : le taux de propriétaires baisse chez les moins de 40 ans pour la première fois depuis l'après-guerre. Le patrimoine médian des 30-39 ans a stagné en termes réels pendant que celui des 60-69 ans progressait de +40%.</p>
 
-    <h2 class="article-h2">Le paradoxe fiscal : 57% du PIB en dépenses</h2>
-    <p class="article-p">La France a les dépenses publiques les plus élevées de l'OCDE en proportion de son PIB (57%). Ces dépenses financent une protection sociale parmi les plus généreuses au monde — mais leur efficience est questionnée. <strong>Les prélèvements obligatoires atteignent 45,3% du PIB</strong>, réduisant le revenu disponible des ménages par rapport à des pays qui dépensent autant mais taxent différemment. La comparaison internationale en pouvoir d'achat réel (standard de parité de pouvoir d'achat) place la France dans la moyenne haute de l'UE, mais en retrait croissant.</p>
+    <h2 class="article-h2" data-i18n="s4_h2">Le paradoxe fiscal : 57% du PIB en dépenses</h2>
+    <p class="article-p" data-i18n="s4_p">La France a les dépenses publiques les plus élevées de l'OCDE en proportion de son PIB (57%). Ces dépenses financent une protection sociale parmi les plus généreuses au monde — mais leur efficience est questionnée. <strong>Les prélèvements obligatoires atteignent 45,3% du PIB</strong>, réduisant le revenu disponible des ménages par rapport à des pays qui dépensent autant mais taxent différemment. La comparaison internationale en pouvoir d'achat réel (standard de parité de pouvoir d'achat) place la France dans la moyenne haute de l'UE, mais en retrait croissant.</p>
 
     <div class="faq-block">
-      <h2 class="article-h2">Questions fréquentes</h2>
+      <h2 class="article-h2" data-i18n="faq_h2">Questions fréquentes</h2>
       <div class="faq-item">
-        <div class="faq-q">La France décroche-t-elle vs ses voisins ?</div>
-        <div class="faq-a">Oui, en termes relatifs. Le PIB/habitant français (36 800 €) est inférieur à l'Allemagne (44 500 €) et très en-deçà de la Suède (58 300 €). La France est passée du 5e au 12e rang mondial de richesse par habitant en 25 ans.</div>
+        <div class="faq-q" data-i18n="faq1_q">La France décroche-t-elle vs ses voisins ?</div>
+        <div class="faq-a" data-i18n="faq1_a">Oui, en termes relatifs. Le PIB/habitant français (36 800 €) est inférieur à l'Allemagne (44 500 €) et très en-deçà de la Suède (58 300 €). La France est passée du 5e au 12e rang mondial de richesse par habitant en 25 ans.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Le pouvoir d'achat a-t-il baissé ?</div>
-        <div class="faq-a">En termes absolus sur 25 ans, non (+15% réel). Mais entre 2021 et 2023, l'inflation a effacé ces gains pour de nombreux ménages. Les 40% les plus modestes ont subi une perte de pouvoir d'achat réelle, particulièrement sur l'alimentation et l'énergie.</div>
+        <div class="faq-q" data-i18n="faq2_q">Le pouvoir d'achat a-t-il baissé ?</div>
+        <div class="faq-a" data-i18n="faq2_a">En termes absolus sur 25 ans, non (+15% réel). Mais entre 2021 et 2023, l'inflation a effacé ces gains pour de nombreux ménages. Les 40% les plus modestes ont subi une perte de pouvoir d'achat réelle, particulièrement sur l'alimentation et l'énergie.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Les jeunes sont-ils moins bien lotis ?</div>
-        <div class="faq-a">Oui, structurellement. Pour les nés en 1990, l'immobilier représente 2,7 fois plus d'années de salaire que pour les nés en 1960. Le taux de propriétaires baisse chez les moins de 40 ans pour la première fois depuis l'après-guerre. Le déclassement générationnel est documenté et chiffré.</div>
+        <div class="faq-q" data-i18n="faq3_q">Les jeunes sont-ils moins bien lotis ?</div>
+        <div class="faq-a" data-i18n="faq3_a">Oui, structurellement. Pour les nés en 1990, l'immobilier représente 2,7 fois plus d'années de salaire que pour les nés en 1960. Le taux de propriétaires baisse chez les moins de 40 ans pour la première fois depuis l'après-guerre. Le déclassement générationnel est documenté et chiffré.</div>
       </div>
     </div>
 
     <div class="cta-box">
-      <p>Votre génération est-elle moins bien lotie que celle de vos parents ? Comparez les trajectoires de revenus et de patrimoine.</p>
-      <a href="/generations/">Mesurez le déclassement de votre génération</a>
+      <p data-i18n="cta_p">Votre génération est-elle moins bien lotie que celle de vos parents ? Comparez les trajectoires de revenus et de patrimoine.</p>
+      <a href="/generations/" data-i18n="cta_btn">Mesurez le déclassement de votre génération</a>
     </div>
 
-    <h2 class="article-h2" style="margin-top:2.5rem">Questions connexes</h2>
+    <h2 class="article-h2" style="margin-top:2.5rem" data-i18n="related_h2">Questions connexes</h2>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:32px">
       <a href="/questions/pourquoi-tout-augmente" class="faq-card">
         <h3>Pourquoi tout augmente ?</h3>
@@ -208,7 +215,7 @@
     </div>
 
     <div class="share-bar">
-      <span style="color:var(--muted);font-size:.9rem">Partager :</span>
+      <span style="color:var(--muted);font-size:.9rem" data-i18n="share_label">Partager :</span>
       <a href="https://twitter.com/intent/tweet?text=La%20France%20s%27appauvrit-elle%20%3F%20La%20r%C3%A9ponse%20en%20chiffres%20officiels%20%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fla-france-s-appauvrit-elle" target="_blank" rel="noopener" class="share-btn">𝕏 Twitter</a>
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fla-france-s-appauvrit-elle" target="_blank" rel="noopener" class="share-btn">Facebook</a>
     </div>
@@ -216,17 +223,17 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
 
   <footer>
     <span>© 2026 Le Français Moyen — Données : INSEE, OCDE, Eurostat</span>
-    <a href="/">Tableau de bord principal</a>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 <script>
 (function(){
@@ -256,6 +263,106 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  hero_eyebrow:'Analyse · Pouvoir d\'achat &amp; déclassement',
+  hero_h1:'La France s\'appauvrit-elle ?<br>Niveau de vie, pouvoir d\'achat et déclassement en chiffres',
+  hero_sub:'Données INSEE · OCDE · Eurostat · Mise à jour mai 2026',
+  answer_label:'Réponse courte',
+  answer_p:'<strong>En termes absolus, non — en termes relatifs, oui.</strong> Le niveau de vie médian a progressé de +15% en 25 ans en termes réels. Mais la France décroche de ses voisins européens : son PIB/habitant (36 800 €) est aujourd\'hui bien en-deçà de l\'Allemagne (44 500 €) ou de la Suède (58 300 €). Et pour les jeunes générations, l\'immobilier et la constitution d\'un patrimoine sont devenus structurellement plus difficiles.',
+  kpi1_lbl:'PIB/hab France (vs 44 500 € Allemagne)',
+  kpi2_lbl:'Mondial (était 5e il y a 25 ans)',
+  kpi3_lbl:'Années de salaire pour l\'immo (nés 1990 vs 1960)',
+  kpi4_lbl:'Niveau de vie réel médian en 25 ans',
+  s1_h2:'Niveau de vie absolu : la France a progressé',
+  s1_p:'Sur le long terme, les Français vivent mieux qu\'il y a 25 ans : le niveau de vie médian réel a progressé de <strong>+15% depuis 2000</strong> (INSEE, données corrigées de l\'inflation). L\'accès aux soins, à l\'éducation et aux équipements s\'est amélioré. Les transferts sociaux (santé, famille, retraites) représentent une part croissante du revenu disponible des ménages modestes. Ce progrès est réel, mais il masque des dynamiques très inégales selon les catégories sociales et les générations.',
+  s2_h2:'Le décrochage relatif face à l\'Europe',
+  s2_p:'La France était la 5e économie mondiale par habitant en termes de richesse au début des années 2000. Elle est aujourd\'hui <strong>12e</strong>. Son PIB par habitant (36 800 €) est inférieur à l\'Allemagne (44 500 €), aux Pays-Bas (52 000 €), à la Suède (58 300 €) ou au Danemark. Ce décrochage s\'explique par une croissance de la productivité plus faible, un taux d\'emploi des seniors plus bas et un coût du travail élevé qui pèse sur la compétitivité.',
+  s3_h2:'Le déclassement générationnel',
+  s3_p:'C\'est la fracture la plus documentée. Pour les nés en 1990, l\'immobilier représente <strong>2,7 fois plus d\'années de salaire</strong> que pour les nés en 1960 pour acquérir un même bien (données Notaires de France / INSEE). Résultat : le taux de propriétaires baisse chez les moins de 40 ans pour la première fois depuis l\'après-guerre. Le patrimoine médian des 30-39 ans a stagné en termes réels pendant que celui des 60-69 ans progressait de +40%.',
+  s4_h2:'Le paradoxe fiscal : 57% du PIB en dépenses',
+  s4_p:'La France a les dépenses publiques les plus élevées de l\'OCDE en proportion de son PIB (57%). Ces dépenses financent une protection sociale parmi les plus généreuses au monde — mais leur efficience est questionnée. <strong>Les prélèvements obligatoires atteignent 45,3% du PIB</strong>, réduisant le revenu disponible des ménages par rapport à des pays qui dépensent autant mais taxent différemment. La comparaison internationale en pouvoir d\'achat réel (standard de parité de pouvoir d\'achat) place la France dans la moyenne haute de l\'UE, mais en retrait croissant.',
+  faq_h2:'Questions fréquentes',
+  faq1_q:'La France décroche-t-elle vs ses voisins ?',
+  faq1_a:'Oui, en termes relatifs. Le PIB/habitant français (36 800 €) est inférieur à l\'Allemagne (44 500 €) et très en-deçà de la Suède (58 300 €). La France est passée du 5e au 12e rang mondial de richesse par habitant en 25 ans.',
+  faq2_q:'Le pouvoir d\'achat a-t-il baissé ?',
+  faq2_a:'En termes absolus sur 25 ans, non (+15% réel). Mais entre 2021 et 2023, l\'inflation a effacé ces gains pour de nombreux ménages. Les 40% les plus modestes ont subi une perte de pouvoir d\'achat réelle, particulièrement sur l\'alimentation et l\'énergie.',
+  faq3_q:'Les jeunes sont-ils moins bien lotis ?',
+  faq3_a:'Oui, structurellement. Pour les nés en 1990, l\'immobilier représente 2,7 fois plus d\'années de salaire que pour les nés en 1960. Le taux de propriétaires baisse chez les moins de 40 ans pour la première fois depuis l\'après-guerre. Le déclassement générationnel est documenté et chiffré.',
+  cta_p:'Votre génération est-elle moins bien lotie que celle de vos parents ? Comparez les trajectoires de revenus et de patrimoine.',
+  cta_btn:'Mesurez le déclassement de votre génération',
+  related_h2:'Questions connexes',
+  share_label:'Partager :',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  hero_eyebrow:'Analysis · Purchasing power &amp; social decline',
+  hero_h1:'Is France getting poorer?<br>Living standards, purchasing power and generational decline in figures',
+  hero_sub:'Data: INSEE · OECD · Eurostat · Updated May 2026',
+  answer_label:'Short answer',
+  answer_p:'<strong>In absolute terms, no — in relative terms, yes.</strong> Median living standards have risen +15% in real terms over 25 years. But France is falling behind its European neighbours: its GDP per capita (€36,800) is now well below Germany (€44,500) or Sweden (€58,300). And for younger generations, homeownership and wealth accumulation have become structurally more difficult.',
+  kpi1_lbl:'GDP/capita France (vs €44,500 Germany)',
+  kpi2_lbl:'Global ranking (was 5th 25 years ago)',
+  kpi3_lbl:'Years of wages for housing (born 1990 vs 1960)',
+  kpi4_lbl:'Median real living standard over 25 years',
+  s1_h2:'Absolute living standards: France has improved',
+  s1_p:'Over the long term, the French live better than 25 years ago: median real living standards rose <strong>+15% since 2000</strong> (INSEE, inflation-adjusted data). Access to healthcare, education and equipment has improved. Social transfers (healthcare, family benefits, pensions) represent a growing share of disposable income for lower-income households. This progress is real, but it conceals very unequal dynamics across social groups and generations.',
+  s2_h2:'Relative decline against Europe',
+  s2_p:'France was the 5th wealthiest economy per capita in the early 2000s. It is now ranked <strong>12th</strong>. Its GDP per capita (€36,800) is below Germany (€44,500), the Netherlands (€52,000), Sweden (€58,300) or Denmark. This relative decline stems from weaker productivity growth, a lower employment rate among older workers, and high labour costs that weigh on competitiveness.',
+  s3_h2:'Generational downgrading',
+  s3_p:'This is the most documented divide. For those born in 1990, housing requires <strong>2.7 times more years of wages</strong> than for those born in 1960 to purchase an equivalent property (data: Notaires de France / INSEE). As a result, homeownership rates are falling among the under-40s for the first time since the post-war period. Median wealth among 30–39 year-olds has stagnated in real terms while that of 60–69 year-olds grew by +40%.',
+  s4_h2:'The fiscal paradox: 57% of GDP in public spending',
+  s4_p:'France has the highest public spending in the OECD as a share of GDP (57%). This finances one of the most generous social protection systems in the world — but its efficiency is questioned. <strong>Mandatory levies reach 45.3% of GDP</strong>, reducing household disposable income compared to countries that spend as much but tax differently. International comparisons in real purchasing power (PPP) place France in the upper-middle range of the EU, but with a growing gap.',
+  faq_h2:'Frequently asked questions',
+  faq1_q:'Is France falling behind its neighbours?',
+  faq1_a:'Yes, in relative terms. French GDP per capita (€36,800) is lower than Germany (€44,500) and far below Sweden (€58,300). France has dropped from 5th to 12th in the global ranking of wealth per capita over 25 years.',
+  faq2_q:'Has purchasing power fallen?',
+  faq2_a:'In absolute terms over 25 years, no (+15% in real terms). But between 2021 and 2023, inflation wiped out those gains for many households. The poorest 40% suffered a real purchasing power loss, particularly on food and energy.',
+  faq3_q:'Are young people worse off?',
+  faq3_a:'Yes, structurally. For those born in 1990, housing requires 2.7 times more years of wages than for those born in 1960. Homeownership rates are falling among the under-40s for the first time since the post-war period. Generational downgrading is documented and quantified.',
+  cta_p:'Is your generation worse off than your parents\'? Compare income and wealth trajectories.',
+  cta_btn:'Measure your generation\'s decline',
+  related_h2:'Related questions',
+  share_label:'Share:',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'La France s\'appauvrit-elle ? Niveau de vie, pouvoir d\'achat et déclassement en chiffres'
+    :'Is France getting poorer? Living standards, purchasing power and generational decline in figures';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'PIB par habitant, salaires réels, inégalités, déclassement générationnel. L\'analyse complète avec les données officielles.'
+    :'GDP per capita, real wages, inequality, generational decline. The complete analysis with official data.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

@@ -6,6 +6,9 @@
   <title>Le pouvoir d'achat des Français a-t-il baissé ? — Données INSEE 2024</title>
   <meta name="description" content="Salaires, inflation, logement, énergie : le pouvoir d'achat réel des Français depuis 2000. Analyse complète avec les données INSEE, Banque de France et OCDE.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse">
   <meta property="og:title" content="Le pouvoir d'achat des Français a-t-il baissé ?">
   <meta property="og:description" content="Salaires, inflation, logement, énergie : ce que disent vraiment les données INSEE sur le pouvoir d'achat depuis 2000.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse">
@@ -80,6 +83,10 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div></header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
@@ -97,108 +104,108 @@
   <main id="contenu">
     <div class="q-hero">
       <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Pouvoir d'achat</span></nav>
-      <p class="eyebrow" style="text-align:center">💰 Pouvoir d'achat</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">Le pouvoir d'achat des Français a-t-il baissé ?</h1>
-      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7">La réponse courte est : ça dépend de quoi on parle. Salaire médian en hausse sur 20 ans, mais logement, énergie et alimentation ont explosé. Voici ce que disent vraiment les données.</p>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">💰 Pouvoir d'achat</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">Le pouvoir d'achat des Français a-t-il baissé ?</h1>
+      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_sub">La réponse courte est : ça dépend de quoi on parle. Salaire médian en hausse sur 20 ans, mais logement, énergie et alimentation ont explosé. Voici ce que disent vraiment les données.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
         <span class="s-val">−1,4 %</span>
-        <span class="s-ctx">de pouvoir d'achat par unité de consommation en <strong>2022</strong> — la plus forte baisse depuis 30 ans, sous l'effet du choc inflationniste post-Covid. En 2023, il s'est partiellement redressé (+0,8 %) grâce au ralentissement de l'inflation.<br>Source : INSEE Comptes nationaux 2024.</span>
+        <span class="s-ctx" data-i18n="stat_ctx">de pouvoir d'achat par unité de consommation en <strong>2022</strong> — la plus forte baisse depuis 30 ans, sous l'effet du choc inflationniste post-Covid. En 2023, il s'est partiellement redressé (+0,8 %) grâce au ralentissement de l'inflation.<br>Source : INSEE Comptes nationaux 2024.</span>
       </div>
 
       <div class="answer-box">
-        <div class="answer-title">La réponse en une phrase</div>
-        <p>Sur 20 ans, le pouvoir d'achat <em>global</em> a progressé (+18 % de 2000 à 2023 selon l'INSEE), mais cette moyenne cache des réalités très différentes : les dépenses contraintes (logement, énergie, assurances) ont augmenté bien plus vite que les salaires, réduisant le <strong>reste à vivre</strong> des ménages modestes.</p>
+        <div class="answer-title" data-i18n="answer_label">La réponse en une phrase</div>
+        <p data-i18n="answer_p">Sur 20 ans, le pouvoir d'achat <em>global</em> a progressé (+18 % de 2000 à 2023 selon l'INSEE), mais cette moyenne cache des réalités très différentes : les dépenses contraintes (logement, énergie, assurances) ont augmenté bien plus vite que les salaires, réduisant le <strong>reste à vivre</strong> des ménages modestes.</p>
       </div>
 
       <div class="q-section">
-        <h2>Ce que dit l'INSEE : une hausse sur le long terme</h2>
-        <p>Le pouvoir d'achat du revenu disponible brut des ménages — la mesure officielle de l'INSEE — a <strong>augmenté de 18 % entre 2000 et 2023</strong> en termes réels (corrigé de l'inflation). Sur la même période, le salaire net moyen a progressé de 22 % en termes réels.</p>
-        <p>Comment expliquer alors le sentiment très répandu que "tout est plus cher" ? Parce que la moyenne nationale cache des évolutions très inégales selon les postes de dépense et selon les niveaux de revenus.</p>
+        <h2 data-i18n="s1_h2">Ce que dit l'INSEE : une hausse sur le long terme</h2>
+        <p data-i18n="s1_p1">Le pouvoir d'achat du revenu disponible brut des ménages — la mesure officielle de l'INSEE — a <strong>augmenté de 18 % entre 2000 et 2023</strong> en termes réels (corrigé de l'inflation). Sur la même période, le salaire net moyen a progressé de 22 % en termes réels.</p>
+        <p data-i18n="s1_p2">Comment expliquer alors le sentiment très répandu que "tout est plus cher" ? Parce que la moyenne nationale cache des évolutions très inégales selon les postes de dépense et selon les niveaux de revenus.</p>
 
         <div class="split-grid">
           <div class="split-card positive">
-            <div class="s-label">Salaire médian 2000 → 2023</div>
+            <div class="s-label" data-i18n="card1_lbl">Salaire médian 2000 → 2023</div>
             <div class="s-value">+22 %</div>
-            <div class="s-desc">En pouvoir d'achat réel (après inflation)</div>
+            <div class="s-desc" data-i18n="card1_desc">En pouvoir d'achat réel (après inflation)</div>
           </div>
           <div class="split-card negative">
-            <div class="s-label">Prix du logement 2000 → 2023</div>
+            <div class="s-label" data-i18n="card2_lbl">Prix du logement 2000 → 2023</div>
             <div class="s-value">+147 %</div>
-            <div class="s-desc">En termes nominaux (indice Notaires-INSEE)</div>
+            <div class="s-desc" data-i18n="card2_desc">En termes nominaux (indice Notaires-INSEE)</div>
           </div>
           <div class="split-card negative">
-            <div class="s-label">Prix de l'énergie 2000 → 2023</div>
+            <div class="s-label" data-i18n="card3_lbl">Prix de l'énergie 2000 → 2023</div>
             <div class="s-value">+112 %</div>
-            <div class="s-desc">Électricité + gaz, prix TTC (source SDES)</div>
+            <div class="s-desc" data-i18n="card3_desc">Électricité + gaz, prix TTC (source SDES)</div>
           </div>
           <div class="split-card negative">
-            <div class="s-label">Prix alimentation 2022 → 2023</div>
+            <div class="s-label" data-i18n="card4_lbl">Prix alimentation 2022 → 2023</div>
             <div class="s-value">+12 %</div>
-            <div class="s-desc">Pic inflationniste sur les produits alimentaires</div>
+            <div class="s-desc" data-i18n="card4_desc">Pic inflationniste sur les produits alimentaires</div>
           </div>
         </div>
       </div>
 
       <div class="q-section">
-        <h2>Le "reste à vivre" : le vrai indicateur</h2>
-        <p>La mesure traditionnelle du pouvoir d'achat ne tient pas compte de la structure des dépenses. Or, les <strong>dépenses contraintes</strong> — loyer ou remboursement de crédit immobilier, énergie, assurances, abonnements téléphonie/internet, transports — représentaient <strong>35 % du budget des ménages en 2000</strong> contre <strong>48 % en 2023</strong> selon le Crédoc.</p>
-        <p>Concrètement, un ménage gagnant 2 800 € net à deux en 2023 consacre en moyenne <strong>1 350 € à ces dépenses contraintes</strong>, contre l'équivalent de 850 € en 2000 (en euros constants). Son "reste à vivre" réel a donc <strong>diminué</strong>, même si son revenu a formellement augmenté.</p>
-        <p>C'est particulièrement vrai pour les locataires du secteur privé dans les grandes villes, où la part du loyer dans le revenu a doublé en 20 ans.</p>
+        <h2 data-i18n="s2_h2">Le "reste à vivre" : le vrai indicateur</h2>
+        <p data-i18n="s2_p1">La mesure traditionnelle du pouvoir d'achat ne tient pas compte de la structure des dépenses. Or, les <strong>dépenses contraintes</strong> — loyer ou remboursement de crédit immobilier, énergie, assurances, abonnements téléphonie/internet, transports — représentaient <strong>35 % du budget des ménages en 2000</strong> contre <strong>48 % en 2023</strong> selon le Crédoc.</p>
+        <p data-i18n="s2_p2">Concrètement, un ménage gagnant 2 800 € net à deux en 2023 consacre en moyenne <strong>1 350 € à ces dépenses contraintes</strong>, contre l'équivalent de 850 € en 2000 (en euros constants). Son "reste à vivre" réel a donc <strong>diminué</strong>, même si son revenu a formellement augmenté.</p>
+        <p data-i18n="s2_p3">C'est particulièrement vrai pour les locataires du secteur privé dans les grandes villes, où la part du loyer dans le revenu a doublé en 20 ans.</p>
       </div>
 
       <div class="q-section">
-        <h2>2021–2023 : le choc inflationniste</h2>
-        <p>Après 20 ans d'inflation faible (1–2 % par an en moyenne), la France a subi un choc inflationniste sans précédent depuis les années 1980 :</p>
+        <h2 data-i18n="s3_h2">2021–2023 : le choc inflationniste</h2>
+        <p data-i18n="s3_p1">Après 20 ans d'inflation faible (1–2 % par an en moyenne), la France a subi un choc inflationniste sans précédent depuis les années 1980 :</p>
 
         <div class="timeline">
           <div class="tl-item">
             <div class="tl-year">2021</div>
-            <div class="tl-text">Inflation remonte à 1,6 %, puis 3,2 % fin 2021. Premiers signaux sur l'énergie.</div>
+            <div class="tl-text" data-i18n="tl2021">Inflation remonte à 1,6 %, puis 3,2 % fin 2021. Premiers signaux sur l'énergie.</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2022</div>
-            <div class="tl-text">Inflation à <strong>5,2 %</strong> sur l'année (pic à 6,2 % en octobre). Énergie +23 %, alimentation +6 %. Pouvoir d'achat par UC : <strong>−1,4 %</strong>.</div>
+            <div class="tl-text" data-i18n="tl2022">Inflation à <strong>5,2 %</strong> sur l'année (pic à 6,2 % en octobre). Énergie +23 %, alimentation +6 %. Pouvoir d'achat par UC : <strong>−1,4 %</strong>.</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2023</div>
-            <div class="tl-text">Inflation reste élevée à <strong>4,9 %</strong> sur l'année. Alimentation explose : <strong>+12 %</strong>. Légère hausse du pouvoir d'achat (+0,8 %) grâce aux revalorisations salariales et bouclier tarifaire énergie.</div>
+            <div class="tl-text" data-i18n="tl2023">Inflation reste élevée à <strong>4,9 %</strong> sur l'année. Alimentation explose : <strong>+12 %</strong>. Légère hausse du pouvoir d'achat (+0,8 %) grâce aux revalorisations salariales et bouclier tarifaire énergie.</div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2024</div>
-            <div class="tl-text">Retour à une inflation modérée (2,1 %). Pouvoir d'achat en légère hausse mais sans rattraper les pertes de 2022.</div>
+            <div class="tl-text" data-i18n="tl2024">Retour à une inflation modérée (2,1 %). Pouvoir d'achat en légère hausse mais sans rattraper les pertes de 2022.</div>
           </div>
         </div>
       </div>
 
       <div class="q-section">
-        <h2>Les inégalités face à l'inflation</h2>
-        <p>L'inflation ne touche pas tous les ménages de la même façon. Une étude de l'INSEE (2023) montre que les <strong>20 % de ménages les plus modestes</strong> ont subi une inflation <strong>0,8 point plus élevée</strong> que les 20 % les plus aisés entre 2021 et 2023. Pourquoi ?</p>
+        <h2 data-i18n="s4_h2">Les inégalités face à l'inflation</h2>
+        <p data-i18n="s4_p1">L'inflation ne touche pas tous les ménages de la même façon. Une étude de l'INSEE (2023) montre que les <strong>20 % de ménages les plus modestes</strong> ont subi une inflation <strong>0,8 point plus élevée</strong> que les 20 % les plus aisés entre 2021 et 2023. Pourquoi ?</p>
         <ul>
-          <li>Les ménages modestes consacrent une part plus importante de leur budget à l'alimentation et à l'énergie — postes qui ont le plus augmenté.</li>
-          <li>Les ménages aisés ont une part plus importante d'épargne et de services à moindre inflation (loisirs haut de gamme, voyages).</li>
-          <li>Les propriétaires sans crédit ne souffrent pas de la hausse des loyers.</li>
+          <li data-i18n="s4_li1">Les ménages modestes consacrent une part plus importante de leur budget à l'alimentation et à l'énergie — postes qui ont le plus augmenté.</li>
+          <li data-i18n="s4_li2">Les ménages aisés ont une part plus importante d'épargne et de services à moindre inflation (loisirs haut de gamme, voyages).</li>
+          <li data-i18n="s4_li3">Les propriétaires sans crédit ne souffrent pas de la hausse des loyers.</li>
         </ul>
-        <p>Résultat : en 2022–2023, les 30 % de ménages les plus modestes ont vu leur pouvoir d'achat reculer <strong>de 2 à 3 %</strong>, tandis que les 30 % les plus aisés ont été presque épargnés.</p>
+        <p data-i18n="s4_p2">Résultat : en 2022–2023, les 30 % de ménages les plus modestes ont vu leur pouvoir d'achat reculer <strong>de 2 à 3 %</strong>, tandis que les 30 % les plus aisés ont été presque épargnés.</p>
       </div>
 
       <div class="q-section">
-        <h2>La France dans le contexte européen</h2>
-        <p>Comparée à ses voisins, la France a <strong>mieux résisté</strong> au choc inflationniste de 2022 grâce au bouclier tarifaire sur l'énergie (coût estimé à 26 milliards d'euros pour l'État en 2022). L'inflation française (5,2 % en 2022) a été inférieure à la moyenne de la zone euro (8,4 %) et très loin derrière les pays baltes (+20 %).</p>
-        <p>En revanche, sur 20 ans (2000–2023), la croissance du pouvoir d'achat en France (+18 %) est <strong>inférieure à celle de l'Allemagne (+28 %) et de la zone euro (+22 %)</strong>. La France part d'un niveau plus élevé mais progresse moins vite — notamment parce que les prélèvements obligatoires ont augmenté et que la productivité a stagné.</p>
+        <h2 data-i18n="s5_h2">La France dans le contexte européen</h2>
+        <p data-i18n="s5_p1">Comparée à ses voisins, la France a <strong>mieux résisté</strong> au choc inflationniste de 2022 grâce au bouclier tarifaire sur l'énergie (coût estimé à 26 milliards d'euros pour l'État en 2022). L'inflation française (5,2 % en 2022) a été inférieure à la moyenne de la zone euro (8,4 %) et très loin derrière les pays baltes (+20 %).</p>
+        <p data-i18n="s5_p2">En revanche, sur 20 ans (2000–2023), la croissance du pouvoir d'achat en France (+18 %) est <strong>inférieure à celle de l'Allemagne (+28 %) et de la zone euro (+22 %)</strong>. La France part d'un niveau plus élevé mais progresse moins vite — notamment parce que les prélèvements obligatoires ont augmenté et que la productivité a stagné.</p>
       </div>
 
       <div class="q-section">
-        <h2>Conclusion : un sentiment légitime mais une réalité nuancée</h2>
-        <p>Le sentiment de perte de pouvoir d'achat ressenti par de nombreux Français n'est pas une illusion — mais il traduit des réalités différentes selon les situations :</p>
+        <h2 data-i18n="s6_h2">Conclusion : un sentiment légitime mais une réalité nuancée</h2>
+        <p data-i18n="s6_p1">Le sentiment de perte de pouvoir d'achat ressenti par de nombreux Français n'est pas une illusion — mais il traduit des réalités différentes selon les situations :</p>
         <ul>
-          <li><strong>Pour les locataires en ville</strong> : la hausse des loyers a effectivement réduit leur reste à vivre, même avec des salaires en hausse.</li>
-          <li><strong>Pour les ménages modestes</strong> : le choc alimentaire et énergétique de 2022–2023 a été très douloureux.</li>
-          <li><strong>Pour la classe moyenne propriétaire</strong> : la valeur patrimoniale de leur logement a augmenté, mais leur budget quotidien est sous pression.</li>
-          <li><strong>Au niveau national agrégé</strong> : le pouvoir d'achat est plus élevé qu'en 2000, mais la progression a ralenti depuis 2008 et les inégalités de ressenti se sont creusées.</li>
+          <li data-i18n="s6_li1"><strong>Pour les locataires en ville</strong> : la hausse des loyers a effectivement réduit leur reste à vivre, même avec des salaires en hausse.</li>
+          <li data-i18n="s6_li2"><strong>Pour les ménages modestes</strong> : le choc alimentaire et énergétique de 2022–2023 a été très douloureux.</li>
+          <li data-i18n="s6_li3"><strong>Pour la classe moyenne propriétaire</strong> : la valeur patrimoniale de leur logement a augmenté, mais leur budget quotidien est sous pression.</li>
+          <li data-i18n="s6_li4"><strong>Au niveau national agrégé</strong> : le pouvoir d'achat est plus élevé qu'en 2000, mais la progression a ralenti depuis 2008 et les inégalités de ressenti se sont creusées.</li>
         </ul>
       </div>
 
@@ -221,15 +228,143 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  hero_eyebrow:'💰 Pouvoir d\'achat',
+  hero_h1:'Le pouvoir d\'achat des Français a-t-il baissé ?',
+  hero_sub:'La réponse courte est : ça dépend de quoi on parle. Salaire médian en hausse sur 20 ans, mais logement, énergie et alimentation ont explosé. Voici ce que disent vraiment les données.',
+  stat_ctx:'de pouvoir d\'achat par unité de consommation en <strong>2022</strong> — la plus forte baisse depuis 30 ans, sous l\'effet du choc inflationniste post-Covid. En 2023, il s\'est partiellement redressé (+0,8 %) grâce au ralentissement de l\'inflation.<br>Source : INSEE Comptes nationaux 2024.',
+  answer_label:'La réponse en une phrase',
+  answer_p:'Sur 20 ans, le pouvoir d\'achat <em>global</em> a progressé (+18 % de 2000 à 2023 selon l\'INSEE), mais cette moyenne cache des réalités très différentes : les dépenses contraintes (logement, énergie, assurances) ont augmenté bien plus vite que les salaires, réduisant le <strong>reste à vivre</strong> des ménages modestes.',
+  s1_h2:'Ce que dit l\'INSEE : une hausse sur le long terme',
+  s1_p1:'Le pouvoir d\'achat du revenu disponible brut des ménages — la mesure officielle de l\'INSEE — a <strong>augmenté de 18 % entre 2000 et 2023</strong> en termes réels (corrigé de l\'inflation). Sur la même période, le salaire net moyen a progressé de 22 % en termes réels.',
+  s1_p2:'Comment expliquer alors le sentiment très répandu que "tout est plus cher" ? Parce que la moyenne nationale cache des évolutions très inégales selon les postes de dépense et selon les niveaux de revenus.',
+  card1_lbl:'Salaire médian 2000 → 2023',
+  card1_desc:'En pouvoir d\'achat réel (après inflation)',
+  card2_lbl:'Prix du logement 2000 → 2023',
+  card2_desc:'En termes nominaux (indice Notaires-INSEE)',
+  card3_lbl:'Prix de l\'énergie 2000 → 2023',
+  card3_desc:'Électricité + gaz, prix TTC (source SDES)',
+  card4_lbl:'Prix alimentation 2022 → 2023',
+  card4_desc:'Pic inflationniste sur les produits alimentaires',
+  s2_h2:'Le "reste à vivre" : le vrai indicateur',
+  s2_p1:'La mesure traditionnelle du pouvoir d\'achat ne tient pas compte de la structure des dépenses. Or, les <strong>dépenses contraintes</strong> — loyer ou remboursement de crédit immobilier, énergie, assurances, abonnements téléphonie/internet, transports — représentaient <strong>35 % du budget des ménages en 2000</strong> contre <strong>48 % en 2023</strong> selon le Crédoc.',
+  s2_p2:'Concrètement, un ménage gagnant 2 800 € net à deux en 2023 consacre en moyenne <strong>1 350 € à ces dépenses contraintes</strong>, contre l\'équivalent de 850 € en 2000 (en euros constants). Son "reste à vivre" réel a donc <strong>diminué</strong>, même si son revenu a formellement augmenté.',
+  s2_p3:'C\'est particulièrement vrai pour les locataires du secteur privé dans les grandes villes, où la part du loyer dans le revenu a doublé en 20 ans.',
+  s3_h2:'2021–2023 : le choc inflationniste',
+  s3_p1:'Après 20 ans d\'inflation faible (1–2 % par an en moyenne), la France a subi un choc inflationniste sans précédent depuis les années 1980 :',
+  tl2021:'Inflation remonte à 1,6 %, puis 3,2 % fin 2021. Premiers signaux sur l\'énergie.',
+  tl2022:'Inflation à <strong>5,2 %</strong> sur l\'année (pic à 6,2 % en octobre). Énergie +23 %, alimentation +6 %. Pouvoir d\'achat par UC : <strong>−1,4 %</strong>.',
+  tl2023:'Inflation reste élevée à <strong>4,9 %</strong> sur l\'année. Alimentation explose : <strong>+12 %</strong>. Légère hausse du pouvoir d\'achat (+0,8 %) grâce aux revalorisations salariales et bouclier tarifaire énergie.',
+  tl2024:'Retour à une inflation modérée (2,1 %). Pouvoir d\'achat en légère hausse mais sans rattraper les pertes de 2022.',
+  s4_h2:'Les inégalités face à l\'inflation',
+  s4_p1:'L\'inflation ne touche pas tous les ménages de la même façon. Une étude de l\'INSEE (2023) montre que les <strong>20 % de ménages les plus modestes</strong> ont subi une inflation <strong>0,8 point plus élevée</strong> que les 20 % les plus aisés entre 2021 et 2023. Pourquoi ?',
+  s4_li1:'Les ménages modestes consacrent une part plus importante de leur budget à l\'alimentation et à l\'énergie — postes qui ont le plus augmenté.',
+  s4_li2:'Les ménages aisés ont une part plus importante d\'épargne et de services à moindre inflation (loisirs haut de gamme, voyages).',
+  s4_li3:'Les propriétaires sans crédit ne souffrent pas de la hausse des loyers.',
+  s4_p2:'Résultat : en 2022–2023, les 30 % de ménages les plus modestes ont vu leur pouvoir d\'achat reculer <strong>de 2 à 3 %</strong>, tandis que les 30 % les plus aisés ont été presque épargnés.',
+  s5_h2:'La France dans le contexte européen',
+  s5_p1:'Comparée à ses voisins, la France a <strong>mieux résisté</strong> au choc inflationniste de 2022 grâce au bouclier tarifaire sur l\'énergie (coût estimé à 26 milliards d\'euros pour l\'État en 2022). L\'inflation française (5,2 % en 2022) a été inférieure à la moyenne de la zone euro (8,4 %) et très loin derrière les pays baltes (+20 %).',
+  s5_p2:'En revanche, sur 20 ans (2000–2023), la croissance du pouvoir d\'achat en France (+18 %) est <strong>inférieure à celle de l\'Allemagne (+28 %) et de la zone euro (+22 %)</strong>. La France part d\'un niveau plus élevé mais progresse moins vite — notamment parce que les prélèvements obligatoires ont augmenté et que la productivité a stagné.',
+  s6_h2:'Conclusion : un sentiment légitime mais une réalité nuancée',
+  s6_p1:'Le sentiment de perte de pouvoir d\'achat ressenti par de nombreux Français n\'est pas une illusion — mais il traduit des réalités différentes selon les situations :',
+  s6_li1:'<strong>Pour les locataires en ville</strong> : la hausse des loyers a effectivement réduit leur reste à vivre, même avec des salaires en hausse.',
+  s6_li2:'<strong>Pour les ménages modestes</strong> : le choc alimentaire et énergétique de 2022–2023 a été très douloureux.',
+  s6_li3:'<strong>Pour la classe moyenne propriétaire</strong> : la valeur patrimoniale de leur logement a augmenté, mais leur budget quotidien est sous pression.',
+  s6_li4:'<strong>Au niveau national agrégé</strong> : le pouvoir d\'achat est plus élevé qu\'en 2000, mais la progression a ralenti depuis 2008 et les inégalités de ressenti se sont creusées.',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  hero_eyebrow:'💰 Purchasing power',
+  hero_h1:'Has the purchasing power of the French fallen?',
+  hero_sub:'The short answer is: it depends what you measure. Median wages are up over 20 years, but housing, energy and food have surged. Here is what the data actually shows.',
+  stat_ctx:'purchasing power per consumption unit in <strong>2022</strong> — the steepest fall in 30 years, driven by the post-Covid inflation shock. In 2023, it partially recovered (+0.8%) as inflation eased.<br>Source: INSEE National Accounts 2024.',
+  answer_label:'The answer in one sentence',
+  answer_p:'Over 20 years, <em>overall</em> purchasing power rose (+18% from 2000 to 2023, INSEE), but this average conceals very different realities: unavoidable expenses (housing, energy, insurance) have grown far faster than wages, squeezing the <strong>disposable remainder</strong> of lower-income households.',
+  s1_h2:'What INSEE says: a long-term increase',
+  s1_p1:'The purchasing power of gross disposable household income — the INSEE official measure — <strong>rose 18% between 2000 and 2023</strong> in real terms (inflation-adjusted). Over the same period, average net wages grew 22% in real terms.',
+  s1_p2:'So why is the widespread feeling that "everything is more expensive"? Because the national average conceals highly unequal trends across spending categories and income levels.',
+  card1_lbl:'Median wage 2000 → 2023',
+  card1_desc:'In real purchasing power (after inflation)',
+  card2_lbl:'Housing prices 2000 → 2023',
+  card2_desc:'In nominal terms (Notaires-INSEE index)',
+  card3_lbl:'Energy prices 2000 → 2023',
+  card3_desc:'Electricity + gas, all taxes included (SDES)',
+  card4_lbl:'Food prices 2022 → 2023',
+  card4_desc:'Peak inflationary spike on food products',
+  s2_h2:'"Disposable remainder": the real indicator',
+  s2_p1:'The traditional measure of purchasing power does not account for the structure of spending. Yet <strong>unavoidable expenses</strong> — rent or mortgage repayments, energy, insurance, phone/internet subscriptions, transport — accounted for <strong>35% of household budgets in 2000</strong> versus <strong>48% in 2023</strong>, according to the Crédoc.',
+  s2_p2:'In practice, a two-income household earning €2,800 net in 2023 spends on average <strong>€1,350 on unavoidable expenses</strong>, compared to the equivalent of €850 in 2000 (in constant euros). Their real disposable remainder has therefore <strong>fallen</strong>, even if their income formally increased.',
+  s2_p3:'This is particularly true for private-sector renters in large cities, where the share of rent in income has doubled over 20 years.',
+  s3_h2:'2021–2023: the inflation shock',
+  s3_p1:'After 20 years of low inflation (1–2% per year on average), France experienced an inflationary shock unprecedented since the 1980s:',
+  tl2021:'Inflation rises to 1.6%, then 3.2% by end-2021. First warning signs on energy.',
+  tl2022:'Inflation at <strong>5.2%</strong> for the year (peak at 6.2% in October). Energy +23%, food +6%. Purchasing power per consumption unit: <strong>−1.4%</strong>.',
+  tl2023:'Inflation remains high at <strong>4.9%</strong> for the year. Food surges: <strong>+12%</strong>. Slight purchasing power recovery (+0.8%) thanks to wage increases and energy price shield.',
+  tl2024:'Return to moderate inflation (2.1%). Purchasing power slightly up but without recovering 2022 losses.',
+  s4_h2:'Inequality in the face of inflation',
+  s4_p1:'Inflation does not affect all households equally. An INSEE study (2023) shows that the <strong>poorest 20% of households</strong> experienced inflation <strong>0.8 percentage points higher</strong> than the wealthiest 20% between 2021 and 2023. Why?',
+  s4_li1:'Lower-income households spend a larger share of their budget on food and energy — the categories that rose most.',
+  s4_li2:'Wealthier households have a larger share of savings and services with lower inflation (luxury leisure, travel).',
+  s4_li3:'Outright homeowners are unaffected by rising rents.',
+  s4_p2:'As a result: in 2022–2023, the poorest 30% of households saw their purchasing power fall <strong>by 2 to 3%</strong>, while the wealthiest 30% were almost unaffected.',
+  s5_h2:'France in the European context',
+  s5_p1:'Compared to its neighbours, France <strong>fared better</strong> against the 2022 inflation shock thanks to the energy price shield (estimated cost of €26 billion for the state in 2022). French inflation (5.2% in 2022) was below the eurozone average (8.4%) and far behind the Baltic states (+20%).',
+  s5_p2:'However, over 20 years (2000–2023), purchasing power growth in France (+18%) is <strong>below Germany (+28%) and the eurozone (+22%)</strong>. France starts from a higher base but progresses more slowly — partly because mandatory levies have risen and productivity has stagnated.',
+  s6_h2:'Conclusion: a legitimate feeling but a nuanced reality',
+  s6_p1:'The feeling of purchasing power loss experienced by many French people is not an illusion — but it reflects different realities depending on circumstances:',
+  s6_li1:'<strong>For city renters</strong>: rising rents have genuinely reduced their disposable income, even with wages up.',
+  s6_li2:'<strong>For lower-income households</strong>: the food and energy shock of 2022–2023 was very painful.',
+  s6_li3:'<strong>For the property-owning middle class</strong>: the asset value of their home has risen, but their day-to-day budget is under pressure.',
+  s6_li4:'<strong>At the aggregate national level</strong>: purchasing power is higher than in 2000, but growth has slowed since 2008 and inequalities in lived experience have widened.',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Le pouvoir d\'achat des Français a-t-il baissé ? — Données INSEE 2024'
+    :'Has the purchasing power of the French fallen? — INSEE data 2024';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'Salaires, inflation, logement, énergie : le pouvoir d\'achat réel des Français depuis 2000. Analyse complète avec les données INSEE, Banque de France et OCDE.'
+    :'Wages, inflation, housing, energy: the real purchasing power of the French since 2000. Complete analysis with INSEE, Banque de France and OECD data.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

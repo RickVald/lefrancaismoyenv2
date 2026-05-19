@@ -6,6 +6,9 @@
   <title>Pourquoi la France a-t-elle un chômage structurel élevé ? — Données 2024</title>
   <meta name="description" content="Le chômage en France tourne autour de 7-8 % même en période de croissance. Rigidités du marché du travail, dualisme CDI/CDD, coût du licenciement : les causes profondes.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve">
   <meta property="og:title" content="Pourquoi la France a-t-elle un chômage structurel élevé ?">
   <meta property="og:description" content="7,3 % de chômage même en croissance. Dualisme CDI/CDD, coût du licenciement, désadéquation des compétences : les causes structurelles du chômage français expliquées.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve">
@@ -79,8 +82,12 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-    <a href="/" class="cta">← Tableau de bord</a>
+    <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
   </div></header>
   <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Menu mobile">
     <a href="/">🏠 Accueil</a>
@@ -97,31 +104,31 @@
 
   <main id="contenu">
     <nav aria-label="Fil d'Ariane" style="max-width:760px;margin:0 auto;padding:24px 24px 0;font-size:.88rem;color:var(--muted)">
-      <a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Chômage structurel</span>
+      <a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_section">Questions</a> › <span data-i18n="breadcrumb_current">Chômage structurel</span>
     </nav>
 
     <div class="q-hero">
-      <p class="eyebrow">Emploi</p>
-      <h1>Pourquoi la France a-t-elle un chômage structurel élevé ?</h1>
-      <p style="color:var(--muted);max-width:600px;margin:12px auto 0;line-height:1.7">7,3 % en 2024 contre 3 % en Allemagne. Même en période de croissance, le chômage français ne descend pas vraiment. Pourquoi ?</p>
+      <p class="eyebrow" data-i18n="hero_eyebrow">Emploi</p>
+      <h1 data-i18n="hero_h1">Pourquoi la France a-t-elle un chômage structurel élevé ?</h1>
+      <p style="color:var(--muted);max-width:600px;margin:12px auto 0;line-height:1.7" data-i18n="hero_intro">7,3 % en 2024 contre 3 % en Allemagne. Même en période de croissance, le chômage français ne descend pas vraiment. Pourquoi ?</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">7,3 %</span>
-        <span class="s-ctx">Taux de chômage en France au T1 2024 (BIT) — contre 2,9 % en Allemagne, 5,3 % en Italie, 11,6 % en Espagne.<br>Le chômage structurel français est estimé à 7–7,5 % par le FMI et l'OCDE.</span>
+        <span class="s-val" data-i18n="stat_val">7,3 %</span>
+        <span class="s-ctx" data-i18n="stat_ctx">Taux de chômage en France au T1 2024 (BIT) — contre 2,9 % en Allemagne, 5,3 % en Italie, 11,6 % en Espagne.<br>Le chômage structurel français est estimé à 7–7,5 % par le FMI et l'OCDE.</span>
       </div>
 
       <div class="q-section">
-        <h2>Chômage conjoncturel vs chômage structurel : quelle différence ?</h2>
-        <p>Le <strong>chômage conjoncturel</strong> est lié aux cycles économiques : il monte en récession, descend en croissance. Le <strong>chômage structurel</strong> est plus profond — il persiste même quand l'économie va bien, parce qu'il résulte des rigidités du marché du travail lui-même.</p>
-        <p>La France illustre parfaitement ce second cas. Lors des meilleures années de croissance (2017–2019), le chômage a bien baissé — de 9,5 % à 8,1 % — mais il a plafonné là. En comparaison, l'Allemagne oscillait autour de 3 %, le Royaume-Uni autour de 4 %.</p>
-        <p>Pour l'OCDE, le taux de chômage structurel français (appelé NAIRU — taux de chômage n'accélérant pas l'inflation) est estimé entre <strong>7 et 7,5 %</strong>. C'est structurellement plus élevé que la plupart des pays comparables.</p>
+        <h2 data-i18n="s1_h2">Chômage conjoncturel vs chômage structurel : quelle différence ?</h2>
+        <p data-i18n="s1_p1">Le <strong>chômage conjoncturel</strong> est lié aux cycles économiques : il monte en récession, descend en croissance. Le <strong>chômage structurel</strong> est plus profond — il persiste même quand l'économie va bien, parce qu'il résulte des rigidités du marché du travail lui-même.</p>
+        <p data-i18n="s1_p2">La France illustre parfaitement ce second cas. Lors des meilleures années de croissance (2017–2019), le chômage a bien baissé — de 9,5 % à 8,1 % — mais il a plafonné là. En comparaison, l'Allemagne oscillait autour de 3 %, le Royaume-Uni autour de 4 %.</p>
+        <p data-i18n="s1_p3">Pour l'OCDE, le taux de chômage structurel français (appelé NAIRU — taux de chômage n'accélérant pas l'inflation) est estimé entre <strong>7 et 7,5 %</strong>. C'est structurellement plus élevé que la plupart des pays comparables.</p>
       </div>
 
       <div class="q-section">
-        <h2>Comparaison européenne : la France dans le milieu du tableau</h2>
+        <h2 data-i18n="s2_h2">Comparaison européenne : la France dans le milieu du tableau</h2>
         <div class="compare-grid">
           <div class="compare-card cc-low">
             <span class="cc-val">2,9 %</span>
@@ -148,102 +155,102 @@
             <span class="cc-label">Espagne (2024)</span>
           </div>
         </div>
-        <p>La France se situe au-dessus de la moyenne de la zone euro. Elle fait mieux que l'Espagne ou la Grèce, mais nettement moins bien que l'Allemagne, les Pays-Bas ou les pays scandinaves.</p>
+        <p data-i18n="s2_p1">La France se situe au-dessus de la moyenne de la zone euro. Elle fait mieux que l'Espagne ou la Grèce, mais nettement moins bien que l'Allemagne, les Pays-Bas ou les pays scandinaves.</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause 1 : le dualisme CDI / CDD</h2>
-        <p>Le marché du travail français est profondément <strong>dual</strong> : d'un côté des emplois en CDI très protégés, de l'autre des CDD et des contrats précaires très flexibles. Cette dualité crée des effets pervers.</p>
+        <h2 data-i18n="s3_h2">Cause 1 : le dualisme CDI / CDD</h2>
+        <p data-i18n="s3_p1">Le marché du travail français est profondément <strong>dual</strong> : d'un côté des emplois en CDI très protégés, de l'autre des CDD et des contrats précaires très flexibles. Cette dualité crée des effets pervers.</p>
         <div class="dual-grid">
           <div class="dual-card dc-cdi">
-            <div class="dc-title">CDI — l'emploi forteresse</div>
+            <div class="dc-title" data-i18n="dual_cdi_title">CDI — l'emploi forteresse</div>
             <ul>
-              <li>Licenciement coûteux et procédurier</li>
-              <li>Indemnités légales + prud'hommes</li>
-              <li>Délais souvent de 18 à 36 mois</li>
-              <li>Risque juridique réel pour l'employeur</li>
+              <li data-i18n="dual_cdi_li1">Licenciement coûteux et procédurier</li>
+              <li data-i18n="dual_cdi_li2">Indemnités légales + prud'hommes</li>
+              <li data-i18n="dual_cdi_li3">Délais souvent de 18 à 36 mois</li>
+              <li data-i18n="dual_cdi_li4">Risque juridique réel pour l'employeur</li>
             </ul>
           </div>
           <div class="dual-card dc-cdd">
-            <div class="dc-title">CDD — le marché d'entrée</div>
+            <div class="dc-title" data-i18n="dual_cdd_title">CDD — le marché d'entrée</div>
             <ul>
-              <li>85 % des embauches en CDD</li>
-              <li>Durée médiane : 1 à 3 mois</li>
-              <li>Turnover très élevé</li>
-              <li>Peu de formation, peu d'investissement</li>
+              <li data-i18n="dual_cdd_li1">85 % des embauches en CDD</li>
+              <li data-i18n="dual_cdd_li2">Durée médiane : 1 à 3 mois</li>
+              <li data-i18n="dual_cdd_li3">Turnover très élevé</li>
+              <li data-i18n="dual_cdd_li4">Peu de formation, peu d'investissement</li>
             </ul>
           </div>
         </div>
-        <p>Résultat : les entreprises hésitent à créer des CDI en période d'incertitude. Elles embauchent en CDD, ce qui alimente les allers-retours au chômage. <strong>85 % des nouvelles embauches se font en CDD ou intérim</strong> (DARES, 2023), mais beaucoup ne débouchent pas sur un CDI.</p>
+        <p data-i18n="s3_p2">Résultat : les entreprises hésitent à créer des CDI en période d'incertitude. Elles embauchent en CDD, ce qui alimente les allers-retours au chômage. <strong>85 % des nouvelles embauches se font en CDD ou intérim</strong> (DARES, 2023), mais beaucoup ne débouchent pas sur un CDI.</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause 2 : le coût du travail et du licenciement</h2>
-        <p>En France, le coût total du licenciement économique est parmi les plus élevés de l'OCDE. Il comprend :</p>
+        <h2 data-i18n="s4_h2">Cause 2 : le coût du travail et du licenciement</h2>
+        <p data-i18n="s4_p1">En France, le coût total du licenciement économique est parmi les plus élevés de l'OCDE. Il comprend :</p>
         <ul>
-          <li>Les <strong>indemnités légales de licenciement</strong> (1/4 de mois par année d'ancienneté depuis 2017)</li>
-          <li>Le <strong>préavis</strong> (1 à 3 mois selon l'ancienneté)</li>
-          <li>La <strong>procédure obligatoire</strong> : entretien préalable, lettres recommandées, délais légaux</li>
-          <li>Le risque de <strong>recours aux prud'hommes</strong> : environ 140 000 affaires par an, avec un taux de succès salarié de ~70 %</li>
-          <li>Pour les licenciements collectifs : plan de sauvegarde de l'emploi (PSE), consultation du CSE, parfois accord de branche</li>
+          <li data-i18n="s4_li1">Les <strong>indemnités légales de licenciement</strong> (1/4 de mois par année d'ancienneté depuis 2017)</li>
+          <li data-i18n="s4_li2">Le <strong>préavis</strong> (1 à 3 mois selon l'ancienneté)</li>
+          <li data-i18n="s4_li3">La <strong>procédure obligatoire</strong> : entretien préalable, lettres recommandées, délais légaux</li>
+          <li data-i18n="s4_li4">Le risque de <strong>recours aux prud'hommes</strong> : environ 140 000 affaires par an, avec un taux de succès salarié de ~70 %</li>
+          <li data-i18n="s4_li5">Pour les licenciements collectifs : plan de sauvegarde de l'emploi (PSE), consultation du CSE, parfois accord de branche</li>
         </ul>
-        <p>Les ordonnances Macron de 2017 ont introduit le <strong>barème Macron</strong> (plafonnement des indemnités prud'homales) pour réduire l'incertitude juridique. L'effet a été réel mais limité : la peur du licenciement reste un frein à l'embauche.</p>
+        <p data-i18n="s4_p2">Les ordonnances Macron de 2017 ont introduit le <strong>barème Macron</strong> (plafonnement des indemnités prud'homales) pour réduire l'incertitude juridique. L'effet a été réel mais limité : la peur du licenciement reste un frein à l'embauche.</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause 3 : la désadéquation des compétences</h2>
-        <p>La France cumule paradoxalement un <strong>chômage élevé et des tensions de recrutement</strong> record. En 2023, Pôle Emploi recensait plus de <strong>400 000 offres d'emploi non pourvues</strong> en permanence — une situation que les économistes appellent le "mismatch".</p>
-        <p>Ce décalage s'explique par plusieurs facteurs :</p>
+        <h2 data-i18n="s5_h2">Cause 3 : la désadéquation des compétences</h2>
+        <p data-i18n="s5_p1">La France cumule paradoxalement un <strong>chômage élevé et des tensions de recrutement</strong> record. En 2023, Pôle Emploi recensait plus de <strong>400 000 offres d'emploi non pourvues</strong> en permanence — une situation que les économistes appellent le "mismatch".</p>
+        <p data-i18n="s5_p2">Ce décalage s'explique par plusieurs facteurs :</p>
         <ul>
-          <li><strong>Géographique</strong> : les emplois sont à Lyon, Toulouse, Paris — les chômeurs à Calais ou dans les Ardennes</li>
-          <li><strong>Sectoriel</strong> : pénurie de soudeurs, électriciens, développeurs informatiques, aides-soignants — mais suroffre dans d'autres secteurs</li>
-          <li><strong>Niveau de qualification</strong> : 45 % des chômeurs ont un niveau inférieur au BAC (DARES 2023) dans une économie qui demande de plus en plus de compétences</li>
+          <li data-i18n="s5_li1"><strong>Géographique</strong> : les emplois sont à Lyon, Toulouse, Paris — les chômeurs à Calais ou dans les Ardennes</li>
+          <li data-i18n="s5_li2"><strong>Sectoriel</strong> : pénurie de soudeurs, électriciens, développeurs informatiques, aides-soignants — mais suroffre dans d'autres secteurs</li>
+          <li data-i18n="s5_li3"><strong>Niveau de qualification</strong> : 45 % des chômeurs ont un niveau inférieur au BAC (DARES 2023) dans une économie qui demande de plus en plus de compétences</li>
         </ul>
-        <p>Selon France Stratégie, <strong>30 à 40 % du chômage français serait explicable par ce seul mismatch</strong> — c'est-à-dire qu'il subsisterait même si les rigidités du code du travail disparaissaient.</p>
+        <p data-i18n="s5_p3">Selon France Stratégie, <strong>30 à 40 % du chômage français serait explicable par ce seul mismatch</strong> — c'est-à-dire qu'il subsisterait même si les rigidités du code du travail disparaissaient.</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause 4 : les effets des minima sociaux et du SMIC</h2>
-        <p>Le <strong>SMIC français</strong> représente environ 61 % du salaire médian, l'un des ratios les plus élevés d'Europe (OCDE). Ce niveau élevé a deux effets opposés :</p>
+        <h2 data-i18n="s6_h2">Cause 4 : les effets des minima sociaux et du SMIC</h2>
+        <p data-i18n="s6_p1">Le <strong>SMIC français</strong> représente environ 61 % du salaire médian, l'un des ratios les plus élevés d'Europe (OCDE). Ce niveau élevé a deux effets opposés :</p>
         <ul>
-          <li><strong>Effet positif</strong> : protège les travailleurs peu qualifiés et réduit la pauvreté laborieuse</li>
-          <li><strong>Effet négatif</strong> : rétrécit le spectre des emplois viables pour les moins qualifiés, qui coûtent trop cher pour être embauchés à un salaire permettant la rentabilité</li>
+          <li data-i18n="s6_li1"><strong>Effet positif</strong> : protège les travailleurs peu qualifiés et réduit la pauvreté laborieuse</li>
+          <li data-i18n="s6_li2"><strong>Effet négatif</strong> : rétrécit le spectre des emplois viables pour les moins qualifiés, qui coûtent trop cher pour être embauchés à un salaire permettant la rentabilité</li>
         </ul>
-        <p>La France compense partiellement cet effet via des <strong>allègements de cotisations Fillon</strong> sur les bas salaires (environ 65 Md€ par an), mais ces aides créent elles-mêmes une trappe à bas salaires : les employeurs évitent d'augmenter au-delà du SMIC pour ne pas perdre les exonérations.</p>
-        <p>Les <strong>minima sociaux</strong> (RSA, ASS, AAH) jouent aussi un rôle complexe : pour certains profils, la reprise d'un emploi peu rémunéré offre un gain net limité, ce qui peut décourager la recherche active.</p>
+        <p data-i18n="s6_p2">La France compense partiellement cet effet via des <strong>allègements de cotisations Fillon</strong> sur les bas salaires (environ 65 Md€ par an), mais ces aides créent elles-mêmes une trappe à bas salaires : les employeurs évitent d'augmenter au-delà du SMIC pour ne pas perdre les exonérations.</p>
+        <p data-i18n="s6_p3">Les <strong>minima sociaux</strong> (RSA, ASS, AAH) jouent aussi un rôle complexe : pour certains profils, la reprise d'un emploi peu rémunéré offre un gain net limité, ce qui peut décourager la recherche active.</p>
       </div>
 
       <div class="q-section">
-        <h2>Cause 5 : la formation professionnelle insuffisamment ciblée</h2>
-        <p>La France dépense <strong>32 milliards d'euros par an</strong> en formation professionnelle (hors apprentissage) — l'un des budgets les plus élevés d'Europe. Pourtant, les résultats restent décevants.</p>
-        <p>Le problème : la formation bénéficie surtout à ceux qui en ont le moins besoin. Les cadres et les salariés en CDI dans les grandes entreprises accèdent facilement à la formation ; les chômeurs peu qualifiés y ont accès plus difficilement, et les formations proposées ne correspondent souvent pas aux besoins réels du marché.</p>
-        <p>Le CPF (Compte Personnel de Formation), créé en 2019, a connu un succès massif — mais largement détourné vers des formations de loisir (permis de conduire, bureautique...) plutôt que vers des reconversions vers les secteurs en tension.</p>
+        <h2 data-i18n="s7_h2">Cause 5 : la formation professionnelle insuffisamment ciblée</h2>
+        <p data-i18n="s7_p1">La France dépense <strong>32 milliards d'euros par an</strong> en formation professionnelle (hors apprentissage) — l'un des budgets les plus élevés d'Europe. Pourtant, les résultats restent décevants.</p>
+        <p data-i18n="s7_p2">Le problème : la formation bénéficie surtout à ceux qui en ont le moins besoin. Les cadres et les salariés en CDI dans les grandes entreprises accèdent facilement à la formation ; les chômeurs peu qualifiés y ont accès plus difficilement, et les formations proposées ne correspondent souvent pas aux besoins réels du marché.</p>
+        <p data-i18n="s7_p3">Le CPF (Compte Personnel de Formation), créé en 2019, a connu un succès massif — mais largement détourné vers des formations de loisir (permis de conduire, bureautique...) plutôt que vers des reconversions vers les secteurs en tension.</p>
       </div>
 
       <div class="q-section">
-        <h2>Et si on comparait les réformes qui ont marché ?</h2>
-        <p>Plusieurs pays ont significativement réduit leur chômage structurel par des réformes :</p>
+        <h2 data-i18n="s8_h2">Et si on comparait les réformes qui ont marché ?</h2>
+        <p data-i18n="s8_p1">Plusieurs pays ont significativement réduit leur chômage structurel par des réformes :</p>
         <ul>
-          <li><strong>Allemagne (réformes Hartz, 2003-2005)</strong> : flexibilisation du marché du travail, mini-jobs, réforme des allocations chômage. Résultat : chômage passé de 11 % à 5 %, puis à 3 %.</li>
-          <li><strong>Pays-Bas (Flexicurité, années 1990)</strong> : sécurisation des transitions plutôt que de l'emploi. CDI et CDD traités de façon plus symétrique, formation renforcée pour les chômeurs.</li>
-          <li><strong>Danemark (Flexicurité)</strong> : licenciement facile + indemnités généreuses + obligation de formation active. Coût élevé mais chômage structurel <4 %.</li>
+          <li data-i18n="s8_li1"><strong>Allemagne (réformes Hartz, 2003-2005)</strong> : flexibilisation du marché du travail, mini-jobs, réforme des allocations chômage. Résultat : chômage passé de 11 % à 5 %, puis à 3 %.</li>
+          <li data-i18n="s8_li2"><strong>Pays-Bas (Flexicurité, années 1990)</strong> : sécurisation des transitions plutôt que de l'emploi. CDI et CDD traités de façon plus symétrique, formation renforcée pour les chômeurs.</li>
+          <li data-i18n="s8_li3"><strong>Danemark (Flexicurité)</strong> : licenciement facile + indemnités généreuses + obligation de formation active. Coût élevé mais chômage structurel &lt;4 %.</li>
         </ul>
-        <p>La France a tenté des réformes similaires (loi El Khomri 2016, ordonnances Macron 2017, réforme de l'assurance chômage 2019-2023) sans atteindre des résultats comparables — en partie parce que les réformes ont été partielles, en partie parce que la France n'a pas investi dans la contrepartie formation comme les pays nordiques.</p>
+        <p data-i18n="s8_p2">La France a tenté des réformes similaires (loi El Khomri 2016, ordonnances Macron 2017, réforme de l'assurance chômage 2019-2023) sans atteindre des résultats comparables — en partie parce que les réformes ont été partielles, en partie parce que la France n'a pas investi dans la contrepartie formation comme les pays nordiques.</p>
       </div>
 
       <div class="q-section">
-        <h2>En résumé</h2>
-        <p>Le chômage structurel français est <strong>le produit de plusieurs rigidités qui se renforcent mutuellement</strong> : un marché du travail dual qui décourage les embauches en CDI, un coût du licenciement élevé, un mismatch géographique et sectoriel important, et une formation professionnelle mal ciblée.</p>
-        <p>Il n'existe pas de solution simple. Les pays qui ont réussi à le réduire ont combiné <strong>flexibilisation encadrée</strong> et <strong>sécurisation des parcours</strong> — un modèle coûteux à mettre en place mais dont l'efficacité est documentée.</p>
+        <h2 data-i18n="s9_h2">En résumé</h2>
+        <p data-i18n="s9_p1">Le chômage structurel français est <strong>le produit de plusieurs rigidités qui se renforcent mutuellement</strong> : un marché du travail dual qui décourage les embauches en CDI, un coût du licenciement élevé, un mismatch géographique et sectoriel important, et une formation professionnelle mal ciblée.</p>
+        <p data-i18n="s9_p2">Il n'existe pas de solution simple. Les pays qui ont réussi à le réduire ont combiné <strong>flexibilisation encadrée</strong> et <strong>sécurisation des parcours</strong> — un modèle coûteux à mettre en place mais dont l'efficacité est documentée.</p>
       </div>
 
       <div class="q-sources">
-        <strong>Sources officielles</strong>
-        INSEE — Enquête Emploi, Taux de chômage BIT T1 2024 · DARES — Marché du travail 2023 · Eurostat — Unemployment rates by country 2024 · OCDE — Perspectives de l'emploi 2023, NAIRU estimates · France Stratégie — Le mismatch sur le marché du travail · FMI — Article IV France 2023
+        <strong data-i18n="sources_title">Sources officielles</strong>
+        <span data-i18n="sources_text">INSEE — Enquête Emploi, Taux de chômage BIT T1 2024 · DARES — Marché du travail 2023 · Eurostat — Unemployment rates by country 2024 · OCDE — Perspectives de l'emploi 2023, NAIRU estimates · France Stratégie — Le mismatch sur le marché du travail · FMI — Article IV France 2023</span>
       </div>
 
       <div class="related">
-        <h3>Articles liés</h3>
+        <h3 data-i18n="related_title">Articles liés</h3>
         <div class="related-links">
           <a href="/questions/quel-est-le-vrai-taux-d-imposition-en-france" class="related-link">Le vrai taux d'imposition</a>
           <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france" class="related-link">Combien coûte un salarié ?</a>
@@ -257,21 +264,197 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : INSEE, DARES, Eurostat, OCDE</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE, DARES, Eurostat, OCDE</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_section:'Questions',
+  breadcrumb_current:'Chômage structurel',
+  hero_eyebrow:'Emploi',
+  hero_h1:'Pourquoi la France a-t-elle un chômage structurel élevé ?',
+  hero_intro:'7,3 % en 2024 contre 3 % en Allemagne. Même en période de croissance, le chômage français ne descend pas vraiment. Pourquoi ?',
+  stat_val:'7,3 %',
+  stat_ctx:"Taux de chômage en France au T1 2024 (BIT) — contre 2,9 % en Allemagne, 5,3 % en Italie, 11,6 % en Espagne.<br>Le chômage structurel français est estimé à 7–7,5 % par le FMI et l'OCDE.",
+  s1_h2:'Chômage conjoncturel vs chômage structurel : quelle différence ?',
+  s1_p1:"Le <strong>chômage conjoncturel</strong> est lié aux cycles économiques : il monte en récession, descend en croissance. Le <strong>chômage structurel</strong> est plus profond — il persiste même quand l'économie va bien, parce qu'il résulte des rigidités du marché du travail lui-même.",
+  s1_p2:"La France illustre parfaitement ce second cas. Lors des meilleures années de croissance (2017–2019), le chômage a bien baissé — de 9,5 % à 8,1 % — mais il a plafonné là. En comparaison, l'Allemagne oscillait autour de 3 %, le Royaume-Uni autour de 4 %.",
+  s1_p3:"Pour l'OCDE, le taux de chômage structurel français (appelé NAIRU — taux de chômage n'accélérant pas l'inflation) est estimé entre <strong>7 et 7,5 %</strong>. C'est structurellement plus élevé que la plupart des pays comparables.",
+  s2_h2:'Comparaison européenne : la France dans le milieu du tableau',
+  s2_p1:"La France se situe au-dessus de la moyenne de la zone euro. Elle fait mieux que l'Espagne ou la Grèce, mais nettement moins bien que l'Allemagne, les Pays-Bas ou les pays scandinaves.",
+  s3_h2:'Cause 1 : le dualisme CDI / CDD',
+  s3_p1:"Le marché du travail français est profondément <strong>dual</strong> : d'un côté des emplois en CDI très protégés, de l'autre des CDD et des contrats précaires très flexibles. Cette dualité crée des effets pervers.",
+  dual_cdi_title:"CDI — l'emploi forteresse",
+  dual_cdi_li1:'Licenciement coûteux et procédurier',
+  dual_cdi_li2:"Indemnités légales + prud'hommes",
+  dual_cdi_li3:'Délais souvent de 18 à 36 mois',
+  dual_cdi_li4:"Risque juridique réel pour l'employeur",
+  dual_cdd_title:"CDD — le marché d'entrée",
+  dual_cdd_li1:'85 % des embauches en CDD',
+  dual_cdd_li2:'Durée médiane : 1 à 3 mois',
+  dual_cdd_li3:'Turnover très élevé',
+  dual_cdd_li4:"Peu de formation, peu d'investissement",
+  s3_p2:"Résultat : les entreprises hésitent à créer des CDI en période d'incertitude. Elles embauchent en CDD, ce qui alimente les allers-retours au chômage. <strong>85 % des nouvelles embauches se font en CDD ou intérim</strong> (DARES, 2023), mais beaucoup ne débouchent pas sur un CDI.",
+  s4_h2:'Cause 2 : le coût du travail et du licenciement',
+  s4_p1:"En France, le coût total du licenciement économique est parmi les plus élevés de l'OCDE. Il comprend :",
+  s4_li1:"Les <strong>indemnités légales de licenciement</strong> (1/4 de mois par année d'ancienneté depuis 2017)",
+  s4_li2:"Le <strong>préavis</strong> (1 à 3 mois selon l'ancienneté)",
+  s4_li3:'La <strong>procédure obligatoire</strong> : entretien préalable, lettres recommandées, délais légaux',
+  s4_li4:"Le risque de <strong>recours aux prud'hommes</strong> : environ 140 000 affaires par an, avec un taux de succès salarié de ~70 %",
+  s4_li5:"Pour les licenciements collectifs : plan de sauvegarde de l'emploi (PSE), consultation du CSE, parfois accord de branche",
+  s4_p2:"Les ordonnances Macron de 2017 ont introduit le <strong>barème Macron</strong> (plafonnement des indemnités prud'homales) pour réduire l'incertitude juridique. L'effet a été réel mais limité : la peur du licenciement reste un frein à l'embauche.",
+  s5_h2:'Cause 3 : la désadéquation des compétences',
+  s5_p1:'La France cumule paradoxalement un <strong>chômage élevé et des tensions de recrutement</strong> record. En 2023, Pôle Emploi recensait plus de <strong>400 000 offres d\'emploi non pourvues</strong> en permanence — une situation que les économistes appellent le "mismatch".',
+  s5_p2:'Ce décalage s\'explique par plusieurs facteurs :',
+  s5_li1:'<strong>Géographique</strong> : les emplois sont à Lyon, Toulouse, Paris — les chômeurs à Calais ou dans les Ardennes',
+  s5_li2:'<strong>Sectoriel</strong> : pénurie de soudeurs, électriciens, développeurs informatiques, aides-soignants — mais suroffre dans d\'autres secteurs',
+  s5_li3:'<strong>Niveau de qualification</strong> : 45 % des chômeurs ont un niveau inférieur au BAC (DARES 2023) dans une économie qui demande de plus en plus de compétences',
+  s5_p3:'Selon France Stratégie, <strong>30 à 40 % du chômage français serait explicable par ce seul mismatch</strong> — c\'est-à-dire qu\'il subsisterait même si les rigidités du code du travail disparaissaient.',
+  s6_h2:'Cause 4 : les effets des minima sociaux et du SMIC',
+  s6_p1:'Le <strong>SMIC français</strong> représente environ 61 % du salaire médian, l\'un des ratios les plus élevés d\'Europe (OCDE). Ce niveau élevé a deux effets opposés :',
+  s6_li1:'<strong>Effet positif</strong> : protège les travailleurs peu qualifiés et réduit la pauvreté laborieuse',
+  s6_li2:'<strong>Effet négatif</strong> : rétrécit le spectre des emplois viables pour les moins qualifiés, qui coûtent trop cher pour être embauchés à un salaire permettant la rentabilité',
+  s6_p2:'La France compense partiellement cet effet via des <strong>allègements de cotisations Fillon</strong> sur les bas salaires (environ 65 Md€ par an), mais ces aides créent elles-mêmes une trappe à bas salaires : les employeurs évitent d\'augmenter au-delà du SMIC pour ne pas perdre les exonérations.',
+  s6_p3:'Les <strong>minima sociaux</strong> (RSA, ASS, AAH) jouent aussi un rôle complexe : pour certains profils, la reprise d\'un emploi peu rémunéré offre un gain net limité, ce qui peut décourager la recherche active.',
+  s7_h2:'Cause 5 : la formation professionnelle insuffisamment ciblée',
+  s7_p1:"La France dépense <strong>32 milliards d'euros par an</strong> en formation professionnelle (hors apprentissage) — l'un des budgets les plus élevés d'Europe. Pourtant, les résultats restent décevants.",
+  s7_p2:"Le problème : la formation bénéficie surtout à ceux qui en ont le moins besoin. Les cadres et les salariés en CDI dans les grandes entreprises accèdent facilement à la formation ; les chômeurs peu qualifiés y ont accès plus difficilement, et les formations proposées ne correspondent souvent pas aux besoins réels du marché.",
+  s7_p3:"Le CPF (Compte Personnel de Formation), créé en 2019, a connu un succès massif — mais largement détourné vers des formations de loisir (permis de conduire, bureautique...) plutôt que vers des reconversions vers les secteurs en tension.",
+  s8_h2:'Et si on comparait les réformes qui ont marché ?',
+  s8_p1:'Plusieurs pays ont significativement réduit leur chômage structurel par des réformes :',
+  s8_li1:"<strong>Allemagne (réformes Hartz, 2003-2005)</strong> : flexibilisation du marché du travail, mini-jobs, réforme des allocations chômage. Résultat : chômage passé de 11 % à 5 %, puis à 3 %.",
+  s8_li2:"<strong>Pays-Bas (Flexicurité, années 1990)</strong> : sécurisation des transitions plutôt que de l'emploi. CDI et CDD traités de façon plus symétrique, formation renforcée pour les chômeurs.",
+  s8_li3:"<strong>Danemark (Flexicurité)</strong> : licenciement facile + indemnités généreuses + obligation de formation active. Coût élevé mais chômage structurel <4 %.",
+  s8_p2:"La France a tenté des réformes similaires (loi El Khomri 2016, ordonnances Macron 2017, réforme de l'assurance chômage 2019-2023) sans atteindre des résultats comparables — en partie parce que les réformes ont été partielles, en partie parce que la France n'a pas investi dans la contrepartie formation comme les pays nordiques.",
+  s9_h2:'En résumé',
+  s9_p1:'Le chômage structurel français est <strong>le produit de plusieurs rigidités qui se renforcent mutuellement</strong> : un marché du travail dual qui décourage les embauches en CDI, un coût du licenciement élevé, un mismatch géographique et sectoriel important, et une formation professionnelle mal ciblée.',
+  s9_p2:'Il n\'existe pas de solution simple. Les pays qui ont réussi à le réduire ont combiné <strong>flexibilisation encadrée</strong> et <strong>sécurisation des parcours</strong> — un modèle coûteux à mettre en place mais dont l\'efficacité est documentée.',
+  sources_title:'Sources officielles',
+  sources_text:"INSEE — Enquête Emploi, Taux de chômage BIT T1 2024 · DARES — Marché du travail 2023 · Eurostat — Unemployment rates by country 2024 · OCDE — Perspectives de l'emploi 2023, NAIRU estimates · France Stratégie — Le mismatch sur le marché du travail · FMI — Article IV France 2023",
+  related_title:'Articles liés',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  share_label:'Partager :',
+  footer_copy:'© 2026 Le Français Moyen — Données : INSEE, DARES, Eurostat, OCDE',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_section:'Questions',
+  breadcrumb_current:'Structural unemployment',
+  hero_eyebrow:'Employment',
+  hero_h1:'Why does France have persistently high structural unemployment?',
+  hero_intro:'7.3% in 2024 versus 3% in Germany. Even during periods of growth, French unemployment never really falls. Why?',
+  stat_val:'7.3%',
+  stat_ctx:"France's unemployment rate in Q1 2024 (ILO) — versus 2.9% in Germany, 5.3% in Italy, 11.6% in Spain.<br>France's structural unemployment is estimated at 7–7.5% by the IMF and OECD.",
+  s1_h2:'Cyclical vs structural unemployment: what is the difference?',
+  s1_p1:'<strong>Cyclical unemployment</strong> tracks economic cycles: it rises in recessions and falls during growth. <strong>Structural unemployment</strong> is deeper — it persists even when the economy is doing well, because it stems from rigidities in the labour market itself.',
+  s1_p2:'France is a textbook illustration of the second case. During the best growth years (2017–2019), unemployment did fall — from 9.5% to 8.1% — but then stalled. In comparison, Germany hovered around 3% and the UK around 4%.',
+  s1_p3:"According to the OECD, France's structural unemployment rate (the NAIRU — non-accelerating inflation rate of unemployment) is estimated at between <strong>7 and 7.5%</strong>. That is structurally higher than in most comparable countries.",
+  s2_h2:'European comparison: France in the middle of the table',
+  s2_p1:'France sits above the eurozone average. It performs better than Spain or Greece, but significantly worse than Germany, the Netherlands or the Scandinavian countries.',
+  s3_h2:'Cause 1: the CDI / CDD dualism',
+  s3_p1:'The French labour market is profoundly <strong>dual</strong>: on one side, highly protected permanent contracts (CDI); on the other, fixed-term (CDD) and precarious contracts that are very flexible. This duality creates perverse incentives.',
+  dual_cdi_title:'CDI — the fortress job',
+  dual_cdi_li1:'Dismissal is costly and procedurally complex',
+  dual_cdi_li2:'Statutory redundancy pay + employment tribunal risk',
+  dual_cdi_li3:'Proceedings often take 18 to 36 months',
+  dual_cdi_li4:'Real legal risk for the employer',
+  dual_cdd_title:'CDD — the entry market',
+  dual_cdd_li1:'85% of new hires on fixed-term contracts',
+  dual_cdd_li2:'Median duration: 1 to 3 months',
+  dual_cdd_li3:'Very high turnover',
+  dual_cdd_li4:'Little training, little investment',
+  s3_p2:'The result: companies hesitate to create permanent contracts in uncertain times. They hire on CDD, which drives repeated spells of unemployment. <strong>85% of new hires are on CDD or agency contracts</strong> (DARES, 2023), but many do not lead to a permanent position.',
+  s4_h2:'Cause 2: the cost of employment and dismissal',
+  s4_p1:"In France, the total cost of economic dismissal is among the highest in the OECD. It includes:",
+  s4_li1:'<strong>Statutory redundancy pay</strong> (one quarter of a month\'s salary per year of service since 2017)',
+  s4_li2:'<strong>Notice period</strong> (1 to 3 months depending on seniority)',
+  s4_li3:'<strong>Mandatory procedure</strong>: preliminary interview, registered letters, statutory deadlines',
+  s4_li4:'Risk of <strong>employment tribunal (prud\'hommes)</strong> proceedings: around 140,000 cases per year, with employees winning ~70% of cases',
+  s4_li5:'For collective redundancies: a job-protection plan (PSE), consultation of the works council (CSE), sometimes a branch agreement',
+  s4_p2:'The 2017 Macron ordinances introduced the <strong>Macron scale</strong> (capping employment tribunal compensation) to reduce legal uncertainty. The effect was real but limited: fear of dismissal remains a brake on hiring.',
+  s5_h2:'Cause 3: skills mismatch',
+  s5_p1:'France paradoxically combines <strong>high unemployment and record recruitment difficulties</strong>. In 2023, Pôle Emploi recorded more than <strong>400,000 unfilled job vacancies</strong> at any given time — a situation economists call "mismatch".',
+  s5_p2:'This gap is explained by several factors:',
+  s5_li1:'<strong>Geographic</strong>: jobs are in Lyon, Toulouse, Paris — unemployed workers are in Calais or the Ardennes',
+  s5_li2:'<strong>Sectoral</strong>: shortages of welders, electricians, IT developers, care workers — but oversupply in other sectors',
+  s5_li3:'<strong>Qualification level</strong>: 45% of unemployed people have no qualification above secondary level (DARES 2023), in an economy demanding ever more skills',
+  s5_p3:'According to France Stratégie, <strong>30 to 40% of French unemployment is attributable to mismatch alone</strong> — meaning it would persist even if labour-code rigidities disappeared.',
+  s6_h2:'Cause 4: the effects of welfare benefits and the minimum wage',
+  s6_p1:"The <strong>French minimum wage (SMIC)</strong> represents around 61% of the median wage, one of the highest ratios in Europe (OECD). This high level has two opposing effects:",
+  s6_li1:'<strong>Positive effect</strong>: protects low-skilled workers and reduces in-work poverty',
+  s6_li2:'<strong>Negative effect</strong>: narrows the range of viable jobs for the least skilled, who cost too much to hire at a wage that allows profitability',
+  s6_p2:"France partially offsets this through <strong>Fillon payroll-tax reductions</strong> on low wages (around €65bn per year), but these subsidies themselves create a low-wage trap: employers avoid raising pay above the minimum wage to avoid losing the exemptions.",
+  s6_p3:'<strong>Welfare benefits</strong> (RSA, ASS, AAH) also play a complex role: for some profiles, returning to a low-paid job offers limited net gain, which can discourage active job-seeking.',
+  s7_h2:'Cause 5: insufficiently targeted vocational training',
+  s7_p1:"France spends <strong>€32 billion per year</strong> on vocational training (excluding apprenticeships) — one of the highest budgets in Europe. Yet results remain disappointing.",
+  s7_p2:"The problem: training disproportionately benefits those who need it least. Managers and CDI employees in large companies easily access training; low-skilled unemployed people find it harder to access, and the courses on offer often do not match real labour-market needs.",
+  s7_p3:"The CPF (Personal Training Account), created in 2019, was hugely popular — but largely diverted towards leisure-related training (driving licence, office software…) rather than retraining into sectors facing labour shortages.",
+  s8_h2:'What reforms have worked elsewhere?',
+  s8_p1:'Several countries have significantly reduced their structural unemployment through reform:',
+  s8_li1:"<strong>Germany (Hartz reforms, 2003–2005)</strong>: labour-market flexibilisation, mini-jobs, unemployment benefit reform. Result: unemployment fell from 11% to 5%, then to 3%.",
+  s8_li2:"<strong>Netherlands (flexicurity, 1990s)</strong>: securing career transitions rather than individual jobs. CDI and CDD treated more symmetrically, stronger training support for unemployed workers.",
+  s8_li3:"<strong>Denmark (flexicurity)</strong>: easy dismissal + generous benefits + compulsory active training. High cost but structural unemployment below 4%.",
+  s8_p2:"France has attempted similar reforms (El Khomri Act 2016, Macron ordinances 2017, unemployment insurance reform 2019–2023) without achieving comparable results — partly because reforms were partial, partly because France did not invest in the training counterpart as Nordic countries did.",
+  s9_h2:'In summary',
+  s9_p1:'French structural unemployment is <strong>the product of several mutually reinforcing rigidities</strong>: a dual labour market that discourages permanent hiring, a high cost of dismissal, significant geographic and sectoral mismatch, and poorly targeted vocational training.',
+  s9_p2:'There is no simple solution. Countries that have managed to reduce it have combined <strong>regulated flexibilisation</strong> with <strong>career-path security</strong> — a costly model to implement, but one whose effectiveness is well documented.',
+  sources_title:'Official sources',
+  sources_text:'INSEE — Labour Force Survey, ILO unemployment rate Q1 2024 · DARES — Labour market 2023 · Eurostat — Unemployment rates by country 2024 · OECD — Employment Outlook 2023, NAIRU estimates · France Stratégie — Skills mismatch in the labour market · IMF — Article IV France 2023',
+  related_title:'Related articles',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  share_label:'Share:',
+  footer_copy:'© 2026 Le Français Moyen — Data: INSEE, DARES, Eurostat, OECD',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Pourquoi la France a-t-elle un chômage structurel élevé ? — Données 2024'
+    :'Why does France have persistently high structural unemployment? — 2024 data';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Le chômage en France tourne autour de 7-8 % même en période de croissance. Rigidités du marché du travail, dualisme CDI/CDD, coût du licenciement : les causes profondes."
+    :'French unemployment hovers around 7–8% even during growth. Labour-market rigidities, CDI/CDD dualism, dismissal costs: the structural causes explained.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

@@ -6,6 +6,9 @@
   <title>Pourquoi la France a-t-elle autant de ronds-points ? — Le Français Moyen</title>
   <meta name="description" content="~56 000 ronds-points en France, soit 65 % du total mondial. Histoire, arguments officiels, coût et dérives d'une exception française expliqués avec les données officielles.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-ronds-points">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-ronds-points">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-ronds-points">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-ronds-points">
   <meta property="og:title" content="Pourquoi la France a-t-elle autant de ronds-points ?">
   <meta property="og:description" content="56 000 giratoires, 65 % du total mondial — l'histoire et le coût d'une exception française expliqués avec les données officielles CEREMA et Sécurité Routière.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/pourquoi-la-france-a-t-elle-autant-de-ronds-points">
@@ -76,7 +79,12 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
   </div></header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
     <a href="/retraites/">🧓 Retraites</a><a href="/fonctionnaires/">🏛 Fonctionnaires</a>
@@ -92,22 +100,22 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/ronds-points/">Ronds-points</a> › <span>Pourquoi autant de ronds-points ?</span></nav>
-      <p class="eyebrow" style="text-align:center">🔵 Ronds-points</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">Pourquoi la France a-t-elle autant de ronds-points ?</h1>
-      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7">~56 000 carrefours giratoires en France — soit environ 65 % du total mondial. L'histoire et le coût d'une exception française qui mêle sécurité routière, ingénierie des Ponts et Chaussées et gestion des budgets voirie.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/ronds-points/" data-i18n="breadcrumb_section">Ronds-points</a> › <span data-i18n="breadcrumb_current">Pourquoi autant de ronds-points ?</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">🔵 Ronds-points</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">Pourquoi la France a-t-elle autant de ronds-points ?</h1>
+      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">~56 000 carrefours giratoires en France — soit environ 65 % du total mondial. L'histoire et le coût d'une exception française qui mêle sécurité routière, ingénierie des Ponts et Chaussées et gestion des budgets voirie.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">~56 000</span>
-        <span class="s-ctx">ronds-points en France en 2024 — environ <strong>65 % du total mondial</strong>. L'Angleterre en compte ~10 000, l'Allemagne ~8 000, les États-Unis ~7 000. La France est à ce point hors norme que l'Union Européenne utilise la France comme cas d'étude.<br>Source : CEREMA 2024, Ministère des Transports.</span>
+        <span class="s-val" data-i18n="stat_val">~56 000</span>
+        <span class="s-ctx" data-i18n="stat_ctx">ronds-points en France en 2024 — environ <strong>65 % du total mondial</strong>. L'Angleterre en compte ~10 000, l'Allemagne ~8 000, les États-Unis ~7 000. La France est à ce point hors norme que l'Union Européenne utilise la France comme cas d'étude.<br>Source : CEREMA 2024, Ministère des Transports.</span>
       </div>
 
       <div class="q-section">
-        <h2>Le chiffre : une domination mondiale sans équivalent</h2>
-        <p>Avec environ <strong>56 000 carrefours giratoires en 2024</strong>, la France concentre à elle seule plus des deux tiers du stock mondial. Pour comparaison :</p>
+        <h2 data-i18n="s1_h2">Le chiffre : une domination mondiale sans équivalent</h2>
+        <p data-i18n="s1_p1">Avec environ <strong>56 000 carrefours giratoires en 2024</strong>, la France concentre à elle seule plus des deux tiers du stock mondial. Pour comparaison :</p>
 
         <div class="bar-chart">
           <div class="bar-item">
@@ -131,68 +139,68 @@
             <span class="bar-val">~7 000</span>
           </div>
         </div>
-        <p style="font-size:.82rem;color:var(--muted);margin-top:0">Nombre estimé de carrefours giratoires par pays, 2024. Source : CEREMA / estimations comparatives.</p>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:0" data-i18n="s1_chart_caption">Nombre estimé de carrefours giratoires par pays, 2024. Source : CEREMA / estimations comparatives.</p>
       </div>
 
       <div class="q-section">
-        <h2>L'histoire : une idée française adoptée massivement</h2>
-        <p>Paradoxalement, c'est en France qu'est né le concept du carrefour giratoire moderne : la <strong>place de l'Étoile à Paris</strong> est souvent citée comme premier exemple de circulation en anneau, formalisée en 1907. Mais ce sont les ingénieurs des <strong>Ponts et Chaussées britanniques</strong> qui en ont théorisé les règles modernes dans les années 1960 (règle de priorité à l'anneau).</p>
-        <p>La France a massivement adopté cette infrastructure à partir des <strong>années 1970-1980</strong>, sous l'impulsion du Ministère de l'Équipement et des ingénieurs des Ponts et Chaussées, avec une accélération spectaculaire dans les <strong>années 1990-2000</strong> : on construisait alors plusieurs centaines de nouveaux ronds-points par an.</p>
+        <h2 data-i18n="s2_h2">L'histoire : une idée française adoptée massivement</h2>
+        <p data-i18n="s2_p1">Paradoxalement, c'est en France qu'est né le concept du carrefour giratoire moderne : la <strong>place de l'Étoile à Paris</strong> est souvent citée comme premier exemple de circulation en anneau, formalisée en 1907. Mais ce sont les ingénieurs des <strong>Ponts et Chaussées britanniques</strong> qui en ont théorisé les règles modernes dans les années 1960 (règle de priorité à l'anneau).</p>
+        <p data-i18n="s2_p2">La France a massivement adopté cette infrastructure à partir des <strong>années 1970-1980</strong>, sous l'impulsion du Ministère de l'Équipement et des ingénieurs des Ponts et Chaussées, avec une accélération spectaculaire dans les <strong>années 1990-2000</strong> : on construisait alors plusieurs centaines de nouveaux ronds-points par an.</p>
       </div>
 
       <div class="q-section">
-        <h2>Les arguments officiels : sécurité, fluidité, coût</h2>
-        <p>Les arguments en faveur des ronds-points sont réels et documentés :</p>
+        <h2 data-i18n="s3_h2">Les arguments officiels : sécurité, fluidité, coût</h2>
+        <p data-i18n="s3_p1">Les arguments en faveur des ronds-points sont réels et documentés :</p>
         <ul>
-          <li><strong>Sécurité routière</strong> : les accidents mortels aux carrefours giratoires sont réduits de −75 % par rapport aux carrefours à feux classiques. Pas de choc frontal possible, vitesses réduites.</li>
-          <li><strong>Fluidité du trafic</strong> : moins d'arrêts complets, estimation à −15 % de consommation de carburant sur les trajets impactés.</li>
-          <li><strong>Coût d'entretien</strong> : un rond-point coûte environ <strong>12 000 €/an</strong> à entretenir contre <strong>30 000 €/an</strong> pour un carrefour à feux tricolores (pas de systèmes électroniques, de câbles, de maintenance complexe).</li>
+          <li data-i18n="s3_li1"><strong>Sécurité routière</strong> : les accidents mortels aux carrefours giratoires sont réduits de −75 % par rapport aux carrefours à feux classiques. Pas de choc frontal possible, vitesses réduites.</li>
+          <li data-i18n="s3_li2"><strong>Fluidité du trafic</strong> : moins d'arrêts complets, estimation à −15 % de consommation de carburant sur les trajets impactés.</li>
+          <li data-i18n="s3_li3"><strong>Coût d'entretien</strong> : un rond-point coûte environ <strong>12 000 €/an</strong> à entretenir contre <strong>30 000 €/an</strong> pour un carrefour à feux tricolores (pas de systèmes électroniques, de câbles, de maintenance complexe).</li>
         </ul>
-        <p>Ces arguments sont solides. La France a l'un des meilleurs bilans de sécurité routière en Europe — les ronds-points y contribuent significativement.</p>
+        <p data-i18n="s3_p2">Ces arguments sont solides. La France a l'un des meilleurs bilans de sécurité routière en Europe — les ronds-points y contribuent significativement.</p>
       </div>
 
       <div class="q-section">
-        <h2>Le coût : 20 à 50 milliards d'investissement cumulé</h2>
-        <p>La médaille a un revers financier. Construire un rond-point coûte :</p>
+        <h2 data-i18n="s4_h2">Le coût : 20 à 50 milliards d'investissement cumulé</h2>
+        <p data-i18n="s4_p1">La médaille a un revers financier. Construire un rond-point coûte :</p>
         <ul>
-          <li><strong>300 000 € à 800 000 €</strong> pour un giratoire urbain simple</li>
-          <li><strong>800 000 € à 1,5 M€</strong> pour un giratoire avec aménagements paysagers, sculptures ou dimensions importantes</li>
+          <li data-i18n="s4_li1"><strong>300 000 € à 800 000 €</strong> pour un giratoire urbain simple</li>
+          <li data-i18n="s4_li2"><strong>800 000 € à 1,5 M€</strong> pour un giratoire avec aménagements paysagers, sculptures ou dimensions importantes</li>
         </ul>
-        <p>En extrapolant sur 56 000 carrefours (coût moyen ~500 000 €), l'investissement historique total représente <strong>20 à 50 milliards d'euros</strong>. Le coût d'entretien annuel est estimé par le CEREMA à environ <strong>700 millions d'euros par an</strong> pour l'ensemble du parc français.</p>
+        <p data-i18n="s4_p2">En extrapolant sur 56 000 carrefours (coût moyen ~500 000 €), l'investissement historique total représente <strong>20 à 50 milliards d'euros</strong>. Le coût d'entretien annuel est estimé par le CEREMA à environ <strong>700 millions d'euros par an</strong> pour l'ensemble du parc français.</p>
 
         <div class="compare-row">
           <div class="compare-card">
-            <div class="cc-country">Coût construction moyen</div>
+            <div class="cc-country" data-i18n="kpi1_label">Coût construction moyen</div>
             <div class="cc-val" style="color:#60a5fa">~500 k€</div>
-            <div class="cc-desc">par carrefour giratoire</div>
+            <div class="cc-desc" data-i18n="kpi1_sub">par carrefour giratoire</div>
           </div>
           <div class="compare-card">
-            <div class="cc-country">Entretien annuel total</div>
+            <div class="cc-country" data-i18n="kpi2_label">Entretien annuel total</div>
             <div class="cc-val" style="color:#34d399">~700 M€</div>
-            <div class="cc-desc">estimation CEREMA 2024</div>
+            <div class="cc-desc" data-i18n="kpi2_sub">estimation CEREMA 2024</div>
           </div>
         </div>
       </div>
 
       <div class="q-section">
-        <h2>La dérive : dotations d'État et absorption de budgets voirie</h2>
-        <p>Au-delà des arguments techniques, plusieurs facteurs ont favorisé la prolifération des ronds-points :</p>
+        <h2 data-i18n="s5_h2">La dérive : dotations d'État et absorption de budgets voirie</h2>
+        <p data-i18n="s5_p1">Au-delà des arguments techniques, plusieurs facteurs ont favorisé la prolifération des ronds-points :</p>
         <ul>
-          <li>Les communes et intercommunalités reçoivent des <strong>dotations de l'État pour les infrastructures routières</strong>. Un rond-point avec aménagement paysager et sculpture centrale est un investissement visible, clairement identifiable dans un bilan municipal.</li>
-          <li>Les ronds-points permettent d'<strong>absorber des budgets voirie non dépensés</strong> en fin d'exercice, avant leur expiration ou leur récupération par l'État.</li>
-          <li>Ils génèrent de l'activité locale : paysagistes, artistes pour les sculptures, entreprises de génie civil. Certaines communes rurales sont devenues de véritables musées de sculpture en plein air grâce à leurs ronds-points.</li>
-          <li>La <strong>consommation de foncier</strong> est pourtant significative : un giratoire moyen occupe 1 000 à 5 000 m² — problème sérieux en zone dense ou périurbaine.</li>
+          <li data-i18n="s5_li1">Les communes et intercommunalités reçoivent des <strong>dotations de l'État pour les infrastructures routières</strong>. Un rond-point avec aménagement paysager et sculpture centrale est un investissement visible, clairement identifiable dans un bilan municipal.</li>
+          <li data-i18n="s5_li2">Les ronds-points permettent d'<strong>absorber des budgets voirie non dépensés</strong> en fin d'exercice, avant leur expiration ou leur récupération par l'État.</li>
+          <li data-i18n="s5_li3">Ils génèrent de l'activité locale : paysagistes, artistes pour les sculptures, entreprises de génie civil. Certaines communes rurales sont devenues de véritables musées de sculpture en plein air grâce à leurs ronds-points.</li>
+          <li data-i18n="s5_li4">La <strong>consommation de foncier</strong> est pourtant significative : un giratoire moyen occupe 1 000 à 5 000 m² — problème sérieux en zone dense ou périurbaine.</li>
         </ul>
-        <p>Résultat : certains territoires ruraux ont surinvesti dans des ronds-points <strong>sous-utilisés</strong>, parfois aux entrées de villages de quelques centaines d'habitants où un simple stop aurait suffi.</p>
+        <p data-i18n="s5_p2">Résultat : certains territoires ruraux ont surinvesti dans des ronds-points <strong>sous-utilisés</strong>, parfois aux entrées de villages de quelques centaines d'habitants où un simple stop aurait suffi.</p>
       </div>
 
       <!-- ── Ce que le chiffre ne dit pas ──────────────────────────── -->
       <div style="background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.15);border-left:4px solid #60a5fa;border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0">
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#60a5fa;text-transform:uppercase;margin-bottom:10px">⚠️ Ce que le chiffre ne dit pas</div>
+        <div style="font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#60a5fa;text-transform:uppercase;margin-bottom:10px" data-i18n="caveat_title">⚠️ Ce que le chiffre ne dit pas</div>
         <ul style="margin:0;padding:0 0 0 18px;color:var(--muted);font-size:.88rem;line-height:1.75">
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">Les ronds-points réduisent effectivement la mortalité routière.</strong> La France a l'un des meilleurs bilans en Europe en termes de sécurité routière. Critiquer les ronds-points sans mentionner leur efficacité sur la sécurité est intellectuellement malhonnête.</li>
-          <li style="margin-bottom:8px"><strong style="color:var(--text)">Ils consomment beaucoup d'espace foncier.</strong> En zone dense ou périurbaine, chaque hectare compte. La prolifération de giratoires dans des zones qui auraient pu accueillir logements ou activités économiques est un coût réel mais difficile à quantifier.</li>
-          <li><strong style="color:var(--text)">Certains territoires ruraux ont surinvesti.</strong> Des ronds-points à 3 branches dans des villages de 300 habitants, des sculptures coûteuses dans des zones peu fréquentées : la logique budgétaire ("dépenser les dotations") a parfois pris le pas sur la logique d'utilité.</li>
+          <li style="margin-bottom:8px" data-i18n="caveat_li1"><strong style="color:var(--text)">Les ronds-points réduisent effectivement la mortalité routière.</strong> La France a l'un des meilleurs bilans en Europe en termes de sécurité routière. Critiquer les ronds-points sans mentionner leur efficacité sur la sécurité est intellectuellement malhonnête.</li>
+          <li style="margin-bottom:8px" data-i18n="caveat_li2"><strong style="color:var(--text)">Ils consomment beaucoup d'espace foncier.</strong> En zone dense ou périurbaine, chaque hectare compte. La prolifération de giratoires dans des zones qui auraient pu accueillir logements ou activités économiques est un coût réel mais difficile à quantifier.</li>
+          <li data-i18n="caveat_li3"><strong style="color:var(--text)">Certains territoires ruraux ont surinvesti.</strong> Des ronds-points à 3 branches dans des villages de 300 habitants, des sculptures coûteuses dans des zones peu fréquentées : la logique budgétaire ("dépenser les dotations") a parfois pris le pas sur la logique d'utilité.</li>
         </ul>
       </div>
 
@@ -206,12 +214,12 @@
       </div>
 
       <div class="q-sources">
-        <strong>Sources</strong>
-        CEREMA — Panorama des carrefours giratoires en France 2024 · Sécurité Routière — bilan annuel de l'accidentologie 2024 · Ministère des Transports — données réseau routier · INSEE — données collectivités locales et dotations · Délégation Sénatoriale aux Collectivités Territoriales — rapport sur les dépenses de voirie.
+        <strong data-i18n="sources_title">Sources</strong>
+        <span data-i18n="sources_text">CEREMA — Panorama des carrefours giratoires en France 2024 · Sécurité Routière — bilan annuel de l'accidentologie 2024 · Ministère des Transports — données réseau routier · INSEE — données collectivités locales et dotations · Délégation Sénatoriale aux Collectivités Territoriales — rapport sur les dépenses de voirie.</span>
       </div>
 
       <div class="related">
-        <h3>Approfondir</h3>
+        <h3 data-i18n="related_title">Approfondir</h3>
         <div class="related-links">
           <a href="/ronds-points/" class="related-link">🔵 Analyse ronds-points complète</a>
           <a href="/questions/pourquoi-la-france-a-t-elle-autant-de-normes" class="related-link">📋 Pourquoi autant de normes ?</a>
@@ -223,15 +231,147 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(96,165,250,.08),rgba(167,139,250,.06));border:1px solid rgba(96,165,250,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_section:'Ronds-points',
+  breadcrumb_current:'Pourquoi autant de ronds-points ?',
+  hero_eyebrow:'🔵 Ronds-points',
+  hero_h1:'Pourquoi la France a-t-elle autant de ronds-points ?',
+  hero_intro:"~56 000 carrefours giratoires en France — soit environ 65 % du total mondial. L'histoire et le coût d'une exception française qui mêle sécurité routière, ingénierie des Ponts et Chaussées et gestion des budgets voirie.",
+  stat_val:'~56 000',
+  stat_ctx:"ronds-points en France en 2024 — environ <strong>65 % du total mondial</strong>. L'Angleterre en compte ~10 000, l'Allemagne ~8 000, les États-Unis ~7 000. La France est à ce point hors norme que l'Union Européenne utilise la France comme cas d'étude.<br>Source : CEREMA 2024, Ministère des Transports.",
+  s1_h2:'Le chiffre : une domination mondiale sans équivalent',
+  s1_p1:'Avec environ <strong>56 000 carrefours giratoires en 2024</strong>, la France concentre à elle seule plus des deux tiers du stock mondial. Pour comparaison :',
+  s1_chart_caption:'Nombre estimé de carrefours giratoires par pays, 2024. Source : CEREMA / estimations comparatives.',
+  s2_h2:"L'histoire : une idée française adoptée massivement",
+  s2_p1:"Paradoxalement, c'est en France qu'est né le concept du carrefour giratoire moderne : la <strong>place de l'Étoile à Paris</strong> est souvent citée comme premier exemple de circulation en anneau, formalisée en 1907. Mais ce sont les ingénieurs des <strong>Ponts et Chaussées britanniques</strong> qui en ont théorisé les règles modernes dans les années 1960 (règle de priorité à l'anneau).",
+  s2_p2:"La France a massivement adopté cette infrastructure à partir des <strong>années 1970-1980</strong>, sous l'impulsion du Ministère de l'Équipement et des ingénieurs des Ponts et Chaussées, avec une accélération spectaculaire dans les <strong>années 1990-2000</strong> : on construisait alors plusieurs centaines de nouveaux ronds-points par an.",
+  s3_h2:'Les arguments officiels : sécurité, fluidité, coût',
+  s3_p1:'Les arguments en faveur des ronds-points sont réels et documentés :',
+  s3_li1:'<strong>Sécurité routière</strong> : les accidents mortels aux carrefours giratoires sont réduits de −75 % par rapport aux carrefours à feux classiques. Pas de choc frontal possible, vitesses réduites.',
+  s3_li2:'<strong>Fluidité du trafic</strong> : moins d\'arrêts complets, estimation à −15 % de consommation de carburant sur les trajets impactés.',
+  s3_li3:'<strong>Coût d\'entretien</strong> : un rond-point coûte environ <strong>12 000 €/an</strong> à entretenir contre <strong>30 000 €/an</strong> pour un carrefour à feux tricolores (pas de systèmes électroniques, de câbles, de maintenance complexe).',
+  s3_p2:"Ces arguments sont solides. La France a l'un des meilleurs bilans de sécurité routière en Europe — les ronds-points y contribuent significativement.",
+  s4_h2:"Le coût : 20 à 50 milliards d'investissement cumulé",
+  s4_p1:'La médaille a un revers financier. Construire un rond-point coûte :',
+  s4_li1:'<strong>300 000 € à 800 000 €</strong> pour un giratoire urbain simple',
+  s4_li2:'<strong>800 000 € à 1,5 M€</strong> pour un giratoire avec aménagements paysagers, sculptures ou dimensions importantes',
+  s4_p2:"En extrapolant sur 56 000 carrefours (coût moyen ~500 000 €), l'investissement historique total représente <strong>20 à 50 milliards d'euros</strong>. Le coût d'entretien annuel est estimé par le CEREMA à environ <strong>700 millions d'euros par an</strong> pour l'ensemble du parc français.",
+  kpi1_label:'Coût construction moyen',
+  kpi1_sub:'par carrefour giratoire',
+  kpi2_label:'Entretien annuel total',
+  kpi2_sub:'estimation CEREMA 2024',
+  s5_h2:"La dérive : dotations d'État et absorption de budgets voirie",
+  s5_p1:'Au-delà des arguments techniques, plusieurs facteurs ont favorisé la prolifération des ronds-points :',
+  s5_li1:"Les communes et intercommunalités reçoivent des <strong>dotations de l'État pour les infrastructures routières</strong>. Un rond-point avec aménagement paysager et sculpture centrale est un investissement visible, clairement identifiable dans un bilan municipal.",
+  s5_li2:"Les ronds-points permettent d'<strong>absorber des budgets voirie non dépensés</strong> en fin d'exercice, avant leur expiration ou leur récupération par l'État.",
+  s5_li3:"Ils génèrent de l'activité locale : paysagistes, artistes pour les sculptures, entreprises de génie civil. Certaines communes rurales sont devenues de véritables musées de sculpture en plein air grâce à leurs ronds-points.",
+  s5_li4:'La <strong>consommation de foncier</strong> est pourtant significative : un giratoire moyen occupe 1 000 à 5 000 m² — problème sérieux en zone dense ou périurbaine.',
+  s5_p2:'Résultat : certains territoires ruraux ont surinvesti dans des ronds-points <strong>sous-utilisés</strong>, parfois aux entrées de villages de quelques centaines d\'habitants où un simple stop aurait suffi.',
+  caveat_title:'⚠️ Ce que le chiffre ne dit pas',
+  caveat_li1:'<strong style="color:var(--text)">Les ronds-points réduisent effectivement la mortalité routière.</strong> La France a l\'un des meilleurs bilans en Europe en termes de sécurité routière. Critiquer les ronds-points sans mentionner leur efficacité sur la sécurité est intellectuellement malhonnête.',
+  caveat_li2:'<strong style="color:var(--text)">Ils consomment beaucoup d\'espace foncier.</strong> En zone dense ou périurbaine, chaque hectare compte. La prolifération de giratoires dans des zones qui auraient pu accueillir logements ou activités économiques est un coût réel mais difficile à quantifier.',
+  caveat_li3:'<strong style="color:var(--text)">Certains territoires ruraux ont surinvesti.</strong> Des ronds-points à 3 branches dans des villages de 300 habitants, des sculptures coûteuses dans des zones peu fréquentées : la logique budgétaire ("dépenser les dotations") a parfois pris le pas sur la logique d\'utilité.',
+  sources_title:'Sources',
+  sources_text:"CEREMA — Panorama des carrefours giratoires en France 2024 · Sécurité Routière — bilan annuel de l'accidentologie 2024 · Ministère des Transports — données réseau routier · INSEE — données collectivités locales et dotations · Délégation Sénatoriale aux Collectivités Territoriales — rapport sur les dépenses de voirie.",
+  related_title:'Approfondir',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  share_label:'Partager :',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_section:'Roundabouts',
+  breadcrumb_current:'Why so many roundabouts?',
+  hero_eyebrow:'🔵 Roundabouts',
+  hero_h1:'Why does France have so many roundabouts?',
+  hero_intro:'~56,000 roundabouts in France — roughly 65% of the world total. The history and cost of a French exception combining road safety, civil engineering culture and local budget management.',
+  stat_val:'~56,000',
+  stat_ctx:'roundabouts in France in 2024 — roughly <strong>65% of the world total</strong>. England has ~10,000, Germany ~8,000, the United States ~7,000. France is so far outside the norm that the European Union uses it as a case study.<br>Source: CEREMA 2024, Ministry of Transport.',
+  s1_h2:'The numbers: unrivalled global dominance',
+  s1_p1:'With roughly <strong>56,000 roundabouts in 2024</strong>, France alone accounts for more than two-thirds of the world stock. For comparison:',
+  s1_chart_caption:'Estimated number of roundabouts by country, 2024. Source: CEREMA / comparative estimates.',
+  s2_h2:'History: a French idea adopted on a massive scale',
+  s2_p1:"Paradoxically, France is where the modern roundabout concept was born: the <strong>Place de l'Étoile in Paris</strong> is often cited as the first example of circular traffic flow, formalised in 1907. It was <strong>British highway engineers</strong>, however, who codified the modern rules in the 1960s (give-way to circulating traffic).",
+  s2_p2:"France adopted the infrastructure on a massive scale from the <strong>1970s–1980s</strong> onwards, driven by the Ministry of Equipment and the civil engineering corps, with spectacular acceleration in the <strong>1990s–2000s</strong> — hundreds of new roundabouts were being built every year.",
+  s3_h2:'The official case: safety, flow, cost',
+  s3_p1:'The arguments in favour of roundabouts are genuine and well-documented:',
+  s3_li1:'<strong>Road safety</strong>: fatal accidents at roundabouts are reduced by −75% compared with traditional signalised junctions. No head-on collisions, lower speeds.',
+  s3_li2:'<strong>Traffic flow</strong>: fewer complete stops; estimated −15% fuel consumption on affected journeys.',
+  s3_li3:'<strong>Maintenance cost</strong>: a roundabout costs around <strong>€12,000/year</strong> to maintain versus <strong>€30,000/year</strong> for a set of traffic lights (no electronics, cabling or complex upkeep).',
+  s3_p2:"These arguments hold up. France has one of the best road-safety records in Europe — roundabouts make a significant contribution.",
+  s4_h2:'The cost: €20–50 billion in cumulative investment',
+  s4_p1:'There is a financial flip side. Building a roundabout costs:',
+  s4_li1:'<strong>€300,000 to €800,000</strong> for a basic urban roundabout',
+  s4_li2:'<strong>€800,000 to €1.5m</strong> for a roundabout with landscaping, sculptures or large dimensions',
+  s4_p2:'Extrapolating across 56,000 junctions (average cost ~€500,000), the cumulative investment is estimated at <strong>€20–50 billion</strong>. Annual maintenance across the entire French stock is estimated by CEREMA at around <strong>€700 million per year</strong>.',
+  kpi1_label:'Average construction cost',
+  kpi1_sub:'per roundabout',
+  kpi2_label:'Total annual maintenance',
+  kpi2_sub:'CEREMA estimate 2024',
+  s5_h2:'The drift: state grants and road-budget absorption',
+  s5_p1:'Beyond the technical arguments, several factors fuelled the proliferation of roundabouts:',
+  s5_li1:'Municipalities and inter-municipal bodies receive <strong>state infrastructure grants</strong>. A landscaped roundabout with a central sculpture is a visible investment, easily identifiable in a local authority annual report.',
+  s5_li2:'Roundabouts make it easy to <strong>absorb unspent road budgets</strong> before the end of the financial year, avoiding clawback by central government.',
+  s5_li3:'They generate local economic activity: landscapers, sculptors, civil engineering firms. Some rural communes have become open-air sculpture museums thanks to their roundabouts.',
+  s5_li4:'<strong>Land consumption</strong> is nonetheless significant: an average roundabout occupies 1,000–5,000 m² — a serious problem in dense or peri-urban areas.',
+  s5_p2:'The result: some rural areas have over-invested in <strong>under-used</strong> roundabouts, sometimes at the entrance to villages of a few hundred people where a simple stop sign would have sufficed.',
+  caveat_title:'⚠️ What the numbers leave out',
+  caveat_li1:'<strong style="color:var(--text)">Roundabouts genuinely reduce road fatalities.</strong> France has one of the best road-safety records in Europe. Criticising roundabouts without acknowledging their safety benefits is intellectually dishonest.',
+  caveat_li2:'<strong style="color:var(--text)">They consume a lot of land.</strong> In dense or peri-urban areas, every hectare matters. The spread of roundabouts into areas that could have hosted housing or economic activity is a real but hard-to-quantify cost.',
+  caveat_li3:'<strong style="color:var(--text)">Some rural areas have over-invested.</strong> Three-arm roundabouts in villages of 300 people, expensive sculptures in sparsely trafficked areas: budget logic ("spend the grants") has sometimes overridden utility logic.',
+  sources_title:'Sources',
+  sources_text:'CEREMA — Panorama of roundabouts in France 2024 · Road Safety Directorate — 2024 accident report · Ministry of Transport — road network data · INSEE — local authority and grants data · Senate Delegation for Local Authorities — road-spending report.',
+  related_title:'Go deeper',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  share_label:'Share:',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'Pourquoi la France a-t-elle autant de ronds-points ? — Le Français Moyen'
+    :'Why does France have so many roundabouts? — The Average French';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"~56 000 ronds-points en France, soit 65 % du total mondial. Histoire, arguments officiels, coût et dérives d'une exception française expliqués avec les données officielles."
+    :'~56,000 roundabouts in France — 65% of the world total. History, official arguments, cost and excesses of a French exception explained with official data.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

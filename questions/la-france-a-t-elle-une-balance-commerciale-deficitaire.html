@@ -6,6 +6,9 @@
   <title>La balance commerciale française est-elle déficitaire ? — Données Douanes 2024</title>
   <meta name="description" content="La France a un déficit commercial de 99 milliards d'euros en 2023 — le pire de son histoire. Énergie, industrie, services : l'analyse complète de la balance commerciale française.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/la-france-a-t-elle-une-balance-commerciale-deficitaire">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/la-france-a-t-elle-une-balance-commerciale-deficitaire">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/la-france-a-t-elle-une-balance-commerciale-deficitaire">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/la-france-a-t-elle-une-balance-commerciale-deficitaire">
   <meta property="og:title" content="La France a-t-elle une balance commerciale déficitaire ?">
   <meta property="og:description" content="−99 milliards € en 2023 : le déficit commercial français bat des records. Énergie, automobile, industrie : ce qu'on importe et ce qu'on exporte.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/la-france-a-t-elle-une-balance-commerciale-deficitaire">
@@ -74,6 +77,10 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
   </div></header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
@@ -90,21 +97,21 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Industrie</span></nav>
-      <p class="eyebrow" style="text-align:center">🏭 Industrie</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">La France a-t-elle une balance commerciale déficitaire ?</h1>
-      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7">Oui — et le déficit a atteint 99 milliards en 2023, un record historique. L'énergie et l'industrie en sont les principaux responsables. Voici l'analyse complète.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Industrie</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">🏭 Industrie</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">La France a-t-elle une balance commerciale déficitaire ?</h1>
+      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">Oui — et le déficit a atteint 99 milliards en 2023, un record historique. L'énergie et l'industrie en sont les principaux responsables. Voici l'analyse complète.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">−99 Md€</span>
-        <span class="s-ctx">déficit commercial de la France en 2023 (biens et services). Hors services, le déficit des échanges de biens est encore plus lourd : <strong>−99 Md€</strong>. Avec les services (tourisme, ingénierie, finance) en excédent (+21 Md€), le solde global reste profondément négatif.<br>Source : Direction Générale des Douanes et Droits Indirects (DGDDI) 2024.</span>
+        <span class="s-val" data-i18n="stat_val">−99 Md€</span>
+        <span class="s-ctx" data-i18n="stat_ctx">déficit commercial de la France en 2023 (biens et services). Hors services, le déficit des échanges de biens est encore plus lourd : <strong>−99 Md€</strong>. Avec les services (tourisme, ingénierie, finance) en excédent (+21 Md€), le solde global reste profondément négatif.<br>Source : Direction Générale des Douanes et Droits Indirects (DGDDI) 2024.</span>
       </div>
 
       <div class="q-section">
-        <h2>Qui est en surplus, qui est en déficit ?</h2>
+        <h2 data-i18n="s1_h2">Qui est en surplus, qui est en déficit ?</h2>
         <p>Le "solde commercial" global masque des situations très différentes selon les filières :</p>
 
         <div class="trade-header">
@@ -167,19 +174,19 @@
       </div>
 
       <div class="q-section">
-        <h2>L'énergie : la principale cause du déficit</h2>
+        <h2 data-i18n="s2_h2">L'énergie : la principale cause du déficit</h2>
         <p>Le poste le plus lourd est l'énergie : pétrole, gaz naturel, produits raffinés. En 2022, le choc énergétique post-Ukraine a propulsé la facture énergétique à <strong>−130 milliards €</strong>. En 2023, la baisse des prix gaziers a ramené le déficit énergétique à −68 Md€ — toujours considérable.</p>
         <p>La France n'a pas de pétrole ni de gaz naturel. Elle importe l'essentiel de ses besoins pétroliers et une grande part de son gaz. Son atout : le nucléaire couvre 70 % de sa production électrique, réduisant la dépendance par rapport à des pays comme l'Allemagne (qui importe davantage de gaz).</p>
       </div>
 
       <div class="q-section">
-        <h2>L'automobile : un secteur en déclin à l'export</h2>
+        <h2 data-i18n="s3_h2">L'automobile : un secteur en déclin à l'export</h2>
         <p>La France a longtemps été exportatrice nette en automobile (Renault, Peugeot, Citroën). Mais depuis 2005, les constructeurs français ont massivement délocalisé leur production (Roumanie, Maroc, Turquie, Slovaquie) tout en gardant leur siège en France. Résultat : les voitures "françaises" sont de moins en moins fabriquées en France.</p>
         <p>En 2023, la France est devenue <strong>importatrice nette de véhicules</strong> pour la première fois en 40 ans. Les importations de voitures (dont des marques françaises fabriquées à l'étranger) dépassent les exportations de véhicules assemblés en France.</p>
       </div>
 
       <div class="q-section">
-        <h2>La nuance : les services compensent partiellement</h2>
+        <h2 data-i18n="s4_h2">La nuance : les services compensent partiellement</h2>
         <p>La balance commerciale ne porte que sur les <strong>biens</strong>. Si on y ajoute les <strong>services</strong> (tourisme, services financiers, ingénierie, transport, télécommunications), le tableau est moins défavorable :</p>
         <ul>
           <li><strong>Tourisme</strong> : 100 millions de visiteurs par an, 1er rang mondial. Excédent de +21 Md€ en 2023.</li>
@@ -189,7 +196,7 @@
       </div>
 
       <div class="q-section">
-        <h2>Comparaison : la France vs l'Allemagne</h2>
+        <h2 data-i18n="s5_h2">Comparaison : la France vs l'Allemagne</h2>
         <p>L'Allemagne, elle, a un excédent commercial de <strong>+200 milliards €</strong> par an (2023). Elle exporte massivement des machines-outils, des voitures haut de gamme, de la chimie et de l'électronique. Cet excédent est même critiqué par la Commission européenne et les États-Unis, qui y voient un déséquilibre structurel.</p>
         <p>La France et l'Allemagne sont les deux plus grandes économies de la zone euro — mais leurs profils d'échange sont opposés. L'Italie, souvent comparée à la France, a aussi retrouvé un excédent commercial grâce à ses PME exportatrices de niche.</p>
       </div>
@@ -213,15 +220,85 @@
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Industrie',
+  hero_eyebrow:'🏭 Industrie',
+  hero_h1:'La France a-t-elle une balance commerciale déficitaire ?',
+  hero_intro:"Oui — et le déficit a atteint 99 milliards en 2023, un record historique. L'énergie et l'industrie en sont les principaux responsables. Voici l'analyse complète.",
+  stat_val:'−99 Md€',
+  stat_ctx:"déficit commercial de la France en 2023 (biens et services). Hors services, le déficit des échanges de biens est encore plus lourd : <strong>−99 Md€</strong>. Avec les services (tourisme, ingénierie, finance) en excédent (+21 Md€), le solde global reste profondément négatif.<br>Source : Direction Générale des Douanes et Droits Indirects (DGDDI) 2024.",
+  s1_h2:'Qui est en surplus, qui est en déficit ?',
+  s2_h2:"L'énergie : la principale cause du déficit",
+  s3_h2:"L'automobile : un secteur en déclin à l'export",
+  s4_h2:'La nuance : les services compensent partiellement',
+  s5_h2:"Comparaison : la France vs l'Allemagne",
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Industry',
+  hero_eyebrow:'🏭 Industry',
+  hero_h1:'Does France have a trade deficit?',
+  hero_intro:'Yes — and the deficit reached €99 billion in 2023, a historic record. Energy and industry are the main culprits. Here is the full analysis.',
+  stat_val:'−€99bn',
+  stat_ctx:'France\'s trade deficit in 2023 (goods and services). Excluding services, the goods trade deficit is even heavier: <strong>−€99bn</strong>. With services (tourism, engineering, finance) in surplus (+€21bn), the overall balance remains deeply negative.<br>Source: Direction Générale des Douanes et Droits Indirects (DGDDI) 2024.',
+  s1_h2:'Who is in surplus, who is in deficit?',
+  s2_h2:'Energy: the main driver of the deficit',
+  s3_h2:'Automotive: a sector in export decline',
+  s4_h2:'The nuance: services partially offset the deficit',
+  s5_h2:'Comparison: France vs Germany',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'La balance commerciale française est-elle déficitaire ? — Données Douanes 2024'
+    :'Does France Have a Trade Deficit? — French Customs Data 2024';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"La France a un déficit commercial de 99 milliards d'euros en 2023 — le pire de son histoire. Énergie, industrie, services : l'analyse complète de la balance commerciale française."
+    :"France has a trade deficit of €99 billion in 2023 — the worst in its history. Energy, industry, services: a complete analysis of France's trade balance.");
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

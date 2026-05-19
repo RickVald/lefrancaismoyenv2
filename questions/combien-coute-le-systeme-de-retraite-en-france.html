@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -6,6 +6,9 @@
   <title>Combien coûte le système de retraite en France ? — Chiffres COR 2024</title>
   <meta name="description" content="Le système de retraite français coûte 345 milliards d'euros par an, soit 13,5 % du PIB. Le plus élevé d'Europe. Financement, projection 2050 et comparaison avec l'Allemagne et la Suède.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/combien-coute-le-systeme-de-retraite-en-france">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/combien-coute-le-systeme-de-retraite-en-france">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/combien-coute-le-systeme-de-retraite-en-france">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/combien-coute-le-systeme-de-retraite-en-france">
   <meta property="og:title" content="Combien coûte le système de retraite en France ?">
   <meta property="og:description" content="345 milliards par an, 13,5 % du PIB. Le système de retraite français est le plus coûteux d'Europe. Financement et projections COR 2024.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/combien-coute-le-systeme-de-retraite-en-france">
@@ -74,7 +77,12 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
   </div></header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
     <a href="/retraites/">🧓 Retraites</a><a href="/fonctionnaires/">🏛 Fonctionnaires</a>
@@ -90,141 +98,248 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Retraites</span></nav>
-      <p class="eyebrow" style="text-align:center">🧓 Retraites</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">Combien coûte le système de retraite en France ?</h1>
-      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7">345 milliards d'euros par an. C'est le premier poste de dépenses publiques françaises — devant la santé. Et la question de sa soutenabilité est centrale pour les décennies à venir.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Retraites</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">🧓 Retraites</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">Combien coûte le système de retraite en France ?</h1>
+      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">345 milliards d'euros par an. C'est le premier poste de dépenses publiques françaises — devant la santé. Et la question de sa soutenabilité est centrale pour les décennies à venir.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">345 Md€ / an</span>
-        <span class="s-ctx">dépenses totales du système de retraite en France en 2023, soit <strong>13,5 % du PIB</strong> — le niveau le plus élevé d'Europe occidentale, devant l'Italie (15 %) mais nettement au-dessus de l'Allemagne (10 %) et de la Suède (7 %).<br>Source : COR — Rapport annuel 2024.</span>
+        <span class="s-val" data-i18n="stat_val">345 Md€ / an</span>
+        <span class="s-ctx" data-i18n="stat_ctx">dépenses totales du système de retraite en France en 2023, soit <strong>13,5 % du PIB</strong> — le niveau le plus élevé d'Europe occidentale, devant l'Italie (15 %) mais nettement au-dessus de l'Allemagne (10 %) et de la Suède (7 %).<br>Source : COR — Rapport annuel 2024.</span>
       </div>
 
       <div class="q-section">
-        <h2>Un système qui représente 1 euro de dépenses publiques sur 4</h2>
-        <p>Les retraites constituent <strong>le premier poste de dépenses publiques</strong> en France, devant la santé (285 milliards) et l'éducation (160 milliards). Sur les 1 600 milliards de dépenses publiques totales, les retraites en représentent 21 %.</p>
-        <p>En 2023, la France verse des pensions à <strong>17 millions de retraités</strong>, pour une pension nette moyenne de <strong>1 600 € par mois</strong> (tous régimes confondus). Ce montant masque des disparités considérables : de 700 € pour les petites retraites agricoles à plus de 3 000 € pour les retraites de cadres du secteur public.</p>
+        <h2 data-i18n="s1_h2">Un système qui représente 1 euro de dépenses publiques sur 4</h2>
+        <p data-i18n="s1_p1">Les retraites constituent <strong>le premier poste de dépenses publiques</strong> en France, devant la santé (285 milliards) et l'éducation (160 milliards). Sur les 1 600 milliards de dépenses publiques totales, les retraites en représentent 21 %.</p>
+        <p data-i18n="s1_p2">En 2023, la France verse des pensions à <strong>17 millions de retraités</strong>, pour une pension nette moyenne de <strong>1 600 € par mois</strong> (tous régimes confondus). Ce montant masque des disparités considérables : de 700 € pour les petites retraites agricoles à plus de 3 000 € pour les retraites de cadres du secteur public.</p>
 
         <div class="funding-grid">
           <div class="fund-card">
             <div class="fv">345 Md€</div>
-            <div class="fl">Total pensions versées / an</div>
+            <div class="fl" data-i18n="kpi1_label">Total pensions versées / an</div>
           </div>
           <div class="fund-card">
             <div class="fv">17 M</div>
-            <div class="fl">Retraités en France (2023)</div>
+            <div class="fl" data-i18n="kpi2_label">Retraités en France (2023)</div>
           </div>
           <div class="fund-card">
             <div class="fv">1 600 €</div>
-            <div class="fl">Pension nette moyenne/mois</div>
+            <div class="fl" data-i18n="kpi3_label">Pension nette moyenne/mois</div>
           </div>
           <div class="fund-card">
             <div class="fv">13,5 %</div>
-            <div class="fl">du PIB (1er en Europe)</div>
+            <div class="fl" data-i18n="kpi4_label">du PIB (1er en Europe)</div>
           </div>
         </div>
       </div>
 
       <div class="q-section">
-        <h2>Qui finance les retraites ?</h2>
-        <p>Le système de retraite français est basé sur la <strong>répartition</strong> : les actifs d'aujourd'hui paient les pensions des retraités d'aujourd'hui (pas de capitalisation). Les financements proviennent de :</p>
+        <h2 data-i18n="s2_h2">Qui finance les retraites ?</h2>
+        <p data-i18n="s2_p1">Le système de retraite français est basé sur la <strong>répartition</strong> : les actifs d'aujourd'hui paient les pensions des retraités d'aujourd'hui (pas de capitalisation). Les financements proviennent de :</p>
         <ul>
-          <li><strong>Cotisations sociales salariales et patronales</strong> (~62 % du financement) — environ 215 milliards € en 2023</li>
-          <li><strong>CSG / CRDS</strong> (~15 %) — contribution sociale généralisée, qui finance aussi l'assurance maladie</li>
-          <li><strong>Transferts de l'État</strong> (~12 %) — notamment pour financer les régimes spéciaux déficitaires (SNCF, RATP, régimes agricoles) et les retraites des fonctionnaires</li>
-          <li><strong>Autres</strong> (~11 %) — prises en charge Unédic, FSV (Fonds de Solidarité Vieillesse), etc.</li>
+          <li data-i18n="s2_li1"><strong>Cotisations sociales salariales et patronales</strong> (~62 % du financement) — environ 215 milliards € en 2023</li>
+          <li data-i18n="s2_li2"><strong>CSG / CRDS</strong> (~15 %) — contribution sociale généralisée, qui finance aussi l'assurance maladie</li>
+          <li data-i18n="s2_li3"><strong>Transferts de l'État</strong> (~12 %) — notamment pour financer les régimes spéciaux déficitaires (SNCF, RATP, régimes agricoles) et les retraites des fonctionnaires</li>
+          <li data-i18n="s2_li4"><strong>Autres</strong> (~11 %) — prises en charge Unédic, FSV (Fonds de Solidarité Vieillesse), etc.</li>
         </ul>
-        <p>Le régime général (CNAV, la principale caisse de retraite) est à l'équilibre ou proche de l'équilibre grâce aux cotisations. Ce sont les régimes spéciaux et la retraite des fonctionnaires qui nécessitent des subventions importantes de l'État.</p>
+        <p data-i18n="s2_p2">Le régime général (CNAV, la principale caisse de retraite) est à l'équilibre ou proche de l'équilibre grâce aux cotisations. Ce sont les régimes spéciaux et la retraite des fonctionnaires qui nécessitent des subventions importantes de l'État.</p>
       </div>
 
       <div class="q-section">
-        <h2>Comparaison européenne : la France dépense le plus</h2>
+        <h2 data-i18n="s3_h2">Comparaison européenne : la France dépense le plus</h2>
 
         <div class="bar-chart">
           <div class="bar-item">
-            <span class="bar-label">Italie</span>
+            <span class="bar-label" data-i18n="bar_italy">Italie</span>
             <div class="bar-track"><div class="bar-fill" style="width:94%;background:#f87171">15,0 %</div></div>
             <span class="bar-val">15,0 % PIB</span>
           </div>
           <div class="bar-item">
-            <span class="bar-label">France</span>
+            <span class="bar-label" data-i18n="bar_france">France</span>
             <div class="bar-track"><div class="bar-fill" style="width:85%;background:#a78bfa">13,5 %</div></div>
             <span class="bar-val">13,5 % PIB</span>
           </div>
           <div class="bar-item">
-            <span class="bar-label">Grèce</span>
+            <span class="bar-label" data-i18n="bar_greece">Grèce</span>
             <div class="bar-track"><div class="bar-fill" style="width:81%;background:#fb923c">12,9 %</div></div>
             <span class="bar-val">12,9 % PIB</span>
           </div>
           <div class="bar-item">
-            <span class="bar-label">Allemagne</span>
+            <span class="bar-label" data-i18n="bar_germany">Allemagne</span>
             <div class="bar-track"><div class="bar-fill" style="width:63%;background:#60a5fa">10,0 %</div></div>
             <span class="bar-val">10,0 % PIB</span>
           </div>
           <div class="bar-item">
-            <span class="bar-label">Pays-Bas</span>
+            <span class="bar-label" data-i18n="bar_netherlands">Pays-Bas</span>
             <div class="bar-track"><div class="bar-fill" style="width:56%;background:#34d399">9,0 %</div></div>
             <span class="bar-val">9,0 % PIB</span>
           </div>
           <div class="bar-item">
-            <span class="bar-label">Suède</span>
+            <span class="bar-label" data-i18n="bar_sweden">Suède</span>
             <div class="bar-track"><div class="bar-fill" style="width:44%;background:#34d399">7,0 %</div></div>
             <span class="bar-val">7,0 % PIB</span>
           </div>
         </div>
-        <p style="font-size:.82rem;color:var(--muted);margin-top:0">Dépenses de retraite en % du PIB, 2022. Source : Eurostat.</p>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:0" data-i18n="s3_source">Dépenses de retraite en % du PIB, 2022. Source : Eurostat.</p>
 
-        <p>L'écart avec la Suède (7 % vs 13,5 %) s'explique par des facteurs structurels : en Suède, l'âge effectif de départ est plus élevé (65 ans), la durée de retraite est plus courte, et le système inclut une part de capitalisation individuelle (comptes notionnels).</p>
+        <p data-i18n="s3_p1">L'écart avec la Suède (7 % vs 13,5 %) s'explique par des facteurs structurels : en Suède, l'âge effectif de départ est plus élevé (65 ans), la durée de retraite est plus courte, et le système inclut une part de capitalisation individuelle (comptes notionnels).</p>
       </div>
 
       <div class="q-section">
-        <h2>Les projections à 2050 : une soutenabilité incertaine</h2>
-        <p>Le COR (Conseil d'Orientation des Retraites) publie chaque année des projections financières à long terme. Les scénarios 2024 montrent :</p>
+        <h2 data-i18n="s4_h2">Les projections à 2050 : une soutenabilité incertaine</h2>
+        <p data-i18n="s4_p1">Le COR (Conseil d'Orientation des Retraites) publie chaque année des projections financières à long terme. Les scénarios 2024 montrent :</p>
         <ul>
-          <li>En scénario central (croissance 1 %/an, chômage 7 %) : le système reste <strong>proche de l'équilibre jusqu'en 2030</strong>, puis présente un déficit de 0,4 à 0,8 % du PIB à partir de 2040.</li>
-          <li>En scénario pessimiste (croissance 0,7 %) : <strong>déficit de 1,5 % du PIB</strong> dès 2035 — soit un trou annuel de 35 à 40 milliards.</li>
-          <li>En scénario optimiste (croissance 1,5 %) : le système revient à l'équilibre sans réforme.</li>
+          <li data-i18n="s4_li1">En scénario central (croissance 1 %/an, chômage 7 %) : le système reste <strong>proche de l'équilibre jusqu'en 2030</strong>, puis présente un déficit de 0,4 à 0,8 % du PIB à partir de 2040.</li>
+          <li data-i18n="s4_li2">En scénario pessimiste (croissance 0,7 %) : <strong>déficit de 1,5 % du PIB</strong> dès 2035 — soit un trou annuel de 35 à 40 milliards.</li>
+          <li data-i18n="s4_li3">En scénario optimiste (croissance 1,5 %) : le système revient à l'équilibre sans réforme.</li>
         </ul>
-        <p>La réforme de 2023 (passage de 62 à 64 ans) améliore le solde de <strong>17 milliards par an à horizon 2040</strong> selon le COR — ce qui ne suffit pas à effacer le déficit dans les scénarios médians. D'autres leviers seront probablement nécessaires : hausse des cotisations, nouvelles réformes des régimes spéciaux, ou allongement supplémentaire de la durée de cotisation.</p>
+        <p data-i18n="s4_p2">La réforme de 2023 (passage de 62 à 64 ans) améliore le solde de <strong>17 milliards par an à horizon 2040</strong> selon le COR — ce qui ne suffit pas à effacer le déficit dans les scénarios médians. D'autres leviers seront probablement nécessaires : hausse des cotisations, nouvelles réformes des régimes spéciaux, ou allongement supplémentaire de la durée de cotisation.</p>
       </div>
 
       <div class="q-section">
-        <h2>Le cas particulier des retraites des fonctionnaires</h2>
-        <p>Les fonctionnaires de l'État (hors collectivités et hôpitaux) ne cotisent pas dans le régime général — ils bénéficient d'un régime spécifique, le Service des Retraites de l'État. Ce régime est <strong>structurellement déficitaire</strong> : les cotisations des fonctionnaires actifs (26,6 % du traitement brut en cotisation employeur État) ne couvrent pas les pensions versées.</p>
-        <p>L'État comble ce déficit par une subvention directe estimée à <strong>40–50 milliards € par an</strong> selon la Cour des Comptes. À cela s'ajoutent les retraites des agents des collectivités (CNRACL) et de la fonction publique hospitalière, dont l'équilibre se dégrade.</p>
+        <h2 data-i18n="s5_h2">Le cas particulier des retraites des fonctionnaires</h2>
+        <p data-i18n="s5_p1">Les fonctionnaires de l'État (hors collectivités et hôpitaux) ne cotisent pas dans le régime général — ils bénéficient d'un régime spécifique, le Service des Retraites de l'État. Ce régime est <strong>structurellement déficitaire</strong> : les cotisations des fonctionnaires actifs (26,6 % du traitement brut en cotisation employeur État) ne couvrent pas les pensions versées.</p>
+        <p data-i18n="s5_p2">L'État comble ce déficit par une subvention directe estimée à <strong>40–50 milliards € par an</strong> selon la Cour des Comptes. À cela s'ajoutent les retraites des agents des collectivités (CNRACL) et de la fonction publique hospitalière, dont l'équilibre se dégrade.</p>
       </div>
 
       <div class="q-sources">
-        <strong>Sources</strong>
-        COR — Rapport annuel 2024 · DREES — Les retraités et les retraites 2024 · Eurostat — Social protection expenditure 2022 · Cour des Comptes — Rapport sur les finances de la protection sociale 2023 · Gouvernement — PLF 2024, annexe retraites fonctionnaires · OCDE — Pensions at a Glance 2023.
+        <strong data-i18n="sources_label">Sources</strong>
+        <span data-i18n="sources_text">COR — Rapport annuel 2024 · DREES — Les retraités et les retraites 2024 · Eurostat — Social protection expenditure 2022 · Cour des Comptes — Rapport sur les finances de la protection sociale 2023 · Gouvernement — PLF 2024, annexe retraites fonctionnaires · OCDE — Pensions at a Glance 2023.</span>
       </div>
 
       <div class="related">
-        <h3>Approfondir</h3>
+        <h3 data-i18n="related_h3">Approfondir</h3>
         <div class="related-links">
-          <a href="/retraites/" class="related-link">🧓 Analyse retraites complète</a>
-          <a href="/questions/a-quel-age-les-francais-partent-ils-a-la-retraite" class="related-link">🧓 Âge de départ à la retraite</a>
-          <a href="/questions/pourquoi-la-france-est-endettee" class="related-link">⏱ Pourquoi la France est endettée ?</a>
-          <a href="/questions/combien-y-a-t-il-de-fonctionnaires-en-france" class="related-link">🏛 Fonctionnaires en France</a>
+          <a href="/retraites/" class="related-link" data-i18n="related_1">🧓 Analyse retraites complète</a>
+          <a href="/questions/a-quel-age-les-francais-partent-ils-a-la-retraite" class="related-link" data-i18n="related_2">🧓 Âge de départ à la retraite</a>
+          <a href="/questions/pourquoi-la-france-est-endettee" class="related-link" data-i18n="related_3">⏱ Pourquoi la France est endettée ?</a>
+          <a href="/questions/combien-y-a-t-il-de-fonctionnaires-en-france" class="related-link" data-i18n="related_4">🏛 Fonctionnaires en France</a>
         </div>
       </div>
     </div>
-  
+
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Retraites',
+  hero_eyebrow:'🧓 Retraites',
+  hero_h1:'Combien coûte le système de retraite en France ?',
+  hero_intro:"345 milliards d'euros par an. C'est le premier poste de dépenses publiques françaises — devant la santé. Et la question de sa soutenabilité est centrale pour les décennies à venir.",
+  stat_val:'345 Md€ / an',
+  stat_ctx:'dépenses totales du système de retraite en France en 2023, soit <strong>13,5 % du PIB</strong> — le niveau le plus élevé d\'Europe occidentale, devant l\'Italie (15 %) mais nettement au-dessus de l\'Allemagne (10 %) et de la Suède (7 %).<br>Source : COR — Rapport annuel 2024.',
+  s1_h2:'Un système qui représente 1 euro de dépenses publiques sur 4',
+  s1_p1:'Les retraites constituent <strong>le premier poste de dépenses publiques</strong> en France, devant la santé (285 milliards) et l\'éducation (160 milliards). Sur les 1 600 milliards de dépenses publiques totales, les retraites en représentent 21 %.',
+  s1_p2:'En 2023, la France verse des pensions à <strong>17 millions de retraités</strong>, pour une pension nette moyenne de <strong>1 600 € par mois</strong> (tous régimes confondus). Ce montant masque des disparités considérables : de 700 € pour les petites retraites agricoles à plus de 3 000 € pour les retraites de cadres du secteur public.',
+  kpi1_label:'Total pensions versées / an',
+  kpi2_label:'Retraités en France (2023)',
+  kpi3_label:'Pension nette moyenne/mois',
+  kpi4_label:'du PIB (1er en Europe)',
+  s2_h2:'Qui finance les retraites ?',
+  s2_p1:'Le système de retraite français est basé sur la <strong>répartition</strong> : les actifs d\'aujourd\'hui paient les pensions des retraités d\'aujourd\'hui (pas de capitalisation). Les financements proviennent de :',
+  s2_li1:'<strong>Cotisations sociales salariales et patronales</strong> (~62 % du financement) — environ 215 milliards € en 2023',
+  s2_li2:'<strong>CSG / CRDS</strong> (~15 %) — contribution sociale généralisée, qui finance aussi l\'assurance maladie',
+  s2_li3:'<strong>Transferts de l\'État</strong> (~12 %) — notamment pour financer les régimes spéciaux déficitaires (SNCF, RATP, régimes agricoles) et les retraites des fonctionnaires',
+  s2_li4:'<strong>Autres</strong> (~11 %) — prises en charge Unédic, FSV (Fonds de Solidarité Vieillesse), etc.',
+  s2_p2:'Le régime général (CNAV, la principale caisse de retraite) est à l\'équilibre ou proche de l\'équilibre grâce aux cotisations. Ce sont les régimes spéciaux et la retraite des fonctionnaires qui nécessitent des subventions importantes de l\'État.',
+  s3_h2:'Comparaison européenne : la France dépense le plus',
+  bar_italy:'Italie',bar_france:'France',bar_greece:'Grèce',bar_germany:'Allemagne',bar_netherlands:'Pays-Bas',bar_sweden:'Suède',
+  s3_source:'Dépenses de retraite en % du PIB, 2022. Source : Eurostat.',
+  s3_p1:"L'écart avec la Suède (7 % vs 13,5 %) s'explique par des facteurs structurels : en Suède, l'âge effectif de départ est plus élevé (65 ans), la durée de retraite est plus courte, et le système inclut une part de capitalisation individuelle (comptes notionnels).",
+  s4_h2:'Les projections à 2050 : une soutenabilité incertaine',
+  s4_p1:'Le COR (Conseil d\'Orientation des Retraites) publie chaque année des projections financières à long terme. Les scénarios 2024 montrent :',
+  s4_li1:'En scénario central (croissance 1 %/an, chômage 7 %) : le système reste <strong>proche de l\'équilibre jusqu\'en 2030</strong>, puis présente un déficit de 0,4 à 0,8 % du PIB à partir de 2040.',
+  s4_li2:'En scénario pessimiste (croissance 0,7 %) : <strong>déficit de 1,5 % du PIB</strong> dès 2035 — soit un trou annuel de 35 à 40 milliards.',
+  s4_li3:'En scénario optimiste (croissance 1,5 %) : le système revient à l\'équilibre sans réforme.',
+  s4_p2:'La réforme de 2023 (passage de 62 à 64 ans) améliore le solde de <strong>17 milliards par an à horizon 2040</strong> selon le COR — ce qui ne suffit pas à effacer le déficit dans les scénarios médians. D\'autres leviers seront probablement nécessaires : hausse des cotisations, nouvelles réformes des régimes spéciaux, ou allongement supplémentaire de la durée de cotisation.',
+  s5_h2:'Le cas particulier des retraites des fonctionnaires',
+  s5_p1:'Les fonctionnaires de l\'État (hors collectivités et hôpitaux) ne cotisent pas dans le régime général — ils bénéficient d\'un régime spécifique, le Service des Retraites de l\'État. Ce régime est <strong>structurellement déficitaire</strong> : les cotisations des fonctionnaires actifs (26,6 % du traitement brut en cotisation employeur État) ne couvrent pas les pensions versées.',
+  s5_p2:'L\'État comble ce déficit par une subvention directe estimée à <strong>40–50 milliards € par an</strong> selon la Cour des Comptes. À cela s\'ajoutent les retraites des agents des collectivités (CNRACL) et de la fonction publique hospitalière, dont l\'équilibre se dégrade.',
+  sources_label:'Sources',
+  sources_text:'COR — Rapport annuel 2024 · DREES — Les retraités et les retraites 2024 · Eurostat — Social protection expenditure 2022 · Cour des Comptes — Rapport sur les finances de la protection sociale 2023 · Gouvernement — PLF 2024, annexe retraites fonctionnaires · OCDE — Pensions at a Glance 2023.',
+  related_h3:'Approfondir',
+  related_1:'🧓 Analyse retraites complète',
+  related_2:'🧓 Âge de départ à la retraite',
+  related_3:'⏱ Pourquoi la France est endettée ?',
+  related_4:'🏛 Fonctionnaires en France',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Pensions',
+  hero_eyebrow:'🧓 Pensions',
+  hero_h1:'How much does the French pension system cost?',
+  hero_intro:'€345 billion per year. It is the largest item of French public spending — ahead of healthcare. And the question of its long-term sustainability is central to the decades ahead.',
+  stat_val:'€345bn / year',
+  stat_ctx:'total spending by the French pension system in 2023, equal to <strong>13.5% of GDP</strong> — the highest level in Western Europe, ahead of Italy (15%) but well above Germany (10%) and Sweden (7%).<br>Source: COR — Annual Report 2024.',
+  s1_h2:'A system that accounts for 1 in every 4 euros of public spending',
+  s1_p1:'Pensions represent <strong>the largest item of public spending</strong> in France, ahead of healthcare (€285bn) and education (€160bn). Out of €1,600bn in total public expenditure, pensions account for 21%.',
+  s1_p2:'In 2023, France pays pensions to <strong>17 million retirees</strong>, with an average net pension of <strong>€1,600 per month</strong> (across all schemes). This figure masks considerable disparities: from €700 for small agricultural pensions to over €3,000 for senior public-sector retirees.',
+  kpi1_label:'Total pensions paid / year',
+  kpi2_label:'Retirees in France (2023)',
+  kpi3_label:'Average net pension / month',
+  kpi4_label:'of GDP (1st in Europe)',
+  s2_h2:'Who funds the pensions?',
+  s2_p1:'The French pension system is a <strong>pay-as-you-go</strong> scheme: today\'s workers pay the pensions of today\'s retirees (no funded component). Funding sources are:',
+  s2_li1:'<strong>Employee and employer social contributions</strong> (~62% of funding) — around €215bn in 2023',
+  s2_li2:'<strong>CSG / CRDS</strong> (~15%) — the general social contribution, which also funds health insurance',
+  s2_li3:'<strong>State transfers</strong> (~12%) — mainly to fund deficit-running special schemes (SNCF, RATP, agricultural schemes) and civil-servant pensions',
+  s2_li4:'<strong>Other</strong> (~11%) — Unédic contributions, FSV (Solidarity Fund for the Elderly), etc.',
+  s2_p2:'The general scheme (CNAV, the main pension fund) is at or near balance thanks to contributions. It is the special schemes and civil-servant pensions that require substantial State subsidies.',
+  s3_h2:'European comparison: France spends the most',
+  bar_italy:'Italy',bar_france:'France',bar_greece:'Greece',bar_germany:'Germany',bar_netherlands:'Netherlands',bar_sweden:'Sweden',
+  s3_source:'Pension spending as % of GDP, 2022. Source: Eurostat.',
+  s3_p1:'The gap with Sweden (7% vs 13.5%) is explained by structural factors: in Sweden the effective retirement age is higher (65), the retirement period is shorter, and the system includes an individual funded component (notional accounts).',
+  s4_h2:'2050 projections: uncertain sustainability',
+  s4_p1:'The COR (Pensions Advisory Council) publishes long-term financial projections each year. The 2024 scenarios show:',
+  s4_li1:'Central scenario (1% annual growth, 7% unemployment): the system remains <strong>close to balance until 2030</strong>, then runs a deficit of 0.4–0.8% of GDP from 2040.',
+  s4_li2:'Pessimistic scenario (0.7% growth): <strong>deficit of 1.5% of GDP</strong> from 2035 — an annual shortfall of €35–40bn.',
+  s4_li3:'Optimistic scenario (1.5% growth): the system returns to balance without reform.',
+  s4_p2:'The 2023 reform (raising the retirement age from 62 to 64) improves the balance by <strong>€17bn per year by 2040</strong> according to the COR — which is not enough to eliminate the deficit in median scenarios. Other levers will likely be needed: higher contributions, further reform of special schemes, or an additional extension of the contribution period.',
+  s5_h2:'The special case of civil-servant pensions',
+  s5_p1:"State civil servants (excluding local authorities and hospitals) do not contribute to the general scheme — they benefit from a specific scheme, the State Pension Service. This scheme is <strong>structurally in deficit</strong>: active civil servants' contributions (26.6% of gross pay as the State employer contribution) do not cover the pensions paid out.",
+  s5_p2:'The State covers this deficit through a direct subsidy estimated at <strong>€40–50bn per year</strong> by the Court of Auditors. On top of this are pensions for local-authority employees (CNRACL) and public-hospital staff, whose finances are deteriorating.',
+  sources_label:'Sources',
+  sources_text:'COR — Annual Report 2024 · DREES — Retirees and Pensions 2024 · Eurostat — Social protection expenditure 2022 · Court of Auditors — Report on social protection finances 2023 · Government — Draft Budget 2024, civil-servant pensions annex · OECD — Pensions at a Glance 2023.',
+  related_h3:'Go further',
+  related_1:'🧓 Full pension analysis',
+  related_2:'🧓 Retirement age in France',
+  related_3:'⏱ Why is France in debt?',
+  related_4:'🏛 Civil servants in France',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){lang=l;localStorage.setItem('lfm-lang',l);document.documentElement.lang=l==='fr'?'fr':'en';document.getElementById('btn-fr').classList.toggle('active',l==='fr');document.getElementById('btn-en').classList.toggle('active',l==='en');var s=T[l];document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];});document.title=l==='fr'?'Combien coûte le système de retraite en France ? — Chiffres COR 2024':'How Much Does the French Pension System Cost? — COR 2024 Data';var d=document.querySelector('meta[name="description"]');if(d)d.setAttribute('content',l==='fr'?'Le système de retraite français coûte 345 milliards d\'euros par an, soit 13,5 % du PIB. Le plus élevé d\'Europe. Financement, projection 2050 et comparaison avec l\'Allemagne et la Suède.':'The French pension system costs €345 billion per year, or 13.5% of GDP — the highest in Europe. Funding breakdown, 2050 projections and comparison with Germany and Sweden.');}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

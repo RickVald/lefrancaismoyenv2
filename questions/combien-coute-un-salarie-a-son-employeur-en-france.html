@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -6,6 +6,9 @@
   <title>Combien coûte un salarié à son employeur en France ? — Calcul 2024</title>
   <meta name="description" content="Un salarié au SMIC coûte 1 767 € net mais ~2 100 € à l'employeur. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète du coût total employeur : brut, charges, taxes.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france">
   <meta property="og:title" content="Combien coûte un salarié à son employeur en France ?">
   <meta property="og:description" content="SMIC : 1 767 € net pour ~2 100 € de coût employeur. Cadre à 4 000 € net : ~6 500 €. Le calcul complet des charges sociales patronales et du coût total en France.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/combien-coute-un-salarie-a-son-employeur-en-france">
@@ -89,8 +92,12 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-    <a href="/" class="cta">← Tableau de bord</a>
+    <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
   </div></header>
   <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Menu mobile">
     <a href="/">🏠 Accueil</a>
@@ -107,88 +114,88 @@
 
   <main id="contenu">
     <nav aria-label="Fil d'Ariane" style="max-width:760px;margin:0 auto;padding:24px 24px 0;font-size:.88rem;color:var(--muted)">
-      <a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Coût salarié employeur</span>
+      <a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Coût salarié employeur</span>
     </nav>
 
     <div class="q-hero">
-      <p class="eyebrow">Emploi &amp; fiscalité</p>
-      <h1>Combien coûte un salarié à son employeur en France ?</h1>
-      <p style="color:var(--muted);max-width:600px;margin:12px auto 0;line-height:1.7">Le salarié voit son net. L'employeur voit le coût total. Entre les deux, il y a les cotisations patronales — parfois plus importantes que le salaire net lui-même.</p>
+      <p class="eyebrow" data-i18n="hero_eyebrow">Emploi &amp; fiscalité</p>
+      <h1 data-i18n="hero_h1">Combien coûte un salarié à son employeur en France ?</h1>
+      <p style="color:var(--muted);max-width:600px;margin:12px auto 0;line-height:1.7" data-i18n="hero_intro">Le salarié voit son net. L'employeur voit le coût total. Entre les deux, il y a les cotisations patronales — parfois plus importantes que le salaire net lui-même.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">× 1,7 à × 2,1</span>
-        <span class="s-ctx">Le coût total employeur est en moyenne 1,7 à 2,1 fois le salaire net du salarié en France.<br>Ratio parmi les plus élevés d'Europe, après avoir bénéficié des allègements Fillon sur les bas salaires.</span>
+        <span class="s-val" data-i18n="stat_val">× 1,7 à × 2,1</span>
+        <span class="s-ctx" data-i18n="stat_ctx">Le coût total employeur est en moyenne 1,7 à 2,1 fois le salaire net du salarié en France.<br>Ratio parmi les plus élevés d'Europe, après avoir bénéficié des allègements Fillon sur les bas salaires.</span>
       </div>
 
       <div class="q-section">
-        <h2>La décomposition : du net au coût employeur</h2>
-        <p>Pour comprendre le coût réel, il faut remonter du salaire net vers le coût total employeur :</p>
+        <h2 data-i18n="s1_h2">La décomposition : du net au coût employeur</h2>
+        <p data-i18n="s1_p1">Pour comprendre le coût réel, il faut remonter du salaire net vers le coût total employeur :</p>
         <div class="salaire-decomp">
           <div class="sd-bar-row">
-            <div class="sd-label">Salaire net</div>
-            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-net" style="width:55%">Ce que le salarié reçoit</div></div>
+            <div class="sd-label" data-i18n="bar1_label">Salaire net</div>
+            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-net" style="width:55%" data-i18n="bar1_fill">Ce que le salarié reçoit</div></div>
             <div class="sd-val" style="color:#60a5fa">~55 %</div>
           </div>
           <div class="sd-bar-row">
-            <div class="sd-label">Cotisations salariales</div>
-            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-sal" style="width:22%">Retraite, santé, chômage...</div></div>
+            <div class="sd-label" data-i18n="bar2_label">Cotisations salariales</div>
+            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-sal" style="width:22%" data-i18n="bar2_fill">Retraite, santé, chômage...</div></div>
             <div class="sd-val" style="color:#a78bfa">~22 %</div>
           </div>
           <div class="sd-bar-row">
-            <div class="sd-label">Cotisations patronales</div>
-            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-pat" style="width:23%">Payées par l'employeur</div></div>
+            <div class="sd-label" data-i18n="bar3_label">Cotisations patronales</div>
+            <div class="sd-bar-wrap"><div class="sd-bar-fill fill-pat" style="width:23%" data-i18n="bar3_fill">Payées par l'employeur</div></div>
             <div class="sd-val" style="color:#fb923c">~23 %</div>
           </div>
         </div>
-        <p style="font-size:.83rem;color:var(--muted)">Schéma simplifié pour un salarié cadre au niveau médian. Les ratios varient selon le niveau de salaire (allègements au SMIC, taux AGIRC-ARRCO différents...).</p>
+        <p style="font-size:.83rem;color:var(--muted)" data-i18n="s1_note">Schéma simplifié pour un salarié cadre au niveau médian. Les ratios varient selon le niveau de salaire (allègements au SMIC, taux AGIRC-ARRCO différents...).</p>
       </div>
 
       <div class="q-section">
-        <h2>Profils concrets : du SMIC au cadre supérieur</h2>
+        <h2 data-i18n="s2_h2">Profils concrets : du SMIC au cadre supérieur</h2>
         <table class="profil-table">
           <thead>
             <tr>
-              <th>Profil</th>
-              <th>Salaire net/mois</th>
-              <th>Brut/mois</th>
-              <th>Coût total employeur</th>
-              <th>Ratio net/coût</th>
+              <th data-i18n="pt_profil">Profil</th>
+              <th data-i18n="pt_net">Salaire net/mois</th>
+              <th data-i18n="pt_brut">Brut/mois</th>
+              <th data-i18n="pt_cout">Coût total employeur</th>
+              <th data-i18n="pt_ratio">Ratio net/coût</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>SMIC (2024)</td>
+              <td data-i18n="p1_profil">SMIC (2024)</td>
               <td>1 398 €</td>
               <td>1 767 €</td>
               <td class="val-cout">~2 100 €</td>
               <td class="val-ratio">× 1,5</td>
             </tr>
             <tr>
-              <td>Salaire médian</td>
+              <td data-i18n="p2_profil">Salaire médian</td>
               <td>2 050 €</td>
               <td>2 600 €</td>
               <td class="val-cout">~3 500 €</td>
               <td class="val-ratio">× 1,7</td>
             </tr>
             <tr>
-              <td>Cadre confirmé</td>
+              <td data-i18n="p3_profil">Cadre confirmé</td>
               <td>4 000 €</td>
               <td>5 200 €</td>
               <td class="val-cout">~6 500 €</td>
               <td class="val-ratio">× 1,6</td>
             </tr>
             <tr>
-              <td>Cadre sup / ingénieur</td>
+              <td data-i18n="p4_profil">Cadre sup / ingénieur</td>
               <td>6 000 €</td>
               <td>7 900 €</td>
               <td class="val-cout">~10 200 €</td>
               <td class="val-ratio">× 1,7</td>
             </tr>
             <tr>
-              <td>Haut cadre (plafond SS ×4)</td>
+              <td data-i18n="p5_profil">Haut cadre (plafond SS ×4)</td>
               <td>10 000 €</td>
               <td>13 200 €</td>
               <td class="val-cout">~17 500 €</td>
@@ -196,111 +203,273 @@
             </tr>
           </tbody>
         </table>
-        <p style="font-size:.82rem;color:var(--muted)">Estimations basées sur les taux 2024. Ne comprennent pas les avantages en nature, tickets restaurant, mutuelle, participation, intéressement — qui alourdissent encore le coût réel.</p>
+        <p style="font-size:.82rem;color:var(--muted)" data-i18n="s2_note">Estimations basées sur les taux 2024. Ne comprennent pas les avantages en nature, tickets restaurant, mutuelle, participation, intéressement — qui alourdissent encore le coût réel.</p>
       </div>
 
       <div class="q-section">
-        <h2>Détail des principales cotisations patronales (2024)</h2>
+        <h2 data-i18n="s3_h2">Détail des principales cotisations patronales (2024)</h2>
         <table class="cotis-table">
           <thead>
-            <tr><th>Cotisation</th><th>Base</th><th>Taux patron</th><th>Taux salarié</th></tr>
+            <tr>
+              <th data-i18n="ct_cotis">Cotisation</th>
+              <th data-i18n="ct_base">Base</th>
+              <th data-i18n="ct_patron">Taux patron</th>
+              <th data-i18n="ct_salarie">Taux salarié</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Maladie-maternité</td><td>Brut total</td><td class="val-pat">7 %</td><td class="val-sal">—</td></tr>
-            <tr><td>Retraite base (SS)</td><td>≤ 1 PSS</td><td class="val-pat">8,55 %</td><td class="val-sal">6,90 %</td></tr>
-            <tr><td>Retraite base (SS)</td><td>> 1 PSS</td><td class="val-pat">1,90 %</td><td class="val-sal">0,40 %</td></tr>
-            <tr><td>Retraite complémentaire AGIRC-ARRCO T1</td><td>≤ 1 PSS</td><td class="val-pat">4,72 %</td><td class="val-sal">3,15 %</td></tr>
-            <tr><td>Retraite complémentaire AGIRC-ARRCO T2</td><td>1-8 PSS</td><td class="val-pat">12,95 %</td><td class="val-sal">8,64 %</td></tr>
-            <tr><td>Chômage (Assurance chômage)</td><td>≤ 4 PSS</td><td class="val-pat">4,05 %</td><td class="val-sal">—</td></tr>
-            <tr><td>Allocations familiales</td><td>Brut total</td><td class="val-pat">3,45 % (5,25 si > 3,5 SMIC)</td><td class="val-sal">—</td></tr>
-            <tr><td>Accidents du travail</td><td>Brut total</td><td class="val-pat">Variable (1-10 %)</td><td class="val-sal">—</td></tr>
-            <tr><td>Formation professionnelle</td><td>Brut total</td><td class="val-pat">0,55 % à 1 %</td><td class="val-sal">—</td></tr>
-            <tr><td>Taxe d'apprentissage</td><td>Brut total</td><td class="val-pat">0,68 %</td><td class="val-sal">—</td></tr>
-            <tr><td><strong>Total patronal approx.</strong></td><td></td><td class="val-pat"><strong>~45 % du brut</strong></td><td class="val-sal"><strong>~22 % du brut</strong></td></tr>
+            <tr><td data-i18n="ct1_name">Maladie-maternité</td><td data-i18n="ct1_base">Brut total</td><td class="val-pat">7 %</td><td class="val-sal">—</td></tr>
+            <tr><td data-i18n="ct2_name">Retraite base (SS)</td><td data-i18n="ct2_base">≤ 1 PSS</td><td class="val-pat">8,55 %</td><td class="val-sal">6,90 %</td></tr>
+            <tr><td data-i18n="ct3_name">Retraite base (SS)</td><td data-i18n="ct3_base">> 1 PSS</td><td class="val-pat">1,90 %</td><td class="val-sal">0,40 %</td></tr>
+            <tr><td data-i18n="ct4_name">Retraite complémentaire AGIRC-ARRCO T1</td><td data-i18n="ct4_base">≤ 1 PSS</td><td class="val-pat">4,72 %</td><td class="val-sal">3,15 %</td></tr>
+            <tr><td data-i18n="ct5_name">Retraite complémentaire AGIRC-ARRCO T2</td><td data-i18n="ct5_base">1-8 PSS</td><td class="val-pat">12,95 %</td><td class="val-sal">8,64 %</td></tr>
+            <tr><td data-i18n="ct6_name">Chômage (Assurance chômage)</td><td data-i18n="ct6_base">≤ 4 PSS</td><td class="val-pat">4,05 %</td><td class="val-sal">—</td></tr>
+            <tr><td data-i18n="ct7_name">Allocations familiales</td><td data-i18n="ct7_base">Brut total</td><td class="val-pat">3,45 % (5,25 si > 3,5 SMIC)</td><td class="val-sal">—</td></tr>
+            <tr><td data-i18n="ct8_name">Accidents du travail</td><td data-i18n="ct8_base">Brut total</td><td class="val-pat">Variable (1-10 %)</td><td class="val-sal">—</td></tr>
+            <tr><td data-i18n="ct9_name">Formation professionnelle</td><td data-i18n="ct9_base">Brut total</td><td class="val-pat">0,55 % à 1 %</td><td class="val-sal">—</td></tr>
+            <tr><td data-i18n="ct10_name">Taxe d'apprentissage</td><td data-i18n="ct10_base">Brut total</td><td class="val-pat">0,68 %</td><td class="val-sal">—</td></tr>
+            <tr><td><strong data-i18n="ct_total">Total patronal approx.</strong></td><td></td><td class="val-pat"><strong data-i18n="ct_total_pat">~45 % du brut</strong></td><td class="val-sal"><strong data-i18n="ct_total_sal">~22 % du brut</strong></td></tr>
           </tbody>
         </table>
-        <p style="font-size:.82rem;color:var(--muted)">PSS = Plafond de la Sécurité Sociale (3 864 €/mois en 2024). Les taux sont indicatifs — ils varient selon la convention collective, l'effectif et le secteur.</p>
+        <p style="font-size:.82rem;color:var(--muted)" data-i18n="s3_note">PSS = Plafond de la Sécurité Sociale (3 864 €/mois en 2024). Les taux sont indicatifs — ils varient selon la convention collective, l'effectif et le secteur.</p>
       </div>
 
       <div class="q-section">
-        <h2>L'exception SMIC : les allègements Fillon</h2>
-        <p>Pour les bas salaires, la France applique depuis 2003 des <strong>allègements de cotisations patronales dits "Fillon"</strong> (ou "réduction générale"). Ils fonctionnent ainsi :</p>
+        <h2 data-i18n="s4_h2">L'exception SMIC : les allègements Fillon</h2>
+        <p data-i18n="s4_p1">Pour les bas salaires, la France applique depuis 2003 des <strong>allègements de cotisations patronales dits "Fillon"</strong> (ou "réduction générale"). Ils fonctionnent ainsi :</p>
         <ul>
-          <li>Au SMIC exact : l'allègement représente <strong>environ 32 % du brut</strong> — effaçant presque totalement les cotisations patronales</li>
-          <li>Il décroît progressivement jusqu'à s'annuler à <strong>1,6 fois le SMIC</strong></li>
-          <li>Coût pour l'État : <strong>~65 milliards d'euros par an</strong> (le premier poste de dépense fiscale)</li>
+          <li data-i18n="s4_li1">Au SMIC exact : l'allègement représente <strong>environ 32 % du brut</strong> — effaçant presque totalement les cotisations patronales</li>
+          <li data-i18n="s4_li2">Il décroît progressivement jusqu'à s'annuler à <strong>1,6 fois le SMIC</strong></li>
+          <li data-i18n="s4_li3">Coût pour l'État : <strong>~65 milliards d'euros par an</strong> (le premier poste de dépense fiscale)</li>
         </ul>
-        <p>Résultat : un salarié au SMIC ne coûte que 1,5 fois son net à l'employeur — bien moins qu'un salarié à 2 fois le SMIC (ratio ~1,8). Cette dégressivité crée ce qu'on appelle la <strong>"trappe à bas salaires"</strong> : les employeurs évitent d'augmenter au-delà de 1,3-1,4 SMIC pour ne pas perdre les allègements.</p>
+        <p data-i18n="s4_p2">Résultat : un salarié au SMIC ne coûte que 1,5 fois son net à l'employeur — bien moins qu'un salarié à 2 fois le SMIC (ratio ~1,8). Cette dégressivité crée ce qu'on appelle la <strong>"trappe à bas salaires"</strong> : les employeurs évitent d'augmenter au-delà de 1,3-1,4 SMIC pour ne pas perdre les allègements.</p>
       </div>
 
       <div class="q-section">
-        <h2>Comparaison internationale : la France est-elle vraiment la plus chère ?</h2>
-        <p>La France a historiquement eu des cotisations sociales parmi les plus élevées d'Europe. Mais comparer est complexe, car les systèmes varient :</p>
+        <h2 data-i18n="s5_h2">Comparaison internationale : la France est-elle vraiment la plus chère ?</h2>
+        <p data-i18n="s5_p1">La France a historiquement eu des cotisations sociales parmi les plus élevées d'Europe. Mais comparer est complexe, car les systèmes varient :</p>
         <ul>
-          <li><strong>Allemagne</strong> : cotisations totales ~40 % du brut (partagées 50/50 employeur/salarié). Système plus équilibré.</li>
-          <li><strong>Suède</strong> : cotisations patronales ~31 % mais salaires nets plus élevés. Le système est financé davantage par l'impôt.</li>
-          <li><strong>Royaume-Uni</strong> : National Insurance ~13,8 % seulement côté employeur, mais salaires nets plus faibles et moins de protection.</li>
-          <li><strong>Pays-Bas</strong> : cotisations patronales ~20 % mais prélèvement supplémentaire sur le revenu (box 1) très élevé.</li>
+          <li data-i18n="s5_li1"><strong>Allemagne</strong> : cotisations totales ~40 % du brut (partagées 50/50 employeur/salarié). Système plus équilibré.</li>
+          <li data-i18n="s5_li2"><strong>Suède</strong> : cotisations patronales ~31 % mais salaires nets plus élevés. Le système est financé davantage par l'impôt.</li>
+          <li data-i18n="s5_li3"><strong>Royaume-Uni</strong> : National Insurance ~13,8 % seulement côté employeur, mais salaires nets plus faibles et moins de protection.</li>
+          <li data-i18n="s5_li4"><strong>Pays-Bas</strong> : cotisations patronales ~20 % mais prélèvement supplémentaire sur le revenu (box 1) très élevé.</li>
         </ul>
-        <p>En termes de <strong>coin fiscal total</strong> (impôts + cotisations sur le coût du travail), la France se classe parmi les 3-4 pays les plus taxés de l'OCDE, derrière la Belgique et la Finlande.</p>
+        <p data-i18n="s5_p2">En termes de <strong>coin fiscal total</strong> (impôts + cotisations sur le coût du travail), la France se classe parmi les 3-4 pays les plus taxés de l'OCDE, derrière la Belgique et la Finlande.</p>
       </div>
 
       <div class="q-section">
-        <h2>Ce qui n'est pas dans le salaire : les coûts "cachés"</h2>
-        <p>Au-delà des cotisations, embaucher un salarié implique des coûts non salariaux souvent oubliés :</p>
+        <h2 data-i18n="s6_h2">Ce qui n'est pas dans le salaire : les coûts "cachés"</h2>
+        <p data-i18n="s6_p1">Au-delà des cotisations, embaucher un salarié implique des coûts non salariaux souvent oubliés :</p>
         <ul>
-          <li><strong>Mutuelle santé obligatoire</strong> : l'employeur doit financer au minimum 50 % — soit 40-100 €/mois selon le contrat</li>
-          <li><strong>Tickets restaurant</strong> : si proposés, l'employeur paie 50-60 % (environ 7-10 € par jour travaillé)</li>
-          <li><strong>50 % des transports en commun</strong> (obligation légale)</li>
-          <li><strong>Indemnité de congés payés</strong> : en réalité déjà incluse dans le calcul annuel, mais représente 10 % du coût sur les contrats courts</li>
-          <li><strong>Formation obligatoire</strong> : temps passé + coût pédagogique</li>
-          <li><strong>Coût du recrutement</strong> : annonces, entretiens, cabinet si utilisé (15-25 % du salaire annuel brut)</li>
-          <li><strong>Espace de travail, matériel, licences logiciels</strong></li>
+          <li data-i18n="s6_li1"><strong>Mutuelle santé obligatoire</strong> : l'employeur doit financer au minimum 50 % — soit 40-100 €/mois selon le contrat</li>
+          <li data-i18n="s6_li2"><strong>Tickets restaurant</strong> : si proposés, l'employeur paie 50-60 % (environ 7-10 € par jour travaillé)</li>
+          <li data-i18n="s6_li3"><strong>50 % des transports en commun</strong> (obligation légale)</li>
+          <li data-i18n="s6_li4"><strong>Indemnité de congés payés</strong> : en réalité déjà incluse dans le calcul annuel, mais représente 10 % du coût sur les contrats courts</li>
+          <li data-i18n="s6_li5"><strong>Formation obligatoire</strong> : temps passé + coût pédagogique</li>
+          <li data-i18n="s6_li6"><strong>Coût du recrutement</strong> : annonces, entretiens, cabinet si utilisé (15-25 % du salaire annuel brut)</li>
+          <li data-i18n="s6_li7"><strong>Espace de travail, matériel, licences logiciels</strong></li>
         </ul>
-        <p>En ajoutant tous ces éléments, le coût réel total d'un salarié cadre peut facilement dépasser <strong>2 à 2,5 fois son salaire net</strong>.</p>
+        <p data-i18n="s6_p2">En ajoutant tous ces éléments, le coût réel total d'un salarié cadre peut facilement dépasser <strong>2 à 2,5 fois son salaire net</strong>.</p>
       </div>
 
       <div class="q-section">
-        <h2>En résumé</h2>
-        <p>En France, le coût d'un salarié pour son employeur est <strong>1,5 à 2,1 fois son salaire net</strong>, selon le niveau de rémunération et les avantages accordés. Cette réalité explique en partie la prudence à l'embauche des petites entreprises et le recours massif aux CDD et à l'intérim.</p>
-        <p>Les allègements Fillon sur les bas salaires ont réduit le coût du travail peu qualifié — mais au prix de 65 Md€ de dépense fiscale annuelle. La question de savoir si ce mécanisme est le plus efficace pour favoriser l'emploi reste débattue.</p>
+        <h2 data-i18n="s7_h2">En résumé</h2>
+        <p data-i18n="s7_p1">En France, le coût d'un salarié pour son employeur est <strong>1,5 à 2,1 fois son salaire net</strong>, selon le niveau de rémunération et les avantages accordés. Cette réalité explique en partie la prudence à l'embauche des petites entreprises et le recours massif aux CDD et à l'intérim.</p>
+        <p data-i18n="s7_p2">Les allègements Fillon sur les bas salaires ont réduit le coût du travail peu qualifié — mais au prix de 65 Md€ de dépense fiscale annuelle. La question de savoir si ce mécanisme est le plus efficace pour favoriser l'emploi reste débattue.</p>
       </div>
 
       <div class="q-sources">
-        <strong>Sources officielles</strong>
-        URSSAF — Taux des cotisations sociales 2024 · DARES — Analyse du coût du travail · OCDE — Taxing Wages 2023 (coin fiscal comparé) · INSEE — Enquête ACEMO, coût du travail · Ministère du Travail — Allègements de cotisations 2024
+        <strong data-i18n="sources_label">Sources officielles</strong>
+        <span data-i18n="sources_text">URSSAF — Taux des cotisations sociales 2024 · DARES — Analyse du coût du travail · OCDE — Taxing Wages 2023 (coin fiscal comparé) · INSEE — Enquête ACEMO, coût du travail · Ministère du Travail — Allègements de cotisations 2024</span>
       </div>
 
       <div class="related">
-        <h3>Articles liés</h3>
+        <h3 data-i18n="related_h3">Articles liés</h3>
         <div class="related-links">
-          <a href="/questions/quel-est-le-vrai-taux-d-imposition-en-france" class="related-link">Le vrai taux d'imposition</a>
-          <a href="/questions/qu-est-ce-que-la-csg-en-france" class="related-link">Qu'est-ce que la CSG ?</a>
-          <a href="/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve" class="related-link">Chômage structurel</a>
-          <a href="/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france" class="related-link">Autant de fonctionnaires ?</a>
+          <a href="/questions/quel-est-le-vrai-taux-d-imposition-en-france" class="related-link" data-i18n="related_1">Le vrai taux d'imposition</a>
+          <a href="/questions/qu-est-ce-que-la-csg-en-france" class="related-link" data-i18n="related_2">Qu'est-ce que la CSG ?</a>
+          <a href="/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve" class="related-link" data-i18n="related_3">Chômage structurel</a>
+          <a href="/questions/pourquoi-y-a-t-il-autant-de-fonctionnaires-en-france" class="related-link" data-i18n="related_4">Autant de fonctionnaires ?</a>
         </div>
       </div>
 
     </div>
-  
+
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
 
   <footer>
-    <span>© 2026 Le Français Moyen — Données : URSSAF, DARES, INSEE, OCDE</span>
-    <a href="/">Tableau de bord principal</a>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : URSSAF, DARES, INSEE, OCDE</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Coût salarié employeur',
+  hero_eyebrow:'Emploi &amp; fiscalité',
+  hero_h1:'Combien coûte un salarié à son employeur en France ?',
+  hero_intro:"Le salarié voit son net. L'employeur voit le coût total. Entre les deux, il y a les cotisations patronales — parfois plus importantes que le salaire net lui-même.",
+  stat_val:'× 1,7 à × 2,1',
+  stat_ctx:"Le coût total employeur est en moyenne 1,7 à 2,1 fois le salaire net du salarié en France.<br>Ratio parmi les plus élevés d'Europe, après avoir bénéficié des allègements Fillon sur les bas salaires.",
+  s1_h2:'La décomposition : du net au coût employeur',
+  s1_p1:'Pour comprendre le coût réel, il faut remonter du salaire net vers le coût total employeur :',
+  bar1_label:'Salaire net',bar1_fill:'Ce que le salarié reçoit',
+  bar2_label:'Cotisations salariales',bar2_fill:'Retraite, santé, chômage...',
+  bar3_label:'Cotisations patronales',bar3_fill:"Payées par l'employeur",
+  s1_note:'Schéma simplifié pour un salarié cadre au niveau médian. Les ratios varient selon le niveau de salaire (allègements au SMIC, taux AGIRC-ARRCO différents...).',
+  s2_h2:'Profils concrets : du SMIC au cadre supérieur',
+  pt_profil:'Profil',pt_net:'Salaire net/mois',pt_brut:'Brut/mois',pt_cout:'Coût total employeur',pt_ratio:'Ratio net/coût',
+  p1_profil:'SMIC (2024)',p2_profil:'Salaire médian',p3_profil:'Cadre confirmé',p4_profil:'Cadre sup / ingénieur',p5_profil:'Haut cadre (plafond SS ×4)',
+  s2_note:"Estimations basées sur les taux 2024. Ne comprennent pas les avantages en nature, tickets restaurant, mutuelle, participation, intéressement — qui alourdissent encore le coût réel.",
+  s3_h2:'Détail des principales cotisations patronales (2024)',
+  ct_cotis:'Cotisation',ct_base:'Base',ct_patron:'Taux patron',ct_salarie:'Taux salarié',
+  ct1_name:'Maladie-maternité',ct1_base:'Brut total',
+  ct2_name:'Retraite base (SS)',ct2_base:'≤ 1 PSS',
+  ct3_name:'Retraite base (SS)',ct3_base:'> 1 PSS',
+  ct4_name:'Retraite complémentaire AGIRC-ARRCO T1',ct4_base:'≤ 1 PSS',
+  ct5_name:'Retraite complémentaire AGIRC-ARRCO T2',ct5_base:'1-8 PSS',
+  ct6_name:'Chômage (Assurance chômage)',ct6_base:'≤ 4 PSS',
+  ct7_name:'Allocations familiales',ct7_base:'Brut total',
+  ct8_name:'Accidents du travail',ct8_base:'Brut total',
+  ct9_name:'Formation professionnelle',ct9_base:'Brut total',
+  ct10_name:"Taxe d'apprentissage",ct10_base:'Brut total',
+  ct_total:'Total patronal approx.',ct_total_pat:'~45 % du brut',ct_total_sal:'~22 % du brut',
+  s3_note:'PSS = Plafond de la Sécurité Sociale (3 864 €/mois en 2024). Les taux sont indicatifs — ils varient selon la convention collective, l\'effectif et le secteur.',
+  s4_h2:'L\'exception SMIC : les allègements Fillon',
+  s4_p1:'Pour les bas salaires, la France applique depuis 2003 des <strong>allègements de cotisations patronales dits "Fillon"</strong> (ou "réduction générale"). Ils fonctionnent ainsi :',
+  s4_li1:'Au SMIC exact : l\'allègement représente <strong>environ 32 % du brut</strong> — effaçant presque totalement les cotisations patronales',
+  s4_li2:'Il décroît progressivement jusqu\'à s\'annuler à <strong>1,6 fois le SMIC</strong>',
+  s4_li3:'Coût pour l\'État : <strong>~65 milliards d\'euros par an</strong> (le premier poste de dépense fiscale)',
+  s4_p2:"Résultat : un salarié au SMIC ne coûte que 1,5 fois son net à l'employeur — bien moins qu'un salarié à 2 fois le SMIC (ratio ~1,8). Cette dégressivité crée ce qu'on appelle la <strong>\"trappe à bas salaires\"</strong> : les employeurs évitent d'augmenter au-delà de 1,3-1,4 SMIC pour ne pas perdre les allègements.",
+  s5_h2:'Comparaison internationale : la France est-elle vraiment la plus chère ?',
+  s5_p1:"La France a historiquement eu des cotisations sociales parmi les plus élevées d'Europe. Mais comparer est complexe, car les systèmes varient :",
+  s5_li1:'<strong>Allemagne</strong> : cotisations totales ~40 % du brut (partagées 50/50 employeur/salarié). Système plus équilibré.',
+  s5_li2:'<strong>Suède</strong> : cotisations patronales ~31 % mais salaires nets plus élevés. Le système est financé davantage par l\'impôt.',
+  s5_li3:'<strong>Royaume-Uni</strong> : National Insurance ~13,8 % seulement côté employeur, mais salaires nets plus faibles et moins de protection.',
+  s5_li4:'<strong>Pays-Bas</strong> : cotisations patronales ~20 % mais prélèvement supplémentaire sur le revenu (box 1) très élevé.',
+  s5_p2:'En termes de <strong>coin fiscal total</strong> (impôts + cotisations sur le coût du travail), la France se classe parmi les 3-4 pays les plus taxés de l\'OCDE, derrière la Belgique et la Finlande.',
+  s6_h2:'Ce qui n\'est pas dans le salaire : les coûts "cachés"',
+  s6_p1:'Au-delà des cotisations, embaucher un salarié implique des coûts non salariaux souvent oubliés :',
+  s6_li1:'<strong>Mutuelle santé obligatoire</strong> : l\'employeur doit financer au minimum 50 % — soit 40-100 €/mois selon le contrat',
+  s6_li2:'<strong>Tickets restaurant</strong> : si proposés, l\'employeur paie 50-60 % (environ 7-10 € par jour travaillé)',
+  s6_li3:'<strong>50 % des transports en commun</strong> (obligation légale)',
+  s6_li4:'<strong>Indemnité de congés payés</strong> : en réalité déjà incluse dans le calcul annuel, mais représente 10 % du coût sur les contrats courts',
+  s6_li5:'<strong>Formation obligatoire</strong> : temps passé + coût pédagogique',
+  s6_li6:'<strong>Coût du recrutement</strong> : annonces, entretiens, cabinet si utilisé (15-25 % du salaire annuel brut)',
+  s6_li7:'<strong>Espace de travail, matériel, licences logiciels</strong>',
+  s6_p2:'En ajoutant tous ces éléments, le coût réel total d\'un salarié cadre peut facilement dépasser <strong>2 à 2,5 fois son salaire net</strong>.',
+  s7_h2:'En résumé',
+  s7_p1:'En France, le coût d\'un salarié pour son employeur est <strong>1,5 à 2,1 fois son salaire net</strong>, selon le niveau de rémunération et les avantages accordés. Cette réalité explique en partie la prudence à l\'embauche des petites entreprises et le recours massif aux CDD et à l\'intérim.',
+  s7_p2:'Les allègements Fillon sur les bas salaires ont réduit le coût du travail peu qualifié — mais au prix de 65 Md€ de dépense fiscale annuelle. La question de savoir si ce mécanisme est le plus efficace pour favoriser l\'emploi reste débattue.',
+  sources_label:'Sources officielles',
+  sources_text:'URSSAF — Taux des cotisations sociales 2024 · DARES — Analyse du coût du travail · OCDE — Taxing Wages 2023 (coin fiscal comparé) · INSEE — Enquête ACEMO, coût du travail · Ministère du Travail — Allègements de cotisations 2024',
+  related_h3:'Articles liés',
+  related_1:"Le vrai taux d'imposition",
+  related_2:"Qu'est-ce que la CSG ?",
+  related_3:'Chômage structurel',
+  related_4:'Autant de fonctionnaires ?',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_copy:'© 2026 Le Français Moyen — Données : URSSAF, DARES, INSEE, OCDE',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Employee cost to employer',
+  hero_eyebrow:'Employment &amp; taxation',
+  hero_h1:'How much does an employee cost their employer in France?',
+  hero_intro:"The employee sees their net pay. The employer sees the total cost. In between lie employer social contributions — sometimes larger than the net salary itself.",
+  stat_val:'× 1.7 to × 2.1',
+  stat_ctx:"The total employer cost is on average 1.7 to 2.1 times the employee's net salary in France.<br>Among the highest ratios in Europe, even after the Fillon low-wage rebates.",
+  s1_h2:'The breakdown: from net pay to total employer cost',
+  s1_p1:'To understand the true cost, you need to work back from net salary to total employer cost:',
+  bar1_label:'Net salary',bar1_fill:'What the employee receives',
+  bar2_label:'Employee contributions',bar2_fill:'Pension, healthcare, unemployment...',
+  bar3_label:'Employer contributions',bar3_fill:'Paid by the employer',
+  s1_note:'Simplified diagram for a mid-level salaried manager. Ratios vary by salary level (SMIC rebates, different AGIRC-ARRCO rates...).',
+  s2_h2:'Concrete profiles: from minimum wage to senior executive',
+  pt_profil:'Profile',pt_net:'Net salary/month',pt_brut:'Gross/month',pt_cout:'Total employer cost',pt_ratio:'Net/cost ratio',
+  p1_profil:'SMIC (2024)',p2_profil:'Median salary',p3_profil:'Confirmed manager',p4_profil:'Senior manager / engineer',p5_profil:'Top executive (SS ceiling ×4)',
+  s2_note:'Estimates based on 2024 rates. Do not include benefits in kind, meal vouchers, health insurance, profit-sharing, employee savings plans — which further increase the true cost.',
+  s3_h2:'Main employer contribution rates in detail (2024)',
+  ct_cotis:'Contribution',ct_base:'Base',ct_patron:'Employer rate',ct_salarie:'Employee rate',
+  ct1_name:'Sickness / maternity',ct1_base:'Total gross',
+  ct2_name:'Basic pension (SS)',ct2_base:'≤ 1 PSS',
+  ct3_name:'Basic pension (SS)',ct3_base:'> 1 PSS',
+  ct4_name:'Supplementary pension AGIRC-ARRCO T1',ct4_base:'≤ 1 PSS',
+  ct5_name:'Supplementary pension AGIRC-ARRCO T2',ct5_base:'1–8 PSS',
+  ct6_name:'Unemployment insurance',ct6_base:'≤ 4 PSS',
+  ct7_name:'Family allowances',ct7_base:'Total gross',
+  ct8_name:'Workplace accidents',ct8_base:'Total gross',
+  ct9_name:'Vocational training',ct9_base:'Total gross',
+  ct10_name:'Apprenticeship tax',ct10_base:'Total gross',
+  ct_total:'Total employer approx.',ct_total_pat:'~45% of gross',ct_total_sal:'~22% of gross',
+  s3_note:'PSS = Social Security ceiling (€3,864/month in 2024). Rates are indicative — they vary by collective agreement, company size and sector.',
+  s4_h2:'The minimum-wage exception: Fillon rebates',
+  s4_p1:'For low wages, France has since 2003 applied <strong>employer contribution rebates known as "Fillon" reductions</strong> (or general reductions). They work as follows:',
+  s4_li1:'At the exact SMIC: the rebate represents <strong>around 32% of gross pay</strong> — almost entirely eliminating employer contributions',
+  s4_li2:'It tapers progressively to zero at <strong>1.6 times the SMIC</strong>',
+  s4_li3:'Cost to the State: <strong>~€65 billion per year</strong> (the largest single tax expenditure)',
+  s4_p2:'Result: an SMIC-wage employee costs only 1.5 times their net pay to the employer — far less than an employee on twice the SMIC (ratio ~1.8). This tapering creates what is known as the <strong>"low-wage trap"</strong>: employers avoid giving pay rises beyond 1.3–1.4 SMIC to avoid losing the rebates.',
+  s5_h2:'International comparison: is France really the most expensive?',
+  s5_p1:'France has historically had social contribution rates among the highest in Europe. But comparisons are complex, as systems vary:',
+  s5_li1:'<strong>Germany</strong>: total contributions ~40% of gross (split 50/50 employer/employee). A more balanced system.',
+  s5_li2:'<strong>Sweden</strong>: employer contributions ~31% but higher net wages. The system is funded more through income tax.',
+  s5_li3:'<strong>UK</strong>: National Insurance only ~13.8% on the employer side, but lower net wages and less social protection.',
+  s5_li4:'<strong>Netherlands</strong>: employer contributions ~20% but very high additional income tax (box 1).',
+  s5_p2:'In terms of <strong>total tax wedge</strong> (taxes + contributions on the cost of labour), France ranks among the 3–4 most heavily taxed countries in the OECD, behind Belgium and Finland.',
+  s6_h2:'What is not in the salary: the "hidden" costs',
+  s6_p1:'Beyond contributions, hiring an employee involves non-wage costs that are often overlooked:',
+  s6_li1:'<strong>Compulsory health insurance (mutuelle)</strong>: the employer must fund at least 50% — €40–100/month depending on the plan',
+  s6_li2:'<strong>Meal vouchers</strong>: if provided, the employer pays 50–60% (around €7–10 per working day)',
+  s6_li3:'<strong>50% of public transport costs</strong> (legal requirement)',
+  s6_li4:'<strong>Paid-leave allowance</strong>: already factored into the annual calculation, but represents 10% of cost on short-term contracts',
+  s6_li5:'<strong>Mandatory training</strong>: time spent + pedagogical costs',
+  s6_li6:'<strong>Recruitment costs</strong>: job ads, interviews, agency fees if used (15–25% of annual gross salary)',
+  s6_li7:'<strong>Workspace, equipment, software licences</strong>',
+  s6_p2:"Adding all these elements, the true total cost of a salaried manager can easily exceed <strong>2 to 2.5 times their net salary</strong>.",
+  s7_h2:'In summary',
+  s7_p1:'In France, the cost of an employee to their employer is <strong>1.5 to 2.1 times their net salary</strong>, depending on the level of pay and benefits. This reality partly explains small businesses\' reluctance to hire and the widespread use of fixed-term and temporary contracts.',
+  s7_p2:'The Fillon low-wage rebates have reduced the cost of unskilled labour — but at the price of €65bn in annual tax expenditure. Whether this mechanism is the most effective way to promote employment remains a matter of debate.',
+  sources_label:'Official sources',
+  sources_text:'URSSAF — Social contribution rates 2024 · DARES — Labour cost analysis · OECD — Taxing Wages 2023 (tax wedge comparison) · INSEE — ACEMO survey, labour costs · Ministry of Labour — Contribution rebates 2024',
+  related_h3:'Related articles',
+  related_1:'The true tax rate in France',
+  related_2:'What is the CSG?',
+  related_3:'Structural unemployment',
+  related_4:'Why so many civil servants?',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_copy:'© 2026 Le Français Moyen — Data: URSSAF, DARES, INSEE, OECD',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){lang=l;localStorage.setItem('lfm-lang',l);document.documentElement.lang=l==='fr'?'fr':'en';document.getElementById('btn-fr').classList.toggle('active',l==='fr');document.getElementById('btn-en').classList.toggle('active',l==='en');var s=T[l];document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];});document.title=l==='fr'?'Combien coûte un salarié à son employeur en France ? — Calcul 2024':'How Much Does an Employee Cost Their Employer in France? — 2024 Calculation';var d=document.querySelector('meta[name="description"]');if(d)d.setAttribute('content',l==='fr'?"Un salarié au SMIC coûte 1 767 € net mais ~2 100 € à l'employeur. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète du coût total employeur : brut, charges, taxes.":'An SMIC employee costs €1,767 net but ~€2,100 to the employer. A manager on €4,000 net costs ~€6,500. Full breakdown of total employer cost: gross, social charges, taxes.');}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

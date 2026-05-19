@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -6,6 +6,9 @@
   <title>Combien coûte un élève à l'État en France ? — Données DEPP 2024</title>
   <meta name="description" content="De 7 400 € par an en maternelle à 15 700 € en classe prépa. Le coût réel par élève selon le niveau scolaire, comparaison internationale et ce que financent ces dépenses.">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/combien-coute-un-eleve-a-l-etat-en-france">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/combien-coute-un-eleve-a-l-etat-en-france">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/combien-coute-un-eleve-a-l-etat-en-france">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/combien-coute-un-eleve-a-l-etat-en-france">
   <meta property="og:title" content="Combien coûte un élève à l'État en France ?">
   <meta property="og:description" content="7 400 € en maternelle, 11 900 € au lycée, 15 700 € en classe prépa. Le coût réel par élève et comparaison internationale avec les données DEPP et OCDE.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/combien-coute-un-eleve-a-l-etat-en-france">
@@ -71,7 +74,12 @@
       <li><a href="/questions/">Questions</a></li>
       <li><a href="/a-propos/">À propos</a></li>
     </ul></nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
     <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+    <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
   </div></header>
   <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
     <a href="/retraites/">🧓 Retraites</a><a href="/fonctionnaires/">🏛 Fonctionnaires</a>
@@ -87,138 +95,252 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Éducation</span></nav>
-      <p class="eyebrow" style="text-align:center">🎓 Éducation</p>
-      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px">Combien coûte un élève à l'État en France ?</h1>
-      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7">7 400 € en maternelle, 11 900 € au lycée — et jusqu'à 15 700 € en classe prépa. La dépense d'éducation varie du simple au double selon le niveau. Voici les chiffres officiels.</p>
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Éducation</span></nav>
+      <p class="eyebrow" style="text-align:center" data-i18n="hero_eyebrow">🎓 Éducation</p>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.4rem);margin:0 auto 12px;text-align:center;max-width:680px" data-i18n="hero_h1">Combien coûte un élève à l'État en France ?</h1>
+      <p style="color:var(--muted);max-width:580px;margin:0 auto;font-size:.95rem;line-height:1.7" data-i18n="hero_intro">7 400 € en maternelle, 11 900 € au lycée — et jusqu'à 15 700 € en classe prépa. La dépense d'éducation varie du simple au double selon le niveau. Voici les chiffres officiels.</p>
     </div>
 
     <div class="q-container">
 
       <div class="stat-highlight">
-        <span class="s-val">160 Md€ / an</span>
-        <span class="s-ctx">c'est le <strong>budget total de l'éducation nationale</strong> en France (public + privé sous contrat), soit environ <strong>6,1 % du PIB</strong>. La France fait partie des pays qui investissent le plus en éducation — mais les résultats PISA restent décevants.<br>Source : DEPP — L'état de l'école 2024.</span>
+        <span class="s-val" data-i18n="stat_val">160 Md€ / an</span>
+        <span class="s-ctx" data-i18n="stat_ctx">c'est le <strong>budget total de l'éducation nationale</strong> en France (public + privé sous contrat), soit environ <strong>6,1 % du PIB</strong>. La France fait partie des pays qui investissent le plus en éducation — mais les résultats PISA restent décevants.<br>Source : DEPP — L'état de l'école 2024.</span>
       </div>
 
       <div class="q-section">
-        <h2>Le coût par élève selon le niveau</h2>
-        <p>La dépense d'éducation (DIE — Dépense Intérieure d'Éducation) par élève varie considérablement selon le niveau scolaire, essentiellement parce que les ratios élèves/enseignant et les salaires des enseignants diffèrent :</p>
+        <h2 data-i18n="s1_h2">Le coût par élève selon le niveau</h2>
+        <p data-i18n="s1_p1">La dépense d'éducation (DIE — Dépense Intérieure d'Éducation) par élève varie considérablement selon le niveau scolaire, essentiellement parce que les ratios élèves/enseignant et les salaires des enseignants diffèrent :</p>
 
         <table class="cost-table">
           <thead>
-            <tr><th>Niveau</th><th>Coût / élève / an</th><th>Élèves concernés</th><th>Principal facteur de coût</th></tr>
+            <tr>
+              <th data-i18n="th_level">Niveau</th>
+              <th data-i18n="th_cost">Coût / élève / an</th>
+              <th data-i18n="th_pupils">Élèves concernés</th>
+              <th data-i18n="th_driver">Principal facteur de coût</th>
+            </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Maternelle</td>
+              <td data-i18n="row1_level">Maternelle</td>
               <td class="c-val">7 400 €</td>
               <td>2,6 millions</td>
-              <td>Encadrement élevé (petits ratios)</td>
+              <td data-i18n="row1_driver">Encadrement élevé (petits ratios)</td>
             </tr>
             <tr>
-              <td>Élémentaire (CP→CM2)</td>
+              <td data-i18n="row2_level">Élémentaire (CP→CM2)</td>
               <td class="c-val">7 200 €</td>
               <td>4,0 millions</td>
-              <td>Dédoublements CP/CE1 en REP</td>
+              <td data-i18n="row2_driver">Dédoublements CP/CE1 en REP</td>
             </tr>
             <tr>
-              <td>Collège</td>
+              <td data-i18n="row3_level">Collège</td>
               <td class="c-val">9 000 €</td>
               <td>3,4 millions</td>
-              <td>Spécialisation des enseignants</td>
+              <td data-i18n="row3_driver">Spécialisation des enseignants</td>
             </tr>
             <tr class="highlight-row">
-              <td>Lycée général / techno.</td>
+              <td data-i18n="row4_level">Lycée général / techno.</td>
               <td class="c-val">11 900 €</td>
               <td>1,5 millions</td>
-              <td>Matières spécialisées, options</td>
+              <td data-i18n="row4_driver">Matières spécialisées, options</td>
             </tr>
             <tr>
-              <td>Lycée professionnel</td>
+              <td data-i18n="row5_level">Lycée professionnel</td>
               <td class="c-val">13 600 €</td>
               <td>0,7 millions</td>
-              <td>Ateliers, équipements, petits groupes</td>
+              <td data-i18n="row5_driver">Ateliers, équipements, petits groupes</td>
             </tr>
             <tr>
-              <td>BTS / BUT (post-bac)</td>
+              <td data-i18n="row6_level">BTS / BUT (post-bac)</td>
               <td class="c-val">10 200 €</td>
               <td>0,7 millions</td>
-              <td>Formations courtes professionnalisantes</td>
+              <td data-i18n="row6_driver">Formations courtes professionnalisantes</td>
             </tr>
             <tr>
-              <td>Université (licence)</td>
+              <td data-i18n="row7_level">Université (licence)</td>
               <td class="c-val">8 700 €</td>
               <td>1,6 millions</td>
-              <td>Frais de scolarité symboliques (170 €/an)</td>
+              <td data-i18n="row7_driver">Frais de scolarité symboliques (170 €/an)</td>
             </tr>
             <tr>
-              <td>Classes prépa (CPGE)</td>
+              <td data-i18n="row8_level">Classes prépa (CPGE)</td>
               <td class="c-val">15 700 €</td>
               <td>90 000</td>
-              <td>Effectifs très réduits, profs agrégés</td>
+              <td data-i18n="row8_driver">Effectifs très réduits, profs agrégés</td>
             </tr>
           </tbody>
         </table>
-        <p style="font-size:.82rem;color:var(--muted)">Source : DEPP — Coûts de l'éducation 2023, données 2021–2022. Dépense par élève toutes sources (État + collectivités + ménages).</p>
+        <p style="font-size:.82rem;color:var(--muted)" data-i18n="s1_source">Source : DEPP — Coûts de l'éducation 2023, données 2021–2022. Dépense par élève toutes sources (État + collectivités + ménages).</p>
       </div>
 
       <div class="q-section">
-        <h2>La grande inégalité : classes prépa vs université</h2>
-        <p>Le contraste le plus frappant du système éducatif français : <strong>un étudiant en classe prépa coûte presque 2 fois plus qu'un étudiant à l'université</strong> (15 700 € vs 8 700 €). Et les prépas recrutent dans des lycées parisiens et socialement très sélectifs.</p>
-        <p>Ce "privilège" de la filière grande école est souvent critiqué : l'État finance massivement une élite qui accède ensuite aux postes les plus rémunérateurs, tandis qu'un étudiant de première génération à l'université reçoit moins de ressources éducatives.</p>
-        <p>La Cour des Comptes a régulièrement signalé cette inégalité, sans qu'elle soit fondamentalement remise en question.</p>
+        <h2 data-i18n="s2_h2">La grande inégalité : classes prépa vs université</h2>
+        <p data-i18n="s2_p1">Le contraste le plus frappant du système éducatif français : <strong>un étudiant en classe prépa coûte presque 2 fois plus qu'un étudiant à l'université</strong> (15 700 € vs 8 700 €). Et les prépas recrutent dans des lycées parisiens et socialement très sélectifs.</p>
+        <p data-i18n="s2_p2">Ce "privilège" de la filière grande école est souvent critiqué : l'État finance massivement une élite qui accède ensuite aux postes les plus rémunérateurs, tandis qu'un étudiant de première génération à l'université reçoit moins de ressources éducatives.</p>
+        <p data-i18n="s2_p3">La Cour des Comptes a régulièrement signalé cette inégalité, sans qu'elle soit fondamentalement remise en question.</p>
       </div>
 
       <div class="q-section">
-        <h2>Qui finance ces dépenses ?</h2>
-        <p>Le financement de l'éducation est partagé entre plusieurs acteurs :</p>
+        <h2 data-i18n="s3_h2">Qui finance ces dépenses ?</h2>
+        <p data-i18n="s3_p1">Le financement de l'éducation est partagé entre plusieurs acteurs :</p>
         <ul>
-          <li><strong>État</strong> (~65 %) : salaires des enseignants, fonctionnement du MEN, universités</li>
-          <li><strong>Collectivités locales</strong> (~23 %) : communes (écoles primaires), départements (collèges), régions (lycées)</li>
-          <li><strong>Ménages</strong> (~8 %) : fournitures, cantine, activités périscolaires, frais d'inscription privé</li>
-          <li><strong>Entreprises</strong> (~4 %) : apprentissage, formation professionnelle</li>
+          <li data-i18n="s3_li1"><strong>État</strong> (~65 %) : salaires des enseignants, fonctionnement du MEN, universités</li>
+          <li data-i18n="s3_li2"><strong>Collectivités locales</strong> (~23 %) : communes (écoles primaires), départements (collèges), régions (lycées)</li>
+          <li data-i18n="s3_li3"><strong>Ménages</strong> (~8 %) : fournitures, cantine, activités périscolaires, frais d'inscription privé</li>
+          <li data-i18n="s3_li4"><strong>Entreprises</strong> (~4 %) : apprentissage, formation professionnelle</li>
         </ul>
       </div>
 
       <div class="q-section">
-        <h2>Comparaison internationale : la France dépense dans la moyenne haute</h2>
-        <p>La dépense par élève en France est supérieure à la moyenne OCDE pour le secondaire, mais dans la moyenne pour le primaire :</p>
+        <h2 data-i18n="s4_h2">Comparaison internationale : la France dépense dans la moyenne haute</h2>
+        <p data-i18n="s4_p1">La dépense par élève en France est supérieure à la moyenne OCDE pour le secondaire, mais dans la moyenne pour le primaire :</p>
         <ul>
-          <li><strong>Primaire</strong> : France 8 300 €, OCDE 9 100 €, Allemagne 8 800 €, Finlande 10 600 €</li>
-          <li><strong>Secondaire</strong> : France 11 100 €, OCDE 10 500 €, Allemagne 10 500 €, Finlande 9 800 €</li>
-          <li><strong>Supérieur</strong> : France 16 500 €, OCDE 17 600 €, Allemagne 19 000 €, États-Unis 35 000 €</li>
+          <li data-i18n="s4_li1"><strong>Primaire</strong> : France 8 300 €, OCDE 9 100 €, Allemagne 8 800 €, Finlande 10 600 €</li>
+          <li data-i18n="s4_li2"><strong>Secondaire</strong> : France 11 100 €, OCDE 10 500 €, Allemagne 10 500 €, Finlande 9 800 €</li>
+          <li data-i18n="s4_li3"><strong>Supérieur</strong> : France 16 500 €, OCDE 17 600 €, Allemagne 19 000 €, États-Unis 35 000 €</li>
         </ul>
-        <p>La Finlande, qui obtient d'excellents résultats PISA avec des effectifs réduits dans le primaire, dépense moins par élève que la France dans le secondaire — ce qui interroge sur l'efficacité des ressources investies.</p>
+        <p data-i18n="s4_p2">La Finlande, qui obtient d'excellents résultats PISA avec des effectifs réduits dans le primaire, dépense moins par élève que la France dans le secondaire — ce qui interroge sur l'efficacité des ressources investies.</p>
       </div>
 
       <div class="q-sources">
-        <strong>Sources</strong>
-        DEPP — L'état de l'école 2024 · DEPP — Repères et références statistiques 2024 · DEPP — Les coûts de l'éducation 2023 · OCDE — Education at a Glance 2023 · Cour des Comptes — Les classes préparatoires 2021 · INSEE — Comptes de l'éducation 2023.
+        <strong data-i18n="sources_label">Sources</strong>
+        <span data-i18n="sources_text">DEPP — L'état de l'école 2024 · DEPP — Repères et références statistiques 2024 · DEPP — Les coûts de l'éducation 2023 · OCDE — Education at a Glance 2023 · Cour des Comptes — Les classes préparatoires 2021 · INSEE — Comptes de l'éducation 2023.</span>
       </div>
 
       <div class="related">
-        <h3>Approfondir</h3>
+        <h3 data-i18n="related_h3">Approfondir</h3>
         <div class="related-links">
-          <a href="/education/" class="related-link">🎓 Analyse éducation complète</a>
-          <a href="/questions/pourquoi-les-resultats-scolaires-baissent-en-france" class="related-link">📉 Pourquoi les résultats baissent ?</a>
-          <a href="/questions/combien-y-a-t-il-de-fonctionnaires-en-france" class="related-link">🏛 Fonctionnaires en France</a>
-          <a href="/questions/combien-coute-l-etat" class="related-link">❓ Combien coûte l'État ?</a>
+          <a href="/education/" class="related-link" data-i18n="related_1">🎓 Analyse éducation complète</a>
+          <a href="/questions/pourquoi-les-resultats-scolaires-baissent-en-france" class="related-link" data-i18n="related_2">📉 Pourquoi les résultats baissent ?</a>
+          <a href="/questions/combien-y-a-t-il-de-fonctionnaires-en-france" class="related-link" data-i18n="related_3">🏛 Fonctionnaires en France</a>
+          <a href="/questions/combien-coute-l-etat" class="related-link" data-i18n="related_4">❓ Combien coûte l'État ?</a>
         </div>
       </div>
     </div>
-  
+
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/contrib-toggle.js" defer></script>
   <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Éducation',
+  hero_eyebrow:'🎓 Éducation',
+  hero_h1:"Combien coûte un élève à l'État en France ?",
+  hero_intro:"7 400 € en maternelle, 11 900 € au lycée — et jusqu'à 15 700 € en classe prépa. La dépense d'éducation varie du simple au double selon le niveau. Voici les chiffres officiels.",
+  stat_val:'160 Md€ / an',
+  stat_ctx:"c'est le <strong>budget total de l'éducation nationale</strong> en France (public + privé sous contrat), soit environ <strong>6,1 % du PIB</strong>. La France fait partie des pays qui investissent le plus en éducation — mais les résultats PISA restent décevants.<br>Source : DEPP — L'état de l'école 2024.",
+  s1_h2:'Le coût par élève selon le niveau',
+  s1_p1:"La dépense d'éducation (DIE — Dépense Intérieure d'Éducation) par élève varie considérablement selon le niveau scolaire, essentiellement parce que les ratios élèves/enseignant et les salaires des enseignants diffèrent :",
+  th_level:'Niveau',th_cost:'Coût / élève / an',th_pupils:'Élèves concernés',th_driver:'Principal facteur de coût',
+  row1_level:'Maternelle',row1_driver:'Encadrement élevé (petits ratios)',
+  row2_level:'Élémentaire (CP→CM2)',row2_driver:'Dédoublements CP/CE1 en REP',
+  row3_level:'Collège',row3_driver:'Spécialisation des enseignants',
+  row4_level:'Lycée général / techno.',row4_driver:'Matières spécialisées, options',
+  row5_level:'Lycée professionnel',row5_driver:'Ateliers, équipements, petits groupes',
+  row6_level:'BTS / BUT (post-bac)',row6_driver:'Formations courtes professionnalisantes',
+  row7_level:'Université (licence)',row7_driver:'Frais de scolarité symboliques (170 €/an)',
+  row8_level:'Classes prépa (CPGE)',row8_driver:'Effectifs très réduits, profs agrégés',
+  s1_source:"Source : DEPP — Coûts de l'éducation 2023, données 2021–2022. Dépense par élève toutes sources (État + collectivités + ménages).",
+  s2_h2:'La grande inégalité : classes prépa vs université',
+  s2_p1:"Le contraste le plus frappant du système éducatif français : <strong>un étudiant en classe prépa coûte presque 2 fois plus qu'un étudiant à l'université</strong> (15 700 € vs 8 700 €). Et les prépas recrutent dans des lycées parisiens et socialement très sélectifs.",
+  s2_p2:"Ce \"privilège\" de la filière grande école est souvent critiqué : l'État finance massivement une élite qui accède ensuite aux postes les plus rémunérateurs, tandis qu'un étudiant de première génération à l'université reçoit moins de ressources éducatives.",
+  s2_p3:"La Cour des Comptes a régulièrement signalé cette inégalité, sans qu'elle soit fondamentalement remise en question.",
+  s3_h2:'Qui finance ces dépenses ?',
+  s3_p1:'Le financement de l\'éducation est partagé entre plusieurs acteurs :',
+  s3_li1:'<strong>État</strong> (~65 %) : salaires des enseignants, fonctionnement du MEN, universités',
+  s3_li2:'<strong>Collectivités locales</strong> (~23 %) : communes (écoles primaires), départements (collèges), régions (lycées)',
+  s3_li3:"<strong>Ménages</strong> (~8 %) : fournitures, cantine, activités périscolaires, frais d'inscription privé",
+  s3_li4:'<strong>Entreprises</strong> (~4 %) : apprentissage, formation professionnelle',
+  s4_h2:'Comparaison internationale : la France dépense dans la moyenne haute',
+  s4_p1:'La dépense par élève en France est supérieure à la moyenne OCDE pour le secondaire, mais dans la moyenne pour le primaire :',
+  s4_li1:'<strong>Primaire</strong> : France 8 300 €, OCDE 9 100 €, Allemagne 8 800 €, Finlande 10 600 €',
+  s4_li2:'<strong>Secondaire</strong> : France 11 100 €, OCDE 10 500 €, Allemagne 10 500 €, Finlande 9 800 €',
+  s4_li3:'<strong>Supérieur</strong> : France 16 500 €, OCDE 17 600 €, Allemagne 19 000 €, États-Unis 35 000 €',
+  s4_p2:"La Finlande, qui obtient d'excellents résultats PISA avec des effectifs réduits dans le primaire, dépense moins par élève que la France dans le secondaire — ce qui interroge sur l'efficacité des ressources investies.",
+  sources_label:'Sources',
+  sources_text:"DEPP — L'état de l'école 2024 · DEPP — Repères et références statistiques 2024 · DEPP — Les coûts de l'éducation 2023 · OCDE — Education at a Glance 2023 · Cour des Comptes — Les classes préparatoires 2021 · INSEE — Comptes de l'éducation 2023.",
+  related_h3:'Approfondir',
+  related_1:'🎓 Analyse éducation complète',
+  related_2:'📉 Pourquoi les résultats baissent ?',
+  related_3:'🏛 Fonctionnaires en France',
+  related_4:"❓ Combien coûte l'État ?",
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Education',
+  hero_eyebrow:'🎓 Education',
+  hero_h1:'How much does a pupil cost the French State?',
+  hero_intro:'€7,400 in nursery school, €11,900 in secondary — and up to €15,700 in a classe prépa. Education spending varies by a factor of two depending on the level. Here are the official figures.',
+  stat_val:'€160bn / year',
+  stat_ctx:"that is the <strong>total education budget</strong> in France (public + state-contracted private), equivalent to roughly <strong>6.1% of GDP</strong>. France is among the highest-spending countries on education — yet PISA results remain disappointing.<br>Source: DEPP — State of Schools 2024.",
+  s1_h2:'Cost per pupil by school level',
+  s1_p1:'Education spending (DIE — Domestic Education Expenditure) per pupil varies considerably by school level, mainly because pupil-to-teacher ratios and teacher salaries differ:',
+  th_level:'Level',th_cost:'Cost / pupil / year',th_pupils:'Pupils',th_driver:'Main cost driver',
+  row1_level:'Nursery (maternelle)',row1_driver:'High supervision ratios',
+  row2_level:'Primary (CP→CM2)',row2_driver:'Class-splitting in priority schools',
+  row3_level:'Middle school (collège)',row3_driver:'Subject specialisation',
+  row4_level:'Academic / technical high school',row4_driver:'Specialist subjects, electives',
+  row5_level:'Vocational high school',row5_driver:'Workshops, equipment, small groups',
+  row6_level:'BTS / BUT (post-bac)',row6_driver:'Short professional programmes',
+  row7_level:'University (bachelor)',row7_driver:'Nominal tuition fees (€170/year)',
+  row8_level:'Grandes Écoles prep (CPGE)',row8_driver:'Very small classes, agrégé teachers',
+  s1_source:'Source: DEPP — Education costs 2023, 2021–2022 data. Per-pupil spending across all funding sources (State + local authorities + households).',
+  s2_h2:'The great inequality: CPGE vs university',
+  s2_p1:'The most striking contrast in the French education system: <strong>a student in a classe prépa costs almost twice as much as a university student</strong> (€15,700 vs €8,700). And prépas recruit predominantly from Parisian, socially selective schools.',
+  s2_p2:'This "privilege" of the grandes écoles track is frequently criticised: the State massively subsidises an elite that then accesses the highest-paying positions, while a first-generation university student receives fewer educational resources.',
+  s2_p3:'The Court of Auditors has repeatedly flagged this inequality, without it being fundamentally challenged.',
+  s3_h2:'Who funds this spending?',
+  s3_p1:'Education funding is shared among several actors:',
+  s3_li1:'<strong>State</strong> (~65%): teacher salaries, Ministry of Education operations, universities',
+  s3_li2:'<strong>Local authorities</strong> (~23%): municipalities (primary schools), departments (collèges), regions (high schools)',
+  s3_li3:'<strong>Households</strong> (~8%): supplies, school meals, extracurricular activities, private school fees',
+  s3_li4:'<strong>Businesses</strong> (~4%): apprenticeships, vocational training',
+  s4_h2:'International comparison: France spends above average',
+  s4_p1:'Per-pupil spending in France exceeds the OECD average at secondary level, but is in line with the average at primary level:',
+  s4_li1:'<strong>Primary</strong>: France €8,300, OECD €9,100, Germany €8,800, Finland €10,600',
+  s4_li2:'<strong>Secondary</strong>: France €11,100, OECD €10,500, Germany €10,500, Finland €9,800',
+  s4_li3:'<strong>Higher education</strong>: France €16,500, OECD €17,600, Germany €19,000, USA €35,000',
+  s4_p2:'Finland, which achieves excellent PISA results with small primary classes, spends less per pupil than France at secondary level — raising questions about the efficiency of resources invested.',
+  sources_label:'Sources',
+  sources_text:'DEPP — State of Schools 2024 · DEPP — Key Statistics 2024 · DEPP — Education costs 2023 · OECD — Education at a Glance 2023 · Court of Auditors — Preparatory classes 2021 · INSEE — Education accounts 2023.',
+  related_h3:'Go further',
+  related_1:'🎓 Full education analysis',
+  related_2:'📉 Why are school results falling?',
+  related_3:'🏛 Civil servants in France',
+  related_4:'❓ How much does the State cost?',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){lang=l;localStorage.setItem('lfm-lang',l);document.documentElement.lang=l==='fr'?'fr':'en';document.getElementById('btn-fr').classList.toggle('active',l==='fr');document.getElementById('btn-en').classList.toggle('active',l==='en');var s=T[l];document.querySelectorAll('[data-i18n]').forEach(function(el){var k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];});document.title=l==='fr'?"Combien coûte un élève à l'État en France ? — Données DEPP 2024":'How Much Does a Pupil Cost the French State? — DEPP 2024 Data';var d=document.querySelector('meta[name="description"]');if(d)d.setAttribute('content',l==='fr'?"De 7 400 € par an en maternelle à 15 700 € en classe prépa. Le coût réel par élève selon le niveau scolaire, comparaison internationale et ce que financent ces dépenses.":'From €7,400 per year in nursery school to €15,700 in a classe prépa. The real per-pupil cost by school level, international comparisons, and what the spending covers.');}
+setLang(lang);window.setLang=setLang;
+})();
+</script>
 </body>
 </html>

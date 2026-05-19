@@ -7,6 +7,9 @@
   <meta name="description" content="Ratio actifs/retraités, projections de population, natalité et immigration : la démographie française peut-elle financer les retraites ? Données INSEE et DREES.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/demographie-france-soutenable">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/demographie-france-soutenable">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/demographie-france-soutenable">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/demographie-france-soutenable">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Français Moyen">
@@ -79,8 +82,12 @@
       <li><a href="/a-propos/">À propos</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-      <a href="/" class="cta">← Tableau de bord</a>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
     </div>
   </header>
 <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
@@ -193,25 +200,25 @@
     </div>
 
     <div class="share-bar">
-      <span style="color:var(--muted);font-size:.9rem">Partager :</span>
-      <a href="https://twitter.com/intent/tweet?text=D%C3%A9mographie%20fran%C3%A7aise%20%3A%201%2C4%20actif%20pour%201%20retrait%C3%A9%20en%202050%20%E2%80%94%20les%20chiffres%20officiels%20%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fdemographie-france-soutenable" target="_blank" rel="noopener" class="share-btn">𝕏 Twitter</a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fdemographie-france-soutenable" target="_blank" rel="noopener" class="share-btn">Facebook</a>
+      <span style="color:var(--muted);font-size:.9rem" data-i18n="share_label">Partager :</span>
+      <a href="https://twitter.com/intent/tweet?text=D%C3%A9mographie%20fran%C3%A7aise%20%3A%201%2C4%20actif%20pour%201%20retrait%C3%A9%20en%202050%20%E2%80%94%20les%20chiffres%20officiels%20%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fdemographie-france-soutenable" target="_blank" rel="noopener" class="share-btn" data-i18n="share_tw">𝕏 Twitter</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fle-francais-moyen.com%2Fquestions%2Fdemographie-france-soutenable" target="_blank" rel="noopener" class="share-btn" data-i18n="share_fb">Facebook</a>
     </div>
   
     <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
       <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
         <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">S'abonner gratuitement →</a>
-        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0">0 publicité · désinscription en 1 clic</p>
+        <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin:0 0 18px;line-height:1.6;max-width:440px;margin-left:auto;margin-right:auto" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+        <a href="/#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.95rem;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.01em;transition:opacity .15s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'" data-i18n="nl_cta">S'abonner gratuitement →</a>
+        <p style="color:var(--muted);font-size:.78rem;margin:10px 0 0" data-i18n="nl_fine">0 publicité · désinscription en 1 clic</p>
       </div>
     </div>
   </main>
 
   <footer>
     <span>© 2026 Le Français Moyen — Données : INSEE, COR, DREES, Eurostat</span>
-    <a href="/">Tableau de bord principal</a>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
   </footer>
 <script>
 (function(){
@@ -241,6 +248,56 @@
 })();
 </script><script src="/assets/js/contrib-toggle.js" defer></script>
 <script src="/assets/js/nav.js"></script>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  share_label:'Partager :',
+  share_tw:'𝕏 Twitter',
+  share_fb:'Facebook',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:"S'abonner gratuitement →",
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  share_label:'Share:',
+  share_tw:'𝕏 Twitter',
+  share_fb:'Facebook',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'La démographie française est-elle soutenable ? — Retraites, natalité, projections INSEE'
+    :'Is French demography sustainable? — Pensions, birth rate, INSEE projections';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?"Ratio actifs/retraités, projections de population, natalité et immigration : la démographie française peut-elle financer les retraites ? Données INSEE et DREES."
+    :'Workers-to-retirees ratio, population projections, birth rate and immigration: can French demographics fund pensions? INSEE and DREES data.');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 

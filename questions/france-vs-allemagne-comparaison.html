@@ -6,6 +6,9 @@
   <title>France vs Allemagne : le grand comparatif économique et social 2024</title>
   <meta name="description" content="Dette, chômage, retraites, fonctionnaires, dépenses publiques : France vs Allemagne en 10 indicateurs clés. Qui gère mieux ses finances publiques ?">
   <link rel="canonical" href="https://le-francais-moyen.com/questions/france-vs-allemagne-comparaison">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/france-vs-allemagne-comparaison">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/questions/france-vs-allemagne-comparaison">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/france-vs-allemagne-comparaison">
   <meta property="og:title" content="France vs Allemagne : le grand comparatif 2024">
   <meta property="og:description" content="113 % vs 63 % de dette, 7,3 % vs 2,9 % de chômage, 57 % vs 44 % de dépenses publiques. La France et l'Allemagne en 10 indicateurs.">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/france-vs-allemagne-comparaison">
@@ -61,9 +64,13 @@
           <li><a href="/sante/">🏥 Santé</a></li>
           <li><a href="/questions/">❓ Questions</a></li>
           <li><a href="/a-propos/">À propos</a></li>
-          <li><a href="/#newsletter" class="cta">📧 Newsletter</a></li>
+          <li><a href="/#newsletter" class="cta" data-i18n="nav_cta">📧 Newsletter</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
       <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
         <span></span><span></span><span></span>
       </button>
@@ -81,10 +88,10 @@
 
   <main id="contenu">
     <div class="q-hero">
-      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/">Accueil</a> › <a href="/questions/">Questions</a> › <span>Comparatif</span></nav>
-      <div class="eyebrow">Données Eurostat · OCDE · FMI · 2024</div>
-      <h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);max-width:640px;margin:8px auto 12px">France vs Allemagne : le grand comparatif</h1>
-      <p style="color:var(--muted);font-size:1rem;max-width:580px;margin:0 auto 20px;line-height:1.7">
+      <nav style="font-size:.82rem;color:var(--muted);margin-bottom:12px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <a href="/questions/" data-i18n="breadcrumb_questions">Questions</a> › <span data-i18n="breadcrumb_current">Comparatif</span></nav>
+      <div class="eyebrow" data-i18n="hero_eyebrow">Données Eurostat · OCDE · FMI · 2024</div>
+      <h1 style="font-size:clamp(1.5rem,3.5vw,2.2rem);max-width:640px;margin:8px auto 12px" data-i18n="hero_h1">France vs Allemagne : le grand comparatif</h1>
+      <p style="color:var(--muted);font-size:1rem;max-width:580px;margin:0 auto 20px;line-height:1.7" data-i18n="hero_intro">
         Nos deux économies sont comparables en taille. Mais en termes de finances publiques,<br>les différences sont saisissantes — et pas toujours là où on les imagine.
       </p>
     </div>
@@ -92,7 +99,7 @@
     <div class="q-container">
 
       <div class="q-section">
-        <h2>10 indicateurs clés côte à côte</h2>
+        <h2 data-i18n="s1_h2">10 indicateurs clés côte à côte</h2>
         <p>La comparaison franco-allemande est un marronnier du débat public — souvent simplifiée à l'excès. Voici les chiffres bruts, sans commentaire politique.</p>
 
         <table class="cmp-table">
@@ -171,7 +178,7 @@
       </div>
 
       <div class="q-section">
-        <h2>Ce que cache la comparaison</h2>
+        <h2 data-i18n="s2_h2">Ce que cache la comparaison</h2>
         <p>Les chiffres bruts sont parlants, mais plusieurs nuances méritent d'être posées :</p>
         <ul>
           <li><strong>L'Allemagne a sous-investi depuis 20 ans.</strong> Son surplus budgétaire obsessionnel a conduit à un déficit d'investissements publics estimé à 600 Md€ (Institut der deutschen Wirtschaft). Ses infrastructures vieillissent, ses universités sont sous-financées, sa digitalisation accuse un retard criant.</li>
@@ -182,7 +189,7 @@
       </div>
 
       <div class="q-section">
-        <h2>Verdict : qui gagne quoi ?</h2>
+        <h2 data-i18n="s3_h2">Verdict : qui gagne quoi ?</h2>
         <div class="verdict-grid">
           <div class="verdict-card">
             <div class="vc-flag">🇩🇪</div>
@@ -240,9 +247,9 @@
   <div style="max-width:760px;margin:0 auto 60px;padding:0 24px">
     <div style="background:linear-gradient(135deg,rgba(251,146,60,.08),rgba(167,139,250,.06));border:1px solid rgba(251,146,60,.2);border-radius:16px;padding:28px 28px 24px;text-align:center">
       <div style="font-size:1.6rem;margin-bottom:8px">📧</div>
-      <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)">Le chiffre du lundi</h3>
-      <p style="color:var(--muted);font-size:.9rem;margin:0 0 16px">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
-      <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem">S'abonner gratuitement →</a>
+      <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 8px;color:var(--text)" data-i18n="nl_h3">Le chiffre du lundi</h3>
+      <p style="color:var(--muted);font-size:.9rem;margin:0 0 16px" data-i18n="nl_p">3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.</p>
+      <a href="/#newsletter" style="display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:.9rem" data-i18n="nl_cta">S'abonner gratuitement →</a>
     </div>
   </div>
 
@@ -252,6 +259,68 @@
       <nav><a href="/a-propos/">À propos</a> · <a href="/questions/">Toutes les questions</a> · <a href="/partager/">Partager</a></nav>
     </div>
   </footer>
+<script>
+(function(){
+const T={
+fr:{
+  nav_cta:'← Tableau de bord',
+  breadcrumb_home:'Accueil',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Comparatif',
+  hero_eyebrow:'Données Eurostat · OCDE · FMI · 2024',
+  hero_h1:'France vs Allemagne : le grand comparatif',
+  hero_intro:'Nos deux économies sont comparables en taille. Mais en termes de finances publiques,<br>les différences sont saisissantes — et pas toujours là où on les imagine.',
+  s1_h2:'10 indicateurs clés côte à côte',
+  s2_h2:'Ce que cache la comparaison',
+  s3_h2:'Verdict : qui gagne quoi ?',
+  nl_h3:'Le chiffre du lundi',
+  nl_p:'3 chiffres officiels, 1 graphique, 1 phrase à retenir. Chaque lundi, sans publicité.',
+  nl_cta:'S\'abonner gratuitement →',
+  nl_fine:'0 publicité · désinscription en 1 clic',
+  footer_link:'Tableau de bord principal'
+},
+en:{
+  nav_cta:'← Dashboard',
+  breadcrumb_home:'Home',
+  breadcrumb_questions:'Questions',
+  breadcrumb_current:'Comparison',
+  hero_eyebrow:'Eurostat · OECD · IMF data · 2024',
+  hero_h1:'France vs Germany: the grand comparison',
+  hero_intro:'Our two economies are comparable in size. But in terms of public finances,<br>the differences are striking — and not always where you might expect.',
+  s1_h2:'10 key indicators side by side',
+  s2_h2:'What the comparison conceals',
+  s3_h2:'Verdict: who wins what?',
+  nl_h3:'Monday Briefing',
+  nl_p:'3 official stats, 1 chart, 1 key takeaway. Every Monday, ad-free.',
+  nl_cta:'Subscribe for free →',
+  nl_fine:'No ads · unsubscribe in 1 click',
+  footer_link:'Main dashboard'
+}
+};
+let lang=localStorage.getItem('lfm-lang')||'fr';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lfm-lang',l);
+  document.documentElement.lang=l==='fr'?'fr':'en';
+  document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  var s=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(s[k]!==undefined)el.innerHTML=s[k];
+  });
+  document.title=l==='fr'
+    ?'France vs Allemagne : le grand comparatif économique et social 2024'
+    :'France vs Germany: the grand economic and social comparison 2024';
+  var desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',l==='fr'
+    ?'Dette, chômage, retraites, fonctionnaires, dépenses publiques : France vs Allemagne en 10 indicateurs clés. Qui gère mieux ses finances publiques ?'
+    :'Debt, unemployment, pensions, public servants, government spending: France vs Germany across 10 key indicators. Who manages public finances better?');
+}
+setLang(lang);
+window.setLang=setLang;
+})();
+</script>
 </body>
 </html>
 
