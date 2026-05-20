@@ -144,10 +144,9 @@
       <nav aria-label="Navigation principale">
         <ul>
           <li class="has-dropdown">
-            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
             <ul class="dropdown" role="menu">
               <li><a href="/budget/">📋 Budget de l'État</a></li>
-              <li><a href="/impot/">💸 Impôt invisible</a></li>
               <li><a href="/dette/">⏱️ Dette en direct</a></li>
               <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
               <li><a href="/retraites/">👴 Retraites</a></li>
@@ -159,8 +158,14 @@
               <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
               <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
               <li><a href="/demographie/">👥 Démographie</a></li>
-              <li><a href="/csg/">💶 CSG</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="fiscalite" aria-haspopup="true">Fiscalité <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
               <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/csg/">💶 CSG</a></li>
               <li><a href="/tva/">🧾 TVA</a></li>
               <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
             </ul>
@@ -182,7 +187,6 @@
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
     <a href="/">🏠 Tableau de bord</a>
     <a href="/budget/">📋 Budget</a>
-    <a href="/impot/">💸 Impôt</a>
     <a href="/dette/">⏱️ Dette</a>
     <a href="/fonctionnaires/">👔 Fonctionnaires</a>
     <a href="/retraites/">👴 Retraites</a>
@@ -194,6 +198,11 @@
     <a href="/normes/">📜 Normes</a>
     <a href="/ronds-points/">🔵 Rond-Point</a>
     <a href="/demographie/">👥 Démographie</a>
+    <a href="/fiscalite/">📊 Fiscalité</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/csg/">💶 CSG</a>
+    <a href="/tva/">🧾 TVA</a>
+    <a href="/ir/">📋 IR</a>
     <a href="/outils/">🧰 Outils</a>
     <a href="/elections/">🗳️ Élections</a>
     <a href="/questions/">❓ Questions</a>

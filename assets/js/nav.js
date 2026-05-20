@@ -3,20 +3,27 @@
 
   /* ── Traductions nav desktop ──────────────────────────────────── */
   var NAV_T = {
-    fr: { analyses:'Analyses', outils:'Outils', elections:'Élections', questions:'Questions', apropos:'À propos' },
-    en: { analyses:'Analyses', outils:'Tools',  elections:'Elections', questions:'Questions', apropos:'About'    }
+    fr: { analyses:'Analyses', fiscalite:'Fiscalité', outils:'Outils', elections:'Élections', questions:'Questions', apropos:'À propos' },
+    en: { analyses:'Analyses', fiscalite:'Taxation',  outils:'Tools',  elections:'Elections', questions:'Questions', apropos:'About'    }
   };
 
   function applyNavLang(lang) {
     var t = NAV_T[lang] || NAV_T.fr;
 
-    /* Bouton dropdown "Analyses ▼" — préserve le <span.nav-caret> */
-    var dropBtn = document.querySelector('.nav-drop-btn');
-    if (dropBtn) {
-      var caret = dropBtn.querySelector('.nav-caret');
-      /* Vide le bouton et remet le texte + caret */
-      dropBtn.textContent = t.analyses + ' ';
-      if (caret) dropBtn.appendChild(caret);
+    /* Bouton dropdown "Analyses ▼" — ciblé par data-nav */
+    var analysesBtn = document.querySelector('[data-nav="analyses"]');
+    if (analysesBtn) {
+      var caret = analysesBtn.querySelector('.nav-caret');
+      analysesBtn.textContent = t.analyses + ' ';
+      if (caret) analysesBtn.appendChild(caret);
+    }
+
+    /* Bouton dropdown "Fiscalité ▼" — ciblé par data-nav */
+    var fiscaliteBtn = document.querySelector('[data-nav="fiscalite"]');
+    if (fiscaliteBtn) {
+      var caret2 = fiscaliteBtn.querySelector('.nav-caret');
+      fiscaliteBtn.textContent = t.fiscalite + ' ';
+      if (caret2) fiscaliteBtn.appendChild(caret2);
     }
 
     /* Liens top-level de la nav desktop */
@@ -51,7 +58,7 @@
     /* Applique la langue courante */
     applyNavLang(localStorage.getItem('lfm-lang') || 'fr');
 
-    /* Dropdown clic */
+    /* Dropdown clic — gère tous les .nav-drop-btn (Analyses + Fiscalité) */
     document.querySelectorAll('.nav-drop-btn').forEach(function(btn) {
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
