@@ -434,4 +434,18 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/csg/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/fiscalite/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
 </urlset>

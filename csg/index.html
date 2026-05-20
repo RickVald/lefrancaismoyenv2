@@ -1,0 +1,539 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CSG : l'impôt invisible passé de 1,1 % à 9,2 % — Le Français Moyen</title>
+  <meta name="description" content="Créée en 1991 à 1,1 %, la CSG atteint aujourd'hui 9,2 % du salaire brut. 140 Md€/an — plus que l'impôt sur le revenu. Taux, assiette, histoire. Données officielles.">
+  <link rel="canonical" href="https://le-francais-moyen.com/csg/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/csg/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/csg/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/csg/">
+  <meta property="og:title" content="CSG : de 1,1 % à 9,2 % en 30 ans — Le Français Moyen">
+  <meta property="og:description" content="Créée en 1991 à 1,1 %, la CSG atteint aujourd'hui 9,2 % du salaire brut. 140 Md€/an — plus que l'impôt sur le revenu. Taux, assiette, histoire. Données officielles.">
+  <meta property="og:url" content="https://le-francais-moyen.com/csg/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=18">
+  <style>
+    /* ── Hero ───────────────────────────────────────────────── */
+    .csg-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(99,102,241,.12) 0%,transparent 65%)}
+    .csg-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#818cf8;line-height:1;margin:8px 0 4px}
+
+    /* ── KPI cards ─────────────────────────────────────────── */
+    .csg-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .csg-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .csg-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .csg-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* ── Tableau taux ──────────────────────────────────────── */
+    .csg-table{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.88rem}
+    .csg-table th{text-align:left;padding:10px 14px;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .csg-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted);line-height:1.4}
+    .csg-table tr:last-child td{border-bottom:none}
+    .csg-table tr:hover td{background:rgba(255,255,255,.03)}
+    .csg-table .rate{font-weight:800;color:var(--text)}
+    .csg-table .ded{color:#818cf8;font-weight:700}
+
+    /* ── Timeline ──────────────────────────────────────────── */
+    .timeline{position:relative;padding-left:32px;margin:16px 0 24px}
+    .timeline::before{content:'';position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:rgba(99,102,241,.3)}
+    .tl-item{position:relative;margin-bottom:22px}
+    .tl-dot{position:absolute;left:-26px;top:5px;width:12px;height:12px;border-radius:50%;background:#818cf8;border:2px solid var(--bg);flex-shrink:0}
+    .tl-year{font-size:.75rem;font-weight:800;letter-spacing:.06em;color:#818cf8;margin-bottom:3px}
+    .tl-text{font-size:.875rem;color:var(--muted);line-height:1.6}
+    .tl-text strong{color:var(--text)}
+
+    /* ── Stat cards comparatif ──────────────────────────────── */
+    .csg-compare{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:16px 0 20px}
+    .csg-compare-card{padding:20px 22px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+    .csg-compare-card .cc-label{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+    .csg-compare-card .cc-val{font-size:2rem;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+    .csg-compare-card .cc-sub{font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.5}
+
+    /* ── Répartition barres ─────────────────────────────────── */
+    .csg-alloc-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .csg-alloc-label{width:200px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .csg-alloc-wrap{flex:1;height:26px;background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden}
+    .csg-alloc-bar{height:100%;border-radius:8px;display:flex;align-items:center;padding:0 10px;font-size:.76rem;font-weight:700;color:#fff}
+    .csg-alloc-val{width:50px;text-align:right;font-weight:800;font-size:.85rem;flex-shrink:0}
+
+    /* ── Verdict / note ─────────────────────────────────────── */
+    .csg-verdict{background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .csg-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+
+    @media(max-width:640px){
+      .csg-alloc-label{width:120px;font-size:.78rem}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://le-francais-moyen.com/"},
+      {"@type": "ListItem", "position": 2, "name": "CSG", "item": "https://le-francais-moyen.com/csg/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "CSG : l'impôt invisible passé de 1,1 % à 9,2 % — Le Français Moyen",
+    "description": "Créée en 1991 à 1,1 %, la CSG atteint aujourd'hui 9,2 % du salaire brut. 140 Md€/an — plus que l'impôt sur le revenu. Taux, assiette, histoire. Données officielles.",
+    "url": "https://le-francais-moyen.com/csg/",
+    "publisher": {"@type": "Organization", "name": "Le Français Moyen", "url": "https://le-francais-moyen.com"},
+    "inLanguage": "fr"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quel est le taux de CSG en 2024 ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Le taux de CSG est de 9,2 % pour les salariés actifs, 8,3 % pour les retraités imposables, et 6,2 % pour les allocations chômage et indemnités maladie. La CSG s'applique sur 98,25 % du salaire brut."}
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre CSG et CRDS ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "La CSG (9,2 %) finance la Sécurité Sociale. La CRDS (0,5 %) rembourse la dette sociale (CADES). Elles sont souvent confondues car prélevées ensemble : au total 9,7 % du salaire brut pour un actif."}
+      },
+      {
+        "@type": "Question",
+        "name": "La CSG est-elle déductible des impôts ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Partiellement. 6,8 points de CSG sur 9,2 sont déductibles du revenu imposable pour les salariés. Les 2,4 points restants (dits non déductibles) ne le sont pas."}
+      },
+      {
+        "@type": "Question",
+        "name": "Pourquoi les retraités paient-ils la CSG ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Depuis 1997, les retraités imposables paient la CSG à 8,3 % (contre 9,2 % pour les actifs). Cette mesure, très controversée, a été partiellement atténuée en 2019 après les protestations des gilets jaunes."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/demographie/">👥 Démographie</a></li>
+              <li><a href="/csg/">💶 CSG</a></li>
+              <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/demographie/">👥 Démographie</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+
+    <!-- ── Hero ──────────────────────────────────────────────────── -->
+    <div class="csg-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_page">CSG</span></nav>
+      <div class="eyebrow" data-i18n="eyebrow">Données ACOSS · DSS · PLFSS 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">La CSG</h1>
+      <div class="csg-big" data-i18n="csg_big">9,2 %</div>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_sub">
+        L'impôt invisible qui a <strong style="color:#818cf8">×8,4 en 30 ans</strong>.<br>
+        Créé à <strong style="color:#818cf8">1,1 %</strong> en 1991, il dépasse aujourd'hui <strong style="color:#ff6b6b">l'impôt sur le revenu</strong>.
+      </p>
+      <div class="csg-kpi">
+        <div class="csg-kpi-card">
+          <span class="val" style="color:#818cf8" data-i18n="kpi_recettes_val">140 Md€/an</span>
+          <span class="lbl" data-i18n="kpi_recettes_lbl">Recettes CSG 2023</span>
+        </div>
+        <div class="csg-kpi-card">
+          <span class="val" style="color:#a5b4fc" data-i18n="kpi_taux_val">9,2 %</span>
+          <span class="lbl" data-i18n="kpi_taux_lbl">Taux actifs (salaires)</span>
+        </div>
+        <div class="csg-kpi-card">
+          <span class="val" style="color:#f472b6" data-i18n="kpi_mult_val">×8,4</span>
+          <span class="lbl" data-i18n="kpi_mult_lbl">Multiplication depuis 1991</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── Featured snippet ──────────────────────────────────── -->
+      <section class="snippet-answer" style="max-width:720px;margin:0 auto 32px;padding:0 24px">
+        <h2 style="font-size:1.05rem;font-weight:800;margin:0 0 10px;color:var(--text)" data-i18n="snippet_q">Qu'est-ce que la CSG et quel est son taux en 2024 ?</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0" data-i18n="snippet_a">La <strong style="color:var(--text)">CSG (Contribution Sociale Généralisée)</strong> est un prélèvement obligatoire créé en 1991 par Michel Rocard à <strong style="color:var(--text)">1,1 %</strong>. Son taux atteint aujourd'hui <strong style="color:var(--text)">9,2 % du salaire brut</strong> pour les actifs. Elle rapporte <strong style="color:var(--text)">140 milliards d'euros par an</strong> — davantage que l'impôt sur le revenu — et finance la Sécurité Sociale.</p>
+      </section>
+
+      <!-- ── Tableau des taux ───────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px" data-i18n="h2_taux">Les différents taux CSG</h2>
+      <div style="overflow-x:auto">
+        <table class="csg-table">
+          <thead>
+            <tr>
+              <th data-i18n="th_categorie">Catégorie</th>
+              <th data-i18n="th_taux">Taux CSG</th>
+              <th data-i18n="th_ded">dont déductible</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="tr1_cat">Salariés actifs</td>
+              <td><span class="rate">9,2 %</span></td>
+              <td><span class="ded">6,8 %</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="tr2_cat">Retraités imposables</td>
+              <td><span class="rate">8,3 %</span></td>
+              <td><span class="ded">5,9 %</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="tr3_cat">Retraités modestes (≤ seuil)</td>
+              <td><span class="rate">3,8 %</span></td>
+              <td><span class="ded">3,8 %</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="tr4_cat">Retraités exonérés (faibles revenus)</td>
+              <td><span class="rate">0 %</span></td>
+              <td style="color:var(--muted)">—</td>
+            </tr>
+            <tr>
+              <td data-i18n="tr5_cat">Allocations chômage</td>
+              <td><span class="rate">6,2 %</span></td>
+              <td><span class="ded">3,8 %</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="tr6_cat">Revenus du capital</td>
+              <td><span class="rate">9,2 %</span></td>
+              <td style="color:var(--muted)">0 %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px" data-i18n="taux_source">Source : DSS — PLFSS 2024. La CSG s'applique sur 98,25 % de l'assiette (abattement de 1,75 % pour frais professionnels).</p>
+
+      <!-- ── Timeline ──────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="h2_timeline">De 1,1 % à 9,2 % — la hausse silencieuse</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 18px" data-i18n="timeline_sub">En 30 ans, la CSG a été multipliée par 8,4 — sans jamais faire l'objet d'un grand débat national.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1991</div>
+          <div class="tl-text"><strong>Création par Michel Rocard — taux 1,1 %</strong><br>
+            "Une cotisation modeste pour rééquilibrer la Sécu." Assiette large, taux faible — présentée comme alternative aux cotisations patronales.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1993</div>
+          <div class="tl-text"><strong>→ 2,4 % (Balladur)</strong><br>
+            Doublement du taux lors de la réforme des retraites. La CSG commence à peser.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1997</div>
+          <div class="tl-text"><strong>→ 3,4 % puis 7,5 % (Juppé → Jospin)</strong><br>
+            Extension aux retraités et chômeurs. Le plan Juppé élargit l'assiette, Jospin réforme le financement de la protection sociale.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1998</div>
+          <div class="tl-text"><strong>→ 7,5 % consolidé (Jospin)</strong><br>
+            La CSG remplace une partie des cotisations maladie des salariés. Financement des 35 heures via la CRDS.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#f472b6"></div>
+          <div class="tl-year" style="color:#f472b6">2018</div>
+          <div class="tl-text"><strong>→ 9,2 % (Macron)</strong><br>
+            Hausse de 1,7 point en échange de la baisse des cotisations chômage et maladie. Les retraités imposables passent à 8,3 % — déclenchant la colère des "gilets jaunes" en 2019.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CSG vs IR ─────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_vs_ir">CSG vs Impôt sur le revenu — le comparatif qui surprend</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px" data-i18n="vs_ir_sub">La CSG est techniquement une "contribution", pas un "impôt" — ce qui a permis de la hausser sans débat parlementaire sur la fiscalité.</p>
+      <div class="csg-compare">
+        <div class="csg-compare-card">
+          <div class="cc-label" data-i18n="csg_card_label">💳 CSG</div>
+          <div class="cc-val" style="color:#818cf8" data-i18n="csg_card_val">140 Md€/an</div>
+          <div class="cc-sub" data-i18n="csg_card_sub">Payée par <strong style="color:var(--text)">TOUS</strong> — salariés, retraités, chômeurs, rentiers. Aucune exonération pour les bas revenus actifs.</div>
+        </div>
+        <div class="csg-compare-card">
+          <div class="cc-label" data-i18n="ir_card_label">📄 Impôt sur le revenu</div>
+          <div class="cc-val" style="color:#60a5fa" data-i18n="ir_card_val">95 Md€/an</div>
+          <div class="cc-sub" data-i18n="ir_card_sub">Payé seulement par <strong style="color:var(--text)">45 % des foyers fiscaux</strong>. Progressif, déclaratif, avec quotient familial.</div>
+        </div>
+      </div>
+      <div class="csg-note">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px" data-i18n="vs_ir_note_label">📌 POURQUOI "CONTRIBUTION" ET PAS "IMPÔT" ?</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0" data-i18n="vs_ir_note_text">
+          En droit fiscal, une "contribution sociale" affectée à un organisme de Sécurité Sociale échappe aux règles du débat budgétaire ordinaire. Concrètement : le gouvernement peut en modifier le taux par simple loi de financement de la Sécurité Sociale (PLFSS), sans rouvrir le débat sur les "impôts". Cette nuance juridique a permis à chaque gouvernement depuis 1991 de <strong style="color:var(--text)">hausser le prélèvement discrètement</strong>.
+        </p>
+      </div>
+
+      <!-- ── Ce que finance la CSG ─────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_finance">Ce que finance la CSG</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="finance_sub">Sur les 140 Md€ collectés, la répartition approximative entre branches :</p>
+      <div id="csgAlloc"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px" data-i18n="finance_source">Source : DSS — Rapport à la Commission des Comptes de la Sécurité Sociale 2023. Répartition indicative — des ajustements annuels s'appliquent.</p>
+
+      <!-- ── Snippet bonus CSG vs CRDS ──────────────────────────── -->
+      <section style="background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.25);border-radius:16px;padding:22px 26px;margin:28px 0">
+        <h2 style="font-size:1.05rem;font-weight:800;margin:0 0 10px;color:var(--text)" data-i18n="crds_snippet_q">Quelle est la différence entre CSG et CRDS ?</h2>
+        <p style="font-size:.92rem;line-height:1.75;color:var(--muted);margin:0" data-i18n="crds_snippet_a">La <strong style="color:var(--text)">CSG (9,2 %)</strong> finance la Sécurité Sociale au quotidien. La <strong style="color:var(--text)">CRDS (0,5 %)</strong> rembourse la dette sociale accumulée, gérée par la CADES. Elles sont souvent confondues car prélevées ensemble sur le bulletin de salaire, pour un total de <strong style="color:var(--text)">9,7 % du salaire brut</strong> pour un salarié actif. Contrairement à la CSG, la CRDS n'est <strong style="color:var(--text)">jamais déductible</strong> du revenu imposable.</p>
+      </section>
+
+      <!-- ── Verdict ────────────────────────────────────────────── -->
+      <div class="csg-verdict">
+        <div style="font-size:.8rem;font-weight:800;color:#818cf8;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_label">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_text">
+          En 30 ans, la CSG est passée de <strong style="color:#fff">1,1 % à 9,2 %</strong> — soit une multiplication par 8,4 — sans jamais faire l'objet d'un référendum ou d'un grand débat démocratique. Avec <strong style="color:#fff">140 Md€/an</strong>, elle surpasse l'impôt sur le revenu (95 Md€) et touche universellement tous les revenus, y compris ceux des plus modestes. Son caractère "non fiscal" lui a permis de croître dans l'ombre du consentement à l'impôt. La hausse de 2018 sur les retraités a d'ailleurs été l'un des détonateurs du mouvement des <strong style="color:#f472b6">gilets jaunes</strong>.
+        </p>
+      </div>
+
+      <!-- ── Sources ────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <span data-i18n="sources_block"><strong style="color:var(--text)">Sources :</strong>
+          DSS — Direction de la Sécurité Sociale, PLFSS 2024 ·
+          ACOSS — Rapport d'activité 2023 ·
+          Commission des Comptes de la Sécurité Sociale 2023 ·
+          INSEE — Comptes de la protection sociale 2022 ·
+          Cour des Comptes — rapport sur la CRDS et la CADES 2022 ·
+          Légifrance — Loi n° 90-1168 du 29 décembre 1990 (création CSG)</span>
+        </div>
+      </div>
+
+      <!-- ── Share ──────────────────────────────────────────────── -->
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+CSG+est+pass%C3%A9e+de+1%2C1+%25+en+1991+%C3%A0+9%2C2+%25+aujourd%27hui+%E2%80%94+soit+%C3%978%2C4+en+30+ans.+140+Md%E2%82%AC%2Fan%2C+plus+que+l%27imp%C3%B4t+sur+le+revenu.+L%27imp%C3%B4t+invisible.+Les+donn%C3%A9es+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fcsg%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : DSS · ACOSS · INSEE · Cour des Comptes</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  /* ── Répartition CSG ───────────────────────────────────────────── */
+  const ALLOC = [
+    {label:'🏥 Assurance maladie',   pct:60, color:'#818cf8'},
+    {label:'👴 Retraites (FSV)',      pct:20, color:'#a78bfa'},
+    {label:'👶 Famille (CNAF)',       pct:10, color:'#60a5fa'},
+    {label:'♿ Autonomie (CNSA)',     pct:10, color:'#38bdf8'},
+  ];
+  const allocContainer = document.getElementById('csgAlloc');
+  ALLOC.forEach(d => {
+    allocContainer.innerHTML += `
+      <div class="csg-alloc-row">
+        <div class="csg-alloc-label">${d.label}</div>
+        <div class="csg-alloc-wrap">
+          <div class="csg-alloc-bar" style="width:${d.pct}%;background:${d.color}">${d.pct} %</div>
+        </div>
+        <span class="csg-alloc-val" style="color:${d.color}">${d.pct} %</span>
+      </div>`;
+  });
+
+  /* ── Nav mobile toggle ─────────────────────────────────────────── */
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded',open);
+    document.body.classList.toggle('nav-open',open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+  </script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+  (function(){
+    var T={
+      fr:{
+        nav_cta:'← Accueil',
+        breadcrumb_home:'Accueil',
+        breadcrumb_page:'CSG',
+        eyebrow:'Données ACOSS · DSS · PLFSS 2024',
+        h1:'La CSG',
+        csg_big:'9,2 %',
+        hero_sub:'L\'impôt invisible qui a <strong style="color:#818cf8">×8,4 en 30 ans</strong>.<br>Créé à <strong style="color:#818cf8">1,1 %</strong> en 1991, il dépasse aujourd\'hui <strong style="color:#ff6b6b">l\'impôt sur le revenu</strong>.',
+        kpi_recettes_val:'140 Md€/an',
+        kpi_recettes_lbl:'Recettes CSG 2023',
+        kpi_taux_val:'9,2 %',
+        kpi_taux_lbl:'Taux actifs (salaires)',
+        kpi_mult_val:'×8,4',
+        kpi_mult_lbl:'Multiplication depuis 1991',
+        snippet_q:'Qu\'est-ce que la CSG et quel est son taux en 2024 ?',
+        snippet_a:'La <strong style="color:var(--text)">CSG (Contribution Sociale Généralisée)</strong> est un prélèvement obligatoire créé en 1991 par Michel Rocard à <strong style="color:var(--text)">1,1 %</strong>. Son taux atteint aujourd\'hui <strong style="color:var(--text)">9,2 % du salaire brut</strong> pour les actifs. Elle rapporte <strong style="color:var(--text)">140 milliards d\'euros par an</strong> — davantage que l\'impôt sur le revenu — et finance la Sécurité Sociale.',
+        h2_taux:'Les différents taux CSG',
+        th_categorie:'Catégorie',
+        th_taux:'Taux CSG',
+        th_ded:'dont déductible',
+        tr1_cat:'Salariés actifs',
+        tr2_cat:'Retraités imposables',
+        tr3_cat:'Retraités modestes (≤ seuil)',
+        tr4_cat:'Retraités exonérés (faibles revenus)',
+        tr5_cat:'Allocations chômage',
+        tr6_cat:'Revenus du capital',
+        taux_source:'Source : DSS — PLFSS 2024. La CSG s\'applique sur 98,25 % de l\'assiette (abattement de 1,75 % pour frais professionnels).',
+        h2_timeline:'De 1,1 % à 9,2 % — la hausse silencieuse',
+        timeline_sub:'En 30 ans, la CSG a été multipliée par 8,4 — sans jamais faire l\'objet d\'un grand débat national.',
+        h2_vs_ir:'CSG vs Impôt sur le revenu — le comparatif qui surprend',
+        vs_ir_sub:'La CSG est techniquement une "contribution", pas un "impôt" — ce qui a permis de la hausser sans débat parlementaire sur la fiscalité.',
+        csg_card_label:'💳 CSG',
+        csg_card_val:'140 Md€/an',
+        csg_card_sub:'Payée par <strong style="color:var(--text)">TOUS</strong> — salariés, retraités, chômeurs, rentiers. Aucune exonération pour les bas revenus actifs.',
+        ir_card_label:'📄 Impôt sur le revenu',
+        ir_card_val:'95 Md€/an',
+        ir_card_sub:'Payé seulement par <strong style="color:var(--text)">45 % des foyers fiscaux</strong>. Progressif, déclaratif, avec quotient familial.',
+        vs_ir_note_label:'📌 POURQUOI "CONTRIBUTION" ET PAS "IMPÔT" ?',
+        vs_ir_note_text:'En droit fiscal, une "contribution sociale" affectée à un organisme de Sécurité Sociale échappe aux règles du débat budgétaire ordinaire. Concrètement : le gouvernement peut en modifier le taux par simple loi de financement de la Sécurité Sociale (PLFSS), sans rouvrir le débat sur les "impôts". Cette nuance juridique a permis à chaque gouvernement depuis 1991 de <strong style="color:var(--text)">hausser le prélèvement discrètement</strong>.',
+        h2_finance:'Ce que finance la CSG',
+        finance_sub:'Sur les 140 Md€ collectés, la répartition approximative entre branches :',
+        finance_source:'Source : DSS — Rapport à la Commission des Comptes de la Sécurité Sociale 2023. Répartition indicative — des ajustements annuels s\'appliquent.',
+        crds_snippet_q:'Quelle est la différence entre CSG et CRDS ?',
+        crds_snippet_a:'La <strong style="color:var(--text)">CSG (9,2 %)</strong> finance la Sécurité Sociale au quotidien. La <strong style="color:var(--text)">CRDS (0,5 %)</strong> rembourse la dette sociale accumulée, gérée par la CADES. Elles sont souvent confondues car prélevées ensemble sur le bulletin de salaire, pour un total de <strong style="color:var(--text)">9,7 % du salaire brut</strong> pour un salarié actif. Contrairement à la CSG, la CRDS n\'est <strong style="color:var(--text)">jamais déductible</strong> du revenu imposable.',
+        verdict_label:'⚖️ CE QUE LES DONNÉES DISENT',
+        verdict_text:'En 30 ans, la CSG est passée de <strong style="color:#fff">1,1 % à 9,2 %</strong> — soit une multiplication par 8,4 — sans jamais faire l\'objet d\'un référendum ou d\'un grand débat démocratique. Avec <strong style="color:#fff">140 Md€/an</strong>, elle surpasse l\'impôt sur le revenu (95 Md€) et touche universellement tous les revenus, y compris ceux des plus modestes. Son caractère "non fiscal" lui a permis de croître dans l\'ombre du consentement à l\'impôt. La hausse de 2018 sur les retraités a d\'ailleurs été l\'un des détonateurs du mouvement des <strong style="color:#f472b6">gilets jaunes</strong>.',
+        sources_block:'<strong style="color:var(--text)">Sources :</strong> DSS — Direction de la Sécurité Sociale, PLFSS 2024 · ACOSS — Rapport d\'activité 2023 · Commission des Comptes de la Sécurité Sociale 2023 · INSEE — Comptes de la protection sociale 2022 · Cour des Comptes — rapport sur la CRDS et la CADES 2022 · Légifrance — Loi n° 90-1168 du 29 décembre 1990 (création CSG)',
+        footer_copy:'© 2026 Le Français Moyen — Données : DSS · ACOSS · INSEE · Cour des Comptes',
+        footer_link:'Tableau de bord principal'
+      },
+      en:{
+        nav_cta:'← Home',
+        breadcrumb_home:'Home',
+        breadcrumb_page:'CSG',
+        eyebrow:'Data: ACOSS · DSS · PLFSS 2024',
+        h1:'The CSG',
+        csg_big:'9.2%',
+        hero_sub:'The hidden tax that <strong style="color:#818cf8">grew ×8.4 in 30 years</strong>.<br>Created at <strong style="color:#818cf8">1.1%</strong> in 1991, it now exceeds <strong style="color:#ff6b6b">income tax</strong> revenues.',
+        kpi_recettes_val:'€140bn/year',
+        kpi_recettes_lbl:'CSG revenues 2023',
+        kpi_taux_val:'9.2%',
+        kpi_taux_lbl:'Rate for workers (wages)',
+        kpi_mult_val:'×8.4',
+        kpi_mult_lbl:'Multiplied since 1991',
+        snippet_q:'What is the CSG and what is its rate in 2024?',
+        snippet_a:'The <strong style="color:var(--text)">CSG (Contribution Sociale Généralisée)</strong> is a mandatory levy created in 1991 by Prime Minister Michel Rocard at <strong style="color:var(--text)">1.1%</strong>. Its rate has now reached <strong style="color:var(--text)">9.2% of gross wages</strong> for workers. It raises <strong style="color:var(--text)">€140 billion per year</strong> — more than income tax — and funds Social Security.',
+        h2_taux:'CSG rates by category',
+        th_categorie:'Category',
+        th_taux:'CSG rate',
+        th_ded:'of which deductible',
+        tr1_cat:'Employed workers',
+        tr2_cat:'Taxable retirees',
+        tr3_cat:'Low-income retirees (≤ threshold)',
+        tr4_cat:'Exempt retirees (very low income)',
+        tr5_cat:'Unemployment benefits',
+        tr6_cat:'Capital income',
+        taux_source:'Source: DSS — PLFSS 2024. CSG applies to 98.25% of the base (1.75% flat deduction for professional expenses).',
+        h2_timeline:'From 1.1% to 9.2% — the silent rise',
+        timeline_sub:'In 30 years, the CSG has been multiplied by 8.4 — with no major national debate.',
+        h2_vs_ir:'CSG vs income tax — the surprising comparison',
+        vs_ir_sub:'The CSG is technically a "social contribution", not a "tax" — which allowed successive governments to raise it without opening a parliamentary debate on taxation.',
+        csg_card_label:'💳 CSG',
+        csg_card_val:'€140bn/year',
+        csg_card_sub:'Paid by <strong style="color:var(--text)">EVERYONE</strong> — workers, retirees, unemployed, investors. No exemptions for low-income workers.',
+        ir_card_label:'📄 Income tax',
+        ir_card_val:'€95bn/year',
+        ir_card_sub:'Paid only by <strong style="color:var(--text)">45% of tax households</strong>. Progressive, declarative, with family quotient.',
+        vs_ir_note_label:'📌 WHY "CONTRIBUTION" INSTEAD OF "TAX"?',
+        vs_ir_note_text:'In French tax law, a "social contribution" earmarked for a Social Security body is not subject to ordinary budget rules. In practice: the government can change its rate through a simple Social Security Financing Bill (PLFSS), without reopening the debate on "taxes". This legal nuance has allowed every government since 1991 to <strong style="color:var(--text)">raise the levy quietly</strong>.',
+        h2_finance:'What the CSG funds',
+        finance_sub:'Of the €140bn collected, approximate breakdown by branch:',
+        finance_source:'Source: DSS — Report to the Social Security Accounts Committee 2023. Indicative breakdown — annual adjustments apply.',
+        crds_snippet_q:'What is the difference between CSG and CRDS?',
+        crds_snippet_a:'The <strong style="color:var(--text)">CSG (9.2%)</strong> funds Social Security on a daily basis. The <strong style="color:var(--text)">CRDS (0.5%)</strong> repays accumulated social debt, managed by CADES. They are often confused because they are withheld together on pay slips, for a total of <strong style="color:var(--text)">9.7% of gross wages</strong> for an employed worker. Unlike the CSG, the CRDS is <strong style="color:var(--text)">never deductible</strong> from taxable income.',
+        verdict_label:'⚖️ WHAT THE DATA SAYS',
+        verdict_text:'In 30 years, the CSG has risen from <strong style="color:#fff">1.1% to 9.2%</strong> — an 8.4× increase — with no referendum or major democratic debate. At <strong style="color:#fff">€140bn/year</strong>, it surpasses income tax (€95bn) and applies universally to all income, including that of modest earners. Its "non-tax" status allowed it to grow quietly. The 2018 hike on retirees was one of the triggers of the <strong style="color:#f472b6">gilets jaunes</strong> movement.',
+        sources_block:'<strong style="color:var(--text)">Sources:</strong> DSS — Social Security Directorate, PLFSS 2024 · ACOSS — Annual Report 2023 · Social Security Accounts Committee 2023 · INSEE — Social Protection Accounts 2022 · Cour des Comptes — report on CRDS and CADES 2022 · Légifrance — Law no. 90-1168 of 29 December 1990 (CSG creation)',
+        footer_copy:'© 2026 The Average French — Data: DSS · ACOSS · INSEE · Cour des Comptes',
+        footer_link:'Main dashboard'
+      }
+    };
+    var lang=localStorage.getItem('lfm-lang')||'fr';
+    function setLang(l){
+      lang=l;
+      localStorage.setItem('lfm-lang',l);
+      document.documentElement.lang=l==='fr'?'fr':'en';
+      document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+      document.getElementById('btn-en').classList.toggle('active',l==='en');
+      var s=T[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k=el.getAttribute('data-i18n');
+        if(s[k]!==undefined)el.innerHTML=s[k];
+      });
+      document.title=l==='fr'
+        ?'CSG : l\'impôt invisible passé de 1,1 % à 9,2 % — Le Français Moyen'
+        :'CSG: France\'s Hidden Tax That Grew from 1.1% to 9.2% | The Average French';
+      var desc=document.querySelector('meta[name="description"]');
+      if(desc)desc.setAttribute('content',l==='fr'
+        ?'Créée en 1991 à 1,1 %, la CSG atteint aujourd\'hui 9,2 % du salaire brut. 140 Md€/an — plus que l\'impôt sur le revenu. Taux, assiette, histoire. Données officielles.'
+        :'Created in 1991 at 1.1%, the CSG now reaches 9.2% of gross wages. €140bn/year — more than income tax. Rates, base, history. Official data.');
+    }
+    setLang(lang);
+    window.setLang=setLang;
+  })();
+  </script>
+</body>
+</html>

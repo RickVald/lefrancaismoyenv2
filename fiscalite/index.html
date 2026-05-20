@@ -1,0 +1,677 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Histoire de la fiscalité française depuis 1914 — Le Français Moyen</title>
+  <meta name="description" content="De l'IR créé pour financer la guerre de 14 à la CSG de Rocard : comment la France est devenue championne du monde de la fiscalité en 110 ans. Données officielles.">
+  <link rel="canonical" href="https://le-francais-moyen.com/fiscalite/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/fiscalite/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/fiscalite/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/fiscalite/">
+  <meta property="og:title" content="Histoire de la fiscalité française (1914–2024) — Le Français Moyen">
+  <meta property="og:description" content="De l'IR créé pour financer la guerre de 14 à la CSG de Rocard : comment la France est devenue championne du monde de la fiscalité en 110 ans. Données officielles.">
+  <meta property="og:url" content="https://le-francais-moyen.com/fiscalite/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=18">
+  <style>
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    .fisc-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(246,195,67,.12) 0%,transparent 65%)}
+    .fisc-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#f6c343;line-height:1;margin:8px 0 4px}
+
+    .fisc-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .fisc-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .fisc-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .fisc-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* ── Timeline ──────────────────────────────────────────────────── */
+    .timeline{position:relative;padding:0 0 0 32px;margin:16px 0 32px}
+    .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(246,195,67,.6),rgba(246,195,67,.1))}
+    .tl-item{position:relative;margin-bottom:32px}
+    .tl-dot{position:absolute;left:-26px;top:4px;width:14px;height:14px;border-radius:50%;border:2px solid rgba(0,0,0,.4);flex-shrink:0}
+    .tl-dot.era-war{background:#ff6b6b}
+    .tl-dot.era-growth{background:#4ade80}
+    .tl-dot.era-crisis{background:#fb923c}
+    .tl-dot.era-reform{background:#a78bfa}
+    .tl-dot.era-modern{background:#f6c343}
+    .tl-year{font-size:1.25rem;font-weight:900;letter-spacing:-.04em;color:#f6c343;margin-bottom:4px}
+    .tl-title{font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:6px}
+    .tl-text{font-size:.84rem;color:var(--muted);line-height:1.65}
+    .tl-badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.06em;padding:2px 8px;border-radius:10px;margin-bottom:8px}
+    .tl-badge.era-war{background:rgba(255,107,107,.15);color:#ff6b6b;border:1px solid rgba(255,107,107,.3)}
+    .tl-badge.era-growth{background:rgba(74,222,128,.12);color:#4ade80;border:1px solid rgba(74,222,128,.3)}
+    .tl-badge.era-crisis{background:rgba(251,146,60,.12);color:#fb923c;border:1px solid rgba(251,146,60,.3)}
+    .tl-badge.era-reform{background:rgba(167,139,250,.12);color:#a78bfa;border:1px solid rgba(167,139,250,.3)}
+    .tl-badge.era-modern{background:rgba(246,195,67,.12);color:#f6c343;border:1px solid rgba(246,195,67,.3)}
+
+    /* ── Tableau impôts ────────────────────────────────────────────── */
+    .fisc-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:.84rem}
+    .fisc-table th{text-align:left;padding:10px 12px;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap}
+    .fisc-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top}
+    .fisc-table tr:last-child td{border-bottom:none}
+    .fisc-table .tx-name{font-weight:800;color:var(--text)}
+    .fisc-table .tx-val{font-weight:800;color:#f6c343}
+    .fisc-table tr:hover td{background:rgba(255,255,255,.025)}
+
+    /* ── Hub cards ─────────────────────────────────────────────────── */
+    .hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:16px 0 28px}
+    .hub-card{display:block;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);text-decoration:none;transition:border-color .2s,background .2s}
+    .hub-card:hover{background:rgba(246,195,67,.07);border-color:rgba(246,195,67,.35)}
+    .hub-card .hc-icon{font-size:1.5rem;margin-bottom:8px}
+    .hub-card .hc-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:4px}
+    .hub-card .hc-desc{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* ── Verdict / note ────────────────────────────────────────────── */
+    .fisc-verdict{background:rgba(246,195,67,.07);border:1px solid rgba(246,195,67,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .fisc-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+
+    @media(max-width:640px){
+      .timeline{padding-left:24px}
+      .tl-dot{left:-20px}
+      .fisc-table th:nth-child(4),.fisc-table td:nth-child(4){display:none}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://le-francais-moyen.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Fiscalité", "item": "https://le-francais-moyen.com/fiscalite/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Histoire de la fiscalité française depuis 1914 — Le Français Moyen",
+    "description": "De l'IR créé pour financer la guerre de 14 à la CSG de Rocard : comment la France est devenue championne du monde de la fiscalité en 110 ans. Données officielles.",
+    "url": "https://le-francais-moyen.com/fiscalite/",
+    "publisher": {"@type": "Organization", "name": "Le Français Moyen", "url": "https://le-francais-moyen.com"},
+    "inLanguage": "fr"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quand a été créé l'impôt sur le revenu en France ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'IR a été créé le 15 juillet 1914 par Joseph Caillaux, quelques jours avant la déclaration de guerre. Son taux maximum était de 2 %. Il ne représentait initialement qu'un impôt d'urgence pour financer la Première Guerre Mondiale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quand a été créée la TVA en France ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La TVA (Taxe sur la Valeur Ajoutée) a été inventée en France par Maurice Lauré, directeur général des impôts, et introduite le 10 avril 1954. La France est le premier pays au monde à avoir adopté ce système. Le taux normal est aujourd'hui de 20 %."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel est le niveau des prélèvements obligatoires en France ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les prélèvements obligatoires (impôts + cotisations sociales) représentent 45,4 % du PIB en France en 2023 — le niveau le plus élevé de l'OCDE, devant le Danemark (44 %) et la Belgique (44 %)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien y a-t-il d'impôts et taxes en France ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La France compte plus de 360 taxes et impôts différents recensés. Les principales recettes fiscales sont : TVA (~200 Md€), IR (~95 Md€), IS (~60 Md€), CSG (~140 Md€), TICPE (~35 Md€)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/demographie/">👥 Démographie</a></li>
+              <li><a href="/csg/">💶 CSG</a></li>
+              <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/demographie/">👥 Démographie</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <!-- ── Hero ─────────────────────────────────────────────────────── -->
+    <div class="fisc-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_page">Fiscalité</span></nav>
+      <div class="eyebrow" data-i18n="eyebrow">Données DGFiP · INSEE · OCDE · 2023</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">La fiscalité française</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_sub">
+        De <strong style="color:#f6c343">2 %</strong> à <strong style="color:#ff6b6b">45,4 % du PIB</strong> en 110 ans
+      </p>
+      <div class="fisc-big">45,4 %</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0" data-i18n="hero_caption">prélèvements obligatoires / PIB en 2023 — n°1 de l'OCDE</p>
+
+      <div class="fisc-kpi" style="max-width:720px;margin:28px auto 0">
+        <div class="fisc-kpi-card">
+          <span class="val" style="color:#f6c343">45,4 %</span>
+          <span class="lbl" data-i18n="kpi_po">Prélèvements obligatoires / PIB (2023)</span>
+        </div>
+        <div class="fisc-kpi-card">
+          <span class="val" style="color:#fb923c">360+</span>
+          <span class="lbl" data-i18n="kpi_taxes">Taxes et impôts différents</span>
+        </div>
+        <div class="fisc-kpi-card">
+          <span class="val" style="color:#ff6b6b">1914</span>
+          <span class="lbl" data-i18n="kpi_ir">Création de l'IR (pour financer la guerre)</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── Featured snippet ──────────────────────────────────────── -->
+      <section class="snippet-answer" style="max-width:720px;margin:0 auto 32px;padding:0 24px">
+        <h2 style="font-size:1.05rem;font-weight:800;margin:0 0 10px;color:var(--text)" data-i18n="snippet_h2">Comment la France est-elle devenue le pays le plus taxé de l'OCDE ?</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0" data-i18n="snippet_p">En 1914, la France crée l'impôt sur le revenu à <strong style="color:var(--text)">2 % maximum</strong> pour financer la Première Guerre Mondiale. En 2024, les prélèvements obligatoires atteignent <strong style="color:var(--text)">45,4 % du PIB</strong> — le niveau le plus élevé de l'OCDE. En 110 ans, chaque crise (guerres, crise de 29, reconstruction, État-providence, dette) a ajouté de nouvelles couches fiscales sans jamais en supprimer.</p>
+      </section>
+
+      <!-- ── Timeline ──────────────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="h2_timeline">110 ans de fiscalité française — la frise</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 20px" data-i18n="timeline_sub">Chaque événement majeur a ajouté une couche fiscale. Aucune n'a jamais été vraiment supprimée.</p>
+
+      <div class="timeline">
+
+        <!-- 1914 -->
+        <div class="tl-item">
+          <div class="tl-dot era-war"></div>
+          <div class="tl-year">1914</div>
+          <span class="tl-badge era-war">GUERRE</span>
+          <div class="tl-title">Création de l'impôt sur le revenu</div>
+          <div class="tl-text">
+            Joseph Caillaux impose la loi du 15 juillet 1914 — quelques jours avant la déclaration de guerre.
+            Taux maximum : <strong style="color:var(--text)">2 %</strong>. Promis "temporaire pour financer la guerre".
+            Recettes la première année : ~500 M francs. L'impôt ne sera jamais supprimé.
+          </div>
+        </div>
+
+        <!-- 1917 -->
+        <div class="tl-item">
+          <div class="tl-dot era-war"></div>
+          <div class="tl-year">1917</div>
+          <span class="tl-badge era-war">GUERRE</span>
+          <div class="tl-title">Impôt sur les bénéfices de guerre</div>
+          <div class="tl-text">
+            Les "profiteurs de guerre" mis à contribution.
+            Premier impôt progressif sur les entreprises — précurseur de l'IS.
+            Taux jusqu'à 50 % sur les surprofits de guerre.
+          </div>
+        </div>
+
+        <!-- 1920 -->
+        <div class="tl-item">
+          <div class="tl-dot era-crisis"></div>
+          <div class="tl-year">1920</div>
+          <span class="tl-badge era-crisis">RECONSTRUCTION</span>
+          <div class="tl-title">Naissance des taxes sur le chiffre d'affaires</div>
+          <div class="tl-text">
+            Ancêtres de la TVA — multiples cascades de taxation sur la production et la vente.
+            Inefficaces : taxent plusieurs fois le même produit à chaque étape de la chaîne.
+            Créent d'importantes distorsions économiques que Maurice Lauré corrigera en 1954.
+          </div>
+        </div>
+
+        <!-- 1936 -->
+        <div class="tl-item">
+          <div class="tl-dot era-crisis"></div>
+          <div class="tl-year">1936</div>
+          <span class="tl-badge era-crisis">FRONT POPULAIRE</span>
+          <div class="tl-title">Front Populaire : cotisations sociales explosent</div>
+          <div class="tl-text">
+            Léon Blum — création des congés payés + semaine de 40 heures.
+            Les cotisations sociales patronales et salariales augmentent fortement.
+            Naissance du concept de <strong style="color:var(--text)">"salaire différé"</strong> : une partie du salaire va directement à la protection sociale.
+          </div>
+        </div>
+
+        <!-- 1945 -->
+        <div class="tl-item">
+          <div class="tl-dot era-growth"></div>
+          <div class="tl-year">1945</div>
+          <span class="tl-badge era-growth">RECONSTRUCTION</span>
+          <div class="tl-title">Création de la Sécurité Sociale</div>
+          <div class="tl-text">
+            Ordonnances d'octobre 1945 — de Gaulle + programme du CNR.
+            Cotisations patronales et salariales deviennent massives et obligatoires.
+            Le <strong style="color:var(--text)">"tiers invisible"</strong> de la fiche de paie naît : une large part de la rémunération brute disparaît avant même d'être perçue.
+            Base de ce qui représente aujourd'hui ~22 % du PIB en cotisations sociales.
+          </div>
+        </div>
+
+        <!-- 1948 -->
+        <div class="tl-item">
+          <div class="tl-dot era-growth"></div>
+          <div class="tl-year">1948</div>
+          <span class="tl-badge era-growth">IVe RÉPUBLIQUE</span>
+          <div class="tl-title">Impôt sur les Sociétés (IS)</div>
+          <div class="tl-text">
+            Création de l'impôt sur les bénéfices des personnes morales.
+            Taux initial : 24 %. Aujourd'hui : 25 % (après avoir culminé à 50 % dans les années 1980).
+            Rapporte ~60 Md€/an — uniquement sur les entreprises bénéficiaires.
+          </div>
+        </div>
+
+        <!-- 1954 -->
+        <div class="tl-item">
+          <div class="tl-dot era-growth"></div>
+          <div class="tl-year">1954</div>
+          <span class="tl-badge era-growth">INVENTION FRANÇAISE</span>
+          <div class="tl-title">Invention de la TVA</div>
+          <div class="tl-text">
+            Maurice Lauré, directeur général des impôts — <strong style="color:var(--text)">invention française copiée par 170 pays</strong>.
+            Loi du 10 avril 1954 : remplace les taxes en cascade par un impôt neutre sur la valeur ajoutée.
+            Taux initial : 16,85 % — taux normal aujourd'hui : <strong style="color:#f6c343">20 %</strong>.
+            Rapporte aujourd'hui <strong style="color:#f6c343">~200 Md€/an</strong> = 1er impôt de France.
+          </div>
+        </div>
+
+        <!-- 1982 -->
+        <div class="tl-item">
+          <div class="tl-dot era-reform"></div>
+          <div class="tl-year">1982</div>
+          <span class="tl-badge era-reform">GAUCHE AU POUVOIR</span>
+          <div class="tl-title">Création de l'ISF</div>
+          <div class="tl-text">
+            Mitterrand — Impôt de Solidarité sur la Fortune pour les patrimoines > 1,3 M€.
+            Très symbolique, peu productif (~5 Md€/an sur un budget de 400 Md€).
+            Créera une fuite des capitaux estimée à <strong style="color:#ff6b6b">10 000 contribuables/an</strong> quittant la France.
+            Pousit à des délocalisations d'actifs productifs — débat économique encore vif.
+          </div>
+        </div>
+
+        <!-- 1991 -->
+        <div class="tl-item">
+          <div class="tl-dot era-reform"></div>
+          <div class="tl-year">1991</div>
+          <span class="tl-badge era-reform">ROCARD</span>
+          <div class="tl-title">Naissance de la CSG</div>
+          <div class="tl-text">
+            Michel Rocard — Contribution Sociale Généralisée à <strong style="color:var(--text)">1,1 %</strong> "pour rééquilibrer la Sécu".
+            Passera à <strong style="color:#ff6b6b">9,2 % en 2018</strong> — soit ×8,4 en 27 ans.
+            Deviendra le 2e prélèvement de France : <strong style="color:#f6c343">~140 Md€/an</strong>.
+            Promesse initiale : temporaire. Réalité : structurelle.
+          </div>
+        </div>
+
+        <!-- 1996 -->
+        <div class="tl-item">
+          <div class="tl-dot era-crisis"></div>
+          <div class="tl-year">1996</div>
+          <span class="tl-badge era-crisis">JUPPÉ</span>
+          <div class="tl-title">Création de la CRDS</div>
+          <div class="tl-text">
+            Alain Juppé — Contribution au Remboursement de la Dette Sociale à <strong style="color:var(--text)">0,5 %</strong>.
+            Objectif : rembourser 137 Md€ de "dette sociale" accumulée.
+            Devait être temporaire. <strong style="color:#ff6b6b">Elle existe toujours en 2024.</strong>
+            La CADES (Caisse d'amortissement de la dette sociale) existe depuis lors.
+          </div>
+        </div>
+
+        <!-- 2000 -->
+        <div class="tl-item">
+          <div class="tl-dot era-growth"></div>
+          <div class="tl-year">2000</div>
+          <span class="tl-badge era-growth">JOSPIN</span>
+          <div class="tl-title">La France à 44,4 % du PIB</div>
+          <div class="tl-text">
+            Pic sous Jospin — "cagnotte fiscale" des années de croissance des Trente Glorieuses tardives.
+            Les "35 heures" ajoutent des cotisations et exonérations simultanément.
+            La France dépasse durablement le seuil de 44 % de prélèvements obligatoires.
+          </div>
+        </div>
+
+        <!-- 2013 -->
+        <div class="tl-item">
+          <div class="tl-dot era-reform"></div>
+          <div class="tl-year">2013</div>
+          <span class="tl-badge era-reform">HOLLANDE</span>
+          <div class="tl-title">Taux marginal IR à 75 %</div>
+          <div class="tl-text">
+            François Hollande — taxe exceptionnelle à <strong style="color:#ff6b6b">75 %</strong> sur les salaires > 1 M€.
+            Partiellement censurée par le Conseil constitutionnel, modifiée et adoptée sous forme de taxe sur les employeurs.
+            Durée : 2 ans (2013–2014). Rendement : ~260 M€ — soit 0,06 % du budget.
+            Symbole fort, impact économique négatif sur le recrutement de talents étrangers.
+          </div>
+        </div>
+
+        <!-- 2018 -->
+        <div class="tl-item">
+          <div class="tl-dot era-modern"></div>
+          <div class="tl-year">2018</div>
+          <span class="tl-badge era-modern">MACRON</span>
+          <div class="tl-title">ISF → IFI + hausse CSG</div>
+          <div class="tl-text">
+            Suppression de l'ISF, remplacé par l'<strong style="color:var(--text)">IFI</strong> (Impôt sur la Fortune Immobilière — uniquement les biens immo).
+            CSG passe de <strong style="color:var(--text)">7,5 % à 9,2 %</strong> — en échange d'une baisse des cotisations chômage et maladie.
+            Polémique "président des riches" vs argument "impôt de production" nuit à l'investissement.
+            Les "Gilets Jaunes" éclateront fin 2018, partiellement liés à la hausse de la fiscalité sur les carburants.
+          </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="tl-item">
+          <div class="tl-dot era-modern"></div>
+          <div class="tl-year">2024</div>
+          <span class="tl-badge era-modern">AUJOURD'HUI</span>
+          <div class="tl-title">45,4 % du PIB — n°1 OCDE</div>
+          <div class="tl-text">
+            La France : <strong style="color:#f6c343">n°1 de l'OCDE</strong> pour les prélèvements obligatoires.
+            Plus de <strong style="color:var(--text)">360 taxes</strong> recensées — un record mondial.
+            Chaque gouvernement promet de simplifier. <strong style="color:#ff6b6b">Aucun n'y parvient.</strong>
+            La dette publique (112 % du PIB) suggère que même ce niveau d'imposition reste insuffisant face aux dépenses.
+          </div>
+        </div>
+
+      </div><!-- /timeline -->
+
+      <!-- ── Les 5 grands impôts ────────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 8px" data-i18n="h2_table">Les 5 grands impôts français</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="table_sub">Recettes 2023 · Sources : DGFiP, INSEE, ACOSS</p>
+      <div style="overflow-x:auto">
+        <table class="fisc-table">
+          <thead>
+            <tr>
+              <th data-i18n="th_impot">Impôt</th>
+              <th data-i18n="th_creation">Création</th>
+              <th data-i18n="th_recettes">Recettes 2023</th>
+              <th data-i18n="th_paient">% qui le paient</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tx-name">TVA</span><br><span style="font-size:.75rem;color:var(--muted)">Taxe sur la Valeur Ajoutée</span></td>
+              <td style="color:var(--muted)">1954</td>
+              <td class="tx-val">~200 Md€</td>
+              <td style="color:var(--muted)">100 % (intégré dans les prix)</td>
+            </tr>
+            <tr>
+              <td><span class="tx-name">CSG</span><br><span style="font-size:.75rem;color:var(--muted)">Contribution Sociale Généralisée</span></td>
+              <td style="color:var(--muted)">1991</td>
+              <td class="tx-val">~140 Md€</td>
+              <td style="color:var(--muted)">~90 % des résidents</td>
+            </tr>
+            <tr>
+              <td><span class="tx-name">IR</span><br><span style="font-size:.75rem;color:var(--muted)">Impôt sur le Revenu</span></td>
+              <td style="color:var(--muted)">1914</td>
+              <td class="tx-val">~95 Md€</td>
+              <td style="color:var(--muted)">45 % des foyers</td>
+            </tr>
+            <tr>
+              <td><span class="tx-name">IS</span><br><span style="font-size:.75rem;color:var(--muted)">Impôt sur les Sociétés</span></td>
+              <td style="color:var(--muted)">1948</td>
+              <td class="tx-val">~60 Md€</td>
+              <td style="color:var(--muted)">Entreprises bénéficiaires</td>
+            </tr>
+            <tr>
+              <td><span class="tx-name">TICPE</span><br><span style="font-size:.75rem;color:var(--muted)">Taxe sur les carburants</span></td>
+              <td style="color:var(--muted)">1928</td>
+              <td class="tx-val">~35 Md€</td>
+              <td style="color:var(--muted)">Tout conducteur</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px">Source : DGFiP — Rapport d'activité 2023 · INSEE — Comptes des administrations publiques 2023 · ACOSS — Statistiques cotisations 2023.</p>
+
+      <!-- ── Verdict ────────────────────────────────────────────────── -->
+      <div class="fisc-verdict">
+        <div style="font-size:.8rem;font-weight:800;color:#f6c343;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_label">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_text">
+          En 110 ans, la France a construit son système fiscal par <strong style="color:#fff">accumulation de crises</strong>, jamais par choix délibéré de long terme. Chaque impôt créé "temporairement" pour financer une urgence (1914, 1945, 1991, 1996) est devenu permanent. Le résultat : <strong style="color:#f6c343">45,4 % du PIB</strong> de prélèvements obligatoires, <strong style="color:#fff">360+ taxes</strong> différentes, et un système si complexe que même Bercy peine à le cartographier. Le paradoxe final : malgré ce niveau record d'imposition, la France <strong style="color:#ff6b6b">accumule 112 % du PIB de dette publique</strong> — preuve que la question n'est pas seulement fiscale, mais structurelle.
+        </p>
+      </div>
+
+      <!-- ── Note honnête ────────────────────────────────────────────── -->
+      <div class="fisc-note">
+        <div style="font-size:.78rem;font-weight:800;color:#5dd6c5;margin-bottom:8px" data-i18n="note_label">📌 NOTE HONNÊTE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0" data-i18n="note_text">
+          Comparer les niveaux de prélèvements sans regarder ce qu'ils financent est trompeur. Le Danemark prélève 44 % du PIB mais offre des services publics nettement meilleurs. Ce qui différencie la France : <strong style="color:#fff">une part plus grande allouée aux retraites et à la dette</strong> (charges passées) qu'aux investissements d'avenir. La question n'est pas tant "combien prélève-t-on ?" que "pour quoi faire ?" et "avec quelle efficacité ?".
+        </p>
+      </div>
+
+      <!-- ── Hub vers pages détaillées ─────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_hub">Approfondir par thème</h2>
+      <div class="hub-grid">
+        <a href="/impot/" class="hub-card">
+          <div class="hc-icon">💸</div>
+          <div class="hc-title" data-i18n="hub_ir_title">L'impôt sur le revenu</div>
+          <div class="hc-desc" data-i18n="hub_ir_desc">Barèmes, niches fiscales, qui paie vraiment l'IR ?</div>
+        </a>
+        <a href="/csg/" class="hub-card">
+          <div class="hc-icon">📈</div>
+          <div class="hc-title" data-i18n="hub_csg_title">La CSG : de 1,1 % à 9,2 %</div>
+          <div class="hc-desc" data-i18n="hub_csg_desc">L'impôt "temporaire" qui a été multiplié par 8 en 27 ans.</div>
+        </a>
+        <a href="/dette/" class="hub-card">
+          <div class="hc-icon">⏱️</div>
+          <div class="hc-title" data-i18n="hub_dette_title">La dette publique</div>
+          <div class="hc-desc" data-i18n="hub_dette_desc">Ce que financent nos impôts — et ce qu'ils ne remboursent pas.</div>
+        </a>
+        <a href="/budget/" class="hub-card">
+          <div class="hc-icon">📋</div>
+          <div class="hc-title" data-i18n="hub_budget_title">Le budget de l'État</div>
+          <div class="hc-desc" data-i18n="hub_budget_desc">Où vont les 400 Md€ de recettes fiscales de l'État ?</div>
+        </a>
+      </div>
+
+      <!-- ── Sources ───────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <span data-i18n="sources_block"><strong style="color:var(--text)">Sources :</strong>
+          DGFiP — Rapport d'activité et statistiques fiscales 2023 ·
+          INSEE — Comptes des administrations publiques, prélèvements obligatoires 2023 ·
+          OCDE — Statistiques des recettes publiques 2023 (Revenue Statistics) ·
+          Conseil des Prélèvements Obligatoires — rapport annuel 2023 ·
+          Sénat — Histoire de la fiscalité française, rapports historiques ·
+          Cour des Comptes — Note sur la situation des finances publiques 2024 ·
+          Maurice Lauré, "La Taxe sur la Valeur Ajoutée", Sirey, 1953</span>
+        </div>
+      </div>
+
+      <!-- ── Share ─────────────────────────────────────────────────── -->
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+France+pr%C3%A9l%C3%A8ve+45%2C4+%25+du+PIB+%E2%80%94+n%C2%B11+de+l%27OCDE.+En+1914%2C+l%27IR+%C3%A9tait+%C3%A0+2+%25+%22temporairement%22.+110+ans+d%27histoire+fiscale+en+une+frise+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Ffiscalite%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Cour des Comptes</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  /* ── Nav mobile toggle ──────────────────────────────────────────── */
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('nav-open', open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  }));
+  </script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+  (function(){
+    var T = {
+      fr: {
+        nav_cta: '← Accueil',
+        breadcrumb_home: 'Accueil',
+        breadcrumb_page: 'Fiscalité',
+        eyebrow: 'Données DGFiP · INSEE · OCDE · 2023',
+        h1: 'La fiscalité française',
+        hero_sub: 'De <strong style="color:#f6c343">2 %</strong> à <strong style="color:#ff6b6b">45,4 % du PIB</strong> en 110 ans',
+        hero_caption: 'prélèvements obligatoires / PIB en 2023 — n°1 de l\'OCDE',
+        kpi_po: 'Prélèvements obligatoires / PIB (2023)',
+        kpi_taxes: 'Taxes et impôts différents',
+        kpi_ir: 'Création de l\'IR (pour financer la guerre)',
+        snippet_h2: 'Comment la France est-elle devenue le pays le plus taxé de l\'OCDE ?',
+        snippet_p: 'En 1914, la France crée l\'impôt sur le revenu à <strong style="color:var(--text)">2 % maximum</strong> pour financer la Première Guerre Mondiale. En 2024, les prélèvements obligatoires atteignent <strong style="color:var(--text)">45,4 % du PIB</strong> — le niveau le plus élevé de l\'OCDE. En 110 ans, chaque crise (guerres, crise de 29, reconstruction, État-providence, dette) a ajouté de nouvelles couches fiscales sans jamais en supprimer.',
+        h2_timeline: '110 ans de fiscalité française — la frise',
+        timeline_sub: 'Chaque événement majeur a ajouté une couche fiscale. Aucune n\'a jamais été vraiment supprimée.',
+        h2_table: 'Les 5 grands impôts français',
+        table_sub: 'Recettes 2023 · Sources : DGFiP, INSEE, ACOSS',
+        th_impot: 'Impôt',
+        th_creation: 'Création',
+        th_recettes: 'Recettes 2023',
+        th_paient: '% qui le paient',
+        verdict_label: '⚖️ CE QUE LES DONNÉES DISENT',
+        verdict_text: 'En 110 ans, la France a construit son système fiscal par <strong style="color:#fff">accumulation de crises</strong>, jamais par choix délibéré de long terme. Chaque impôt créé "temporairement" pour financer une urgence (1914, 1945, 1991, 1996) est devenu permanent. Le résultat : <strong style="color:#f6c343">45,4 % du PIB</strong> de prélèvements obligatoires, <strong style="color:#fff">360+ taxes</strong> différentes, et un système si complexe que même Bercy peine à le cartographier. Le paradoxe final : malgré ce niveau record d\'imposition, la France <strong style="color:#ff6b6b">accumule 112 % du PIB de dette publique</strong> — preuve que la question n\'est pas seulement fiscale, mais structurelle.',
+        note_label: '📌 NOTE HONNÊTE',
+        note_text: 'Comparer les niveaux de prélèvements sans regarder ce qu\'ils financent est trompeur. Le Danemark prélève 44 % du PIB mais offre des services publics nettement meilleurs. Ce qui différencie la France : <strong style="color:#fff">une part plus grande allouée aux retraites et à la dette</strong> (charges passées) qu\'aux investissements d\'avenir. La question n\'est pas tant "combien prélève-t-on ?" que "pour quoi faire ?" et "avec quelle efficacité ?".',
+        h2_hub: 'Approfondir par thème',
+        hub_ir_title: 'L\'impôt sur le revenu',
+        hub_ir_desc: 'Barèmes, niches fiscales, qui paie vraiment l\'IR ?',
+        hub_csg_title: 'La CSG : de 1,1 % à 9,2 %',
+        hub_csg_desc: 'L\'impôt "temporaire" qui a été multiplié par 8 en 27 ans.',
+        hub_dette_title: 'La dette publique',
+        hub_dette_desc: 'Ce que financent nos impôts — et ce qu\'ils ne remboursent pas.',
+        hub_budget_title: 'Le budget de l\'État',
+        hub_budget_desc: 'Où vont les 400 Md€ de recettes fiscales de l\'État ?',
+        sources_block: '<strong style="color:var(--text)">Sources :</strong> DGFiP — Rapport d\'activité et statistiques fiscales 2023 · INSEE — Comptes des administrations publiques, prélèvements obligatoires 2023 · OCDE — Statistiques des recettes publiques 2023 · Conseil des Prélèvements Obligatoires — rapport annuel 2023 · Sénat — Histoire de la fiscalité française · Cour des Comptes — Note sur la situation des finances publiques 2024 · Maurice Lauré, "La Taxe sur la Valeur Ajoutée", Sirey, 1953',
+        footer_copy: '© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Cour des Comptes',
+        footer_link: 'Tableau de bord principal'
+      },
+      en: {
+        nav_cta: '← Home',
+        breadcrumb_home: 'Home',
+        breadcrumb_page: 'Taxation',
+        eyebrow: 'Data: DGFiP · INSEE · OECD · 2023',
+        h1: 'French Taxation',
+        hero_sub: 'From <strong style="color:#f6c343">2%</strong> to <strong style="color:#ff6b6b">45.4% of GDP</strong> in 110 years',
+        hero_caption: 'mandatory levies / GDP in 2023 — #1 in the OECD',
+        kpi_po: 'Mandatory levies / GDP (2023)',
+        kpi_taxes: 'Different taxes and levies',
+        kpi_ir: 'Creation of income tax (to fund the war)',
+        snippet_h2: 'How did France become the most-taxed country in the OECD?',
+        snippet_p: 'In 1914, France created income tax at <strong style="color:var(--text)">2% maximum</strong> to fund World War I. By 2024, mandatory levies had reached <strong style="color:var(--text)">45.4% of GDP</strong> — the highest level in the OECD. Over 110 years, every crisis (wars, the Great Depression, reconstruction, the welfare state, debt) added new fiscal layers without ever removing any.',
+        h2_timeline: '110 years of French taxation — the timeline',
+        timeline_sub: 'Every major event added a new fiscal layer. None has ever been truly removed.',
+        h2_table: 'The 5 major French taxes',
+        table_sub: '2023 revenues · Sources: DGFiP, INSEE, ACOSS',
+        th_impot: 'Tax',
+        th_creation: 'Created',
+        th_recettes: '2023 Revenue',
+        th_paient: '% who pay it',
+        verdict_label: '⚖️ WHAT THE DATA SAYS',
+        verdict_text: 'Over 110 years, France built its tax system through <strong style="color:#fff">crisis accumulation</strong>, never by deliberate long-term design. Every tax created "temporarily" to fund an emergency (1914, 1945, 1991, 1996) became permanent. The result: <strong style="color:#f6c343">45.4% of GDP</strong> in mandatory levies, <strong style="color:#fff">360+ different taxes</strong>, and a system so complex that even the Finance Ministry struggles to map it. The final paradox: despite this record tax level, France is <strong style="color:#ff6b6b">accumulating 112% of GDP in public debt</strong> — proof that the issue is not just fiscal, but structural.',
+        note_label: '📌 HONEST NOTE',
+        note_text: 'Comparing tax levels without looking at what they fund is misleading. Denmark levies 44% of GDP but offers significantly better public services. What sets France apart: <strong style="color:#fff">a larger share allocated to pensions and debt</strong> (past obligations) than future investments. The real question is not "how much do we levy?" but "to what end?" and "with what efficiency?".',
+        h2_hub: 'Explore by topic',
+        hub_ir_title: 'Income tax',
+        hub_ir_desc: 'Tax brackets, tax breaks, who really pays income tax?',
+        hub_csg_title: 'CSG: from 1.1% to 9.2%',
+        hub_csg_desc: 'The "temporary" levy that was multiplied by 8 in 27 years.',
+        hub_dette_title: 'Public debt',
+        hub_dette_desc: 'What our taxes fund — and what they do not repay.',
+        hub_budget_title: 'The State budget',
+        hub_budget_desc: 'Where do the €400bn in State tax revenues go?',
+        sources_block: '<strong style="color:var(--text)">Sources:</strong> DGFiP — Annual report and tax statistics 2023 · INSEE — National accounts, mandatory levies 2023 · OECD — Revenue Statistics 2023 · Conseil des Prélèvements Obligatoires — annual report 2023 · Senate — History of French taxation · Cour des Comptes — Public finance note 2024 · Maurice Lauré, "La Taxe sur la Valeur Ajoutée", Sirey, 1953',
+        footer_copy: '© 2026 The Average French — Data: DGFiP · INSEE · OECD · Cour des Comptes',
+        footer_link: 'Main dashboard'
+      }
+    };
+
+    var lang = localStorage.getItem('lfm-lang') || 'fr';
+
+    function setLang(l) {
+      lang = l;
+      localStorage.setItem('lfm-lang', l);
+      document.documentElement.lang = l === 'fr' ? 'fr' : 'en';
+      document.getElementById('btn-fr').classList.toggle('active', l === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', l === 'en');
+      var s = T[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var k = el.getAttribute('data-i18n');
+        if (s[k] !== undefined) el.innerHTML = s[k];
+      });
+      document.title = l === 'fr'
+        ? 'Histoire de la fiscalité française depuis 1914 — Le Français Moyen'
+        : 'History of French Taxation Since 1914 | The Average French';
+      var desc = document.querySelector('meta[name="description"]');
+      if (desc) desc.setAttribute('content', l === 'fr'
+        ? 'De l\'IR créé pour financer la guerre de 14 à la CSG de Rocard : comment la France est devenue championne du monde de la fiscalité en 110 ans. Données officielles.'
+        : 'From the income tax created to fund WWI to Rocard\'s CSG: how France became the world\'s most taxed country in 110 years. Official data.');
+    }
+
+    setLang(lang);
+    window.setLang = setLang;
+  })();
+  </script>
+</body>
+</html>
