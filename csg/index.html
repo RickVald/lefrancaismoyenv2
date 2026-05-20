@@ -23,8 +23,8 @@
     .csg-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#818cf8;line-height:1;margin:8px 0 4px}
 
     /* ── KPI cards ─────────────────────────────────────────── */
-    .csg-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
-    .csg-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .csg-kpi{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:24px auto;max-width:720px}
+    .csg-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center;min-width:180px;max-width:220px;flex:1}
     .csg-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
     .csg-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
 
