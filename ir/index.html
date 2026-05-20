@@ -1,0 +1,673 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Impôt sur le revenu : seulement 45 % des foyers le paient — Le Français Moyen</title>
+  <meta name="description" content="L'IR rapporte 95 Md€/an mais seulement 45 % des foyers fiscaux le paient. Tranches 2024, taux marginal 45 %, quotient familial, prélèvement à la source. Données officielles.">
+  <link rel="canonical" href="https://le-francais-moyen.com/ir/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/ir/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/ir/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/ir/">
+  <meta property="og:title" content="Impôt sur le revenu France — 45 % des foyers seulement — Le Français Moyen">
+  <meta property="og:description" content="L'IR rapporte 95 Md€/an mais seulement 45 % des foyers fiscaux le paient. Tranches 2024, taux marginal 45 %, quotient familial, prélèvement à la source. Données officielles.">
+  <meta property="og:url" content="https://le-francais-moyen.com/ir/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=18">
+  <style>
+    /* ── Hero ───────────────────────────────────────────────── */
+    .ir-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.12) 0%,transparent 65%)}
+    .ir-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#3b82f6;line-height:1;margin:8px 0 4px}
+
+    /* ── KPI cards ─────────────────────────────────────────── */
+    .ir-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .ir-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .ir-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .ir-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* ── Tableau tranches ─────────────────────────────────── */
+    .ir-table{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.88rem}
+    .ir-table th{text-align:left;padding:10px 14px;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .ir-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted);line-height:1.4}
+    .ir-table tr:last-child td{border-bottom:none}
+    .ir-table tr:hover td{background:rgba(255,255,255,.03)}
+    .ir-table .rate{font-weight:800;color:var(--text)}
+    .ir-table .rate-zero{font-weight:800;color:#22c55e}
+    .ir-table .rate-low{font-weight:800;color:#60a5fa}
+    .ir-table .rate-mid{font-weight:800;color:#f6c343}
+    .ir-table .rate-high{font-weight:800;color:#fb923c}
+    .ir-table .rate-top{font-weight:800;color:#ff6b6b}
+
+    /* ── Timeline ──────────────────────────────────────────── */
+    .timeline{position:relative;padding-left:32px;margin:16px 0 24px}
+    .timeline::before{content:'';position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:rgba(59,130,246,.3)}
+    .tl-item{position:relative;margin-bottom:22px}
+    .tl-dot{position:absolute;left:-26px;top:5px;width:12px;height:12px;border-radius:50%;background:#3b82f6;border:2px solid var(--bg);flex-shrink:0}
+    .tl-year{font-size:.75rem;font-weight:800;letter-spacing:.06em;color:#3b82f6;margin-bottom:3px}
+    .tl-text{font-size:.875rem;color:var(--muted);line-height:1.6}
+    .tl-text strong{color:var(--text)}
+
+    /* ── Stat cards foyers ──────────────────────────────────── */
+    .ir-foyers{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:16px 0 20px}
+    .ir-foyer-card{padding:20px 22px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+    .ir-foyer-card .fc-label{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+    .ir-foyer-card .fc-val{font-size:2rem;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+    .ir-foyer-card .fc-sub{font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.5}
+
+    /* ── Barres comparaison internationale ─────────────────── */
+    .intl-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .intl-flag{width:28px;text-align:center;font-size:1.1rem;flex-shrink:0}
+    .intl-name{width:180px;flex-shrink:0;font-size:.88rem;color:var(--muted)}
+    .intl-bar-wrap{flex:1;height:10px;background:rgba(255,255,255,.07);border-radius:5px;overflow:hidden}
+    .intl-bar{height:100%;border-radius:5px}
+    .intl-pct{width:55px;text-align:right;font-weight:800;font-size:.88rem;flex-shrink:0}
+
+    /* ── Tableau 3 impôts ───────────────────────────────────── */
+    .compare3-table{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.85rem}
+    .compare3-table th{text-align:left;padding:10px 14px;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .compare3-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted);line-height:1.4}
+    .compare3-table tr:last-child td{border-bottom:none}
+    .compare3-table tr:hover td{background:rgba(255,255,255,.03)}
+    .compare3-table .hi{font-weight:800;color:var(--text)}
+
+    /* ── Note honnête ───────────────────────────────────────── */
+    .ir-verdict{background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+    .ir-note{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.2);border-radius:14px;padding:16px 20px;margin-bottom:28px}
+
+    @media(max-width:640px){
+      .intl-name{width:110px;font-size:.78rem}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://le-francais-moyen.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Impôt sur le revenu", "item": "https://le-francais-moyen.com/ir/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Impôt sur le revenu : seulement 45 % des foyers le paient — Le Français Moyen",
+    "description": "L'IR rapporte 95 Md€/an mais seulement 45 % des foyers fiscaux le paient. Tranches 2024, taux marginal 45 %, quotient familial, prélèvement à la source. Données officielles.",
+    "url": "https://le-francais-moyen.com/ir/",
+    "publisher": {"@type": "Organization", "name": "Le Français Moyen", "url": "https://le-francais-moyen.com"},
+    "inLanguage": "fr"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quel est le taux de l'impôt sur le revenu en France ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "L'IR est progressif avec 5 tranches en 2024 : 0 % jusqu'à 11 294 €, 11 % de 11 294 à 28 797 €, 30 % de 28 797 à 82 341 €, 41 % de 82 341 à 177 106 €, 45 % au-delà. Le taux marginal maximal est de 45 %, mais le taux moyen effectif est bien inférieur grâce à la progressivité."}
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de Français paient l'impôt sur le revenu ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Seulement 45 % des foyers fiscaux français paient l'impôt sur le revenu. Les 55 % restants sont non-imposables, soit parce que leurs revenus sont inférieurs au seuil de la première tranche, soit grâce aux déductions et crédits d'impôt."}
+      },
+      {
+        "@type": "Question",
+        "name": "Combien rapporte l'impôt sur le revenu à l'État ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "L'IR rapporte environ 95 milliards d'euros par an à l'État — soit moins que la TVA (200 Md€) et la CSG (140 Md€). Il représente environ 25 % des recettes fiscales nettes de l'État."}
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que le quotient familial ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Le quotient familial divise le revenu imposable par un nombre de \"parts\" selon la composition du foyer (1 part pour un célibataire, 2 pour un couple, +0,5 par enfant). Cela réduit l'impôt pour les familles nombreuses. Son avantage est plafonné à 1 759 € par demi-part supplémentaire (2024)."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/demographie/">👥 Démographie</a></li>
+              <li><a href="/csg/">💶 CSG</a></li>
+              <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+              <li><a href="/tva/">🧾 TVA</a></li>
+              <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/demographie/">👥 Démographie</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+
+    <!-- ── Hero ──────────────────────────────────────────────────── -->
+    <div class="ir-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_page">Impôt sur le revenu</span></nav>
+      <div class="eyebrow" data-i18n="eyebrow">Données DGFiP · INSEE · PLF 2024</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">L'Impôt sur le Revenu</h1>
+      <p style="color:var(--muted);font-size:1rem;font-style:italic;margin:4px 0 12px;text-align:center" data-i18n="hero_subtitle">Créé pour financer la guerre de 1914</p>
+      <div class="ir-big" data-i18n="ir_big">45 %</div>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_sub">
+        Seulement <strong style="color:#3b82f6">45 % des foyers fiscaux</strong> le paient.<br>
+        Pourtant, il rapporte <strong style="color:#60a5fa">95 Md€/an</strong> à l'État.
+      </p>
+      <div class="ir-kpi">
+        <div class="ir-kpi-card">
+          <span class="val" style="color:#3b82f6" data-i18n="kpi_recettes_val">95 Md€/an</span>
+          <span class="lbl" data-i18n="kpi_recettes_lbl">Recettes IR 2023</span>
+        </div>
+        <div class="ir-kpi-card">
+          <span class="val" style="color:#60a5fa" data-i18n="kpi_foyers_val">45 %</span>
+          <span class="lbl" data-i18n="kpi_foyers_lbl">Des foyers le paient seulement</span>
+        </div>
+        <div class="ir-kpi-card">
+          <span class="val" style="color:#93c5fd" data-i18n="kpi_creation_val">1914</span>
+          <span class="lbl" data-i18n="kpi_creation_lbl">Année de création</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── Featured snippet ──────────────────────────────────── -->
+      <section class="snippet-answer" style="max-width:720px;margin:0 auto 32px;padding:0 24px">
+        <h2 style="font-size:1.05rem;font-weight:800;margin:0 0 10px;color:var(--text)" data-i18n="snippet_q">Quelles sont les tranches de l'impôt sur le revenu en 2024 ?</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0" data-i18n="snippet_a">L'IR français est progressif en <strong style="color:var(--text)">5 tranches</strong> : <strong style="color:var(--text)">0 %</strong> jusqu'à 11 294 €, <strong style="color:var(--text)">11 %</strong> jusqu'à 28 797 €, <strong style="color:var(--text)">30 %</strong> jusqu'à 82 341 €, <strong style="color:var(--text)">41 %</strong> jusqu'à 177 106 €, <strong style="color:var(--text)">45 %</strong> au-delà. Seuls <strong style="color:var(--text)">45 % des foyers</strong> le paient effectivement.</p>
+      </section>
+
+      <!-- ── Tableau des tranches 2024 ─────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px" data-i18n="h2_tranches">Le barème de l'IR 2024</h2>
+      <div style="overflow-x:auto">
+        <table class="ir-table">
+          <thead>
+            <tr>
+              <th data-i18n="th_tranche">Tranche</th>
+              <th data-i18n="th_taux">Taux</th>
+              <th data-i18n="th_revenus">Revenus annuels (par part)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="tr1_name">Tranche 1</td>
+              <td><span class="rate-zero">0 %</span></td>
+              <td data-i18n="tr1_rev">Jusqu'à 11 294 €</td>
+            </tr>
+            <tr>
+              <td data-i18n="tr2_name">Tranche 2</td>
+              <td><span class="rate-low">11 %</span></td>
+              <td data-i18n="tr2_rev">11 295 € à 28 797 €</td>
+            </tr>
+            <tr>
+              <td data-i18n="tr3_name">Tranche 3</td>
+              <td><span class="rate-mid">30 %</span></td>
+              <td data-i18n="tr3_rev">28 798 € à 82 341 €</td>
+            </tr>
+            <tr>
+              <td data-i18n="tr4_name">Tranche 4</td>
+              <td><span class="rate-high">41 %</span></td>
+              <td data-i18n="tr4_rev">82 342 € à 177 106 €</td>
+            </tr>
+            <tr>
+              <td data-i18n="tr5_name">Tranche 5</td>
+              <td><span class="rate-top">45 %</span></td>
+              <td data-i18n="tr5_rev">Au-delà de 177 106 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ir-note">
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0" data-i18n="tranches_note">Ces taux s'appliquent à la tranche concernée, pas à l'ensemble du revenu. Un revenu de 30 000 € est imposé à 0 % sur les 11 294 premiers euros, 11 % sur la partie de 11 295 à 28 797 €, et 30 % sur les 1 203 € restants.</p>
+      </div>
+
+      <!-- ── 55 % ne paient pas l'IR ──────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_foyers">55 % des foyers ne paient pas l'IR</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px" data-i18n="foyers_sub">Un chiffre qui surprend — et qui dit beaucoup sur la structure de la fiscalité française.</p>
+      <div class="ir-foyers">
+        <div class="ir-foyer-card">
+          <div class="fc-label" data-i18n="foyers_imp_label">✅ FOYERS IMPOSABLES</div>
+          <div class="fc-val" style="color:#3b82f6" data-i18n="foyers_imp_val">18,7 millions</div>
+          <div class="fc-sub" data-i18n="foyers_imp_sub">Foyers qui paient effectivement l'IR. Leur impôt moyen : ~3 200 €/an.</div>
+        </div>
+        <div class="ir-foyer-card">
+          <div class="fc-label" data-i18n="foyers_nonimp_label">⭕ FOYERS NON IMPOSABLES</div>
+          <div class="fc-val" style="color:#94a3b8" data-i18n="foyers_nonimp_val">22,9 millions</div>
+          <div class="fc-sub" data-i18n="foyers_nonimp_sub">Revenus sous le seuil, ou annulés par déductions et crédits d'impôt.</div>
+        </div>
+      </div>
+      <div class="ir-verdict">
+        <div style="font-size:.8rem;font-weight:800;color:#3b82f6;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_choc_label">💡 CE QUE CE CHIFFRE SIGNIFIE</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_choc_text">Ce n'est pas un échec du système — c'est voulu. La non-imposition des revenus modestes est un choix politique. Mais cela signifie aussi que les hausses de l'IR ne touchent que la moitié de la population. L'IR est donc un outil de redistribution très ciblé — contrairement à la CSG qui touche universellement tous les revenus.</p>
+      </div>
+
+      <!-- ── Évolution historique ───────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="h2_timeline">De 2 % à 75 % — l'histoire du taux marginal</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 18px" data-i18n="timeline_sub">En un siècle, le taux marginal de l'IR a connu des trajectoires extrêmes selon les priorités politiques et économiques.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1914</div>
+          <div class="tl-text" data-i18n="tl_1914"><strong>Création — taux marginal max 2 %</strong><br>
+            Voté en urgence pour financer la guerre. Longtemps combattu par la droite, considéré comme "socialiste". Le Sénat avait bloqué la loi pendant 7 ans avant 1914.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1924</div>
+          <div class="tl-text" data-i18n="tl_1924"><strong>→ 72 % (reconstruction d'après-guerre)</strong><br>
+            Les besoins de reconstruction explosent le taux. La France emprunte et taxe massivement les hauts revenus.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1945</div>
+          <div class="tl-text" data-i18n="tl_1945"><strong>→ 60 % (reconstruction WWII)</strong><br>
+            Refonte complète de la fiscalité à la Libération. Mise en place de la progressivité moderne avec le quotient familial.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1960s</div>
+          <div class="tl-text" data-i18n="tl_1960"><strong>→ 65 % (Trente Glorieuses)</strong><br>
+            Taux élevé maintenu durant la croissance fordiste. La forte progression des revenus compense l'effet redistributif.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1982</div>
+          <div class="tl-text" data-i18n="tl_1982"><strong>Mitterrand — taux marginal 65 %</strong><br>
+            Maintenu au niveau des années 1970. Politique de relance par la demande — hausse du SMIC et nationalisations.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1986</div>
+          <div class="tl-text" data-i18n="tl_1986"><strong>Chirac — baisse à 58 %</strong><br>
+            Première cohabitation, politique de rigueur et d'allégement fiscal. Début d'une tendance longue à la baisse du taux marginal.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#f472b6"></div>
+          <div class="tl-year" style="color:#f472b6">2013</div>
+          <div class="tl-text" data-i18n="tl_2013"><strong>Hollande — tranche à 75 % (censurée en partie)</strong><br>
+            Une tranche exceptionnelle à 75 % pour les revenus > 1 M€ est créée. Le Conseil constitutionnel censure la version initiale. La tranche finalement appliquée à titre temporaire sera abandonnée en 2015.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#60a5fa"></div>
+          <div class="tl-year" style="color:#60a5fa">2024</div>
+          <div class="tl-text" data-i18n="tl_2024"><strong>Taux marginal à 45 %</strong><br>
+            Stabilisé depuis 2013. Auquel il faut ajouter les prélèvements sociaux : le taux effectif sur les hauts revenus approche 55 % en incluant la CSG et la CRDS.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Comparaison internationale ───────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_intl">Taux marginaux supérieurs 2024 — comparaison internationale</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px" data-i18n="intl_sub">La France est dans la moyenne haute. Mais son taux effectif est alourdi par les prélèvements sociaux.</p>
+      <div id="intlChart"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px" data-i18n="intl_source">Source : OCDE — Taxing Wages 2024. * France : taux marginal IR seul. En ajoutant CSG+CRDS (9,9 %), le taux effectif approche 55 %.</p>
+
+      <!-- ── IR vs TVA vs CSG ──────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_compare3">IR, TVA, CSG — les 3 grands impôts comparés</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 14px" data-i18n="compare3_sub">L'IR est souvent perçu comme "l'impôt" — pourtant il n'est ni le plus large ni le plus important.</p>
+      <div style="overflow-x:auto">
+        <table class="compare3-table">
+          <thead>
+            <tr>
+              <th data-i18n="c3_th1">Impôt</th>
+              <th data-i18n="c3_th2">Recettes annuelles</th>
+              <th data-i18n="c3_th3">Qui le paye ?</th>
+              <th data-i18n="c3_th4">Progressif ?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="hi">TVA</span></td>
+              <td><span class="hi" style="color:#f6c343">200 Md€/an</span></td>
+              <td data-i18n="c3_tva_qui">Tous les consommateurs (100 %)</td>
+              <td data-i18n="c3_tva_prog">Non — taux fixe</td>
+            </tr>
+            <tr>
+              <td><span class="hi">CSG</span></td>
+              <td><span class="hi" style="color:#818cf8">140 Md€/an</span></td>
+              <td data-i18n="c3_csg_qui">Tous les revenus (actifs, retraités, capital)</td>
+              <td data-i18n="c3_csg_prog">Non — taux quasi-fixe par catégorie</td>
+            </tr>
+            <tr>
+              <td><span class="hi">IR</span></td>
+              <td><span class="hi" style="color:#3b82f6">95 Md€/an</span></td>
+              <td data-i18n="c3_ir_qui">45 % des foyers fiscaux seulement</td>
+              <td data-i18n="c3_ir_prog">Oui — 5 tranches, 0 % à 45 %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px" data-i18n="compare3_source">Source : DGFiP · DSS · PLF 2024. Recettes nettes estimées.</p>
+
+      <!-- ── Prélèvement à la source ─────────────────────── -->
+      <section style="background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.25);border-radius:16px;padding:22px 26px;margin:28px 0">
+        <h2 style="font-size:1.05rem;font-weight:800;margin:0 0 10px;color:var(--text)" data-i18n="pas_title">Le prélèvement à la source — pourquoi si tard ?</h2>
+        <p style="font-size:.92rem;line-height:1.75;color:var(--muted);margin:0" data-i18n="pas_text">Depuis janvier 2019, l'IR est prélevé directement sur le salaire chaque mois par l'employeur. La France est l'un des derniers pays développés à l'avoir adopté — <strong style="color:var(--text)">l'Allemagne l'avait mis en place dès 1920</strong>, le Royaume-Uni en 1944, les États-Unis en 1943. Le retard français s'explique par la résistance des banques (qui géraient le crédit d'impôt) et d'une tradition de déclaration annuelle valorisée comme "acte citoyen".</p>
+      </section>
+
+      <!-- ── Note honnête ──────────────────────────────────── -->
+      <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.25);border-radius:16px;padding:20px 24px;margin:24px 0">
+        <div style="font-size:.8rem;font-weight:800;color:#f87171;letter-spacing:.06em;margin-bottom:10px" data-i18n="verdict_label">⚖️ CE QUE LES DONNÉES DISENT</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="verdict_text">L'IR est souvent l'arbre qui cache la forêt fiscale française. Avec <strong style="color:#fff">95 Md€/an</strong>, il est surpassé par la TVA (200 Md€) et la CSG (140 Md€). Seuls <strong style="color:#fff">45 % des foyers</strong> le paient — mais ce sont eux qui financent presque intégralement cet impôt. La progressivité est réelle mais très concentrée : les 10 % des foyers les plus aisés payent environ <strong style="color:#fff">70 % du total de l'IR</strong>. Ce design rend l'impôt politiquement fragile : toute hausse est perçue comme une attaque contre "les classes moyennes".</p>
+      </div>
+
+      <!-- ── Lien vers /impot/ ──────────────────────────── -->
+      <div style="background:linear-gradient(135deg,rgba(255,107,107,.08),rgba(255,107,107,.03));border:1px solid rgba(255,107,107,.3);border-radius:18px;padding:20px 24px;margin:24px 0;text-align:center">
+        <p style="color:var(--muted);margin:0 0 12px;font-size:.92rem" data-i18n="link_impot_p">L'IR n'est qu'une partie de la fiscalité réelle. Cotisations, CSG, TVA, TICPE — quel est votre taux d'imposition total ?</p>
+        <a href="/impot/" style="background:var(--accent);color:#0b1020;font-weight:800;padding:.6rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.95rem;display:inline-block" data-i18n="link_impot_btn">💸 L'impôt invisible — le taux réel</a>
+      </div>
+
+      <!-- ── Sources ────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px;margin-top:32px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <span data-i18n="sources_block"><strong style="color:var(--text)">Sources :</strong>
+          DGFiP — Statistiques de l'impôt sur le revenu 2024 ·
+          PLF 2024 — Projet de Loi de Finances ·
+          INSEE — Les revenus et le patrimoine des ménages 2023 ·
+          OCDE — Taxing Wages 2024 ·
+          Légifrance — Code général des impôts, art. 197 ·
+          Conseil constitutionnel — décision n° 2012-662 DC (tranche 75 %)</span>
+        </div>
+      </div>
+
+      <!-- ── Share ──────────────────────────────────────────────── -->
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=Seulement+45+%25+des+foyers+fran%C3%A7ais+paient+l%27IR+%E2%80%94+pourtant+il+rapporte+95+Md%E2%82%AC%2Fan.+Tranches+2024%2C+histoire%2C+comparaison+internationale+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Fir%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · PLF 2024</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  /* ── Comparaison internationale ──────────────────────────────────── */
+  const INTL_DATA = [
+    { flag:'🇩🇰', name:'Danemark',       pct:55.9, color:'#fb923c', note:'' },
+    { flag:'🇫🇷', name:'France (IR+sécu)',pct:54.9, color:'#3b82f6', note:'*', highlight:true },
+    { flag:'🇫🇷', name:'France (IR seul)',pct:45.0, color:'#60a5fa', note:'*' },
+    { flag:'🇩🇪', name:'Allemagne',       pct:45.0, color:'#22c55e', note:'' },
+    { flag:'🇬🇧', name:'Royaume-Uni',     pct:45.0, color:'#a78bfa', note:'' },
+    { flag:'🇺🇸', name:'États-Unis',      pct:37.0, color:'#f6c343', note:'' },
+    { flag:'🇨🇭', name:'Suisse',          pct:11.5, color:'#5dd6c5', note:'' },
+  ];
+  const intlContainer = document.getElementById('intlChart');
+  const maxPct = INTL_DATA[0].pct;
+  INTL_DATA.forEach(d => {
+    intlContainer.innerHTML += `
+      <div class="intl-row">
+        <span class="intl-flag">${d.flag}</span>
+        <span class="intl-name" style="${d.highlight ? 'color:#3b82f6;font-weight:800' : ''}">${d.name}${d.note}</span>
+        <div class="intl-bar-wrap">
+          <div class="intl-bar" style="width:${(d.pct/maxPct*100).toFixed(1)}%;background:${d.color}"></div>
+        </div>
+        <span class="intl-pct" style="color:${d.color}">${d.pct} %</span>
+      </div>`;
+  });
+
+  /* ── Nav mobile toggle ─────────────────────────────────────────── */
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded',open);
+    document.body.classList.toggle('nav-open',open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+  </script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+  (function(){
+    var T={
+      fr:{
+        nav_cta:'← Accueil',
+        breadcrumb_home:'Accueil',
+        breadcrumb_page:'Impôt sur le revenu',
+        eyebrow:'Données DGFiP · INSEE · PLF 2024',
+        h1:'L\'Impôt sur le Revenu',
+        hero_subtitle:'Créé pour financer la guerre de 1914',
+        ir_big:'45 %',
+        hero_sub:'Seulement <strong style="color:#3b82f6">45 % des foyers fiscaux</strong> le paient.<br>Pourtant, il rapporte <strong style="color:#60a5fa">95 Md€/an</strong> à l\'État.',
+        kpi_recettes_val:'95 Md€/an',
+        kpi_recettes_lbl:'Recettes IR 2023',
+        kpi_foyers_val:'45 %',
+        kpi_foyers_lbl:'Des foyers le paient seulement',
+        kpi_creation_val:'1914',
+        kpi_creation_lbl:'Année de création',
+        snippet_q:'Quelles sont les tranches de l\'impôt sur le revenu en 2024 ?',
+        snippet_a:'L\'IR français est progressif en <strong style="color:var(--text)">5 tranches</strong> : <strong style="color:var(--text)">0 %</strong> jusqu\'à 11 294 €, <strong style="color:var(--text)">11 %</strong> jusqu\'à 28 797 €, <strong style="color:var(--text)">30 %</strong> jusqu\'à 82 341 €, <strong style="color:var(--text)">41 %</strong> jusqu\'à 177 106 €, <strong style="color:var(--text)">45 %</strong> au-delà. Seuls <strong style="color:var(--text)">45 % des foyers</strong> le paient effectivement.',
+        h2_tranches:'Le barème de l\'IR 2024',
+        th_tranche:'Tranche',
+        th_taux:'Taux',
+        th_revenus:'Revenus annuels (par part)',
+        tr1_name:'Tranche 1',
+        tr1_rev:'Jusqu\'à 11 294 €',
+        tr2_name:'Tranche 2',
+        tr2_rev:'11 295 € à 28 797 €',
+        tr3_name:'Tranche 3',
+        tr3_rev:'28 798 € à 82 341 €',
+        tr4_name:'Tranche 4',
+        tr4_rev:'82 342 € à 177 106 €',
+        tr5_name:'Tranche 5',
+        tr5_rev:'Au-delà de 177 106 €',
+        tranches_note:'Ces taux s\'appliquent à la tranche concernée, pas à l\'ensemble du revenu. Un revenu de 30 000 € est imposé à 0 % sur les 11 294 premiers euros, 11 % sur la partie de 11 295 à 28 797 €, et 30 % sur les 1 203 € restants.',
+        h2_foyers:'55 % des foyers ne paient pas l\'IR',
+        foyers_sub:'Un chiffre qui surprend — et qui dit beaucoup sur la structure de la fiscalité française.',
+        foyers_imp_label:'✅ FOYERS IMPOSABLES',
+        foyers_imp_val:'18,7 millions',
+        foyers_imp_sub:'Foyers qui paient effectivement l\'IR. Leur impôt moyen : ~3 200 €/an.',
+        foyers_nonimp_label:'⭕ FOYERS NON IMPOSABLES',
+        foyers_nonimp_val:'22,9 millions',
+        foyers_nonimp_sub:'Revenus sous le seuil, ou annulés par déductions et crédits d\'impôt.',
+        verdict_choc_label:'💡 CE QUE CE CHIFFRE SIGNIFIE',
+        verdict_choc_text:'Ce n\'est pas un échec du système — c\'est voulu. La non-imposition des revenus modestes est un choix politique. Mais cela signifie aussi que les hausses de l\'IR ne touchent que la moitié de la population. L\'IR est donc un outil de redistribution très ciblé — contrairement à la CSG qui touche universellement tous les revenus.',
+        h2_timeline:'De 2 % à 75 % — l\'histoire du taux marginal',
+        timeline_sub:'En un siècle, le taux marginal de l\'IR a connu des trajectoires extrêmes selon les priorités politiques et économiques.',
+        tl_1914:'<strong>Création — taux marginal max 2 %</strong><br>Voté en urgence pour financer la guerre. Longtemps combattu par la droite, considéré comme "socialiste". Le Sénat avait bloqué la loi pendant 7 ans avant 1914.',
+        tl_1924:'<strong>→ 72 % (reconstruction d\'après-guerre)</strong><br>Les besoins de reconstruction explosent le taux. La France emprunte et taxe massivement les hauts revenus.',
+        tl_1945:'<strong>→ 60 % (reconstruction WWII)</strong><br>Refonte complète de la fiscalité à la Libération. Mise en place de la progressivité moderne avec le quotient familial.',
+        tl_1960:'<strong>→ 65 % (Trente Glorieuses)</strong><br>Taux élevé maintenu durant la croissance fordiste. La forte progression des revenus compense l\'effet redistributif.',
+        tl_1982:'<strong>Mitterrand — taux marginal 65 %</strong><br>Maintenu au niveau des années 1970. Politique de relance par la demande — hausse du SMIC et nationalisations.',
+        tl_1986:'<strong>Chirac — baisse à 58 %</strong><br>Première cohabitation, politique de rigueur et d\'allégement fiscal. Début d\'une tendance longue à la baisse du taux marginal.',
+        tl_2013:'<strong>Hollande — tranche à 75 % (censurée en partie)</strong><br>Une tranche exceptionnelle à 75 % pour les revenus > 1 M€ est créée. Le Conseil constitutionnel censure la version initiale. La tranche finalement appliquée à titre temporaire sera abandonnée en 2015.',
+        tl_2024:'<strong>Taux marginal à 45 %</strong><br>Stabilisé depuis 2013. Auquel il faut ajouter les prélèvements sociaux : le taux effectif sur les hauts revenus approche 55 % en incluant la CSG et la CRDS.',
+        h2_intl:'Taux marginaux supérieurs 2024 — comparaison internationale',
+        intl_sub:'La France est dans la moyenne haute. Mais son taux effectif est alourdi par les prélèvements sociaux.',
+        intl_source:'Source : OCDE — Taxing Wages 2024. * France : taux marginal IR seul. En ajoutant CSG+CRDS (9,9 %), le taux effectif approche 55 %.',
+        h2_compare3:'IR, TVA, CSG — les 3 grands impôts comparés',
+        compare3_sub:'L\'IR est souvent perçu comme "l\'impôt" — pourtant il n\'est ni le plus large ni le plus important.',
+        c3_th1:'Impôt',
+        c3_th2:'Recettes annuelles',
+        c3_th3:'Qui le paye ?',
+        c3_th4:'Progressif ?',
+        c3_tva_qui:'Tous les consommateurs (100 %)',
+        c3_tva_prog:'Non — taux fixe',
+        c3_csg_qui:'Tous les revenus (actifs, retraités, capital)',
+        c3_csg_prog:'Non — taux quasi-fixe par catégorie',
+        c3_ir_qui:'45 % des foyers fiscaux seulement',
+        c3_ir_prog:'Oui — 5 tranches, 0 % à 45 %',
+        compare3_source:'Source : DGFiP · DSS · PLF 2024. Recettes nettes estimées.',
+        pas_title:'Le prélèvement à la source — pourquoi si tard ?',
+        pas_text:'Depuis janvier 2019, l\'IR est prélevé directement sur le salaire chaque mois par l\'employeur. La France est l\'un des derniers pays développés à l\'avoir adopté — <strong style="color:var(--text)">l\'Allemagne l\'avait mis en place dès 1920</strong>, le Royaume-Uni en 1944, les États-Unis en 1943. Le retard français s\'explique par la résistance des banques (qui géraient le crédit d\'impôt) et d\'une tradition de déclaration annuelle valorisée comme "acte citoyen".',
+        verdict_label:'⚖️ CE QUE LES DONNÉES DISENT',
+        verdict_text:'L\'IR est souvent l\'arbre qui cache la forêt fiscale française. Avec <strong style="color:#fff">95 Md€/an</strong>, il est surpassé par la TVA (200 Md€) et la CSG (140 Md€). Seuls <strong style="color:#fff">45 % des foyers</strong> le paient — mais ce sont eux qui financent presque intégralement cet impôt. La progressivité est réelle mais très concentrée : les 10 % des foyers les plus aisés payent environ <strong style="color:#fff">70 % du total de l\'IR</strong>. Ce design rend l\'impôt politiquement fragile : toute hausse est perçue comme une attaque contre "les classes moyennes".',
+        link_impot_p:'L\'IR n\'est qu\'une partie de la fiscalité réelle. Cotisations, CSG, TVA, TICPE — quel est votre taux d\'imposition total ?',
+        link_impot_btn:'💸 L\'impôt invisible — le taux réel',
+        sources_block:'<strong style="color:var(--text)">Sources :</strong> DGFiP — Statistiques de l\'impôt sur le revenu 2024 · PLF 2024 — Projet de Loi de Finances · INSEE — Les revenus et le patrimoine des ménages 2023 · OCDE — Taxing Wages 2024 · Légifrance — Code général des impôts, art. 197 · Conseil constitutionnel — décision n° 2012-662 DC (tranche 75 %)',
+        footer_copy:'© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · PLF 2024',
+        footer_link:'Tableau de bord principal'
+      },
+      en:{
+        nav_cta:'← Home',
+        breadcrumb_home:'Home',
+        breadcrumb_page:'Income Tax',
+        eyebrow:'Data: DGFiP · INSEE · PLF 2024',
+        h1:'Income Tax in France',
+        hero_subtitle:'Created to fund the war of 1914',
+        ir_big:'45%',
+        hero_sub:'Only <strong style="color:#3b82f6">45% of tax households</strong> pay it.<br>Yet it raises <strong style="color:#60a5fa">€95bn/year</strong> for the state.',
+        kpi_recettes_val:'€95bn/year',
+        kpi_recettes_lbl:'Income tax revenues 2023',
+        kpi_foyers_val:'45%',
+        kpi_foyers_lbl:'Of households pay it',
+        kpi_creation_val:'1914',
+        kpi_creation_lbl:'Year of creation',
+        snippet_q:'What are the income tax brackets in France for 2024?',
+        snippet_a:'French income tax is progressive with <strong style="color:var(--text)">5 brackets</strong>: <strong style="color:var(--text)">0%</strong> up to €11,294, <strong style="color:var(--text)">11%</strong> up to €28,797, <strong style="color:var(--text)">30%</strong> up to €82,341, <strong style="color:var(--text)">41%</strong> up to €177,106, <strong style="color:var(--text)">45%</strong> beyond. Only <strong style="color:var(--text)">45% of households</strong> actually pay it.',
+        h2_tranches:'2024 income tax brackets',
+        th_tranche:'Bracket',
+        th_taux:'Rate',
+        th_revenus:'Annual income (per share)',
+        tr1_name:'Bracket 1',
+        tr1_rev:'Up to €11,294',
+        tr2_name:'Bracket 2',
+        tr2_rev:'€11,295 to €28,797',
+        tr3_name:'Bracket 3',
+        tr3_rev:'€28,798 to €82,341',
+        tr4_name:'Bracket 4',
+        tr4_rev:'€82,342 to €177,106',
+        tr5_name:'Bracket 5',
+        tr5_rev:'Above €177,106',
+        tranches_note:'These rates apply to each bracket, not to total income. A €30,000 income is taxed at 0% on the first €11,294, 11% on the portion from €11,295 to €28,797, and 30% on the remaining €1,203.',
+        h2_foyers:'55% of households do not pay income tax',
+        foyers_sub:'A surprising figure — and one that says a lot about the structure of French taxation.',
+        foyers_imp_label:'✅ TAXABLE HOUSEHOLDS',
+        foyers_imp_val:'18.7 million',
+        foyers_imp_sub:'Households that actually pay income tax. Average tax paid: ~€3,200/year.',
+        foyers_nonimp_label:'⭕ NON-TAXABLE HOUSEHOLDS',
+        foyers_nonimp_val:'22.9 million',
+        foyers_nonimp_sub:'Income below threshold, or zeroed out by deductions and tax credits.',
+        verdict_choc_label:'💡 WHAT THIS FIGURE MEANS',
+        verdict_choc_text:'This is not a failure of the system — it is intentional. Non-taxation of modest incomes is a political choice. But it also means that income tax hikes only affect half the population. The income tax is therefore a very targeted redistribution tool — unlike the CSG, which applies universally to all income.',
+        h2_timeline:'From 2% to 75% — the history of the top rate',
+        timeline_sub:'In one century, France\'s top income tax rate has seen extreme trajectories driven by political and economic priorities.',
+        tl_1914:'<strong>Creation — top marginal rate 2%</strong><br>Passed in emergency to fund the war. Long opposed by the right as "socialist". The Senate had blocked the bill for 7 years before 1914.',
+        tl_1924:'<strong>→ 72% (post-WWI reconstruction)</strong><br>Reconstruction needs exploded the rate. France borrowed heavily and taxed high incomes massively.',
+        tl_1945:'<strong>→ 60% (post-WWII reconstruction)</strong><br>Complete overhaul of taxation at the Liberation. Modern progressive system introduced with the family quotient.',
+        tl_1960:'<strong>→ 65% (Trente Glorieuses)</strong><br>High rate maintained during the Fordist growth era. Strong income growth offset the redistributive effect.',
+        tl_1982:'<strong>Mitterrand — top rate 65%</strong><br>Maintained at the 1970s level. Demand-side stimulus policy — SMIC hikes and nationalisations.',
+        tl_1986:'<strong>Chirac — cut to 58%</strong><br>First cohabitation, austerity and tax relief. Start of a long trend of declining top rates.',
+        tl_2013:'<strong>Hollande — 75% bracket (partly struck down)</strong><br>A temporary 75% bracket for incomes above €1M was created. The Constitutional Council struck down the original version. The revised version was applied briefly before being abandoned in 2015.',
+        tl_2024:'<strong>Top rate at 45%</strong><br>Stable since 2013. Adding social levies, the effective rate on high incomes approaches 55% including CSG and CRDS.',
+        h2_intl:'Top marginal rates 2024 — international comparison',
+        intl_sub:'France is in the high average. But its effective rate is heavier due to social levies.',
+        intl_source:'Source: OECD — Taxing Wages 2024. * France: income tax marginal rate only. Adding CSG+CRDS (9.9%), the effective rate approaches 55%.',
+        h2_compare3:'Income tax, VAT, CSG — the 3 major taxes compared',
+        compare3_sub:'Income tax is often perceived as "the tax" — yet it is neither the broadest nor the largest.',
+        c3_th1:'Tax',
+        c3_th2:'Annual revenues',
+        c3_th3:'Who pays it?',
+        c3_th4:'Progressive?',
+        c3_tva_qui:'All consumers (100%)',
+        c3_tva_prog:'No — fixed rate',
+        c3_csg_qui:'All income (workers, retirees, capital)',
+        c3_csg_prog:'No — near-flat by category',
+        c3_ir_qui:'Only 45% of tax households',
+        c3_ir_prog:'Yes — 5 brackets, 0% to 45%',
+        compare3_source:'Source: DGFiP · DSS · PLF 2024. Estimated net revenues.',
+        pas_title:'Pay-as-you-earn — why so late?',
+        pas_text:'Since January 2019, income tax has been withheld directly from wages each month by the employer. France was one of the last developed countries to adopt it — <strong style="color:var(--text)">Germany introduced it as early as 1920</strong>, the UK in 1944, the US in 1943. The French delay was due to bank resistance (which managed tax credits) and a tradition of annual declaration valued as a "civic act".',
+        verdict_label:'⚖️ WHAT THE DATA SAYS',
+        verdict_text:'Income tax is often the tree hiding the French fiscal forest. At <strong style="color:#fff">€95bn/year</strong>, it is surpassed by VAT (€200bn) and CSG (€140bn). Only <strong style="color:#fff">45% of households</strong> pay it — yet they fund it almost entirely. Progressivity is real but highly concentrated: the top 10% of households pay roughly <strong style="color:#fff">70% of total income tax</strong>. This design makes the tax politically fragile: any hike is perceived as an attack on "the middle classes".',
+        link_impot_p:'Income tax is just one part of real taxation. Contributions, CSG, VAT, fuel duties — what is your total tax rate?',
+        link_impot_btn:'💸 The hidden tax — the real rate',
+        sources_block:'<strong style="color:var(--text)">Sources:</strong> DGFiP — Income tax statistics 2024 · PLF 2024 — Budget Bill · INSEE — Household income and wealth 2023 · OECD — Taxing Wages 2024 · Légifrance — General Tax Code, art. 197 · Constitutional Council — decision no. 2012-662 DC (75% bracket)',
+        footer_copy:'© 2026 The Average French — Data: DGFiP · INSEE · OECD · PLF 2024',
+        footer_link:'Main dashboard'
+      }
+    };
+    var lang=localStorage.getItem('lfm-lang')||'fr';
+    function setLang(l){
+      lang=l;
+      localStorage.setItem('lfm-lang',l);
+      document.documentElement.lang=l==='fr'?'fr':'en';
+      document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+      document.getElementById('btn-en').classList.toggle('active',l==='en');
+      var s=T[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k=el.getAttribute('data-i18n');
+        if(s[k]!==undefined)el.innerHTML=s[k];
+      });
+      document.title=l==='fr'
+        ?'Impôt sur le revenu : seulement 45 % des foyers le paient — Le Français Moyen'
+        :'Income Tax in France: Only 45% of Households Pay It | The Average French';
+      var desc=document.querySelector('meta[name="description"]');
+      if(desc)desc.setAttribute('content',l==='fr'
+        ?'L\'IR rapporte 95 Md€/an mais seulement 45 % des foyers fiscaux le paient. Tranches 2024, taux marginal 45 %, quotient familial, prélèvement à la source. Données officielles.'
+        :'Income tax raises €95bn/year but only 45% of French households pay it. 2024 tax brackets, 45% top rate, family quotient, withholding tax since 2019. Official data.');
+    }
+    setLang(lang);
+    window.setLang=setLang;
+  })();
+  </script>
+</body>
+</html>

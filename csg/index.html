@@ -143,6 +143,8 @@
               <li><a href="/demographie/">👥 Démographie</a></li>
               <li><a href="/csg/">💶 CSG</a></li>
               <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+              <li><a href="/tva/">🧾 TVA</a></li>
+              <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
             </ul>
           </li>
           <li><a href="/outils/">Outils</a></li>
@@ -271,35 +273,35 @@
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-year">1991</div>
-          <div class="tl-text"><strong>Création par Michel Rocard — taux 1,1 %</strong><br>
+          <div class="tl-text" data-i18n="tl_1991"><strong>Création par Michel Rocard — taux 1,1 %</strong><br>
             "Une cotisation modeste pour rééquilibrer la Sécu." Assiette large, taux faible — présentée comme alternative aux cotisations patronales.
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-year">1993</div>
-          <div class="tl-text"><strong>→ 2,4 % (Balladur)</strong><br>
+          <div class="tl-text" data-i18n="tl_1993"><strong>→ 2,4 % (Balladur)</strong><br>
             Doublement du taux lors de la réforme des retraites. La CSG commence à peser.
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-year">1997</div>
-          <div class="tl-text"><strong>→ 3,4 % puis 7,5 % (Juppé → Jospin)</strong><br>
+          <div class="tl-text" data-i18n="tl_1997"><strong>→ 3,4 % puis 7,5 % (Juppé → Jospin)</strong><br>
             Extension aux retraités et chômeurs. Le plan Juppé élargit l'assiette, Jospin réforme le financement de la protection sociale.
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-year">1998</div>
-          <div class="tl-text"><strong>→ 7,5 % consolidé (Jospin)</strong><br>
+          <div class="tl-text" data-i18n="tl_1998"><strong>→ 7,5 % consolidé (Jospin)</strong><br>
             La CSG remplace une partie des cotisations maladie des salariés. Financement des 35 heures via la CRDS.
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot" style="background:#f472b6"></div>
           <div class="tl-year" style="color:#f472b6">2018</div>
-          <div class="tl-text"><strong>→ 9,2 % (Macron)</strong><br>
+          <div class="tl-text" data-i18n="tl_2018"><strong>→ 9,2 % (Macron)</strong><br>
             Hausse de 1,7 point en échange de la baisse des cotisations chômage et maladie. Les retraités imposables passent à 8,3 % — déclenchant la colère des "gilets jaunes" en 2019.
           </div>
         </div>
@@ -457,6 +459,11 @@
         verdict_label:'⚖️ CE QUE LES DONNÉES DISENT',
         verdict_text:'En 30 ans, la CSG est passée de <strong style="color:#fff">1,1 % à 9,2 %</strong> — soit une multiplication par 8,4 — sans jamais faire l\'objet d\'un référendum ou d\'un grand débat démocratique. Avec <strong style="color:#fff">140 Md€/an</strong>, elle surpasse l\'impôt sur le revenu (95 Md€) et touche universellement tous les revenus, y compris ceux des plus modestes. Son caractère "non fiscal" lui a permis de croître dans l\'ombre du consentement à l\'impôt. La hausse de 2018 sur les retraités a d\'ailleurs été l\'un des détonateurs du mouvement des <strong style="color:#f472b6">gilets jaunes</strong>.',
         sources_block:'<strong style="color:var(--text)">Sources :</strong> DSS — Direction de la Sécurité Sociale, PLFSS 2024 · ACOSS — Rapport d\'activité 2023 · Commission des Comptes de la Sécurité Sociale 2023 · INSEE — Comptes de la protection sociale 2022 · Cour des Comptes — rapport sur la CRDS et la CADES 2022 · Légifrance — Loi n° 90-1168 du 29 décembre 1990 (création CSG)',
+        tl_1991:'<strong>Création par Michel Rocard — taux 1,1 %</strong><br>"Une cotisation modeste pour rééquilibrer la Sécu." Assiette large, taux faible — présentée comme alternative aux cotisations patronales.',
+        tl_1993:'<strong>→ 2,4 % (Balladur)</strong><br>Doublement du taux lors de la réforme des retraites. La CSG commence à peser.',
+        tl_1997:'<strong>→ 3,4 % puis 7,5 % (Juppé → Jospin)</strong><br>Extension aux retraités et chômeurs. Le plan Juppé élargit l\'assiette, Jospin réforme le financement de la protection sociale.',
+        tl_1998:'<strong>→ 7,5 % consolidé (Jospin)</strong><br>La CSG remplace une partie des cotisations maladie des salariés. Financement des 35 heures via la CRDS.',
+        tl_2018:'<strong>→ 9,2 % (Macron)</strong><br>Hausse de 1,7 point en échange de la baisse des cotisations chômage et maladie. Les retraités imposables passent à 8,3 % — déclenchant la colère des "gilets jaunes" en 2019.',
         footer_copy:'© 2026 Le Français Moyen — Données : DSS · ACOSS · INSEE · Cour des Comptes',
         footer_link:'Tableau de bord principal'
       },
@@ -506,6 +513,11 @@
         crds_snippet_a:'The <strong style="color:var(--text)">CSG (9.2%)</strong> funds Social Security on a daily basis. The <strong style="color:var(--text)">CRDS (0.5%)</strong> repays accumulated social debt, managed by CADES. They are often confused because they are withheld together on pay slips, for a total of <strong style="color:var(--text)">9.7% of gross wages</strong> for an employed worker. Unlike the CSG, the CRDS is <strong style="color:var(--text)">never deductible</strong> from taxable income.',
         verdict_label:'⚖️ WHAT THE DATA SAYS',
         verdict_text:'In 30 years, the CSG has risen from <strong style="color:#fff">1.1% to 9.2%</strong> — an 8.4× increase — with no referendum or major democratic debate. At <strong style="color:#fff">€140bn/year</strong>, it surpasses income tax (€95bn) and applies universally to all income, including that of modest earners. Its "non-tax" status allowed it to grow quietly. The 2018 hike on retirees was one of the triggers of the <strong style="color:#f472b6">gilets jaunes</strong> movement.',
+        tl_1991:'<strong>Created by Michel Rocard — rate 1.1%</strong><br>"A modest contribution to rebalance Social Security." Broad base, low rate — presented as an alternative to employer contributions.',
+        tl_1993:'<strong>→ 2.4% (Balladur)</strong><br>Rate doubled as part of the pension reform. The CSG starts to weigh on pay slips.',
+        tl_1997:'<strong>→ 3.4% then 7.5% (Juppé → Jospin)</strong><br>Extended to retirees and the unemployed. Juppé broadens the base; Jospin reforms the financing of social protection.',
+        tl_1998:'<strong>→ 7.5% consolidated (Jospin)</strong><br>The CSG replaces part of employees\' health contributions. The 35-hour week is partly funded through the CRDS.',
+        tl_2018:'<strong>→ 9.2% (Macron)</strong><br>Rise of 1.7 points in exchange for a cut in unemployment and health contributions. Taxable retirees move to 8.3% — triggering the anger of the "gilets jaunes" in 2019.',
         sources_block:'<strong style="color:var(--text)">Sources:</strong> DSS — Social Security Directorate, PLFSS 2024 · ACOSS — Annual Report 2023 · Social Security Accounts Committee 2023 · INSEE — Social Protection Accounts 2022 · Cour des Comptes — report on CRDS and CADES 2022 · Légifrance — Law no. 90-1168 of 29 December 1990 (CSG creation)',
         footer_copy:'© 2026 The Average French — Data: DSS · ACOSS · INSEE · Cour des Comptes',
         footer_link:'Main dashboard'
@@ -529,7 +541,7 @@
       var desc=document.querySelector('meta[name="description"]');
       if(desc)desc.setAttribute('content',l==='fr'
         ?'Créée en 1991 à 1,1 %, la CSG atteint aujourd\'hui 9,2 % du salaire brut. 140 Md€/an — plus que l\'impôt sur le revenu. Taux, assiette, histoire. Données officielles.'
-        :'Created in 1991 at 1.1%, the CSG now reaches 9.2% of gross wages. €140bn/year — more than income tax. Rates, base, history. Official data.');
+        :'Created in 1991 at 1.1%, France\'s CSG now stands at 9.2% of gross salary. €140bn/year — more than income tax. Rates, history, official data.');
     }
     setLang(lang);
     window.setLang=setLang;

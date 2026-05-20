@@ -448,4 +448,18 @@
     <priority>0.88</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/tva/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/ir/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
 </urlset>

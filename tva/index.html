@@ -1,0 +1,698 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TVA : inventée en France en 1954, copiée par 174 pays — Le Français Moyen</title>
+  <meta name="description" content="200 Md€/an — la TVA est le 1er impôt de France. Inventée par Maurice Lauré en 1954, aujourd'hui copiée dans 174 pays. Taux 20%, 10%, 5,5%, 2,1% expliqués.">
+  <link rel="canonical" href="https://le-francais-moyen.com/tva/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/tva/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/tva/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/tva/">
+  <meta property="og:title" content="TVA : inventée en France, copiée dans 174 pays — Le Français Moyen">
+  <meta property="og:description" content="200 Md€/an — la TVA est le 1er impôt de France. Inventée par Maurice Lauré en 1954, aujourd'hui copiée dans 174 pays. Taux 20%, 10%, 5,5%, 2,1% expliqués.">
+  <meta property="og:url" content="https://le-francais-moyen.com/tva/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=18">
+  <style>
+    /* ── Hero ───────────────────────────────────────────────── */
+    .tva-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(52,211,153,.12) 0%,transparent 65%)}
+    .tva-big{font-size:clamp(3rem,10vw,6.5rem);font-weight:900;letter-spacing:-.06em;color:#34d399;line-height:1;margin:8px 0 4px}
+
+    /* ── KPI cards ─────────────────────────────────────────── */
+    .tva-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin:24px 0}
+    .tva-kpi-card{padding:20px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border);text-align:center}
+    .tva-kpi-card .val{font-size:1.85rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .tva-kpi-card .lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+    /* ── Tableau taux ──────────────────────────────────────── */
+    .tva-table{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:.88rem}
+    .tva-table th{text-align:left;padding:10px 14px;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .tva-table td{padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted);line-height:1.4}
+    .tva-table tr:last-child td{border-bottom:none}
+    .tva-table tr:hover td{background:rgba(255,255,255,.03)}
+    .tva-table .rate{font-weight:800;color:var(--text)}
+    .tva-table .cat{color:#34d399;font-weight:700}
+
+    /* ── Timeline ──────────────────────────────────────────── */
+    .timeline{position:relative;padding-left:32px;margin:16px 0 24px}
+    .timeline::before{content:'';position:absolute;left:10px;top:6px;bottom:6px;width:2px;background:rgba(52,211,153,.3)}
+    .tl-item{position:relative;margin-bottom:22px}
+    .tl-dot{position:absolute;left:-26px;top:5px;width:12px;height:12px;border-radius:50%;background:#34d399;border:2px solid var(--bg);flex-shrink:0}
+    .tl-year{font-size:.75rem;font-weight:800;letter-spacing:.06em;color:#34d399;margin-bottom:3px}
+    .tl-text{font-size:.875rem;color:var(--muted);line-height:1.6}
+    .tl-text strong{color:var(--text)}
+
+    /* ── Stat cards ────────────────────────────────────────── */
+    .tva-compare{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:16px 0 20px}
+    .tva-compare-card{padding:20px 22px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+    .tva-compare-card .cc-label{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:10px}
+    .tva-compare-card .cc-val{font-size:2rem;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+    .tva-compare-card .cc-sub{font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.5}
+
+    /* ── Bar chart ─────────────────────────────────────────── */
+    .tva-bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .tva-bar-label{width:130px;font-size:.84rem;flex-shrink:0;color:var(--muted)}
+    .tva-bar-wrap{flex:1;height:26px;background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden}
+    .tva-bar-fill{height:100%;border-radius:8px;display:flex;align-items:center;padding:0 10px;font-size:.76rem;font-weight:700;color:#fff}
+    .tva-bar-val{width:46px;text-align:right;font-weight:800;font-size:.85rem;flex-shrink:0}
+
+    /* ── Chaîne TVA ────────────────────────────────────────── */
+    .tva-chain{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0;margin:16px 0 24px;position:relative}
+    .tva-chain-step{padding:16px 14px;border-radius:12px;background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);text-align:center;position:relative}
+    .tva-chain-step .step-actor{font-size:.75rem;font-weight:800;letter-spacing:.06em;color:#34d399;margin-bottom:6px}
+    .tva-chain-step .step-price{font-size:1.2rem;font-weight:900;color:var(--text);margin-bottom:4px}
+    .tva-chain-step .step-tva{font-size:.75rem;color:var(--muted);line-height:1.4}
+    .tva-chain-arrow{display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:rgba(52,211,153,.5);padding:0 4px;align-self:center}
+
+    /* ── Note honnête ──────────────────────────────────────── */
+    .tva-note-honest{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.3);border-radius:16px;padding:20px 24px;margin:24px 0}
+
+    /* ── Monde section ─────────────────────────────────────── */
+    .tva-world-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:16px 0 20px}
+    .tva-world-card{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+    .tva-world-card .wc-region{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+    .tva-world-card .wc-rate{font-size:1.4rem;font-weight:900;letter-spacing:-.03em;margin-bottom:4px}
+    .tva-world-card .wc-detail{font-size:.78rem;color:var(--muted);line-height:1.5}
+
+    /* ── USA exception ─────────────────────────────────────── */
+    .tva-usa-note{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.25);border-radius:14px;padding:16px 20px;margin-bottom:20px}
+
+    @media(max-width:640px){
+      .tva-bar-label{width:90px;font-size:.78rem}
+      .tva-chain{grid-template-columns:1fr}
+      .tva-chain-arrow{transform:rotate(90deg)}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://le-francais-moyen.com/"},
+      {"@type": "ListItem", "position": 2, "name": "TVA", "item": "https://le-francais-moyen.com/tva/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TVA : inventée en France en 1954, copiée par 174 pays — Le Français Moyen",
+    "description": "200 Md€/an — la TVA est le 1er impôt de France. Inventée par Maurice Lauré en 1954, aujourd'hui copiée dans 174 pays. Taux 20%, 10%, 5,5%, 2,1% expliqués.",
+    "url": "https://le-francais-moyen.com/tva/",
+    "publisher": {"@type": "Organization", "name": "Le Français Moyen", "url": "https://le-francais-moyen.com"},
+    "inLanguage": "fr"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quel est le taux de TVA en France ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Le taux normal de TVA est de 20 % depuis 2014. Il existe 3 taux réduits : 10 % (restauration, hôtellerie, transports), 5,5 % (alimentation, livres, abonnements énergie), 2,1 % (médicaments remboursés, presse). La France est dans la moyenne européenne pour son taux normal."}
+      },
+      {
+        "@type": "Question",
+        "name": "Combien rapporte la TVA en France ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "La TVA est le premier impôt français avec environ 200 milliards d'euros de recettes annuelles, soit environ 8 % du PIB. Elle représente à elle seule 45 % des recettes fiscales de l'État."}
+      },
+      {
+        "@type": "Question",
+        "name": "Qui a inventé la TVA ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "La TVA a été inventée en France par Maurice Lauré, inspecteur des finances et directeur général des impôts, et introduite le 10 avril 1954. La France est le premier pays au monde à avoir adopté ce système. Aujourd'hui, 174 pays dans le monde appliquent une TVA ou une taxe équivalente sur la valeur ajoutée."}
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne la TVA ?",
+        "acceptedAnswer": {"@type": "Answer", "text": "La TVA est collectée à chaque étape de la chaîne de production. Chaque entreprise collecte la TVA sur ses ventes, déduit la TVA payée sur ses achats, et reverse la différence à l'État. Le consommateur final supporte l'intégralité de la taxe. Ce mécanisme évite la \"cascade\" fiscale des anciennes taxes sur le chiffre d'affaires."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/impot/">💸 Impôt invisible</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/sante/">🏥 Santé</a></li>
+              <li><a href="/education/">📚 Éducation</a></li>
+              <li><a href="/industrie/">🏭 Désindustrialisation</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/autoroutes/">🛣️ Autoroutes</a></li>
+              <li><a href="/normes/">📜 Millefeuille réglementaire</a></li>
+              <li><a href="/ronds-points/">🔵 Indice Rond-Point</a></li>
+              <li><a href="/demographie/">👥 Démographie</a></li>
+              <li><a href="/csg/">💶 CSG</a></li>
+              <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+              <li><a href="/tva/">🧾 TVA</a></li>
+              <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/impot/">💸 Impôt</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/fonctionnaires/">👔 Fonctionnaires</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/sante/">🏥 Santé</a>
+    <a href="/education/">📚 Éducation</a>
+    <a href="/industrie/">🏭 Industrie</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/autoroutes/">🛣️ Autoroutes</a>
+    <a href="/normes/">📜 Normes</a>
+    <a href="/ronds-points/">🔵 Rond-Point</a>
+    <a href="/demographie/">👥 Démographie</a>
+    <a href="/csg/">💶 CSG</a>
+    <a href="/fiscalite/">📊 Fiscalité</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/elections/">🗳️ Élections</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/a-propos/">À propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main id="contenu">
+
+    <!-- ── Hero ──────────────────────────────────────────────────── -->
+    <div class="tva-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/" data-i18n="breadcrumb_home">Accueil</a> › <span data-i18n="breadcrumb_page">TVA</span></nav>
+      <div class="eyebrow" data-i18n="eyebrow">Données DGFiP · PLF 2024 · OCDE</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center" data-i18n="h1">La TVA</h1>
+      <div class="tva-big" data-i18n="tva_big">200 Md€</div>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 auto 20px" data-i18n="hero_sub">
+        L'invention française qui a <strong style="color:#34d399">conquis le monde</strong>.<br>
+        Créée en <strong style="color:#34d399">1954</strong> par Maurice Lauré, copiée dans <strong style="color:#34d399">174 pays</strong>.
+      </p>
+      <div class="tva-kpi">
+        <div class="tva-kpi-card">
+          <span class="val" style="color:#34d399" data-i18n="kpi_recettes_val">200 Md€/an</span>
+          <span class="lbl" data-i18n="kpi_recettes_lbl">1er impôt de France</span>
+        </div>
+        <div class="tva-kpi-card">
+          <span class="val" style="color:#6ee7b7" data-i18n="kpi_pays_val">174 pays</span>
+          <span class="lbl" data-i18n="kpi_pays_lbl">utilisent ce système</span>
+        </div>
+        <div class="tva-kpi-card">
+          <span class="val" style="color:#a7f3d0" data-i18n="kpi_year_val">1954</span>
+          <span class="lbl" data-i18n="kpi_year_lbl">invention française</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ── Featured snippet ──────────────────────────────────── -->
+      <section class="snippet-answer" style="max-width:720px;margin:0 auto 32px;padding:0 24px">
+        <h2 style="font-size:1.05rem;font-weight:800;margin:0 0 10px;color:var(--text)" data-i18n="snippet_q">Qu'est-ce que la TVA et quel est son taux en France ?</h2>
+        <p style="font-size:.95rem;line-height:1.75;color:var(--muted);margin:0" data-i18n="snippet_a">La <strong style="color:var(--text)">TVA (Taxe sur la Valeur Ajoutée)</strong> est le premier impôt français avec <strong style="color:var(--text)">200 milliards d'euros</strong> de recettes par an. Inventée en France en 1954, elle est aujourd'hui appliquée dans <strong style="color:var(--text)">174 pays</strong>. Le taux normal est de <strong style="color:var(--text)">20 %</strong>, avec des taux réduits à 10 %, 5,5 % et 2,1 % selon les produits.</p>
+      </section>
+
+      <!-- ── Tableau des taux TVA ──────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:28px 0 14px" data-i18n="h2_taux">Les taux de TVA en France</h2>
+      <div style="overflow-x:auto">
+        <table class="tva-table">
+          <thead>
+            <tr>
+              <th data-i18n="th_taux">Taux</th>
+              <th data-i18n="th_categorie">Catégorie</th>
+              <th data-i18n="th_exemples">Exemples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="rate">20 %</span></td>
+              <td><span class="cat" data-i18n="tr1_cat">Taux normal</span></td>
+              <td data-i18n="tr1_ex">Vêtements, électronique, services, alcool</td>
+            </tr>
+            <tr>
+              <td><span class="rate">10 %</span></td>
+              <td><span class="cat" data-i18n="tr2_cat">Taux intermédiaire</span></td>
+              <td data-i18n="tr2_ex">Restaurants, hôtels, transports, travaux</td>
+            </tr>
+            <tr>
+              <td><span class="rate">5,5 %</span></td>
+              <td><span class="cat" data-i18n="tr3_cat">Taux réduit</span></td>
+              <td data-i18n="tr3_ex">Alimentation, livres, énergie, logement social</td>
+            </tr>
+            <tr>
+              <td><span class="rate">2,1 %</span></td>
+              <td><span class="cat" data-i18n="tr4_cat">Taux super-réduit</span></td>
+              <td data-i18n="tr4_ex">Médicaments remboursés, presse, 140 premières représentations</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:6px" data-i18n="taux_source">Source : DGFiP — Direction Générale des Finances Publiques. Taux en vigueur depuis 2014.</p>
+
+      <!-- ── Comment fonctionne la TVA ─────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_fonctionnement">Comment fonctionne la TVA</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px" data-i18n="fonctionnement_sub">La TVA est collectée à chaque étape de la chaîne — chaque maillon reverse uniquement la valeur qu'il a ajoutée.</p>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:16px 0 24px">
+        <div class="tva-chain-step" style="flex:1;min-width:130px">
+          <div class="step-actor" data-i18n="chain_actor1">AGRICULTEUR</div>
+          <div class="step-price" data-i18n="chain_price1">1,00 €</div>
+          <div class="step-tva" data-i18n="chain_tva1">Vente HT<br>TVA collectée : <strong style="color:#34d399">0,055 €</strong><br>TVA déductible : 0 €<br>Versement : 0,055 €</div>
+        </div>
+        <div class="tva-chain-arrow">→</div>
+        <div class="tva-chain-step" style="flex:1;min-width:130px">
+          <div class="step-actor" data-i18n="chain_actor2">TRANSFORMATEUR</div>
+          <div class="step-price" data-i18n="chain_price2">2,00 €</div>
+          <div class="step-tva" data-i18n="chain_tva2">Vente HT<br>TVA collectée : <strong style="color:#34d399">0,11 €</strong><br>TVA déductible : 0,055 €<br>Versement : 0,055 €</div>
+        </div>
+        <div class="tva-chain-arrow">→</div>
+        <div class="tva-chain-step" style="flex:1;min-width:130px">
+          <div class="step-actor" data-i18n="chain_actor3">DISTRIBUTEUR</div>
+          <div class="step-price" data-i18n="chain_price3">3,00 €</div>
+          <div class="step-tva" data-i18n="chain_tva3">Vente HT<br>TVA collectée : <strong style="color:#34d399">0,165 €</strong><br>TVA déductible : 0,11 €<br>Versement : 0,055 €</div>
+        </div>
+        <div class="tva-chain-arrow">→</div>
+        <div class="tva-chain-step" style="flex:1;min-width:130px;background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.4)">
+          <div class="step-actor" data-i18n="chain_actor4">CONSOMMATEUR</div>
+          <div class="step-price" data-i18n="chain_price4">3,165 €</div>
+          <div class="step-tva" data-i18n="chain_tva4">Prix TTC<br>TVA totale supportée : <strong style="color:#34d399">0,165 €</strong><br>= 5,5 % de 3,00 €<br>Aucune déduction</div>
+        </div>
+      </div>
+      <div style="background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);border-radius:14px;padding:14px 18px;margin-bottom:24px;font-size:.84rem;color:var(--muted);line-height:1.7">
+        <strong style="color:#34d399" data-i18n="chain_principe_label">Le principe clé :</strong> <span data-i18n="chain_principe_text">l'État collecte exactement 0,165 € de TVA au total (0,055 € × 3 étapes). Chaque entreprise est un <strong style="color:var(--text)">collecteur d'impôt</strong> pour l'État — elle avance la TVA, déduit ce qu'elle a payé, et reverse la différence. Ce mécanisme de déductibilité évite la <strong style="color:var(--text)">"cascade" fiscale</strong> des anciennes taxes sur le chiffre d'affaires.</span>
+      </div>
+
+      <!-- ── TVA dans le monde ──────────────────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 8px" data-i18n="h2_monde">La TVA dans le monde</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px" data-i18n="monde_sub">174 pays appliquent une TVA ou taxe équivalente. Seuls les États-Unis font exception parmi les grandes économies.</p>
+
+      <div class="tva-world-grid">
+        <div class="tva-world-card">
+          <div class="wc-region" data-i18n="wc1_region">🇪🇺 EUROPE</div>
+          <div class="wc-rate" style="color:#34d399" data-i18n="wc1_rate">17 – 27 %</div>
+          <div class="wc-detail" data-i18n="wc1_detail">Taux normaux. Min. imposé par l'UE : 15 %. Hongrie : 27 %, Suède : 25 %, France : 20 %, Allemagne : 19 %.</div>
+        </div>
+        <div class="tva-world-card">
+          <div class="wc-region" data-i18n="wc2_region">🌏 ASIE-PACIFIQUE</div>
+          <div class="wc-rate" style="color:#6ee7b7" data-i18n="wc2_rate">10 – 13 %</div>
+          <div class="wc-detail" data-i18n="wc2_detail">Japon : 10 % (TVA introduite en 1989). Chine : taux général 13 %, réduit 9 %. Australie (GST) : 10 %.</div>
+        </div>
+        <div class="tva-world-card">
+          <div class="wc-region" data-i18n="wc3_region">🌎 AMÉRIQUE LATINE</div>
+          <div class="wc-rate" style="color:#a7f3d0" data-i18n="wc3_rate">10 – 21 %</div>
+          <div class="wc-detail" data-i18n="wc3_detail">Brésil : système complexe multi-taxes. Argentine : 21 %. Mexique : 16 %. Tous ont adopté la TVA.</div>
+        </div>
+        <div class="tva-world-card">
+          <div class="wc-region" data-i18n="wc4_region">🌍 AFRIQUE / M-O</div>
+          <div class="wc-rate" style="color:#34d399" data-i18n="wc4_rate">14 – 20 %</div>
+          <div class="wc-detail" data-i18n="wc4_detail">Afrique du Sud : 15 %. Nigeria : 7,5 %. Maroc : 20 %. La TVA s'est imposée comme norme mondiale.</div>
+        </div>
+      </div>
+
+      <div class="tva-usa-note">
+        <div style="font-size:.78rem;font-weight:800;color:#f87171;margin-bottom:8px" data-i18n="usa_note_label">🇺🇸 L'EXCEPTION AMÉRICAINE</div>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.6;margin:0" data-i18n="usa_note_text">Les États-Unis sont la grande exception — ils n'ont pas de TVA fédérale, seulement des <strong style="color:var(--text)">sales taxes locales</strong> de 0 à 10 % selon les États. Contrairement à la TVA, la sales tax s'applique uniquement au stade de la vente finale au consommateur, sans déductibilité entre entreprises. Résultat : complexité administrative et risques de "cascade" fiscale.</p>
+      </div>
+
+      <!-- ── Bar chart comparatif ───────────────────────────────── -->
+      <h3 style="font-size:1rem;font-weight:800;letter-spacing:-.01em;margin:20px 0 12px" data-i18n="h3_barchart">Taux normaux de TVA comparés</h3>
+      <div id="tvaBarChart"></div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:8px" data-i18n="barchart_source">Source : OCDE — Taxation at a Glance 2023. Taux en vigueur mi-2023.</p>
+
+      <!-- ── TVA : recettes en perspective ─────────────────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:36px 0 8px" data-i18n="h2_recettes">TVA : les recettes en perspective</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 16px" data-i18n="recettes_sub">La TVA est structurellement le pilier des finances publiques françaises — bien au-delà de l'impôt sur le revenu.</p>
+      <div class="tva-compare">
+        <div class="tva-compare-card">
+          <div class="cc-label" data-i18n="stat1_label">💰 RECETTES TVA 2023</div>
+          <div class="cc-val" style="color:#34d399" data-i18n="stat1_val">200 Md€</div>
+          <div class="cc-sub" data-i18n="stat1_sub">45 % des recettes fiscales de l'État. Environ <strong style="color:var(--text)">8 % du PIB</strong> français.</div>
+        </div>
+        <div class="tva-compare-card">
+          <div class="cc-label" data-i18n="stat2_label">📊 PART DES RECETTES FISCALES</div>
+          <div class="cc-val" style="color:#6ee7b7" data-i18n="stat2_val">45 %</div>
+          <div class="cc-sub" data-i18n="stat2_sub">Devant l'IR (<strong style="color:var(--text)">95 Md€</strong>) et la CSG (<strong style="color:var(--text)">140 Md€</strong>). Premier impôt de loin.</div>
+        </div>
+      </div>
+
+      <!-- ── Histoire : de la taxe en cascade à la TVA ─────────── -->
+      <h2 style="font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin:32px 0 6px" data-i18n="h2_histoire">De la taxe en cascade à la TVA</h2>
+      <p style="font-size:.84rem;color:var(--muted);margin:0 0 18px" data-i18n="histoire_sub">Avant 1954, les taxes s'accumulaient à chaque étape de production — freinant l'économie. Maurice Lauré a tout changé.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1920</div>
+          <div class="tl-text"><strong data-i18n="tl1_title">Taxes sur le chiffre d'affaires — en cascade</strong><br>
+            <span data-i18n="tl1_text">Chaque transaction est taxée sur l'intégralité du prix, y compris les taxes précédentes. Effet "boule de neige" : une taxe sur une taxe, rendant les produits artificiellement chers.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1936</div>
+          <div class="tl-text"><strong data-i18n="tl2_title">Taxe à la production — amélioration partielle</strong><br>
+            <span data-i18n="tl2_text">La France tente de limiter la cascade en taxant principalement au stade de la production industrielle. Progrès partiel, mais les services restent mal traités.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#a7f3d0"></div>
+          <div class="tl-year" style="color:#a7f3d0">1954</div>
+          <div class="tl-text"><strong data-i18n="tl3_title">Maurice Lauré invente la TVA — révolution fiscale mondiale</strong><br>
+            <span data-i18n="tl3_text">Le 10 avril 1954, la loi est promulguée. Maurice Lauré, inspecteur des finances, imagine une taxe sur la <em>valeur ajoutée</em> à chaque étape — avec déductibilité intégrale. La France devient le 1er pays au monde à adopter ce mécanisme.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1968</div>
+          <div class="tl-text"><strong data-i18n="tl4_title">Extension aux commerçants et prestataires de services</strong><br>
+            <span data-i18n="tl4_text">La TVA est généralisée à l'ensemble de l'économie française : commerçants, artisans, professions libérales. Le champ d'application devient quasi-universel.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1995</div>
+          <div class="tl-text"><strong data-i18n="tl5_title">Harmonisation européenne — taux minimum 15 %</strong><br>
+            <span data-i18n="tl5_text">La directive 77/388/CEE impose un taux normal minimum de 15 % dans toute l'UE. La TVA française est désormais encadrée par le droit communautaire.</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:#f472b6"></div>
+          <div class="tl-year" style="color:#f472b6">2014</div>
+          <div class="tl-text"><strong data-i18n="tl6_title">Hausse de 19,6 % à 20 % — gouvernement Hollande</strong><br>
+            <span data-i18n="tl6_text">Le taux normal passe de 19,6 % à 20 %. Le taux intermédiaire passe de 7 % à 10 %. Mesure de consolidation budgétaire dans le cadre du redressement des finances publiques.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Note honnête ──────────────────────────────────────── -->
+      <div class="tva-note-honest">
+        <div style="font-size:.8rem;font-weight:800;color:#fbbf24;letter-spacing:.06em;margin-bottom:10px" data-i18n="note_label">⚠️ NOTE HONNÊTE — TVA ET INÉGALITÉS</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.75;margin:0" data-i18n="note_text">La TVA est un impôt dit <strong style="color:var(--text)">"régressif"</strong> : elle représente une part plus importante du revenu des ménages modestes (qui consomment une plus grande proportion de leurs revenus) que des ménages aisés. Les taux réduits sur l'alimentation et les livres sont partiellement conçus pour atténuer cet effet.</p>
+      </div>
+
+      <!-- ── Sources ────────────────────────────────────────────── -->
+      <div style="border-top:1px solid var(--border);padding-top:20px">
+        <div style="font-size:.78rem;color:var(--muted);line-height:1.8">
+          <span data-i18n="sources_block"><strong style="color:var(--text)">Sources :</strong>
+          DGFiP — Direction Générale des Finances Publiques, PLF 2024 ·
+          INSEE — Comptes nationaux 2023 ·
+          OCDE — Taxation at a Glance 2023 ·
+          Cour des Comptes — rapport sur les dépenses fiscales 2023 ·
+          IBFD — Guide mondial des TVA 2023 ·
+          Légifrance — Loi n° 54-404 du 10 avril 1954 (création de la TVA)</span>
+        </div>
+      </div>
+
+      <!-- ── Share ──────────────────────────────────────────────── -->
+      <div style="text-align:center;margin-top:28px">
+        <a class="share-btn" href="https://twitter.com/intent/tweet?text=La+TVA+a+%C3%A9t%C3%A9+invent%C3%A9e+en+France+en+1954+par+Maurice+Laur%C3%A9.+Aujourd%27hui+copie%CC%81e+dans+174+pays%2C+elle+rapporte+200+Md%E2%82%AC%2Fan+%E2%80%94+1er+imp%C3%B4t+de+France.+Les+donne%CC%81es+%E2%86%92&url=https%3A%2F%2Fle-francais-moyen.com%2Ftva%2F" target="_blank" rel="noopener">𝕏 Partager</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Cour des Comptes</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  /* ── Bar chart TVA comparatif ─────────────────────────────────── */
+  const BARS = [
+    {label:'🇭🇺 Hongrie',   pct:27, color:'#34d399'},
+    {label:'🇸🇪 Suède',     pct:25, color:'#34d399'},
+    {label:'🇩🇰 Danemark',  pct:25, color:'#34d399'},
+    {label:'🇫🇷 France',    pct:20, color:'#6ee7b7'},
+    {label:'🇩🇪 Allemagne', pct:19, color:'#6ee7b7'},
+    {label:'🇨🇳 Chine',     pct:13, color:'#a7f3d0'},
+    {label:'🇯🇵 Japon',     pct:10, color:'#a7f3d0'},
+    {label:'🇺🇸 USA',       pct:0,  color:'#f87171'},
+  ];
+  const MAX_PCT = 27;
+  const barContainer = document.getElementById('tvaBarChart');
+  BARS.forEach(d => {
+    const barWidth = d.pct === 0 ? 0 : Math.max(4, (d.pct / MAX_PCT) * 100);
+    const barContent = d.pct === 0
+      ? `<div class="tva-bar-fill" style="width:100%;background:rgba(248,113,113,.15);color:#f87171;justify-content:center">Pas de TVA fédérale</div>`
+      : `<div class="tva-bar-fill" style="width:${barWidth}%;background:${d.color}">${d.pct} %</div>`;
+    barContainer.innerHTML += `
+      <div class="tva-bar-row">
+        <div class="tva-bar-label">${d.label}</div>
+        <div class="tva-bar-wrap">${barContent}</div>
+        <span class="tva-bar-val" style="color:${d.color}">${d.pct} %</span>
+      </div>`;
+  });
+
+  /* ── Nav mobile toggle ─────────────────────────────────────────── */
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{
+    const open = mobileNav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded',open);
+    document.body.classList.toggle('nav-open',open);
+  });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mobileNav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+  </script>
+  <script src="../assets/js/nav.js"></script>
+  <script>
+  (function(){
+    var T={
+      fr:{
+        nav_cta:'← Accueil',
+        breadcrumb_home:'Accueil',
+        breadcrumb_page:'TVA',
+        eyebrow:'Données DGFiP · PLF 2024 · OCDE',
+        h1:'La TVA',
+        tva_big:'200 Md€',
+        hero_sub:'L\'invention française qui a <strong style="color:#34d399">conquis le monde</strong>.<br>Créée en <strong style="color:#34d399">1954</strong> par Maurice Lauré, copiée dans <strong style="color:#34d399">174 pays</strong>.',
+        kpi_recettes_val:'200 Md€/an',
+        kpi_recettes_lbl:'1er impôt de France',
+        kpi_pays_val:'174 pays',
+        kpi_pays_lbl:'utilisent ce système',
+        kpi_year_val:'1954',
+        kpi_year_lbl:'invention française',
+        snippet_q:'Qu\'est-ce que la TVA et quel est son taux en France ?',
+        snippet_a:'La <strong style="color:var(--text)">TVA (Taxe sur la Valeur Ajoutée)</strong> est le premier impôt français avec <strong style="color:var(--text)">200 milliards d\'euros</strong> de recettes par an. Inventée en France en 1954, elle est aujourd\'hui appliquée dans <strong style="color:var(--text)">174 pays</strong>. Le taux normal est de <strong style="color:var(--text)">20 %</strong>, avec des taux réduits à 10 %, 5,5 % et 2,1 % selon les produits.',
+        h2_taux:'Les taux de TVA en France',
+        th_taux:'Taux',
+        th_categorie:'Catégorie',
+        th_exemples:'Exemples',
+        tr1_cat:'Taux normal',
+        tr1_ex:'Vêtements, électronique, services, alcool',
+        tr2_cat:'Taux intermédiaire',
+        tr2_ex:'Restaurants, hôtels, transports, travaux',
+        tr3_cat:'Taux réduit',
+        tr3_ex:'Alimentation, livres, énergie, logement social',
+        tr4_cat:'Taux super-réduit',
+        tr4_ex:'Médicaments remboursés, presse, 140 premières représentations',
+        taux_source:'Source : DGFiP — Direction Générale des Finances Publiques. Taux en vigueur depuis 2014.',
+        h2_fonctionnement:'Comment fonctionne la TVA',
+        fonctionnement_sub:'La TVA est collectée à chaque étape de la chaîne — chaque maillon reverse uniquement la valeur qu\'il a ajoutée.',
+        chain_actor1:'AGRICULTEUR',
+        chain_price1:'1,00 €',
+        chain_tva1:'Vente HT<br>TVA collectée : <strong style="color:#34d399">0,055 €</strong><br>TVA déductible : 0 €<br>Versement : 0,055 €',
+        chain_actor2:'TRANSFORMATEUR',
+        chain_price2:'2,00 €',
+        chain_tva2:'Vente HT<br>TVA collectée : <strong style="color:#34d399">0,11 €</strong><br>TVA déductible : 0,055 €<br>Versement : 0,055 €',
+        chain_actor3:'DISTRIBUTEUR',
+        chain_price3:'3,00 €',
+        chain_tva3:'Vente HT<br>TVA collectée : <strong style="color:#34d399">0,165 €</strong><br>TVA déductible : 0,11 €<br>Versement : 0,055 €',
+        chain_actor4:'CONSOMMATEUR',
+        chain_price4:'3,165 €',
+        chain_tva4:'Prix TTC<br>TVA totale supportée : <strong style="color:#34d399">0,165 €</strong><br>= 5,5 % de 3,00 €<br>Aucune déduction',
+        chain_principe_label:'Le principe clé :',
+        chain_principe_text:'l\'État collecte exactement 0,165 € de TVA au total (0,055 € × 3 étapes). Chaque entreprise est un <strong style="color:var(--text)">collecteur d\'impôt</strong> pour l\'État — elle avance la TVA, déduit ce qu\'elle a payé, et reverse la différence. Ce mécanisme de déductibilité évite la <strong style="color:var(--text)">"cascade" fiscale</strong> des anciennes taxes sur le chiffre d\'affaires.',
+        h2_monde:'La TVA dans le monde',
+        monde_sub:'174 pays appliquent une TVA ou taxe équivalente. Seuls les États-Unis font exception parmi les grandes économies.',
+        wc1_region:'🇪🇺 EUROPE',
+        wc1_rate:'17 – 27 %',
+        wc1_detail:'Taux normaux. Min. imposé par l\'UE : 15 %. Hongrie : 27 %, Suède : 25 %, France : 20 %, Allemagne : 19 %.',
+        wc2_region:'🌏 ASIE-PACIFIQUE',
+        wc2_rate:'10 – 13 %',
+        wc2_detail:'Japon : 10 % (TVA introduite en 1989). Chine : taux général 13 %, réduit 9 %. Australie (GST) : 10 %.',
+        wc3_region:'🌎 AMÉRIQUE LATINE',
+        wc3_rate:'10 – 21 %',
+        wc3_detail:'Brésil : système complexe multi-taxes. Argentine : 21 %. Mexique : 16 %. Tous ont adopté la TVA.',
+        wc4_region:'🌍 AFRIQUE / M-O',
+        wc4_rate:'14 – 20 %',
+        wc4_detail:'Afrique du Sud : 15 %. Nigeria : 7,5 %. Maroc : 20 %. La TVA s\'est imposée comme norme mondiale.',
+        usa_note_label:'🇺🇸 L\'EXCEPTION AMÉRICAINE',
+        usa_note_text:'Les États-Unis sont la grande exception — ils n\'ont pas de TVA fédérale, seulement des <strong style="color:var(--text)">sales taxes locales</strong> de 0 à 10 % selon les États. Contrairement à la TVA, la sales tax s\'applique uniquement au stade de la vente finale au consommateur, sans déductibilité entre entreprises. Résultat : complexité administrative et risques de "cascade" fiscale.',
+        h3_barchart:'Taux normaux de TVA comparés',
+        barchart_source:'Source : OCDE — Taxation at a Glance 2023. Taux en vigueur mi-2023.',
+        h2_recettes:'TVA : les recettes en perspective',
+        recettes_sub:'La TVA est structurellement le pilier des finances publiques françaises — bien au-delà de l\'impôt sur le revenu.',
+        stat1_label:'💰 RECETTES TVA 2023',
+        stat1_val:'200 Md€',
+        stat1_sub:'45 % des recettes fiscales de l\'État. Environ <strong style="color:var(--text)">8 % du PIB</strong> français.',
+        stat2_label:'📊 PART DES RECETTES FISCALES',
+        stat2_val:'45 %',
+        stat2_sub:'Devant l\'IR (<strong style="color:var(--text)">95 Md€</strong>) et la CSG (<strong style="color:var(--text)">140 Md€</strong>). Premier impôt de loin.',
+        h2_histoire:'De la taxe en cascade à la TVA',
+        histoire_sub:'Avant 1954, les taxes s\'accumulaient à chaque étape de production — freinant l\'économie. Maurice Lauré a tout changé.',
+        tl1_title:'Taxes sur le chiffre d\'affaires — en cascade',
+        tl1_text:'Chaque transaction est taxée sur l\'intégralité du prix, y compris les taxes précédentes. Effet "boule de neige" : une taxe sur une taxe, rendant les produits artificiellement chers.',
+        tl2_title:'Taxe à la production — amélioration partielle',
+        tl2_text:'La France tente de limiter la cascade en taxant principalement au stade de la production industrielle. Progrès partiel, mais les services restent mal traités.',
+        tl3_title:'Maurice Lauré invente la TVA — révolution fiscale mondiale',
+        tl3_text:'Le 10 avril 1954, la loi est promulguée. Maurice Lauré, inspecteur des finances, imagine une taxe sur la <em>valeur ajoutée</em> à chaque étape — avec déductibilité intégrale. La France devient le 1er pays au monde à adopter ce mécanisme.',
+        tl4_title:'Extension aux commerçants et prestataires de services',
+        tl4_text:'La TVA est généralisée à l\'ensemble de l\'économie française : commerçants, artisans, professions libérales. Le champ d\'application devient quasi-universel.',
+        tl5_title:'Harmonisation européenne — taux minimum 15 %',
+        tl5_text:'La directive 77/388/CEE impose un taux normal minimum de 15 % dans toute l\'UE. La TVA française est désormais encadrée par le droit communautaire.',
+        tl6_title:'Hausse de 19,6 % à 20 % — gouvernement Hollande',
+        tl6_text:'Le taux normal passe de 19,6 % à 20 %. Le taux intermédiaire passe de 7 % à 10 %. Mesure de consolidation budgétaire dans le cadre du redressement des finances publiques.',
+        note_label:'⚠️ NOTE HONNÊTE — TVA ET INÉGALITÉS',
+        note_text:'La TVA est un impôt dit <strong style="color:var(--text)">"régressif"</strong> : elle représente une part plus importante du revenu des ménages modestes (qui consomment une plus grande proportion de leurs revenus) que des ménages aisés. Les taux réduits sur l\'alimentation et les livres sont partiellement conçus pour atténuer cet effet.',
+        sources_block:'<strong style="color:var(--text)">Sources :</strong> DGFiP — Direction Générale des Finances Publiques, PLF 2024 · INSEE — Comptes nationaux 2023 · OCDE — Taxation at a Glance 2023 · Cour des Comptes — rapport sur les dépenses fiscales 2023 · IBFD — Guide mondial des TVA 2023 · Légifrance — Loi n° 54-404 du 10 avril 1954 (création de la TVA)',
+        footer_copy:'© 2026 Le Français Moyen — Données : DGFiP · INSEE · OCDE · Cour des Comptes',
+        footer_link:'Tableau de bord principal'
+      },
+      en:{
+        nav_cta:'← Home',
+        breadcrumb_home:'Home',
+        breadcrumb_page:'VAT',
+        eyebrow:'Data: DGFiP · PLF 2024 · OECD',
+        h1:'VAT in France',
+        tva_big:'€200bn',
+        hero_sub:'The French invention that <strong style="color:#34d399">conquered the world</strong>.<br>Created in <strong style="color:#34d399">1954</strong> by Maurice Lauré, copied in <strong style="color:#34d399">174 countries</strong>.',
+        kpi_recettes_val:'€200bn/year',
+        kpi_recettes_lbl:"France's #1 tax",
+        kpi_pays_val:'174 countries',
+        kpi_pays_lbl:'use this system',
+        kpi_year_val:'1954',
+        kpi_year_lbl:'French invention',
+        snippet_q:'What is VAT and what is the rate in France?',
+        snippet_a:'<strong style="color:var(--text)">VAT (Value Added Tax)</strong> is France\'s largest tax, raising <strong style="color:var(--text)">€200 billion</strong> per year. Invented in France in 1954, it is now applied in <strong style="color:var(--text)">174 countries</strong>. The standard rate is <strong style="color:var(--text)">20%</strong>, with reduced rates of 10%, 5.5% and 2.1% for specific goods.',
+        h2_taux:'VAT rates in France',
+        th_taux:'Rate',
+        th_categorie:'Category',
+        th_exemples:'Examples',
+        tr1_cat:'Standard rate',
+        tr1_ex:'Clothing, electronics, services, alcohol',
+        tr2_cat:'Intermediate rate',
+        tr2_ex:'Restaurants, hotels, transport, renovation works',
+        tr3_cat:'Reduced rate',
+        tr3_ex:'Food, books, energy subscriptions, social housing',
+        tr4_cat:'Super-reduced rate',
+        tr4_ex:'Reimbursed medicines, press, first 140 performances',
+        taux_source:'Source: DGFiP — General Directorate of Public Finance. Rates in force since 2014.',
+        h2_fonctionnement:'How VAT works',
+        fonctionnement_sub:'VAT is collected at each stage of the supply chain — each link pays only the tax on the value it added.',
+        chain_actor1:'FARMER',
+        chain_price1:'€1.00',
+        chain_tva1:'Price ex-VAT<br>VAT charged: <strong style="color:#34d399">€0.055</strong><br>VAT deducted: €0<br>Paid to state: €0.055',
+        chain_actor2:'PROCESSOR',
+        chain_price2:'€2.00',
+        chain_tva2:'Price ex-VAT<br>VAT charged: <strong style="color:#34d399">€0.11</strong><br>VAT deducted: €0.055<br>Paid to state: €0.055',
+        chain_actor3:'RETAILER',
+        chain_price3:'€3.00',
+        chain_tva3:'Price ex-VAT<br>VAT charged: <strong style="color:#34d399">€0.165</strong><br>VAT deducted: €0.11<br>Paid to state: €0.055',
+        chain_actor4:'CONSUMER',
+        chain_price4:'€3.165',
+        chain_tva4:'Price incl. VAT<br>Total VAT borne: <strong style="color:#34d399">€0.165</strong><br>= 5.5% of €3.00<br>No deduction',
+        chain_principe_label:'The key principle:',
+        chain_principe_text:'The state collects exactly €0.165 in total VAT (€0.055 × 3 stages). Each business acts as a <strong style="color:var(--text)">tax collector</strong> for the state — it charges VAT, deducts what it paid, and remits the difference. This deduction mechanism eliminates the <strong style="color:var(--text)">"cascade" effect</strong> of the old turnover taxes.',
+        h2_monde:'VAT around the world',
+        monde_sub:'174 countries apply a VAT or equivalent levy. Only the United States stands as a major exception.',
+        wc1_region:'🇪🇺 EUROPE',
+        wc1_rate:'17 – 27%',
+        wc1_detail:'Standard rates. EU minimum: 15%. Hungary: 27%, Sweden: 25%, France: 20%, Germany: 19%.',
+        wc2_region:'🌏 ASIA-PACIFIC',
+        wc2_rate:'10 – 13%',
+        wc2_detail:'Japan: 10% (VAT introduced 1989). China: standard 13%, reduced 9%. Australia (GST): 10%.',
+        wc3_region:'🌎 LATIN AMERICA',
+        wc3_rate:'10 – 21%',
+        wc3_detail:'Brazil: complex multi-tax system. Argentina: 21%. Mexico: 16%. All have adopted VAT.',
+        wc4_region:'🌍 AFRICA / M-E',
+        wc4_rate:'14 – 20%',
+        wc4_detail:'South Africa: 15%. Nigeria: 7.5%. Morocco: 20%. VAT has become a global standard.',
+        usa_note_label:'🇺🇸 THE AMERICAN EXCEPTION',
+        usa_note_text:'The United States is the major exception — they have no federal VAT, only <strong style="color:var(--text)">local sales taxes</strong> of 0 to 10% depending on the state. Unlike VAT, sales tax applies only at the point of final sale to the consumer, with no deductibility between businesses.',
+        h3_barchart:'Standard VAT rates compared',
+        barchart_source:'Source: OECD — Taxation at a Glance 2023. Rates as of mid-2023.',
+        h2_recettes:'VAT revenue in perspective',
+        recettes_sub:"VAT is structurally the cornerstone of France's public finances — far ahead of income tax.",
+        stat1_label:'💰 VAT REVENUE 2023',
+        stat1_val:'€200bn',
+        stat1_sub:'45% of state tax revenue. About <strong style="color:var(--text)">8% of GDP</strong>.',
+        stat2_label:'📊 SHARE OF TAX REVENUE',
+        stat2_val:'45%',
+        stat2_sub:'Ahead of income tax (<strong style="color:var(--text)">€95bn</strong>) and CSG (<strong style="color:var(--text)">€140bn</strong>). France\'s largest tax by far.',
+        h2_histoire:'From cascading taxes to VAT',
+        histoire_sub:'Before 1954, taxes stacked up at every production stage — hampering the economy. Maurice Lauré changed everything.',
+        tl1_title:'Turnover taxes — the cascade problem',
+        tl1_text:'Each transaction is taxed on the full price, including previous taxes. A "snowball" effect: tax on tax, making goods artificially expensive.',
+        tl2_title:'Production tax — partial improvement',
+        tl2_text:'France attempts to limit the cascade by taxing mainly at the industrial production stage. A partial improvement, but services remain poorly treated.',
+        tl3_title:'Maurice Lauré invents VAT — a global fiscal revolution',
+        tl3_text:'On 10 April 1954, the law is enacted. Maurice Lauré, an inspector of finance, designs a tax on <em>added value</em> at each stage — with full deductibility. France becomes the first country in the world to adopt this mechanism.',
+        tl4_title:'Extension to retailers and service providers',
+        tl4_text:'VAT is extended across the whole French economy: retailers, craftsmen, self-employed professionals. The scope becomes nearly universal.',
+        tl5_title:'European harmonisation — 15% minimum rate',
+        tl5_text:'Directive 77/388/EEC imposes a minimum standard rate of 15% across the EU. French VAT is now governed by European law.',
+        tl6_title:'Rate raised from 19.6% to 20% — Hollande government',
+        tl6_text:'The standard rate rises from 19.6% to 20%. The intermediate rate rises from 7% to 10%. A fiscal consolidation measure.',
+        note_label:'⚠️ HONEST NOTE — VAT AND INEQUALITY',
+        note_text:'VAT is a <strong style="color:var(--text)">"regressive"</strong> tax: it represents a larger share of income for lower-income households (who spend a greater proportion of their earnings) than for wealthier ones. Reduced rates on food and books are partly designed to mitigate this effect.',
+        sources_block:'<strong style="color:var(--text)">Sources:</strong> DGFiP — General Directorate of Public Finance, PLF 2024 · INSEE — National Accounts 2023 · OECD — Taxation at a Glance 2023 · Cour des Comptes — report on tax expenditures 2023 · IBFD — Global VAT Guide 2023 · Légifrance — Law no. 54-404 of 10 April 1954 (creation of VAT)',
+        footer_copy:'© 2026 The Average French — Data: DGFiP · INSEE · OECD · Cour des Comptes',
+        footer_link:'Main dashboard'
+      }
+    };
+    var lang=localStorage.getItem('lfm-lang')||'fr';
+    function setLang(l){
+      lang=l;
+      localStorage.setItem('lfm-lang',l);
+      document.documentElement.lang=l==='fr'?'fr':'en';
+      document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+      document.getElementById('btn-en').classList.toggle('active',l==='en');
+      var s=T[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el){
+        var k=el.getAttribute('data-i18n');
+        if(s[k]!==undefined)el.innerHTML=s[k];
+      });
+      document.title=l==='fr'
+        ?'TVA : inventée en France en 1954, copiée par 174 pays — Le Français Moyen'
+        :'VAT: Invented in France in 1954, Copied by 174 Countries | The Average French';
+      var desc=document.querySelector('meta[name="description"]');
+      if(desc)desc.setAttribute('content',l==='fr'
+        ?'200 Md€/an — la TVA est le 1er impôt de France. Inventée par Maurice Lauré en 1954, aujourd\'hui copiée dans 174 pays. Taux 20%, 10%, 5,5%, 2,1% expliqués.'
+        :'€200bn/year — VAT is France\'s largest tax. Invented by Maurice Lauré in 1954, now used in 174 countries. Standard rate 20%. How it works, history, global comparison.');
+    }
+    setLang(lang);
+    window.setLang=setLang;
+  })();
+  </script>
+</body>
+</html>
