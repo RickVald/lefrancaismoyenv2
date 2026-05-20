@@ -139,6 +139,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 24px;m
 .nav-mobile a:hover{color:var(--accent)}
 .nav-mobile .nav-mobile-cta{margin-top:24px;text-align:center;border:1px solid rgba(246,195,67,.45);color:var(--accent);padding:13px;border-radius:999px;font-weight:800;font-size:1rem;border-top:none}
 body.nav-open{overflow:hidden}
+body.nav-open #contrib-toggle,body.nav-open #contrib-toast{display:none!important}
 
 @media(max-width:1050px){
   .hero,.simulator-layout{grid-template-columns:1fr}
