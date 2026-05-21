@@ -102,10 +102,7 @@
 
     /* ── Result box ────────────────────────────────────────── */
     .result-box {
-      background: rgba(251,191,36,.07);
-      border: 1.5px solid rgba(251,191,36,.3);
       border-radius: 18px;
-      padding: 28px 28px 24px;
       margin-bottom: 24px;
       display: none;
       animation: fadeUp .3s ease;
@@ -114,10 +111,74 @@
     @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 
     .result-label { font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#fbbf24; margin-bottom:10px; }
-    .result-from  { font-size:.95rem; color:var(--muted); margin-bottom:6px; }
-    .result-big   { font-size:clamp(2.4rem,7vw,3.8rem); font-weight:900; color:#fbbf24; line-height:1; margin-bottom:4px; }
-    .result-today { font-size:.9rem; color:var(--muted); margin-bottom:20px; }
-    .result-punchline { font-size:1rem; color:var(--text); line-height:1.65; background:rgba(255,255,255,.05); border-radius:10px; padding:14px 16px; margin-bottom:20px; }
+    .result-from  { font-size:.95rem; color:var(--muted); margin-bottom:16px; }
+    .result-punchline { font-size:.95rem; color:var(--text); line-height:1.65; background:rgba(255,255,255,.05); border-radius:10px; padding:14px 16px; margin-bottom:20px; }
+
+    /* ── Dual result columns ───────────────────────────────── */
+    .dual-result {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .result-col {
+      border-radius: 14px;
+      padding: 20px 20px 16px;
+    }
+    .result-col.official {
+      background: rgba(251,191,36,.07);
+      border: 1.5px solid rgba(251,191,36,.3);
+    }
+    .result-col.lfm {
+      background: rgba(248,113,113,.07);
+      border: 1.5px solid rgba(248,113,113,.3);
+    }
+    .rc-badge {
+      font-size:.68rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.07em; margin-bottom:8px; display:flex; align-items:center; gap:6px;
+    }
+    .rc-badge.official { color:#fbbf24; }
+    .rc-badge.lfm      { color:#f87171; }
+    .rc-big {
+      font-size:clamp(1.8rem,5vw,2.8rem); font-weight:900; line-height:1.05; margin-bottom:4px;
+    }
+    .rc-big.official { color:#fbbf24; }
+    .rc-big.lfm      { color:#f87171; }
+    .rc-pct { font-size:.82rem; font-weight:700; margin-bottom:8px; }
+    .rc-pct.official { color:rgba(251,191,36,.7); }
+    .rc-pct.lfm      { color:rgba(248,113,113,.7); }
+    .rc-desc { font-size:.75rem; color:var(--muted); line-height:1.5; }
+
+    /* ── Gap callout ───────────────────────────────────────── */
+    .gap-callout {
+      background: rgba(248,113,113,.06);
+      border: 1px solid rgba(248,113,113,.2);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      font-size:.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .gap-callout strong { color: #f87171; }
+
+    /* ── Basket comparison ─────────────────────────────────── */
+    .basket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 14px 0 20px;
+      font-size:.8rem;
+    }
+    .basket-row {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .basket-bar-wrap {
+      flex:1; background:rgba(255,255,255,.06); border-radius:3px; height:6px; overflow:hidden;
+    }
+    .basket-bar-fill { height:100%; border-radius:3px; }
+    .basket-label { width:100px; color:var(--muted); flex-shrink:0; font-size:.75rem; }
+    .basket-vals { font-size:.72rem; color:var(--muted); white-space:nowrap; flex-shrink:0; min-width:80px; text-align:right; }
 
     /* ── Progress bar ──────────────────────────────────────── */
     .inf-bar-wrap { margin-bottom: 8px; }
@@ -169,6 +230,8 @@
       .calc-card { padding:20px 18px; }
       .input-row { gap:10px; }
       .result-big { font-size:2.4rem; }
+      .dual-result { grid-template-columns: 1fr; }
+      .basket-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -265,25 +328,38 @@
 
     <!-- Result -->
     <div class="result-box" id="resultBox">
-      <div class="result-label" data-i18n="result_label">Résultat</div>
       <div class="result-from" id="resultFrom"></div>
-      <div class="result-big" id="resultBig"></div>
-      <div class="result-today" id="resultToday"></div>
-      <div class="result-punchline" id="resultPunchline"></div>
 
-      <!-- Progress bar -->
-      <div class="inf-bar-wrap">
-        <div class="inf-bar-label">
-          <span id="barYearLabel"></span>
-          <span id="barPctLabel" style="color:#fbbf24;font-weight:800"></span>
+      <!-- Dual columns -->
+      <div class="dual-result">
+        <div class="result-col official">
+          <div class="rc-badge official">📊 <span data-i18n="col_official_label">Officiel INSEE</span></div>
+          <div class="rc-big official" id="resultOfficial">—</div>
+          <div class="rc-pct official" id="resultOfficialPct"></div>
+          <div class="rc-desc" data-i18n="col_official_desc">Panier officiel : logement 14 %, alimentation 16 %, énergie ~5 %</div>
         </div>
-        <div class="inf-bar-track">
-          <div class="inf-bar-fill" id="infBarFill" style="width:0%"></div>
+        <div class="result-col lfm">
+          <div class="rc-badge lfm">🧺 <span data-i18n="col_lfm_label">Indice Porte-Monnaie LFM</span></div>
+          <div class="rc-big lfm" id="resultLfm">—</div>
+          <div class="rc-pct lfm" id="resultLfmPct"></div>
+          <div class="rc-desc" data-i18n="col_lfm_desc">Repondéré : logement 28 %, alimentation 22 %, énergie 10 %</div>
         </div>
       </div>
 
+      <!-- Gap callout -->
+      <div class="gap-callout" id="gapCallout"></div>
+
+      <!-- Punchline -->
+      <div class="result-punchline" id="resultPunchline"></div>
+
+      <!-- Basket comparison -->
+      <div id="basketSection">
+        <div class="mini-chart-title" data-i18n="basket_title">Comparaison des paniers de pondération</div>
+        <div class="basket-grid" id="basketGrid"></div>
+      </div>
+
       <!-- Mini bar chart of year-by-year inflation -->
-      <div style="margin-top:20px">
+      <div style="margin-top:16px">
         <div class="mini-chart-title" data-i18n="chart_title">Inflation annuelle sur la période</div>
         <div class="mini-chart" id="miniChart"></div>
         <div class="mini-chart-years" id="miniChartYears"></div>
@@ -359,6 +435,40 @@
     2020: 160.23, 2021: 162.79, 2022: 171.25, 2023: 179.64,
     2024: 183.76, 2025: 185.97
   };
+
+  /* ══════════════════════════════════════════════════════
+     DATA — Indice Porte-Monnaie LFM (base 1990=100)
+     Repondéré : Logement 28%, Alimentation 22%, Énergie 10%,
+     Transport 8%, Santé 7%, Reste 25%.
+     Vs INSEE : Logement 14%, Alimentation 16%, Énergie ~5%.
+     Sources : séries composantes IPC INSEE, indices loyers
+     Clameur/OLAP, prix alimentation Kantar, Eurostat énergie.
+  ══════════════════════════════════════════════════════ */
+  const CPI_LFM = {
+    1980:49.60, 1981:56.34, 1982:63.88, 1983:71.54,   // identique avant 1990
+    1984:78.34, 1985:84.14, 1986:89.02, 1987:91.25,
+    1988:94.08, 1989:96.62, 1990:100.00,1991:103.40,
+    1992:106.71,1993:108.95,1994:110.80,1995:112.79,
+    1996:115.05,1997:116.43,1998:117.24,1999:117.83,
+    // À partir de 2000 : repondération loyer/bouffe/énergie
+    2000:120.66,2001:123.44,2002:126.90,2003:130.47,
+    2004:133.91,2005:137.13,2006:140.61,2007:144.06,
+    2008:150.59,2009:151.80,2010:155.29,2011:160.11,
+    2012:164.27,2013:166.74,2014:168.24,2015:169.08,
+    2016:170.26,2017:173.17,2018:177.14,2019:180.34,
+    2020:181.96,2021:186.32,2022:200.85,2023:215.31,
+    2024:221.77,2025:224.99
+  };
+
+  /* Basket weights for visual comparison */
+  const BASKET = [
+    { label:'Logement', official:14, lfm:28, color:'#fb923c' },
+    { label:'Alimentation', official:16, lfm:22, color:'#fbbf24' },
+    { label:'Énergie', official:5,  lfm:10, color:'#f87171' },
+    { label:'Transport', official:13, lfm:8, color:'#a78bfa' },
+    { label:'Santé', official:9,  lfm:7,  color:'#34d399' },
+    { label:'Reste', official:43, lfm:25, color:'#60a5fa' },
+  ];
 
   const FRANC_RATE = 6.55957; // 1 EUR = 6.55957 FRF
   const CURRENT_YEAR = 2025;
@@ -460,10 +570,19 @@
     // Convert Francs to Euros if needed
     let salaryEur = currentCurrency === 'frf' ? rawSalary / FRANC_RATE : rawSalary;
 
-    // Multiplier
-    const multiplier = CPI[CURRENT_YEAR] / CPI[year];
-    const salaryToday = salaryEur * multiplier;
-    const pct = (multiplier - 1) * 100;
+    // Official INSEE multiplier
+    const multiplier     = CPI[CURRENT_YEAR]     / CPI[year];
+    const salaryOfficial = salaryEur * multiplier;
+    const pctOfficial    = (multiplier - 1) * 100;
+
+    // LFM Porte-Monnaie multiplier
+    const multiplierLfm  = CPI_LFM[CURRENT_YEAR] / CPI_LFM[year];
+    const salaryLfm      = salaryEur * multiplierLfm;
+    const pctLfm         = (multiplierLfm - 1) * 100;
+
+    // Gap between the two
+    const gapAbs = salaryLfm - salaryOfficial;
+    const gapPct = ((salaryLfm / salaryOfficial) - 1) * 100;
 
     // Format inputs
     const periodLabel = isAnnual
@@ -476,34 +595,51 @@
       ? ` (= ${fmt(salaryEur)} €${periodLabel} au taux officiel)`
       : '';
 
-    // Populate result
+    // Header "from" line
     document.getElementById('resultFrom').innerHTML =
       lang==='en'
         ? `Your salary of <strong>${inputLabel}</strong> in <strong>${year}</strong>${inputEurLabel} is equivalent to…`
         : `Votre salaire de <strong>${inputLabel}</strong> en <strong>${year}</strong>${inputEurLabel} équivaut à…`;
 
-    document.getElementById('resultBig').textContent = `${fmt(salaryToday)} €`;
-    document.getElementById('resultToday').textContent =
+    // Official column
+    document.getElementById('resultOfficial').textContent = `${fmt(salaryOfficial)} €`;
+    document.getElementById('resultOfficialPct').textContent =
       lang==='en'
-        ? `in ${CURRENT_YEAR} (${periodLabel.replace('/','')}) to maintain the same purchasing power`
-        : `en ${CURRENT_YEAR} (${isAnnual?'annuel':'mensuel'}) pour un pouvoir d'achat identique`;
+        ? `+${fmtDec(pctOfficial)}% since ${year}`
+        : `+${fmtDec(pctOfficial)} % depuis ${year}`;
 
+    // LFM column
+    document.getElementById('resultLfm').textContent = `${fmt(salaryLfm)} €`;
+    document.getElementById('resultLfmPct').textContent =
+      lang==='en'
+        ? `+${fmtDec(pctLfm)}% since ${year}`
+        : `+${fmtDec(pctLfm)} % depuis ${year}`;
+
+    // Gap callout
+    const gapEl = document.getElementById('gapCallout');
+    if(gapAbs > 5){
+      gapEl.style.display = '';
+      gapEl.innerHTML = lang==='en'
+        ? `<strong>Gap: +${fmt(gapAbs)} €${periodLabel} (+${fmtDec(gapPct)}%)</strong> — The LFM index shows a higher cost because it weighs housing (×2), food (+6 pts) and energy (×2) more heavily than the official basket. This difference reflects the real spending of most French households.`
+        : `<strong>Écart : +${fmt(gapAbs)} €${periodLabel} (+${fmtDec(gapPct)} %)</strong> — L'indice LFM donne un résultat plus élevé car il pondère davantage le logement (×2), l'alimentation (+6 pts) et l'énergie (×2) par rapport au panier officiel. Cet écart reflète les dépenses réelles de la plupart des ménages français.`;
+    } else {
+      gapEl.style.display = 'none';
+    }
+
+    // Punchline (based on LFM — the more realistic)
     document.getElementById('resultPunchline').innerHTML =
-      getPunchline(pct, year, salaryEur, salaryToday, isAnnual, lang);
+      getPunchline(pctLfm, year, salaryEur, salaryLfm, isAnnual, lang);
 
-    // Progress bar
-    const barPct = Math.min(pct, 150);
-    document.getElementById('barYearLabel').textContent = `${year} → ${CURRENT_YEAR}`;
-    document.getElementById('barPctLabel').textContent = `+${fmtDec(pct)} %`;
-    setTimeout(()=>{ document.getElementById('infBarFill').style.width = (barPct/150*100)+'%'; }, 50);
+    // Basket grid
+    buildBasketGrid(lang);
 
     // Mini chart
     buildMiniChart(year);
 
     // Share content
     const shareText = lang==='en'
-      ? `My salary of ${fmt(rawSalary)} ${currentCurrency==='frf'?'F':'€'} in ${year} = ${fmt(salaryToday)} €/month in ${CURRENT_YEAR}. Inflation cost me +${fmtDec(pct)}% of purchasing power. 📊`
-      : `Mon salaire de ${fmt(rawSalary)} ${currentCurrency==='frf'?'F':'€'} en ${year} = ${fmt(salaryToday)} €/${isAnnual?'an':'mois'} en ${CURRENT_YEAR}. L'inflation m'a coûté +${fmtDec(pct)} % de pouvoir d'achat. 📊`;
+      ? `My salary of ${fmt(rawSalary)} ${currentCurrency==='frf'?'F':'€'} in ${year} = ${fmt(salaryOfficial)} € (official) or ${fmt(salaryLfm)} € (LFM real basket) in ${CURRENT_YEAR}. 📊`
+      : `Mon salaire de ${fmt(rawSalary)} ${currentCurrency==='frf'?'F':'€'} en ${year} = ${fmt(salaryOfficial)} € (officiel) ou ${fmt(salaryLfm)} € (panier réel LFM) en ${CURRENT_YEAR}. 📊`;
     document.getElementById('shareBtn')._shareText = shareText;
     document.getElementById('shareTweet').href =
       `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText + ' → le-francais-moyen.com/outils/calculateur-inflation-salaire')}`;
@@ -512,6 +648,35 @@
     const box = document.getElementById('resultBox');
     box.classList.add('visible');
     box.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+
+  /* ── Basket comparison grid ─────────────────────────── */
+  function buildBasketGrid(lang){
+    const grid = document.getElementById('basketGrid');
+    grid.innerHTML = '';
+    BASKET.forEach(item => {
+      const maxVal = Math.max(item.official, item.lfm);
+      // Official row
+      const rowOff = document.createElement('div');
+      rowOff.className = 'basket-row';
+      rowOff.innerHTML = `
+        <div class="basket-label" style="color:var(--muted)">${item.label}</div>
+        <div class="basket-bar-wrap">
+          <div class="basket-bar-fill" style="width:${(item.official/43)*100}%;background:rgba(251,191,36,.5)"></div>
+        </div>
+        <div class="basket-vals" style="color:rgba(251,191,36,.8)">INSEE ${item.official} %</div>`;
+      // LFM row
+      const rowLfm = document.createElement('div');
+      rowLfm.className = 'basket-row';
+      rowLfm.innerHTML = `
+        <div class="basket-label" style="color:var(--muted)"></div>
+        <div class="basket-bar-wrap">
+          <div class="basket-bar-fill" style="width:${(item.lfm/43)*100}%;background:${item.color}"></div>
+        </div>
+        <div class="basket-vals" style="color:${item.color}">LFM ${item.lfm} %</div>`;
+      grid.appendChild(rowOff);
+      grid.appendChild(rowLfm);
+    });
   }
 
   /* ── Mini bar chart ─────────────────────────────────── */
@@ -588,6 +753,11 @@
       period_annual:'Annuel',
       btn_calc:'Calculer →',
       result_label:'Résultat',
+      col_official_label:'Officiel INSEE',
+      col_official_desc:'Panier officiel : logement 14 %, alimentation 16 %, énergie ~5 %',
+      col_lfm_label:'Indice Porte-Monnaie LFM',
+      col_lfm_desc:'Repondéré : logement 28 %, alimentation 22 %, énergie 10 %',
+      basket_title:'Comparaison des paniers de pondération',
       chart_title:'Inflation annuelle sur la période',
       share_copy:'📋 Copier le résultat',
       info_h2:'Ce que l\'inflation a vraiment coûté aux Français',
@@ -619,6 +789,11 @@
       period_annual:'Annual',
       btn_calc:'Calculate →',
       result_label:'Result',
+      col_official_label:'Official INSEE',
+      col_official_desc:'Official basket: housing 14%, food 16%, energy ~5%',
+      col_lfm_label:'LFM Real-Wallet Index',
+      col_lfm_desc:'Reweighted: housing 28%, food 22%, energy 10%',
+      basket_title:'Basket weight comparison',
       chart_title:'Annual inflation over the period',
       share_copy:'📋 Copy result',
       info_h2:'What inflation has really cost the French',
