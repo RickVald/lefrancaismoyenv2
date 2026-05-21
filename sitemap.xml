@@ -469,4 +469,25 @@
     <priority>0.90</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/questions/quel-est-le-deficit-de-la-france</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.92</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/quelle-est-la-dette-de-la-france</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/quel-est-le-smic-net-en-france</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
 </urlset>
