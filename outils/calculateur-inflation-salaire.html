@@ -238,34 +238,45 @@
 <body>
 
   <!-- ── Nav ─────────────────────────────────────────────── -->
-  <nav class="nav-desktop" role="navigation">
-    <a href="/" class="nav-logo">🇫🇷 <strong>Le Français Moyen</strong></a>
-    <ul>
-      <li><a href="/dette/">💸 Dette</a></li>
-      <li><a href="/budget/">📊 Budget</a></li>
-      <li class="has-dropdown">
-        <a href="/impot/" class="dropdown-trigger">🧾 Fiscalité ▾</a>
-        <ul class="dropdown" role="menu">
-          <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
-          <li><a href="/impot/">💸 Prélèvements</a></li>
-          <li><a href="/csg/">💶 CSG</a></li>
-          <li><a href="/tva/">🧾 TVA</a></li>
-          <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/budget/">📋 Budget de l'État</a></li>
+              <li><a href="/dette/">⏱️ Dette en direct</a></li>
+              <li><a href="/fonctionnaires/">👔 Fonctionnaires</a></li>
+              <li><a href="/retraites/">👴 Retraites</a></li>
+              <li><a href="/logement/">🏠 Logement</a></li>
+              <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+              <li><a href="/tva/">🧾 TVA</a></li>
+              <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/" style="color:#fbbf24">🧰 Outils</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
         </ul>
-      </li>
-      <li><a href="/logement/">🏠 Logement</a></li>
-      <li><a href="/retraites/">👴 Retraites</a></li>
-      <li><a href="/questions/">❓ Questions</a></li>
-      <li><a href="/outils/" style="color:#fbbf24">🧰 Outils</a></li>
-    </ul>
-    <div class="lang-switch">
-      <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
-      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+      </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
     </div>
-  </nav>
-  <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
-  <div class="nav-mobile" id="navMobile">
-    <a href="/">← Accueil</a>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">🏠 Tableau de bord</a>
+    <a href="/budget/">📋 Budget</a>
+    <a href="/dette/">⏱️ Dette</a>
+    <a href="/retraites/">👴 Retraites</a>
+    <a href="/logement/">🏠 Logement</a>
+    <a href="/fiscalite/">📊 Fiscalité</a>
+    <a href="/tva/">🧾 TVA</a>
     <a href="/outils/">🧰 Outils</a>
     <a href="/questions/">❓ Questions</a>
     <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
@@ -728,10 +739,31 @@
   });
 
   /* ── Nav mobile ─────────────────────────────────────── */
-  const toggle = document.getElementById('navToggle');
-  const mobileNav = document.getElementById('navMobile');
-  toggle.addEventListener('click',()=>{ const o=mobileNav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded',o); document.body.classList.toggle('nav-open',o); });
-  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ mobileNav.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); document.body.classList.remove('nav-open'); }));
+  (function(){
+    var btn=document.getElementById('navToggle');
+    var menu=document.getElementById('navMobile');
+    if(!btn||!menu)return;
+    btn.addEventListener('click',function(){
+      var open=menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded',open);
+      document.body.classList.toggle('nav-open',open);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.classList.remove('nav-open');
+      });
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&menu.classList.contains('is-open')){
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.classList.remove('nav-open');
+        btn.focus();
+      }
+    });
+  })();
 
   /* ── i18n ───────────────────────────────────────────── */
   const T = {
@@ -825,6 +857,7 @@
   }
   (function(){ setLang(localStorage.getItem('lfm-lang')||'fr'); })();
   </script>
-  <script src="../assets/js/nav.js"></script>
+  <script src="/assets/js/contrib-toggle.js" defer></script>
+  <script src="/assets/js/nav.js"></script>
 </body>
 </html>
