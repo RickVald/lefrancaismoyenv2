@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Calculateur inflation salaire — Combien vaut votre salaire d'une autre époque ? | Le Français Moyen</title>
+  <meta name="description" content="Entrez votre salaire et son année : découvrez ce qu'il vaut en 2025 après inflation. Option Francs. Données INSEE IPC 1980–2024.">
+  <link rel="canonical" href="https://le-francais-moyen.com/outils/calculateur-inflation-salaire">
+  <meta property="og:title" content="Combien vaut votre salaire d'une autre époque ? — Calculateur inflation">
+  <meta property="og:description" content="1 500 € en 2005 = 2 110 € en 2025. Entrez votre salaire, choisissez l'année, et découvrez ce que l'inflation vous a coûté. Option Francs disponible.">
+  <meta property="og:url" content="https://le-francais-moyen.com/outils/calculateur-inflation-salaire">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=19">
+
+  <style>
+    /* ── Layout ────────────────────────────────────────────── */
+    .tool-wrap { max-width: 700px; margin: 0 auto; padding: 0 20px 72px; }
+
+    /* ── Header ────────────────────────────────────────────── */
+    .tool-eyebrow { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#fbbf24; margin-top:28px; margin-bottom:10px; }
+    .tool-title   { font-size:clamp(1.8rem,4.5vw,2.8rem); font-weight:900; line-height:1.15; margin-bottom:12px; }
+    .tool-sub     { font-size:1rem; color:var(--muted); line-height:1.7; margin-bottom:40px; max-width:600px; }
+
+    /* ── Card ──────────────────────────────────────────────── */
+    .calc-card {
+      background: rgba(255,255,255,.04);
+      border: 1.5px solid rgba(251,191,36,.3);
+      border-radius: 20px;
+      padding: 32px 32px 28px;
+      margin-bottom: 28px;
+    }
+
+    /* ── Input row ─────────────────────────────────────────── */
+    .input-row { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 20px; }
+    .input-group { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 120px; }
+    .input-group label { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); }
+    .input-group input, .input-group select {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color .15s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .input-group input:focus, .input-group select:focus { border-color: #fbbf24; }
+    .input-group select option { background: #1a1a2e; }
+
+    /* ── Currency toggle ───────────────────────────────────── */
+    .currency-toggle { display: flex; gap: 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,.15); width: fit-content; }
+    .currency-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      cursor: pointer;
+      transition: .15s;
+    }
+    .currency-btn.active { background: rgba(251,191,36,.2); color: #fbbf24; }
+    .currency-btn:hover:not(.active) { background: rgba(255,255,255,.06); color: var(--text); }
+
+    /* ── Presets ───────────────────────────────────────────── */
+    .presets { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .preset-btn {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: .15s;
+    }
+    .preset-btn:hover { border-color: #fbbf24; color: #fbbf24; background: rgba(251,191,36,.08); }
+
+    /* ── CTA button ────────────────────────────────────────── */
+    .calc-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      border: none;
+      border-radius: 12px;
+      color: #1a1a2e;
+      font-size: 1.05rem;
+      font-weight: 900;
+      padding: 16px;
+      cursor: pointer;
+      letter-spacing: .02em;
+      transition: opacity .15s, transform .1s;
+      margin-top: 8px;
+    }
+    .calc-btn:hover { opacity: .9; transform: translateY(-1px); }
+    .calc-btn:active { transform: translateY(0); }
+
+    /* ── Result box ────────────────────────────────────────── */
+    .result-box {
+      background: rgba(251,191,36,.07);
+      border: 1.5px solid rgba(251,191,36,.3);
+      border-radius: 18px;
+      padding: 28px 28px 24px;
+      margin-bottom: 24px;
+      display: none;
+      animation: fadeUp .3s ease;
+    }
+    .result-box.visible { display: block; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+    .result-label { font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#fbbf24; margin-bottom:10px; }
+    .result-from  { font-size:.95rem; color:var(--muted); margin-bottom:6px; }
+    .result-big   { font-size:clamp(2.4rem,7vw,3.8rem); font-weight:900; color:#fbbf24; line-height:1; margin-bottom:4px; }
+    .result-today { font-size:.9rem; color:var(--muted); margin-bottom:20px; }
+    .result-punchline { font-size:1rem; color:var(--text); line-height:1.65; background:rgba(255,255,255,.05); border-radius:10px; padding:14px 16px; margin-bottom:20px; }
+
+    /* ── Progress bar ──────────────────────────────────────── */
+    .inf-bar-wrap { margin-bottom: 8px; }
+    .inf-bar-label { display:flex; justify-content:space-between; font-size:.8rem; color:var(--muted); margin-bottom:6px; }
+    .inf-bar-track { background:rgba(255,255,255,.08); border-radius:6px; height:10px; overflow:hidden; }
+    .inf-bar-fill  { height:100%; border-radius:6px; background:linear-gradient(90deg,#f59e0b,#fbbf24); transition: width .6s cubic-bezier(.4,0,.2,1); }
+
+    /* ── Year breakdown mini-chart ─────────────────────────── */
+    .mini-chart-title { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:10px; }
+    .mini-chart { display:flex; gap:2px; align-items:flex-end; height:50px; margin-bottom:6px; }
+    .mini-bar { flex:1; border-radius:2px 2px 0 0; min-height:2px; transition: height .4s; }
+    .mini-chart-years { display:flex; justify-content:space-between; font-size:.68rem; color:var(--muted); }
+
+    /* ── Share button ──────────────────────────────────────── */
+    .share-row { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
+    .share-copy-btn {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size:.82rem;
+      font-weight:700;
+      padding:8px 14px;
+      cursor:pointer;
+      transition:.15s;
+    }
+    .share-copy-btn:hover { border-color:#fbbf24; color:#fbbf24; }
+    .share-copy-btn.copied { color:#34d399; border-color:#34d399; }
+
+    /* ── Info section ──────────────────────────────────────── */
+    .info-section { margin-top:44px; }
+    .info-h2 { font-size:1.1rem; font-weight:800; margin-bottom:12px; }
+    .info-p  { font-size:.9rem; color:var(--muted); line-height:1.75; margin-bottom:14px; }
+    .fact-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin:20px 0; }
+    .fact-card { background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:12px; padding:16px; }
+    .fact-val  { font-size:1.4rem; font-weight:900; color:#fbbf24; margin-bottom:4px; }
+    .fact-lbl  { font-size:.78rem; color:var(--muted); line-height:1.4; }
+
+    /* ── Sources ───────────────────────────────────────────── */
+    .sources { font-size:.75rem; color:var(--muted); line-height:1.8; border-top:1px solid var(--border); padding-top:16px; margin-top:36px; }
+
+    /* ── Lang ──────────────────────────────────────────────── */
+    .lang-switch{display:flex;gap:4px;margin-left:8px}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:6px;color:rgba(255,255,255,.55);font-size:.78rem;padding:4px 8px;cursor:pointer;transition:.15s}
+    .lang-btn:hover{border-color:rgba(255,255,255,.45);color:#fff}
+    .lang-btn.active{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#fff;font-weight:700}
+
+    @media(max-width:520px){
+      .calc-card { padding:20px 18px; }
+      .input-row { gap:10px; }
+      .result-big { font-size:2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────────────── -->
+  <nav class="nav-desktop" role="navigation">
+    <a href="/" class="nav-logo">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <ul>
+      <li><a href="/dette/">💸 Dette</a></li>
+      <li><a href="/budget/">📊 Budget</a></li>
+      <li class="has-dropdown">
+        <a href="/impot/" class="dropdown-trigger">🧾 Fiscalité ▾</a>
+        <ul class="dropdown" role="menu">
+          <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+          <li><a href="/impot/">💸 Prélèvements</a></li>
+          <li><a href="/csg/">💶 CSG</a></li>
+          <li><a href="/tva/">🧾 TVA</a></li>
+          <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
+        </ul>
+      </li>
+      <li><a href="/logement/">🏠 Logement</a></li>
+      <li><a href="/retraites/">👴 Retraites</a></li>
+      <li><a href="/questions/">❓ Questions</a></li>
+      <li><a href="/outils/" style="color:#fbbf24">🧰 Outils</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </nav>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+  <div class="nav-mobile" id="navMobile">
+    <a href="/">← Accueil</a>
+    <a href="/outils/">🧰 Outils</a>
+    <a href="/questions/">❓ Questions</a>
+    <a href="/#newsletter" class="nav-mobile-cta">📧 Newsletter</a>
+  </div>
+
+  <main>
+  <div class="tool-wrap">
+
+    <!-- Header -->
+    <div class="tool-eyebrow" data-i18n="eyebrow">🧰 Outil interactif · données INSEE IPC 1980–2024</div>
+    <h1 class="tool-title" data-i18n="h1">Combien vaut votre salaire d'une autre époque ?</h1>
+    <p class="tool-sub" data-i18n="sub">Entrez votre salaire et son année — découvrez ce qu'il représente en euros 2025. L'inflation a peut-être effacé plus que vous ne le pensez.</p>
+
+    <!-- Calculator card -->
+    <div class="calc-card">
+
+      <!-- Presets -->
+      <div class="presets">
+        <span style="font-size:.78rem;color:var(--muted);font-weight:700;align-self:center" data-i18n="presets_label">Raccourcis :</span>
+        <button class="preset-btn" onclick="applyPreset(2002,'eur')" data-i18n="preset_euro">💶 Depuis l'euro (2002)</button>
+        <button class="preset-btn" onclick="applyPreset(2000,'eur')" data-i18n="preset_2000">📅 Depuis l'an 2000</button>
+        <button class="preset-btn" onclick="applyPreset(2010,'eur')" data-i18n="preset_2010">📅 Depuis 2010</button>
+        <button class="preset-btn" onclick="applyPreset(1999,'frf')" data-i18n="preset_franc">🪙 Depuis le Franc (1999)</button>
+      </div>
+
+      <!-- Currency toggle -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+        <span style="font-size:.82rem;font-weight:700;color:var(--muted)" data-i18n="currency_label">Devise :</span>
+        <div class="currency-toggle">
+          <button class="currency-btn active" id="btn-eur" onclick="setCurrency('eur')">€ Euros</button>
+          <button class="currency-btn" id="btn-frf" onclick="setCurrency('frf')">F Francs</button>
+        </div>
+        <span id="franc-hint" style="font-size:.75rem;color:var(--muted);display:none" data-i18n="franc_hint">1 € = 6,55957 F</span>
+      </div>
+
+      <!-- Inputs -->
+      <div class="input-row">
+        <div class="input-group" style="flex:2;min-width:140px">
+          <label data-i18n="label_salary" for="salaryInput">Votre salaire</label>
+          <div style="position:relative">
+            <input type="number" id="salaryInput" placeholder="2 000" min="1" max="999999" value="">
+            <span id="currencySymbol" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-weight:800;color:#fbbf24;font-size:1.1rem">€</span>
+          </div>
+        </div>
+        <div class="input-group" style="flex:1;min-width:100px">
+          <label data-i18n="label_year" for="yearSelect">Année</label>
+          <select id="yearSelect"></select>
+        </div>
+        <div class="input-group" style="flex:1;min-width:100px">
+          <label data-i18n="label_period" for="periodSelect">Période</label>
+          <select id="periodSelect">
+            <option value="monthly" data-i18n="period_monthly">Mensuel</option>
+            <option value="annual" data-i18n="period_annual">Annuel</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="calc-btn" onclick="calculate()" data-i18n="btn_calc">Calculer →</button>
+    </div>
+
+    <!-- Result -->
+    <div class="result-box" id="resultBox">
+      <div class="result-label" data-i18n="result_label">Résultat</div>
+      <div class="result-from" id="resultFrom"></div>
+      <div class="result-big" id="resultBig"></div>
+      <div class="result-today" id="resultToday"></div>
+      <div class="result-punchline" id="resultPunchline"></div>
+
+      <!-- Progress bar -->
+      <div class="inf-bar-wrap">
+        <div class="inf-bar-label">
+          <span id="barYearLabel"></span>
+          <span id="barPctLabel" style="color:#fbbf24;font-weight:800"></span>
+        </div>
+        <div class="inf-bar-track">
+          <div class="inf-bar-fill" id="infBarFill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Mini bar chart of year-by-year inflation -->
+      <div style="margin-top:20px">
+        <div class="mini-chart-title" data-i18n="chart_title">Inflation annuelle sur la période</div>
+        <div class="mini-chart" id="miniChart"></div>
+        <div class="mini-chart-years" id="miniChartYears"></div>
+      </div>
+
+      <!-- Share -->
+      <div class="share-row">
+        <button class="share-copy-btn" id="shareBtn" onclick="copyShare()" data-i18n="share_copy">📋 Copier le résultat</button>
+        <a id="shareTweet" href="#" target="_blank" rel="noopener" class="share-copy-btn" style="text-decoration:none">𝕏 Partager</a>
+      </div>
+    </div>
+
+    <!-- Info / context -->
+    <div class="info-section">
+      <h2 class="info-h2" data-i18n="info_h2">Ce que l'inflation a vraiment coûté aux Français</h2>
+      <p class="info-p" data-i18n="info_p1">Depuis 2000, les prix ont augmenté de <strong style="color:var(--text)">+55 %</strong> en France. Un salarié qui gagnait 1 500 € en 2000 doit toucher <strong style="color:var(--text)">2 325 €</strong> en 2025 pour maintenir le même pouvoir d'achat. La flambée de 2022–2023 a été particulièrement brutale : <strong style="color:var(--text)">+10,1 % en deux ans</strong>, soit la plus forte hausse depuis les années 1980.</p>
+
+      <div class="fact-grid">
+        <div class="fact-card">
+          <div class="fact-val">+55 %</div>
+          <div class="fact-lbl">Inflation cumulée depuis 2000 (2025)</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-val">+86 %</div>
+          <div class="fact-lbl">Inflation cumulée depuis 1990</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-val">+40 %</div>
+          <div class="fact-lbl">Inflation cumulée depuis 2010</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-val">2022–23</div>
+          <div class="fact-lbl">Pire choc inflationniste depuis 40 ans (+10,1 %)</div>
+        </div>
+      </div>
+
+      <h2 class="info-h2" data-i18n="info_h2b">Comment fonctionne le calcul ?</h2>
+      <p class="info-p" data-i18n="info_p2">Ce calculateur utilise l'<strong style="color:var(--text)">Indice des Prix à la Consommation (IPC)</strong> de l'INSEE — l'indicateur officiel de l'inflation en France. Il mesure l'évolution moyenne des prix payés par les ménages pour un panier de biens et services représentatif. Le calcul est : <em>Salaire × (IPC 2025 / IPC année choisie)</em>.</p>
+      <p class="info-p" data-i18n="info_p3">Pour les montants en <strong style="color:var(--text)">Francs</strong>, la conversion utilise le taux de parité officiel fixé le 1er janvier 1999 : <strong style="color:var(--text)">1 € = 6,55957 F</strong>. Le taux d'inflation appliqué à partir de 1999 correspond à l'IPC zone euro France.</p>
+
+      <p class="info-p" data-i18n="info_p4" style="color:#f87171;background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2);border-radius:8px;padding:12px 14px">⚠️ <strong>Limite :</strong> L'IPC mesure l'inflation moyenne — votre panier de consommation personnel peut différer. Le logement à Paris a augmenté bien plus vite que l'IPC général. Ce calculateur donne une estimation indicative basée sur l'inflation nationale officielle.</p>
+    </div>
+
+    <div class="sources">
+      <strong style="color:var(--text)" data-i18n="sources_label">Sources :</strong>
+      <span data-i18n="sources_text"> INSEE — Indice des Prix à la Consommation (IPC), série longue 1980–2024 · Banque de France — taux de conversion Franc/Euro · BCE — règlement CE 2866/98 fixant le taux irrévocable 1 € = 6,55957 F au 1er janvier 1999</span>
+    </div>
+
+  </div>
+  </main>
+
+  <footer>
+    <span data-i18n="footer_copy">© 2026 Le Français Moyen — Données : INSEE</span>
+    <a href="/" data-i18n="footer_link">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  /* ══════════════════════════════════════════════════════
+     DATA — IPC base 1990=100, annual averages (INSEE)
+     Multiplier to 2025 = CPI[2025] / CPI[year]
+  ══════════════════════════════════════════════════════ */
+  const CPI = {
+    1980: 49.60,  1981: 56.34,  1982: 63.88,  1983: 71.54,
+    1984: 78.34,  1985: 84.14,  1986: 89.02,  1987: 91.25,
+    1988: 94.08,  1989: 96.62,  1990: 100.00, 1991: 103.40,
+    1992: 106.71, 1993: 108.95, 1994: 110.80, 1995: 112.79,
+    1996: 115.05, 1997: 116.43, 1998: 117.24, 1999: 117.83,
+    2000: 119.95, 2001: 122.00, 2002: 124.32, 2003: 127.05,
+    2004: 129.72, 2005: 132.21, 2006: 134.72, 2007: 136.88,
+    2008: 141.26, 2009: 141.40, 2010: 143.81, 2011: 147.12,
+    2012: 150.06, 2013: 151.56, 2014: 152.47, 2015: 152.47,
+    2016: 152.77, 2017: 154.60, 2018: 157.38, 2019: 159.43,
+    2020: 160.23, 2021: 162.79, 2022: 171.25, 2023: 179.64,
+    2024: 183.76, 2025: 185.97
+  };
+
+  const FRANC_RATE = 6.55957; // 1 EUR = 6.55957 FRF
+  const CURRENT_YEAR = 2025;
+
+  /* Annual inflation rates for mini-chart */
+  const ANNUAL_INF = {
+    1981:13.4,1982:12.0,1983:9.5,1984:7.4,1985:5.8,1986:2.5,1987:3.1,
+    1988:2.7,1989:3.5,1990:3.4,1991:3.2,1992:2.4,1993:2.1,1994:1.7,
+    1995:1.8,1996:2.0,1997:1.2,1998:0.7,1999:0.5,2000:1.8,2001:1.7,
+    2002:1.9,2003:2.2,2004:2.1,2005:1.9,2006:1.9,2007:1.6,2008:3.2,
+    2009:0.1,2010:1.7,2011:2.3,2012:2.0,2013:1.0,2014:0.6,2015:0.0,
+    2016:0.2,2017:1.2,2018:1.8,2019:1.3,2020:0.5,2021:1.6,2022:5.2,
+    2023:4.9,2024:2.3
+  };
+
+  /* ── State ──────────────────────────────────────────── */
+  let currentCurrency = 'eur';
+
+  /* ── Build year selector ────────────────────────────── */
+  (function buildYearSelect(){
+    const sel = document.getElementById('yearSelect');
+    for(let y = 2024; y >= 1980; y--){
+      const opt = document.createElement('option');
+      opt.value = y;
+      opt.textContent = y;
+      if(y === 2000) opt.selected = true;
+      sel.appendChild(opt);
+    }
+  })();
+
+  /* ── Currency toggle ────────────────────────────────── */
+  function setCurrency(c){
+    currentCurrency = c;
+    document.getElementById('btn-eur').classList.toggle('active', c==='eur');
+    document.getElementById('btn-frf').classList.toggle('active', c==='frf');
+    document.getElementById('currencySymbol').textContent = c==='eur' ? '€' : 'F';
+    document.getElementById('franc-hint').style.display = c==='frf' ? 'inline' : 'none';
+    // Limit years to 1999 for Francs
+    const sel = document.getElementById('yearSelect');
+    Array.from(sel.options).forEach(o => {
+      o.disabled = (c==='frf' && parseInt(o.value) > 2001);
+    });
+    if(c==='frf' && parseInt(sel.value) > 2001) sel.value = '1999';
+  }
+
+  /* ── Presets ────────────────────────────────────────── */
+  function applyPreset(year, currency){
+    setCurrency(currency);
+    document.getElementById('yearSelect').value = year;
+    if(!document.getElementById('salaryInput').value){
+      document.getElementById('salaryInput').value = currency==='frf' ? '10000' : '2000';
+    }
+  }
+
+  /* ── Format number ──────────────────────────────────── */
+  function fmt(n){ return new Intl.NumberFormat('fr-FR').format(Math.round(n)); }
+  function fmtDec(n,d=1){ return new Intl.NumberFormat('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n); }
+
+  /* ── Punchlines ─────────────────────────────────────── */
+  function getPunchline(pct, yearInput, salaryInput, salaryToday, isAnnual, lang){
+    const diffMonthly = isAnnual ? (salaryToday - salaryInput)/12 : (salaryToday - salaryInput);
+    const diffFmt = fmt(Math.abs(diffMonthly));
+    const p = Math.round(pct);
+
+    const lines_fr = [
+      { cond: p >= 80, text: `En ${yearInput}, vous étiez bien payé·e ! L'inflation a multiplié les prix par <strong style="color:#fbbf24">${fmtDec(1+pct/100)}×</strong> depuis. Pour garder le même niveau de vie, il vous faudrait <strong style="color:#fbbf24">${diffFmt} € de plus</strong> par mois.` },
+      { cond: p >= 40, text: `L'inflation vous a "prélevé" <strong style="color:#fbbf24">${diffFmt} €/mois</strong> de pouvoir d'achat depuis ${yearInput}. C'est comme si votre salaire avait été amputé de 1 semaine par an, chaque année, sans que personne ne vous le dise.` },
+      { cond: p >= 20, text: `Depuis ${yearInput}, les prix ont augmenté de <strong style="color:#fbbf24">+${fmtDec(pct)} %</strong>. Il vous manque <strong style="color:#fbbf24">${diffFmt} €/mois</strong> pour maintenir le même niveau de vie qu'à l'époque.` },
+      { cond: p >= 10, text: `Une inflation de <strong style="color:#fbbf24">+${fmtDec(pct)} %</strong> depuis ${yearInput}. En apparence modérée, mais sur un salaire entier, ça représente <strong style="color:#fbbf24">${diffFmt} €/mois</strong> de pouvoir d'achat évaporé.` },
+      { cond: true,    text: `Depuis ${yearInput}, l'inflation a été de <strong style="color:#fbbf24">+${fmtDec(pct)} %</strong> — soit <strong style="color:#fbbf24">${diffFmt} €/mois</strong> de pouvoir d'achat supplémentaire nécessaire pour maintenir votre niveau de vie.` }
+    ];
+
+    const lines_en = [
+      { cond: p >= 80, text: `Good wages in ${yearInput}! Prices have multiplied by <strong style="color:#fbbf24">${fmtDec(1+pct/100)}×</strong> since then. To maintain the same standard of living, you'd need <strong style="color:#fbbf24">€${diffFmt} more</strong> per month.` },
+      { cond: p >= 40, text: `Inflation has "taken" <strong style="color:#fbbf24">€${diffFmt}/month</strong> of purchasing power from you since ${yearInput}. It's as if your salary was cut by 1 week per year — quietly, without anyone saying a word.` },
+      { cond: p >= 20, text: `Since ${yearInput}, prices have risen by <strong style="color:#fbbf24">+${fmtDec(pct)}%</strong>. You're missing <strong style="color:#fbbf24">€${diffFmt}/month</strong> to maintain the same standard of living as back then.` },
+      { cond: p >= 10, text: `Inflation of <strong style="color:#fbbf24">+${fmtDec(pct)}%</strong> since ${yearInput}. Modest-looking, but on a full salary that's <strong style="color:#fbbf24">€${diffFmt}/month</strong> of vanished purchasing power.` },
+      { cond: true,    text: `Since ${yearInput}, inflation has been <strong style="color:#fbbf24">+${fmtDec(pct)}%</strong> — meaning you need <strong style="color:#fbbf24">€${diffFmt}/month</strong> more to maintain the same standard of living.` }
+    ];
+
+    const lines = lang === 'en' ? lines_en : lines_fr;
+    return lines.find(l => l.cond).text;
+  }
+
+  /* ── Main calculate ─────────────────────────────────── */
+  function calculate(){
+    const rawSalary = parseFloat(document.getElementById('salaryInput').value);
+    const year = parseInt(document.getElementById('yearSelect').value);
+    const isAnnual = document.getElementById('periodSelect').value === 'annual';
+    const lang = localStorage.getItem('lfm-lang') || 'fr';
+
+    if(!rawSalary || rawSalary <= 0){
+      document.getElementById('salaryInput').focus();
+      document.getElementById('salaryInput').style.borderColor='#f87171';
+      setTimeout(()=>document.getElementById('salaryInput').style.borderColor='',1200);
+      return;
+    }
+
+    // Convert Francs to Euros if needed
+    let salaryEur = currentCurrency === 'frf' ? rawSalary / FRANC_RATE : rawSalary;
+
+    // Multiplier
+    const multiplier = CPI[CURRENT_YEAR] / CPI[year];
+    const salaryToday = salaryEur * multiplier;
+    const pct = (multiplier - 1) * 100;
+
+    // Format inputs
+    const periodLabel = isAnnual
+      ? (lang==='en' ? '/year' : '/an')
+      : (lang==='en' ? '/month' : '/mois');
+    const inputLabel = currentCurrency === 'frf'
+      ? `${fmt(rawSalary)} F${periodLabel}`
+      : `${fmt(rawSalary)} €${periodLabel}`;
+    const inputEurLabel = currentCurrency === 'frf'
+      ? ` (= ${fmt(salaryEur)} €${periodLabel} au taux officiel)`
+      : '';
+
+    // Populate result
+    document.getElementById('resultFrom').innerHTML =
+      lang==='en'
+        ? `Your salary of <strong>${inputLabel}</strong> in <strong>${year}</strong>${inputEurLabel} is equivalent to…`
+        : `Votre salaire de <strong>${inputLabel}</strong> en <strong>${year}</strong>${inputEurLabel} équivaut à…`;
+
+    document.getElementById('resultBig').textContent = `${fmt(salaryToday)} €`;
+    document.getElementById('resultToday').textContent =
+      lang==='en'
+        ? `in ${CURRENT_YEAR} (${periodLabel.replace('/','')}) to maintain the same purchasing power`
+        : `en ${CURRENT_YEAR} (${isAnnual?'annuel':'mensuel'}) pour un pouvoir d'achat identique`;
+
+    document.getElementById('resultPunchline').innerHTML =
+      getPunchline(pct, year, salaryEur, salaryToday, isAnnual, lang);
+
+    // Progress bar
+    const barPct = Math.min(pct, 150);
+    document.getElementById('barYearLabel').textContent = `${year} → ${CURRENT_YEAR}`;
+    document.getElementById('barPctLabel').textContent = `+${fmtDec(pct)} %`;
+    setTimeout(()=>{ document.getElementById('infBarFill').style.width = (barPct/150*100)+'%'; }, 50);
+
+    // Mini chart
+    buildMiniChart(year);
+
+    // Share content
+    const shareText = lang==='en'
+      ? `My salary of ${fmt(rawSalary)} ${currentCurrency==='frf'?'F':'€'} in ${year} = ${fmt(salaryToday)} €/month in ${CURRENT_YEAR}. Inflation cost me +${fmtDec(pct)}% of purchasing power. 📊`
+      : `Mon salaire de ${fmt(rawSalary)} ${currentCurrency==='frf'?'F':'€'} en ${year} = ${fmt(salaryToday)} €/${isAnnual?'an':'mois'} en ${CURRENT_YEAR}. L'inflation m'a coûté +${fmtDec(pct)} % de pouvoir d'achat. 📊`;
+    document.getElementById('shareBtn')._shareText = shareText;
+    document.getElementById('shareTweet').href =
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText + ' → le-francais-moyen.com/outils/calculateur-inflation-salaire')}`;
+
+    // Show result
+    const box = document.getElementById('resultBox');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+
+  /* ── Mini bar chart ─────────────────────────────────── */
+  function buildMiniChart(fromYear){
+    const chart = document.getElementById('miniChart');
+    const years_el = document.getElementById('miniChartYears');
+    chart.innerHTML = '';
+    years_el.innerHTML = '';
+
+    const years = [];
+    for(let y = fromYear+1; y <= 2024; y++) years.push(y);
+    if(years.length === 0){ chart.parentElement.style.display='none'; return; }
+    chart.parentElement.style.display='';
+
+    const maxInf = Math.max(...years.map(y => ANNUAL_INF[y]||0));
+
+    years.forEach(y => {
+      const v = ANNUAL_INF[y] || 0;
+      const h = maxInf > 0 ? Math.max(2, (v/maxInf)*46) : 2;
+      const color = v >= 4 ? '#f87171' : v >= 2 ? '#fbbf24' : '#6ee7b7';
+      const bar = document.createElement('div');
+      bar.className = 'mini-bar';
+      bar.style.cssText = `height:${h}px;background:${color};`;
+      bar.title = `${y}: +${v}%`;
+      chart.appendChild(bar);
+    });
+
+    // Year labels (show every 5 years)
+    const showYears = years.filter((_,i) => i===0 || i===years.length-1 || years[i]%5===0);
+    years_el.innerHTML = `<span>${years[0]}</span>`;
+    if(years.length > 3) years_el.innerHTML += `<span>2024</span>`;
+  }
+
+  /* ── Copy share text ────────────────────────────────── */
+  function copyShare(){
+    const btn = document.getElementById('shareBtn');
+    const text = btn._shareText || '';
+    navigator.clipboard.writeText(text).then(()=>{
+      const prev = btn.textContent;
+      btn.textContent = '✅ Copié !';
+      btn.classList.add('copied');
+      setTimeout(()=>{ btn.textContent = prev; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  /* ── Enter key ──────────────────────────────────────── */
+  document.getElementById('salaryInput').addEventListener('keydown', e => {
+    if(e.key==='Enter') calculate();
+  });
+
+  /* ── Nav mobile ─────────────────────────────────────── */
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{ const o=mobileNav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded',o); document.body.classList.toggle('nav-open',o); });
+  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ mobileNav.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); document.body.classList.remove('nav-open'); }));
+
+  /* ── i18n ───────────────────────────────────────────── */
+  const T = {
+    fr:{
+      eyebrow:'🧰 Outil interactif · données INSEE IPC 1980–2024',
+      h1:'Combien vaut votre salaire d\'une autre époque ?',
+      sub:'Entrez votre salaire et son année — découvrez ce qu\'il représente en euros 2025. L\'inflation a peut-être effacé plus que vous ne le pensez.',
+      presets_label:'Raccourcis :',
+      preset_euro:'💶 Depuis l\'euro (2002)',
+      preset_2000:'📅 Depuis l\'an 2000',
+      preset_2010:'📅 Depuis 2010',
+      preset_franc:'🪙 Depuis le Franc (1999)',
+      currency_label:'Devise :',
+      franc_hint:'1 € = 6,55957 F',
+      label_salary:'Votre salaire',
+      label_year:'Année',
+      label_period:'Période',
+      period_monthly:'Mensuel',
+      period_annual:'Annuel',
+      btn_calc:'Calculer →',
+      result_label:'Résultat',
+      chart_title:'Inflation annuelle sur la période',
+      share_copy:'📋 Copier le résultat',
+      info_h2:'Ce que l\'inflation a vraiment coûté aux Français',
+      info_p1:'Depuis 2000, les prix ont augmenté de <strong style="color:var(--text)">+55 %</strong> en France. Un salarié qui gagnait 1 500 € en 2000 doit toucher <strong style="color:var(--text)">2 325 €</strong> en 2025 pour maintenir le même pouvoir d\'achat. La flambée de 2022–2023 a été particulièrement brutale : <strong style="color:var(--text)">+10,1 % en deux ans</strong>, soit la plus forte hausse depuis les années 1980.',
+      info_h2b:'Comment fonctionne le calcul ?',
+      info_p2:'Ce calculateur utilise l\'<strong style="color:var(--text)">Indice des Prix à la Consommation (IPC)</strong> de l\'INSEE — l\'indicateur officiel de l\'inflation en France. Il mesure l\'évolution moyenne des prix payés par les ménages pour un panier de biens et services représentatif. Le calcul est : <em>Salaire × (IPC 2025 / IPC année choisie)</em>.',
+      info_p3:'Pour les montants en <strong style="color:var(--text)">Francs</strong>, la conversion utilise le taux de parité officiel fixé le 1er janvier 1999 : <strong style="color:var(--text)">1 € = 6,55957 F</strong>. Le taux d\'inflation appliqué à partir de 1999 correspond à l\'IPC zone euro France.',
+      info_p4:'⚠️ <strong>Limite :</strong> L\'IPC mesure l\'inflation moyenne — votre panier de consommation personnel peut différer. Le logement à Paris a augmenté bien plus vite que l\'IPC général. Ce calculateur donne une estimation indicative basée sur l\'inflation nationale officielle.',
+      sources_label:'Sources :',
+      sources_text:' INSEE — Indice des Prix à la Consommation (IPC), série longue 1980–2024 · Banque de France — taux de conversion Franc/Euro · BCE — règlement CE 2866/98 fixant le taux irrévocable 1 € = 6,55957 F au 1er janvier 1999',
+      footer_copy:'© 2026 Le Français Moyen — Données : INSEE',
+      footer_link:'Tableau de bord principal'
+    },
+    en:{
+      eyebrow:'🧰 Interactive tool · INSEE CPI data 1980–2024',
+      h1:'What is your salary from another era worth today?',
+      sub:'Enter your salary and its year — discover what it represents in 2025 euros. Inflation may have eroded more than you think.',
+      presets_label:'Shortcuts:',
+      preset_euro:'💶 Since the euro (2002)',
+      preset_2000:'📅 Since the year 2000',
+      preset_2010:'📅 Since 2010',
+      preset_franc:'🪙 Since the Franc (1999)',
+      currency_label:'Currency:',
+      franc_hint:'1 € = 6.55957 F',
+      label_salary:'Your salary',
+      label_year:'Year',
+      label_period:'Period',
+      period_monthly:'Monthly',
+      period_annual:'Annual',
+      btn_calc:'Calculate →',
+      result_label:'Result',
+      chart_title:'Annual inflation over the period',
+      share_copy:'📋 Copy result',
+      info_h2:'What inflation has really cost the French',
+      info_p1:'Since 2000, prices have risen by <strong style="color:var(--text)">+55%</strong> in France. A worker earning €1,500 in 2000 needs <strong style="color:var(--text)">€2,325</strong> in 2025 to maintain the same purchasing power. The 2022–2023 surge was particularly brutal: <strong style="color:var(--text)">+10.1% in two years</strong>, the steepest rise since the 1980s.',
+      info_h2b:'How does the calculation work?',
+      info_p2:'This calculator uses the <strong style="color:var(--text)">Consumer Price Index (CPI)</strong> from INSEE — France\'s official inflation indicator. It measures the average change in prices paid by households for a representative basket of goods and services. The formula is: <em>Salary × (CPI 2025 / CPI chosen year)</em>.',
+      info_p3:'For amounts in <strong style="color:var(--text)">Francs</strong>, the conversion uses the official parity rate set on 1 January 1999: <strong style="color:var(--text)">1 € = 6.55957 F</strong>. The inflation rate applied from 1999 onwards corresponds to the French eurozone CPI.',
+      info_p4:'⚠️ <strong>Limitation:</strong> The CPI measures average inflation — your personal spending basket may differ. Paris housing prices have risen far faster than the general CPI. This calculator gives an indicative estimate based on official national inflation.',
+      sources_label:'Sources:',
+      sources_text:' INSEE — Consumer Price Index (CPI), long series 1980–2024 · Banque de France — Franc/Euro conversion rate · ECB — Regulation EC 2866/98 fixing the irrevocable rate 1 € = 6.55957 F on 1 January 1999',
+      footer_copy:'© 2026 Le Français Moyen — Data: INSEE',
+      footer_link:'Main dashboard'
+    }
+  };
+
+  function setLang(l){
+    localStorage.setItem('lfm-lang',l);
+    document.getElementById('btn-fr').classList.toggle('active',l==='fr');
+    document.getElementById('btn-en').classList.toggle('active',l==='en');
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const k=el.getAttribute('data-i18n');
+      if(T[l][k]!==undefined) el.innerHTML=T[l][k];
+    });
+    // Update period select options
+    const ps = document.getElementById('periodSelect');
+    ps.options[0].textContent = T[l].period_monthly;
+    ps.options[1].textContent = T[l].period_annual;
+    document.documentElement.lang = l==='en'?'en':'fr';
+  }
+  (function(){ setLang(localStorage.getItem('lfm-lang')||'fr'); })();
+  </script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
