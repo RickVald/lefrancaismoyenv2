@@ -265,8 +265,14 @@
 
     <!-- POUVOIR D'ACHAT & LOGEMENT -->
     <section class="q-section-hub">
-      <h2>🏠 Pouvoir d'achat &amp; logement — 4 articles</h2>
+      <h2>🏠 Pouvoir d'achat &amp; logement — 5 articles</h2>
       <div class="faq-grid">
+        <a href="/questions/quel-est-le-pouvoir-dachat-en-france" class="faq-card">
+          <span class="fc-tag tag-pda" data-i18n="tag_pda">Pouvoir d'achat</span>
+          <h3 data-i18n="q_pda_niveau_title">Le pouvoir d'achat des Français a-t-il baissé ?</h3>
+          <p data-i18n="q_pda_niveau_excerpt">-1,7 % en 2022, -0,9 % en 2023, +0,8 % en 2024. Inflation vs salaires, dépenses contraintes, comparaison européenne. Analyse complète des données INSEE.</p>
+          <span class="fc-stat tag-pda">-1,7 % en 2022 — +0,8 % en 2024</span>
+        </a>
         <a href="/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse" class="faq-card">
           <span class="fc-tag tag-pda" data-i18n="tag_pda">Pouvoir d'achat</span>
           <h3 data-i18n="q_pda_baisse_title">Le pouvoir d'achat des Français a-t-il baissé ?</h3>
@@ -403,7 +409,7 @@
 
     <!-- EMPLOI & RÉGLEMENTATION -->
     <section class="q-section-hub">
-      <h2>💼 Emploi &amp; réglementation — 2 articles</h2>
+      <h2>💼 Emploi &amp; réglementation — 4 articles</h2>
       <div class="faq-grid">
         <a href="/questions/pourquoi-la-france-a-t-elle-un-taux-de-chomage-structurel-eleve" class="faq-card">
           <span class="fc-tag" style="color:#fb923c" data-i18n="tag_emploi">Emploi</span>
@@ -422,6 +428,12 @@
           <h3 data-i18n="q_emp_smic_title">Quel est le SMIC net en France en 2025 ?</h3>
           <p data-i18n="q_emp_smic_excerpt">1 426 €/mois net, 11,88 €/h brut. Comment se calcule le passage brut→net, combien coûte un salarié au SMIC, combien sont concernés ? Historique et comparaison européenne.</p>
           <span class="fc-stat tag-fonct">1 426 €/mois net — 3,1 millions de salariés</span>
+        </a>
+        <a href="/questions/quel-est-le-taux-de-chomage-en-france" class="faq-card">
+          <span class="fc-tag" style="color:#fb923c" data-i18n="tag_emploi">Emploi</span>
+          <h3 data-i18n="q_emp_chomage_taux_title">Quel est le taux de chômage en France en 2025 ?</h3>
+          <p data-i18n="q_emp_chomage_taux_excerpt">7,3 % au T1 2025, 2,3 millions de chômeurs BIT. Chômage des jeunes 17,5 %, chômage longue durée 41 %. Évolution depuis 2000, comparaison UE et mesures BIT vs France Travail.</p>
+          <span class="fc-stat" style="color:#fb923c">7,3 % — vs 3,2 % en Allemagne</span>
         </a>
       </div>
     </section>
@@ -557,9 +569,13 @@ const I18N_QST = {
     q_dette_montant_excerpt: "3 303 milliards d'euros, 112 % du PIB, 47 800 € par habitant. Qui la détient ? Combien coûtent les intérêts ? Comparaison avec nos voisins européens.",
     q_emp_smic_title:   "Quel est le SMIC net en France en 2025 ?",
     q_emp_smic_excerpt: "1 426 €/mois net, 11,88 €/h brut. Comment se calcule le passage brut→net, combien coûte un salarié au SMIC, combien sont concernés ? Historique et comparaison européenne.",
+    q_emp_chomage_taux_title:   "Quel est le taux de chômage en France en 2025 ?",
+    q_emp_chomage_taux_excerpt: "7,3 % au T1 2025, 2,3 millions de chômeurs BIT. Chômage des jeunes 17,5 %, chômage longue durée 41 %. Évolution depuis 2000, comparaison UE et mesures BIT vs France Travail.",
     q_fisc_salarie_title:   "Combien coûte un salarié à son employeur ?",
     q_fisc_salarie_excerpt: "Un salarié au SMIC coûte ~2 100 € pour 1 398 € net. Un cadre à 4 000 € net coûte ~6 500 €. Décomposition complète des charges patronales 2024.",
     // Cards — Pouvoir d'achat & logement
+    q_pda_niveau_title:   "Le pouvoir d'achat des Français a-t-il baissé ?",
+    q_pda_niveau_excerpt: "-1,7 % en 2022, -0,9 % en 2023, +0,8 % en 2024. Inflation vs salaires, dépenses contraintes, comparaison européenne. Analyse complète des données INSEE.",
     q_pda_baisse_title:   "Le pouvoir d'achat des Français a-t-il baissé ?",
     q_pda_baisse_excerpt: "Salaires en hausse sur 20 ans, mais logement, énergie et alimentation ont explosé. Ce que disent vraiment les données INSEE.",
     q_log_prix_title:   "Pourquoi les prix immobiliers augmentent-ils ?",
@@ -683,9 +699,13 @@ const I18N_QST = {
     q_dette_montant_excerpt: "€3,303 billion, 112% of GDP, €47,800 per inhabitant. Who holds it? How much do interest payments cost? Comparison with European neighbours.",
     q_emp_smic_title:   "What is the net minimum wage (SMIC) in France in 2025?",
     q_emp_smic_excerpt: "€1,426/month net, €11.88/h gross. How to calculate gross to net, how much does a SMIC employee cost, how many workers are affected? History and EU comparison.",
+    q_emp_chomage_taux_title:   "What is the unemployment rate in France in 2025?",
+    q_emp_chomage_taux_excerpt: "7.3% in Q1 2025, 2.3 million ILO unemployed. Youth unemployment 17.5%, long-term unemployment 41%. Historical trend, EU comparison, ILO vs France Travail explained.",
     q_fisc_salarie_title:   "How much does an employee cost an employer in France?",
     q_fisc_salarie_excerpt: "A minimum-wage worker costs ~€2,100 for €1,398 net. A manager at €4,000 net costs ~€6,500. Full breakdown of employer charges 2024.",
     // Cards — Purchasing power & housing
+    q_pda_niveau_title:   "Has French purchasing power fallen?",
+    q_pda_niveau_excerpt: "-1.7% in 2022, -0.9% in 2023, +0.8% in 2024. Inflation vs wages, mandatory spending, EU comparison. Full INSEE data analysis.",
     q_pda_baisse_title:   "Has French purchasing power fallen?",
     q_pda_baisse_excerpt: "Wages up over 20 years, but housing, energy and food have soared. What INSEE data actually shows.",
     q_log_prix_title:   "Why do property prices keep rising in France?",
