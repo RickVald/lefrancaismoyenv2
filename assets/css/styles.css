@@ -152,12 +152,14 @@ body.nav-open #contrib-toggle,body.nav-open #contrib-toast{display:none!importan
   .nav-toggle{display:flex}
   /* Cartes résultat simulateur : 2 colonnes sur tablette */
   .simulator-layout .grid{grid-template-columns:repeat(2,1fr)}
+  /* Empêche le nom de marque de wrapper et de décaler le menu mobile */
+  .brand{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:45vw;font-size:.9rem;gap:8px}
 }
 @media(max-width:640px){
   main{padding:22px 14px 58px}
   .nav{padding:12px 14px}
-  /* Empêche le nom de marque de passer sur 2 lignes et décaler le header */
-  .brand{font-size:.88rem;gap:8px;white-space:nowrap}
+  /* Réduit encore plus le brand sur très petits écrans */
+  .brand{font-size:.82rem;max-width:38vw}
   .hero-card,.panel{border-radius:20px;padding:19px}
   .kpi{grid-column:1/-1}
   .matrix,.source-grid,.sim-kpis{grid-template-columns:1fr}
