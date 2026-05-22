@@ -113,12 +113,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 24px;m
 .nav-drop-btn:hover,.has-dropdown:hover .nav-drop-btn{opacity:1;color:var(--accent)}
 .nav-caret{font-size:.65rem;transition:transform .2s;display:inline-block}
 .has-dropdown:hover .nav-caret,.has-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
-.dropdown{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:rgba(9,16,31,.98);border:1px solid var(--border);border-radius:14px;padding:6px;min-width:210px;z-index:200;backdrop-filter:blur(16px);box-shadow:0 20px 48px rgba(0,0,0,.55)}
+.dropdown{display:none;position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:rgba(9,16,31,.98);border:1px solid var(--border);border-radius:14px;padding:6px;min-width:230px;z-index:200;backdrop-filter:blur(16px);box-shadow:0 20px 48px rgba(0,0,0,.55)}
 .dropdown::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-bottom-color:var(--border);border-top:none}
 .has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown,.has-dropdown.open .dropdown{display:block}
 .dropdown li{list-style:none}
-.dropdown a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:600;transition:all .15s;white-space:nowrap}
+.dropdown a{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:600;transition:all .15s;white-space:nowrap}
 .dropdown a:hover{background:rgba(255,255,255,.07);color:var(--text)}
+.drop-group-label{font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(174,187,212,.4);padding:10px 12px 3px;margin-top:2px}
+.dropdown li:first-child.drop-group-label{margin-top:0;padding-top:4px}
+.drop-group-sep{height:1px;background:var(--border);margin:4px 8px}
 
 /* ── Language switcher ───────────────────────────────────────────────────── */
 .lang-switch{display:flex;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:3px;gap:2px;flex-shrink:0}
