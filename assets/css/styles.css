@@ -132,7 +132,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 24px;m
 .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(0)}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav-mobile{display:none;position:fixed;inset:0;z-index:499;background:rgba(11,16,32,.97);backdrop-filter:blur(12px);padding:72px 28px 40px;flex-direction:column;overflow-y:auto}
+.nav-mobile{display:none;position:fixed;inset:0;z-index:499;background:rgba(11,16,32,.97);backdrop-filter:blur(12px);padding:var(--nav-mobile-pt,72px) 28px 40px;flex-direction:column;overflow-y:auto}
 .nav-mobile.is-open{display:flex}
 .nav-mobile a{display:block;padding:16px 0;font-size:1.18rem;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);text-decoration:none;letter-spacing:-.02em}
 .nav-mobile a:first-child{border-top:1px solid var(--border)}
@@ -156,6 +156,8 @@ body.nav-open #contrib-toggle,body.nav-open #contrib-toast{display:none!importan
 @media(max-width:640px){
   main{padding:22px 14px 58px}
   .nav{padding:12px 14px}
+  /* Empêche le nom de marque de passer sur 2 lignes et décaler le header */
+  .brand{font-size:.88rem;gap:8px;white-space:nowrap}
   .hero-card,.panel{border-radius:20px;padding:19px}
   .kpi{grid-column:1/-1}
   .matrix,.source-grid,.sim-kpis{grid-template-columns:1fr}

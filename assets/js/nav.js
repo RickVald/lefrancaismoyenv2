@@ -50,10 +50,23 @@
     if (btnEN) btnEN.textContent = 'EN';
   }
 
+  /* ── Ajuste le padding-top du menu mobile à la hauteur réelle du header ── */
+  function syncNavMobilePadding() {
+    var hdr = document.querySelector('header');
+    var mob = document.getElementById('navMobile');
+    if (!hdr || !mob) return;
+    var h = hdr.offsetHeight;
+    document.documentElement.style.setProperty('--nav-mobile-pt', (h + 4) + 'px');
+  }
+
   /* ── Dropdown toggle ──────────────────────────────────────────── */
   function init() {
     /* Nettoie les emojis de flags (problème Windows) */
     normalizeLangButtons();
+
+    /* Calcul initial + recalcul au resize */
+    syncNavMobilePadding();
+    window.addEventListener('resize', syncNavMobilePadding);
 
     /* Applique la langue courante */
     applyNavLang(localStorage.getItem('lfm-lang') || 'fr');
