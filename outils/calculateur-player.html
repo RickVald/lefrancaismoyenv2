@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Calculateur inflation — Le Français Moyen</title>
+  <!-- Allow embedding in X/Twitter Player Card iframe -->
+  <meta http-equiv="X-Frame-Options" content="ALLOWALL">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      width:100%;height:100%;
+      background:#0b0b1a;
+      font-family:'Segoe UI',system-ui,sans-serif;
+      color:#e8e8f0;
+      overflow:hidden;
+    }
+    .wrap{
+      padding:20px 22px 16px;
+      height:100%;
+      display:flex;flex-direction:column;
+      justify-content:space-between;
+    }
+
+    /* Header */
+    .header{margin-bottom:12px}
+    .brand{font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+    .title{font-size:17px;font-weight:900;color:#fff;line-height:1.25}
+    .title span{color:#fbbf24}
+
+    /* Inputs */
+    .inputs{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-bottom:10px}
+    .input-wrap{position:relative}
+    .input-wrap input, .input-wrap select{
+      width:100%;background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.15);border-radius:9px;
+      color:#fff;font-size:14px;font-weight:700;padding:10px 32px 10px 12px;
+      outline:none;appearance:none;-webkit-appearance:none;
+    }
+    .input-wrap input:focus,.input-wrap select:focus{border-color:#fbbf24}
+    .input-wrap .sym{
+      position:absolute;right:10px;top:50%;transform:translateY(-50%);
+      font-weight:800;color:#fbbf24;font-size:13px;pointer-events:none;
+    }
+    .input-wrap select option{background:#1a1a2e}
+
+    /* Currency pills */
+    .cur-row{display:flex;gap:6px;margin-bottom:10px;align-items:center}
+    .cur-lbl{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em}
+    .cur-btn{
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;color:rgba(255,255,255,.5);font-size:11px;font-weight:700;
+      padding:4px 11px;cursor:pointer;transition:.15s;
+    }
+    .cur-btn.active{background:rgba(251,191,36,.18);border-color:rgba(251,191,36,.5);color:#fbbf24}
+
+    /* Calc button */
+    .calc-btn{
+      width:100%;background:linear-gradient(135deg,#f59e0b,#fbbf24);
+      border:none;border-radius:10px;color:#1a1a2e;
+      font-size:14px;font-weight:900;padding:12px;cursor:pointer;
+      letter-spacing:.02em;transition:opacity .15s;
+    }
+    .calc-btn:hover{opacity:.9}
+
+    /* Result */
+    .result{display:none;margin-top:10px;flex:1;flex-direction:column;gap:8px}
+    .result.show{display:flex}
+    .from-line{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:2px}
+    .dual{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .col{border-radius:11px;padding:12px 12px 10px}
+    .col.off{background:rgba(251,191,36,.08);border:1.5px solid rgba(251,191,36,.3)}
+    .col.lfm{background:rgba(248,113,113,.08);border:1.5px solid rgba(248,113,113,.3)}
+    .cb{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+    .cb.off{color:#fbbf24}.cb.lfm{color:#f87171}
+    .cv{font-size:22px;font-weight:900;line-height:1;margin-bottom:2px}
+    .cv.off{color:#fbbf24}.cv.lfm{color:#f87171}
+    .cp{font-size:11px;font-weight:700}
+    .cp.off{color:rgba(251,191,36,.65)}.cp.lfm{color:rgba(248,113,113,.65)}
+    .gap-line{
+      font-size:11px;color:rgba(255,255,255,.5);
+      background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.2);
+      border-radius:8px;padding:8px 10px;line-height:1.5;
+    }
+    .gap-line strong{color:#f87171}
+
+    /* Full tool link */
+    .full-link{
+      display:block;text-align:center;margin-top:8px;
+      font-size:11px;font-weight:700;color:rgba(255,255,255,.3);
+      text-decoration:none;letter-spacing:.02em;
+      transition:.15s;
+    }
+    .full-link:hover{color:#fbbf24}
+    .full-link span{color:#fbbf24}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="brand">&#9881; Le Français Moyen · Outil inflation</div>
+    <div class="title">Combien vaut votre salaire<br><span>d'une autre époque ?</span></div>
+  </div>
+
+  <div class="cur-row">
+    <span class="cur-lbl">Devise :</span>
+    <button class="cur-btn active" id="btnEur" onclick="setCur('eur')">€ Euros</button>
+    <button class="cur-btn" id="btnFrf" onclick="setCur('frf')">F Francs</button>
+    <span id="francHint" style="font-size:10px;color:rgba(255,255,255,.3);display:none;margin-left:4px">1€=6,56F</span>
+  </div>
+
+  <div class="inputs">
+    <div class="input-wrap">
+      <input type="number" id="sal" placeholder="2 000" min="1">
+      <span class="sym" id="sym">€</span>
+    </div>
+    <div class="input-wrap">
+      <select id="yr"></select>
+      <span class="sym" style="font-size:10px;right:22px">▾</span>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calc()">Calculer →</button>
+
+  <div class="result" id="result">
+    <div class="from-line" id="fromLine"></div>
+    <div class="dual">
+      <div class="col off">
+        <div class="cb off">&#128202; Officiel INSEE</div>
+        <div class="cv off" id="rOff">—</div>
+        <div class="cp off" id="rOffPct"></div>
+      </div>
+      <div class="col lfm">
+        <div class="cb lfm">&#129330; Indice LFM</div>
+        <div class="cv lfm" id="rLfm">—</div>
+        <div class="cp lfm" id="rLfmPct"></div>
+      </div>
+    </div>
+    <div class="gap-line" id="gapLine"></div>
+  </div>
+
+  <a class="full-link" href="https://le-francais-moyen.com/outils/calculateur-inflation-salaire" target="_blank">
+    Version complète avec graphiques → <span>le-francais-moyen.com</span>
+  </a>
+
+</div>
+
+<script>
+const CPI={
+  1980:49.60,1981:56.34,1982:63.88,1983:71.54,1984:78.34,1985:84.14,
+  1986:89.02,1987:91.25,1988:94.08,1989:96.62,1990:100.00,1991:103.40,
+  1992:106.71,1993:108.95,1994:110.80,1995:112.79,1996:115.05,1997:116.43,
+  1998:117.24,1999:117.83,2000:119.95,2001:122.00,2002:124.32,2003:127.05,
+  2004:129.72,2005:132.21,2006:134.72,2007:136.88,2008:141.26,2009:141.40,
+  2010:143.81,2011:147.12,2012:150.06,2013:151.56,2014:152.47,2015:152.47,
+  2016:152.77,2017:154.60,2018:157.38,2019:159.43,2020:160.23,2021:162.79,
+  2022:171.25,2023:179.64,2024:183.76,2025:185.97
+};
+const CPI_LFM={
+  1980:49.60,1981:56.34,1982:63.88,1983:71.54,1984:78.34,1985:84.14,
+  1986:89.02,1987:91.25,1988:94.08,1989:96.62,1990:100.00,1991:103.40,
+  1992:106.71,1993:108.95,1994:110.80,1995:112.79,1996:115.05,1997:116.43,
+  1998:117.24,1999:117.83,2000:120.66,2001:123.44,2002:126.90,2003:130.47,
+  2004:133.91,2005:137.13,2006:140.61,2007:144.06,2008:150.59,2009:151.80,
+  2010:155.29,2011:160.11,2012:164.27,2013:166.74,2014:168.24,2015:169.08,
+  2016:170.26,2017:173.17,2018:177.14,2019:180.34,2020:181.96,2021:186.32,
+  2022:200.85,2023:215.31,2024:221.77,2025:224.99
+};
+const FRANC=6.55957, CY=2025;
+let cur='eur';
+
+// Build year select
+(function(){
+  const s=document.getElementById('yr');
+  for(let y=2024;y>=1980;y--){
+    const o=document.createElement('option');
+    o.value=y;o.textContent=y;
+    if(y===2000)o.selected=true;
+    s.appendChild(o);
+  }
+})();
+
+function setCur(c){
+  cur=c;
+  document.getElementById('btnEur').classList.toggle('active',c==='eur');
+  document.getElementById('btnFrf').classList.toggle('active',c==='frf');
+  document.getElementById('sym').textContent=c==='eur'?'€':'F';
+  document.getElementById('francHint').style.display=c==='frf'?'inline':'none';
+  const s=document.getElementById('yr');
+  Array.from(s.options).forEach(o=>{o.disabled=c==='frf'&&parseInt(o.value)>2001;});
+  if(c==='frf'&&parseInt(s.value)>2001)s.value='1999';
+}
+
+function fmt(n){return new Intl.NumberFormat('fr-FR').format(Math.round(n));}
+function fmtD(n){return new Intl.NumberFormat('fr-FR',{minimumFractionDigits:1,maximumFractionDigits:1}).format(n);}
+
+function calc(){
+  const raw=parseFloat(document.getElementById('sal').value);
+  const yr=parseInt(document.getElementById('yr').value);
+  if(!raw||raw<=0){document.getElementById('sal').style.borderColor='#f87171';setTimeout(()=>document.getElementById('sal').style.borderColor='',1200);return;}
+  const eur=cur==='frf'?raw/FRANC:raw;
+  const mOff=CPI[CY]/CPI[yr], mLfm=CPI_LFM[CY]/CPI_LFM[yr];
+  const sOff=eur*mOff, sLfm=eur*mLfm;
+  const pOff=(mOff-1)*100, pLfm=(mLfm-1)*100;
+  const gap=sLfm-sOff;
+
+  document.getElementById('fromLine').textContent=
+    `${fmt(raw)} ${cur==='frf'?'F':'€'}/mois en ${yr} équivaut à…`;
+  document.getElementById('rOff').textContent=`${fmt(sOff)} €`;
+  document.getElementById('rOffPct').textContent=`+${fmtD(pOff)} % depuis ${yr}`;
+  document.getElementById('rLfm').textContent=`${fmt(sLfm)} €`;
+  document.getElementById('rLfmPct').textContent=`+${fmtD(pLfm)} % depuis ${yr}`;
+  document.getElementById('gapLine').innerHTML=
+    `<strong>Écart : +${fmt(gap)} €/mois</strong> — ce que l'IPC officiel sous-estime (logement, énergie, alimentation).`;
+
+  document.getElementById('result').classList.add('show');
+}
+
+document.getElementById('sal').addEventListener('keydown',e=>{if(e.key==='Enter')calc();});
+</script>
+</body>
+</html>
