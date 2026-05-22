@@ -137,9 +137,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);padding:28px 24px;m
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .nav-mobile{display:none;position:fixed;inset:0;z-index:499;background:rgba(11,16,32,.97);backdrop-filter:blur(12px);padding:var(--nav-mobile-pt,72px) 28px 40px;flex-direction:column;overflow-y:auto}
 .nav-mobile.is-open{display:flex}
-.nav-mobile a{display:block;padding:16px 0;font-size:1.18rem;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);text-decoration:none;letter-spacing:-.02em}
-.nav-mobile a:first-child{border-top:1px solid var(--border)}
+.nav-mobile a{display:block;padding:14px 0;font-size:1.1rem;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);text-decoration:none;letter-spacing:-.02em}
+.nav-mobile a:first-of-type{border-top:1px solid var(--border)}
 .nav-mobile a:hover{color:var(--accent)}
+.nav-mobile .nav-mobile-group-label{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(174,187,212,.38);padding:20px 0 4px;border-bottom:none}
+.nav-mobile .nav-mobile-group-label:first-child{padding-top:8px}
 .nav-mobile .nav-mobile-cta{margin-top:24px;text-align:center;border:1px solid rgba(246,195,67,.45);color:var(--accent);padding:13px;border-radius:999px;font-weight:800;font-size:1rem;border-top:none}
 body.nav-open{overflow:hidden}
 body.nav-open #contrib-toggle,body.nav-open #contrib-toast{display:none!important}
