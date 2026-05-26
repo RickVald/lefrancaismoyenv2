@@ -105,40 +105,85 @@
   </style>
 </head>
 <body>
-
-  <nav class="nav-desktop" role="navigation" aria-label="Navigation principale">
-    <a href="/" class="nav-logo">🇫🇷 <strong>Le Français Moyen</strong></a>
-    <ul>
-      <li><a href="/dette/">💸 Dette</a></li>
-      <li><a href="/budget/">📊 Budget</a></li>
-      <li class="has-dropdown">
-        <a href="/impot/" class="dropdown-trigger">🧾 Fiscalité ▾</a>
-        <ul class="dropdown" role="menu">
-          <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
-          <li><a href="/impot/">💸 Prélèvements</a></li>
-          <li><a href="/csg/">💶 CSG</a></li>
-          <li><a href="/tva/">🧾 TVA</a></li>
-          <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+          <li class="drop-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</li>
+          <li><a href="/budget/">&#x1F4CB; Budget de l&#x27;&#xC9;tat</a></li>
+          <li><a href="/dette/">&#x23F1;&#xFE0F; Dette en direct</a></li>
+          <li><a href="/csg/">&#x1F4B6; CSG</a></li>
+          <li><a href="/tva/">&#x1F9FE; TVA</a></li>
+          <li><a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a></li>
+          <li><a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a></li>
+          <li class="drop-group-sep"></li>
+          <li class="drop-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</li>
+          <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+          <li><a href="/normes/">&#x1F4DC; Millefeuille r&#xE9;glementaire</a></li>
+          <li><a href="/demographie/">&#x1F465; D&#xE9;mographie</a></li>
+          <li class="drop-group-sep"></li>
+          <li class="drop-group-label">&#x1F465; Social</li>
+          <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+          <li><a href="/sante/">&#x1F3E5; Sant&#xE9;</a></li>
+          <li><a href="/education/">&#x1F4DA; &#xC9;ducation</a></li>
+          <li><a href="/logement/">&#x1F3E0; Logement</a></li>
+          <li class="drop-group-sep"></li>
+          <li class="drop-group-label">&#x26A1; &#xC9;conomie</li>
+          <li><a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a></li>
+          <li><a href="/autoroutes/">&#x1F6E3;&#xFE0F; Autoroutes</a></li>
+          <li><a href="/ronds-points/">&#x1F535; Indice Rond-Point</a></li>
         </ul>
-      </li>
-      <li><a href="/logement/">🏠 Logement</a></li>
-      <li><a href="/retraites/">👴 Retraites</a></li>
-      <li><a href="/questions/">❓ Questions</a></li>
-      <li><a href="/a-propos/">À propos</a></li>
-    </ul>
-  </nav>
-  <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
-  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
-    <a href="/">&#x1F3E0; Tableau de bord</a>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">&#xC9;lections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">&#xC0; propos</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang(&#x27;fr&#x27;)">&#x1F1EB;&#x1F1F7; FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang(&#x27;en&#x27;)">&#x1F1EC;&#x1F1E7; EN</button>
+      </div>
+      <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="/" class="cta" data-i18n="nav_cta">&#x2190; Tableau de bord</a>
+    </div>
+  </header>
+  <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
     <div class="nav-mobile-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</div>
-    <a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a>
-    <a href="/dette/">&#x23F1;&#xFE0F; Dette en direct</a>
+    <a href="/budget/">&#x1F4CB; Budget de l&#x27;&#xC9;tat</a>
+    <a href="/dette/">&#x23F1; Dette en direct</a>
+    <a href="/csg/">&#x1F4B6; CSG</a>
+    <a href="/tva/">&#x1F9FE; TVA</a>
+    <a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a>
+    <a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a>
+    <div class="nav-mobile-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</div>
+    <a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a>
+    <a href="/normes/">&#x1F4DC; Normes</a>
+    <a href="/demographie/">&#x1F465; D&#xE9;mographie</a>
+    <div class="nav-mobile-group-label">&#x1F465; Social</div>
+    <a href="/retraites/">&#x1F474; Retraites</a>
+    <a href="/sante/">&#x1F3E5; Sant&#xE9;</a>
+    <a href="/education/">&#x1F4DA; &#xC9;ducation</a>
+    <a href="/logement/">&#x1F3E0; Logement</a>
+    <div class="nav-mobile-group-label">&#x26A1; &#xC9;conomie</div>
+    <a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a>
+    <a href="/autoroutes/">&#x1F6E3; Autoroutes</a>
+    <a href="/ronds-points/">&#x1F535; Ronds-points</a>
+    <a href="/outils/">&#x1F527; Outils</a>
+    <a href="/elections/">&#x1F5F3; &#xC9;lections</a>
     <a href="/questions/">&#x2753; Questions</a>
     <a href="/a-propos/">&#xC0; propos</a>
     <a href="/#newsletter" class="nav-mobile-cta">&#x1F4E7; Newsletter</a>
   </div>
 
-  <main>
+<main>
   <div class="q-wrap">
 
     <nav class="q-breadcrumb" aria-label="Fil d'Ariane">
