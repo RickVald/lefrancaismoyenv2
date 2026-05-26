@@ -121,7 +121,7 @@
         "name": "Combien coûte vraiment l'État français par habitant ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Les dépenses publiques françaises représentent environ 57% du PIB, soit ~17 000€ par habitant et par an en 2024. La dette cumulée représente environ 40 000€ par habitant (113% du PIB), soit un peu plus d'une année de salaire net moyen. Les recettes publiques (51% du PIB) ne couvrent pas les dépenses : le déficit annuel est de l'ordre de 6% du PIB en 2024."
+          "text": "Les dépenses publiques françaises représentent environ 57% du PIB, soit ~17 000€ par habitant et par an en 2024. La dette cumulée représente environ 40 000€ par habitant (112 % du PIB), soit un peu plus d'une année de salaire net moyen. Les recettes publiques (51% du PIB) ne couvrent pas les dépenses : le déficit annuel est de l'ordre de 6% du PIB en 2024."
         }
       },
       {
@@ -279,9 +279,9 @@
         <!-- Bloc 1 : Dette publique en temps réel -->
         <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.22);border-radius:16px;padding:26px 28px">
           <div data-i18n="ticker_debt_lbl" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:10px">🇫🇷 Dette publique française</div>
-          <div id="tickerDebt" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2;word-break:break-all">3 460 000 000 000 €</div>
+          <div id="tickerDebt" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2;word-break:break-all">3 303 000 000 000 €</div>
           <div data-i18n="ticker_debt_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Compteur continu · base 01/01/2026 · Banque de France</div>
-          <div data-i18n="ticker_debt_rate" style="font-size:.78rem;color:#f87171;margin-top:6px;font-weight:600">+5 500 €/s · 113 % du PIB</div>
+          <div data-i18n="ticker_debt_rate" style="font-size:.78rem;color:#f87171;margin-top:6px;font-weight:600">+5 500 €/s · 112 % du PIB</div>
           <a data-i18n="ticker_debt_cta" href="/dette/" style="display:inline-block;margin-top:16px;font-size:.82rem;color:#f87171;font-weight:700;text-decoration:none;border:1px solid rgba(248,113,113,.3);border-radius:6px;padding:7px 16px;transition:.15s" onmouseover="this.style.background='rgba(248,113,113,.1)'" onmouseout="this.style.background='transparent'">Voir le compteur complet →</a>
         </div>
 
@@ -310,7 +310,7 @@
   </style>
   <script>
   (function(){
-    var DEBT_REF  = 3460000000000;
+    var DEBT_REF  = 3303000000000;
     var DEBT_RATE = 5500;   // €/s — dette croît de 5 500 €/s
     var INT_RATE  = 1840;   // €/s — intérêts versés (58 Md€/an ÷ 31 557 600 s)
     var FUT_RATE  = 165;    // €/an par seconde d'emprunt (5 500 × 3 %)
@@ -368,7 +368,7 @@
 
         <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,146,60,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fb923c'" onmouseout="this.style.borderColor='rgba(251,146,60,.18)'">
           <div data-i18n="card1_tag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">💡 La distinction essentielle</div>
-          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">155 Md€ ≠ 3 460 Md€</div>
+          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">171 Md€ ≠ 3 303 Md€</div>
           <div data-i18n="card1_desc" style="font-size:.88rem;color:#888;line-height:1.6">Le déficit (annuel) et la dette (cumulée) sont deux choses très différentes — et souvent confondues. Explication en données.</div>
           <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">Source : Banque de France 2024 →</div>
         </a>
@@ -397,7 +397,7 @@
       <div>
         <div data-i18n="nl_tag" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:4px">📧 Le chiffre du lundi</div>
         <div data-i18n="nl_pitch" style="font-size:1rem;font-weight:700;color:#f5f5f5">3 chiffres officiels · 1 graphique · 1 phrase à retenir — chaque lundi.</div>
-        <div data-i18n="nl_social" style="font-size:.82rem;color:#666;margin-top:2px">6 000+ lecteurs · 0 publicité · désinscription en 1 clic</div>
+        <div data-i18n="nl_social" style="font-size:.82rem;color:#666;margin-top:2px">0 publicité · données officielles · désinscription en 1 clic</div>
       </div>
       <a data-i18n="nl_cta" href="#newsletter" style="display:inline-block;background:#fb923c;color:#0d0d0d;font-weight:800;font-size:.92rem;padding:12px 24px;border-radius:8px;text-decoration:none;white-space:nowrap;flex-shrink:0">S'abonner gratuitement →</a>
     </div>
@@ -419,8 +419,8 @@
         <a href="/dette/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(248,113,113,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#f87171';this.style.background='rgba(248,113,113,.05)'" onmouseout="this.style.borderColor='rgba(248,113,113,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">⏱️</div>
           <div data-i18n="theme_1_title" style="font-size:13px;font-weight:700;color:#f87171;margin-bottom:5px">Dette en direct</div>
-          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">3 460 Md€</div>
-          <div data-i18n="theme_1_desc" style="font-size:11px;color:#666;line-height:1.5">Compteur en direct. 113 % du PIB. +5 500 €/s.</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">3 303 Md€</div>
+          <div data-i18n="theme_1_desc" style="font-size:11px;color:#666;line-height:1.5">Compteur en direct. 112 % du PIB. +5 500 €/s.</div>
         </a>
 
         <a href="/budget/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
@@ -652,7 +652,7 @@ fr:{
   ticker_live:'En direct · calcul automatique',
   ticker_debt_lbl:'🇫🇷 Dette publique française',
   ticker_debt_note:'Compteur continu · base 01/01/2026 · Banque de France',
-  ticker_debt_rate:'+5 500 €/s · 113 % du PIB',
+  ticker_debt_rate:'+5 500 €/s · 112 % du PIB',
   ticker_debt_cta:'Voir le compteur complet →',
   ticker_int_lbl:'💸 Intérêts payés depuis votre arrivée',
   ticker_int_note:'Intérêts de la dette versés depuis l\'ouverture de cette page',
@@ -669,13 +669,13 @@ fr:{
   card3_desc:'Il faut désormais 5,9 ans de détention pour que l\'achat soit plus rentable que la location — contre 3,5 ans en 2019.',
   nl_tag:'📧 Le chiffre du lundi',
   nl_pitch:'3 chiffres officiels · 1 graphique · 1 phrase à retenir — chaque lundi.',
-  nl_social:'6 000+ lecteurs · 0 publicité · désinscription en 1 clic',
+  nl_social:'0 publicité · données officielles · désinscription en 1 clic',
   nl_cta:'S\'abonner gratuitement →',
   themes_eyebrow:'Analyses thématiques',
   themes_h2:'12 sujets. Les données officielles.',
   themes_sub:'Chaque thème : données longue période, sources vérifiables, chiffres clés mis en perspective.',
   themes_tools:'Voir les outils →',
-  theme_1_title:'Dette en direct',theme_1_desc:'Compteur en direct. 113 % du PIB. +5 500 €/s.',
+  theme_1_title:'Dette en direct',theme_1_desc:'Compteur en direct. 112 % du PIB. +5 500 €/s.',
   theme_2_title:'Budget de l\'État',theme_2_desc:'Recettes, dépenses, déficit. Le taux le plus élevé de l\'OCDE.',
   theme_3_title:'Impôt invisible',theme_3_desc:'Taux réel de prélèvement : IR, TVA, cotisations, énergie.',
   theme_4_title:'Retraites',theme_4_desc:'42 régimes. Ratio 1,7 actif/retraité. Réforme 2023.',
