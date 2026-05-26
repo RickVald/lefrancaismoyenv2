@@ -5,7 +5,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.brevo.com https://ec.europa.eu https://api.worldbank.org; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.brevo.com https://ec.europa.eu https://api.worldbank.org; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
   X-DNS-Prefetch-Control: on
 
 /assets/css/*
@@ -30,8 +30,7 @@
   Cache-Control: public, max-age=86400
   Content-Type: application/manifest+json; charset=utf-8
 
-# Widget embarquable — autorisé en iframe depuis n'importe quel domaine
-# La CSP frame-ancestors prend le dessus sur X-Frame-Options dans tous les navigateurs modernes
+# Widget embarquable — autorisé en iframe depuis n'importe quel domaine externe
 /dette/widget.html
+  X-Frame-Options: SAMEORIGIN
   Content-Security-Policy: default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; frame-ancestors *
-  X-Frame-Options: ALLOWALL

@@ -507,22 +507,58 @@
         <h2 style="font-size:1.15rem;margin:0 0 6px">Intégrez ce compteur sur votre site</h2>
         <p style="font-size:.86rem;color:var(--muted);margin:0 0 20px;line-height:1.6">Copiez le code ci-dessous et collez-le dans n'importe quelle page. Le compteur se met à jour en temps réel, sans JavaScript externe ni cookie. Libre d'utilisation avec attribution.</p>
 
-        <!-- Aperçu live -->
+        <!-- Aperçu live (div natif — même JS que la page) -->
         <div style="margin-bottom:20px">
           <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px">Aperçu en direct</div>
           <div style="display:flex;justify-content:center">
-            <iframe
-              src="/dette/widget.html"
-              id="widgetPreview"
-              width="420" height="190"
-              frameborder="0"
-              scrolling="no"
-              title="Compteur dette France en direct — Le Français Moyen"
-              style="border-radius:12px;border:1px solid var(--border);background:#0d0d0d"
-              loading="lazy">
-            </iframe>
+            <div id="widgetPreview" style="width:420px;max-width:100%;background:#0d0d0d;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 16px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+              <div style="font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#555;margin-bottom:6px">🇫🇷 dette publique française — en direct</div>
+              <div id="wPreviewCounter" style="font-size:clamp(1.4rem,5vw,2rem);font-weight:900;letter-spacing:-.04em;color:#ff9898;font-variant-numeric:tabular-nums;line-height:1;margin-bottom:3px">—</div>
+              <div style="font-size:.6rem;color:#444;margin-bottom:10px">euros</div>
+              <div style="display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-bottom:10px">
+                <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:7px;padding:4px 9px">
+                  <div id="wPreviewCapita" style="font-size:.76rem;font-weight:900;font-variant-numeric:tabular-nums;display:block;line-height:1.2">—</div>
+                  <div style="font-size:.56rem;color:#555;line-height:1.2">par habitant</div>
+                </div>
+                <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:7px;padding:4px 9px">
+                  <div style="font-size:.76rem;font-weight:900;color:#fb923c;display:block;line-height:1.2">+4 832 €/s</div>
+                  <div style="font-size:.56rem;color:#555;line-height:1.2">rythme actuel</div>
+                </div>
+                <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:7px;padding:4px 9px">
+                  <div style="font-size:.76rem;font-weight:900;color:#a78bfa;display:block;line-height:1.2">115,6 %</div>
+                  <div style="font-size:.56rem;color:#555;line-height:1.2">du PIB</div>
+                </div>
+              </div>
+              <div style="font-size:.6rem;color:#444;margin-bottom:8px">depuis votre arrivée : <span id="wPreviewSince" style="color:#f5f5f5;font-weight:700;font-variant-numeric:tabular-nums">0 €</span></div>
+              <a href="/dette/" style="font-size:.6rem;color:#333;text-decoration:none;border:1px solid #1e1e1e;border-radius:6px;padding:3px 9px;display:inline-flex;align-items:center;gap:4px">
+                Compteur complet sur <strong style="color:#fb923c;margin-left:3px">le-francais-moyen.com</strong> →
+              </a>
+            </div>
           </div>
         </div>
+        <script>
+        (function(){
+          var previewOpen = Date.now();
+          function fmtW(n){ return Math.round(n).toLocaleString('fr-FR') + ' €'; }
+          function fmtSince(n){
+            if(n < 1e6) return Math.round(n).toLocaleString('fr-FR') + ' €';
+            if(n < 1e9) return (n/1e6).toLocaleString('fr-FR',{maximumFractionDigits:2}) + ' M€';
+            return (n/1e9).toLocaleString('fr-FR',{maximumFractionDigits:3}) + ' Md€';
+          }
+          function tickPreview(){
+            var debt  = typeof currentDebt === 'function' ? currentDebt() : (3460500000000 + (152.5e9/(365.25*24*3600)) * (Date.now() - new Date('2026-01-01T00:00:00Z').getTime()) / 1000);
+            var since = (152.5e9/(365.25*24*3600)) * (Date.now() - previewOpen) / 1000;
+            var c = document.getElementById('wPreviewCounter');
+            var p = document.getElementById('wPreviewCapita');
+            var s = document.getElementById('wPreviewSince');
+            if(c) c.textContent = fmtW(debt);
+            if(p) p.textContent = fmtW(Math.round(debt / 68400000));
+            if(s) s.textContent = fmtSince(since);
+          }
+          setInterval(tickPreview, 100);
+          tickPreview();
+        })();
+        </script>
 
         <!-- Sélecteur de taille -->
         <div style="margin-bottom:14px">
@@ -570,9 +606,6 @@
       function setWidgetSize(size) {
         currentSize = size;
         var s = widgetSizes[size];
-        var iframe = document.getElementById('widgetPreview');
-        iframe.width  = s.w;
-        iframe.height = s.h;
         updateCode(s.w, s.h);
         ['compact','standard','large'].forEach(function(k){
           var btn = document.getElementById('btn-' + k);
