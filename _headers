@@ -29,3 +29,9 @@
 /*.webmanifest
   Cache-Control: public, max-age=86400
   Content-Type: application/manifest+json; charset=utf-8
+
+# Widget embarquable — autorisé en iframe depuis n'importe quel domaine
+# La CSP frame-ancestors prend le dessus sur X-Frame-Options dans tous les navigateurs modernes
+/dette/widget.html
+  Content-Security-Policy: default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; frame-ancestors *
+  X-Frame-Options: ALLOWALL
