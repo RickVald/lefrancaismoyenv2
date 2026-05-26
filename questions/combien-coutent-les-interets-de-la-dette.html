@@ -103,6 +103,39 @@
     .related-card .rc-title{font-size:.9rem;font-weight:700;color:var(--text);line-height:1.4}
     @media(max-width:500px){.bar-label{width:130px}}
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "creator": {
+    "@type": "Organization",
+    "name": "Le Français Moyen",
+    "url": "https://le-francais-moyen.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Le Français Moyen"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "dateModified": "2026-05-26",
+  "inLanguage": "fr-FR",
+  "isAccessibleForFree": true,
+  "name": "Charge d'intérêts de la dette publique française 2000–2025",
+  "description": "Évolution annuelle des intérêts de la dette publique française payés par les administrations publiques, en milliards d'euros. Source : INSEE, PLF, AFT.",
+  "url": "https://le-francais-moyen.com/questions/combien-coutent-les-interets-de-la-dette",
+  "temporalCoverage": "2000/2025",
+  "keywords": [
+    "intérêts dette France",
+    "charge dette France",
+    "coût dette publique France"
+  ],
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "text/html",
+    "contentUrl": "https://le-francais-moyen.com/questions/combien-coutent-les-interets-de-la-dette"
+  }
+}
+</script>
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -403,7 +436,20 @@
     </div>
 
   </div>
-  </main>
+  
+  <!-- CTA compteur dette en direct -->
+  <div style="max-width:760px;margin:0 auto;padding:0 20px 40px">
+    <a href="/dette/" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(255,107,107,.08);border:1.5px solid rgba(255,107,107,.3);border-radius:14px;padding:20px 28px;text-decoration:none;color:inherit;transition:.15s" onmouseover="this.style.background='rgba(255,107,107,.14)'" onmouseout="this.style.background='rgba(255,107,107,.08)'">
+      <div>
+        <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#f87171;margin-bottom:6px">⏱️ Compteur en direct</div>
+        <div style="font-size:1rem;font-weight:800;color:var(--text)">Voir la dette publique française augmenter en temps réel →</div>
+        <div style="font-size:.82rem;color:var(--muted);margin-top:4px">+4 832 €/seconde · 3 461 Md€ · 115,6 % du PIB</div>
+      </div>
+      <div style="font-size:2rem;flex-shrink:0">📊</div>
+    </a>
+  </div>
+
+</main>
 
   <footer style="border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-size:.8rem;color:var(--muted)">
     <p>© 2026 Le Français Moyen — <a href="/a-propos/" style="color:var(--muted)">À propos &amp; méthode</a> · <a href="/questions/" style="color:var(--muted)">Toutes les questions</a></p>

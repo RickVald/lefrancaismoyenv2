@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sources dette publique France — INSEE, Eurostat, AFT, Banque de France</title>
+  <meta name="description" content="Toutes les sources officielles utilisées pour les données de la dette publique française : INSEE, Eurostat, Agence France Trésor, Banque de France, HCFP, Cour des comptes. Liens directs et méthode de calcul.">
+  <link rel="canonical" href="https://le-francais-moyen.com/questions/sources-dette-publique-france">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/sources-dette-publique-france">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/sources-dette-publique-france">
+  <meta property="og:title" content="Sources dette publique France — INSEE, Eurostat, AFT, Banque de France">
+  <meta property="og:description" content="Sources officielles et méthode de calcul des données dette publique française. Liens directs vers INSEE, Eurostat, Agence France Trésor, Banque de France.">
+  <meta property="og:url" content="https://le-francais-moyen.com/questions/sources-dette-publique-france">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=22">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+      {"@type":"ListItem","position":2,"name":"Questions","item":"https://le-francais-moyen.com/questions/"},
+      {"@type":"ListItem","position":3,"name":"Sources dette publique","item":"https://le-francais-moyen.com/questions/sources-dette-publique-france"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sources officielles — Dette publique de la France",
+    "description": "Inventaire complet des sources utilisées pour les données de la dette publique française : INSEE, Eurostat, AFT, Banque de France, HCFP, PLF.",
+    "datePublished": "2026-05-26",
+    "dateModified": "2026-05-26",
+    "author": {"@type":"Organization","name":"Le Français Moyen","url":"https://le-francais-moyen.com"},
+    "publisher": {"@type":"Organization","name":"Le Français Moyen","logo":{"@type":"ImageObject","url":"https://le-francais-moyen.com/assets/img/og-image.png"}},
+    "mainEntityOfPage": {"@type":"WebPage","@id":"https://le-francais-moyen.com/questions/sources-dette-publique-france"},
+    "inLanguage": "fr-FR"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quelle est la source officielle de la dette publique française ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La source principale est l'INSEE (Institut national de la statistique et des études économiques), qui publie les Comptes nationaux trimestriels. La dette au sens de Maastricht est publiée dans les notifications EDP (Excessive Deficit Procedure) à Eurostat. L'Agence France Trésor (AFT) publie en parallèle les données de financement de l'État."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment est calculée la dette publique en % du PIB ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le ratio dette/PIB est calculé en divisant le stock de dette publique brute (en Md€) par le PIB nominal annuel. Le chiffre de référence au T4 2025 est : 3 460,5 Md€ / 2 993 Md€ (PIB) = 115,6 %. Ces deux chiffres proviennent des Comptes nationaux trimestriels publiés par l'INSEE."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle différence entre dette Maastricht et dette au sens large ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La dette Maastricht (ou dette au sens EDP) est la dette brute consolidée des administrations publiques au sens du Règlement (UE) n°549/2013. Elle exclut certains engagements comme les retraites des fonctionnaires (hors bilan). La dette au sens large inclurait également ces engagements implicites, estimés entre 1 000 et 2 000 Md€ supplémentaires selon les méthodologies."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .q-wrap{max-width:760px;margin:0 auto;padding:0 20px 60px}
+    .q-breadcrumb{font-size:.8rem;color:var(--muted);padding:16px 0 0;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    .q-breadcrumb a{color:var(--muted);text-decoration:none}.q-breadcrumb a:hover{color:var(--text)}
+    .q-eyebrow{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#f87171;margin-bottom:10px;margin-top:24px}
+    .q-title{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:900;line-height:1.2;margin-bottom:16px;color:var(--text)}
+    .q-meta{font-size:.82rem;color:var(--muted);margin-bottom:32px}
+    .q-h2{font-size:1.25rem;font-weight:800;margin:40px 0 16px;color:var(--text)}
+    .q-h3{font-size:1rem;font-weight:700;margin:28px 0 10px;color:var(--text)}
+    .q-note{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:16px 20px;margin:24px 0;font-size:.88rem;color:var(--muted);line-height:1.7}
+    .q-note strong{color:var(--text)}
+    .q-sources{font-size:.78rem;color:var(--muted);line-height:1.8;border-top:1px solid var(--border);padding-top:18px;margin-top:36px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-weight:700;font-size:.97rem;margin-bottom:8px;color:var(--text)}
+    .faq-a{font-size:.9rem;color:var(--muted);line-height:1.75;margin:0}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:16px}
+    .related-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:inherit;transition:.15s;display:block}
+    .related-card:hover{border-color:#555;background:rgba(255,255,255,.06)}
+    .related-card .rc-tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#f87171;margin-bottom:6px}
+    .related-card .rc-title{font-size:.9rem;font-weight:700;color:var(--text);line-height:1.4}
+    /* Source cards */
+    .source-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:12px}
+    .source-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:.15s}
+    .source-card:hover{border-color:#555;background:rgba(255,255,255,.07)}
+    .source-card .sc-org{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#f87171;margin-bottom:6px}
+    .source-card .sc-name{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.3}
+    .source-card .sc-desc{font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:12px}
+    .source-card .sc-data{font-size:.78rem;color:var(--muted);margin-bottom:10px;line-height:1.5}
+    .source-card .sc-data strong{color:var(--text)}
+    .source-card a.sc-link{display:inline-block;font-size:.78rem;font-weight:700;color:#60a5fa;text-decoration:none;border:1px solid rgba(96,165,250,.3);border-radius:6px;padding:4px 10px;transition:.15s}
+    .source-card a.sc-link:hover{background:rgba(96,165,250,.1);border-color:#60a5fa}
+    .method-table{width:100%;border-collapse:collapse;margin-bottom:12px;font-size:.88rem}
+    .method-table th{text-align:left;padding:10px 14px;background:rgba(255,255,255,.05);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .method-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text);vertical-align:top}
+    .method-table tr:last-child td{border-bottom:none}
+    .td-hl{font-weight:700;color:#f87171}
+    .lang-switch{display:flex;gap:4px;margin-left:8px}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:6px;color:rgba(255,255,255,.55);font-size:.78rem;padding:4px 8px;cursor:pointer;transition:.15s}
+    .lang-btn:hover{border-color:rgba(255,255,255,.45);color:#fff}
+    .lang-btn.active{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#fff;font-weight:700}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+          <li class="drop-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</li>
+          <li><a href="/budget/">&#x1F4CB; Budget de l&#x27;&#xC9;tat</a></li>
+          <li><a href="/dette/">&#x23F1;&#xFE0F; Dette en direct</a></li>
+          <li><a href="/csg/">&#x1F4B6; CSG</a></li>
+          <li><a href="/tva/">&#x1F9FE; TVA</a></li>
+          <li><a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a></li>
+          <li><a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a></li>
+          <li class="drop-group-sep"></li>
+          <li class="drop-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</li>
+          <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+          <li><a href="/normes/">&#x1F4DC; Millefeuille r&#xE9;glementaire</a></li>
+          <li><a href="/demographie/">&#x1F465; D&#xE9;mographie</a></li>
+          <li class="drop-group-sep"></li>
+          <li class="drop-group-label">&#x1F465; Social</li>
+          <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+          <li><a href="/sante/">&#x1F3E5; Sant&#xE9;</a></li>
+          <li><a href="/education/">&#x1F4DA; &#xC9;ducation</a></li>
+          <li><a href="/logement/">&#x1F3E0; Logement</a></li>
+          <li class="drop-group-sep"></li>
+          <li class="drop-group-label">&#x26A1; &#xC9;conomie</li>
+          <li><a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a></li>
+          <li><a href="/autoroutes/">&#x1F6E3;&#xFE0F; Autoroutes</a></li>
+          <li><a href="/ronds-points/">&#x1F535; Indice Rond-Point</a></li>
+        </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">&#xC9;lections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">&#xC0; propos</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang(&#x27;fr&#x27;)">&#x1F1EB;&#x1F1F7; FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang(&#x27;en&#x27;)">&#x1F1EC;&#x1F1E7; EN</button>
+      </div>
+      <button id="navToggle" class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="/" class="cta">&#x2190; Tableau de bord</a>
+    </div>
+  </header>
+  <div id="navMobile" class="nav-mobile" role="navigation" aria-label="Menu mobile">
+    <div class="nav-mobile-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</div>
+    <a href="/budget/">&#x1F4CB; Budget de l&#x27;&#xC9;tat</a>
+    <a href="/dette/">&#x23F1; Dette en direct</a>
+    <a href="/csg/">&#x1F4B6; CSG</a>
+    <a href="/tva/">&#x1F9FE; TVA</a>
+    <a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a>
+    <a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a>
+    <div class="nav-mobile-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</div>
+    <a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a>
+    <a href="/normes/">&#x1F4DC; Normes</a>
+    <a href="/demographie/">&#x1F465; D&#xE9;mographie</a>
+    <div class="nav-mobile-group-label">&#x1F465; Social</div>
+    <a href="/retraites/">&#x1F474; Retraites</a>
+    <a href="/sante/">&#x1F3E5; Sant&#xE9;</a>
+    <a href="/education/">&#x1F4DA; &#xC9;ducation</a>
+    <a href="/logement/">&#x1F3E0; Logement</a>
+    <div class="nav-mobile-group-label">&#x26A1; &#xC9;conomie</div>
+    <a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a>
+    <a href="/autoroutes/">&#x1F6E3; Autoroutes</a>
+    <a href="/ronds-points/">&#x1F535; Ronds-points</a>
+    <a href="/outils/">&#x1F527; Outils</a>
+    <a href="/elections/">&#x1F5F3; &#xC9;lections</a>
+    <a href="/questions/">&#x2753; Questions</a>
+    <a href="/a-propos/">&#xC0; propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">&#x1F4E7; Newsletter</a>
+  </div>
+
+<main id="contenu">
+  <div class="q-wrap">
+
+    <!-- Breadcrumb -->
+    <nav class="q-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a>
+      <span>›</span>
+      <a href="/questions/">Questions</a>
+      <span>›</span>
+      <span>Sources dette publique</span>
+    </nav>
+
+    <div class="q-eyebrow">Transparence · données officielles · méthode de calcul</div>
+    <h1 class="q-title">Sources officielles — Dette publique de la France</h1>
+    <p class="q-meta">Dernière mise à jour : mai 2026 — Toutes les sources citées sur ce site, avec liens directs</p>
+
+    <p style="font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:36px">
+      Chaque chiffre publié sur <em>Le Français Moyen</em> est issu de sources publiques officielles. Cette page recense l'intégralité des organismes, publications et bases de données utilisés, ainsi que notre méthode de calcul pour le compteur en direct.
+    </p>
+
+    <!-- ── Sources primaires ── -->
+    <h2 class="q-h2">📊 Sources primaires — données brutes</h2>
+
+    <div class="source-grid">
+
+      <div class="source-card">
+        <div class="sc-org">INSEE</div>
+        <div class="sc-name">Comptes nationaux trimestriels</div>
+        <div class="sc-desc">Publication de référence pour la dette publique au sens de Maastricht, le PIB nominal et le déficit des administrations publiques (APU). Mise à jour trimestrielle.</div>
+        <div class="sc-data"><strong>Données utilisées :</strong> Dette T4 2025 : 3 460,5 Md€ · PIB 2025 : 2 993 Md€ · Déficit 2025 : 5,1 % du PIB (152,5 Md€) · Intérêts APU 2025 : 64,7 Md€<br><strong>Publication de référence :</strong> 27 mars 2026 (T4 2025)</div>
+        <a href="https://www.insee.fr/fr/statistiques/series/102762965" class="sc-link" target="_blank" rel="noopener">→ Séries INSEE</a>
+      </div>
+
+      <div class="source-card">
+        <div class="sc-org">Eurostat</div>
+        <div class="sc-name">Government Finance Statistics (GFS)</div>
+        <div class="sc-desc">Base de données européenne harmonisée des finances publiques. Référence pour les comparaisons internationales (France vs Allemagne, Italie, Grèce, zone euro).</div>
+        <div class="sc-data"><strong>Données utilisées :</strong> Déficits comparatifs 2024 par pays · Dettes APU en % PIB par pays · Notifications EDP (procédure déficit excessif)</div>
+        <a href="https://ec.europa.eu/eurostat/web/government-finance-statistics" class="sc-link" target="_blank" rel="noopener">→ Eurostat GFS</a>
+      </div>
+
+      <div class="source-card">
+        <div class="sc-org">Agence France Trésor (AFT)</div>
+        <div class="sc-name">Bulletins mensuels &amp; rapports annuels</div>
+        <div class="sc-desc">Opérateur de l'État chargé de la gestion de la dette et de la trésorerie de l'État. Publie les émissions d'OAT, les taux d'intérêt moyen, le programme de financement annuel.</div>
+        <div class="sc-data"><strong>Données utilisées :</strong> Programme de financement 2025 · Taux moyen de la dette · Durée de vie moyenne · Structure par maturité</div>
+        <a href="https://www.aft.gouv.fr/fr/publications" class="sc-link" target="_blank" rel="noopener">→ Publications AFT</a>
+      </div>
+
+      <div class="source-card">
+        <div class="sc-org">Banque de France</div>
+        <div class="sc-name">Statistiques monétaires &amp; financières</div>
+        <div class="sc-desc">Référence pour la détention de la dette française par catégorie d'investisseurs (résidents, non-résidents, Banque centrale). Données issues des statistiques de flux financiers.</div>
+        <div class="sc-data"><strong>Données utilisées :</strong> Répartition détenteurs : non-résidents (~50 %), assureurs (~20 %), BCE ~15 %, banques ~10 %</div>
+        <a href="https://www.banque-france.fr/statistiques" class="sc-link" target="_blank" rel="noopener">→ Statistiques BdF</a>
+      </div>
+
+      <div class="source-card">
+        <div class="sc-org">Haut Conseil des Finances Publiques (HCFP)</div>
+        <div class="sc-name">Avis sur les projets de loi de finances</div>
+        <div class="sc-desc">Institution indépendante chargée d'évaluer la sincérité des prévisions macroéconomiques du gouvernement et la trajectoire budgétaire.</div>
+        <div class="sc-data"><strong>Données utilisées :</strong> Évaluation du déficit structurel (~4,5 % PIB) · Avis sur la crédibilité des trajectoires de consolidation 2025–2027</div>
+        <a href="https://www.hcfp.fr/publications" class="sc-link" target="_blank" rel="noopener">→ Avis HCFP</a>
+      </div>
+
+      <div class="source-card">
+        <div class="sc-org">Ministère des Finances</div>
+        <div class="sc-name">PLF — Projet de Loi de Finances</div>
+        <div class="sc-desc">Document budgétaire annuel contenant les prévisions de dépenses, recettes, déficit et charge de la dette de l'État (périmètre État uniquement, distinct des APU).</div>
+        <div class="sc-data"><strong>Données utilisées :</strong> Charge de la dette État (PLF 2025) : 55,4 Md€ · Dépenses de l'État : 490 Md€ · Recettes fiscales nettes</div>
+        <a href="https://www.budget.gouv.fr/budget-etat/le-budget-de-l-etat-en-detail/le-projet-de-loi-de-finances" class="sc-link" target="_blank" rel="noopener">→ PLF 2025</a>
+      </div>
+
+    </div>
+
+    <!-- ── Organismes de contrôle ── -->
+    <h2 class="q-h2">🏛️ Organismes de contrôle &amp; analyse</h2>
+
+    <div class="source-grid">
+
+      <div class="source-card">
+        <div class="sc-org">Cour des comptes</div>
+        <div class="sc-name">Rapports annuels sur les finances publiques</div>
+        <div class="sc-desc">Institution supérieure de contrôle des finances publiques françaises. Ses rapports font référence pour l'audit des trajectoires budgétaires et des administrations.</div>
+        <a href="https://www.ccomptes.fr/fr/publications" class="sc-link" target="_blank" rel="noopener">→ Publications Cour des comptes</a>
+      </div>
+
+      <div class="source-card">
+        <div class="sc-org">FMI — Article IV</div>
+        <div class="sc-name">Consultation annuelle France</div>
+        <div class="sc-desc">Le Fonds Monétaire International publie chaque année une analyse de la situation macroéconomique et budgétaire française. Référence internationale pour les comparaisons de soutenabilité de la dette.</div>
+        <a href="https://www.imf.org/en/Publications/CR?year=2025&country=France" class="sc-link" target="_blank" rel="noopener">→ IMF France 2025</a>
+      </div>
+
+      <div class="source-card">
+        <div class="sc-org">OCDE</div>
+        <div class="sc-name">Perspectives économiques &amp; données fiscales</div>
+        <div class="sc-desc">Référence pour les comparaisons internationales de dépenses publiques, de prélèvements obligatoires et de structure fiscale entre pays membres.</div>
+        <div class="sc-data"><strong>Données utilisées :</strong> Dépenses publiques France : 57 % PIB (1er rang OCDE) · Prélèvements obligatoires : 45,4 % PIB</div>
+        <a href="https://stats.oecd.org/" class="sc-link" target="_blank" rel="noopener">→ OECD.Stat</a>
+      </div>
+
+    </div>
+
+    <!-- ── Méthode de calcul ── -->
+    <h2 class="q-h2">⚙️ Méthode de calcul — Compteur en direct</h2>
+
+    <p style="font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:20px">
+      Le compteur dette en temps réel affiché sur <a href="/dette/" style="color:#60a5fa">le-francais-moyen.com/dette/</a> est une estimation continue basée sur le rythme annuel d'accroissement de la dette, calculé à partir des données INSEE.
+    </p>
+
+    <table class="method-table">
+      <thead>
+        <tr>
+          <th>Paramètre</th>
+          <th>Valeur</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Stock de référence (T4 2025)</td><td class="td-hl">3 460,5 Md€</td><td>INSEE, 27 mars 2026</td></tr>
+        <tr><td>Déficit 2025 (flux annuel)</td><td class="td-hl">152,5 Md€</td><td>INSEE Comptes nationaux T4 2025</td></tr>
+        <tr><td>Rythme d'accroissement / seconde</td><td class="td-hl">+4 832 €/s</td><td>152,5 Md€ ÷ 31 536 000 s</td></tr>
+        <tr><td>Rythme d'accroissement / minute</td><td>+289 920 €/min</td><td>calcul dérivé</td></tr>
+        <tr><td>Intérêts annuels (APU)</td><td>64,7 Md€/an</td><td>INSEE Comptes nationaux T4 2025</td></tr>
+        <tr><td>Dette par habitant</td><td>50 600 €/hab.</td><td>3 460,5 Md€ ÷ 68,4 M hab. (INSEE)</td></tr>
+        <tr><td>Ratio dette/PIB</td><td>115,6 %</td><td>3 460,5 Md€ ÷ 2 993 Md€ (PIB)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="q-note">
+      <strong>⚠️ Précision du compteur :</strong> Le compteur affiche une interpolation linéaire continue du déficit annuel. Il ne reflète pas les emprunts réels heure par heure (la France n'émet pas de dette en continu), mais donne un ordre de grandeur fidèle au rythme annuel d'accroissement mesuré par l'INSEE. Le stock de référence est mis à jour à chaque publication trimestrielle INSEE.
+    </div>
+
+    <!-- ── Périmètres ── -->
+    <h2 class="q-h2">📐 Distinctions importantes de périmètre</h2>
+
+    <table class="method-table">
+      <thead>
+        <tr>
+          <th>Concept</th>
+          <th>Périmètre</th>
+          <th>Chiffre 2025</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Dette Maastricht (EDP)</strong></td><td>Administrations publiques (État + ODAC + APUL + ASSO)</td><td class="td-hl">3 460,5 Md€ · 115,6 % PIB</td></tr>
+        <tr><td><strong>Charge de la dette — État</strong></td><td>Budget général de l'État (PLF)</td><td>55,4 Md€</td></tr>
+        <tr><td><strong>Intérêts APU — INSEE</strong></td><td>Toutes administrations publiques (périmètre Maastricht)</td><td>64,7 Md€</td></tr>
+        <tr><td><strong>Engagements hors bilan</strong></td><td>Retraites fonctionnaires, garanties, PPP</td><td>Non inclus dans la dette Maastricht</td></tr>
+        <tr><td><strong>Dette brute vs nette</strong></td><td>Brute = sans déduction des actifs financiers de l'État</td><td>Chiffre officiel = brute</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── FAQ ── -->
+    <h2 class="q-h2">Questions fréquentes sur les sources</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Quelle est la source officielle de la dette publique française ?</div>
+      <p class="faq-a">La source principale est l'<strong style="color:var(--text)">INSEE</strong>, qui publie les Comptes nationaux trimestriels incluant la dette publique au sens de Maastricht. Les notifications semestrielles à <strong style="color:var(--text)">Eurostat</strong> (procédure EDP) constituent la référence légale européenne.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Comment est calculée la dette en % du PIB ?</div>
+      <p class="faq-a">Le ratio est calculé en divisant le <strong style="color:var(--text)">stock de dette brute consolidée</strong> des APU par le <strong style="color:var(--text)">PIB nominal annuel</strong>. Au T4 2025 : 3 460,5 Md€ ÷ 2 993 Md€ = <strong style="color:var(--text)">115,6 %</strong>. Les deux chiffres proviennent des Comptes nationaux INSEE publiés le 27 mars 2026.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Pourquoi le site affiche 64,7 Md€ d'intérêts et le budget 55,4 Md€ ?</div>
+      <p class="faq-a">Les deux chiffres sont corrects mais couvrent des <strong style="color:var(--text)">périmètres différents</strong>. Les 55,4 Md€ correspondent à la <strong style="color:var(--text)">charge de la dette de l'État</strong> inscrite au PLF (budget général de l'État uniquement). Les 64,7 Md€ correspondent aux <strong style="color:var(--text)">intérêts de l'ensemble des administrations publiques</strong> (État + collectivités + sécurité sociale) selon les Comptes nationaux INSEE.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Les données sont-elles mises à jour automatiquement ?</div>
+      <p class="faq-a">Non. Les chiffres sont mis à jour manuellement à chaque publication trimestrielle de l'INSEE. La publication T4 2025 a eu lieu le <strong style="color:var(--text)">27 mars 2026</strong>. La prochaine mise à jour (T1 2026) est prévue pour l'été 2026. La date de mise à jour est toujours indiquée sur chaque page.</p>
+    </div>
+
+    <!-- Related pages -->
+    <h2 class="q-h2">Pages associées</h2>
+    <div class="related-grid">
+      <a href="/dette/" class="related-card">
+        <div class="rc-tag">Compteur en direct</div>
+        <div class="rc-title">Compteur dette publique France en direct</div>
+      </a>
+      <a href="/questions/quelle-est-la-dette-de-la-france" class="related-card">
+        <div class="rc-tag">Finances publiques</div>
+        <div class="rc-title">Quelle est la dette de la France en 2025 ?</div>
+      </a>
+      <a href="/questions/quel-est-le-deficit-de-la-france" class="related-card">
+        <div class="rc-tag">Finances publiques</div>
+        <div class="rc-title">Quel est le déficit de la France en 2025 ?</div>
+      </a>
+      <a href="/questions/combien-coutent-les-interets-de-la-dette" class="related-card">
+        <div class="rc-tag">Finances publiques</div>
+        <div class="rc-title">Combien coûtent les intérêts de la dette ?</div>
+      </a>
+    </div>
+
+    <div class="q-sources">
+      <strong style="color:var(--text)">Sources de cette page :</strong>
+      INSEE — Comptes nationaux trimestriels T4 2025 (27 mars 2026) · Eurostat — Government Finance Statistics, notification EDP avril 2025 · Agence France Trésor — Programme de financement 2025 · Banque de France — Statistiques monétaires et financières · Haut Conseil des Finances Publiques — Avis 2025 · Cour des comptes — Rapport annuel 2025 · PLF 2025 — Ministère de l'Économie et des Finances
+    </div>
+
+  </div>
+
+  <!-- CTA compteur dette -->
+  <div style="max-width:760px;margin:0 auto;padding:0 20px 40px">
+    <a href="/dette/" style="display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(255,107,107,.08);border:1.5px solid rgba(255,107,107,.3);border-radius:14px;padding:20px 28px;text-decoration:none;color:inherit;transition:.15s" onmouseover="this.style.background='rgba(255,107,107,.14)'" onmouseout="this.style.background='rgba(255,107,107,.08)'">
+      <div>
+        <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#f87171;margin-bottom:6px">⏱️ Compteur en direct</div>
+        <div style="font-size:1rem;font-weight:800;color:var(--text)">Voir la dette publique française augmenter en temps réel →</div>
+        <div style="font-size:.82rem;color:var(--muted);margin-top:4px">+4 832 €/seconde · 3 461 Md€ · 115,6 % du PIB</div>
+      </div>
+      <div style="font-size:2rem;flex-shrink:0">📊</div>
+    </a>
+  </div>
+</main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : INSEE · Eurostat · AFT · Banque de France</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
