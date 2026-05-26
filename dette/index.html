@@ -648,6 +648,65 @@
       }
       </script>
 
+      <!-- ── Simulateur interactif ──────────────────────────────── -->
+      <div style="padding:32px 0 28px;border-top:1px solid var(--border)" id="simulateur">
+        <h2 data-i18n="sim_h2" style="font-size:1.25rem;font-weight:900;color:var(--text);margin-bottom:6px">🎛️ Simulateur : et si on réduisait la dette ?</h2>
+        <p data-i18n="sim_sub" style="font-size:.82rem;color:var(--muted);margin-bottom:20px">Ajustez les leviers et voyez l'impact sur la dette à 10 ans (projection indicative, toutes choses égales par ailleurs).</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px" id="simSliders">
+
+          <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 18px">
+            <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fb923c;margin-bottom:8px">💰 Déficit annuel (Md€)</div>
+            <input type="range" id="simDeficit" min="-20" max="180" value="152" step="5" style="width:100%;accent-color:#fb923c;margin-bottom:6px">
+            <div style="display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)">
+              <span>Excédent</span>
+              <strong id="simDeficitVal" style="color:#fb923c">152 Md€/an</strong>
+              <span>Crise</span>
+            </div>
+            <div id="simDeficitNote" style="font-size:.7rem;color:var(--muted);margin-top:4px">Déficit actuel 2025 : 152,5 Md€ (5,1 % du PIB)</div>
+          </div>
+
+          <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 18px">
+            <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#a78bfa;margin-bottom:8px">📈 Taux de croissance du PIB (%)</div>
+            <input type="range" id="simGrowth" min="-2" max="5" value="1" step="0.5" style="width:100%;accent-color:#a78bfa;margin-bottom:6px">
+            <div style="display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)">
+              <span>Récession</span>
+              <strong id="simGrowthVal" style="color:#a78bfa">+1 %/an</strong>
+              <span>Fort</span>
+            </div>
+            <div style="font-size:.7rem;color:var(--muted);margin-top:4px">Prévision Banque de France 2026 : +0,7 %</div>
+          </div>
+
+        </div>
+
+        <!-- Résultats -->
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:16px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-bottom:16px">
+            <div style="text-align:center">
+              <div id="simDebt2030" style="font-size:1.3rem;font-weight:900;color:#ff9898;line-height:1">—</div>
+              <div style="font-size:.72rem;color:var(--muted);margin-top:4px">Dette en 2030</div>
+            </div>
+            <div style="text-align:center">
+              <div id="simDebt2035" style="font-size:1.3rem;font-weight:900;color:#ff9898;line-height:1">—</div>
+              <div style="font-size:.72rem;color:var(--muted);margin-top:4px">Dette en 2035</div>
+            </div>
+            <div style="text-align:center">
+              <div id="simRatio2035" style="font-size:1.3rem;font-weight:900;color:#fb923c;line-height:1">—</div>
+              <div style="font-size:.72rem;color:var(--muted);margin-top:4px">% du PIB en 2035</div>
+            </div>
+            <div style="text-align:center">
+              <div id="simVerdict" style="font-size:.9rem;font-weight:800;line-height:1.3;margin-top:4px">—</div>
+              <div style="font-size:.72rem;color:var(--muted);margin-top:4px">Trajectoire</div>
+            </div>
+          </div>
+          <!-- Mini graphique projection -->
+          <div id="simChart" style="height:80px;position:relative;background:rgba(255,255,255,.02);border-radius:8px;overflow:hidden"></div>
+          <div style="font-size:.68rem;color:var(--muted);margin-top:6px">Projection linéaire indicative — toutes choses égales par ailleurs · PIB de référence : 2 993 Md€ (2025)</div>
+        </div>
+
+        <p style="font-size:.75rem;color:var(--muted);line-height:1.6">⚠️ Ce simulateur est <strong style="color:var(--text)">pédagogique</strong>. Il ne tient pas compte de l'effet boule de neige des intérêts, des chocs exogènes, ni des effets multiplicateurs. Pour une analyse rigoureuse, consultez les prévisions du FMI, de la Banque de France ou de la Cour des comptes.</p>
+      </div>
+
       <!-- ── Section dette par président ─────────────────────── -->
       <div style="padding:32px 0 28px;border-top:1px solid var(--border)" id="section-presidents">
         <h2 data-i18n="pres_h2" style="font-size:1.25rem;font-weight:900;color:var(--text);margin-bottom:6px">Dette par quinquennat — qui a le plus emprunté ?</h2>
@@ -862,6 +921,8 @@ fr:{
   fact2:'Chaque enfant qui naît en France hérite de <strong>50 600 € de dette publique</strong> à sa naissance.',
   fact3:'Si les taux remontaient à 4 %, la charge d\'intérêts doublerait à <strong data-mds="120">120 Md€</strong>/an, soit 10 % des recettes fiscales.',
   fact4:'Au rythme actuel des déficits, la dette atteindrait <strong>130 % du PIB en 2032</strong>.',
+  sim_h2:'🎛️ Simulateur : et si on réduisait la dette ?',
+  sim_sub:'Ajustez les leviers et voyez l\'impact sur la dette à 10 ans (projection indicative, toutes choses égales par ailleurs).',
   pres_h2:'Dette par quinquennat — qui a le plus emprunté ?',
   pres_sub:'Variation de la dette publique (en Md€) sous chaque mandat présidentiel. Source : INSEE, Banque de France.',
   pres_note:'⚠️ La hausse de la dette dépend du contexte économique (crises, guerres, récessions) autant que des choix politiques. Le mandat Sarkozy est gonflé par la crise financière de 2008, celui de Macron 1er par le Covid (+340 Md€ en 2020 seul).',
@@ -904,6 +965,8 @@ en:{
   fact2:'Every child born in France inherits <strong>€50,600 of public debt</strong> at birth.',
   fact3:'If rates rose to 4%, interest costs would double to <strong data-mds="120">€120bn</strong>/year — 10% of tax revenues.',
   fact4:'At the current rate of deficits, debt would reach <strong>130% of GDP by 2032</strong>.',
+  sim_h2:'🎛️ Simulator: what if we reduced the debt?',
+  sim_sub:'Adjust the levers and see the impact on debt over 10 years (indicative projection, all else equal).',
   pres_h2:'Debt by presidential term — who borrowed the most?',
   pres_sub:'Change in public debt (in €bn) under each presidential term. Source: INSEE, Banque de France.',
   pres_note:'⚠️ Debt growth depends on economic context (crises, recessions) as much as political choices. Sarkozy\'s term is inflated by the 2008 financial crisis, Macron\'s first term by Covid (+€340bn in 2020 alone).',
@@ -940,6 +1003,76 @@ window.setLang=setLang;
 </script>
 
 <script>
+/* ── Simulateur dette ───────────────────────────────────────── */
+(function(){
+  var PIB_REF = 2993; // Md€ 2025
+  var DETTE_REF = 3460.5; // Md€ T4 2025
+
+  function runSim(){
+    var deficit = parseFloat(document.getElementById('simDeficit').value);
+    var growth  = parseFloat(document.getElementById('simGrowth').value) / 100;
+
+    document.getElementById('simDeficitVal').textContent = deficit >= 0 ? deficit + ' Md€/an' : Math.abs(deficit) + ' Md€ excéd.';
+    document.getElementById('simGrowthVal').textContent  = (growth >= 0 ? '+' : '') + (growth*100).toFixed(1) + ' %/an';
+
+    var deficitNote = document.getElementById('simDeficitNote');
+    if(deficit <= 0)        deficitNote.textContent = '🟢 Excédent budgétaire — rarissime pour la France';
+    else if(deficit <= 50)  deficitNote.textContent = '🟡 Conforme aux 3 % de Maastricht (~90 Md€)';
+    else if(deficit <= 100) deficitNote.textContent = '🟡 Déficit réduit de moitié par rapport à 2025';
+    else if(deficit <= 152) deficitNote.textContent = '🔴 Déficit actuel 2025 : 152,5 Md€ (5,1 % du PIB)';
+    else                    deficitNote.textContent = '🔴 Déficit supérieur à 2025 — trajectoire explosive';
+
+    var debt = DETTE_REF;
+    var pib  = PIB_REF;
+    var pts  = [{y:2025, debt:DETTE_REF, ratio: DETTE_REF/PIB_REF*100}];
+
+    for(var yr = 2026; yr <= 2035; yr++){
+      pib  = pib  * (1 + growth);
+      debt = debt + deficit;
+      pts.push({y:yr, debt:Math.round(debt*10)/10, ratio:Math.round(debt/pib*1000)/10});
+    }
+
+    var d30 = pts.find(function(p){return p.y===2030;});
+    var d35 = pts[pts.length-1];
+    document.getElementById('simDebt2030').textContent  = d30.debt.toLocaleString('fr-FR') + ' Md€';
+    document.getElementById('simDebt2035').textContent  = d35.debt.toLocaleString('fr-FR') + ' Md€';
+    document.getElementById('simRatio2035').textContent = d35.ratio.toFixed(1) + ' %';
+
+    var vEl = document.getElementById('simVerdict');
+    if(d35.ratio < 80){     vEl.textContent='✅ Désendettement'; vEl.style.color='#34d399';}
+    else if(d35.ratio < 100){vEl.textContent='🟡 Stabilisation'; vEl.style.color='#fbbf24';}
+    else if(d35.ratio < 120){vEl.textContent='🔴 Dérive maîtrisée'; vEl.style.color='#fb923c';}
+    else {                  vEl.textContent='💥 Trajectoire explosive'; vEl.style.color='#f87171';}
+
+    // Mini chart
+    var chart = document.getElementById('simChart');
+    var minD = Math.min.apply(null, pts.map(function(p){return p.debt;}));
+    var maxD = Math.max.apply(null, pts.map(function(p){return p.debt;}));
+    var range = maxD - minD || 1;
+    var w = chart.clientWidth || 500;
+    var h = 80;
+    var pw = w / (pts.length-1);
+    var path = pts.map(function(p,i){
+      var x = i * pw;
+      var y = h - ((p.debt - minD) / range) * (h-12) - 4;
+      return (i===0?'M':'L') + x.toFixed(1) + ',' + y.toFixed(1);
+    }).join(' ');
+    var color = d35.ratio < 100 ? '#34d399' : d35.ratio < 120 ? '#fb923c' : '#f87171';
+    chart.innerHTML = '<svg width="100%" height="' + h + '" style="overflow:visible"><path d="' + path + '" fill="none" stroke="' + color + '" stroke-width="2.5" stroke-linejoin="round"/>'
+      + pts.map(function(p,i){
+          var x = i * pw;
+          var y = h - ((p.debt - minD) / range) * (h-12) - 4;
+          if(i===0||i===pts.length-1||p.y===2030) return '<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.5" fill="'+color+'"/><text x="'+x.toFixed(1)+'" y="'+(y-7).toFixed(1)+'" text-anchor="middle" font-size="9" fill="#aaa">'+p.y+'</text>';
+          return '';
+        }).join('')
+      + '</svg>';
+  }
+
+  document.getElementById('simDeficit').addEventListener('input', runSim);
+  document.getElementById('simGrowth').addEventListener('input', runSim);
+  runSim();
+})();
+
 /* ── Graphique dette par président ──────────────────────────── */
 (function(){
   var PRES = [
