@@ -20,7 +20,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Français Moyen">
   <meta property="og:title" content="Dette publique France en direct : compteur, intérêts, déficit | Le Français Moyen">
-  <meta property="og:description" content="Inflation, pouvoir d'achat, logement, dette, salaires, fiscalité et démographie : les données publiques mises en perspective pour comprendre ce que l'on ressent.">
+  <meta property="og:description" content="3 461 Md€ de dette publique, 115,6 % du PIB, +4 800 €/s. Compteur en direct, qui détient la dette, dette par habitant, simulateur — données officielles INSEE et Banque de France.">
   <meta property="og:url" content="https://le-francais-moyen.com/">
   <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -29,8 +29,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Le Français Moyen — Dette, retraites, fiscalité et pouvoir d'achat en chiffres officiels">
-  <meta name="twitter:description" content="Inflation réelle, pouvoir d'achat, dette, énergie, démographie : des chiffres sur vos ressentis. Données officielles.">
+  <meta name="twitter:title" content="Dette publique France en direct : compteur, intérêts, déficit | Le Français Moyen">
+  <meta name="twitter:description" content="3 461 Md€ de dette publique, +4 800 €/s, 115,6 % du PIB. Compteur en direct, simulateur, évolution depuis 1974 — données officielles INSEE.">
   <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <meta name="twitter:image:alt" content="Tableau de bord Le Français Moyen">
 
@@ -290,7 +290,7 @@
           <div data-i18n="ticker_int_lbl" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:10px">💸 Intérêts payés depuis votre arrivée</div>
           <div id="tickerInterest" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2">0 €</div>
           <div data-i18n="ticker_int_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Intérêts de la dette versés depuis l'ouverture de cette page</div>
-          <div style="font-size:.78rem;color:#fb923c;margin-top:6px;font-weight:600;line-height:1.7">1 840 €/s · 58 Md€/an · soit <strong style="color:#fbbf24">1 526 €/an par foyer fiscal</strong></div>
+          <div style="font-size:.78rem;color:#fb923c;margin-top:6px;font-weight:600;line-height:1.7">2 050 €/s · 64,7 Md€/an · soit <strong style="color:#fbbf24">1 700 €/an par foyer fiscal</strong></div>
         </div>
 
         <!-- Bloc 3 : Charge future d'intérêts générée -->
@@ -298,7 +298,7 @@
           <div data-i18n="ticker_fut_lbl" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#a78bfa;margin-bottom:10px">📈 Charge future d'intérêts générée</div>
           <div id="tickerFuture" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2">0 €/an</div>
           <div data-i18n="ticker_fut_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Charge annuelle future créée par les emprunts depuis votre arrivée</div>
-          <div style="font-size:.78rem;color:#a78bfa;margin-top:6px;font-weight:600;line-height:1.7">Chaque seconde d'emprunt à 3 % = <strong style="color:#c4b5fd">+165 €/an</strong> de charge future perpétuelle</div>
+          <div style="font-size:.78rem;color:#a78bfa;margin-top:6px;font-weight:600;line-height:1.7">Chaque seconde d'emprunt à 3,66 % = <strong style="color:#c4b5fd">+177 €/an</strong> de charge future perpétuelle</div>
         </div>
 
       </div>
@@ -312,8 +312,8 @@
   (function(){
     var DEBT_REF  = 3460500000000;  // dette fin 2025 — INSEE T4 2025 (27/03/2026)
     var DEBT_RATE = 4832;   // €/s — déficit 2025 = 152,5 Md€ ÷ 31 557 600 s
-    var INT_RATE  = 1840;   // €/s — intérêts versés (58 Md€/an ÷ 31 557 600 s)
-    var FUT_RATE  = 165;    // €/an par seconde d'emprunt (5 500 × 3 %)
+    var INT_RATE  = 2050;   // €/s — intérêts versés (64,7 Md€/an ÷ 31 557 600 s)
+    var FUT_RATE  = 145;    // €/an par seconde d'emprunt (4 832 × 3 %)
     var REF_TS    = new Date('2026-01-01T00:00:00Z').getTime();
     var PAGE_TS   = Date.now();
 
@@ -359,32 +359,32 @@
     <div style="max-width:1100px;margin:0 auto;padding:0 24px">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px">
         <div>
-          <div data-i18n="week_label" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:6px;font-weight:700">Semaine du 12 mai 2026</div>
-          <h2 data-i18n="week_h2" style="font-size:1.25rem;font-weight:800;color:#f5f5f5;margin:0">3 chiffres que tout le monde devrait connaître</h2>
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#fb923c;margin-bottom:6px;font-weight:700">🇫🇷 Dette publique — 3 questions essentielles</div>
+          <h2 style="font-size:1.25rem;font-weight:800;color:#f5f5f5;margin:0">Ce que vous devez savoir sur la dette française</h2>
         </div>
-        <a data-i18n="week_all" href="/questions/" style="font-size:.85rem;color:#fb923c;text-decoration:none;font-weight:700;white-space:nowrap">Voir tous les articles →</a>
+        <a href="/questions/" style="font-size:.85rem;color:#fb923c;text-decoration:none;font-weight:700;white-space:nowrap">Toutes les questions →</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px">
 
-        <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,146,60,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fb923c'" onmouseout="this.style.borderColor='rgba(251,146,60,.18)'">
-          <div data-i18n="card1_tag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">💡 La distinction essentielle</div>
+        <a href="/questions/qui-detient-la-dette-francaise" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(248,113,113,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#f87171'" onmouseout="this.style.borderColor='rgba(248,113,113,.18)'">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:8px">🌍 Qui détient la dette ?</div>
+          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">52 % étrangers</div>
+          <div style="font-size:.88rem;color:#888;line-height:1.6">Plus de la moitié de la dette est due à des créanciers non-résidents. Répartition, rôle de la BCE, risque de dépendance.</div>
+          <div style="font-size:.78rem;color:#f87171;margin-top:10px;font-weight:600">Source : AFT · Banque de France 2025 →</div>
+        </a>
+
+        <a href="/questions/dette-france-par-habitant" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,146,60,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fb923c'" onmouseout="this.style.borderColor='rgba(251,146,60,.18)'">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">👤 Dette par habitant</div>
+          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">50 600 €</div>
+          <div style="font-size:.88rem;color:#888;line-height:1.6">C'était 15 000 € en 2000. Chaque Français hérite de +2 230 € de dette par an. Évolution 2000–2025 et comparatif UE.</div>
+          <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">Source : INSEE T4 2025 →</div>
+        </a>
+
+        <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(167,139,250,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#a78bfa'" onmouseout="this.style.borderColor='rgba(167,139,250,.18)'">
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#a78bfa;margin-bottom:8px">📚 Dette ≠ déficit</div>
           <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">152 Md€ ≠ 3 461 Md€</div>
-          <div data-i18n="card1_desc" style="font-size:.88rem;color:#888;line-height:1.6">Le déficit (annuel) et la dette (cumulée) sont deux choses très différentes — et souvent confondues. Explication en données.</div>
-          <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">Source : Banque de France 2024 →</div>
-        </a>
-
-        <a href="/questions/combien-coute-un-salarie-a-son-employeur-en-france" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(96,165,250,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#60a5fa'" onmouseout="this.style.borderColor='rgba(96,165,250,.18)'">
-          <div data-i18n="card2_tag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#60a5fa;margin-bottom:8px">💼 Ce que l'employeur voit</div>
-          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">× 1,7 à 2,1</div>
-          <div data-i18n="card2_desc" style="font-size:.88rem;color:#888;line-height:1.6">Un salarié à 2 000 € net coûte 3 400–4 200 € à son employeur. Le calcul complet des charges patronales 2024.</div>
-          <div style="font-size:.78rem;color:#60a5fa;margin-top:10px;font-weight:600">Source : URSSAF 2024 →</div>
-        </a>
-
-        <a href="/questions/louer-ou-acheter-que-choisir-en-france" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,191,36,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,.18)'">
-          <div data-i18n="card3_tag" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fbbf24;margin-bottom:8px">🏠 Immobilier</div>
-          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">5,9 ans</div>
-          <div data-i18n="card3_desc" style="font-size:.88rem;color:#888;line-height:1.6">Il faut désormais 5,9 ans de détention pour que l'achat soit plus rentable que la location — contre 3,5 ans en 2019.</div>
-          <div style="font-size:.78rem;color:#fbbf24;margin-top:10px;font-weight:600">Source : Meilleurs Agents 2024 →</div>
+          <div style="font-size:.88rem;color:#888;line-height:1.6">Le déficit (ce qu'on dépense de trop cette année) et la dette (le stock cumulé) — la confusion la plus fréquente.</div>
+          <div style="font-size:.78rem;color:#a78bfa;margin-top:10px;font-weight:600">Source : INSEE · Banque de France 2025 →</div>
         </a>
 
       </div>
