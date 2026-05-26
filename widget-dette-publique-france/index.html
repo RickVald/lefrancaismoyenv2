@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Widget dette publique France en direct — gratuit à intégrer | Le Français Moyen</title>
+  <meta name="description" content="Intégrez gratuitement le compteur de la dette publique française en direct sur votre site, blog WordPress, Substack ou newsletter. Code d'intégration iframe fourni, données officielles INSEE T4 2025.">
+  <link rel="canonical" href="https://le-francais-moyen.com/widget-dette-publique-france/">
+  <meta property="og:title" content="Widget dette publique France en direct — gratuit à intégrer">
+  <meta property="og:description" content="Un compteur de la dette française en temps réel, gratuit, à coller en 30 secondes sur votre site, Substack, WordPress ou Notion.">
+  <meta property="og:url" content="https://le-francais-moyen.com/widget-dette-publique-france/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Widget dette publique France en direct — gratuit à intégrer">
+  <meta name="twitter:description" content="Compteur en temps réel de la dette publique française. Iframe gratuite, données officielle INSEE. Pour blogs, Substack, newsletters, profs de SES.">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=22">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},{"@type":"ListItem","position":2,"name":"Widget dette publique France","item":"https://le-francais-moyen.com/widget-dette-publique-france/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Le widget dette publique France est-il gratuit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, le widget est entièrement gratuit, sans inscription, sans API key, sans limite de bande passante. Il suffit de copier le code iframe et de le coller dans votre site, blog, Substack ou Notion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment intégrer le compteur de la dette sur un site WordPress ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dans WordPress, allez dans le bloc HTML personnalisé (Gutenberg) ou dans un widget Texte HTML (Classic Editor). Collez le code iframe fourni sur cette page. Le compteur apparaîtra immédiatement. Aucun plugin requis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelles données utilise le widget ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le widget utilise les données officielles de l'INSEE (Comptes nationaux T4 2025, publiés le 27/03/2026) : dette = 3 460,5 milliards d'euros, soit 115,6 % du PIB. Le flux en temps réel est calculé à partir du déficit annuel 2025 (152,5 Md€), soit environ 4 832 € par seconde."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je utiliser ce widget dans une newsletter ou sur Substack ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Substack ne supporte pas les iframes dans les emails. En revanche, vous pouvez intégrer le widget sur votre page Substack (section 'About' ou dans un post web avec embed). Pour les newsletters email, un lien vers la page /dette/ est plus adapté."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    .w-wrap{max-width:820px;margin:0 auto;padding:0 20px 60px}
+    .w-breadcrumb{font-size:.8rem;color:var(--muted);padding:16px 0 0;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    .w-breadcrumb a{color:var(--muted);text-decoration:none}.w-breadcrumb a:hover{color:var(--text)}
+    .w-eyebrow{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fb923c;margin-bottom:10px;margin-top:24px}
+    .w-title{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:16px;color:var(--text)}
+    .w-meta{font-size:.82rem;color:var(--muted);margin-bottom:28px}
+    .w-h2{font-size:1.2rem;font-weight:800;margin:40px 0 16px;color:var(--text)}
+    .w-h3{font-size:1rem;font-weight:700;margin:24px 0 8px;color:var(--text)}
+    .preview-wrap{background:#0d0d0d;border:2px solid rgba(251,146,60,.3);border-radius:16px;overflow:hidden;margin-bottom:8px;text-align:center;padding:16px 0}
+    .preview-wrap iframe{display:block;margin:0 auto;border:none;border-radius:10px}
+    .preview-caption{font-size:.78rem;color:var(--muted);margin-bottom:24px;text-align:center}
+    .code-block{background:#0a0a0a;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px 20px;font-family:'Courier New',monospace;font-size:.8rem;color:#a3e635;line-height:1.7;overflow-x:auto;white-space:pre;margin-bottom:4px;position:relative}
+    .copy-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.28);border-radius:7px;padding:6px 14px;font-size:.75rem;font-weight:700;color:#fb923c;cursor:pointer;transition:.15s;margin-bottom:20px}
+    .copy-btn:hover{background:rgba(251,146,60,.25)}
+    .platform-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-bottom:28px}
+    .platform-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+    .platform-card .pc-icon{font-size:1.5rem;margin-bottom:8px}
+    .platform-card .pc-title{font-weight:800;font-size:.95rem;color:var(--text);margin-bottom:8px}
+    .platform-card .pc-steps{font-size:.82rem;color:var(--muted);line-height:1.8;padding-left:14px}
+    .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-weight:700;font-size:.97rem;margin-bottom:8px;color:var(--text)}
+    .faq-a{font-size:.9rem;color:var(--muted);line-height:1.75;margin:0}
+    .kpi-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:36px}
+    .kpi-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:16px 18px;text-align:center}
+    .kpi-val{font-size:1.45rem;font-weight:900;color:#fb923c;line-height:1.1;margin-bottom:4px}
+    .kpi-lbl{font-size:.75rem;color:var(--muted);line-height:1.4}
+    .use-list{list-style:none;padding:0;margin-bottom:24px}
+    .use-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.9rem;color:var(--muted);line-height:1.6}
+    .use-list li:last-child{border-bottom:none}
+    .use-list strong{color:var(--text)}
+    .uc-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+    .notice-box{background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px;font-size:.88rem;color:var(--muted);line-height:1.7}
+    .notice-box strong{color:var(--text)}
+    .w-sources{font-size:.78rem;color:var(--muted);line-height:1.8;border-top:1px solid var(--border);padding-top:18px;margin-top:36px}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:16px}
+    .related-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:inherit;transition:.15s;display:block}
+    .related-card:hover{border-color:#555;background:rgba(255,255,255,.06)}
+    .related-card .rc-tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#fb923c;margin-bottom:6px}
+    .related-card .rc-title{font-size:.9rem;font-weight:700;color:var(--text);line-height:1.4}
+  </style>
+</head>
+<body>
+
+  <nav class="nav-desktop" role="navigation" aria-label="Navigation principale">
+    <a href="/" class="nav-logo">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <ul>
+      <li><a href="/dette/">💸 Dette</a></li>
+      <li><a href="/budget/">📊 Budget</a></li>
+      <li class="has-dropdown">
+        <a href="/impot/" class="dropdown-trigger">🧾 Fiscalité ▾</a>
+        <ul class="dropdown" role="menu">
+          <li><a href="/fiscalite/">📊 Histoire fiscale</a></li>
+          <li><a href="/impot/">💸 Prélèvements</a></li>
+          <li><a href="/csg/">💶 CSG</a></li>
+          <li><a href="/tva/">🧾 TVA</a></li>
+          <li><a href="/ir/">📋 Impôt sur le revenu</a></li>
+        </ul>
+      </li>
+      <li><a href="/logement/">🏠 Logement</a></li>
+      <li><a href="/retraites/">👴 Retraites</a></li>
+      <li><a href="/questions/">❓ Questions</a></li>
+      <li><a href="/a-propos/">À propos</a></li>
+    </ul>
+  </nav>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">&#x1F3E0; Tableau de bord</a>
+    <div class="nav-mobile-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</div>
+    <a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a>
+    <a href="/dette/">&#x23F1;&#xFE0F; Dette en direct</a>
+    <a href="/questions/">&#x2753; Questions</a>
+    <a href="/a-propos/">&#xC0; propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">&#x1F4E7; Newsletter</a>
+  </div>
+
+  <main>
+  <div class="w-wrap">
+
+    <nav class="w-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a>
+      <span>›</span>
+      <span>Widget dette publique France</span>
+    </nav>
+
+    <div class="w-eyebrow">Outil gratuit · iframe · données officielles INSEE T4 2025</div>
+    <h1 class="w-title">Widget dette publique France en direct — gratuit à intégrer</h1>
+    <p class="w-meta">Mis à jour le 26 mai 2026 — Données : INSEE T4 2025, publiées le 27/03/2026</p>
+
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <div class="kpi-val">3 461 Md€</div>
+        <div class="kpi-lbl">dette officielle INSEE T4 2025</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">115,6 %</div>
+        <div class="kpi-lbl">du PIB français</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">4 832 €/s</div>
+        <div class="kpi-lbl">augmentation en temps réel</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">100 % gratuit</div>
+        <div class="kpi-lbl">sans inscription, sans API</div>
+      </div>
+    </div>
+
+    <!-- Aperçu live -->
+    <h2 class="w-h2">Aperçu — le compteur en direct</h2>
+    <div class="preview-wrap">
+      <iframe
+        src="https://le-francais-moyen.com/dette/widget.html"
+        width="360"
+        height="200"
+        frameborder="0"
+        scrolling="no"
+        title="Compteur dette publique France en direct"
+        loading="lazy"
+        style="border-radius:10px">
+      </iframe>
+    </div>
+    <p class="preview-caption">Le compteur ci-dessus est en direct — il s'actualise toutes les secondes selon le rythme du déficit 2025.</p>
+
+    <!-- Codes -->
+    <h2 class="w-h2">Codes d'intégration — copier-coller</h2>
+
+    <div class="notice-box">
+      <strong>Utilisation libre.</strong> Ce widget peut être intégré sur tout site public, blog, page pédagogique ou newsletter web. Attribution appréciée mais non obligatoire. Le widget est hébergé sur nos serveurs — aucune installation locale.
+    </div>
+
+    <h3 class="w-h3">① Format compact (360 × 200 px) — recommandé</h3>
+    <div class="code-block" id="c1">&lt;iframe
+  src="https://le-francais-moyen.com/dette/widget.html"
+  width="360" height="200"
+  frameborder="0" scrolling="no"
+  title="Compteur dette publique France en direct"
+  style="border-radius:10px;overflow:hidden"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</div>
+    <button class="copy-btn" onclick="copyCode('c1',this)">📋 Copier le code</button>
+
+    <h3 class="w-h3">② Format large (560 × 200 px)</h3>
+    <div class="code-block" id="c2">&lt;iframe
+  src="https://le-francais-moyen.com/dette/widget.html"
+  width="560" height="200"
+  frameborder="0" scrolling="no"
+  title="Compteur dette publique France en direct"
+  style="border-radius:10px;overflow:hidden;max-width:100%"
+  loading="lazy"&gt;
+&lt;/iframe&gt;</div>
+    <button class="copy-btn" onclick="copyCode('c2',this)">📋 Copier le code</button>
+
+    <h3 class="w-h3">③ Format responsive (s'adapte à la largeur)</h3>
+    <div class="code-block" id="c3">&lt;div style="position:relative;padding-bottom:36%;height:0;overflow:hidden;border-radius:10px;max-width:600px"&gt;
+  &lt;iframe
+    src="https://le-francais-moyen.com/dette/widget.html"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
+    title="Compteur dette publique France en direct"
+    loading="lazy"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;</div>
+    <button class="copy-btn" onclick="copyCode('c3',this)">📋 Copier le code</button>
+
+    <!-- Guide par plateforme -->
+    <h2 class="w-h2">Guide d'intégration par plateforme</h2>
+
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="pc-icon">🔵</div>
+        <div class="pc-title">WordPress</div>
+        <ol class="pc-steps">
+          <li>Ouvrir l'éditeur d'article (Gutenberg)</li>
+          <li>Cliquer <strong>+</strong> → chercher <em>HTML personnalisé</em></li>
+          <li>Coller le code iframe ①</li>
+          <li>Publier — le compteur est en direct</li>
+        </ol>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.5">Compatible avec tous les thèmes. Aucun plugin requis.</p>
+      </div>
+
+      <div class="platform-card">
+        <div class="pc-icon">🟠</div>
+        <div class="pc-title">Substack</div>
+        <ol class="pc-steps">
+          <li>Dans un post, cliquer <strong>/</strong> → <em>Embed</em></li>
+          <li>Coller l'URL : <code style="font-size:.75rem">le-francais-moyen.com/dette/widget.html</code></li>
+          <li>Ou utiliser le lien vers <a href="/dette/" style="color:#fb923c">/dette/</a> dans le corps du post</li>
+        </ol>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.5">Les iframes dans les emails ne sont pas supportées par Substack. Utilisez l'embed web ou un lien.</p>
+      </div>
+
+      <div class="platform-card">
+        <div class="pc-icon">⬛</div>
+        <div class="pc-title">Notion</div>
+        <ol class="pc-steps">
+          <li>Dans une page Notion, taper <strong>/embed</strong></li>
+          <li>Coller l'URL : <code style="font-size:.75rem">le-francais-moyen.com/dette/widget.html</code></li>
+          <li>Redimensionner le bloc selon vos besoins</li>
+        </ol>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.5">Fonctionne dans les pages Notion publiques et partagées.</p>
+      </div>
+
+      <div class="platform-card">
+        <div class="pc-icon">📝</div>
+        <div class="pc-title">Blog / HTML statique</div>
+        <ol class="pc-steps">
+          <li>Ouvrir le fichier HTML de la page</li>
+          <li>Coller le code ① à l'endroit souhaité</li>
+          <li>Sauvegarder et déployer</li>
+        </ol>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.5">Compatible Jekyll, Hugo, Astro, Gatsby, 11ty et tout site statique.</p>
+      </div>
+
+      <div class="platform-card">
+        <div class="pc-icon">🎓</div>
+        <div class="pc-title">Profs de SES / ENT</div>
+        <ol class="pc-steps">
+          <li>Coller le code dans la zone HTML de votre ENT ou Moodle</li>
+          <li>Ou partager directement le lien <a href="/dette/" style="color:#fb923c">/dette/</a> avec les élèves</li>
+          <li>Le simulateur sur la page /dette/ permet des exercices interactifs</li>
+        </ol>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.5">Données sourcées INSEE — citables dans un exposé ou un DM.</p>
+      </div>
+
+      <div class="platform-card">
+        <div class="pc-icon">📧</div>
+        <div class="pc-title">Newsletter (Brevo, Mailchimp…)</div>
+        <ol class="pc-steps">
+          <li>Les iframes ne s'affichent pas dans les emails</li>
+          <li>À la place, ajouter un lien textuel vers <a href="/dette/" style="color:#fb923c">le-francais-moyen.com/dette/</a></li>
+          <li>Ou utiliser une capture d'écran cliquable du compteur</li>
+        </ol>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:8px;line-height:1.5">Limitation email standard — tous les clients de messagerie bloquent les iframes.</p>
+      </div>
+    </div>
+
+    <!-- Pourquoi utiliser ce widget -->
+    <h2 class="w-h2">Pourquoi utiliser ce widget ?</h2>
+    <ul class="use-list">
+      <li>
+        <span class="uc-icon">📊</span>
+        <span><strong>Données officielles certifiées.</strong> Le calcul est basé sur les chiffres publiés par l'INSEE (Comptes nationaux T4 2025, 27/03/2026). Pas d'estimation — les chiffres sont les mêmes que ceux utilisés par Eurostat et le FMI.</span>
+      </li>
+      <li>
+        <span class="uc-icon">⚡</span>
+        <span><strong>Temps réel crédible.</strong> Le compteur augmente de 4 832 € par seconde — valeur calculée à partir du déficit public 2025 (152,5 Md€ ÷ 31 536 000 secondes). Ce n'est pas une animation arbitraire : c'est le rythme réel de l'endettement.</span>
+      </li>
+      <li>
+        <span class="uc-icon">🔧</span>
+        <span><strong>Zéro maintenance.</strong> Hébergé et mis à jour sur nos serveurs. Vous n'avez rien à installer, mettre à jour ou surveiller. Il suffit d'intégrer une fois.</span>
+      </li>
+      <li>
+        <span class="uc-icon">📱</span>
+        <span><strong>Compatible mobile.</strong> Le widget s'adapte aux petits écrans. Le format responsive (code ③) s'ajuste automatiquement à la largeur du conteneur.</span>
+      </li>
+      <li>
+        <span class="uc-icon">🎓</span>
+        <span><strong>Usage pédagogique.</strong> Idéal pour les cours de SES, les exposés sur la dette, les articles de vulgarisation. Les données sont sourcées et vérifiables en deux clics.</span>
+      </li>
+    </ul>
+
+    <!-- Méthode de calcul -->
+    <h2 class="w-h2">Méthode de calcul — transparence totale</h2>
+    <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:16px">
+      Le point de départ du compteur est la <strong style="color:var(--text)">dette publique au T4 2025 : 3 460,5 milliards d'euros</strong>, publiée par l'INSEE le 27 mars 2026. Il s'agit de la dette au sens de Maastricht (dette brute des administrations publiques consolidée).
+    </p>
+    <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:16px">
+      La vitesse d'augmentation est calculée à partir du <strong style="color:var(--text)">déficit public 2025 : 152,5 Md€</strong> (5,1 % du PIB). En divisant par le nombre de secondes dans une année (31 536 000), on obtient <strong style="color:var(--text)">4 832 € par seconde</strong>.
+    </p>
+    <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:16px 20px;font-size:.85rem;color:var(--muted);line-height:1.9;margin-bottom:24px">
+      <strong style="color:var(--text)">Formule :</strong><br>
+      Vitesse (€/s) = Déficit annuel ÷ secondes/an<br>
+      = 152 500 000 000 ÷ 31 536 000<br>
+      = <strong style="color:#fb923c">4 832 €/s</strong>
+    </div>
+    <div class="notice-box">
+      <strong>Note méthodologique :</strong> Le compteur mesure le déficit public, pas uniquement la dette. En réalité, la dette augmente un peu moins vite que le déficit brut (certaines recettes de privatisation ou opérations financières réduisent légèrement l'augmentation nette). Le compteur est donc une borne haute conservatrice, conforme aux pratiques des horloges de la dette comparables.
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="w-h2">Questions fréquentes</h2>
+    <div>
+      <div class="faq-item">
+        <div class="faq-q">Le widget est-il vraiment gratuit ? Y a-t-il des conditions d'utilisation ?</div>
+        <p class="faq-a">Oui, totalement gratuit, sans inscription, sans limite. Nous hébergeons le widget librement pour favoriser la diffusion de données économiques fiables au grand public. Une attribution (lien vers le-francais-moyen.com) est appréciée, mais pas obligatoire.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Comment intégrer ce widget sur WordPress ?</div>
+        <p class="faq-a">Dans l'éditeur Gutenberg, ajoutez un bloc "HTML personnalisé" et collez le code iframe. Dans l'éditeur classique, passez en mode HTML et collez le code. Compatible avec tous les thèmes, aucun plugin requis. Si votre hébergeur bloque les iframes tierces, contactez-nous.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Pourquoi Substack ne fonctionne pas avec l'iframe ?</div>
+        <p class="faq-a">Les clients email (Gmail, Outlook, Apple Mail) bloquent systématiquement les iframes pour des raisons de sécurité. Pour Substack, utilisez plutôt un lien vers /dette/ avec un texte accrocheur, ou intégrez le widget via la fonctionnalité "Embed" de Substack sur votre page web (pas dans le mail envoyé aux abonnés).</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Les données sont-elles à jour ?</div>
+        <p class="faq-a">Le point de départ est les données INSEE T4 2025, publiées le 27/03/2026 : dette = 3 460,5 Md€ (115,6 % du PIB). Le compteur en temps réel est calculé à partir du déficit 2025 (152,5 Md€). Les données sont mises à jour à chaque publication officielle de l'INSEE (environ tous les trimestres).</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Puis-je l'intégrer dans un cours de SES ou un exposé scolaire ?</div>
+        <p class="faq-a">Oui, c'est exactement un des usages prévus. Toutes les données sont issues de l'INSEE et d'Eurostat, citables dans un travail académique. La page /dette/ contient également un simulateur interactif et des graphiques historiques, utiles pour illustrer des cours sur la soutenabilité de la dette.</p>
+      </div>
+    </div>
+
+    <!-- CTA vers la page principale -->
+    <div style="background:rgba(251,146,60,.07);border:1.5px solid rgba(251,146,60,.3);border-radius:14px;padding:22px 26px;margin:40px 0 32px;text-align:center">
+      <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fb923c;margin-bottom:10px">📊 Page complète : compteur + simulateur + graphiques</div>
+      <div style="font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px">La dette publique française — toutes les données officielles</div>
+      <div style="font-size:.88rem;color:var(--muted);margin-bottom:16px">Compteur en direct · simulateur 2025-2035 · répartition des créanciers · comparatif européen</div>
+      <a href="/dette/" style="display:inline-block;background:#fb923c;color:#000;font-weight:800;font-size:.92rem;padding:11px 28px;border-radius:9px;text-decoration:none">Voir la page dette →</a>
+    </div>
+
+    <!-- Articles liés -->
+    <h2 class="w-h2">Pour aller plus loin</h2>
+    <div class="related-grid">
+      <a href="/questions/quelle-est-la-dette-de-la-france" class="related-card">
+        <div class="rc-tag">Dette 2025</div>
+        <div class="rc-title">Quelle est la dette de la France ? — 3 461 Md€</div>
+      </a>
+      <a href="/questions/combien-coutent-les-interets-de-la-dette" class="related-card">
+        <div class="rc-tag">Coût</div>
+        <div class="rc-title">Les intérêts : 64,7 Md€/an, 2e poste budgétaire</div>
+      </a>
+      <a href="/questions/pourquoi-la-dette-augmente" class="related-card">
+        <div class="rc-tag">Mécanisme</div>
+        <div class="rc-title">Pourquoi la dette augmente-t-elle chaque année ?</div>
+      </a>
+      <a href="/questions/dette-publique-depuis-1974" class="related-card">
+        <div class="rc-tag">Histoire</div>
+        <div class="rc-title">50 ans de dette : de 0 % à 115,6 % du PIB</div>
+      </a>
+    </div>
+
+    <div class="w-sources">
+      <strong>Sources :</strong> INSEE — Comptes nationaux T4 2025 (publication 27/03/2026) · Agence France Trésor — encours de la dette négociable · Eurostat — Government Finance Statistics · Calcul déficit/seconde basé sur 152,5 Md€ ÷ 31 536 000 s/an
+    </div>
+
+  </div>
+  </main>
+
+  <footer style="border-top:1px solid var(--border);padding:32px 24px;text-align:center;font-size:.8rem;color:var(--muted)">
+    <p>© 2026 Le Français Moyen — <a href="/a-propos/" style="color:var(--muted)">À propos &amp; méthode</a> · <a href="/questions/" style="color:var(--muted)">Toutes les questions</a></p>
+  </footer>
+
+  <script src="../assets/js/nav.js?v=5" defer></script>
+  <script>
+    function copyCode(id, btn) {
+      const el = document.getElementById(id);
+      const text = el.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✅ Copié !';
+        setTimeout(() => btn.innerHTML = '📋 Copier le code', 2000);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = '✅ Copié !';
+        setTimeout(() => btn.innerHTML = '📋 Copier le code', 2000);
+      });
+    }
+  </script>
+</body>
+</html>

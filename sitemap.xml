@@ -574,4 +574,25 @@
     <priority>0.60</priority>
   </url>
 
+  <url>
+    <loc>https://le-francais-moyen.com/widget-dette-publique-france/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/dette-france-italie-grece</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/questions/pourquoi-la-dette-augmente</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
 </urlset>
