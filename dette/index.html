@@ -501,6 +501,120 @@
         </div>
       </div>
 
+      <!-- ── Widget embarquable ──────────────────────────────────────────────────── -->
+      <div class="panel" style="padding:28px;margin-bottom:28px" id="widget-section">
+        <div class="eyebrow" style="margin-bottom:4px">Outil gratuit</div>
+        <h2 style="font-size:1.15rem;margin:0 0 6px">Intégrez ce compteur sur votre site</h2>
+        <p style="font-size:.86rem;color:var(--muted);margin:0 0 20px;line-height:1.6">Copiez le code ci-dessous et collez-le dans n'importe quelle page. Le compteur se met à jour en temps réel, sans JavaScript externe ni cookie. Libre d'utilisation avec attribution.</p>
+
+        <!-- Aperçu live -->
+        <div style="margin-bottom:20px">
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px">Aperçu en direct</div>
+          <div style="display:flex;justify-content:center">
+            <iframe
+              src="/dette/widget.html"
+              id="widgetPreview"
+              width="420" height="190"
+              frameborder="0"
+              scrolling="no"
+              title="Compteur dette France en direct — Le Français Moyen"
+              style="border-radius:12px;border:1px solid var(--border);background:#0d0d0d"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Sélecteur de taille -->
+        <div style="margin-bottom:14px">
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px">Taille</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onclick="setWidgetSize('compact')"  id="btn-compact"  style="padding:7px 16px;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.08);color:var(--text);transition:all .15s">Compact (320×160)</button>
+            <button onclick="setWidgetSize('standard')" id="btn-standard" style="padding:7px 16px;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:1px solid var(--accent);background:rgba(251,146,60,.1);color:var(--accent);transition:all .15s">Standard (420×190) ✓</button>
+            <button onclick="setWidgetSize('large')"    id="btn-large"    style="padding:7px 16px;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.08);color:var(--text);transition:all .15s">Large (560×210)</button>
+          </div>
+        </div>
+
+        <!-- Code à copier -->
+        <div>
+          <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px">Code HTML à copier</div>
+          <div style="position:relative">
+            <pre id="widgetCode" style="background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:.78rem;color:#a3e635;overflow-x:auto;white-space:pre-wrap;word-break:break-all;line-height:1.6;font-family:'Courier New',monospace">&lt;iframe
+  src="https://le-francais-moyen.com/dette/widget.html"
+  width="420" height="190"
+  frameborder="0" scrolling="no"
+  title="Compteur dette France en direct"
+  style="border-radius:10px"&gt;
+&lt;/iframe&gt;</pre>
+            <button onclick="copyWidgetCode()" id="copyBtn"
+              style="position:absolute;top:10px;right:10px;background:rgba(251,146,60,.15);border:1px solid rgba(251,146,60,.3);color:var(--accent);font-size:.75rem;font-weight:800;padding:5px 12px;border-radius:6px;cursor:pointer;transition:all .15s">
+              Copier
+            </button>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;font-size:.76rem;color:var(--muted);line-height:1.6">
+          💡 Fonctionne sur WordPress, Notion, Substack, Wix, Webflow et tout site acceptant les iframes.
+          Le compteur se met à jour toutes les 100 ms sans aucune dépendance externe.
+          <strong style="color:var(--text)">Seule contrainte : conserver le lien vers le-francais-moyen.com</strong> visible dans le widget.
+        </div>
+      </div>
+
+      <script>
+      var widgetSizes = {
+        compact:  {w:320, h:160},
+        standard: {w:420, h:190},
+        large:    {w:560, h:210}
+      };
+      var currentSize = 'standard';
+
+      function setWidgetSize(size) {
+        currentSize = size;
+        var s = widgetSizes[size];
+        var iframe = document.getElementById('widgetPreview');
+        iframe.width  = s.w;
+        iframe.height = s.h;
+        updateCode(s.w, s.h);
+        ['compact','standard','large'].forEach(function(k){
+          var btn = document.getElementById('btn-' + k);
+          if(k === size){
+            btn.style.borderColor = 'var(--accent)';
+            btn.style.background  = 'rgba(251,146,60,.1)';
+            btn.style.color       = 'var(--accent)';
+          } else {
+            btn.style.borderColor = 'var(--border)';
+            btn.style.background  = 'rgba(255,255,255,.08)';
+            btn.style.color       = 'var(--text)';
+          }
+        });
+      }
+
+      function updateCode(w, h) {
+        document.getElementById('widgetCode').textContent =
+          '<iframe\n' +
+          '  src="https://le-francais-moyen.com/dette/widget.html"\n' +
+          '  width="' + w + '" height="' + h + '"\n' +
+          '  frameborder="0" scrolling="no"\n' +
+          '  title="Compteur dette France en direct"\n' +
+          '  style="border-radius:10px">\n' +
+          '</iframe>';
+        var btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copier';
+        btn.style.background = 'rgba(251,146,60,.15)';
+        btn.style.color      = 'var(--accent)';
+      }
+
+      function copyWidgetCode() {
+        var code = document.getElementById('widgetCode').textContent;
+        navigator.clipboard && navigator.clipboard.writeText(code).then(function(){
+          var btn = document.getElementById('copyBtn');
+          btn.textContent = '✓ Copié !';
+          btn.style.background = 'rgba(52,211,153,.15)';
+          btn.style.color      = '#34d399';
+          setTimeout(function(){ btn.textContent='Copier'; btn.style.background='rgba(251,146,60,.15)'; btn.style.color='var(--accent)'; }, 2000);
+        });
+      }
+      </script>
+
       <div style="padding:20px 0 24px;border-top:1px solid var(--border)">
         <p style="font-size:.78rem;font-weight:800;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Questions associées</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap">

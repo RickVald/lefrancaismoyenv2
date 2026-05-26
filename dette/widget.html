@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Compteur dette France en direct — Le Français Moyen</title>
+  <meta name="robots" content="noindex,follow">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%;width:100%}
+    body{
+      background:#0d0d0d;
+      color:#f5f5f5;
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      padding:12px 14px;
+      text-align:center;
+      overflow:hidden;
+    }
+    .eyebrow{
+      font-size:.6rem;font-weight:800;text-transform:uppercase;
+      letter-spacing:.12em;color:#555;margin-bottom:6px;
+    }
+    .counter{
+      font-size:clamp(1.5rem,6vw,2.4rem);
+      font-weight:900;
+      letter-spacing:-.04em;
+      color:#ff9898;
+      font-variant-numeric:tabular-nums;
+      line-height:1;
+      margin-bottom:3px;
+    }
+    .unit{font-size:.62rem;color:#444;margin-bottom:10px}
+    .pills{
+      display:flex;gap:5px;justify-content:center;
+      flex-wrap:wrap;margin-bottom:10px;
+    }
+    .pill{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:7px;padding:4px 9px;
+    }
+    .pill .v{
+      font-size:.78rem;font-weight:900;
+      font-variant-numeric:tabular-nums;
+      display:block;line-height:1.2;
+    }
+    .pill .l{font-size:.58rem;color:#555;line-height:1.2}
+    .brand{
+      font-size:.62rem;color:#333;
+      text-decoration:none;
+      border:1px solid #1e1e1e;
+      border-radius:6px;
+      padding:4px 10px;
+      transition:all .15s;
+      display:inline-flex;align-items:center;gap:5px;
+    }
+    .brand:hover{color:#aaa;border-color:#444}
+    .brand .site{color:#fb923c;font-weight:700}
+    .since-row{font-size:.62rem;color:#444;margin-bottom:6px}
+    .since-row span{color:#f5f5f5;font-weight:700;font-variant-numeric:tabular-nums}
+  </style>
+</head>
+<body>
+  <div class="eyebrow">🇫🇷 dette publique française — en direct</div>
+  <div class="counter" id="wCounter">chargement…</div>
+  <div class="unit">euros</div>
+
+  <div class="pills">
+    <div class="pill">
+      <span class="v" id="wCapita">…</span>
+      <span class="l">par habitant</span>
+    </div>
+    <div class="pill">
+      <span class="v" style="color:#fb923c">+4 832 €/s</span>
+      <span class="l">rythme actuel</span>
+    </div>
+    <div class="pill">
+      <span class="v" style="color:#a78bfa">115,6 %</span>
+      <span class="l">du PIB</span>
+    </div>
+  </div>
+
+  <div class="since-row">depuis votre arrivée : <span id="wSince">0 €</span></div>
+
+  <a href="https://le-francais-moyen.com/dette/"
+     target="_blank" rel="noopener"
+     class="brand"
+     title="Compteur dette France en direct — Le Français Moyen">
+    Compteur complet sur <span class="site">le-francais-moyen.com</span> →
+  </a>
+
+  <script>
+  (function(){
+    var REF_DATE  = new Date('2026-01-01T00:00:00Z').getTime();
+    var REF_DEBT  = 3460500000000;
+    var RATE_SEC  = 152.5e9 / (365.25*24*3600); // ~4 832 €/s
+    var POPULATION = 68400000;
+    var pageOpen  = Date.now();
+
+    function fmt(n){
+      return Math.round(n).toLocaleString('fr-FR') + ' €';
+    }
+    function fmtSince(n){
+      if(n < 1e6)  return Math.round(n).toLocaleString('fr-FR') + ' €';
+      if(n < 1e9)  return (n/1e6).toLocaleString('fr-FR',{maximumFractionDigits:2}) + ' M€';
+      return (n/1e9).toLocaleString('fr-FR',{maximumFractionDigits:3}) + ' Md€';
+    }
+
+    function tick(){
+      var now   = Date.now();
+      var debt  = REF_DEBT + RATE_SEC * (now - REF_DATE) / 1000;
+      var since = RATE_SEC * (now - pageOpen) / 1000;
+
+      document.getElementById('wCounter').textContent = fmt(debt);
+      document.getElementById('wCapita').textContent  = fmt(Math.round(debt / POPULATION));
+      document.getElementById('wSince').textContent   = fmtSince(since);
+    }
+
+    setInterval(tick, 100);
+    tick();
+  })();
+  </script>
+</body>
+</html>
