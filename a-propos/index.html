@@ -294,6 +294,44 @@
         <p data-i18n="section6_p3">Le simulateur Élections est basé sur les programmes officiels des candidats et les analyses publiées par des instituts économiques reconnus (OFCE, CAE). Il est présenté à titre pédagogique pour visualiser les ordres de grandeur — pas pour prédire l'avenir.</p>
       </div>
 
+      <!-- Compteur dette — transparence calcul -->
+      <div class="about-section">
+        <h2><span class="icon">🔢</span> <span data-i18n="section_counter_h2">Méthode de calcul du compteur dette</span></h2>
+        <p data-i18n="section_counter_intro">Le compteur de dette publique affiché sur <a href="/dette/" style="color:#fb923c">le-francais-moyen.com/dette/</a> est un modèle de <strong>croissance linéaire en temps réel</strong>. Voici comment il est calculé :</p>
+        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem">
+          <thead><tr>
+            <th style="text-align:left;padding:8px 12px;background:rgba(255,255,255,.05);color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border)">Paramètre</th>
+            <th style="text-align:left;padding:8px 12px;background:rgba(255,255,255,.05);color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border)">Valeur</th>
+            <th style="text-align:left;padding:8px 12px;background:rgba(255,255,255,.05);color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border)">Source</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05)">Dette de référence</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);font-weight:700;color:#fb923c">3 460,5 Md€ au 1er janvier 2026</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted)">INSEE, dette Maastricht T4 2025</td></tr>
+            <tr><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05)">Rythme d'augmentation</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);font-weight:700;color:#fb923c">≈ 4 832 €/seconde</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted)">Déficit 2025 : 152,5 Md€ ÷ (365,25 × 24 × 3 600 s)</td></tr>
+            <tr><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05)">Charge d'intérêts</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);font-weight:700;color:#a78bfa">≈ 2 050 €/seconde</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted)">64,7 Md€ en 2025 (AFT/PLF 2026)</td></tr>
+            <tr><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05)">Population</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05)">68 400 000 hab.</td><td style="padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted)">INSEE, estimation 2025</td></tr>
+            <tr><td style="padding:8px 12px">Ratio PIB</td><td style="padding:8px 12px;font-weight:700">115,6 %</td><td style="padding:8px 12px;color:var(--muted)">INSEE, comptes nationaux T4 2025</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.7" data-i18n="section_counter_note"><strong style="color:var(--text)">Limites du modèle :</strong> le déficit n'est pas constant — il varie selon les mois (recettes fiscales saisonnières, dépenses). Le compteur est une <em>extrapolation linéaire</em> basée sur le déficit annuel officiel, pas une mesure en temps réel des flux de trésorerie de l'État. Son objectif est pédagogique : illustrer l'ordre de grandeur de l'endettement.</p>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.7;margin-top:8px" data-i18n="section_counter_update"><strong style="color:var(--text)">Fréquence de mise à jour :</strong> les constantes du compteur sont mises à jour à chaque publication officielle de l'INSEE (comptes trimestriels), environ 4 fois par an. Dernière mise à jour éditoriale : <strong style="color:var(--text)">26 mai 2026</strong> (données T4 2025, publiées le 27 mars 2026).</p>
+      </div>
+
+      <!-- Historique des corrections -->
+      <div class="about-section">
+        <h2><span class="icon">📋</span> <span data-i18n="section_corrections_h2">Historique des corrections</span></h2>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.7" data-i18n="section_corrections_intro">Nous croyons en la transparence éditoriale. Toute correction de donnée significative est consignée ici.</p>
+        <div style="border-left:2px solid var(--border);padding-left:16px;margin-top:12px">
+          <div style="margin-bottom:14px">
+            <div style="font-size:.78rem;color:#fb923c;font-weight:700;margin-bottom:2px">26 mai 2026</div>
+            <div style="font-size:.85rem;color:var(--text)">Mise à jour vers données INSEE T4 2025 : dette 3 460,5 Md€ (était 3 303 Md€), ratio PIB 115,6 % (était 112 %), rythme +4 832 €/s (était +5 500 €/s), intérêts 2025 : 64,7 Md€.</div>
+          </div>
+          <div style="margin-bottom:14px">
+            <div style="font-size:.78rem;color:var(--muted);font-weight:700;margin-bottom:2px">Mai 2026 — lancement v1</div>
+            <div style="font-size:.85rem;color:var(--text)">Première version publique du site avec données INSEE T3 2024.</div>
+          </div>
+        </div>
+      </div>
+
       <!-- Contact & Suivre -->
       <div class="about-section">
         <h2><span class="icon">📬</span> <span data-i18n="section7_h2">Suivre &amp; contacter</span></h2>
@@ -317,7 +355,7 @@
   </main>
 
   <footer style="text-align:center;padding:32px 24px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border)">
-    <p data-i18n="footer_copy">© 2025 Le Français Moyen — Données issues de sources officielles publiques · <a href="/a-propos/" style="color:var(--muted)">À propos</a> · <a href="/questions/" style="color:var(--muted)">Questions</a></p>
+    <p data-i18n="footer_copy">© 2026 Le Français Moyen — Données issues de sources officielles publiques · <a href="/a-propos/" style="color:var(--muted)">À propos</a> · <a href="/questions/" style="color:var(--muted)">Questions</a></p>
   </footer>
 
   <script>
@@ -406,7 +444,7 @@ fr:{
   section7_intro:'Les meilleures façons de suivre les mises à jour du site et de nous contacter :',
   btn_home:'Accueil',
   section7_outro:"Pour signaler une erreur de données, suggérer une nouvelle thématique ou nous contacter, le plus simple est de nous écrire sur X / Twitter.",
-  footer_copy:'© 2025 Le Français Moyen — Données issues de sources officielles publiques · <a href="/a-propos/" style="color:var(--muted)">À propos</a> · <a href="/questions/" style="color:var(--muted)">Questions</a>'
+  footer_copy:'© 2026 Le Français Moyen — Données issues de sources officielles publiques · <a href="/a-propos/" style="color:var(--muted)">À propos</a> · <a href="/questions/" style="color:var(--muted)">Questions</a>'
 },
 en:{
   nav_cta:'← Dashboard',
@@ -462,7 +500,7 @@ en:{
   section7_intro:'The best ways to follow site updates and get in touch:',
   btn_home:'Home',
   section7_outro:'To report a data error, suggest a new topic or contact us, the easiest way is to write to us on X / Twitter.',
-  footer_copy:'© 2025 Le Français Moyen — Data from official public sources · <a href="/a-propos/" style="color:var(--muted)">About</a> · <a href="/questions/" style="color:var(--muted)">Questions</a>'
+  footer_copy:'© 2026 Le Français Moyen — Data from official public sources · <a href="/a-propos/" style="color:var(--muted)">About</a> · <a href="/questions/" style="color:var(--muted)">Questions</a>'
 }
 };
 let lang=localStorage.getItem('lfm-lang')||'fr';
