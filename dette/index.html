@@ -648,13 +648,26 @@
       }
       </script>
 
+      <!-- ── Section dette par président ─────────────────────── -->
+      <div style="padding:32px 0 28px;border-top:1px solid var(--border)" id="section-presidents">
+        <h2 data-i18n="pres_h2" style="font-size:1.25rem;font-weight:900;color:var(--text);margin-bottom:6px">Dette par quinquennat — qui a le plus emprunté ?</h2>
+        <p data-i18n="pres_sub" style="font-size:.82rem;color:var(--muted);margin-bottom:20px">Variation de la dette publique (en Md€) sous chaque mandat présidentiel. Source : INSEE, Banque de France.</p>
+        <div id="presChart"></div>
+        <p data-i18n="pres_note" style="font-size:.75rem;color:var(--muted);margin-top:10px;line-height:1.6">
+          ⚠️ La hausse de la dette dépend du contexte économique (crises, guerres, récessions) autant que des choix politiques. Le mandat Sarkozy est gonflé par la crise financière de 2008 (+170 Md€), celui de Macron 1er par le Covid (+340 Md€ en 2020 seul).
+        </p>
+      </div>
+
       <div style="padding:20px 0 24px;border-top:1px solid var(--border)">
         <p style="font-size:.78rem;font-weight:800;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em">Questions associées</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           <a href="/questions/quelle-est-la-dette-de-la-france" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none">❓ Quelle est la dette de la France ?</a>
+          <a href="/questions/qui-detient-la-dette-francaise" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none">🌍 Qui détient la dette ?</a>
+          <a href="/questions/dette-france-par-habitant" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none">👤 Dette par habitant</a>
           <a href="/questions/quel-est-le-deficit-de-la-france" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none">📉 Quel est le déficit en 2025 ?</a>
           <a href="/questions/pourquoi-la-france-est-endettee" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none">🔎 Pourquoi la France est-elle endettée ?</a>
           <a href="/questions/la-france-peut-elle-faire-faillite" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none">⚠️ La France peut-elle faire faillite ?</a>
+          <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none">📚 Dette vs déficit</a>
         </div>
       </div>
 
@@ -849,6 +862,9 @@ fr:{
   fact2:'Chaque enfant qui naît en France hérite de <strong>50 600 € de dette publique</strong> à sa naissance.',
   fact3:'Si les taux remontaient à 4 %, la charge d\'intérêts doublerait à <strong data-mds="120">120 Md€</strong>/an, soit 10 % des recettes fiscales.',
   fact4:'Au rythme actuel des déficits, la dette atteindrait <strong>130 % du PIB en 2032</strong>.',
+  pres_h2:'Dette par quinquennat — qui a le plus emprunté ?',
+  pres_sub:'Variation de la dette publique (en Md€) sous chaque mandat présidentiel. Source : INSEE, Banque de France.',
+  pres_note:'⚠️ La hausse de la dette dépend du contexte économique (crises, guerres, récessions) autant que des choix politiques. Le mandat Sarkozy est gonflé par la crise financière de 2008, celui de Macron 1er par le Covid (+340 Md€ en 2020 seul).',
   share_label:'Partagez ce compteur',
   share_twitter:'𝕏 Partager',
   share_copy:'Copier le lien',
@@ -888,6 +904,9 @@ en:{
   fact2:'Every child born in France inherits <strong>€50,600 of public debt</strong> at birth.',
   fact3:'If rates rose to 4%, interest costs would double to <strong data-mds="120">€120bn</strong>/year — 10% of tax revenues.',
   fact4:'At the current rate of deficits, debt would reach <strong>130% of GDP by 2032</strong>.',
+  pres_h2:'Debt by presidential term — who borrowed the most?',
+  pres_sub:'Change in public debt (in €bn) under each presidential term. Source: INSEE, Banque de France.',
+  pres_note:'⚠️ Debt growth depends on economic context (crises, recessions) as much as political choices. Sarkozy\'s term is inflated by the 2008 financial crisis, Macron\'s first term by Covid (+€340bn in 2020 alone).',
   share_label:'Share this counter',
   share_twitter:'𝕏 Share',
   share_copy:'Copy link',
@@ -917,6 +936,35 @@ function setLang(l){
 }
 setLang(lang);
 window.setLang=setLang;
+})();
+</script>
+
+<script>
+/* ── Graphique dette par président ──────────────────────────── */
+(function(){
+  var PRES = [
+    {name:'Giscard', period:'1974–1981', delta:55,  note:'Premiers déficits structurels',  color:'#60a5fa'},
+    {name:'Mitterrand', period:'1981–1995', delta:540, note:'Nationalisations, État social',  color:'#a78bfa'},
+    {name:'Chirac', period:'1995–2007', delta:480, note:'Réformes avortées, 35h',           color:'#60a5fa'},
+    {name:'Sarkozy', period:'2007–2012', delta:640, note:'Crise 2008 + plan de relance',     color:'#60a5fa'},
+    {name:'Hollande', period:'2012–2017', delta:450, note:'Croissance faible, chômage élevé',color:'#a78bfa'},
+    {name:'Macron I',  period:'2017–2022', delta:700, note:'Covid : +340 Md€ en 2020 seul',  color:'#fb923c'},
+    {name:'Macron II', period:'2022–2025', delta:511, note:'Inflation, déficit persistant',   color:'#fb923c'}
+  ];
+  var el = document.getElementById('presChart');
+  if(!el) return;
+  var maxD = Math.max.apply(null, PRES.map(function(p){return p.delta;}));
+  el.innerHTML = PRES.map(function(p){
+    var w = Math.round((p.delta / maxD) * 88);
+    return '<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:.85rem">'
+      + '<div style="width:90px;flex-shrink:0;text-align:right;color:var(--text);font-weight:700;font-size:.8rem">' + p.name + '<br><span style="font-size:.7rem;color:var(--muted);font-weight:400">' + p.period + '</span></div>'
+      + '<div style="flex:1;background:rgba(255,255,255,.06);border-radius:4px;height:26px;overflow:hidden">'
+      + '<div style="width:' + w + '%;height:100%;background:' + p.color + ';border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:.74rem;font-weight:700;color:#fff;white-space:nowrap">'
+      + '+' + p.delta.toLocaleString('fr-FR') + ' Md€'
+      + '</div></div>'
+      + '<div style="width:180px;flex-shrink:0;font-size:.7rem;color:var(--muted);line-height:1.3">' + p.note + '</div>'
+      + '</div>';
+  }).join('') + '<div style="font-size:.72rem;color:var(--muted);margin-top:4px">Source : INSEE — Comptes nationaux, dette Maastricht. Variations en Md€ courants.</div>';
 })();
 </script>
 </body>
