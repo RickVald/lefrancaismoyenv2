@@ -1,5 +1,11 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 Disallow: /partager/
+Disallow: /drafts/
+Disallow: /docs/
+Disallow: /assets/cards/
 Disallow: /assets/img/generate-assets.html
+Disallow: /scripts/
+Disallow: /outils/calculateur-player.html
+Disallow: /outils/calculateur-preview-card.html
 Sitemap: https://le-francais-moyen.com/sitemap.xml
