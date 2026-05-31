@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pouvoir d'achat réel par pays : ce que le salaire médian permet vraiment d'acheter</title>
+  <meta name="description" content="Bières, restos, logement, voiture, essence : combien peut s'offrir un salarié médian en France, Allemagne, USA, Chine, Japon, Russie... ? La comparaison qui contredit le PIB par habitant.">
+  <link rel="canonical" href="https://le-francais-moyen.com/questions/pouvoir-dachat-reel-comparaison-internationale">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/questions/pouvoir-dachat-reel-comparaison-internationale">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/questions/pouvoir-dachat-reel-comparaison-internationale">
+  <meta property="og:title" content="Pouvoir d'achat réel par pays : la comparaison qui contredit le PIB">
+  <meta property="og:description" content="Un Chinois peut s'offrir 2× plus de restos qu'un Français. Un Américain paie son essence 2× moins cher. Le classement par pouvoir d'achat quotidien réel dans 12 pays.">
+  <meta property="og:url" content="https://le-francais-moyen.com/questions/pouvoir-dachat-reel-comparaison-internationale">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=22">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Pouvoir d'achat réel par pays : ce que le salaire médian permet vraiment d'acheter","description":"Comparaison du pouvoir d'achat quotidien dans 12 pays : bières, restaurants, logement, voiture, essence. Le salaire médian local converti en volume de biens concrets.","datePublished":"2026-05-31","dateModified":"2026-05-31","author":{"@type":"Organization","name":"Le Français Moyen","url":"https://le-francais-moyen.com"},"publisher":{"@type":"Organization","name":"Le Français Moyen","logo":{"@type":"ImageObject","url":"https://le-francais-moyen.com/assets/img/og-image.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://le-francais-moyen.com/questions/pouvoir-dachat-reel-comparaison-internationale"},"inLanguage":"fr-FR"}
+  </script>
+  <style>
+    .q-hero{padding:52px 24px 36px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(167,139,250,.09) 0%,transparent 60%)}
+    .q-container{max-width:820px;margin:0 auto;padding:0 24px 60px}
+    .q-section{margin-bottom:48px}
+    .q-section h2{font-size:1.25rem;font-weight:800;margin-bottom:16px;color:var(--text)}
+    .q-section p{color:var(--muted);line-height:1.85;font-size:.97rem;margin-bottom:12px}
+    .q-section strong{color:var(--text)}
+    .category-selector{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+    .cat-btn{padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
+    .cat-btn.active,.cat-btn:hover{background:rgba(167,139,250,.15);border-color:#a78bfa;color:#a78bfa}
+    .cat-section{display:none}
+    .cat-section.active{display:block}
+    .bar-row{display:grid;grid-template-columns:140px 1fr 90px;align-items:center;gap:12px;margin-bottom:10px}
+    .bar-country{font-size:.88rem;color:var(--text);font-weight:600;white-space:nowrap}
+    .bar-wrap{height:28px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:4px;transition:width .4s ease}
+    .bar-val{font-size:.9rem;font-weight:700;color:var(--text);text-align:right}
+    .insight-box{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.25);border-radius:14px;padding:18px 22px;margin:24px 0}
+    .insight-box .ib-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#a78bfa;margin-bottom:8px}
+    .insight-box p{color:var(--muted);font-size:.93rem;line-height:1.65;margin:0}
+    .insight-box strong{color:var(--text)}
+    .kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin:24px 0}
+    .kpi-card{flex:1;min-width:150px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:16px 18px;text-align:center}
+    .kpi-val{font-size:1.5rem;font-weight:900;color:var(--text)}
+    .kpi-sub{font-size:.75rem;color:var(--muted);margin-top:4px;line-height:1.4}
+    .method-note{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 20px;font-size:.82rem;color:var(--muted);line-height:1.7;margin-top:36px}
+    .method-note strong{color:var(--text);display:block;margin-bottom:6px}
+    .related h3{font-size:.78rem;font-weight:800;margin-bottom:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+    .related-links{display:flex;flex-wrap:wrap;gap:10px}
+    .related-link{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--muted);font-size:.88rem;transition:all .15s}
+    .related-link:hover{border-color:#555;color:var(--text)}
+    .faq-q{font-size:.97rem;font-weight:700;color:var(--text);margin-bottom:8px}
+    .faq-a{color:var(--muted);font-size:.92rem;line-height:1.7;margin-bottom:24px}
+    @media(max-width:560px){.bar-row{grid-template-columns:110px 1fr 70px}.bar-country{font-size:.8rem}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+    <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="dette" aria-haspopup="true">&#x1F4B0; Dette publique <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/dette/">&#x23F1;&#xFE0F; Compteur en direct</a></li>
+              <li><a href="/questions/quel-est-le-deficit-de-la-france.html">&#x1F4C9; D&#xE9;ficit</a></li>
+              <li><a href="/questions/combien-coutent-les-interets-de-la-dette.html">&#x1F4B8; Int&#xE9;r&#xEA;ts de la dette</a></li>
+              <li><a href="/questions/dette-france-par-habitant.html">&#x1F464; Dette par habitant</a></li>
+              <li><a href="/questions/qui-detient-la-dette-francaise.html">&#x1F3E6; Qui d&#xE9;tient la dette</a></li>
+              <li><a href="/questions/dette-france-italie-grece.html">&#x1F30D; Comparaisons Europe</a></li>
+              <li><a href="/widget-dette-publique-france/">&#x1F4F1; Widget gratuit</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li class="drop-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</li>
+              <li><a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a></li>
+              <li><a href="/csg/">&#x1F4B6; CSG</a></li>
+              <li><a href="/tva/">&#x1F9FE; TVA</a></li>
+              <li><a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a></li>
+              <li><a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</li>
+              <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+              <li><a href="/normes/">&#x1F4DC; Millefeuille r&#xE9;glementaire</a></li>
+              <li><a href="/demographie/">&#x1F465; D&#xE9;mographie</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x1F465; Social</li>
+              <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+              <li><a href="/sante/">&#x1F3E5; Sant&#xE9;</a></li>
+              <li><a href="/education/">&#x1F4DA; &#xC9;ducation</a></li>
+              <li><a href="/logement/">&#x1F3E0; Logement</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x26A1; &#xC9;conomie</li>
+              <li><a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a></li>
+              <li><a href="/autoroutes/">&#x1F6E3;&#xFE0F; Autoroutes</a></li>
+              <li><a href="/ronds-points/">&#x1F535; Indice Rond-Point</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">&#xC9;lections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+      <li><a href="/a-propos/">&#xC0; propos</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">&#x1F3E0; Tableau de bord</a>
+    <div class="nav-mobile-group-label">&#x1F4B0; Dette publique</div>
+    <a href="/dette/">&#x23F1;&#xFE0F; Compteur en direct</a>
+    <a href="/questions/quel-est-le-deficit-de-la-france.html">&#x1F4C9; D&#xE9;ficit</a>
+    <a href="/questions/combien-coutent-les-interets-de-la-dette.html">&#x1F4B8; Int&#xE9;r&#xEA;ts</a>
+    <a href="/questions/dette-france-par-habitant.html">&#x1F464; Dette par habitant</a>
+    <a href="/questions/qui-detient-la-dette-francaise.html">&#x1F3E6; Qui d&#xE9;tient la dette</a>
+    <a href="/questions/dette-france-italie-grece.html">&#x1F30D; Comparaisons Europe</a>
+    <a href="/widget-dette-publique-france/">&#x1F4F1; Widget gratuit</a>
+    <div class="nav-mobile-group-label">&#x1F4CA; Autres analyses</div>
+    <div class="nav-mobile-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</div>
+    <a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a>
+    <a href="/csg/">&#x1F4B6; CSG</a>
+    <a href="/tva/">&#x1F9FE; TVA</a>
+    <a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a>
+    <a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a>
+    <div class="nav-mobile-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</div>
+    <a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a>
+    <a href="/normes/">&#x1F4DC; Normes</a>
+    <a href="/demographie/">&#x1F465; D&#xE9;mographie</a>
+    <div class="nav-mobile-group-label">&#x1F465; Social</div>
+    <a href="/retraites/">&#x1F474; Retraites</a>
+    <a href="/sante/">&#x1F3E5; Sant&#xE9;</a>
+    <a href="/education/">&#x1F4DA; &#xC9;ducation</a>
+    <a href="/logement/">&#x1F3E0; Logement</a>
+    <div class="nav-mobile-group-label">&#x26A1; &#xC9;conomie</div>
+    <a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a>
+    <a href="/autoroutes/">&#x1F6E3;&#xFE0F; Autoroutes</a>
+    <a href="/ronds-points/">&#x1F535; Rond-Point</a>
+    <a href="/outils/">&#x1F9F0; Outils</a>
+    <a href="/elections/">&#x1F5F3;&#xFE0F; &#xC9;lections</a>
+    <a href="/questions/">&#x2753; Questions</a>
+    <a href="/a-propos/">&#xC0; propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">&#x1F4E7; Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <div class="q-hero">
+      <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#a78bfa;margin-bottom:12px">💰 Pouvoir d'achat · Comparaison internationale · 2025</div>
+      <nav aria-label="Fil d'Ariane" style="margin-bottom:16px;font-size:.82rem;color:var(--muted)">
+        <a href="/" style="color:var(--muted);text-decoration:none">Accueil</a> › <a href="/questions/" style="color:var(--muted);text-decoration:none">Questions</a> › Pouvoir d'achat réel par pays
+      </nav>
+      <h1 style="font-size:clamp(1.5rem,4vw,2.3rem);font-weight:900;margin:0 auto 16px;max-width:700px;line-height:1.2">Pouvoir d'achat réel par pays :<br>ce que le salaire médian permet vraiment d'acheter</h1>
+      <p style="color:var(--muted);font-size:1rem;max-width:580px;margin:0 auto;line-height:1.7">Le PIB par habitant dit que le Français est 2,6× plus riche qu'un Chinois. La réalité : avec son salaire, un Chinois mange au restaurant <strong style="color:#a78bfa">2× plus souvent</strong>. Ce comparatif traduit les salaires en volume de biens concrets.</p>
+    </div>
+
+    <div class="q-container">
+
+      <div class="kpi-row">
+        <div class="kpi-card"><div class="kpi-val">12</div><div class="kpi-sub">pays comparés</div></div>
+        <div class="kpi-card"><div class="kpi-val">8</div><div class="kpi-sub">catégories du quotidien</div></div>
+        <div class="kpi-card"><div class="kpi-val">Numbeo</div><div class="kpi-sub">source prix locaux 2025</div></div>
+        <div class="kpi-card"><div class="kpi-val">OCDE</div><div class="kpi-sub">source salaires médians</div></div>
+      </div>
+
+      <div class="insight-box">
+        <div class="ib-label">💡 Le paradoxe du PIB par habitant</div>
+        <p>Le PIB par habitant en parité de pouvoir d'achat (PPA) est l'indicateur standard de richesse. Il place la France à <strong>~46 000 $ PPA</strong> contre <strong>~17 000 $ PPA</strong> pour la Chine. Pourtant, ce ratio ne mesure pas ce que le <em>salarié médian</em> peut s'offrir au quotidien dans son pays. Les prix locaux, les taxes et la structure des coûts de la vie changent complètement la donne — surtout pour les services (restauration, logement).</p>
+      </div>
+
+      <div class="q-section">
+        <h2>Sélectionnez une catégorie</h2>
+        <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px">Nombre d'unités qu'un salarié médian peut théoriquement acheter avec son salaire mensuel net entier. Cliquez sur une catégorie pour voir le classement.</p>
+
+        <div class="category-selector">
+          <button class="cat-btn active" onclick="showCat('beerS')">🍺 Bière supermarché</button>
+          <button class="cat-btn" onclick="showCat('beerB')">🍺 Bière au bar</button>
+          <button class="cat-btn" onclick="showCat('rest')">🍽️ Repas restaurant</button>
+          <button class="cat-btn" onclick="showCat('cof')">☕ Café au bar</button>
+          <button class="cat-btn" onclick="showCat('rent')">🏠 m² de logement</button>
+          <button class="cat-btn" onclick="showCat('fuel')">⛽ Litres d'essence</button>
+          <button class="cat-btn" onclick="showCat('car')">🚗 Mois pour une voiture</button>
+          <button class="cat-btn" onclick="showCat('phone')">📱 Mois pour un iPhone</button>
+        </div>
+
+        <!-- BEER SUPERMARKET -->
+        <div class="cat-section active" id="cat-beerS">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Bière 50cl au supermarché. Nombre d'unités achetables avec le salaire mensuel net entier.</p>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#60a5fa"></div></div>
+    <div class="bar-val">3 133 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:89%;background:#60a5fa"></div></div>
+    <div class="bar-val">2 800 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:74%;background:#60a5fa"></div></div>
+    <div class="bar-val">2 333 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#60a5fa"></div></div>
+    <div class="bar-val">1 867 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:57%;background:#60a5fa"></div></div>
+    <div class="bar-val">1 778 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:53%;background:#f87171"></div></div>
+    <div class="bar-val">1 667 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:53%;background:#60a5fa"></div></div>
+    <div class="bar-val">1 667 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:49%;background:#60a5fa"></div></div>
+    <div class="bar-val">1 550 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:46%;background:#60a5fa"></div></div>
+    <div class="bar-val">1 429 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:45%;background:#60a5fa"></div></div>
+    <div class="bar-val">1 400 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:25%;background:#60a5fa"></div></div>
+    <div class="bar-val">778 bières</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:25%;background:#60a5fa"></div></div>
+    <div class="bar-val">778 bières</div>
+  </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 Enseignement clé</div>
+            <p>L'Allemagne est le paradis de la bière bon marché : <strong>3 133 bières par mois</strong> pour un salarié médian, contre 1 667 en France. La Russie ferme la marche malgré un salaire certes plus bas — mais le prix de la bière en supermarché y est aussi plus élevé proportionnellement.</p>
+          </div>
+        </div>
+
+        <!-- BEER BAR -->
+        <div class="cat-section" id="cat-beerB">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Bière pression 50cl au bar/café. Nombre de verres achetables avec le salaire mensuel net entier.</p>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#34d399"></div></div>
+    <div class="bar-val">603 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:84%;background:#34d399"></div></div>
+    <div class="bar-val">509 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:77%;background:#34d399"></div></div>
+    <div class="bar-val">467 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:71%;background:#34d399"></div></div>
+    <div class="bar-val">429 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:66%;background:#34d399"></div></div>
+    <div class="bar-val">400 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:66%;background:#34d399"></div></div>
+    <div class="bar-val">400 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#f87171"></div></div>
+    <div class="bar-val">364 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:59%;background:#34d399"></div></div>
+    <div class="bar-val">357 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:57%;background:#34d399"></div></div>
+    <div class="bar-val">344 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:52%;background:#34d399"></div></div>
+    <div class="bar-val">311 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:41%;background:#34d399"></div></div>
+    <div class="bar-val">250 verres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:39%;background:#34d399"></div></div>
+    <div class="bar-val">233 verres</div>
+  </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 Enseignement clé</div>
+            <p>La Suède, malgré un bon salaire, est pénalisée par des prix de bar parmi les plus élevés au monde (taxes sur l'alcool). Un Suédois peut s'offrir <strong>311 verres/mois</strong> contre 603 pour un Allemand. La Chine et la Russie sont bien placées : les bars locaux bon marché compensent les salaires plus bas.</p>
+          </div>
+        </div>
+
+        <!-- RESTAURANT -->
+        <div class="cat-section" id="cat-rest">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Repas au restaurant — plat principal + boisson dans un établissement standard (non gastronomique). Nombre de repas achetables avec le salaire mensuel net entier.</p>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#fb923c"></div></div>
+    <div class="bar-val">280 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:71%;background:#fb923c"></div></div>
+    <div class="bar-val">200 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:67%;background:#fb923c"></div></div>
+    <div class="bar-val">187 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:67%;background:#fb923c"></div></div>
+    <div class="bar-val">187 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:63%;background:#fb923c"></div></div>
+    <div class="bar-val">175 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:60%;background:#fb923c"></div></div>
+    <div class="bar-val">168 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:51%;background:#fb923c"></div></div>
+    <div class="bar-val">143 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:49%;background:#fb923c"></div></div>
+    <div class="bar-val">136 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:43%;background:#fb923c"></div></div>
+    <div class="bar-val">119 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:42%;background:#f87171"></div></div>
+    <div class="bar-val">118 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:36%;background:#fb923c"></div></div>
+    <div class="bar-val">100 repas</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:31%;background:#fb923c"></div></div>
+    <div class="bar-val">88 repas</div>
+  </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 L'enseignement qui contredit tout</div>
+            <p>C'est ici que la réalité contredit le plus violemment le PIB par habitant. <strong>Un Chinois peut s'offrir 200 repas au restaurant par mois</strong>, contre 118 pour un Français. Le Japon fait encore mieux grâce à ses restaurants abordables. La restauration est un service local dont le prix est très faible dans les économies à bas salaires — ce que le PIB PPA ne capture pas correctement pour les individus médians.</p>
+          </div>
+        </div>
+
+        <!-- COFFEE -->
+        <div class="cat-section" id="cat-cof">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Café espresso ou équivalent au café/bar. Nombre de tasses achetables avec le salaire mensuel net entier.</p>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#fbbf24"></div></div>
+    <div class="bar-val">1 292 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:77%;background:#fbbf24"></div></div>
+    <div class="bar-val">1 000 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:62%;background:#f87171"></div></div>
+    <div class="bar-val">800 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:62%;background:#fbbf24"></div></div>
+    <div class="bar-val">800 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:57%;background:#fbbf24"></div></div>
+    <div class="bar-val">737 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:57%;background:#fbbf24"></div></div>
+    <div class="bar-val">734 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:54%;background:#fbbf24"></div></div>
+    <div class="bar-val">700 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:43%;background:#fbbf24"></div></div>
+    <div class="bar-val">560 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:41%;background:#fbbf24"></div></div>
+    <div class="bar-val">533 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:39%;background:#fbbf24"></div></div>
+    <div class="bar-val">500 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:34%;background:#fbbf24"></div></div>
+    <div class="bar-val">438 cafés</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:27%;background:#fbbf24"></div></div>
+    <div class="bar-val">350 cafés</div>
+  </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 Enseignement clé</div>
+            <p>L'Italie est imbattable : un espresso à <strong>1,20 € au bar</strong> et un salaire médian de 1 550 € donnent 1 292 cafés par mois — soit 43 cafés par jour. C'est pourquoi la culture du café au comptoir est si ancrée en Italie : ce n'est pas seulement une tradition, c'est économiquement accessible.</p>
+          </div>
+        </div>
+
+        <!-- HOUSING -->
+        <div class="cat-section" id="cat-rent">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Surface en m² qu'on pourrait louer si l'on consacrait <em>l'intégralité</em> de son salaire au loyer. Basé sur le loyer moyen par m² dans les grandes villes hors hypercentre.</p>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#818cf8"></div></div>
+    <div class="bar-val">187 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:81%;background:#818cf8"></div></div>
+    <div class="bar-val">152 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:78%;background:#818cf8"></div></div>
+    <div class="bar-val">146 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:76%;background:#f87171"></div></div>
+    <div class="bar-val">143 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:68%;background:#818cf8"></div></div>
+    <div class="bar-val">127 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:61%;background:#818cf8"></div></div>
+    <div class="bar-val">115 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:61%;background:#818cf8"></div></div>
+    <div class="bar-val">115 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:53%;background:#818cf8"></div></div>
+    <div class="bar-val">100 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:53%;background:#818cf8"></div></div>
+    <div class="bar-val">100 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:53%;background:#818cf8"></div></div>
+    <div class="bar-val">100 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:44%;background:#818cf8"></div></div>
+    <div class="bar-val">83 m²</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:34%;background:#818cf8"></div></div>
+    <div class="bar-val">64 m²</div>
+  </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 Enseignement clé</div>
+            <p>La Suède et l'Allemagne dominent — non pas parce que les loyers y sont bas, mais parce que les salaires sont élevés. La France est dans la moyenne. Le Royaume-Uni est pénalisé par les loyers très élevés hors Londres. Note : ces chiffres varient énormément selon les villes — Paris ou Londres sont bien pires que la moyenne nationale.</p>
+          </div>
+        </div>
+
+        <!-- FUEL -->
+        <div class="cat-section" id="cat-fuel">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Litres d'essence SP95 ou équivalent achetables avec le salaire mensuel net entier.</p>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#34d399"></div></div>
+    <div class="bar-val">3 804 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:47%;background:#34d399"></div></div>
+    <div class="bar-val">1 806 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:43%;background:#34d399"></div></div>
+    <div class="bar-val">1 647 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:37%;background:#34d399"></div></div>
+    <div class="bar-val">1 400 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:34%;background:#34d399"></div></div>
+    <div class="bar-val">1 306 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:33%;background:#34d399"></div></div>
+    <div class="bar-val">1 273 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:30%;background:#f87171"></div></div>
+    <div class="bar-val">1 143 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:27%;background:#34d399"></div></div>
+    <div class="bar-val">1 026 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:23%;background:#34d399"></div></div>
+    <div class="bar-val">886 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:23%;background:#34d399"></div></div>
+    <div class="bar-val">882 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:20%;background:#34d399"></div></div>
+    <div class="bar-val">769 litres</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:16%;background:#34d399"></div></div>
+    <div class="bar-val">593 litres</div>
+  </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 L'exception américaine</div>
+            <p>Les États-Unis sont hors catégorie : avec <strong>3 804 litres par mois</strong>, un Américain médian peut acheter 3,3× plus d'essence qu'un Français. L'essence y coûte environ 0,92 $/L contre 1,75 €/L en France — une différence due aux taxes très faibles et à la structure fiscale américaine. C'est l'une des raisons structurelles de la dépendance à la voiture aux USA.</p>
+          </div>
+        </div>
+
+        <!-- CAR -->
+        <div class="cat-section" id="cat-car">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Nombre de mois de salaire nécessaires pour acheter une voiture d'entrée de gamme neuve (Dacia Logan ou équivalent local le moins cher). Moins c'est bas, plus c'est avantageux.</p>
+          <div style="margin:16px 0">
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:48%;background:#60a5fa"></div></div>
+    <div class="bar-val">5.7 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:53%;background:#60a5fa"></div></div>
+    <div class="bar-val">6.4 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:58%;background:#f87171"></div></div>
+    <div class="bar-val">7.0 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:59%;background:#60a5fa"></div></div>
+    <div class="bar-val">7.1 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:59%;background:#60a5fa"></div></div>
+    <div class="bar-val">7.1 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:66%;background:#60a5fa"></div></div>
+    <div class="bar-val">7.9 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:75%;background:#60a5fa"></div></div>
+    <div class="bar-val">9.0 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:75%;background:#60a5fa"></div></div>
+    <div class="bar-val">9.0 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:83%;background:#60a5fa"></div></div>
+    <div class="bar-val">10.0 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:92%;background:#60a5fa"></div></div>
+    <div class="bar-val">11.0 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:95%;background:#60a5fa"></div></div>
+    <div class="bar-val">11.4 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#60a5fa"></div></div>
+    <div class="bar-val">21.4 mois</div>
+  </div>
+          </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 Enseignement clé</div>
+            <p>Le Royaume-Uni offre le meilleur ratio : une Dacia Logan (~£12 000) représente seulement 4,3 mois de salaire médian. La France est dans la moyenne européenne (~7 mois). La Russie et la Pologne sont pénalisées par des voitures relativement chères par rapport aux salaires locaux.</p>
+          </div>
+        </div>
+
+        <!-- IPHONE -->
+        <div class="cat-section" id="cat-phone">
+          <p style="font-size:.85rem;color:var(--muted);margin-bottom:16px">Nombre de mois de salaire nécessaires pour acheter un iPhone 16 base (prix local officiel Apple). Moins c'est bas, plus c'est avantageux.</p>
+          <div style="margin:16px 0">
+          <div class="bar-row">
+    <div class="bar-country">🇬🇧 Royaume-Uni</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:6%;background:#a78bfa"></div></div>
+    <div class="bar-val">0.3 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇺🇸 États-Unis</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:6%;background:#a78bfa"></div></div>
+    <div class="bar-val">0.3 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇫🇷 France</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:10%;background:#f87171"></div></div>
+    <div class="bar-val">0.5 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇩🇪 Allemagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:10%;background:#a78bfa"></div></div>
+    <div class="bar-val">0.5 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇸🇪 Suède</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:10%;background:#a78bfa"></div></div>
+    <div class="bar-val">0.5 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇯🇵 Japon</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:12%;background:#a78bfa"></div></div>
+    <div class="bar-val">0.6 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇮🇹 Italie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:14%;background:#a78bfa"></div></div>
+    <div class="bar-val">0.7 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇪🇸 Espagne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:14%;background:#a78bfa"></div></div>
+    <div class="bar-val">0.7 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇨🇳 Chine</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:20%;background:#a78bfa"></div></div>
+    <div class="bar-val">1.0 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇵🇱 Pologne</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:22%;background:#a78bfa"></div></div>
+    <div class="bar-val">1.1 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇷🇺 Russie</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:28%;background:#a78bfa"></div></div>
+    <div class="bar-val">1.4 mois</div>
+  </div>
+          <div class="bar-row">
+    <div class="bar-country">🇧🇷 Brésil</div>
+    <div class="bar-wrap"><div class="bar-fill" style="width:52%;background:#a78bfa"></div></div>
+    <div class="bar-val">2.6 mois</div>
+  </div>
+          </div>
+          <div class="insight-box" style="margin-top:20px">
+            <div class="ib-label">📊 Enseignement clé</div>
+            <p>L'iPhone est un bien mondial à prix quasi standardisé, mais son coût relatif varie énormément. Pour un Brésilien ou un Russe médian, un iPhone représente <strong>2,5 à 3 mois de salaire</strong> — contre 0,5 mois pour un Américain. Ce contraste illustre pourquoi les smartphones Android dominent dans les pays émergents : ce n'est pas un choix de préférence, c'est une contrainte de pouvoir d'achat.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <h2>Le tableau complet : tous les pays, toutes les catégories</h2>
+        <p>Voici le récapitulatif avec toutes les données. Unités par mois (sauf voiture et iPhone en mois de salaire).</p>
+        <div style="overflow-x:auto;margin-top:16px">
+          <table style="width:100%;border-collapse:collapse;font-size:.83rem">
+            <thead>
+              <tr style="background:rgba(255,255,255,.05)">
+                <th style="padding:10px 12px;text-align:left;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">Pays</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">🍺 Supra</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">🍺 Bar</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">🍽️ Resto</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">☕ Café</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">🏠 m²</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">⛽ L</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">🚗 mois</th>
+                <th style="padding:10px 8px;text-align:center;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border)">📱 mois</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:rgba(248,113,113,.06);border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇫🇷 France</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 667</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">364</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">118</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">800</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">143</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 143</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">7.0</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.5</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇩🇪 Allemagne</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">3 133</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">603</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">168</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">734</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">152</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 306</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">6.4</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.5</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇮🇹 Italie</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 550</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">344</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">119</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 292</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">115</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">886</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">9.0</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.7</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇪🇸 Espagne</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 667</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">429</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">136</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 000</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">115</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">882</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">9.0</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.7</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇬🇧 Royaume-Uni</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">2 800</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">509</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">187</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">800</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">127</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 806</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">5.7</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.3</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇺🇸 États-Unis</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">2 333</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">467</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">175</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">700</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">146</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">3 804</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">7.1</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.3</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇯🇵 Japon</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 400</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">400</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">280</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">737</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">100</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 647</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">7.9</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.6</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇨🇳 Chine</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 778</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">400</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">200</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">533</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">100</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 026</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">10.0</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1.0</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇷🇺 Russie</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">778</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">250</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">100</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">350</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">64</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 273</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">11.4</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1.4</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇵🇱 Pologne</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 429</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">357</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">143</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">500</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">83</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">769</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">11.0</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1.1</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇸🇪 Suède</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 867</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">311</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">187</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">560</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">187</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">1 400</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">7.1</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">0.5</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.04)">
+                <td style="padding:9px 12px;font-weight:600;color:var(--text)">🇧🇷 Brésil</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">778</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">233</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">88</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">438</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">100</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">593</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">21.4</td>
+                <td style="padding:9px 8px;text-align:center;color:var(--muted)">2.6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <h2>Ce que ces chiffres nous enseignent vraiment</h2>
+        <p>Le PIB par habitant en PPA mesure la production économique totale ramenée à la population. C'est un indicateur macroéconomique utile pour comparer des économies, mais il ne dit rien sur ce que le citoyen médian peut se permettre au quotidien.</p>
+        <p>Les services — restauration, coiffure, transports locaux — ont des prix qui suivent les salaires locaux. Un restaurant chinois emploie un cuisinier chinois payé au salaire médian chinois : son prix sera mécaniquement 3 à 4 fois inférieur à un restaurant français. Le Chinois médian en bénéficie directement.</p>
+        <p>En revanche, les biens échangeables internationalement — iPhone, voiture, carburant mondial — tendent à converger vers un prix relatif similaire dans le monde entier. C'est là que le pouvoir d'achat des pays riches se manifeste réellement.</p>
+
+        <div class="insight-box">
+          <div class="ib-label">🇫🇷 La situation française en résumé</div>
+          <p>La France est un pays de <strong>salaires médians moyens en Europe</strong> (2 000 €/mois net), avec des prix élevés pour les services locaux (restauration, artisanat) mais compétitifs pour les biens industriels. Le Français médian mange moins souvent au restaurant qu'un Japonais ou un Chinois urbain, paye son essence très cher par rapport aux Américains, mais bénéficie d'un excellent rapport qualité/prix sur les services publics (santé, éducation) non comptabilisés dans ce comparatif.</p>
+        </div>
+      </div>
+
+      <div class="q-section">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-q">Pourquoi comparer le salaire médian et non le salaire moyen ?</div>
+        <p class="faq-a">Le salaire moyen est tiré vers le haut par les très hauts revenus. Le salaire médian — celui qui sépare la population en deux moitiés égales — est plus représentatif de la situation du "citoyen ordinaire". Dans un pays très inégalitaire (USA, Brésil), la différence entre médiane et moyenne est considérable.</p>
+        <div class="faq-q">Ces données sont-elles comparables entre pays ?</div>
+        <p class="faq-a">Avec des nuances importantes. Les prix Numbeo sont des moyennes de grandes villes — ils ne reflètent pas les zones rurales ou les petites villes, souvent moins chères. Les salaires médians nets varient aussi selon les conventions sociales (cotisations incluses ou non dans le brut). Ces données sont indicatives d'ordres de grandeur, pas d'un classement précis.</p>
+        <div class="faq-q">La Chine progresse-t-elle rapidement ?</div>
+        <p class="faq-a">Très rapidement. En 2010, le salaire médian urbain chinois était d'environ 2 500 RMB/mois (contre ~8 000 aujourd'hui). En 15 ans, il a plus que triplé. Si cette tendance se maintient, le pouvoir d'achat médian chinois pourrait rejoindre les niveaux européens d'ici 2035-2040 pour les biens de consommation courante.</p>
+      </div>
+
+      <div class="method-note">
+        <strong>Méthodologie et sources</strong>
+        <strong>Salaires médians nets :</strong> OCDE (Earnings and Wages 2024), Bureau of Labor Statistics (USA), National Bureau of Statistics (Chine), Rosstat (Russie), Destatis (Allemagne), INE (Espagne), ONS (Royaume-Uni), INSEE (France). Les salaires sont nets d'impôts et de cotisations sociales salariales. Pour la Chine et la Russie, il s'agit des médianes urbaines des grandes villes (Shanghai, Pékin / Moscou, Saint-Pétersbourg), plus proches de la réalité des 500 millions d'urbains que de la médiane nationale incluant les zones rurales.
+        <br><br>
+        <strong>Prix locaux :</strong> Numbeo Cost of Living Database, Q1 2025 (moyennes de grandes villes hors hypercentre). Apple Store (prix officiels iPhone 16 base, mai 2025). Prix carburants : IEA Global Petrol Prices, avril 2025. Prix voiture : catalogue constructeur (Dacia Logan ou équivalent d'entrée de gamme local le moins cher neuf).
+        <br><br>
+        <strong>Avertissement :</strong> ces données sont indicatives. Les prix varient fortement selon les villes, les quartiers et les établissements. Le but est de donner des ordres de grandeur comparables, pas un classement précis.
+      </div>
+
+      <div class="related" style="margin-top:40px">
+        <h3>Approfondir</h3>
+        <div class="related-links">
+          <a href="/questions/le-pouvoir-dachat-des-francais-a-t-il-baisse.html" class="related-link">📉 Pouvoir d'achat des Français</a>
+          <a href="/questions/france-vs-allemagne-comparaison.html" class="related-link">🇩🇪 France vs Allemagne</a>
+          <a href="/questions/france-vs-ocde-comparaison.html" class="related-link">🌍 France vs OCDE</a>
+          <a href="/dette/" class="related-link">⏱️ Dette publique en direct</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  function showCat(id) {
+    document.querySelectorAll('.cat-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.cat-btn').forEach(el => el.classList.remove('active'));
+    var el = document.getElementById('cat-' + id);
+    if (el) el.classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+  </script>
+    <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
+  <script src="/assets/js/nav.js"></script>
+</body>
+</html>
