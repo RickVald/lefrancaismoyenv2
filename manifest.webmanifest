@@ -1,7 +1,7 @@
-﻿{
+{
   "name": "Le Français Moyen",
-  "short_name": "LF Moyen",
-  "description": "Tableau de bord statistique des données officielles françaises — inflation, pouvoir d'achat, logement, fiscalité, démographie.",
+  "short_name": "FM",
+  "description": "Tableau de bord statistique des données officielles françaises — dette publique, pouvoir d'achat, fiscalité, démographie.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b1020",
@@ -14,27 +14,19 @@
       "src": "/assets/img/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/assets/img/og-image.svg",
-      "sizes": "1200x630",
-      "type": "image/png",
-      "label": "Tableau de bord principal"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Simulateur fiscal",
-      "url": "/#simulateur",
-      "description": "Calculez votre impôt réel"
+      "purpose": "any"
     },
     {
-      "name": "Inflation",
-      "url": "/#inflation",
-      "description": "Évolution des prix depuis 2000"
+      "src": "/assets/img/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

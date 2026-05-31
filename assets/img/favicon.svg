@@ -1,14 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#f6c343"/>
-      <stop offset="100%" stop-color="#fff0aa"/>
+      <stop offset="100%" stop-color="#fde68a"/>
     </linearGradient>
+    <clipPath id="round">
+      <rect width="32" height="32" rx="6" ry="6"/>
+    </clipPath>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#0b1020"/>
-  <rect width="64" height="64" rx="14" fill="url(#g)" opacity=".12"/>
-  <!-- LFM monogram -->
-  <text x="32" y="42" font-family="system-ui,-apple-system,sans-serif" font-weight="900" font-size="26" fill="url(#g)" text-anchor="middle" letter-spacing="-1">LF</text>
-  <!-- bottom accent bar -->
-  <rect x="18" y="48" width="28" height="3" rx="2" fill="#f6c343" opacity=".7"/>
+  <rect width="32" height="32" rx="6" ry="6" fill="#0b1020"/>
+  <text x="16" y="23"
+    font-family="system-ui,-apple-system,'Segoe UI',Arial,sans-serif"
+    font-weight="900"
+    font-size="17"
+    fill="url(#g)"
+    text-anchor="middle"
+    clip-path="url(#round)">FM</text>
 </svg>
