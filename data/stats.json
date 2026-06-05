@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "site": "Le Français Moyen",
+    "url": "https://le-francais-moyen.com",
+    "description": "Chiffres clés de la dette publique et des finances publiques françaises — données officielles INSEE, Eurostat, Banque de France, AFT.",
+    "last_updated": "2026-03-27",
+    "next_update": "2026-06-26",
+    "update_frequency": "Trimestrielle (publication INSEE T+90 jours)",
+    "license": "Données source sous licence Etalab Open Licence",
+    "contact": "https://le-francais-moyen.com/a-propos/",
+    "methodology": "https://le-francais-moyen.com/questions/comment-est-calculee-la-dette-publique.html"
+  },
+
+  "dette_publique": {
+    "label": "Dette publique brute des administrations publiques (norme Maastricht)",
+    "perimetre": "Ensemble des administrations publiques (APU) — État + collectivités + sécurité sociale + ODAC",
+    "norme": "SEC 2010 / Règlement européen sur la procédure concernant les déficits excessifs",
+    "source": "INSEE — Comptes nationaux trimestriels, T4 2025",
+    "source_url": "https://www.insee.fr/fr/statistiques/serie/001563388",
+    "date_publication": "2026-03-27",
+    "periode_reference": "T4 2025 (31 décembre 2025)",
+    "montant_milliards_eur": 3460.5,
+    "ratio_pib_pct": 115.6,
+    "par_habitant_eur": 50600,
+    "par_actif_eur": 98000,
+    "par_contribuable_eur": 141600,
+    "seuil_maastricht_pib_pct": 60,
+    "ecart_seuil_maastricht_pts": 55.6,
+    "evolution_annuelle_milliards": 161.5,
+    "rythme_annualise_eur_par_seconde": 4832,
+    "note": "Le rythme de 4 832 €/s est un rythme théorique annualisé calculé à partir du déficit public 2025 (152,5 Md€ ÷ 31 536 000 secondes). La dette Maastricht est publiée trimestriellement et peut varier à la hausse comme à la baisse d'un trimestre à l'autre."
+  },
+
+  "deficit_public": {
+    "label": "Déficit public des administrations publiques",
+    "perimetre": "Ensemble des administrations publiques (APU)",
+    "source": "INSEE — Comptes nationaux T4 2025",
+    "source_url": "https://www.insee.fr/fr/statistiques/serie/001563388",
+    "date_publication": "2026-03-27",
+    "annee": 2025,
+    "montant_milliards_eur": 152.5,
+    "ratio_pib_pct": 5.1,
+    "seuil_maastricht_pib_pct": 3.0,
+    "ecart_seuil_maastricht_pts": 2.1,
+    "comparaison_2024_milliards": 171.0,
+    "comparaison_2024_pib_pct": 6.1,
+    "evolution": "Amélioration de 1 point de PIB entre 2024 et 2025 (6,1 % → 5,1 %)"
+  },
+
+  "interets_dette": {
+    "label": "Charge d'intérêts — deux périmètres officiels",
+    "note_perimetre": "ATTENTION : deux chiffres coexistent selon le périmètre retenu. Ils sont tous les deux officiels mais ne sont pas comparables directement.",
+    "apu": {
+      "label": "Intérêts versés par l'ensemble des administrations publiques (APU)",
+      "source": "INSEE — Comptes nationaux, D.41 charges d'intérêts 2025",
+      "montant_milliards_eur": 64.7,
+      "eur_par_seconde": 2051,
+      "annee": 2025,
+      "projection_2026_milliards": 74.0
+    },
+    "etat_plf": {
+      "label": "Charge de la dette dans le budget de l'État (périmètre PLF)",
+      "source": "PLF 2025 — Mission Engagements financiers de l'État",
+      "montant_milliards_eur": 55.4,
+      "annee": 2025,
+      "note": "Ce chiffre couvre uniquement la dette de l'État au sens du budget général, hors sécurité sociale, collectivités et ODAC."
+    }
+  },
+
+  "composition_apu": {
+    "label": "Répartition de la dette publique par sous-secteur (estimation 2025)",
+    "source": "INSEE — Comptes nationaux, Banque de France",
+    "etat_pct": 70,
+    "asso_securite_sociale_pct": 18,
+    "apul_collectivites_pct": 9,
+    "odac_pct": 3
+  },
+
+  "detenteurs_dette": {
+    "label": "Qui détient la dette française négociable (OAT + BTF)",
+    "source": "Banque de France — Statistiques T3 2025",
+    "source_url": "https://www.banque-france.fr/statistiques/titres/detenteurs-de-la-dette",
+    "investisseurs_non_residents_pct": 52,
+    "assurances_fonds_fr_pct": 28,
+    "bce_eurosysteme_pct": 20,
+    "note": "Ces pourcentages concernent la dette négociable de l'État (OAT + BTF), soit environ 70 % de la dette APU totale."
+  },
+
+  "historique_ratio_dette_pib": {
+    "label": "Ratio dette/PIB historique — points de repère",
+    "source": "INSEE / Eurostat",
+    "data": [
+      {"annee": 1980, "ratio_pib_pct": 21.0},
+      {"annee": 1990, "ratio_pib_pct": 35.2},
+      {"annee": 2000, "ratio_pib_pct": 59.5},
+      {"annee": 2007, "ratio_pib_pct": 64.5},
+      {"annee": 2010, "ratio_pib_pct": 85.3},
+      {"annee": 2019, "ratio_pib_pct": 97.4},
+      {"annee": 2020, "ratio_pib_pct": 114.6},
+      {"annee": 2021, "ratio_pib_pct": 112.9},
+      {"annee": 2022, "ratio_pib_pct": 111.6},
+      {"annee": 2023, "ratio_pib_pct": 112.0},
+      {"annee": 2024, "ratio_pib_pct": 113.7},
+      {"annee": 2025, "ratio_pib_pct": 115.6}
+    ]
+  },
+
+  "comparaison_europeenne_2025": {
+    "label": "Ratio dette/PIB des principaux pays européens (2025, Eurostat)",
+    "source": "Eurostat — Government consolidated gross debt",
+    "data": [
+      {"pays": "Grèce", "code": "GR", "ratio_pib_pct": 168.4},
+      {"pays": "Italie", "code": "IT", "ratio_pib_pct": 137.3},
+      {"pays": "France", "code": "FR", "ratio_pib_pct": 115.6},
+      {"pays": "Espagne", "code": "ES", "ratio_pib_pct": 104.6},
+      {"pays": "Belgique", "code": "BE", "ratio_pib_pct": 105.2},
+      {"pays": "Portugal", "code": "PT", "ratio_pib_pct": 98.7},
+      {"pays": "Zone euro (moyenne)", "code": "EA", "ratio_pib_pct": 88.9},
+      {"pays": "Pays-Bas", "code": "NL", "ratio_pib_pct": 46.1},
+      {"pays": "Allemagne", "code": "DE", "ratio_pib_pct": 62.9},
+      {"pays": "Suède", "code": "SE", "ratio_pib_pct": 32.1}
+    ]
+  },
+
+  "sources_officielles": {
+    "insee": {
+      "nom": "Institut national de la statistique et des études économiques",
+      "url": "https://www.insee.fr/fr/statistiques/serie/001563388",
+      "publication": "Comptes nationaux trimestriels — finances publiques"
+    },
+    "eurostat": {
+      "nom": "Eurostat — Office statistique de l'Union européenne",
+      "url": "https://ec.europa.eu/eurostat/web/government-finance-statistics",
+      "publication": "Government deficit and debt"
+    },
+    "aft": {
+      "nom": "Agence France Trésor",
+      "url": "https://www.aft.gouv.fr/fr/statistiques-et-donnes",
+      "publication": "Bulletin mensuel — dette de l'État"
+    },
+    "banque_de_france": {
+      "nom": "Banque de France",
+      "url": "https://www.banque-france.fr/statistiques",
+      "publication": "Statistiques sur la dette et les finances publiques"
+    }
+  }
+}

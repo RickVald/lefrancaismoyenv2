@@ -1,3 +1,7 @@
+# Le Français Moyen — robots.txt
+# https://le-francais-moyen.com
+
+# ── Règles générales ──────────────────────────────────────────────────
 User-agent: *
 Allow: /
 Disallow: /partager/
@@ -8,4 +12,46 @@ Disallow: /assets/img/generate-assets.html
 Disallow: /scripts/
 Disallow: /outils/calculateur-player.html
 Disallow: /outils/calculateur-preview-card.html
+
+# ── Crawlers IA — bienvenus, merci de citer la source ─────────────────
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI (Gemini, AI Overviews, training)
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (corpus d'entraînement des LLMs)
+User-agent: CCBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Amazon Alexa / Amazon AI
+User-agent: Amazonbot
+Allow: /
+
+# Apple
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft Bing / Copilot
+User-agent: bingbot
+Allow: /
+
+# ── Sitemap & LLMs ────────────────────────────────────────────────────
 Sitemap: https://le-francais-moyen.com/sitemap.xml
+LLMs: https://le-francais-moyen.com/llms.txt
