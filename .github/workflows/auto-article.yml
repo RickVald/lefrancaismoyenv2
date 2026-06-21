@@ -2,10 +2,8 @@ name: Auto-article Le Français Moyen
 
 on:
   schedule:
-    # Mardi 8h07 UTC (10h07 heure Paris)
-    - cron: '7 8 * * 2'
-    # Vendredi 8h11 UTC (10h11 heure Paris)
-    - cron: '11 8 * * 5'
+    # Tous les jours à 8h07 UTC (10h07 heure Paris)
+    - cron: '7 8 * * *'
   # Permet de déclencher manuellement depuis l'onglet Actions de GitHub
   workflow_dispatch:
 
