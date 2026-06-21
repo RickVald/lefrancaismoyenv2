@@ -326,6 +326,31 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/css/styles.css?v=22">
+  <style>
+    .q-hero{padding:52px 24px 36px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(251,146,60,.09) 0%,transparent 60%)}
+    .q-container{max-width:760px;margin:0 auto;padding:0 24px 60px}
+    .q-section{margin-bottom:40px}
+    .q-section h2{font-size:1.2rem;font-weight:800;margin-bottom:14px;color:var(--text)}
+    .q-section p{color:var(--muted);line-height:1.85;font-size:.97rem;margin-bottom:12px}
+    .q-section strong{color:var(--text)}
+    .q-section ul{padding-left:20px;color:var(--muted);line-height:1.9;font-size:.95rem}
+    .q-section li{margin-bottom:6px}
+    .answer-box{background:rgba(251,146,60,.06);border:1px solid rgba(251,146,60,.2);border-radius:14px;padding:20px 24px;margin:24px 0}
+    .ab-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fb923c;margin-bottom:10px}
+    .kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin:24px 0}
+    .kpi-card{flex:1;min-width:140px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:16px 18px;text-align:center}
+    .kpi-val{font-size:1.6rem;font-weight:900;color:var(--text)}
+    .kpi-lbl{font-size:.78rem;color:var(--muted);margin-top:4px}
+    .faq-q{font-size:.97rem;font-weight:700;color:var(--text);margin-bottom:8px}
+    .faq-a{color:var(--muted);font-size:.92rem;line-height:1.7;margin-bottom:24px}
+    .q-sources{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-top:36px;font-size:.82rem;color:var(--muted);line-height:1.7}
+    .q-sources strong{color:var(--text);display:block;margin-bottom:6px}
+    .related{margin-top:40px}
+    .related h3{font-size:.78rem;font-weight:800;margin-bottom:12px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+    .related-links{display:flex;flex-wrap:wrap;gap:10px}
+    .related-link{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-decoration:none;color:var(--muted);font-size:.88rem;transition:all .15s}
+    .related-link:hover{border-color:#555;color:var(--text)}
+  </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"${title.replace(' | Le Français Moyen','')}","description":"${description}","datePublished":"${TODAY}","dateModified":"${TODAY}","author":{"@type":"Organization","name":"Le Français Moyen","url":"https://le-francais-moyen.com"},"publisher":{"@type":"Organization","name":"Le Français Moyen","logo":{"@type":"ImageObject","url":"${ogImageUrl}"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://le-francais-moyen.com/questions/${slug}"},"inLanguage":"fr-FR"}
   </script>
