@@ -42,13 +42,11 @@ jobs:
         run: |
           git config user.name "Le Français Moyen Bot"
           git config user.email "bot@le-francais-moyen.com"
-          # Lire les infos du fichier généré par le script
-          INFO=$(cat _auto_article_info.txt 2>/dev/null || echo "$(date +%Y-%m-%d)|article|Nouvel article|sources officielles")
-          DATE=$(echo $INFO | cut -d'|' -f1)
-          SLUG=$(echo $INFO | cut -d'|' -f2)
-          TITRE=$(echo $INFO | cut -d'|' -f3)
-          SOURCE=$(echo $INFO | cut -d'|' -f4)
-          rm -f _auto_article_info.txt
+          # Lire les infos du fichier JSON généré par le script
+          DATE=$(jq -r '.date' _auto_article_info.json 2>/dev/null || date +%Y-%m-%d)
+          SLUG=$(jq -r '.slug' _auto_article_info.json 2>/dev/null || echo "article")
+          TITRE=$(jq -r '.title' _auto_article_info.json 2>/dev/null || echo "Nouvel article")
+          SOURCE=$(jq -r '.source' _auto_article_info.json 2>/dev/null || echo "sources officielles")
           git add questions/${SLUG}.html questions/index.html sitemap.xml assets/img/og/${SLUG}.png || true
           git add -u
           git commit -m "Auto-article ${DATE} : ${TITRE}
@@ -59,6 +57,19 @@ Source principale : ${SOURCE}
 Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
           git pull --rebase origin main
           git push origin main
+
+      - name: Partager l'article sur X
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: node scripts/post-to-x.js
+
+      - name: Nettoyage fichier temporaire
+        if: always()
+        run: rm -f _auto_article_info.json
 
       - name: Aucun article publié (pas de sujet pertinent)
         if: steps.changes.outputs.changed == 'false'

@@ -344,10 +344,18 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
   updateQuestionsIndex(slug, card_tag, card_tag_class, card_title, card_excerpt, card_stat);
   updateSitemap(slug);
 
-  // 9. Écrire les infos pour le commit message
+  // 9. Écrire les infos pour le commit message et le partage X
   fs.writeFileSync(
-    path.join(ROOT, '_auto_article_info.txt'),
-    `${TODAY}|${slug}|${card_title}|${source_label}`
+    path.join(ROOT, '_auto_article_info.json'),
+    JSON.stringify({
+      date: TODAY,
+      slug,
+      title: card_title,
+      source: source_label,
+      og_headline: og_headline || card_title,
+      og_chiffre: og_chiffre || card_stat || '',
+      og_chiffre_label: og_chiffre_label || '',
+    })
   );
 
   console.log('\n✅ Article prêt pour commit:', slug);
