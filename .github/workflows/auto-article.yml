@@ -29,7 +29,7 @@ jobs:
 
       - name: Générer l'article via Claude API
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY_LFM }}
         run: node scripts/auto-article.js
 
       - name: Vérifier s'il y a des changements
