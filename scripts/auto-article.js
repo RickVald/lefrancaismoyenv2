@@ -104,7 +104,7 @@ async function callClaude(prompt) {
       });
     });
     req.on('error', reject);
-    req.setTimeout(120000, () => { req.destroy(); reject(new Error('timeout')); });
+    req.setTimeout(280000, () => { req.destroy(); reject(new Error('timeout')); });
     req.write(body);
     req.end();
   });
