@@ -11,6 +11,7 @@
 const https  = require('https');
 const fs     = require('fs');
 const path   = require('path');
+const { renderCard } = require('./generate-og-card');
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 if (!ANTHROPIC_API_KEY) { console.error('ANTHROPIC_API_KEY manquante'); process.exit(1); }
@@ -227,6 +228,10 @@ Ta mission :
   "card_tag": "Dette",
   "card_tag_class": "tag-dette",
   "source_label": "Source principale",
+  "og_headline": "Phrase choc courte pour l'image sociale, 4-6 mots (ex: Le déficit se creuse encore)",
+  "og_chiffre": "Le chiffre principal seul, format compact (ex: 152,5 Md€)",
+  "og_chiffre_label": "Légende courte sous le chiffre (ex: de déficit public en 2025)",
+  "og_accent": "Une couleur parmi : gold, teal, red, purple (rouge pour les sujets négatifs/alarmants, teal pour informatif neutre, gold par défaut)",
   "html_body": "<!-- CONTENU HTML COMPLET ICI (entre <main> et </main>) -->"
 }
 ~~~
@@ -269,7 +274,7 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
     process.exit(1);
   }
 
-  const { slug, title, og_title, description, card_title, card_excerpt, card_stat, card_tag, card_tag_class, source_label, html_body } = article;
+  const { slug, title, og_title, description, card_title, card_excerpt, card_stat, card_tag, card_tag_class, source_label, og_headline, og_chiffre, og_chiffre_label, og_accent, html_body } = article;
 
   if (!slug || !html_body) {
     console.error('Données manquantes dans la réponse Claude');
@@ -281,6 +286,22 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
   if (fs.existsSync(articlePath)) {
     console.log(`Article ${slug} existe déjà — skip`);
     process.exit(0);
+  }
+
+  // 6b. Générer l'image OG dédiée à l'article
+  let ogImageUrl = 'https://le-francais-moyen.com/assets/img/og-image.png';
+  try {
+    renderCard({
+      slug,
+      headline: og_headline || card_title || title,
+      chiffre: og_chiffre || card_stat || '',
+      chiffreLabel: og_chiffre_label || card_excerpt || '',
+      source: source_label || 'Le Français Moyen',
+      accent: og_accent || 'gold',
+    });
+    ogImageUrl = `https://le-francais-moyen.com/assets/img/og/${slug}.png`;
+  } catch (e) {
+    console.error('Génération image OG échouée, fallback image générique:', e.message);
   }
 
   // 7. Écrire le fichier HTML complet
@@ -297,14 +318,15 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
   <meta property="og:title" content="${og_title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="https://le-francais-moyen.com/questions/${slug}">
-  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta property="og:image" content="${ogImageUrl}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${ogImageUrl}">
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="../assets/css/styles.css?v=22">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"${title.replace(' | Le Français Moyen','')}","description":"${description}","datePublished":"${TODAY}","dateModified":"${TODAY}","author":{"@type":"Organization","name":"Le Français Moyen","url":"https://le-francais-moyen.com"},"publisher":{"@type":"Organization","name":"Le Français Moyen","logo":{"@type":"ImageObject","url":"https://le-francais-moyen.com/assets/img/og-image.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://le-francais-moyen.com/questions/${slug}"},"inLanguage":"fr-FR"}
+  {"@context":"https://schema.org","@type":"Article","headline":"${title.replace(' | Le Français Moyen','')}","description":"${description}","datePublished":"${TODAY}","dateModified":"${TODAY}","author":{"@type":"Organization","name":"Le Français Moyen","url":"https://le-francais-moyen.com"},"publisher":{"@type":"Organization","name":"Le Français Moyen","logo":{"@type":"ImageObject","url":"${ogImageUrl}"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://le-francais-moyen.com/questions/${slug}"},"inLanguage":"fr-FR"}
   </script>
 </head>
 <body>

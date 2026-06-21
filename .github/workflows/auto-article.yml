@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Installer les dépendances
+        run: npm install
+
       - name: Générer l'article via Claude API
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -48,7 +51,7 @@ jobs:
           TITRE=$(echo $INFO | cut -d'|' -f3)
           SOURCE=$(echo $INFO | cut -d'|' -f4)
           rm -f _auto_article_info.txt
-          git add questions/${SLUG}.html questions/index.html sitemap.xml || true
+          git add questions/${SLUG}.html questions/index.html sitemap.xml assets/img/og/${SLUG}.png || true
           git add -u
           git commit -m "Auto-article ${DATE} : ${TITRE}
 
