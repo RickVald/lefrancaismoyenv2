@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="pageTitle">Le programme de Mélenchon 2027 : 831 mesures, combien ça coûte ?</title>
+  <meta name="description" data-i18n-meta-desc content="L'Avenir en Commun, édition 2025 : 831 mesures (retraite à 60 ans, SMIC à 1600€, ISF, taxe Zucman, 6e République). Chiffrage indépendant, financement annoncé et impact macroéconomique simulé à l'horizon 2030.">
+  <link rel="canonical" href="https://le-francais-moyen.com/programmes/melenchon-2027/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/programmes/melenchon-2027/">
+  <link rel="alternate" hreflang="en" href="https://le-francais-moyen.com/programmes/melenchon-2027/">
+  <link rel="alternate" hreflang="x-default" href="https://le-francais-moyen.com/programmes/melenchon-2027/">
+  <meta property="og:title" content="Le programme de Mélenchon 2027 : 831 mesures, combien ça coûte ?">
+  <meta property="og:description" content="L'Avenir en Commun 2025 : retraite à 60 ans, SMIC à 1600€, ISF, taxe Zucman. Chiffrage indépendant vs financement annoncé, et impact simulé sur la dette, le déficit et le chômage à l'horizon 2030.">
+  <meta property="og:url" content="https://le-francais-moyen.com/programmes/melenchon-2027/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+  <style>
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .dem-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(255,107,107,.10) 0%,transparent 65%)}
+    .dem-big{font-size:clamp(3rem,10vw,6rem);font-weight:900;letter-spacing:-.06em;color:var(--accent2);line-height:1;margin:8px 0 4px}
+
+    /* ── KPI grid ──────────────────────────────────────────────── */
+    .dem-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin:24px 0}
+    .dem-kpi-card{padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--border);text-align:center}
+    .dem-kpi-card .val{font-size:1.8rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .dem-kpi-card .pct{font-size:1rem;font-weight:700;opacity:.7;margin-left:4px}
+    .dem-kpi-card .lbl{font-size:.72rem;color:var(--muted);line-height:1.5}
+
+    /* ── Section wrappers ──────────────────────────────────────── */
+    .dem-section{margin:48px 0}
+    .dem-h2{font-size:1.3rem;font-weight:800;color:#f5f5f5;margin:0 0 6px}
+    .dem-sub{font-size:.88rem;color:var(--muted);margin:0 0 20px;line-height:1.6}
+
+    /* ── Charts ────────────────────────────────────────────────── */
+    .dem-chart-wrap{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:14px;padding:16px 8px;overflow-x:auto}
+    .dem-chart-wrap svg{display:block;width:100%;height:auto}
+    .dem-src{font-size:.72rem;color:var(--muted);margin-top:8px;text-align:right}
+
+    /* ── Mesure cards ──────────────────────────────────────────── */
+    .dem-waves-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:20px 0}
+    .dem-wave-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+    .dem-wave-period{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px}
+    .dem-wave-total{font-size:1.4rem;font-weight:900;letter-spacing:-.03em}
+    .dem-wave-desc{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.5}
+
+    /* ── Note / verdict boxes ──────────────────────────────────── */
+    .dem-methodo{background:rgba(93,214,197,.05);border:1px solid rgba(93,214,197,.25);border-left:3px solid #5dd6c5;border-radius:12px;padding:18px 20px;margin:24px 0}
+    .dem-methodo-title{font-size:.82rem;font-weight:800;color:#5dd6c5;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+    .dem-verdict{background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.25);border-radius:12px;padding:16px 20px;margin:24px 0}
+    .dem-note{background:rgba(167,139,250,.05);border:1px solid rgba(167,139,250,.2);border-radius:12px;padding:14px 18px;margin:16px 0;font-size:.82rem;color:var(--muted);line-height:1.7}
+    .dem-note strong{color:#c4b5fd}
+
+    /* ── Legend rows ───────────────────────────────────────────── */
+    .dem-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px}
+    .dem-legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+    .dem-legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+
+    @media(max-width:580px){
+      .dem-big{font-size:clamp(2.5rem,14vw,4rem)}
+      .dem-chart-wrap{padding:10px 4px}
+    }
+    /* lang switcher */
+    .lang-switch{display:flex;gap:4px;margin-left:8px}
+    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:6px;color:rgba(255,255,255,.55);font-size:.78rem;padding:4px 8px;cursor:pointer;transition:.15s}
+    .lang-btn:hover{border-color:rgba(255,255,255,.45);color:#fff}
+    .lang-btn.active{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.4);color:#fff;font-weight:700}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li class="drop-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</li>
+              <li><a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a></li>
+              <li><a href="/dette/">&#x23F1;&#xFE0F; Dette en direct</a></li>
+              <li><a href="/csg/">&#x1F4B6; CSG</a></li>
+              <li><a href="/tva/">&#x1F9FE; TVA</a></li>
+              <li><a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a></li>
+              <li><a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</li>
+              <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+              <li><a href="/normes/">&#x1F4DC; Millefeuille r&#xE9;glementaire</a></li>
+              <li><a href="/demographie/">&#x1F465; D&#xE9;mographie</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x1F465; Social</li>
+              <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+              <li><a href="/sante/">&#x1F3E5; Sant&#xE9;</a></li>
+              <li><a href="/education/">&#x1F4DA; &#xC9;ducation</a></li>
+              <li><a href="/logement/">&#x1F3E0; Logement</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x26A1; &#xC9;conomie</li>
+              <li><a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a></li>
+              <li><a href="/autoroutes/">&#x1F6E3;&#xFE0F; Autoroutes</a></li>
+              <li><a href="/ronds-points/">&#x1F535; Indice Rond-Point</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">&#x1F3E0; Tableau de bord</a>
+    <div class="nav-mobile-group-label">&#x1F4B0; Dette publique</div>
+    <a href="/dette/">&#x23F1;&#xFE0F; Compteur en direct</a>
+    <a href="/questions/quel-est-le-deficit-de-la-france.html">&#x1F4C9; D&#xE9;ficit</a>
+    <a href="/questions/combien-coutent-les-interets-de-la-dette.html">&#x1F4B8; Int&#xE9;r&#xEA;ts</a>
+    <a href="/questions/dette-france-par-habitant.html">&#x1F464; Dette par habitant</a>
+    <a href="/questions/qui-detient-la-dette-francaise.html">&#x1F3E6; Qui d&#xE9;tient la dette</a>
+    <a href="/questions/dette-france-italie-grece.html">&#x1F30D; Comparaisons Europe</a>
+    <a href="/widget-dette-publique-france/">&#x1F4F1; Widget gratuit</a>
+    <div class="nav-mobile-group-label">&#x1F4CA; Autres analyses</div>
+    <div class="nav-mobile-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</div>
+    <a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a>
+    <a href="/csg/">&#x1F4B6; CSG</a>
+    <a href="/tva/">&#x1F9FE; TVA</a>
+    <a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a>
+    <a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a>
+    <div class="nav-mobile-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</div>
+    <a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a>
+    <a href="/normes/">&#x1F4DC; Normes</a>
+    <a href="/demographie/">&#x1F465; D&#xE9;mographie</a>
+    <div class="nav-mobile-group-label">&#x1F465; Social</div>
+    <a href="/retraites/">&#x1F474; Retraites</a>
+    <a href="/sante/">&#x1F3E5; Sant&#xE9;</a>
+    <a href="/education/">&#x1F4DA; &#xC9;ducation</a>
+    <a href="/logement/">&#x1F3E0; Logement</a>
+    <div class="nav-mobile-group-label">&#x26A1; &#xC9;conomie</div>
+    <a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a>
+    <a href="/autoroutes/">&#x1F6E3;&#xFE0F; Autoroutes</a>
+    <a href="/ronds-points/">&#x1F535; Rond-Point</a>
+    <a href="/outils/">&#x1F9F0; Outils</a>
+    <a href="/elections/">&#x1F5F3;&#xFE0F; &#xC9;lections</a>
+    <a href="/questions/">&#x2753; Questions</a>
+    <a href="/a-propos/">&#xC0; propos</a>
+    <a href="/#newsletter" class="nav-mobile-cta">&#x1F4E7; Newsletter</a>
+  </div>
+
+  <main id="contenu">
+    <!-- ═══ HERO ═══ -->
+    <div class="dem-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <a href="/elections/">Élections</a> › <span>Programme Mélenchon 2027</span></nav>
+      <div class="eyebrow">L'AVENIR EN COMMUN, ÉD. 2025 · IFRAP · FRANCE BUDGET</div>
+      <h1 data-i18n="h1" style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">Le programme de Jean-Luc Mélenchon en 2027 :<br>831 mesures, combien ça coûte ?</h1>
+      <p data-i18n="subtitle" style="color:var(--muted);font-size:1.05rem;max-width:660px;margin:12px auto 20px;line-height:1.7">
+        En janvier 2025, La France Insoumise a publié la 4ᵉ édition de <strong style="color:var(--accent2)">L'Avenir en Commun</strong> : 831 mesures, dont 143 nouvelles. Retraite à 60 ans, SMIC à 1600€ net, retour de l'ISF, taxe Zucman, 6ᵉ République. Que disent les chiffrages indépendants — et où en est le financement annoncé ?
+      </p>
+      <div class="dem-big">831</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">mesures dans l'édition 2025 — 143 ajoutées, 120 précisées vs la version précédente</p>
+    </div>
+
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ═══ CADRE MÉTHODOLOGIQUE ═══ -->
+      <div class="dem-methodo">
+        <div class="dem-methodo-title">⚖️ Cadre méthodologique : trois sources, trois dates, à ne pas confondre</div>
+        <p style="margin:0 0 10px;font-size:.88rem;line-height:1.7">Cette page croise <strong style="color:#5dd6c5">trois sources de nature différente</strong>, datées différemment : (1) le programme officiel <em>L'Avenir en Commun</em>, édition 2025 (831 mesures, chiffré en interne par ~40 économistes, hauts-fonctionnaires et statisticiens de l'Institut la Boétie) ; (2) le dernier chiffrage <strong style="color:#5dd6c5">indépendant</strong> disponible avec des montants précis, réalisé par la Fondation IFRAP sur l'édition <strong style="color:#5dd6c5">2022</strong> du programme (modèle Nemesis, avec Seureco-Erasme) ; (3) une simulation macroéconomique de <strong style="color:#5dd6c5">France Budget</strong>, appliquant un modèle uniforme à tous les candidats 2027 sur la base des mesures publiées.</p>
+        <p style="margin:0;font-size:.88rem;line-height:1.7"><strong style="color:#ff6b6b">Honnêteté méthodologique :</strong> à la date de publication de cette page, <strong style="color:var(--text)">aucun institut n'a publié de chiffrage indépendant complet de l'édition 2025</strong> (831 mesures) — la France Insoumise elle-même indique finaliser son chiffrage actualisé "à la rentrée". Le chiffrage IFRAP cité plus bas porte donc sur une version antérieure du programme (2022) et doit être lu comme un <strong style="color:var(--text)">ordre de grandeur</strong>, pas comme une évaluation de l'édition actuelle.</p>
+      </div>
+
+      <!-- ═══ MESURES PHARES ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">📋 Les mesures phares de l'édition 2025</div>
+        <div class="dem-sub">Sélection des mesures les plus structurantes du programme, avec leur dernier ordre de grandeur chiffré connu. Sources : melenchon2027.fr, Fondation IFRAP.</div>
+
+        <div class="dem-waves-grid">
+          <div class="dem-wave-card">
+            <div class="dem-wave-period">RETRAITES</div>
+            <div class="dem-wave-total" style="color:#ff6b6b">Retraite à 60 ans</div>
+            <div class="dem-wave-desc">Mesure la plus coûteuse du programme : environ <strong>50 Md€/an</strong> selon l'analyse IFRAP d'une mesure équivalente portée par le Nouveau Front Populaire en 2024.</div>
+          </div>
+          <div class="dem-wave-card">
+            <div class="dem-wave-period">SALAIRES</div>
+            <div class="dem-wave-total" style="color:#f6c343">SMIC à 1 600 € net</div>
+            <div class="dem-wave-desc">La cible a évolué : 1 400 € net annoncés en 2022 (coût initial évalué à 7,4 Md€/an par l'IFRAP), réévaluée à 1 600 € net face à l'inflation dans la version récente du programme.</div>
+          </div>
+          <div class="dem-wave-card">
+            <div class="dem-wave-period">FISCALITÉ</div>
+            <div class="dem-wave-total" style="color:#5dd6c5">Retour de l'ISF</div>
+            <div class="dem-wave-desc">Rétablissement de l'impôt de solidarité sur la fortune, supprimé en 2018, et suppression de la flat tax sur les revenus du capital — deux mesures de financement central du programme.</div>
+          </div>
+          <div class="dem-wave-card">
+            <div class="dem-wave-period">FISCALITÉ</div>
+            <div class="dem-wave-total" style="color:#63d471">Taxe Zucman</div>
+            <div class="dem-wave-desc">Taxe de 2 % par an sur les patrimoines supérieurs à 100 millions d'euros, inspirée des travaux de l'économiste Gabriel Zucman, reprise comme levier de financement.</div>
+          </div>
+          <div class="dem-wave-card">
+            <div class="dem-wave-period">INSTITUTIONS</div>
+            <div class="dem-wave-total" style="color:#a78bfa">6ᵉ République</div>
+            <div class="dem-wave-desc">Convocation d'une Assemblée constituante pour remplacer la Constitution de 1958 — mesure structurante sans chiffrage budgétaire direct.</div>
+          </div>
+          <div class="dem-wave-card">
+            <div class="dem-wave-period">ÉCOLOGIE</div>
+            <div class="dem-wave-total" style="color:#aebbd4">Planification écologique</div>
+            <div class="dem-wave-desc">Programme d'investissement public pluriannuel dans la transition énergétique et les infrastructures, financé notamment par la remise à plat des aides aux entreprises.</div>
+          </div>
+        </div>
+        <div class="dem-src">Sources : L'Avenir en Commun, édition 2025 (melenchon2027.fr) · Fondation IFRAP, analyses 2022 et 2024</div>
+      </div>
+
+      <!-- ═══ CHIFFRAGE INDÉPENDANT ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">💰 Chiffrage indépendant : dépenses nouvelles vs recettes nouvelles</div>
+        <div class="dem-sub">Dernière analyse indépendante chiffrée disponible (porte sur l'édition 2022 du programme — voir avertissement ci-dessus). Modèle Nemesis, Fondation IFRAP / Seureco-Erasme, mai 2022.</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgChiffrage" viewBox="0 0 720 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dépenses nouvelles et recettes nouvelles du programme 2022, en milliards d'euros"></svg>
+        </div>
+        <div class="dem-legend" id="chiffrageLegend"></div>
+        <div class="dem-src">Source : Fondation IFRAP / Seureco-Erasme, modèle Nemesis, mai 2022 · unités : milliards d'euros par an</div>
+
+        <div class="dem-note">
+          <strong>Lecture :</strong> selon l'IFRAP, le programme 2022 de Jean-Luc Mélenchon impliquait entre 200 et 250 Md€/an de dépenses publiques nouvelles, financées par 150 à 170 Md€/an de recettes nouvelles (principalement fiscales) — soit un solde net dégradé d'environ 65 Md€/an dans ce scénario. Cette même étude projetait une dette publique à <strong style="color:var(--text)">113 % du PIB en 2027</strong> sous ce programme (à comparer aux 115,6 % du PIB déjà atteints fin 2025 dans la trajectoire réelle).
+        </div>
+      </div>
+
+      <!-- ═══ IMPACT MACROÉCONOMIQUE SIMULÉ ═══ -->
+      <div class="dem-section">
+        <div class="dem-h2">📈 Impact macroéconomique simulé à l'horizon 2030</div>
+        <div class="dem-sub">Simulation France Budget : modèle macroéconomique appliqué de façon identique à tous les programmes 2027, sur la base des mesures publiées de La France Insoumise. Comparé à la trajectoire de référence (statu quo, sources Le Français Moyen).</div>
+
+        <div class="dem-chart-wrap">
+          <svg id="svgImpact" viewBox="0 0 720 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Comparaison dette, déficit et chômage entre trajectoire actuelle et scénario LFI 2030"></svg>
+        </div>
+        <div class="dem-legend" id="impactLegend"></div>
+        <div class="dem-src">Source : France Budget, scénario LFI 2027 (francebudget.fr/scenarios/lfi-2027) · trajectoire actuelle : INSEE T4 2025, page Dette du Français Moyen</div>
+
+        <!-- Table jalons -->
+        <div style="overflow-x:auto;margin:24px 0">
+          <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+            <thead>
+              <tr style="border-bottom:2px solid rgba(255,255,255,.1)">
+                <th style="text-align:left;padding:8px 12px;color:rgba(255,255,255,.5);font-weight:700">Indicateur</th>
+                <th style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">Trajectoire actuelle</th>
+                <th style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">Scénario LFI 2030</th>
+                <th style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">Écart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">Dette publique (% PIB)</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">~130 % <span style="color:var(--muted);font-weight:400">(2032, statu quo)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">136 % <span style="color:var(--muted);font-weight:400">(2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+6 pts, plus tôt</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">Déficit public (% PIB)</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">5,1 % <span style="color:var(--muted);font-weight:400">(2025)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">7,4 % <span style="color:var(--muted);font-weight:400">(2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+2,3 pts</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">Taux de chômage</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">7,3 % <span style="color:var(--muted);font-weight:400">(T1 2025)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">7,2 % <span style="color:var(--muted);font-weight:400">(2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">−0,1 pt</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 12px;color:var(--muted)">Croissance moyenne/an</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">~0,9 % <span style="color:var(--muted);font-weight:400">(2026, prévision)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">1,4 % <span style="color:var(--muted);font-weight:400">(moy. 2026-2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+0,5 pt</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dem-verdict">
+          <strong style="color:var(--accent)">🎯 Les trois enseignements de la simulation :</strong>
+          <ul style="color:var(--muted);font-size:.88rem;line-height:1.9;margin:8px 0 0;padding-left:18px">
+            <li><strong style="color:var(--text)">Le chômage resterait quasi stable</strong> — la simulation France Budget projette un taux proche de l'actuel (7,2 % contre 7,3 %), ce qui suggère que les créations d'emplois liées à la relance par la dépense compenseraient à peu près les destructions liées à la hausse de la fiscalité, sans gain net majeur.</li>
+            <li><strong style="color:var(--text)">La trajectoire de la dette s'aggrave plus vite</strong> — le scénario LFI atteindrait 136 % du PIB dès 2030, un niveau que la trajectoire actuelle (statu quo, sans nouvelle mesure) n'atteindrait qu'environ deux ans plus tard.</li>
+            <li><strong style="color:var(--text)">Le déficit se creuserait significativement</strong> — de 5,1 % à 7,4 % du PIB, soit plus du double du seuil européen de 3 % fixé par le pacte de stabilité, ce qui exposerait la France à une procédure de déficit excessif renforcée.</li>
+          </ul>
+        </div>
+
+        <div class="dem-note">
+          <strong>Hypothèses du modèle France Budget :</strong> modèle macroéconomique propriétaire, appliqué de façon identique à tous les programmes 2027 (RN, LFI, LR, Renaissance, PS) à partir des mesures publiées par chaque parti, sans connaissance des arbitrages parlementaires réels. Horizon de simulation : 2026-2030. Index de Gini projeté à 0,269 en 2030, contre 0,290 en 2025 — une baisse des inégalités de revenu disponible selon ce modèle. Comme tout modèle macroéconomique, ces résultats sont des <strong>ordres de grandeur</strong>, sensibles aux hypothèses retenues (élasticités fiscales, réaction des agents économiques, contexte international), pas des prédictions.
+        </div>
+      </div>
+
+      <!-- ═══ SOURCES ET LIMITES ═══ -->
+      <div class="dem-section">
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:24px 28px">
+          <div class="dem-h2" style="margin-bottom:16px">📚 Sources et limites méthodologiques</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div>
+              <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#5dd6c5;margin-bottom:10px">Sources primaires</div>
+              <ul style="font-size:.82rem;color:var(--muted);line-height:1.9;margin:0;padding-left:16px">
+                <li><strong style="color:var(--text)">L'Avenir en Commun, édition 2025</strong> — La France Insoumise, melenchon2027.fr</li>
+                <li><strong style="color:var(--text)">Chiffrage du programme de Jean-Luc Mélenchon</strong> — Fondation IFRAP, 2022</li>
+                <li><strong style="color:var(--text)">NUPES : impact économique du programme</strong> — Fondation IFRAP / Seureco-Erasme (modèle Nemesis), mai 2022</li>
+                <li><strong style="color:var(--text)">Scénario LFI 2027</strong> — France Budget (francebudget.fr/scenarios/lfi-2027)</li>
+                <li><strong style="color:var(--text)">Dette publique, T4 2025</strong> — INSEE, page Dette du Français Moyen</li>
+                <li><strong style="color:var(--text)">Taux de chômage, T1 2025</strong> — INSEE/DARES</li>
+              </ul>
+            </div>
+            <div>
+              <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#ff6b6b;margin-bottom:10px">Limites importantes</div>
+              <ul style="font-size:.82rem;color:var(--muted);line-height:1.9;margin:0;padding-left:16px">
+                <li>Le chiffrage IFRAP cité porte sur l'édition <strong style="color:var(--text)">2022</strong> du programme, pas sur l'édition 2025 (831 mesures) qui n'a pas encore fait l'objet d'un chiffrage indépendant complet</li>
+                <li>La France Insoumise <strong style="color:var(--text)">conteste</strong> la méthodologie de l'IFRAP, qu'elle juge orientée ; l'écart entre chiffrage interne et chiffrage IFRAP peut dépasser 80 Md€ selon les mesures</li>
+                <li>Le modèle France Budget est un modèle <strong style="color:var(--text)">propriétaire</strong> et non audité publiquement ; il est appliqué uniformément mais reste une simulation, pas une mesure</li>
+                <li>Ces projections ne tiennent pas compte des <strong style="color:var(--text)">arbitrages parlementaires</strong> réels (un programme présidentiel n'est jamais appliqué intégralement sans majorité à l'Assemblée)</li>
+                <li>Le contexte international (taux d'intérêt, croissance mondiale, chocs exogènes) peut faire diverger fortement la réalité de toute simulation</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px">
+            <a href="/elections/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(246,195,67,.1);border:1px solid rgba(246,195,67,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:600">🗳️ Simulateur programmes 2002-2022 →</a>
+            <a href="/dette/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(93,214,197,.1);border:1px solid rgba(93,214,197,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#5dd6c5;text-decoration:none;font-weight:600">⏱️ Voir la dette en direct →</a>
+            <a href="/retraites/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#a78bfa;text-decoration:none;font-weight:600">👴 Voir la page Retraites →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /max-width wrapper -->
+  </main>
+
+  <div id="demTip" style="position:fixed;background:rgba(15,15,25,.95);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 12px;font-size:.8rem;color:#f5f5f5;pointer-events:none;opacity:0;transition:opacity .15s;z-index:9999;max-width:220px;line-height:1.5"></div>
+
+  <footer>
+    <span>le-francais-moyen.com — Sources : L'Avenir en Commun 2025 · Fondation IFRAP · France Budget · INSEE</span>
+    <span><a href="/questions/">Questions</a> · <a href="/elections/">Élections</a> · <a href="/sitemap.xml">Plan du site</a></span>
+  </footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   DONNÉES
+═══════════════════════════════════════════════════════════ */
+
+/* Chiffrage indépendant 2022 (IFRAP / Seureco-Erasme), en Md€/an */
+const CHIFFRAGE = [
+  {lbl:'Dépenses nouvelles', lo:200, hi:250, col:'#ff6b6b'},
+  {lbl:'Recettes nouvelles',  lo:150, hi:170, col:'#5dd6c5'},
+];
+
+/* Impact macro simulé : trajectoire actuelle vs scénario LFI 2030 */
+const IMPACT = [
+  {lbl:'Dette\n(% PIB)',     actuel:130, lfi:136, maxV:160, unit:'%'},
+  {lbl:'Déficit\n(% PIB)',   actuel:5.1, lfi:7.4, maxV:10,  unit:'%'},
+  {lbl:'Chômage\n(%)',       actuel:7.3, lfi:7.2, maxV:10,  unit:'%'},
+  {lbl:'Croissance\n(%/an)', actuel:0.9, lfi:1.4, maxV:3,   unit:'%'},
+];
+
+/* ═══════════════════════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════════════════════ */
+const TIP = document.getElementById('demTip');
+let tipX=0, tipY=0;
+document.addEventListener('mousemove', e => { tipX=e.clientX; tipY=e.clientY; });
+
+function showTip(html){
+  TIP.innerHTML = html;
+  TIP.style.opacity = '1';
+  TIP.style.left = (tipX + 14) + 'px';
+  TIP.style.top  = (tipY - 28) + 'px';
+}
+function hideTip(){ TIP.style.opacity = '0'; }
+
+function svgRect(svg, x, y, w, h, fill, tipHtml){
+  const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  r.setAttribute('x', x); r.setAttribute('y', y);
+  r.setAttribute('width', w); r.setAttribute('height', h);
+  r.setAttribute('fill', fill);
+  if(tipHtml){
+    r.style.cursor = 'pointer';
+    r.addEventListener('mouseenter', () => showTip(tipHtml));
+    r.addEventListener('mouseleave', hideTip);
+  }
+  svg.appendChild(r); return r;
+}
+function svgText(svg, x, y, txt, attrs){
+  const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t.setAttribute('x', x); t.setAttribute('y', y);
+  for(const k in attrs) t.setAttribute(k, attrs[k]);
+  t.textContent = txt;
+  svg.appendChild(t); return t;
+}
+function svgLine(svg, x1, y1, x2, y2, stroke, sw){
+  const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+  l.setAttribute('x1',x1); l.setAttribute('y1',y1);
+  l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+  l.setAttribute('stroke',stroke); l.setAttribute('stroke-width',sw||1);
+  svg.appendChild(l); return l;
+}
+function fmt(n){ return Math.round(n).toLocaleString('fr-FR'); }
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 1 : CHIFFRAGE — dépenses vs recettes nouvelles (fourchettes)
+═══════════════════════════════════════════════════════════ */
+function drawChiffrage(){
+  const svg = document.getElementById('svgChiffrage');
+  const VW=720, VH=320, padL=140, padR=40, padT=30, padB=50;
+  const W = VW-padL-padR, H = VH-padT-padB;
+  const maxV = 300;
+  const scaleX = W / maxV;
+  const rowH = H / CHIFFRAGE.length;
+
+  // grille
+  for(let g=0; g<=maxV; g+=50){
+    const x = padL + g*scaleX;
+    svgLine(svg, x, padT, x, padT+H, 'rgba(255,255,255,.08)', 1);
+    svgText(svg, x, padT+H+22, g, {'text-anchor':'middle','font-size':'11','fill':'rgba(255,255,255,.45)'});
+  }
+  svgText(svg, padL+W/2, padT+H+42, 'Milliards d’euros par an', {'text-anchor':'middle','font-size':'11','fill':'rgba(255,255,255,.4)'});
+
+  CHIFFRAGE.forEach((d,i)=>{
+    const y = padT + i*rowH + rowH*0.22;
+    const barH = rowH*0.56;
+    const xLo = padL + d.lo*scaleX;
+    const wBar = (d.hi-d.lo)*scaleX;
+    svgRect(svg, xLo, y, wBar, barH, d.col,
+      `<strong>${d.lbl}</strong><br>${d.lo}–${d.hi} Md€/an`);
+    svgText(svg, padL-12, y+barH/2+4, d.lbl, {'text-anchor':'end','font-size':'12','font-weight':'700','fill':'#ddd'});
+    svgText(svg, xLo+wBar+10, y+barH/2+4, d.lo+'–'+d.hi+' Md€', {'text-anchor':'start','font-size':'12','font-weight':'700','fill':d.col});
+  });
+
+  document.getElementById('chiffrageLegend').innerHTML = CHIFFRAGE.map(d=>
+    `<div class="dem-legend-item"><div class="dem-legend-dot" style="background:${d.col}"></div>${d.lbl} : ${d.lo}–${d.hi} Md€/an</div>`
+  ).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 2 : IMPACT — trajectoire actuelle vs scénario LFI 2030
+═══════════════════════════════════════════════════════════ */
+function drawImpact(){
+  const svg = document.getElementById('svgImpact');
+  const VW=720, VH=320, padL=50, padR=20, padT=30, padB=70;
+  const W = VW-padL-padR, H = VH-padT-padB;
+  const groupW = W / IMPACT.length;
+
+  IMPACT.forEach((d,i)=>{
+    const cx = padL + i*groupW + groupW/2;
+    const barW = Math.min(40, groupW*0.28);
+    const scaleY = H / d.maxV;
+
+    const hA = d.actuel*scaleY, hL = d.lfi*scaleY;
+    const xA = cx - barW - 6, xL = cx + 6;
+
+    svgRect(svg, xA, padT+H-hA, barW, hA, '#4ade80',
+      `<strong>Trajectoire actuelle</strong><br>${d.actuel}${d.unit}`);
+    svgRect(svg, xL, padT+H-hL, barW, hL, '#f87171',
+      `<strong>Scénario LFI 2030</strong><br>${d.lfi}${d.unit}`);
+
+    svgText(svg, xA+barW/2, padT+H-hA-8, d.actuel+d.unit, {'text-anchor':'middle','font-size':'11','font-weight':'700','fill':'#4ade80'});
+    svgText(svg, xL+barW/2, padT+H-hL-8, d.lfi+d.unit, {'text-anchor':'middle','font-size':'11','font-weight':'700','fill':'#f87171'});
+
+    d.lbl.split('\n').forEach((line,li)=>{
+      svgText(svg, cx, padT+H+22+li*14, line, {'text-anchor':'middle','font-size':'11','fill':'rgba(255,255,255,.6)'});
+    });
+  });
+
+  svgLine(svg, padL, padT+H, padL+W, padT+H, 'rgba(255,255,255,.2)', 1);
+
+  document.getElementById('impactLegend').innerHTML = `
+    <div class="dem-legend-item"><div class="dem-legend-dot" style="background:#4ade80"></div>Trajectoire actuelle (statu quo)</div>
+    <div class="dem-legend-item"><div class="dem-legend-dot" style="background:#f87171"></div>Scénario LFI 2030 (France Budget)</div>`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════════ */
+drawChiffrage();
+drawImpact();
+
+/* ── Nav mobile toggle ─────────────────────────────────── */
+(function(){
+  const btn = document.getElementById('navToggle');
+  const menu = document.getElementById('navMobile');
+  if(!btn||!menu) return;
+  btn.addEventListener('click',()=>{
+    const open = menu.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('nav-open', open);
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.remove('is-open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   I18N
+═══════════════════════════════════════════════════════════ */
+const I18N_DEM = {
+  fr: {
+    pageTitle: 'Le programme de Mélenchon 2027 : 831 mesures, combien ça coûte ?',
+    metaDesc: 'L\'Avenir en Commun, édition 2025 : 831 mesures (retraite à 60 ans, SMIC à 1600€, ISF, taxe Zucman, 6e République). Chiffrage indépendant, financement annoncé et impact macroéconomique simulé à l\'horizon 2030.',
+    h1: 'Le programme de Jean-Luc Mélenchon en 2027 :<br>831 mesures, combien ça coûte ?',
+    subtitle: 'En janvier 2025, La France Insoumise a publié la 4ᵉ édition de <strong style="color:var(--accent2)">L\'Avenir en Commun</strong> : 831 mesures, dont 143 nouvelles. Retraite à 60 ans, SMIC à 1600€ net, retour de l\'ISF, taxe Zucman, 6ᵉ République. Que disent les chiffrages indépendants — et où en est le financement annoncé ?'
+  },
+  en: {
+    pageTitle: 'Mélenchon\'s 2027 Programme: 831 Measures — What Would It Cost? | The Average French',
+    metaDesc: "L'Avenir en Commun, 2025 edition: 831 measures (retirement at 60, minimum wage at €1,600, wealth tax, Zucman tax, 6th Republic). Independent costing, announced funding and simulated macroeconomic impact through 2030.",
+    h1: 'Jean-Luc Mélenchon\'s 2027 programme:<br>831 measures, what would it cost?',
+    subtitle: "In January 2025, La France Insoumise published the 4th edition of <strong style=\"color:var(--accent2)\">L'Avenir en Commun</strong>: 831 measures, 143 of them new. Retirement at 60, minimum wage at €1,600 net, wealth tax return, Zucman tax, 6th Republic. What do independent costings say — and where does announced funding stand?"
+  }
+};
+
+function setLang(lang){
+  const s = I18N_DEM[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(s[key]!==undefined) el.innerHTML = s[key];
+  });
+  document.title = s.pageTitle;
+  const metaDesc = document.querySelector('[data-i18n-meta-desc]');
+  if(metaDesc) metaDesc.setAttribute('content', s.metaDesc);
+  document.getElementById('btn-fr').classList.toggle('active', lang==='fr');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  try{ localStorage.setItem('fm_lang', lang); }catch(e){}
+}
+window.setLang = setLang;
+(function(){
+  let lang = 'fr';
+  try{ lang = localStorage.getItem('fm_lang') || 'fr'; }catch(e){}
+  if(lang==='en') setLang('en');
+})();
+</script>
+</body>
+</html>
