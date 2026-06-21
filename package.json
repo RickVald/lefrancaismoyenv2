@@ -4,9 +4,10 @@
   "description": "Tableau de bord statistique des données officielles françaises",
   "private": true,
   "scripts": {
-    "build": "node scripts/generate-og.js && node scripts/build-data.js",
+    "build": "node scripts/generate-og.js && node scripts/generate-og-card.js && node scripts/build-data.js",
     "data": "node scripts/build-data.js",
-    "og": "node scripts/generate-og.js"
+    "og": "node scripts/generate-og.js",
+    "og-cards": "node scripts/generate-og-card.js"
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",
