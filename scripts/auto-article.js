@@ -236,7 +236,9 @@ Ta mission :
 }
 ~~~
 
-Pour html_body, utilise cette structure exacte :
+IMPORTANT — html_body ne doit contenir QUE le contenu de <main id="contenu">...</main> (hero + sections), strictement RIEN d'autre. Le header, la navigation, le menu mobile et le footer sont déjà gérés par le script qui t'appelle — ne les inclus PAS, ne recopie AUCUN bloc <header> ou <nav> : ça gaspille des tokens et risque de casser la page. Commence directement par <main id="contenu"> et termine par </main>.
+
+Structure attendue à l'intérieur de <main id="contenu">...</main> :
 - Un hero avec fil d'Ariane, tag orange, H1 accrocheur, sous-titre
 - Un answer-box orange avec la réponse directe (chiffres clés)
 - 3-4 KPI cards
@@ -245,9 +247,6 @@ Pour html_body, utilise cette structure exacte :
 - Un bloc sources
 - Des related links vers /dette/, et d'autres pages pertinentes du site
 - Un CTA compteur dette (bloc rouge standard)
-
-NAVIGATION (à insérer après <body> et la balise skip, avant <main>) :
-<header><div class="nav"><a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>${navDesktop}<div class="lang-switch" id="langSwitch"><button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button><button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button></div><button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button><a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a></div></header>${navMobile}
 
 CSS shared :
 .q-hero{padding:52px 24px 36px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(251,146,60,.09) 0%,transparent 60%)}
@@ -270,7 +269,9 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
     article = parseClaudeResponse(response);
   } catch(e) {
     console.error('Erreur parsing réponse Claude:', e.message);
+    console.error('Longueur réponse:', response.length, 'caractères');
     console.error('Réponse brute (début):', response.slice(0, 500));
+    console.error('Réponse brute (fin):', response.slice(-300));
     process.exit(1);
   }
 
@@ -331,6 +332,19 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      ${navDesktop}
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta" data-i18n="nav_cta">← Tableau de bord</a>
+    </div>
+  </header>
+  ${navMobile}
   ${html_body}
   <script>(function(){var btn=document.getElementById('navToggle');var menu=document.getElementById('navMobile');if(!btn||!menu)return;btn.addEventListener('click',function(){var open=menu.classList.toggle('is-open');btn.setAttribute('aria-expanded',open);document.body.classList.toggle('nav-open',open);});menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('is-open')){menu.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');btn.focus();}});})();</script>
   <script src="/assets/js/nav.js"></script>
