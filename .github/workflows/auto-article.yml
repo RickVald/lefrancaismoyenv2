@@ -49,12 +49,7 @@ jobs:
           SOURCE=$(jq -r '.source' _auto_article_info.json 2>/dev/null || echo "sources officielles")
           git add questions/${SLUG}.html questions/index.html sitemap.xml assets/img/og/${SLUG}.png || true
           git add -u
-          git commit -m "Auto-article ${DATE} : ${TITRE}
-
-Article publié automatiquement depuis l'actualité économique française.
-Source principale : ${SOURCE}
-
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
+          git commit -m "Auto-article ${DATE} : ${TITRE}" -m "Article publié automatiquement depuis l'actualité économique française. Source principale : ${SOURCE}" -m "Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
           git pull --rebase origin main
           git push origin main
 
