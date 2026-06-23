@@ -111,11 +111,43 @@ async function callClaude(prompt) {
 }
 
 // ── 5. Parser la réponse de Claude ─────────────────────────────────────
+// Claude échappe parfois mal les retours à la ligne bruts à l'intérieur des
+// valeurs JSON (ex: dans html_body), ce qui rend le JSON invalide même si le
+// contenu est correct. On échappe nous-mêmes tout caractère de contrôle qui
+// apparaît à l'intérieur d'une chaîne, sans toucher au formatage structurel
+// (espaces/retours à la ligne entre les clés, hors chaînes).
+function sanitizeJsonControlChars(text) {
+  let result = '';
+  let inString = false;
+  let escapeNext = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    const code = text.charCodeAt(i);
+    if (inString) {
+      if (escapeNext) { result += ch; escapeNext = false; continue; }
+      if (ch === '\\') { result += ch; escapeNext = true; continue; }
+      if (ch === '"') { inString = false; result += ch; continue; }
+      if (code < 0x20) {
+        if (ch === '\n') result += '\\n';
+        else if (ch === '\r') result += '\\r';
+        else if (ch === '\t') result += '\\t';
+        else result += '\\u' + code.toString(16).padStart(4, '0');
+        continue;
+      }
+      result += ch;
+    } else {
+      if (ch === '"') inString = true;
+      result += ch;
+    }
+  }
+  return result;
+}
+
 function parseClaudeResponse(text) {
   // Claude doit retourner un JSON structuré entre balises ~~~json ... ~~~
   const jsonMatch = text.match(/~~~json\s*([\s\S]+?)\s*~~~/);
   if (!jsonMatch) throw new Error('Réponse Claude non parseable — JSON manquant');
-  return JSON.parse(jsonMatch[1]);
+  return JSON.parse(sanitizeJsonControlChars(jsonMatch[1]));
 }
 
 // ── 6. Mettre à jour questions/index.html ─────────────────────────────
