@@ -1,2 +1,25 @@
-# Cloudflare Pages gère automatiquement /questions → /questions/ et index.html
-# Aucune règle supplémentaire nécessaire
+# Cloudflare Pages — 301 redirects for 404 URLs reported in Google Search Console
+
+# Pages référencées sans le préfixe /questions/
+/dette-france-par-habitant /questions/dette-france-par-habitant 301
+/dette-france-par-habitant/ /questions/dette-france-par-habitant 301
+/budget-2026-mesures-principales /questions/budget-2026-mesures-principales 301
+/budget-2026-mesures-principales/ /questions/budget-2026-mesures-principales 301
+/dette-publique-france-2026 /questions/dette-publique-france-2026 301
+/dette-publique-france-2026/ /questions/dette-publique-france-2026 301
+/pourquoi-la-france-ne-rembourse-pas-sa-dette /questions/pourquoi-la-france-ne-rembourse-pas-sa-dette 301
+/pourquoi-la-france-ne-rembourse-pas-sa-dette/ /questions/pourquoi-la-france-ne-rembourse-pas-sa-dette 301
+/cour-des-comptes-alerte-finances-publiques-2026 /budget/ 301
+/cour-des-comptes-alerte-finances-publiques-2026/ /budget/ 301
+
+# Pages référencées sous /dette/ au lieu de /questions/
+/dette/pourquoi-la-france-est-endettee /questions/pourquoi-la-france-est-endettee 301
+/dette/pourquoi-la-france-est-endettee/ /questions/pourquoi-la-france-est-endettee 301
+/dette/france-vs-allemagne-comparaison /questions/france-vs-allemagne-comparaison 301
+/dette/france-vs-allemagne-comparaison/ /questions/france-vs-allemagne-comparaison 301
+/dette/comment-reduire-la-dette-francaise /questions/comment-reduire-la-dette-francaise 301
+/dette/comment-reduire-la-dette-francaise/ /questions/comment-reduire-la-dette-francaise 301
+/dette/quel-est-le-deficit-de-la-france /questions/quel-est-le-deficit-de-la-france 301
+/dette/quel-est-le-deficit-de-la-france/ /questions/quel-est-le-deficit-de-la-france 301
+/dette/quelle-est-la-dette-de-la-france /questions/quelle-est-la-dette-de-la-france 301
+/dette/quelle-est-la-dette-de-la-france/ /questions/quelle-est-la-dette-de-la-france 301
