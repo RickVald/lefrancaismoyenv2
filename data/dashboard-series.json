@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-07-06",
   "kpis": {
     "foodInflation": 1.8,
     "debtPctGdp": 115.6,
     "purchasingPowerChange": 0.8,
     "housingMultiplier": 2.7,
-    "gdpPerCapitaUsd": 46103,
+    "gdpPerCapitaUsd": 48986,
     "unemploymentRate": 7.5,
-    "population": 68.6
+    "population": 68.7
   },
   "charts": {
     "inflation": {
@@ -244,7 +244,6 @@
     },
     "gdpPerCapita": {
       "labels": [
-        2015,
         2016,
         2017,
         2018,
@@ -253,10 +252,10 @@
         2021,
         2022,
         2023,
-        2024
+        2024,
+        2025
       ],
       "values": [
-        36702,
         37024,
         38687,
         41418,
@@ -265,7 +264,8 @@
         43725,
         40989,
         44700,
-        46103
+        46103,
+        48986
       ]
     },
     "unemployment": {
