@@ -1,0 +1,36 @@
+name: Refresh sondages 2027
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"   # Lundi 7h UTC
+  workflow_dispatch:        # Permet un déclenchement manuel
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scrape Wikipedia polls
+        run: node _scrape_sondages.js
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/sondages-2027.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(sondages): mise à jour automatique $(date -u '+%Y-%m-%d')"
+            git push
+          fi

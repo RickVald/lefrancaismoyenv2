@@ -1,0 +1,102 @@
+{
+  "updated": "2026-07-09",
+  "source": "Wikipedia — Liste de sondages sur l'élection présidentielle française de 2027",
+  "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
+  "candidates": {
+    "le_pen":    { "name": "Marine Le Pen",      "party": "RN",       "color": "#003189" },
+    "bardella":  { "name": "Jordan Bardella",    "party": "RN",       "color": "#1a4ac4" },
+    "philippe":  { "name": "Édouard Philippe",   "party": "Horizons", "color": "#40A9FF" },
+    "attal":     { "name": "Gabriel Attal",      "party": "RE",       "color": "#66C0FF" },
+    "melenchon": { "name": "J.-L. Mélenchon",   "party": "LFI",      "color": "#CC1100" },
+    "glucksmann":{ "name": "R. Glucksmann",      "party": "PS/PP",    "color": "#E75480" },
+    "retailleau":{ "name": "É. Retailleau",      "party": "LR",       "color": "#6B48FF" },
+    "zemmour":   { "name": "Éric Zemmour",       "party": "REC",      "color": "#888888" },
+    "tondelier": { "name": "M. Tondelier",       "party": "Verts",    "color": "#3BA35A" }
+  },
+  "polls": [
+    {
+      "date": "2026-07-08",
+      "institute": "Harris Interactive",
+      "n": 1592,
+      "scores": { "le_pen": 36, "melenchon": 16, "attal": 16, "glucksmann": 8, "retailleau": 8, "tondelier": 5, "roussel": 3, "zemmour": 5, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-07-08",
+      "institute": "Ifop",
+      "n": 984,
+      "scores": { "le_pen": 36, "melenchon": 15, "attal": 15, "glucksmann": 12, "retailleau": 10, "tondelier": 4, "roussel": 2, "zemmour": 3.5, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-06-22",
+      "institute": "Ifop",
+      "n": 1415,
+      "scores": { "bardella": 36, "melenchon": 13, "philippe": 14, "glucksmann": 9, "attal": 8, "retailleau": 8, "tondelier": 2.5, "roussel": 3, "zemmour": 4, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-06-10",
+      "institute": "OpinionWay",
+      "n": 1001,
+      "scores": { "bardella": 34, "melenchon": 16, "philippe": 19, "glucksmann": 16, "retailleau": 9, "zemmour": 3, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-05-27",
+      "institute": "Ipsos",
+      "n": 1500,
+      "scores": { "bardella": 33.5, "melenchon": 13, "philippe": 13, "glucksmann": 11, "attal": 8.5, "retailleau": 7.5, "tondelier": 4, "roussel": 3, "zemmour": 4, "dupont_aignan": 1.5 }
+    },
+    {
+      "date": "2026-05-10",
+      "institute": "Elabe",
+      "n": 1504,
+      "scores": { "bardella": 35, "melenchon": 13, "philippe": 20, "glucksmann": 10, "retailleau": 7, "tondelier": 4.5, "roussel": 3, "zemmour": 3, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-04-08",
+      "institute": "Ifop",
+      "n": 1100,
+      "scores": { "bardella": 34, "melenchon": 14, "philippe": 17, "glucksmann": 12, "retailleau": 9, "tondelier": 5, "roussel": 3, "zemmour": 4, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-03-25",
+      "institute": "Odoxa",
+      "n": 1299,
+      "scores": { "bardella": 34, "melenchon": 12, "philippe": 21, "glucksmann": 10, "retailleau": 8, "tondelier": 5, "roussel": 2, "zemmour": 5, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-03-22",
+      "institute": "Harris Interactive",
+      "n": 1062,
+      "scores": { "bardella": 35, "melenchon": 11, "philippe": 18, "glucksmann": 14, "retailleau": 7, "tondelier": 4, "roussel": 3, "zemmour": 5, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2026-02-26",
+      "institute": "Ifop",
+      "n": 1393,
+      "scores": { "bardella": 36, "melenchon": 11, "philippe": 16, "glucksmann": 10, "villepin": 3.5, "retailleau": 10, "tondelier": 4, "roussel": 2, "zemmour": 4, "dupont_aignan": 2.5 }
+    },
+    {
+      "date": "2026-01-15",
+      "institute": "Ifop",
+      "n": 1200,
+      "scores": { "bardella": 35, "melenchon": 12, "philippe": 18, "glucksmann": 11, "retailleau": 9, "tondelier": 4, "roussel": 2.5, "zemmour": 4, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2025-11-20",
+      "institute": "Odoxa",
+      "n": 1300,
+      "scores": { "bardella": 32, "melenchon": 13, "philippe": 20, "glucksmann": 12, "retailleau": 8, "tondelier": 5, "roussel": 2, "zemmour": 4.5, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2025-09-10",
+      "institute": "Harris Interactive",
+      "n": 1050,
+      "scores": { "bardella": 30, "melenchon": 14, "philippe": 19, "glucksmann": 13, "retailleau": 8, "tondelier": 5, "roussel": 2.5, "zemmour": 5, "dupont_aignan": 2 }
+    },
+    {
+      "date": "2025-06-12",
+      "institute": "Ifop",
+      "n": 1400,
+      "scores": { "bardella": 28, "melenchon": 15, "philippe": 18, "glucksmann": 14, "retailleau": 7, "tondelier": 6, "roussel": 3, "zemmour": 5, "dupont_aignan": 2 }
+    }
+  ]
+}

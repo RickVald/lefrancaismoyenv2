@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sondages présidentielle 2027 — intentions de vote en direct</title>
+  <meta name="description" content="Suivez l'évolution des sondages présidentielle 2027 semaine par semaine : courbes par candidat, scénarios interactifs (gauche unie, bloc central, Bardella vs Le Pen). Source : Wikipedia / instituts officiels.">
+  <meta property="article:published_time" content="2026-07-09T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-09T00:00:00+02:00">
+  <link rel="canonical" href="https://le-francais-moyen.com/elections/sondages-2027/">
+  <meta property="og:title" content="Sondages présidentielle 2027 — courbes et scénarios">
+  <meta property="og:description" content="Le Pen 36%, Philippe 19%, Mélenchon 15%. Courbes d'évolution et simulateur de scénarios pour la présidentielle 2027.">
+  <meta property="og:url" content="https://le-francais-moyen.com/elections/sondages-2027/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+      {"@type":"ListItem","position":2,"name":"Élections","item":"https://le-francais-moyen.com/elections/"},
+      {"@type":"ListItem","position":3,"name":"Sondages 2027","item":"https://le-francais-moyen.com/elections/sondages-2027/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qui est en tête des sondages pour la présidentielle 2027 ?",
+        "acceptedAnswer": {"@type":"Answer","text":"Selon les sondages de juillet 2026, Marine Le Pen est en tête des intentions de vote au premier tour avec 36 %, devant Édouard Philippe (19 %) et Jean-Luc Mélenchon (15 %). Le Pen a officialisé sa candidature après la réduction de sa peine d'inéligibilité le 7 juillet 2026."}
+      },
+      {
+        "@type": "Question",
+        "name": "Les sondages présidentielle 2027 sont-ils fiables ?",
+        "acceptedAnswer": {"@type":"Answer","text":"Les sondages réalisés plus d'un an avant le scrutin ont une fiabilité limitée. Depuis 1995, le favori dans les sondages à ce stade n'a remporté l'élection que dans 50 % des cas. Ils mesurent une tendance, pas une prédiction."}
+      },
+      {
+        "@type": "Question",
+        "name": "Quand ont lieu les prochaines élections présidentielles en France ?",
+        "acceptedAnswer": {"@type":"Answer","text":"L'élection présidentielle française est prévue en avril-mai 2027, avec un premier tour fin avril et un second tour début mai."}
+      },
+      {
+        "@type": "Question",
+        "name": "Marine Le Pen peut-elle se présenter à la présidentielle 2027 ?",
+        "acceptedAnswer": {"@type":"Answer","text":"Oui. Le 7 juillet 2026, la cour d'appel de Paris a réduit la peine d'inéligibilité de Marine Le Pen à 45 mois dont 30 avec sursis, la rendant éligible aux alentours du 31 mars 2027 — avant le premier tour. Elle a officialisé sa candidature dans la foulée. Un pourvoi en cassation reste possible."}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── Hero ── */
+    .sp-hero{text-align:center;padding:48px 24px 32px;background:radial-gradient(ellipse at 50% 0%,rgba(64,169,255,.1) 0%,transparent 65%)}
+    .sp-kpi-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;max-width:780px;margin:0 auto 32px;padding:0 24px}
+    .sp-kpi{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center}
+    .sp-kpi .val{font-size:1.9rem;font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+    .sp-kpi .lbl{font-size:.72rem;color:var(--muted);margin-top:3px}
+    .sp-kpi .delta{font-size:.72rem;font-weight:700;margin-top:2px}
+    .delta-up{color:#34d399} .delta-dn{color:var(--red)} .delta-eq{color:var(--muted)}
+
+    /* ── Chart ── */
+    .chart-container{position:relative;max-width:820px;margin:0 auto 8px;padding:0 24px}
+    #pollChart{width:100%;height:340px;cursor:crosshair;display:block}
+    #chartTooltip{position:absolute;pointer-events:none;background:rgba(10,12,20,.95);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:.8rem;line-height:1.65;min-width:180px;display:none;z-index:10;white-space:nowrap}
+
+    /* ── Legend ── */
+    .legend-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 24px;margin-bottom:20px}
+    .legend-btn{display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:rgba(255,255,255,.05);cursor:pointer;font-size:.8rem;font-weight:700;color:var(--muted);transition:all .15s;user-select:none}
+    .legend-btn.active{color:var(--text);border-color:transparent}
+    .legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+    /* ── Range selector ── */
+    .range-row{display:flex;justify-content:flex-end;gap:6px;padding:0 24px;margin-bottom:8px}
+    .range-btn{padding:4px 12px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.75rem;font-weight:700;cursor:pointer;transition:all .15s}
+    .range-btn.active{background:var(--accent);color:#0b1020;border-color:transparent}
+
+    /* ── Scenarios ── */
+    .scenario-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+    .stab{padding:8px 16px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.05);cursor:pointer;font-size:.83rem;font-weight:700;color:var(--muted);transition:all .15s}
+    .stab.active{background:rgba(64,169,255,.12);border-color:#40A9FF;color:#40A9FF}
+    .scenario-desc{font-size:.83rem;color:var(--muted);line-height:1.65;margin-bottom:18px;min-height:2.5em}
+    #scChart{width:100%;height:240px;display:block}
+
+    /* ── Poll table ── */
+    .poll-table{width:100%;border-collapse:collapse;font-size:.82rem}
+    .poll-table th{padding:8px 12px;text-align:left;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+    .poll-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle}
+    .poll-table tr:last-child td{border-bottom:none}
+    .poll-table .score{font-weight:900;font-variant-numeric:tabular-nums}
+    .poll-table .rn-score{color:#5580ff}
+    .pill-rn{background:rgba(0,49,137,.2);color:#5580ff;border-radius:6px;padding:2px 7px;font-weight:900;font-size:.8rem}
+    .pill-ctr{background:rgba(64,169,255,.12);color:#40A9FF;border-radius:6px;padding:2px 7px;font-weight:900;font-size:.8rem}
+    .pill-lfi{background:rgba(204,17,0,.15);color:#ff6b6b;border-radius:6px;padding:2px 7px;font-weight:900;font-size:.8rem}
+    .pill-ps{background:rgba(231,84,128,.15);color:#E75480;border-radius:6px;padding:2px 7px;font-weight:900;font-size:.8rem}
+
+    /* ── Warning box ── */
+    .methodo-box{background:rgba(251,146,60,.05);border:1px solid rgba(251,146,60,.18);border-radius:12px;padding:16px 18px;font-size:.8rem;color:var(--muted);line-height:1.7;margin-top:24px}
+
+    @media(max-width:640px){
+      .sp-kpi-row{grid-template-columns:1fr 1fr}
+      #pollChart{height:240px}
+      .poll-table{font-size:.75rem}
+      .poll-table th:nth-child(n+5),.poll-table td:nth-child(n+5){display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="dette" aria-haspopup="true">&#x1F4B0; Dette publique <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/dette/">&#x23F1;&#xFE0F; Compteur en direct</a></li>
+              <li><a href="/questions/quel-est-le-deficit-de-la-france.html">&#x1F4C9; D&#xE9;ficit</a></li>
+              <li><a href="/questions/combien-coutent-les-interets-de-la-dette.html">&#x1F4B8; Int&#xE9;r&#xEA;ts</a></li>
+              <li><a href="/questions/dette-france-par-habitant.html">&#x1F464; Dette par habitant</a></li>
+              <li><a href="/questions/qui-detient-la-dette-francaise.html">&#x1F3E6; Qui d&#xE9;tient la dette</a></li>
+              <li><a href="/questions/dette-france-italie-grece.html">&#x1F30D; Comparaisons Europe</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+              <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+              <li><a href="/budget/">&#x1F4CB; Budget</a></li>
+            </ul>
+          </li>
+          <li><a href="/elections/" class="active">&#x1F5F3;&#xFE0F; &#xC9;lections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">&#xC0; propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">&#8592; Tableau de bord</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="sp-hero">
+      <nav style="font-size:.88rem;color:var(--muted);margin-bottom:16px">
+        <a href="/">Accueil</a> › <a href="/elections/">Élections</a> › <span>Sondages 2027</span>
+      </nav>
+      <div class="eyebrow">En continu · mis à jour chaque semaine</div>
+      <h1 style="font-size:clamp(1.5rem,3.5vw,2.3rem);margin:0 auto 8px;text-align:center">Sondages présidentielle 2027</h1>
+      <p style="font-size:.95rem;color:var(--muted);max-width:600px;margin:0 auto 28px;line-height:1.7">
+        Intentions de vote au 1<sup>er</sup> tour — courbes d'évolution depuis juillet 2025, scénarios interactifs, source Wikipedia / instituts officiels.
+      </p>
+    </div>
+
+    <div style="max-width:860px;margin:0 auto;padding:0 0 48px">
+
+      <!-- KPI row -->
+      <div class="sp-kpi-row" id="kpiRow">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- Line chart -->
+      <div class="panel" style="padding:24px 0 16px;margin:0 24px 24px">
+        <div style="padding:0 24px 12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div>
+            <div class="eyebrow" style="margin-bottom:2px">Évolution des sondages</div>
+            <h2 style="font-size:1.05rem;margin:0">Intentions de vote — 1<sup>er</sup> tour (en %)</h2>
+          </div>
+          <div class="range-row" style="padding:0;margin:0">
+            <button class="range-btn" data-range="6">6 mois</button>
+            <button class="range-btn active" data-range="12">12 mois</button>
+            <button class="range-btn" data-range="all">Tout</button>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="pollChart"></canvas>
+          <div id="chartTooltip"></div>
+        </div>
+        <div class="legend-row" id="legendRow"></div>
+        <div style="padding:0 24px;font-size:.72rem;color:var(--muted)">
+          Chaque point = un sondage publié. Hover pour le détail. Sources : instituts Ifop, Harris Interactive, Ipsos, OpinionWay, Odoxa, Elabe.
+        </div>
+      </div>
+
+      <!-- Scenarios -->
+      <div class="panel" style="padding:24px;margin:0 24px 24px">
+        <div class="eyebrow" style="margin-bottom:4px">Prospective</div>
+        <h2 style="font-size:1.05rem;margin:0 0 16px">Et si… ? Scénarios pour le 1<sup>er</sup> tour</h2>
+        <div class="scenario-tabs" id="scenarioTabs"></div>
+        <p class="scenario-desc" id="scenarioDesc"></p>
+        <canvas id="scChart"></canvas>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:10px">
+          ⚠️ Les scénarios sont des estimations indicatives — les reports de voix ne sont jamais parfaits. Basé sur le dernier sondage disponible.
+        </div>
+      </div>
+
+      <!-- Poll table -->
+      <div class="panel" style="padding:24px;margin:0 24px 24px">
+        <div class="eyebrow" style="margin-bottom:4px">Historique</div>
+        <h2 style="font-size:1.05rem;margin:0 0 16px">Derniers sondages publiés</h2>
+        <div style="overflow-x:auto">
+          <table class="poll-table" id="pollTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Institut</th>
+                <th>RN</th>
+                <th>Centre</th>
+                <th>LFI</th>
+                <th>PS/PP</th>
+                <th>LR</th>
+              </tr>
+            </thead>
+            <tbody id="pollTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ SEO -->
+      <div class="panel" style="padding:24px;margin:0 24px 24px">
+        <div class="eyebrow" style="margin-bottom:4px">Questions fréquentes</div>
+        <h2 style="font-size:1.05rem;margin:0 0 18px">Sondages présidentielle 2027 — ce qu'il faut savoir</h2>
+        <div style="display:grid;gap:14px">
+          <div>
+            <strong style="font-size:.9rem;color:var(--text)">Qui est en tête des sondages pour la présidentielle 2027 ?</strong>
+            <p style="font-size:.84rem;color:var(--muted);margin:5px 0 0;line-height:1.7">
+              Selon les derniers sondages de juillet 2026, <strong style="color:var(--text)">Marine Le Pen arrive en tête avec 36 %</strong> des intentions de vote au premier tour. Elle est suivie par Édouard Philippe (~19 %), Jean-Luc Mélenchon (~15 %) et Raphaël Glucksmann (~12 %). Le Pen a officialisé sa candidature le 7 juillet 2026, après la réduction de sa peine d'inéligibilité par la cour d'appel de Paris.
+            </p>
+          </div>
+          <div>
+            <strong style="font-size:.9rem;color:var(--text)">Les sondages présidentielle 2027 sont-ils fiables ?</strong>
+            <p style="font-size:.84rem;color:var(--muted);margin:5px 0 0;line-height:1.7">
+              Les sondages conduits plus d'un an avant le scrutin ont une fiabilité limitée : <strong style="color:var(--text)">le favori à ce stade n'a remporté l'élection que dans 50 % des cas depuis 1995</strong>. Ils mesurent une tendance et un rapport de forces — pas une prédiction. Le premier tour est encore à 9+ mois et les candidates pourraient encore changer.
+            </p>
+          </div>
+          <div>
+            <strong style="font-size:.9rem;color:var(--text)">Pourquoi voit-on deux candidats RN (Le Pen et Bardella) ?</strong>
+            <p style="font-size:.84rem;color:var(--muted);margin:5px 0 0;line-height:1.7">
+              Entre mars 2025 et juillet 2026, Marine Le Pen était frappée d'inéligibilité. Les instituts testaient donc Jordan Bardella comme candidat RN de substitution. Depuis le 7 juillet 2026, Le Pen a officialisé sa candidature et remplace Bardella dans les nouvelles vagues. <strong style="color:var(--text)">Le score RN reste stable autour de 34-36 % quel que soit le candidat</strong>.
+            </p>
+          </div>
+          <div>
+            <strong style="font-size:.9rem;color:var(--text)">Quand ont lieu les prochaines élections présidentielles ?</strong>
+            <p style="font-size:.84rem;color:var(--muted);margin:5px 0 0;line-height:1.7">
+              L'élection présidentielle française est prévue en <strong style="color:var(--text)">avril-mai 2027</strong>. Le premier tour se tient traditionnellement le dernier dimanche d'avril, et le second tour deux semaines plus tard. À ce stade, aucune date officielle n'a été fixée.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Methodology -->
+      <div class="methodo-box" style="margin:0 24px">
+        <strong style="color:var(--text)">Méthodologie et limites</strong><br>
+        Les données sont extraites chaque semaine depuis la <a href="https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027" target="_blank" rel="noopener" style="color:var(--accent)">liste Wikipedia des sondages présidentielle 2027</a>, qui agrège les publications des instituts agréés (Ifop, Harris Interactive, Ipsos, OpinionWay, Odoxa, Elabe). Un même sondage peut tester plusieurs scénarios de candidature — nous sélectionnons le scénario de référence (le plus complet). Les scores affichés correspondent au <strong style="color:var(--text)">premier tour uniquement</strong>. Les scénarios "Et si…" sont des estimations fondées sur les études de report de voix disponibles, pas des projections officielles.
+        <br><br>Source : <a href="https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027" target="_blank" rel="noopener" style="color:var(--accent)">Wikipedia — Liste de sondages présidentielle 2027</a> · Instituts Ifop, Harris, Ipsos, OpinionWay, Odoxa, Elabe.
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen — Données : Wikipedia / instituts de sondages agréés</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+  <script>
+  // ── Data (updated weekly by GitHub Action) ──────────────────────────────
+  const DATA_URL = '/data/sondages-2027.json';
+
+  const CANDIDATES = {
+    le_pen:    { name: 'Le Pen',     party: 'RN',       color: '#4a7aff', dashed: false },
+    bardella:  { name: 'Bardella',   party: 'RN',       color: '#4a7aff', dashed: true  },
+    philippe:  { name: 'Philippe',   party: 'Horizons', color: '#40A9FF', dashed: false },
+    attal:     { name: 'Attal',      party: 'RE',       color: '#40A9FF', dashed: true  },
+    melenchon: { name: 'Mélenchon', party: 'LFI',      color: '#ff4444', dashed: false },
+    glucksmann:{ name: 'Glucksmann', party: 'PS/PP',    color: '#E75480', dashed: false },
+    retailleau:{ name: 'Retailleau', party: 'LR',       color: '#9b6bff', dashed: false },
+    zemmour:   { name: 'Zemmour',   party: 'REC',      color: '#888888', dashed: false },
+    tondelier: { name: 'Tondelier', party: 'Verts',    color: '#3BA35A', dashed: false },
+  };
+
+  // Which candidates are visible by default
+  const DEFAULT_VISIBLE = new Set(['le_pen','bardella','philippe','melenchon','glucksmann','retailleau']);
+
+  const SCENARIOS = [
+    {
+      id: 'actuel',
+      label: 'Situation actuelle',
+      desc: 'Les intentions de vote telles que mesurées dans le dernier sondage.',
+      modify: s => ({ ...s })
+    },
+    {
+      id: 'bardella',
+      label: 'Bardella remplace Le Pen',
+      desc: 'Le Pen se retire au profit de Bardella. Perte estimée de 3 points (friction de transfert d\'électorat).',
+      modify: s => {
+        const rn = s.le_pen || s.bardella || 0;
+        const r = { ...s }; delete r.le_pen;
+        r.bardella = Math.max(0, rn - 3);
+        return r;
+      }
+    },
+    {
+      id: 'gauche_unie',
+      label: 'Gauche unie',
+      desc: 'Mélenchon et Glucksmann s\'unissent derrière un candidat unique de gauche. Perte de friction estimée à 4 points (électeurs insoumis réticents à un candidat PS).',
+      modify: s => {
+        const total = (s.melenchon || 0) + (s.glucksmann || 0) - 4;
+        const r = { ...s }; delete r.melenchon; delete r.glucksmann;
+        r.gauche_unie = Math.max(0, total);
+        return r;
+      }
+    },
+    {
+      id: 'centre_uni',
+      label: 'Bloc central fusionné',
+      desc: 'Philippe et Attal ne s\'affrontent pas — un seul candidat du bloc central. Report estimé à 80 % du candidat qui se retire.',
+      modify: s => {
+        const main = Math.max(s.philippe || 0, s.attal || 0);
+        const other = Math.min(s.philippe || 0, s.attal || 0);
+        const r = { ...s }; delete r.attal;
+        r.philippe = main + other * 0.8;
+        return r;
+      }
+    }
+  ];
+
+  // Extra candidate for "gauche unie" scenario
+  CANDIDATES.gauche_unie = { name: 'Gauche unie', party: 'Gauche', color: '#cc3366', dashed: false };
+
+  // ── State ────────────────────────────────────────────────────────────────
+  let polls = [];
+  let visible = new Set(DEFAULT_VISIBLE);
+  let rangeMonths = 12;
+  let activeScenario = 0;
+
+  // ── Utilities ─────────────────────────────────────────────────────────────
+  function parseDate(s) { return new Date(s + 'T00:00:00'); }
+  function fmtDate(d) {
+    return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+  function fmtScore(v) { return v != null ? v.toFixed(1).replace('.0','') + ' %' : '—'; }
+
+  function filteredPolls() {
+    if (rangeMonths === 'all') return polls;
+    const cutoff = new Date();
+    cutoff.setMonth(cutoff.getMonth() - rangeMonths);
+    return polls.filter(p => parseDate(p.date) >= cutoff);
+  }
+
+  // ── KPI row ───────────────────────────────────────────────────────────────
+  function buildKpi() {
+    if (!polls.length) return;
+    const latest = polls[0];
+    const prev   = polls[1] || { scores: {} };
+    const kpis   = [
+      { key: 'le_pen', fallback: 'bardella', label: 'RN (Le Pen / Bardella)' },
+      { key: 'philippe', fallback: 'attal',  label: 'Centre (Philippe / Attal)' },
+      { key: 'melenchon', fallback: null,    label: 'Mélenchon (LFI)' },
+      { key: 'glucksmann', fallback: null,   label: 'Glucksmann (PS/PP)' },
+    ];
+    const el = document.getElementById('kpiRow');
+    el.innerHTML = kpis.map(k => {
+      const cur = latest.scores[k.key] ?? latest.scores[k.fallback] ?? null;
+      const prv = prev.scores[k.key] ?? prev.scores[k.fallback] ?? null;
+      const delta = (cur != null && prv != null) ? (cur - prv) : null;
+      const dClass = delta == null ? '' : delta > 0.4 ? 'delta-up' : delta < -0.4 ? 'delta-dn' : 'delta-eq';
+      const dText  = delta == null ? '' : delta > 0 ? `▲ +${delta.toFixed(1)}` : delta < 0 ? `▼ ${delta.toFixed(1)}` : '= stable';
+      const cand   = CANDIDATES[k.key] || CANDIDATES[k.fallback] || {};
+      return `<div class="sp-kpi">
+        <div class="val" style="color:${cand.color || 'var(--text)'}">${cur != null ? cur + ' %' : '—'}</div>
+        <div class="lbl">${k.label}</div>
+        ${dText ? `<div class="delta ${dClass}">${dText} vs sondage préc.</div>` : ''}
+      </div>`;
+    }).join('');
+  }
+
+  // ── Line chart ─────────────────────────────────────────────────────────────
+  function buildLineChart() {
+    const canvas = document.getElementById('pollChart');
+    const ctx    = canvas.getContext('2d');
+    const dpr    = window.devicePixelRatio || 1;
+    const rect   = canvas.getBoundingClientRect();
+    canvas.width  = rect.width  * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    const W = rect.width, H = rect.height;
+
+    const PAD = { t: 12, r: 20, b: 36, l: 36 };
+    const cw = W - PAD.l - PAD.r;
+    const ch = H - PAD.t - PAD.b;
+
+    ctx.clearRect(0, 0, W, H);
+
+    const fp = filteredPolls();
+    if (!fp.length) return;
+
+    const dates = fp.map(p => parseDate(p.date));
+    const minD  = Math.min(...dates);
+    const maxD  = Math.max(...dates);
+    const rangeD = maxD - minD || 1;
+
+    const xOf = d => PAD.l + ((parseDate(d) - minD) / rangeD) * cw;
+    const yOf = v => PAD.t + ch - (v / 45) * ch;
+
+    // Grid lines
+    ctx.strokeStyle = 'rgba(255,255,255,.06)';
+    ctx.lineWidth   = 1;
+    [0, 10, 20, 30, 40].forEach(v => {
+      const y = yOf(v);
+      ctx.beginPath(); ctx.moveTo(PAD.l, y); ctx.lineTo(PAD.l + cw, y); ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,.3)';
+      ctx.font = '10px system-ui';
+      ctx.textAlign = 'right';
+      ctx.fillText(v + '%', PAD.l - 4, y + 3);
+    });
+
+    // Date axis labels
+    ctx.fillStyle = 'rgba(255,255,255,.3)';
+    ctx.font = '10px system-ui';
+    ctx.textAlign = 'center';
+    const labelCount = Math.min(fp.length, 8);
+    const step = Math.max(1, Math.floor(fp.length / labelCount));
+    fp.filter((_, i) => i % step === 0).forEach(p => {
+      const x = xOf(p.date);
+      const d = parseDate(p.date);
+      const label = d.toLocaleDateString('fr-FR', { month: 'short', year: '2-digit' });
+      ctx.fillText(label, x, H - 6);
+    });
+
+    // Lines per candidate
+    const candidateKeys = Object.keys(CANDIDATES).filter(k => visible.has(k));
+    candidateKeys.forEach(key => {
+      const cand  = CANDIDATES[key];
+      const pts   = fp.map(p => ({ x: xOf(p.date), y: p.scores[key], raw: p })).filter(pt => pt.y != null);
+      if (pts.length < 1) return;
+
+      ctx.beginPath();
+      ctx.strokeStyle = cand.color;
+      ctx.lineWidth   = 2.5;
+      if (cand.dashed) ctx.setLineDash([6, 4]);
+      else ctx.setLineDash([]);
+
+      pts.forEach((pt, i) => {
+        if (i === 0) ctx.moveTo(pt.x, yOf(pt.y));
+        else ctx.lineTo(pt.x, yOf(pt.y));
+      });
+      ctx.stroke();
+
+      // Dots
+      pts.forEach(pt => {
+        ctx.beginPath();
+        ctx.arc(pt.x, yOf(pt.y), 4, 0, Math.PI * 2);
+        ctx.fillStyle = cand.color;
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(11,16,32,.8)';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([]);
+        ctx.stroke();
+      });
+    });
+
+    // Store for tooltip
+    canvas._pollData = fp;
+    canvas._xOf     = xOf;
+    canvas._yOf     = yOf;
+    canvas._cands   = candidateKeys;
+  }
+
+  // Tooltip
+  function setupTooltip() {
+    const canvas  = document.getElementById('pollChart');
+    const tooltip = document.getElementById('chartTooltip');
+    canvas.addEventListener('mousemove', e => {
+      if (!canvas._pollData) return;
+      const rect = canvas.getBoundingClientRect();
+      const mx   = e.clientX - rect.left;
+
+      // Find nearest poll
+      let nearest = null, nearX = Infinity;
+      canvas._pollData.forEach(p => {
+        const x = canvas._xOf(p.date);
+        if (Math.abs(x - mx) < nearX) { nearX = Math.abs(x - mx); nearest = p; }
+      });
+      if (!nearest || nearX > 40) { tooltip.style.display = 'none'; return; }
+
+      const rows = canvas._cands.map(key => {
+        const v = nearest.scores[key];
+        if (v == null) return '';
+        const c = CANDIDATES[key];
+        return `<span style="color:${c.color};font-weight:800">${c.name}</span> ${v} %`;
+      }).filter(Boolean).join('<br>');
+
+      tooltip.innerHTML = `<div style="color:var(--muted);font-size:.7rem;margin-bottom:4px">${nearest.institute} · ${fmtDate(parseDate(nearest.date))}</div>${rows}`;
+      tooltip.style.display = 'block';
+      const tx = Math.min(canvas._xOf(nearest.date) + 12, rect.width - 200);
+      tooltip.style.left = tx + 'px';
+      tooltip.style.top  = '20px';
+    });
+    canvas.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+  }
+
+  // ── Legend ─────────────────────────────────────────────────────────────────
+  function buildLegend() {
+    const el = document.getElementById('legendRow');
+    el.innerHTML = Object.entries(CANDIDATES).map(([key, c]) => {
+      if (key === 'gauche_unie') return ''; // virtual, only in scenarios
+      const isOn = visible.has(key);
+      const dash = c.dashed ? 'border-style:dashed' : '';
+      return `<button class="legend-btn ${isOn ? 'active' : ''}" data-key="${key}" style="${isOn ? `background:${c.color}22;border-color:${c.color}` : ''};${dash}">
+        <span class="legend-dot" style="background:${c.color}${isOn?'':'44'}"></span>
+        ${c.name}<span style="font-size:.65rem;opacity:.6;margin-left:2px">${c.party}</span>
+      </button>`;
+    }).join('');
+    el.querySelectorAll('.legend-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const k = btn.dataset.key;
+        if (visible.has(k)) visible.delete(k); else visible.add(k);
+        buildLegend(); buildLineChart();
+      });
+    });
+  }
+
+  // ── Scenario bar chart ─────────────────────────────────────────────────────
+  function buildScenarioChart() {
+    if (!polls.length) return;
+    const sc     = SCENARIOS[activeScenario];
+    const latest = polls[0];
+    const scores = sc.modify({ ...latest.scores });
+
+    // Sort by score
+    const entries = Object.entries(scores)
+      .filter(([k, v]) => v != null && v > 0 && CANDIDATES[k])
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8);
+
+    const canvas = document.getElementById('scChart');
+    const ctx    = canvas.getContext('2d');
+    const dpr    = window.devicePixelRatio || 1;
+    const rect   = canvas.getBoundingClientRect();
+    canvas.width  = rect.width  * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.scale(dpr, dpr);
+    const W = rect.width, H = rect.height;
+
+    ctx.clearRect(0, 0, W, H);
+
+    const PAD   = { t: 8, r: 20, b: 8, l: 110 };
+    const bh    = (H - PAD.t - PAD.b) / entries.length - 5;
+    const maxV  = Math.max(...entries.map(e => e[1]), 10);
+    const bw    = W - PAD.l - PAD.r;
+
+    entries.forEach(([key, val], i) => {
+      const cand = CANDIDATES[key];
+      const y    = PAD.t + i * (bh + 5);
+      const barW = (val / maxV) * bw;
+
+      // Bar
+      ctx.fillStyle = cand.color + '33';
+      ctx.beginPath();
+      ctx.roundRect(PAD.l, y, bw, bh, 4);
+      ctx.fill();
+
+      ctx.fillStyle = cand.color;
+      ctx.beginPath();
+      ctx.roundRect(PAD.l, y, barW, bh, 4);
+      ctx.fill();
+
+      // Label
+      ctx.fillStyle = 'rgba(255,255,255,.8)';
+      ctx.font = `${Math.min(13, bh - 2)}px system-ui`;
+      ctx.textAlign = 'right';
+      ctx.fillText(`${cand.name} (${cand.party})`, PAD.l - 6, y + bh * 0.68);
+
+      // Value
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'left';
+      ctx.font = `bold ${Math.min(13, bh - 2)}px system-ui`;
+      ctx.fillText(val.toFixed(1).replace('.0', '') + ' %', PAD.l + barW + 6, y + bh * 0.68);
+    });
+  }
+
+  // ── Poll table ─────────────────────────────────────────────────────────────
+  function buildTable() {
+    const tbody = document.getElementById('pollTableBody');
+    const shown = polls.slice(0, 12);
+    tbody.innerHTML = shown.map(p => {
+      const s = p.scores;
+      const rn  = s.le_pen ?? s.bardella ?? null;
+      const rnN = s.le_pen != null ? 'Le Pen' : s.bardella != null ? 'Bardella' : '—';
+      const ctr = s.philippe ?? s.attal ?? null;
+      const ctrN = s.philippe != null ? 'Philippe' : s.attal != null ? 'Attal' : '—';
+      const d  = parseDate(p.date);
+      const ds = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+      return `<tr>
+        <td style="white-space:nowrap;font-size:.8rem">${ds}</td>
+        <td style="color:var(--muted)">${p.institute}</td>
+        <td><span class="pill-rn">${rn != null ? rn + ' %' : '—'}</span><br><span style="font-size:.65rem;color:var(--muted)">${rnN}</span></td>
+        <td><span class="pill-ctr">${ctr != null ? ctr + ' %' : '—'}</span><br><span style="font-size:.65rem;color:var(--muted)">${ctrN}</span></td>
+        <td><span class="pill-lfi">${s.melenchon != null ? s.melenchon + ' %' : '—'}</span></td>
+        <td><span class="pill-ps">${s.glucksmann != null ? s.glucksmann + ' %' : '—'}</span></td>
+        <td style="color:var(--muted)">${s.retailleau != null ? s.retailleau + ' %' : '—'}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // ── Scenario tabs ──────────────────────────────────────────────────────────
+  function buildScenarioTabs() {
+    const el  = document.getElementById('scenarioTabs');
+    const dsc = document.getElementById('scenarioDesc');
+    el.innerHTML = SCENARIOS.map((sc, i) =>
+      `<button class="stab ${i === activeScenario ? 'active' : ''}" data-idx="${i}">${sc.label}</button>`
+    ).join('');
+    dsc.textContent = SCENARIOS[activeScenario].desc;
+    el.querySelectorAll('.stab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeScenario = parseInt(btn.dataset.idx);
+        buildScenarioTabs();
+        buildScenarioChart();
+      });
+    });
+  }
+
+  // ── Range buttons ──────────────────────────────────────────────────────────
+  function setupRange() {
+    document.querySelectorAll('.range-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        rangeMonths = btn.dataset.range === 'all' ? 'all' : parseInt(btn.dataset.range);
+        document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        buildLineChart();
+      });
+    });
+  }
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  async function init() {
+    try {
+      const res = await fetch(DATA_URL);
+      const data = await res.json();
+      polls = (data.polls || []).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+      // Display updated date
+      if (data.updated) {
+        const d = new Date(data.updated + 'T00:00:00');
+        document.querySelector('.sp-hero .eyebrow').textContent =
+          'Mis à jour le ' + d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+      }
+
+      buildKpi();
+      buildLegend();
+      buildLineChart();
+      buildScenarioTabs();
+      buildScenarioChart();
+      buildTable();
+      setupTooltip();
+      setupRange();
+
+      window.addEventListener('resize', () => {
+        buildLineChart();
+        buildScenarioChart();
+      });
+    } catch (e) {
+      console.error('Failed to load poll data:', e);
+    }
+  }
+
+  init();
+  </script>
+</body>
+</html>
