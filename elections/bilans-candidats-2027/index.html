@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bilan des candidats présidentielle 2027 — qui a gouverné quoi ?</title>
+  <meta name="description" content="Édouard Philippe (PM 3 ans + maire Le Havre), Gabriel Attal (PM 8 mois), Mélenchon (ministre Jospin)… Bilan chiffré de chaque candidat à la présidentielle 2027 : mandats exercés, réformes, résultats.">
+  <link rel="canonical" href="https://le-francais-moyen.com/elections/bilans-candidats-2027/">
+  <meta property="og:title" content="Bilan des candidats 2027 — qui a vraiment gouverné ?">
+  <meta property="og:description" content="Philippe PM 3 ans + maire Le Havre 15 ans, Attal le plus jeune PM, Mélenchon ministre Jospin… Tour des bilans chiffrés des candidats à la présidentielle 2027.">
+  <meta property="og:url" content="https://le-francais-moyen.com/elections/bilans-candidats-2027/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta property="article:modified_time" content="2026-07-09T12:00:00+02:00">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+  <style>
+    /* ── Expérience scoreboard ── */
+    .exp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(175px,1fr)); gap:10px; margin-bottom:28px }
+    .exp-card { border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:rgba(255,255,255,.04); position:relative; overflow:hidden }
+    .exp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px }
+    .exp-card.exe::before  { background:var(--accent) }
+    .exp-card.parl::before { background:#6B48FF }
+    .exp-card.opp::before  { background:var(--muted) }
+    .exp-name  { font-weight:900; font-size:.9rem; letter-spacing:-.02em; margin-bottom:2px }
+    .exp-party { font-size:.7rem; color:var(--muted); margin-bottom:6px }
+    .exp-tags  { display:flex; flex-wrap:wrap; gap:4px }
+    .exp-tag   { font-size:.62rem; font-weight:900; padding:2px 7px; border-radius:6px; white-space:nowrap }
+    .tag-exe   { background:rgba(246,195,67,.15); color:var(--accent) }
+    .tag-parl  { background:rgba(107,72,255,.15);  color:#9d85ff }
+    .tag-opp   { background:rgba(255,255,255,.07); color:var(--muted) }
+
+    /* ── Fiche bilan ── */
+    .bilan-panel { border:1px solid var(--border); border-radius:20px; overflow:hidden; margin-bottom:24px }
+    .bilan-head  { padding:20px 24px 16px; background:rgba(255,255,255,.04); border-bottom:1px solid var(--border); display:flex; align-items:flex-start; gap:14px }
+    .bilan-avatar{ width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; border:2px solid var(--border) }
+    .bilan-meta h3 { font-size:1rem; font-weight:900; margin:0 0 2px; letter-spacing:-.02em }
+    .bilan-meta .sub { font-size:.75rem; color:var(--muted) }
+    .bilan-body  { padding:20px 24px }
+
+    /* ── Mandats ── */
+    .mandat-list { list-style:none; padding:0; margin:0 0 16px }
+    .mandat-item { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.05) }
+    .mandat-item:last-child { border-bottom:none }
+    .mandat-period { font-size:.72rem; font-weight:900; color:var(--muted); min-width:90px; flex-shrink:0; padding-top:1px }
+    .mandat-content {}
+    .mandat-title { font-size:.88rem; font-weight:800; margin-bottom:2px }
+    .mandat-detail { font-size:.8rem; color:var(--muted); line-height:1.5 }
+
+    /* ── KPIs chiffrés ── */
+    .kpi-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; margin:14px 0 }
+    .kpi-box { background:rgba(255,255,255,.06); border:1px solid var(--border); border-radius:12px; padding:12px; text-align:center }
+    .kpi-val { font-size:1.4rem; font-weight:900; letter-spacing:-.04em; line-height:1 }
+    .kpi-lbl { font-size:.68rem; color:var(--muted); margin-top:3px; line-height:1.3 }
+    .kpi-box.green .kpi-val { color:#34d399 }
+    .kpi-box.orange .kpi-val { color:var(--accent) }
+    .kpi-box.blue .kpi-val { color:#40A9FF }
+    .kpi-box.red .kpi-val { color:var(--red) }
+
+    /* ── Reforms ── */
+    .reform-list { list-style:none; padding:0; margin:12px 0 0 }
+    .reform-list li { padding:6px 0 6px 16px; border-bottom:1px solid rgba(255,255,255,.04); font-size:.83rem; color:var(--muted); position:relative; line-height:1.5 }
+    .reform-list li::before { content:'→'; position:absolute; left:0; color:var(--accent); font-weight:900 }
+    .reform-list li:last-child { border-bottom:none }
+    .reform-list li strong { color:var(--text) }
+
+    /* ── Sans bilan exe ── */
+    .no-exe { background:rgba(255,255,255,.03); border:1px dashed var(--border); border-radius:14px; padding:14px 16px; font-size:.83rem; color:var(--muted); line-height:1.6 }
+
+    /* ── Source ── */
+    .src { font-size:.7rem; color:var(--muted); margin-top:12px; line-height:1.6 }
+    .src a { color:var(--muted); text-decoration:none; border-bottom:1px dotted var(--border) }
+    .src a:hover { color:var(--text) }
+
+    @media(max-width:600px) {
+      .bilan-head { flex-direction:column }
+      .exp-grid { grid-template-columns:1fr 1fr }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+      {"@type":"ListItem","position":2,"name":"Élections","item":"https://le-francais-moyen.com/elections/"},
+      {"@type":"ListItem","position":3,"name":"Bilans candidats 2027","item":"https://le-francais-moyen.com/elections/bilans-candidats-2027/"}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="dette" aria-haspopup="true">&#x1F4B0; Dette publique <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/dette/">&#x23F1;&#xFE0F; Compteur en direct</a></li>
+              <li><a href="/questions/quel-est-le-deficit-de-la-france.html">&#x1F4C9; D&#xE9;ficit</a></li>
+              <li><a href="/questions/combien-coutent-les-interets-de-la-dette.html">&#x1F4B8; Int&#xE9;r&#xEA;ts</a></li>
+              <li><a href="/questions/dette-france-par-habitant.html">&#x1F464; Dette par habitant</a></li>
+              <li><a href="/questions/qui-detient-la-dette-francaise.html">&#x1F3E6; Qui d&#xE9;tient la dette</a></li>
+              <li><a href="/questions/dette-france-italie-grece.html">&#x1F30D; Comparaisons Europe</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+              <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+              <li><a href="/budget/">&#x1F4CB; Budget</a></li>
+            </ul>
+          </li>
+          <li><a href="/elections/" class="active">&#x1F5F3;&#xFE0F; &#xC9;lections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">&#xC0; propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">&#8592; Tableau de bord</a>
+    </div>
+  </header>
+
+  <main>
+    <div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Fil d'Ariane" style="font-size:.8rem;color:var(--muted);margin-bottom:24px">
+        <a href="/" style="color:var(--muted);text-decoration:none">Accueil</a> ›
+        <a href="/elections/" style="color:var(--muted);text-decoration:none">Élections</a> ›
+        <span>Bilans candidats 2027</span>
+      </nav>
+
+      <!-- Hero -->
+      <div style="margin-bottom:32px">
+        <div class="eyebrow" style="margin-bottom:4px">MIS À JOUR LE 9 JUILLET 2026 · DONNÉES VÉRIFIÉES</div>
+        <h1 style="font-size:clamp(1.6rem,4vw,2.6rem);margin:0 0 12px;line-height:1.1">
+          Présidentielle 2027 :<br>bilan de chaque candidat
+        </h1>
+        <p style="color:var(--muted);font-size:1rem;max-width:680px;line-height:1.7;margin:0">
+          Philippe a été Premier ministre 3 ans et maire du Havre 15 ans. Attal est le plus jeune PM de la Ve République. Mélenchon a été ministre sous Jospin. Et les autres ? Tour complet des mandats exercés, chiffres à l'appui.
+        </p>
+      </div>
+
+      <!-- Scoreboard expérience -->
+      <div class="panel" style="padding:22px;margin-bottom:32px">
+        <div class="eyebrow" style="margin-bottom:12px">Qui a exercé un pouvoir exécutif ?</div>
+        <div class="exp-grid">
+
+          <div class="exp-card exe">
+            <div class="exp-name">Édouard Philippe</div>
+            <div class="exp-party">Horizons</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-exe">PM 3 ans</span>
+              <span class="exp-tag tag-exe">Maire 15 ans</span>
+            </div>
+          </div>
+
+          <div class="exp-card exe">
+            <div class="exp-name">Gabriel Attal</div>
+            <div class="exp-party">Renaissance</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-exe">PM 8 mois</span>
+              <span class="exp-tag tag-exe">Ministre ÉduC</span>
+            </div>
+          </div>
+
+          <div class="exp-card exe">
+            <div class="exp-name">Bruno Retailleau</div>
+            <div class="exp-party">LR</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-exe">Ministre Int.</span>
+              <span class="exp-tag tag-exe">Prés. région</span>
+            </div>
+          </div>
+
+          <div class="exp-card exe">
+            <div class="exp-name">J.-L. Mélenchon</div>
+            <div class="exp-party">LFI</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-exe">Ministre 2000-02</span>
+              <span class="exp-tag tag-parl">Parlement 30 ans</span>
+            </div>
+          </div>
+
+          <div class="exp-card parl">
+            <div class="exp-name">Marine Le Pen</div>
+            <div class="exp-party">RN</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-parl">Présidente RN</span>
+              <span class="exp-tag tag-parl">3 présidentielles</span>
+            </div>
+          </div>
+
+          <div class="exp-card parl">
+            <div class="exp-name">Raphaël Glucksmann</div>
+            <div class="exp-party">PS / Place Publique</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-parl">Eurodéputé</span>
+            </div>
+          </div>
+
+          <div class="exp-card parl">
+            <div class="exp-name">Jordan Bardella</div>
+            <div class="exp-party">RN</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-parl">Président RN</span>
+              <span class="exp-tag tag-parl">Eurodéputé</span>
+            </div>
+          </div>
+
+          <div class="exp-card opp">
+            <div class="exp-name">Marine Tondelier</div>
+            <div class="exp-party">Les Écologistes</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-opp">Secrétaire nationale</span>
+            </div>
+          </div>
+
+          <div class="exp-card opp">
+            <div class="exp-name">Éric Zemmour</div>
+            <div class="exp-party">Reconquête</div>
+            <div class="exp-tags">
+              <span class="exp-tag tag-opp">Journaliste → pol.</span>
+            </div>
+          </div>
+
+        </div>
+        <p style="font-size:.72rem;color:var(--muted);margin:0">
+          <span style="color:var(--accent)">■</span> Mandat exécutif (gouvernement / collectivité) &nbsp;·&nbsp;
+          <span style="color:#9d85ff">■</span> Mandat parlementaire &nbsp;·&nbsp;
+          <span style="color:var(--muted)">■</span> Sans mandat exécutif
+        </p>
+      </div>
+
+      <!-- ════ ÉDOUARD PHILIPPE ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">LE BILAN LE PLUS ÉTOFFÉ</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(64,169,255,.1);border-color:rgba(64,169,255,.3)">🏙️</div>
+          <div class="bilan-meta">
+            <h3>Édouard Philippe</h3>
+            <div class="sub">Horizons · Maire du Havre · Ancien Premier ministre (2017-2020)</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">2010 → présent</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Maire du Havre <span style="font-size:.72rem;font-weight:700;color:var(--accent)">(réélu 2014, 2020, 2026)</span></div>
+                <div class="mandat-detail">2e port de France, 166 000 habitants. 15 ans de gestion continue, entrecoupés de 3 ans à Matignon.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">Mai 2017 → Juil. 2020</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Premier ministre <span style="font-size:.72rem;font-weight:700;color:var(--accent)">(3 ans 2 mois)</span></div>
+                <div class="mandat-detail">Nommé par Macron, premier PM non issu de LREM sous la Ve hors cohabitation. Démission après le 1er tour des municipales.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2007 → 2010</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Député de Seine-Maritime</div>
+                <div class="mandat-detail">Groupe UMP à l'Assemblée nationale.</div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="eyebrow" style="margin:16px 0 8px;font-size:.7rem">Bilan Le Havre en chiffres (2010–2026)</div>
+          <div class="kpi-row">
+            <div class="kpi-box green">
+              <div class="kpi-val">−3 pts</div>
+              <div class="kpi-lbl">Chômage 11,7 % → 8,8 % (2018–2024)</div>
+            </div>
+            <div class="kpi-box green">
+              <div class="kpi-val">−20 %</div>
+              <div class="kpi-lbl">Réduction dette ville (→ 228 M€ en 2021)</div>
+            </div>
+            <div class="kpi-box blue">
+              <div class="kpi-val">42 M€</div>
+              <div class="kpi-lbl">Investissements annuels moyens</div>
+            </div>
+            <div class="kpi-box orange">
+              <div class="kpi-val">2012</div>
+              <div class="kpi-lbl">Inauguration du tramway (1ère ligne)</div>
+            </div>
+          </div>
+
+          <div class="eyebrow" style="margin:18px 0 8px;font-size:.7rem">Réformes passées à Matignon (2017–2020)</div>
+          <ul class="reform-list">
+            <li><strong>Réforme du lycée et du bac</strong> — nouveau bac 2021, spécialités, suppression des séries L/ES/S</li>
+            <li><strong>Loi PACTE (mai 2019)</strong> — simplification des entreprises, épargne retraite, seuils sociaux</li>
+            <li><strong>Loi ELAN (nov. 2018)</strong> — accélération construction logements, réforme HLM</li>
+            <li><strong>Réforme assurance chômage (2019)</strong> — conditions d'accès renforcées, bonus-malus sur CDD</li>
+            <li><strong>Crise des Gilets jaunes (nov. 2018)</strong> — retraite à taux plein à 67 ans maintenue, grand débat national</li>
+            <li><strong>Premier confinement COVID-19 (mars 2020)</strong> — 55 jours de confinement national, pilotage de la crise</li>
+            <li><strong>Réforme des retraites</strong> — lancée, suspendue à cause du COVID et du mouvement social</li>
+          </ul>
+
+          <p class="src">
+            Sources : <a href="https://www.ccomptes.fr/fr/communiques-presse/controle-de-la-ville-du-havre" target="_blank" rel="noopener">Cour des comptes — audit Le Havre</a> · <a href="https://ville-data.com/chomage/Le-Havre-76-76351" target="_blank" rel="noopener">Ville-data — chômage Le Havre</a> · <a href="https://www.info.gouv.fr/les-anciens-premiers-et-premieres-ministres-de-la-ve-republique/edouard-philippe" target="_blank" rel="noopener">Info.gouv — PM Philippe</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- ════ GABRIEL ATTAL ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">LE PLUS JEUNE PREMIER MINISTRE DE LA Ve</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(102,192,255,.1);border-color:rgba(102,192,255,.3)">🎓</div>
+          <div class="bilan-meta">
+            <h3>Gabriel Attal</h3>
+            <div class="sub">Renaissance · Ancien Premier ministre (jan.–sept. 2024) · Secrétaire général de Renaissance</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">Jan. → Sept. 2024</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Premier ministre <span style="font-size:.72rem;font-weight:700;color:var(--accent)">(~8 mois)</span></div>
+                <div class="mandat-detail">Nommé à 34 ans, plus jeune PM de la Ve République. Démissionne après la dissolution surprise et la défaite aux législatives de juillet 2024.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">Juil. 2023 → Jan. 2024</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Ministre de l'Éducation nationale</div>
+                <div class="mandat-detail">Lance le "choc des savoirs" (groupes de niveaux en 6e-5e, méthode Singapour pour les maths, brevet obligatoire pour accéder au lycée). Interdit les abayas à l'école.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2022 → 2023</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Ministre délégué aux Comptes publics</div>
+                <div class="mandat-detail">Pilotage du budget de l'État dans un contexte de post-COVID et de remontée des taux.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2017 → 2022</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Secrétaire d'État · Porte-parole du gouvernement</div>
+                <div class="mandat-detail">Plusieurs secrétariats d'État (Éducation, Transformation publique). Porte-parole de Castex.</div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="eyebrow" style="margin:16px 0 8px;font-size:.7rem">Repères chiffrés</div>
+          <div class="kpi-row">
+            <div class="kpi-box orange">
+              <div class="kpi-val">34 ans</div>
+              <div class="kpi-lbl">Âge à la nomination — record Ve République</div>
+            </div>
+            <div class="kpi-box blue">
+              <div class="kpi-val">8 mois</div>
+              <div class="kpi-lbl">Durée à Matignon (parmi les plus courts)</div>
+            </div>
+            <div class="kpi-box blue">
+              <div class="kpi-val">2 300</div>
+              <div class="kpi-lbl">Postes créés pour le choc des savoirs</div>
+            </div>
+          </div>
+
+          <ul class="reform-list">
+            <li><strong>Choc des savoirs (2024)</strong> — groupes de niveaux en collège, méthode Singapour pour les maths en primaire, brevet condition pour le lycée</li>
+            <li><strong>Interdiction des abayas (sept. 2023)</strong> — première circulaire de la rentrée</li>
+            <li><strong>Dissolution de l'Assemblée (juin 2024)</strong> — annoncée par Macron le soir des européennes, provoque la chute du gouvernement</li>
+          </ul>
+
+          <p class="src">Sources : <a href="https://www.info.gouv.fr/actualite/choc-des-savoirs-prise-de-parole-de-gabriel-attal" target="_blank" rel="noopener">Info.gouv — choc des savoirs</a></p>
+        </div>
+      </div>
+
+      <!-- ════ RETAILLEAU ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">MINISTRE DE L'INTÉRIEUR · RÉGION PAYS DE LA LOIRE</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(107,72,255,.1);border-color:rgba(107,72,255,.3)">⚖️</div>
+          <div class="bilan-meta">
+            <h3>Bruno Retailleau</h3>
+            <div class="sub">LR · Ancien Ministre de l'Intérieur (sept. 2024 – sept. 2025) · Sénateur de la Vendée</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">Sept. 2024 → Sept. 2025</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Ministre d'État, Ministre de l'Intérieur</div>
+                <div class="mandat-detail">Profil sécuritaire affirmé. Annonce 57 nouvelles brigades de gendarmerie, plan anti-trafics de drogue, dispositif "Villes Sécurité Renforcée".</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2010 → 2015</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Président du Conseil régional des Pays de la Loire</div>
+                <div class="mandat-detail">Élu sur une liste UMP. Gestion d'un budget régional d'environ 1,2 Md€. Démissionne pour se consacrer au Sénat.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2010 → 2024</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Sénateur de la Vendée · Président du groupe LR au Sénat</div>
+                <div class="mandat-detail">Figure de la droite classique au Sénat. Oppose le mariage pour tous (2013), la PMA (2019), milite pour un référendum sur l'immigration.</div>
+              </div>
+            </li>
+          </ul>
+          <ul class="reform-list">
+            <li><strong>57 nouvelles brigades de gendarmerie</strong> — plan de maillage territorial</li>
+            <li><strong>Loi anti-trafics de drogue</strong> — présentée en commission mixte paritaire en avril 2025</li>
+            <li><strong>Villes Sécurité Renforcée (fév. 2025)</strong> — meilleure complémentarité police/gendarmerie en périphérie</li>
+          </ul>
+          <p class="src">Sources : <a href="https://www.gendarmerie.interieur.gouv.fr/gendinfo/actualites/2025/le-ministre-de-l-interieur-dresse-un-bilan-de-ses-six-premiers-mois-d-actions" target="_blank" rel="noopener">Gendinfo — bilan 6 mois Retailleau</a></p>
+        </div>
+      </div>
+
+      <!-- ════ MÉLENCHON ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">30 ANS DE CARRIÈRE · LE SEUL À AVOIR ÉTÉ MINISTRE À GAUCHE</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(204,17,0,.1);border-color:rgba(204,17,0,.3)">✊</div>
+          <div class="bilan-meta">
+            <h3>Jean-Luc Mélenchon</h3>
+            <div class="sub">LFI · Fondateur de La France Insoumise · 3 candidatures présidentielles</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">2000 → 2002</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Ministre délégué à l'Enseignement professionnel (gouvernement Jospin)</div>
+                <div class="mandat-detail">Son seul mandat exécutif. Réforme du CAP, création du label "Lycée des métiers", de la licence professionnelle, et de la VAE (Validation des Acquis de l'Expérience) — cette dernière reste son héritage concret le plus tangible.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">1986 → 2010</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Sénateur de l'Essonne (PS)</div>
+                <div class="mandat-detail">24 ans au Sénat. Quitte le PS en 2008 pour fonder le Parti de Gauche, puis LFI en 2016.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2012, 2017, 2022</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Candidat à la présidence de la République</div>
+                <div class="mandat-detail">Trois candidatures, score croissant à chaque fois.</div>
+              </div>
+            </li>
+          </ul>
+          <div class="kpi-row">
+            <div class="kpi-box blue">
+              <div class="kpi-val">11,1 %</div>
+              <div class="kpi-lbl">2012 — 1er tour (4e)</div>
+            </div>
+            <div class="kpi-box blue">
+              <div class="kpi-val">19,6 %</div>
+              <div class="kpi-lbl">2017 — 1er tour (4e, à 400 000 voix du 2e tour)</div>
+            </div>
+            <div class="kpi-box orange">
+              <div class="kpi-val">21,95 %</div>
+              <div class="kpi-lbl">2022 — 1er tour (3e)</div>
+            </div>
+          </div>
+          <div class="no-exe" style="margin-top:14px">
+            ⚠️ Mélenchon n'a <strong>jamais exercé de responsabilité exécutive nationale</strong> depuis 2002, soit 24 ans. Son bilan politique se mesure essentiellement à son influence parlementaire et à la construction de LFI comme première force à gauche.
+          </div>
+          <p class="src">Sources : <a href="https://www.aefinfo.fr/depeche/445914-bilan-detape-de-jean-luc-melenchon-le-ministre-delegue-a-lenseignement-professionnel-rappelle-sa-volonte-de-developper-des-lycees-des-metiers" target="_blank" rel="noopener">AEF — bilan Mélenchon ministre</a></p>
+        </div>
+      </div>
+
+      <!-- ════ GLUCKSMANN ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">EURODÉPUTÉ · FIGURE DES DROITS HUMAINS</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(231,84,128,.1);border-color:rgba(231,84,128,.3)">🌍</div>
+          <div class="bilan-meta">
+            <h3>Raphaël Glucksmann</h3>
+            <div class="sub">PS / Place Publique · Eurodéputé (2019–présent) · Fondateur de Place Publique</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">2019 → présent</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Eurodéputé (groupe S&D)</div>
+                <div class="mandat-detail">Commissions Affaires étrangères (AFET), Commerce international (INTA), Sécurité et Défense (SEDE). Taux de présence aux votes en plénière : 87 % (au-dessus de la moyenne du PE).</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2018</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Fondateur de Place Publique</div>
+                <div class="mandat-detail">Mouvement social-démocrate, rejoint le PS en liste commune pour les européennes 2019 (14,5 %, 6 sièges).</div>
+              </div>
+            </li>
+          </ul>
+          <ul class="reform-list">
+            <li><strong>Sanctions contre la Russie</strong> — moteur de la position européenne depuis 2022</li>
+            <li><strong>Rapport sur l'esclavage moderne et les chaînes de valeur</strong> — rapporteur PE</li>
+            <li><strong>Textes sur la démocratie européenne</strong> — bouclier démocratique (EUDS)</li>
+          </ul>
+          <div class="no-exe" style="margin-top:14px">
+            ℹ️ Glucksmann n'a <strong>jamais exercé de mandat exécutif</strong> en France (pas de mairie, pas de gouvernement). Son influence est essentiellement européenne et médiatique.
+          </div>
+          <p class="src">Sources : <a href="https://www.europarl.europa.eu/meps/fr/197694/RAPHAEL_GLUCKSMANN/home" target="_blank" rel="noopener">Parlement européen — fiche Glucksmann</a></p>
+        </div>
+      </div>
+
+      <!-- ════ MARINE LE PEN ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">JAMAIS AU GOUVERNEMENT · 3 PRÉSIDENTIELLES</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(0,49,137,.1);border-color:rgba(0,49,137,.3)">🇫🇷</div>
+          <div class="bilan-meta">
+            <h3>Marine Le Pen</h3>
+            <div class="sub">RN · Candidate présidentielle 2027 · Présidente du groupe RN à l'Assemblée</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">2011 → 2021</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Présidente du Front National puis Rassemblement National</div>
+                <div class="mandat-detail">Prend la tête du FN à la mort politique de Jean-Marie Le Pen. Opère la "dédiabolisation" du parti : changement de nom (RN en 2018), exclusion des figures les plus radicales, ancrage local.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2004 → 2017</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Eurodéputée</div>
+                <div class="mandat-detail">13 ans au Parlement européen. Affaire des assistants parlementaires née de cette période (condamnation 2025-2026).</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2012, 2017, 2022</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Candidate à la présidentielle</div>
+                <div class="mandat-detail">Progression électorale constante. Atteint le second tour en 2017 et 2022.</div>
+              </div>
+            </li>
+          </ul>
+          <div class="kpi-row">
+            <div class="kpi-box blue">
+              <div class="kpi-val">17,9 %</div>
+              <div class="kpi-lbl">2012 — 3e tour (3e)</div>
+            </div>
+            <div class="kpi-box blue">
+              <div class="kpi-val">33,9 %</div>
+              <div class="kpi-lbl">2017 — 2e tour (face à Macron)</div>
+            </div>
+            <div class="kpi-box orange">
+              <div class="kpi-val">41,5 %</div>
+              <div class="kpi-lbl">2022 — 2e tour (meilleur score RN de l'histoire)</div>
+            </div>
+          </div>
+          <div class="no-exe" style="margin-top:14px">
+            ⚠️ Marine Le Pen n'a <strong>jamais exercé de responsabilité gouvernementale ou de direction d'une collectivité</strong>. Son bilan est celui d'une chef d'opposition et d'une candidate répétée — avec une transformation profonde de la droite nationale.
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ BARDELLA ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">PRÉSIDENT DU RN · AUCUN MANDAT EXÉCUTIF</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(26,74,196,.1);border-color:rgba(26,74,196,.3)">📋</div>
+          <div class="bilan-meta">
+            <h3>Jordan Bardella</h3>
+            <div class="sub">RN · Président du Rassemblement National depuis 2022 · Eurodéputé</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">2022 → présent</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Président du Rassemblement National</div>
+                <div class="mandat-detail">Élu à la tête du RN à 26 ans. Premier dirigeant du parti sans lien de sang avec les Le Pen. Pilote la campagne des européennes 2024 (1er avec 31,4 %).</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2019 → présent</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Eurodéputé</div>
+                <div class="mandat-detail">Élu à 23 ans. Préside le groupe Patriotes pour l'Europe (1er groupe d'extrême droite de l'histoire du PE).</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">Été 2024</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Premier ministre pressenti (cohabitation avortée)</div>
+                <div class="mandat-detail">Le RN arrive en tête au 1er tour des législatives. Le front républicain au 2e tour prive le RN de la majorité absolue — Bardella ne sera pas nommé PM.</div>
+              </div>
+            </li>
+          </ul>
+          <div class="no-exe" style="margin-top:14px">
+            ⚠️ Bardella n'a <strong>jamais dirigé une mairie, un département, une région ou un gouvernement</strong>. Il serait le premier président de la République (ou PM) à accéder à l'exécutif sans aucune expérience de gestion d'une collectivité.
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ TONDELIER ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">MILITANTE ÉCOLOGISTE · SANS BILAN EXÉCUTIF</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(59,163,90,.1);border-color:rgba(59,163,90,.3)">🌿</div>
+          <div class="bilan-meta">
+            <h3>Marine Tondelier</h3>
+            <div class="sub">Les Écologistes · Secrétaire nationale depuis 2022</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">2022 → présent</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Secrétaire nationale des Écologistes</div>
+                <div class="mandat-detail">Élue à la tête des Verts après la démission de Jadot. Tente d'unifier la gauche autour de l'écologie. Renforce la présence médiatique du parti.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2014 → présent</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Conseillère municipale d'Hénin-Beaumont</div>
+                <div class="mandat-detail">Ville dirigée par le RN (Steeve Briois). Tondelier est figure de l'opposition locale dans l'un des bastions du RN — ce qui lui a donné une notoriété nationale.</div>
+              </div>
+            </li>
+          </ul>
+          <div class="no-exe" style="margin-top:14px">
+            ℹ️ Tondelier n'a <strong>jamais exercé de responsabilité exécutive</strong> (ni mairie, ni région, ni gouvernement). Son bilan est celui d'une opposante locale et d'une dirigeante de parti.
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ ZEMMOUR ════ -->
+      <div class="eyebrow" style="margin-bottom:10px">JOURNALISTE DEVENU POLITIQUE · BILAN VIERGE</div>
+      <div class="bilan-panel">
+        <div class="bilan-head">
+          <div class="bilan-avatar" style="background:rgba(136,136,136,.1);border-color:rgba(136,136,136,.3)">🎙️</div>
+          <div class="bilan-meta">
+            <h3>Éric Zemmour</h3>
+            <div class="sub">Reconquête · Essayiste · Candidat présidentiel 2022</div>
+          </div>
+        </div>
+        <div class="bilan-body">
+          <ul class="mandat-list">
+            <li class="mandat-item">
+              <span class="mandat-period">Avant 2022</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Journaliste et essayiste (Le Figaro, CNews)</div>
+                <div class="mandat-detail">Chroniqueur politique pendant 30 ans. Auteur de plusieurs essais à succès (Le Suicide français, 2014). N'a jamais brigué de mandat avant sa candidature présidentielle.</div>
+              </div>
+            </li>
+            <li class="mandat-item">
+              <span class="mandat-period">2022</span>
+              <div class="mandat-content">
+                <div class="mandat-title">Candidat à la présidentielle · Fondateur de Reconquête</div>
+                <div class="mandat-detail">7,07 % au premier tour (5e). Crée Reconquête en novembre 2021.</div>
+              </div>
+            </li>
+          </ul>
+          <div class="kpi-box red" style="max-width:200px;margin-top:12px">
+            <div class="kpi-val">7,07 %</div>
+            <div class="kpi-lbl">2022 — 1er tour présidentielle (5e)</div>
+          </div>
+          <div class="no-exe" style="margin-top:14px">
+            ⚠️ Zemmour n'a <strong>jamais exercé le moindre mandat électif ou responsabilité executive</strong> avant sa candidature de 2022. Il est l'un des rares candidats à la présidentielle sans aucune expérience de la gestion publique.
+          </div>
+        </div>
+      </div>
+
+      <!-- Liens vers autres pages -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+        <a href="/elections/sondages-2027/" style="display:flex;align-items:center;gap:12px;background:rgba(64,169,255,.07);border:1px solid rgba(64,169,255,.2);border-radius:14px;padding:14px 16px;text-decoration:none">
+          <span style="font-size:1.5rem">📊</span>
+          <div>
+            <div style="font-size:.7rem;font-weight:900;color:#40A9FF;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1px">Sondages</div>
+            <div style="font-weight:900;color:var(--text);font-size:.85rem">Intentions de vote 2027 →</div>
+          </div>
+        </a>
+        <a href="/elections/affaires-judiciaires-2027/" style="display:flex;align-items:center;gap:12px;background:rgba(255,80,80,.05);border:1px solid rgba(255,80,80,.2);border-radius:14px;padding:14px 16px;text-decoration:none">
+          <span style="font-size:1.5rem">⚖️</span>
+          <div>
+            <div style="font-size:.7rem;font-weight:900;color:#ff7070;text-transform:uppercase;letter-spacing:.07em;margin-bottom:1px">Affaires judiciaires</div>
+            <div style="font-weight:900;color:var(--text);font-size:.85rem">Les casseroles des candidats →</div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Le Français Moyen · Sources : Cour des comptes, INSEE, Info.gouv, Parlement européen</span>
+    <a href="/">Tableau de bord principal</a>
+  </footer>
+
+</body>
+</html>
