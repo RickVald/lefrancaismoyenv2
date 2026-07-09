@@ -135,39 +135,42 @@
 </head>
 <body>
 
-  <!-- ── Nav identique au reste du site ── -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="site-logo"><span class="logo-fm">FM</span>Le Français Moyen</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><span class="logo">FM</span> Le Français Moyen</a>
       <nav aria-label="Navigation principale">
-        <ul class="nav-list">
+        <ul>
           <li class="has-dropdown">
-            <button class="nav-btn">💰 Dette publique ▼</button>
-            <ul class="dropdown">
-              <li><a href="/dette/">Vue d'ensemble</a></li>
-              <li><a href="/budget/">Budget de l'État</a></li>
+            <button class="nav-drop-btn" data-nav="dette" aria-haspopup="true">&#x1F4B0; Dette publique <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/dette/">&#x23F1;&#xFE0F; Compteur en direct</a></li>
+              <li><a href="/questions/quel-est-le-deficit-de-la-france.html">&#x1F4C9; D&#xE9;ficit</a></li>
+              <li><a href="/questions/combien-coutent-les-interets-de-la-dette.html">&#x1F4B8; Int&#xE9;r&#xEA;ts</a></li>
+              <li><a href="/questions/dette-france-par-habitant.html">&#x1F464; Dette par habitant</a></li>
+              <li><a href="/questions/qui-detient-la-dette-francaise.html">&#x1F3E6; Qui d&#xE9;tient la dette</a></li>
+              <li><a href="/questions/dette-france-italie-grece.html">&#x1F30D; Comparaisons Europe</a></li>
             </ul>
           </li>
           <li class="has-dropdown">
-            <button class="nav-btn">Analyses ▼</button>
-            <ul class="dropdown">
-              <li><a href="/retraites/">Retraites</a></li>
-              <li><a href="/logement/">Logement</a></li>
-              <li><a href="/impot/">Impôts</a></li>
-              <li><a href="/sante/">Santé</a></li>
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+              <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+              <li><a href="/budget/">&#x1F4CB; Budget</a></li>
             </ul>
           </li>
-          <li><a href="/elections/" class="nav-link active">🗳️ Élections</a></li>
-          <li><a href="/questions/" class="nav-link">Questions</a></li>
-          <li><a href="/a-propos/" class="nav-link">À propos</a></li>
+          <li><a href="/elections/" class="active">&#x1F5F3;&#xFE0F; &#xC9;lections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">&#xC0; propos</a></li>
         </ul>
       </nav>
-      <a href="/" class="back-link">← Tableau de bord</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">&#8592; Tableau de bord</a>
     </div>
   </header>
 
-  <main class="page-content">
-    <div class="container">
+  <main>
+    <div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
 
       <!-- Breadcrumb -->
       <nav aria-label="Fil d'Ariane" style="font-size:.8rem;color:var(--muted);margin-bottom:24px">
@@ -517,12 +520,9 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p style="color:var(--muted);font-size:.8rem;text-align:center;margin:0">
-        © 2026 Le Français Moyen · Données judiciaires vérifiées via sources officielles (Poligraph, Franceinfo, Public Sénat) · Mise à jour : 9 juillet 2026
-      </p>
-    </div>
+  <footer>
+    <span>© 2026 Le Français Moyen · Données judiciaires vérifiées via sources officielles (Poligraph, Franceinfo, Public Sénat)</span>
+    <a href="/">Tableau de bord principal</a>
   </footer>
 
   <script>
