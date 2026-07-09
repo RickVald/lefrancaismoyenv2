@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Affaires judiciaires présidentielle 2027 : Le Pen condamnée, que font les autres ?</title>
+  <meta name="description" content="Marine Le Pen condamnée en appel le 7 juillet 2026, Mélenchon condamné pour rébellion, Zemmour condamné pour haine raciale… Tour complet des casseroles judiciaires des candidats à la présidentielle 2027.">
+  <link rel="canonical" href="https://le-francais-moyen.com/elections/affaires-judiciaires-2027/">
+  <meta property="og:title" content="Affaires judiciaires présidentielle 2027 : Le Pen, Mélenchon, Zemmour… qui a des casseroles ?">
+  <meta property="og:description" content="Le Pen condamnée en appel (juil. 2026), Zemmour condamné définitivement, Mélenchon condamné pour rébellion. Et les autres ? Tour complet, sources officielles.">
+  <meta property="og:url" content="https://le-francais-moyen.com/elections/affaires-judiciaires-2027/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <meta property="article:modified_time" content="2026-07-09T12:00:00+02:00">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+  <style>
+    /* ── Scoreboard ── */
+    .scoreboard { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px; margin-bottom:32px }
+    .score-card { border:1px solid var(--border); border-radius:16px; padding:14px 16px; background:rgba(255,255,255,.04); position:relative; overflow:hidden }
+    .score-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px }
+    .score-card.rouge::before  { background:var(--red) }
+    .score-card.orange::before { background:#F5A623 }
+    .score-card.jaune::before  { background:#F6C343 }
+    .score-card.vert::before   { background:#3BA35A }
+    .score-name { font-weight:900; font-size:.95rem; letter-spacing:-.02em; margin-bottom:2px }
+    .score-party { font-size:.72rem; color:var(--muted); margin-bottom:8px }
+    .score-badge { display:inline-block; font-size:.65rem; font-weight:900; padding:3px 9px; border-radius:8px; letter-spacing:.05em; text-transform:uppercase }
+    .badge-rouge  { background:rgba(255,80,80,.15);  color:#ff7070 }
+    .badge-orange { background:rgba(245,166,35,.15); color:#F5A623 }
+    .badge-jaune  { background:rgba(246,195,67,.15); color:#F6C343 }
+    .badge-vert   { background:rgba(59,163,90,.15);  color:#3BA35A }
+
+    /* ── Fiche candidat ── */
+    .candidat-panel { background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:20px; padding:24px 28px; margin-bottom:20px; position:relative; overflow:hidden }
+    .candidat-panel.featured { border-color:rgba(255,80,80,.3); background:rgba(255,80,80,.04) }
+    .candidat-panel.featured::after { content:'Affaire principale'; position:absolute; top:16px; right:16px; font-size:.65rem; font-weight:900; letter-spacing:.07em; background:rgba(255,80,80,.15); color:#ff7070; padding:4px 10px; border-radius:8px; text-transform:uppercase }
+    .candidat-header { display:flex; align-items:flex-start; gap:14px; margin-bottom:16px }
+    .candidat-avatar { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; border:2px solid var(--border) }
+    .candidat-meta h3 { font-size:1.05rem; font-weight:900; letter-spacing:-.02em; margin:0 0 2px }
+    .candidat-meta .party-tag { font-size:.75rem; color:var(--muted) }
+
+    /* ── Timeline ── */
+    .timeline { list-style:none; padding:0; margin:0; border-left:2px solid var(--border); padding-left:20px }
+    .timeline li { position:relative; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,.05) }
+    .timeline li:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none }
+    .timeline li::before { content:''; position:absolute; left:-26px; top:5px; width:10px; height:10px; border-radius:50%; border:2px solid var(--border); background:var(--bg, #0b1020) }
+    .timeline li.definitif::before { background:var(--red); border-color:var(--red) }
+    .timeline li.appel::before     { background:#F5A623; border-color:#F5A623 }
+    .timeline li.enquete::before   { background:#F6C343; border-color:#F6C343 }
+    .tl-date   { font-size:.72rem; font-weight:900; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px }
+    .tl-titre  { font-size:.9rem; font-weight:800; margin-bottom:3px; color:var(--text) }
+    .tl-detail { font-size:.82rem; color:var(--muted); line-height:1.5 }
+    .tl-peine  { display:inline-block; margin-top:5px; font-size:.78rem; font-weight:900; padding:3px 10px; border-radius:8px; background:rgba(255,255,255,.07); color:var(--text) }
+
+    /* ── Status box ── */
+    .status-box { border-radius:14px; padding:14px 18px; margin-top:16px; font-size:.85rem; line-height:1.6; border:1px solid }
+    .status-box.rouge  { background:rgba(255,80,80,.06);  border-color:rgba(255,80,80,.25);  color:#ffaaaa }
+    .status-box.orange { background:rgba(245,166,35,.06); border-color:rgba(245,166,35,.25); color:#f5c878 }
+    .status-box.vert   { background:rgba(59,163,90,.06);  border-color:rgba(59,163,90,.25);  color:#8de0a8 }
+
+    /* ── Propres ── */
+    .propres-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:10px; margin-bottom:28px }
+    .propre-card { border:1px solid rgba(59,163,90,.2); border-radius:14px; padding:12px 14px; background:rgba(59,163,90,.04); display:flex; align-items:center; gap:10px }
+    .propre-check { color:#3BA35A; font-size:1.1rem }
+    .propre-name { font-size:.88rem; font-weight:800; letter-spacing:-.01em }
+    .propre-party { font-size:.7rem; color:var(--muted) }
+
+    /* ── Source ── */
+    .source-link { font-size:.72rem; color:var(--muted); text-decoration:none; border-bottom:1px dotted var(--border) }
+    .source-link:hover { color:var(--text) }
+
+    /* ── FAQ ── */
+    .faq-item { border-bottom:1px solid var(--border); padding:18px 0 }
+    .faq-item:last-child { border-bottom:none }
+    .faq-q { font-size:.95rem; font-weight:900; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:12px }
+    .faq-q::after { content:'+'; font-size:1.3rem; color:var(--muted); flex-shrink:0 }
+    .faq-item.open .faq-q::after { content:'−' }
+    .faq-a { font-size:.85rem; color:var(--muted); line-height:1.7; margin-top:12px; display:none }
+    .faq-item.open .faq-a { display:block }
+
+    @media(max-width:600px){
+      .scoreboard { grid-template-columns:1fr 1fr }
+      .candidat-panel.featured::after { position:static; display:block; width:fit-content; margin-bottom:12px }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://le-francais-moyen.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Élections", "item": "https://le-francais-moyen.com/elections/" },
+          { "@type": "ListItem", "position": 3, "name": "Affaires judiciaires 2027", "item": "https://le-francais-moyen.com/elections/affaires-judiciaires-2027/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Marine Le Pen peut-elle se présenter à la présidentielle 2027 malgré sa condamnation ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. La Cour d'appel de Paris a confirmé le 7 juillet 2026 sa culpabilité dans l'affaire des assistants parlementaires, mais a réduit la peine d'inéligibilité à 45 mois dont 30 avec sursis, soit 15 mois fermes. Ces 15 mois étant déjà purgés depuis la condamnation en première instance de mars 2025, Marine Le Pen peut légalement se présenter. Elle a formé un pourvoi en cassation qui suspend la peine d'emprisonnement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Jean-Luc Mélenchon a-t-il des affaires judiciaires ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. Jean-Luc Mélenchon a été condamné en 2023 à 3 mois de prison avec sursis pour rébellion et provocation lors des perquisitions au siège de LFI en octobre 2018. Il fait également l'objet d'une enquête de l'OLAF (Office européen de lutte antifraude) concernant ses assistants parlementaires européens, mais n'a pas été mis en examen à ce sujet." }
+          },
+          {
+            "@type": "Question",
+            "name": "Éric Zemmour a-t-il été condamné ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, et de façon définitive. La Cour de cassation a rejeté son pourvoi en décembre 2025, rendant définitives ses condamnations pour provocation à la discrimination raciale (2011) et à la haine religieuse (2016). Il a également été condamné pour des propos sur les mineurs non accompagnés. Peine finale : 10 000 € d'amende." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels candidats 2027 n'ont aucune affaire judiciaire connue ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "À la date de juillet 2026, aucune affaire judiciaire n'est recensée pour Édouard Philippe, Gabriel Attal, Raphaël Glucksmann, Marine Tondelier et Bruno Retailleau." }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que l'affaire des assistants parlementaires du RN ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'affaire des assistants parlementaires européens du Front National concerne l'emploi d'assistants rémunérés par le Parlement européen pour des tâches de partis, non parlementaires. Marine Le Pen a été condamnée pour détournement de fonds publics dans ce cadre. Jordan Bardella fait également l'objet d'investigations dans une affaire similaire." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ── Nav identique au reste du site ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo"><span class="logo-fm">FM</span>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li class="has-dropdown">
+            <button class="nav-btn">💰 Dette publique ▼</button>
+            <ul class="dropdown">
+              <li><a href="/dette/">Vue d'ensemble</a></li>
+              <li><a href="/budget/">Budget de l'État</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-btn">Analyses ▼</button>
+            <ul class="dropdown">
+              <li><a href="/retraites/">Retraites</a></li>
+              <li><a href="/logement/">Logement</a></li>
+              <li><a href="/impot/">Impôts</a></li>
+              <li><a href="/sante/">Santé</a></li>
+            </ul>
+          </li>
+          <li><a href="/elections/" class="nav-link active">🗳️ Élections</a></li>
+          <li><a href="/questions/" class="nav-link">Questions</a></li>
+          <li><a href="/a-propos/" class="nav-link">À propos</a></li>
+        </ul>
+      </nav>
+      <a href="/" class="back-link">← Tableau de bord</a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Fil d'Ariane" style="font-size:.8rem;color:var(--muted);margin-bottom:24px">
+        <a href="/" style="color:var(--muted);text-decoration:none">Accueil</a>
+        <span> › </span>
+        <a href="/elections/" style="color:var(--muted);text-decoration:none">Élections</a>
+        <span> › </span>
+        <span>Affaires judiciaires 2027</span>
+      </nav>
+
+      <!-- Hero -->
+      <div style="margin-bottom:32px">
+        <div class="eyebrow" style="margin-bottom:4px">MIS À JOUR LE 9 JUILLET 2026 · SOURCES OFFICIELLES</div>
+        <h1 style="font-size:clamp(1.7rem,4vw,2.8rem);margin:0 0 12px;line-height:1.1">
+          Affaires judiciaires 2027 :<br>
+          <span style="color:var(--red)">Le Pen condamnée</span> — et les autres candidats ?
+        </h1>
+        <p style="color:var(--muted);font-size:1rem;max-width:680px;line-height:1.7;margin:0">
+          Marine Le Pen, Mélenchon, Zemmour… plusieurs candidats à la présidentielle 2027 traînent des casseroles judiciaires. Tour complet des condamnations, enquêtes et affaires en cours — et des candidats qui n'en ont pas.
+        </p>
+      </div>
+
+      <!-- Scoreboard rapide -->
+      <div class="panel" style="padding:24px;margin-bottom:32px">
+        <div class="eyebrow" style="margin-bottom:12px">Vue d'ensemble — statut judiciaire de chaque candidat</div>
+        <div class="scoreboard">
+
+          <div class="score-card rouge">
+            <div class="score-name">Marine Le Pen</div>
+            <div class="score-party">RN</div>
+            <span class="score-badge badge-rouge">Condamnée en appel</span>
+          </div>
+
+          <div class="score-card rouge">
+            <div class="score-name">Éric Zemmour</div>
+            <div class="score-party">Reconquête</div>
+            <span class="score-badge badge-rouge">Condamné définitif</span>
+          </div>
+
+          <div class="score-card orange">
+            <div class="score-name">J.-L. Mélenchon</div>
+            <div class="score-party">LFI</div>
+            <span class="score-badge badge-orange">Condamné (sursis)</span>
+          </div>
+
+          <div class="score-card jaune">
+            <div class="score-name">Jordan Bardella</div>
+            <div class="score-party">RN</div>
+            <span class="score-badge badge-jaune">Enquête en cours</span>
+          </div>
+
+          <div class="score-card vert">
+            <div class="score-name">Édouard Philippe</div>
+            <div class="score-party">Horizons</div>
+            <span class="score-badge badge-vert">Aucune affaire</span>
+          </div>
+
+          <div class="score-card vert">
+            <div class="score-name">Gabriel Attal</div>
+            <div class="score-party">Renaissance</div>
+            <span class="score-badge badge-vert">Aucune affaire</span>
+          </div>
+
+          <div class="score-card vert">
+            <div class="score-name">R. Glucksmann</div>
+            <div class="score-party">PS / Place Publique</div>
+            <span class="score-badge badge-vert">Aucune affaire</span>
+          </div>
+
+          <div class="score-card vert">
+            <div class="score-name">Marine Tondelier</div>
+            <div class="score-party">Les Verts</div>
+            <span class="score-badge badge-vert">Aucune affaire</span>
+          </div>
+
+          <div class="score-card vert">
+            <div class="score-name">Bruno Retailleau</div>
+            <div class="score-party">LR</div>
+            <span class="score-badge badge-vert">Aucune affaire</span>
+          </div>
+
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);margin:0">
+          Légende : <span style="color:#ff7070">■</span> Condamné(e) &nbsp;·&nbsp;
+          <span style="color:#F5A623">■</span> Condamné(e) avec sursis &nbsp;·&nbsp;
+          <span style="color:#F6C343">■</span> Enquête / mis en examen &nbsp;·&nbsp;
+          <span style="color:#3BA35A">■</span> Aucune affaire recensée
+          — Sources : <a href="https://poligraph.fr/affaires" class="source-link" target="_blank" rel="noopener">Poligraph</a>, <a href="https://www.franceinfo.fr" class="source-link" target="_blank" rel="noopener">Franceinfo</a>
+        </p>
+      </div>
+
+      <!-- ────────── MARINE LE PEN ────────── -->
+      <div class="eyebrow" style="margin-bottom:12px">AFFAIRE PRINCIPALE · FORTE ACTUALITÉ JUDICIAIRE</div>
+      <div class="candidat-panel featured">
+        <div class="candidat-header">
+          <div class="candidat-avatar" style="background:rgba(0,49,137,.15);border-color:rgba(0,49,137,.3)">🏛️</div>
+          <div class="candidat-meta">
+            <h2 style="font-size:1.2rem;font-weight:900;margin:0 0 2px">Marine Le Pen</h2>
+            <div class="party-tag">Rassemblement National · Candidate déclarée à la présidentielle 2027</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:.85rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin:0 0 14px">Chronologie judiciaire</h3>
+        <ul class="timeline" style="margin-bottom:20px">
+          <li class="definitif">
+            <div class="tl-date">2015–2017 · Enquête ouverte</div>
+            <div class="tl-titre">Affaire des assistants parlementaires européens du FN</div>
+            <div class="tl-detail">Le Parlement européen et l'OLAF suspectent des assistants rémunérés par le PE d'avoir travaillé en réalité pour le parti. Une vingtaine de personnes concernées, dont Marine Le Pen et plusieurs cadres du RN.</div>
+          </li>
+          <li class="definitif">
+            <div class="tl-date">Septembre 2021 · Mise en examen</div>
+            <div class="tl-titre">Mise en examen pour détournement de fonds publics</div>
+            <div class="tl-detail">Marine Le Pen est mise en examen pour complicité de détournement de fonds publics, abus de confiance et recel.</div>
+          </li>
+          <li class="definitif">
+            <div class="tl-date">31 mars 2025 · Tribunal correctionnel de Paris</div>
+            <div class="tl-titre">Condamnation en première instance</div>
+            <div class="tl-detail">Reconnue coupable de détournement de fonds publics. Peine prononcée : 5 ans de prison dont 2 ferme, 5 ans d'inéligibilité avec exécution provisoire. La peine d'inéligibilité immédiate la rend provisoirement inéligible dès le jugement. Elle fait appel.</div>
+            <span class="tl-peine">5 ans prison dont 2 ferme · 5 ans inéligibilité</span>
+          </li>
+          <li class="appel">
+            <div class="tl-date">7 juillet 2026 · Cour d'appel de Paris</div>
+            <div class="tl-titre">Arrêt d'appel — peine réduite, candidature possible</div>
+            <div class="tl-detail">La Cour d'appel confirme la culpabilité mais réduit les peines : 3 ans de prison dont 1 ferme (exécutable sous bracelet électronique), et <strong style="color:var(--text)">45 mois d'inéligibilité dont 30 avec sursis</strong>, soit 15 mois fermes. Ces 15 mois étant déjà purgés depuis mars 2025, Marine Le Pen peut légalement se présenter en 2027. Elle annonce un pourvoi en cassation, qui suspend l'exécution de la peine de prison.</div>
+            <span class="tl-peine">3 ans prison (1 ferme · bracelet) · 15 mois inéligibilité fermes purgés</span>
+          </li>
+          <li class="appel">
+            <div class="tl-date">Juillet 2026 · Cour de cassation</div>
+            <div class="tl-titre">Pourvoi en cassation déposé — procédure en cours</div>
+            <div class="tl-detail">Le pourvoi suspend la peine d'emprisonnement. Marine Le Pen confirme sa candidature à la présidentielle 2027. La décision de la Cour de cassation est attendue avant 2027.</div>
+            <span class="tl-peine">Statut : candidature maintenue · cassation pendante</span>
+          </li>
+        </ul>
+
+        <div class="status-box rouge">
+          <strong>Statut au 9 juillet 2026 :</strong> Marine Le Pen est <strong>condamnée en appel</strong> pour détournement de fonds publics. La peine d'inéligibilité a été réduite en appel au point de lui permettre légalement de se présenter en 2027. Un pourvoi en cassation est en cours, qui suspend la peine de prison. Elle reste la favorite des sondages avec ~36 % des intentions de vote au 1<sup>er</sup> tour.
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);margin:12px 0 0">
+          Sources :
+          <a href="https://www.lejdd.fr/politique/proces-en-appel-de-marine-le-pen-laudience-est-ouverte-178365" class="source-link" target="_blank" rel="noopener">Le JDD — arrêt appel 7 juil. 2026</a> ·
+          <a href="https://www.franceinfo.fr/replay-jt/franceinfo/21h-minuit/23-heures/presidentielle-2027-condamnee-marine-le-pen-se-declare-candidate_8098967.html" class="source-link" target="_blank" rel="noopener">Franceinfo</a> ·
+          <a href="https://poligraph.fr/affaires" class="source-link" target="_blank" rel="noopener">Poligraph</a>
+        </p>
+      </div>
+
+      <!-- ────────── ZEMMOUR ────────── -->
+      <div class="eyebrow" style="margin-bottom:12px">CONDAMNATION DÉFINITIVE</div>
+      <div class="candidat-panel" style="border-color:rgba(255,80,80,.2)">
+        <div class="candidat-header">
+          <div class="candidat-avatar" style="background:rgba(136,136,136,.1)">🎙️</div>
+          <div class="candidat-meta">
+            <h2 style="font-size:1.1rem;font-weight:900;margin:0 0 2px">Éric Zemmour</h2>
+            <div class="party-tag">Reconquête · Candidature envisagée 2027</div>
+          </div>
+        </div>
+        <ul class="timeline" style="margin-bottom:16px">
+          <li class="definitif">
+            <div class="tl-date">2011</div>
+            <div class="tl-titre">Condamné pour provocation à la discrimination raciale</div>
+            <div class="tl-detail">Propos tenus lors d'une émission télévisée sur les contrôles au faciès. Condamnation confirmée.</div>
+            <span class="tl-peine">Amende</span>
+          </li>
+          <li class="definitif">
+            <div class="tl-date">2016–2018</div>
+            <div class="tl-titre">Condamné pour provocation à la haine religieuse</div>
+            <div class="tl-detail">Propos ciblant les musulmans lors d'une émission de CNews. Condamnation en première instance puis confirmée en appel.</div>
+            <span class="tl-peine">Amende</span>
+          </li>
+          <li class="definitif">
+            <div class="tl-date">Décembre 2025 · Cour de cassation</div>
+            <div class="tl-titre">Rejet du pourvoi — condamnation définitive</div>
+            <div class="tl-detail">La Cour de cassation rejette le pourvoi de Zemmour, rendant ses condamnations définitives et irrévocables.</div>
+            <span class="tl-peine">10 000 € d'amende · définitif</span>
+          </li>
+        </ul>
+        <div class="status-box rouge">
+          <strong>Statut :</strong> Condamné de façon <strong>définitive</strong> depuis décembre 2025 pour incitation à la haine raciale et religieuse. Ces condamnations ne lui retirent pas le droit de se présenter, mais constituent un casier judiciaire chargé.
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);margin:12px 0 0">
+          Sources : <a href="https://poligraph.fr/affaires?certainty=ETABLI" class="source-link" target="_blank" rel="noopener">Poligraph — condamnations définitives</a>
+        </p>
+      </div>
+
+      <!-- ────────── MÉLENCHON ────────── -->
+      <div class="eyebrow" style="margin-bottom:12px">CONDAMNÉ AVEC SURSIS</div>
+      <div class="candidat-panel" style="border-color:rgba(245,166,35,.2)">
+        <div class="candidat-header">
+          <div class="candidat-avatar" style="background:rgba(204,17,0,.1)">✊</div>
+          <div class="candidat-meta">
+            <h2 style="font-size:1.1rem;font-weight:900;margin:0 0 2px">Jean-Luc Mélenchon</h2>
+            <div class="party-tag">La France Insoumise · Candidat déclaré 2027</div>
+          </div>
+        </div>
+        <ul class="timeline" style="margin-bottom:16px">
+          <li class="definitif">
+            <div class="tl-date">Octobre 2018 · Faits</div>
+            <div class="tl-titre">Perquisitions au siège de LFI — incident</div>
+            <div class="tl-detail">Lors des perquisitions judiciaires au siège de LFI et au domicile de Mélenchon, ce dernier s'interpose physiquement face aux enquêteurs en criant "la République c'est moi". Scène filmée et diffusée en direct.</div>
+          </li>
+          <li class="appel">
+            <div class="tl-date">2023 · Tribunal correctionnel de Bobigny</div>
+            <div class="tl-titre">Condamné pour rébellion et provocation</div>
+            <div class="tl-detail">Jean-Luc Mélenchon est condamné à <strong style="color:var(--text)">3 mois de prison avec sursis</strong> pour rébellion et provocation lors des perquisitions. Il n'ira pas en prison mais la condamnation est inscrite à son casier.</div>
+            <span class="tl-peine">3 mois prison avec sursis</span>
+          </li>
+          <li class="enquete">
+            <div class="tl-date">En cours · OLAF</div>
+            <div class="tl-titre">Enquête sur assistants parlementaires européens</div>
+            <div class="tl-detail">L'Office européen de lutte antifraude enquête sur l'emploi d'assistants de Mélenchon lorsqu'il était député européen (2009–2017). À ce jour, Mélenchon <strong style="color:var(--text)">n'a pas été mis en examen</strong> dans ce dossier.</div>
+            <span class="tl-peine">Enquête · pas de mise en examen</span>
+          </li>
+        </ul>
+        <div class="status-box orange">
+          <strong>Statut :</strong> Condamné à 3 mois avec sursis (pas de prison ferme). Une enquête de l'OLAF est en cours mais sans mise en examen. Ces affaires n'empêchent pas sa candidature.
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);margin:12px 0 0">
+          Sources :
+          <a href="https://www.publicsenat.fr/actualites/non-classe/melenchon-condamne-a-trois-mois-avec-sursis-pour-la-perquisition-houleuse-a-lfi" class="source-link" target="_blank" rel="noopener">Public Sénat — condamnation 2023</a> ·
+          <a href="https://www.touteleurope.eu/vie-politique-des-etats-membres/pourquoi-jean-luc-melenchon-est-lui-aussi-vise-par-une-enquete-concernant-ses-assistants-au-parlement-europeen/" class="source-link" target="_blank" rel="noopener">Toute l'Europe — enquête OLAF</a>
+        </p>
+      </div>
+
+      <!-- ────────── BARDELLA ────────── -->
+      <div class="eyebrow" style="margin-bottom:12px">ENQUÊTE EN COURS</div>
+      <div class="candidat-panel" style="border-color:rgba(246,195,67,.2)">
+        <div class="candidat-header">
+          <div class="candidat-avatar" style="background:rgba(26,74,196,.1)">📋</div>
+          <div class="candidat-meta">
+            <h2 style="font-size:1.1rem;font-weight:900;margin:0 0 2px">Jordan Bardella</h2>
+            <div class="party-tag">Rassemblement National · Président du parti · Non candidat déclaré</div>
+          </div>
+        </div>
+        <ul class="timeline" style="margin-bottom:16px">
+          <li class="enquete">
+            <div class="tl-date">En cours</div>
+            <div class="tl-titre">Investigations sur assistants parlementaires au Parlement européen</div>
+            <div class="tl-detail">Dans le prolongement de l'affaire Le Pen, les autorités judiciaires européennes examinent les contrats d'assistants de Jordan Bardella au Parlement européen. Les investigations sont en cours ; Bardella n'a pas été mis en examen à ce stade.</div>
+            <span class="tl-peine">Statut : investigations · pas de mise en examen</span>
+          </li>
+        </ul>
+        <div class="status-box orange">
+          <strong>Statut :</strong> Des investigations sont en cours dans la même affaire des assistants parlementaires qui a conduit à la condamnation de Le Pen. Aucune mise en examen à ce jour.
+        </div>
+      </div>
+
+      <!-- ────────── CANDIDATS PROPRES ────────── -->
+      <div class="panel" style="padding:24px;margin-bottom:32px">
+        <div class="eyebrow" style="margin-bottom:4px">AUCUNE AFFAIRE JUDICIAIRE RECENSÉE</div>
+        <h2 style="font-size:1rem;font-weight:900;margin:0 0 16px">Ces candidats n'ont aucune affaire judiciaire connue</h2>
+        <div class="propres-grid">
+          <div class="propre-card">
+            <span class="propre-check">✓</span>
+            <div>
+              <div class="propre-name">Édouard Philippe</div>
+              <div class="propre-party">Horizons</div>
+            </div>
+          </div>
+          <div class="propre-card">
+            <span class="propre-check">✓</span>
+            <div>
+              <div class="propre-name">Gabriel Attal</div>
+              <div class="propre-party">Renaissance</div>
+            </div>
+          </div>
+          <div class="propre-card">
+            <span class="propre-check">✓</span>
+            <div>
+              <div class="propre-name">Raphaël Glucksmann</div>
+              <div class="propre-party">PS / Place Publique</div>
+            </div>
+          </div>
+          <div class="propre-card">
+            <span class="propre-check">✓</span>
+            <div>
+              <div class="propre-name">Marine Tondelier</div>
+              <div class="propre-party">Les Écologistes</div>
+            </div>
+          </div>
+          <div class="propre-card">
+            <span class="propre-check">✓</span>
+            <div>
+              <div class="propre-name">Bruno Retailleau</div>
+              <div class="propre-party">LR</div>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin:0;line-height:1.6">
+          L'absence d'affaire judiciaire ne signifie pas l'absence de controverses politiques — elle signifie simplement qu'aucune procédure pénale n'est connue à leur encontre à ce jour. Cette liste est mise à jour au fil de l'actualité.
+        </p>
+      </div>
+
+      <!-- ────────── CONTEXTE ────────── -->
+      <div class="panel" style="padding:24px;margin-bottom:32px">
+        <h2 style="font-size:1rem;font-weight:900;margin:0 0 12px">Un phénomène qui dépasse le seul cas Le Pen</h2>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:0 0 12px">
+          La présidentielle 2027 est la première dans laquelle <strong style="color:var(--text)">la candidate favorite est sous le coup d'une condamnation pénale</strong>. Ce n'est pas un phénomène isolé : en France comme ailleurs, la judiciarisation de la vie politique s'est accélérée depuis les années 1990 avec la montée des parquets indépendants et des médias d'investigation.
+        </p>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:0 0 12px">
+          À noter que <strong style="color:var(--text)">une condamnation pénale n'empêche pas légalement d'être candidat</strong>, sauf si une peine d'inéligibilité est prononcée et effective — ce qui était le cas de Le Pen après mars 2025, mais plus après l'arrêt d'appel de juillet 2026.
+        </p>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.7;margin:0">
+          Le site <a href="https://poligraph.fr/affaires" style="color:var(--accent);text-decoration:none" target="_blank" rel="noopener">Poligraph.fr</a> recense 285 affaires judiciaires concernant des responsables politiques français, avec sources vérifiées — un bon point de départ pour approfondir.
+        </p>
+      </div>
+
+      <!-- ────────── FAQ ────────── -->
+      <div class="panel" style="padding:24px;margin-bottom:32px">
+        <div class="eyebrow" style="margin-bottom:12px">QUESTIONS FRÉQUENTES</div>
+        <h2 style="font-size:1rem;font-weight:900;margin:0 0 16px">Affaires judiciaires et présidentielle 2027</h2>
+
+        <div class="faq-item">
+          <div class="faq-q">Marine Le Pen peut-elle se présenter à la présidentielle 2027 malgré sa condamnation ?</div>
+          <div class="faq-a">Oui. La Cour d'appel de Paris a confirmé le 7 juillet 2026 sa culpabilité dans l'affaire des assistants parlementaires, mais a réduit la peine d'inéligibilité à 45 mois dont 30 avec sursis, soit <strong>15 mois fermes</strong>. Ces 15 mois étant déjà purgés depuis la condamnation en première instance de mars 2025, Marine Le Pen peut légalement se présenter. Elle a formé un pourvoi en cassation qui suspend la peine d'emprisonnement.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Jean-Luc Mélenchon a-t-il des affaires judiciaires ?</div>
+          <div class="faq-a">Oui. Mélenchon a été condamné en 2023 à <strong>3 mois de prison avec sursis</strong> pour rébellion et provocation lors des perquisitions au siège de LFI en octobre 2018. Il fait aussi l'objet d'une enquête de l'OLAF sur ses assistants parlementaires européens, sans mise en examen à ce stade.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Éric Zemmour a-t-il été condamné ?</div>
+          <div class="faq-a">Oui, et de façon <strong>définitive</strong>. La Cour de cassation a rejeté son pourvoi en décembre 2025. Il a été condamné pour provocation à la discrimination raciale (2011) et à la haine religieuse (2016). Peine finale : 10 000 € d'amende.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Quels candidats 2027 n'ont aucune affaire judiciaire connue ?</div>
+          <div class="faq-a">À juillet 2026, aucune affaire judiciaire n'est recensée pour <strong>Édouard Philippe, Gabriel Attal, Raphaël Glucksmann, Marine Tondelier</strong> et <strong>Bruno Retailleau</strong>.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Qu'est-ce que l'affaire des assistants parlementaires du RN ?</div>
+          <div class="faq-a">L'affaire porte sur l'emploi d'assistants rémunérés par le Parlement européen pour des tâches de parti, non parlementaires. Marine Le Pen a été condamnée dans ce cadre. Jordan Bardella fait l'objet d'investigations similaires, sans mise en examen à ce jour.</div>
+        </div>
+
+      </div>
+
+      <!-- Lien sondages -->
+      <a href="/elections/sondages-2027/" style="display:flex;align-items:center;gap:14px;background:rgba(64,169,255,.07);border:1px solid rgba(64,169,255,.2);border-radius:14px;padding:14px 18px;text-decoration:none;margin-bottom:32px">
+        <span style="font-size:1.6rem">📊</span>
+        <div>
+          <div style="font-size:.72rem;font-weight:900;color:#40A9FF;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px">Voir aussi</div>
+          <div style="font-weight:900;color:var(--text);font-size:.9rem">Sondages 2027 — intentions de vote et scénarios interactifs →</div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p style="color:var(--muted);font-size:.8rem;text-align:center;margin:0">
+        © 2026 Le Français Moyen · Données judiciaires vérifiées via sources officielles (Poligraph, Franceinfo, Public Sénat) · Mise à jour : 9 juillet 2026
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
