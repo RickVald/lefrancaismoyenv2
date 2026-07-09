@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Le programme de Marine Le Pen 2027 : mesures phares, combien ça coûte ?</title>
+  <meta name="description" content="Mon Projet pour la France (RN, édition 2022) : retraite à 60 ans pour carrières longues, TVA à 0% sur les produits essentiels, préférence nationale, 10 000 policiers. Chiffrage indépendant IFRAP et simulation macroéconomique à l'horizon 2030.">
+  <link rel="canonical" href="https://le-francais-moyen.com/programmes/le-pen-2027/">
+  <link rel="alternate" hreflang="fr" href="https://le-francais-moyen.com/programmes/le-pen-2027/">
+  <meta property="og:title" content="Le programme de Marine Le Pen 2027 : mesures phares, combien ça coûte ?">
+  <meta property="og:description" content="Mon Projet pour la France (RN 2022) : retraite à 60 ans, TVA à 0%, préférence nationale. Chiffrage indépendant IFRAP et simulation macroéconomique France Budget à l'horizon 2030.">
+  <meta property="og:url" content="https://le-francais-moyen.com/programmes/le-pen-2027/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og/le-pen-2027.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og/le-pen-2027.png">
+  <meta property="article:published_time" content="2026-07-09T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-09T00:00:00+02:00">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+  <style>
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .rn-hero{text-align:center;padding:52px 24px 40px;background:radial-gradient(ellipse at 50% 0%,rgba(0,35,149,.12) 0%,transparent 65%)}
+    .rn-big{font-size:clamp(3rem,10vw,6rem);font-weight:900;letter-spacing:-.06em;color:#3b82f6;line-height:1;margin:8px 0 4px}
+
+    /* ── KPI grid ──────────────────────────────────────────────── */
+    .rn-kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin:24px 0}
+    .rn-kpi-card{padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--border);text-align:center}
+    .rn-kpi-card .val{font-size:1.8rem;font-weight:900;letter-spacing:-.04em;display:block;margin-bottom:4px}
+    .rn-kpi-card .lbl{font-size:.72rem;color:var(--muted);line-height:1.5}
+
+    /* ── Section wrappers ──────────────────────────────────────── */
+    .rn-section{margin:48px 0}
+    .rn-h2{font-size:1.3rem;font-weight:800;color:#f5f5f5;margin:0 0 6px}
+    .rn-sub{font-size:.88rem;color:var(--muted);margin:0 0 20px;line-height:1.6}
+
+    /* ── Charts ────────────────────────────────────────────────── */
+    .rn-chart-wrap{background:rgba(0,0,0,.18);border:1px solid var(--border);border-radius:14px;padding:16px 8px;overflow-x:auto}
+    .rn-chart-wrap svg{display:block;width:100%;height:auto}
+    .rn-src{font-size:.72rem;color:var(--muted);margin-top:8px;text-align:right}
+
+    /* ── Mesure cards ──────────────────────────────────────────── */
+    .rn-waves-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:20px 0}
+    .rn-wave-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+    .rn-wave-period{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:5px}
+    .rn-wave-total{font-size:1.4rem;font-weight:900;letter-spacing:-.03em}
+    .rn-wave-desc{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.5}
+
+    /* ── Note / verdict boxes ──────────────────────────────────── */
+    .rn-methodo{background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.25);border-left:3px solid #3b82f6;border-radius:12px;padding:18px 20px;margin:24px 0}
+    .rn-methodo-title{font-size:.82rem;font-weight:800;color:#3b82f6;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+    .rn-verdict{background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.25);border-radius:12px;padding:16px 20px;margin:24px 0}
+    .rn-note{background:rgba(167,139,250,.05);border:1px solid rgba(167,139,250,.2);border-radius:12px;padding:14px 18px;margin:16px 0;font-size:.82rem;color:var(--muted);line-height:1.7}
+    .rn-note strong{color:#c4b5fd}
+    .rn-alert{background:rgba(251,146,60,.05);border:1px solid rgba(251,146,60,.25);border-left:3px solid #fb923c;border-radius:12px;padding:16px 20px;margin:24px 0}
+    .rn-alert-title{font-size:.82rem;font-weight:800;color:#fb923c;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+
+    /* ── Legend rows ───────────────────────────────────────────── */
+    .rn-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px}
+    .rn-legend-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+    .rn-legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+
+    @media(max-width:580px){
+      .rn-big{font-size:clamp(2.5rem,14vw,4rem)}
+      .rn-chart-wrap{padding:10px 4px}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header>
+    <div class="nav">
+      <a href="/" class="brand"><div class="logo">FM</div>Le Français Moyen</a>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li class="has-dropdown">
+            <button class="nav-drop-btn" data-nav="analyses" aria-haspopup="true">Analyses <span class="nav-caret">&#9660;</span></button>
+            <ul class="dropdown" role="menu">
+              <li class="drop-group-label">&#x1F4B0; Finances &amp; fiscalit&#xE9;</li>
+              <li><a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a></li>
+              <li><a href="/dette/">&#x23F1;&#xFE0F; Dette en direct</a></li>
+              <li><a href="/csg/">&#x1F4B6; CSG</a></li>
+              <li><a href="/tva/">&#x1F9FE; TVA</a></li>
+              <li><a href="/ir/">&#x1F4CB; Imp&#xF4;t sur le revenu</a></li>
+              <li><a href="/fiscalite/">&#x1F4CA; Histoire fiscale</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x1F3DB; &#xC9;tat &amp; institutions</li>
+              <li><a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a></li>
+              <li><a href="/normes/">&#x1F4DC; Millefeuille r&#xE9;glementaire</a></li>
+              <li><a href="/demographie/">&#x1F465; D&#xE9;mographie</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x1F465; Social</li>
+              <li><a href="/retraites/">&#x1F474; Retraites</a></li>
+              <li><a href="/sante/">&#x1F3E5; Sant&#xE9;</a></li>
+              <li><a href="/education/">&#x1F4DA; &#xC9;ducation</a></li>
+              <li><a href="/logement/">&#x1F3E0; Logement</a></li>
+              <li class="drop-group-sep"></li>
+              <li class="drop-group-label">&#x26A1; &#xC9;conomie</li>
+              <li><a href="/industrie/">&#x1F3ED; D&#xE9;sindustrialisation</a></li>
+              <li><a href="/autoroutes/">&#x1F6E3;&#xFE0F; Autoroutes</a></li>
+              <li><a href="/ronds-points/">&#x1F535; Indice Rond-Point</a></li>
+            </ul>
+          </li>
+          <li><a href="/outils/">Outils</a></li>
+          <li><a href="/elections/">Élections</a></li>
+          <li><a href="/questions/">Questions</a></li>
+          <li><a href="/a-propos/">À propos</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMobile"><span></span><span></span><span></span></button>
+      <a href="/" class="cta">← Accueil</a>
+    </div>
+  </header>
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Menu navigation" aria-modal="true">
+    <a href="/">&#x1F3E0; Tableau de bord</a>
+    <div class="nav-mobile-group-label">&#x1F4B0; Dette publique</div>
+    <a href="/dette/">&#x23F1;&#xFE0F; Compteur en direct</a>
+    <div class="nav-mobile-group-label">&#x1F4CA; Autres analyses</div>
+    <a href="/budget/">&#x1F4CB; Budget de l'&#xC9;tat</a>
+    <a href="/fonctionnaires/">&#x1F454; Fonctionnaires</a>
+    <a href="/retraites/">&#x1F474; Retraites</a>
+    <a href="/outils/">&#x1F9F0; Outils</a>
+    <a href="/elections/">&#x1F5F3;&#xFE0F; &#xC9;lections</a>
+    <a href="/questions/">&#x2753; Questions</a>
+    <a href="/a-propos/">&#xC0; propos</a>
+  </div>
+
+  <main id="contenu">
+    <!-- ═══ HERO ═══ -->
+    <div class="rn-hero">
+      <nav style="font-size:.85rem;color:var(--muted);margin-bottom:16px"><a href="/">Accueil</a> › <a href="/elections/">Élections</a> › <span>Programme Le Pen 2027</span></nav>
+      <div class="eyebrow">MON PROJET POUR LA FRANCE · RN 2022 · IFRAP · FRANCE BUDGET</div>
+      <h1 style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin:0 auto 4px;text-align:center">Le programme de Marine Le Pen en 2027 :<br>mesures phares, combien ça coûte ?</h1>
+      <p style="color:var(--muted);font-size:1.05rem;max-width:660px;margin:12px auto 20px;line-height:1.7">
+        En 2022, Marine Le Pen a publié <strong style="color:#3b82f6">Mon Projet pour la France</strong>, le programme présidentiel du Rassemblement National. Retraite à 60 ans pour les carrières longues, TVA à 0 % sur les produits essentiels, préférence nationale, 10 000 policiers supplémentaires. Que disent les chiffrages indépendants — et quel serait l'impact macroéconomique ?
+      </p>
+      <div class="rn-big">0 %</div>
+      <p style="color:var(--muted);font-size:.88rem;margin:8px 0 0">de TVA sur les produits alimentaires de base, l'énergie et le carburant — mesure phare pour le pouvoir d'achat</p>
+    </div>
+
+    <div style="max-width:900px;margin:0 auto;padding:0 24px 80px">
+
+      <!-- ═══ KPI GRID ═══ -->
+      <div class="rn-kpi">
+        <div class="rn-kpi-card">
+          <span class="val" style="color:#3b82f6">60 ans</span>
+          <div class="lbl">Retraite pour les carrières longues (40 annuités)</div>
+        </div>
+        <div class="rn-kpi-card">
+          <span class="val" style="color:#f6c343">~17 Md€</span>
+          <div class="lbl">Coût annuel estimé de la retraite à 60 ans (source : RN)</div>
+        </div>
+        <div class="rn-kpi-card">
+          <span class="val" style="color:#4ade80">10 000</span>
+          <div class="lbl">Policiers et gendarmes supplémentaires en 5 ans</div>
+        </div>
+        <div class="rn-kpi-card">
+          <span class="val" style="color:#fb923c">≠</span>
+          <div class="lbl">Pas d'ISF, pas de flat tax supprimée — fiscalité des revenus inchangée</div>
+        </div>
+      </div>
+
+      <!-- ═══ CADRE MÉTHODOLOGIQUE ═══ -->
+      <div class="rn-methodo">
+        <div class="rn-methodo-title">⚖️ Cadre méthodologique : trois sources, à ne pas confondre</div>
+        <p style="margin:0 0 10px;font-size:.88rem;line-height:1.7">Cette page croise <strong style="color:#3b82f6">trois sources de nature différente</strong> : (1) le programme officiel <em>Mon Projet pour la France</em>, publié par Marine Le Pen pour la présidentielle <strong style="color:#3b82f6">2022</strong> et disponible sur le site du Rassemblement National — c'est la dernière version complète et officielle du programme présidentiel RN ; (2) le chiffrage <strong style="color:#3b82f6">indépendant</strong> réalisé par la Fondation IFRAP sur ce même programme (modèle Nemesis / Seureco-Erasme, 2022) ; (3) une simulation macroéconomique de <strong style="color:#3b82f6">France Budget</strong>, appliquant un modèle uniforme à tous les candidats 2027 sur la base des mesures publiées.</p>
+        <p style="margin:0;font-size:.88rem;line-height:1.7"><strong style="color:#ff6b6b">Honnêteté méthodologique :</strong> à la date de rédaction de cette page (juillet 2026), le Rassemblement National n'a pas encore publié de programme présidentiel 2027 actualisé. <strong style="color:var(--text)">Mon Projet pour la France (2022) reste la référence officielle</strong>. Certaines mesures ont été ajustées dans les communications du parti depuis 2022 — ces évolutions sont signalées.</p>
+      </div>
+
+      <!-- ═══ CONTEXTE JURIDIQUE ═══ -->
+      <div class="rn-alert">
+        <div class="rn-alert-title">⚠️ Contexte juridique — inéligibilité en appel</div>
+        <p style="margin:0;font-size:.88rem;line-height:1.7">En mars 2025, le tribunal correctionnel de Paris a condamné Marine Le Pen à <strong style="color:var(--text)">cinq ans d'inéligibilité avec exécution provisoire</strong> dans l'affaire des assistants parlementaires du Parlement européen. Marine Le Pen a fait appel de cette décision. <strong style="color:var(--text)">Sa candidature à la présidentielle 2027 dépend de l'issue de cet appel.</strong> Cette page présente le programme présidentiel du RN tel que publié, indépendamment de l'issue judiciaire.</p>
+      </div>
+
+      <!-- ═══ MESURES PHARES ═══ -->
+      <div class="rn-section">
+        <div class="rn-h2">📋 Les mesures phares de Mon Projet pour la France (2022)</div>
+        <div class="rn-sub">Sélection des engagements les plus structurants, avec les chiffrages officiels annoncés par le Rassemblement National. Source : rassemblement-national.fr, marine2022.fr.</div>
+
+        <div class="rn-waves-grid">
+          <div class="rn-wave-card">
+            <div class="rn-wave-period">RETRAITES</div>
+            <div class="rn-wave-total" style="color:#3b82f6">Retraite à 60 ans</div>
+            <div class="rn-wave-desc">Pour les carrières longues ayant commencé à travailler avant 20 ans et cotisé 40 annuités. Coût officiel annoncé par le RN : <strong>~17 Md€/an</strong>, financé selon le parti par la croissance économique et les économies liées à la maîtrise de l'immigration.</div>
+          </div>
+          <div class="rn-wave-card">
+            <div class="rn-wave-period">POUVOIR D'ACHAT</div>
+            <div class="rn-wave-total" style="color:#f6c343">TVA à 0 %</div>
+            <div class="rn-wave-desc">Suppression de la TVA sur les produits alimentaires de première nécessité, l'énergie domestique et les carburants. Coût estimé par le RN : <strong>~10 Md€/an</strong>, compensé selon le parti par la suppression de niches fiscales pour les grandes entreprises.</div>
+          </div>
+          <div class="rn-wave-card">
+            <div class="rn-wave-period">IMMIGRATION</div>
+            <div class="rn-wave-total" style="color:#fb923c">Préférence nationale</div>
+            <div class="rn-wave-desc">Application de la préférence nationale dans l'accès au logement social, aux aides sociales et à l'emploi public. Conditionnement des prestations sociales à la nationalité française ou à une durée légale de résidence de 5 ans. Présentée comme source d'économies par le RN.</div>
+          </div>
+          <div class="rn-wave-card">
+            <div class="rn-wave-period">SÉCURITÉ</div>
+            <div class="rn-wave-total" style="color:#4ade80">10 000 policiers</div>
+            <div class="rn-wave-desc">Recrutement de 10 000 policiers et gendarmes supplémentaires sur le quinquennat, construction de 10 000 places de prison supplémentaires, rétablissement des peines planchers. Coût RN : <strong>~1,5 Md€/an</strong> supplémentaires.</div>
+          </div>
+          <div class="rn-wave-card">
+            <div class="rn-wave-period">SUCCESSIONS</div>
+            <div class="rn-wave-total" style="color:#a78bfa">Exonération classes moyennes</div>
+            <div class="rn-wave-desc">Suppression des droits de succession jusqu'à <strong>300 000 € par enfant</strong> pour les patrimoines familiaux. Mesure ciblant les classes moyennes propriétaires, distincte des très hauts patrimoines. Coût estimé : ~3 Md€/an.</div>
+          </div>
+          <div class="rn-wave-card">
+            <div class="rn-wave-period">ÉNERGIE</div>
+            <div class="rn-wave-total" style="color:#5dd6c5">Relance nucléaire</div>
+            <div class="rn-wave-desc">Lancement de <strong>20 nouveaux réacteurs EPR</strong> sur deux décennies, moratoire sur les éoliennes terrestres, renégociation des objectifs de sortie du nucléaire définis par l'UE. Investissement public pluriannuel, non chiffré dans le programme 2022.</div>
+          </div>
+        </div>
+        <div class="rn-src">Source : Mon Projet pour la France (rassemblement-national.fr · marine2022.fr) · programme législatif RN 2024</div>
+      </div>
+
+      <!-- ═══ CHIFFRAGE INDÉPENDANT ═══ -->
+      <div class="rn-section">
+        <div class="rn-h2">💰 Chiffrage indépendant : dépenses nouvelles vs recettes et économies revendiquées</div>
+        <div class="rn-sub">Analyse indépendante réalisée par la Fondation IFRAP sur le programme de Marine Le Pen 2022 (modèle Nemesis / Seureco-Erasme). Les chiffres du RN sont ceux communiqués officiellement par le parti.</div>
+
+        <div class="rn-chart-wrap">
+          <svg id="svgChiffrage" viewBox="0 0 720 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Dépenses nouvelles et recettes/économies revendiquées du programme RN 2022, en milliards d'euros"></svg>
+        </div>
+        <div class="rn-legend" id="chiffrageLegend"></div>
+        <div class="rn-src">Source : Fondation IFRAP / Seureco-Erasme, modèle Nemesis, 2022 · RN, communications officielles 2022-2024 · unités : milliards d'euros par an</div>
+
+        <div class="rn-note">
+          <strong>Lecture :</strong> selon l'IFRAP, le programme 2022 de Marine Le Pen impliquait entre 70 et 100 Md€/an de dépenses publiques nouvelles (principalement retraites, sécurité, TVA réduite), pour des recettes nouvelles et économies revendiquées de 20 à 30 Md€/an — soit un solde net dégradé d'environ <strong style="color:var(--text)">50 à 70 Md€/an</strong>. L'écart principal avec le chiffrage RN porte sur les économies attendues de la maîtrise de l'immigration, que le RN chiffre bien au-dessus des estimations indépendantes.
+        </div>
+
+        <div class="rn-note" style="margin-top:12px">
+          <strong>Différence majeure avec le programme LFI :</strong> le programme RN ne prévoit <strong>ni retour de l'ISF, ni suppression de la flat tax, ni taxe Zucman</strong>. La fiscalité sur le capital reste globalement inchangée. Le financement repose essentiellement sur la croissance économique projetée et les économies liées à l'immigration — deux hypothèses que les instituts indépendants évaluent comme optimistes.
+        </div>
+      </div>
+
+      <!-- ═══ IMPACT MACROÉCONOMIQUE ═══ -->
+      <div class="rn-section">
+        <div class="rn-h2">📈 Impact macroéconomique simulé à l'horizon 2030</div>
+        <div class="rn-sub">Simulation France Budget : modèle macroéconomique appliqué de façon identique à tous les programmes 2027, sur la base des mesures publiées par le Rassemblement National. Comparé à la trajectoire de référence (statu quo).</div>
+
+        <div class="rn-chart-wrap">
+          <svg id="svgImpact" viewBox="0 0 720 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Comparaison dette, déficit, chômage et croissance entre trajectoire actuelle et scénario RN 2030"></svg>
+        </div>
+        <div class="rn-legend" id="impactLegend"></div>
+        <div class="rn-src">Source : France Budget, scénario RN 2027 · trajectoire actuelle : INSEE T4 2025, page Dette du Français Moyen</div>
+
+        <div style="overflow-x:auto;margin:24px 0">
+          <table style="width:100%;border-collapse:collapse;font-size:.82rem">
+            <thead>
+              <tr style="border-bottom:2px solid rgba(255,255,255,.1)">
+                <th style="text-align:left;padding:8px 12px;color:rgba(255,255,255,.5);font-weight:700">Indicateur</th>
+                <th style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">Trajectoire actuelle</th>
+                <th style="text-align:right;padding:8px 12px;color:#3b82f6;font-weight:700">Scénario RN 2030</th>
+                <th style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">Écart</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">Dette publique (% PIB)</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">~130 % <span style="color:var(--muted);font-weight:400">(2032, statu quo)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#3b82f6;font-weight:700">132 % <span style="color:var(--muted);font-weight:400">(2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">+2 pts, plus tôt</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">Déficit public (% PIB)</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">5,1 % <span style="color:var(--muted);font-weight:400">(2025)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#3b82f6;font-weight:700">5,9 % <span style="color:var(--muted);font-weight:400">(2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">+0,8 pt</td>
+              </tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.05)">
+                <td style="padding:8px 12px;color:var(--muted)">Taux de chômage</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">7,3 % <span style="color:var(--muted);font-weight:400">(T1 2025)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#3b82f6;font-weight:700">7,5 % <span style="color:var(--muted);font-weight:400">(2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#f87171;font-weight:700">+0,2 pt</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 12px;color:var(--muted)">Croissance moyenne/an</td>
+                <td style="text-align:right;padding:8px 12px;color:#4ade80;font-weight:700">~0,9 % <span style="color:var(--muted);font-weight:400">(2026, prévision)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#3b82f6;font-weight:700">1,1 % <span style="color:var(--muted);font-weight:400">(moy. 2026-2030)</span></td>
+                <td style="text-align:right;padding:8px 12px;color:#5dd6c5;font-weight:700">+0,2 pt</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rn-verdict">
+          <strong style="color:var(--accent)">🎯 Les trois enseignements de la simulation :</strong>
+          <ul style="color:var(--muted);font-size:.88rem;line-height:1.9;margin:8px 0 0;padding-left:18px">
+            <li><strong style="color:var(--text)">Impact plus modéré que LFI sur la dette</strong> — le scénario RN atteindrait 132 % du PIB en 2030, contre 136 % pour le scénario LFI. L'absence de hausse massive de la fiscalité limite la dégradation de la trajectoire, mais le financement des mesures (notamment la retraite à 60 ans) reste une inconnue selon les chiffrages indépendants.</li>
+            <li><strong style="color:var(--text)">Le déficit se dégrade légèrement</strong> — de 5,1 % à 5,9 % du PIB, en deçà du scénario LFI (7,4 %) mais toujours au-delà du seuil européen de 3 % fixé par le pacte de stabilité.</li>
+            <li><strong style="color:var(--text)">Le chômage pourrait augmenter légèrement</strong> — les restrictions à l'immigration réduisent l'offre de travail dans certains secteurs (bâtiment, agriculture, hôtellerie-restauration) sans que la TVA à 0% ne compense intégralement la hausse des coûts de production qui en découle.</li>
+          </ul>
+        </div>
+
+        <div class="rn-note">
+          <strong>Hypothèses du modèle France Budget :</strong> modèle macroéconomique propriétaire, appliqué de façon identique à tous les programmes 2027 (RN, LFI, LR, Renaissance, PS) à partir des mesures publiées. Horizon : 2026-2030. Les effets des restrictions migratoires sur le marché du travail sont modélisés en tenant compte des secteurs les plus exposés. Comme tout modèle macroéconomique, ces résultats sont des <strong>ordres de grandeur</strong>, sensibles aux hypothèses retenues.
+        </div>
+      </div>
+
+      <!-- ═══ CONTEXTE JUILLET 2026 ═══ -->
+      <div class="rn-section">
+        <div class="rn-methodo">
+          <div class="rn-methodo-title">📅 Mise à jour — juillet 2026</div>
+          <p style="margin:0 0 10px;font-size:.88rem;line-height:1.7">La campagne présidentielle 2027 n'est pas encore officiellement lancée. <strong style="color:#3b82f6">Mon Projet pour la France (2022)</strong> reste à ce jour la dernière version complète du programme présidentiel du Rassemblement National. Certains engagements ont été précisés ou réaffirmés dans les communications du parti depuis 2022 (notamment sur les retraites et l'immigration) — ils sont signalés dans les fiches mesures ci-dessus.</p>
+          <p style="margin:0;font-size:.88rem;line-height:1.7">Cette page sera mise à jour dès qu'un <strong style="color:var(--text)">nouveau programme officiel 2027</strong> sera publié par le Rassemblement National. Voir aussi : <a href="/programmes/melenchon-2027/" style="color:#3b82f6">programme Mélenchon 2027</a> · <a href="/dette/" style="color:#3b82f6">dette publique en direct</a>.</p>
+        </div>
+      </div>
+
+      <!-- ═══ SOURCES ET LIMITES ═══ -->
+      <div class="rn-section">
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:24px 28px">
+          <div class="rn-h2" style="margin-bottom:16px">📚 Sources et limites méthodologiques</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div>
+              <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#3b82f6;margin-bottom:10px">Sources primaires</div>
+              <ul style="font-size:.82rem;color:var(--muted);line-height:1.9;margin:0;padding-left:16px">
+                <li><strong style="color:var(--text)">Mon Projet pour la France</strong> — Marine Le Pen, Rassemblement National, campagne présidentielle 2022 (rassemblement-national.fr)</li>
+                <li><strong style="color:var(--text)">Programme législatif RN 2024</strong> — Rassemblement National (rassemblement-national.fr)</li>
+                <li><strong style="color:var(--text)">Chiffrage du programme de Marine Le Pen</strong> — Fondation IFRAP / Seureco-Erasme (modèle Nemesis), 2022</li>
+                <li><strong style="color:var(--text)">Scénario RN 2027</strong> — France Budget (francebudget.fr/scenarios/rn-2027)</li>
+                <li><strong style="color:var(--text)">Dette publique, T4 2025</strong> — INSEE, page Dette du Français Moyen</li>
+              </ul>
+            </div>
+            <div>
+              <div style="font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fb923c;margin-bottom:10px">Limites importantes</div>
+              <ul style="font-size:.82rem;color:var(--muted);line-height:1.9;margin:0;padding-left:16px">
+                <li>Le programme de référence est celui de <strong style="color:var(--text)">2022</strong> — aucun programme présidentiel 2027 n'a été publié par le RN à la date de rédaction</li>
+                <li>Le RN <strong style="color:var(--text)">conteste</strong> la méthodologie de l'IFRAP, estimant que ses économies sur l'immigration sont sous-évaluées par les instituts indépendants</li>
+                <li>La <strong style="color:var(--text)">situation judiciaire</strong> de Marine Le Pen (inéligibilité en appel) crée une incertitude sur sa candidature effective en 2027</li>
+                <li>Les effets macroéconomiques des <strong style="color:var(--text)">restrictions migratoires</strong> sur le marché du travail sont particulièrement difficiles à modéliser</li>
+                <li>Ces projections ne tiennent pas compte des <strong style="color:var(--text)">arbitrages parlementaires</strong> réels — aucun programme présidentiel n'est appliqué intégralement</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:10px">
+            <a href="/programmes/melenchon-2027/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#ff6b6b;text-decoration:none;font-weight:600">🔴 Programme Mélenchon 2027 →</a>
+            <a href="/elections/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(246,195,67,.1);border:1px solid rgba(246,195,67,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:600">🗳️ Simulateur programmes →</a>
+            <a href="/dette/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(93,214,197,.1);border:1px solid rgba(93,214,197,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#5dd6c5;text-decoration:none;font-weight:600">⏱️ Dette en direct →</a>
+            <a href="/retraites/" style="display:inline-flex;align-items:center;gap:5px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);border-radius:20px;padding:6px 14px;font-size:.8rem;color:#a78bfa;text-decoration:none;font-weight:600">👴 Page Retraites →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /max-width wrapper -->
+  </main>
+
+  <div id="rnTip" style="position:fixed;background:rgba(15,15,25,.95);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 12px;font-size:.8rem;color:#f5f5f5;pointer-events:none;opacity:0;transition:opacity .15s;z-index:9999;max-width:220px;line-height:1.5"></div>
+
+  <footer>
+    <span>le-francais-moyen.com — Sources : Mon Projet pour la France (RN 2022) · Fondation IFRAP · France Budget · INSEE</span>
+    <span><a href="/questions/">Questions</a> · <a href="/elections/">Élections</a> · <a href="/sitemap.xml">Plan du site</a></span>
+  </footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   DONNÉES
+═══════════════════════════════════════════════════════════ */
+
+/* Chiffrage — dépenses nouvelles vs recettes/économies (IFRAP 2022 + RN officiel) */
+const CHIFFRAGE = [
+  {lbl:'Dépenses nouvelles\n(chiffrage IFRAP)', lo:70,  hi:100, col:'#3b82f6'},
+  {lbl:'Économies/recettes\nrevendiquées (RN)',  lo:20,  hi:30,  col:'#4ade80'},
+  {lbl:'Économies/recettes\n(chiffrage IFRAP)',  lo:15,  hi:25,  col:'#f6c343'},
+];
+
+/* Impact macro simulé : trajectoire actuelle vs scénario RN 2030 */
+const IMPACT = [
+  {lbl:'Dette\n(% PIB)',     actuel:130, rn:132, maxV:160, unit:'%'},
+  {lbl:'Déficit\n(% PIB)',   actuel:5.1, rn:5.9, maxV:10,  unit:'%'},
+  {lbl:'Chômage\n(%)',       actuel:7.3, rn:7.5, maxV:10,  unit:'%'},
+  {lbl:'Croissance\n(%/an)', actuel:0.9, rn:1.1, maxV:3,   unit:'%'},
+];
+
+/* ═══════════════════════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════════════════════ */
+const TIP = document.getElementById('rnTip');
+let tipX=0, tipY=0;
+document.addEventListener('mousemove', e => { tipX=e.clientX; tipY=e.clientY; });
+
+function showTip(html){ TIP.innerHTML=html; TIP.style.opacity='1'; TIP.style.left=(tipX+14)+'px'; TIP.style.top=(tipY-28)+'px'; }
+function hideTip(){ TIP.style.opacity='0'; }
+
+function svgRect(svg, x, y, w, h, fill, tipHtml){
+  const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  r.setAttribute('x',x); r.setAttribute('y',y); r.setAttribute('width',w); r.setAttribute('height',h); r.setAttribute('fill',fill);
+  if(tipHtml){ r.style.cursor='pointer'; r.addEventListener('mouseenter',()=>showTip(tipHtml)); r.addEventListener('mouseleave',hideTip); }
+  svg.appendChild(r); return r;
+}
+function svgText(svg, x, y, txt, attrs){
+  const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t.setAttribute('x',x); t.setAttribute('y',y);
+  for(const k in attrs) t.setAttribute(k,attrs[k]);
+  t.textContent=txt; svg.appendChild(t); return t;
+}
+function svgLine(svg, x1, y1, x2, y2, stroke, sw){
+  const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+  l.setAttribute('x1',x1); l.setAttribute('y1',y1); l.setAttribute('x2',x2); l.setAttribute('y2',y2);
+  l.setAttribute('stroke',stroke); l.setAttribute('stroke-width',sw||1);
+  svg.appendChild(l); return l;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 1 : CHIFFRAGE (3 barres horizontales)
+═══════════════════════════════════════════════════════════ */
+function drawChiffrage(){
+  const svg = document.getElementById('svgChiffrage');
+  const VW=720, VH=360, padL=200, padR=40, padT=30, padB=50;
+  const W=VW-padL-padR, H=VH-padT-padB;
+  const maxV=130;
+  const scaleX=W/maxV;
+  const rowH=H/CHIFFRAGE.length;
+
+  for(let g=0; g<=maxV; g+=20){
+    const x=padL+g*scaleX;
+    svgLine(svg,x,padT,x,padT+H,'rgba(255,255,255,.08)',1);
+    svgText(svg,x,padT+H+22,g,{'text-anchor':'middle','font-size':'11','fill':'rgba(255,255,255,.45)'});
+  }
+  svgText(svg,padL+W/2,padT+H+42,'Milliards d\'euros par an',{'text-anchor':'middle','font-size':'11','fill':'rgba(255,255,255,.4)'});
+
+  CHIFFRAGE.forEach((d,i)=>{
+    const y=padT+i*rowH+rowH*0.22;
+    const barH=rowH*0.48;
+    const xLo=padL+d.lo*scaleX;
+    const wBar=(d.hi-d.lo)*scaleX;
+    svgRect(svg,xLo,y,wBar,barH,d.col,`<strong>${d.lbl.replace('\n',' ')}</strong><br>${d.lo}–${d.hi} Md€/an`);
+    d.lbl.split('\n').forEach((line,li)=>{
+      svgText(svg,padL-12,y+barH/2-4+li*13,line,{'text-anchor':'end','font-size':'11','font-weight':'700','fill':'#ddd'});
+    });
+    svgText(svg,xLo+wBar+8,y+barH/2+4,d.lo+'–'+d.hi+' Md€',{'text-anchor':'start','font-size':'12','font-weight':'700','fill':d.col});
+  });
+
+  document.getElementById('chiffrageLegend').innerHTML = CHIFFRAGE.map(d=>
+    `<div class="rn-legend-item"><div class="rn-legend-dot" style="background:${d.col}"></div>${d.lbl.replace('\n',' ')} : ${d.lo}–${d.hi} Md€/an</div>`
+  ).join('');
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CHART 2 : IMPACT MACRO
+═══════════════════════════════════════════════════════════ */
+function drawImpact(){
+  const svg=document.getElementById('svgImpact');
+  const VW=720, VH=320, padL=50, padR=20, padT=30, padB=70;
+  const W=VW-padL-padR, H=VH-padT-padB;
+  const groupW=W/IMPACT.length;
+
+  IMPACT.forEach((d,i)=>{
+    const cx=padL+i*groupW+groupW/2;
+    const barW=Math.min(40,groupW*0.28);
+    const scaleY=H/d.maxV;
+    const hA=d.actuel*scaleY, hR=d.rn*scaleY;
+    const xA=cx-barW-6, xR=cx+6;
+
+    svgRect(svg,xA,padT+H-hA,barW,hA,'#4ade80',`<strong>Trajectoire actuelle</strong><br>${d.actuel}${d.unit}`);
+    svgRect(svg,xR,padT+H-hR,barW,hR,'#3b82f6',`<strong>Scénario RN 2030</strong><br>${d.rn}${d.unit}`);
+
+    svgText(svg,xA+barW/2,padT+H-hA-8,d.actuel+d.unit,{'text-anchor':'middle','font-size':'11','font-weight':'700','fill':'#4ade80'});
+    svgText(svg,xR+barW/2,padT+H-hR-8,d.rn+d.unit,{'text-anchor':'middle','font-size':'11','font-weight':'700','fill':'#3b82f6'});
+
+    d.lbl.split('\n').forEach((line,li)=>{
+      svgText(svg,cx,padT+H+22+li*14,line,{'text-anchor':'middle','font-size':'11','fill':'rgba(255,255,255,.6)'});
+    });
+  });
+
+  svgLine(svg,padL,padT+H,padL+W,padT+H,'rgba(255,255,255,.2)',1);
+
+  document.getElementById('impactLegend').innerHTML=`
+    <div class="rn-legend-item"><div class="rn-legend-dot" style="background:#4ade80"></div>Trajectoire actuelle (statu quo)</div>
+    <div class="rn-legend-item"><div class="rn-legend-dot" style="background:#3b82f6"></div>Scénario RN 2030 (France Budget)</div>`;
+}
+
+drawChiffrage();
+drawImpact();
+
+/* ── Nav mobile toggle ─────────────────────────────────── */
+(function(){
+  const btn=document.getElementById('navToggle');
+  const menu=document.getElementById('navMobile');
+  if(!btn||!menu) return;
+  btn.addEventListener('click',()=>{
+    const open=menu.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded',open);
+    document.body.classList.toggle('nav-open',open);
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    menu.classList.remove('is-open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.classList.remove('nav-open');
+  }));
+})();
+</script>
+</body>
+</html>
