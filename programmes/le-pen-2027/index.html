@@ -66,6 +66,83 @@
       .rn-chart-wrap{padding:10px 4px}
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+          {"@type":"ListItem","position":2,"name":"Programmes","item":"https://le-francais-moyen.com/programmes/"},
+          {"@type":"ListItem","position":3,"name":"Programme Le Pen 2027","item":"https://le-francais-moyen.com/programmes/le-pen-2027/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel est le programme de Marine Le Pen pour 2027 ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le programme de Marine Le Pen pour 2027 s'appuie sur « Mon Projet pour la France », publié en 2022 par le Rassemblement National. Ses principales mesures sont : la retraite à 60 ans pour les carrières longues (40 annuités cotisées avant 20 ans), la TVA à 0 % sur les produits alimentaires essentiels, l'énergie et les carburants, la préférence nationale à l'emploi et aux aides sociales, le recrutement de 10 000 policiers et gendarmes supplémentaires, et la suppression des droits de succession jusqu'à 300 000 € par enfant."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "La retraite à 60 ans de Marine Le Pen, c'est pour tout le monde ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. La retraite à 60 ans proposée par Marine Le Pen s'adresse uniquement aux personnes ayant commencé à travailler avant l'âge de 20 ans et ayant cotisé 40 annuités. Elle ne s'applique pas à l'ensemble de la population active. Le coût est estimé par le RN à environ 17 milliards d'euros par an, un chiffre jugé optimiste par les instituts indépendants comme l'IFRAP."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien coûte le programme de Marine Le Pen ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selon l'analyse indépendante de la Fondation IFRAP (modèle Nemesis / Seureco-Erasme), les dépenses nouvelles du programme RN 2022 sont estimées à environ 100 milliards d'euros sur le quinquennat. Les recettes et économies revendiquées par le parti (maîtrise de l'immigration, niches fiscales) ne couvrent pas intégralement ce montant selon les instituts indépendants. Le programme se traduirait par une hausse de la dette publique française."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "La TVA à 0 % de Marine Le Pen s'applique à quels produits ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Marine Le Pen propose de supprimer entièrement la TVA (taux à 0 %) sur les produits alimentaires de première nécessité, l'énergie domestique (gaz, électricité) et les carburants. Cette mesure représente un coût estimé à environ 10 milliards d'euros par an selon le RN, compensé selon le parti par la suppression de niches fiscales accordées aux grandes entreprises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que la préférence nationale dans le programme de Marine Le Pen ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La préférence nationale dans le programme Le Pen 2027 désigne un principe selon lequel les citoyens français seraient prioritaires sur les ressortissants étrangers pour l'accès à l'emploi public, aux aides sociales et au logement social. Cette mesure nécessiterait une révision constitutionnelle et serait contraire au droit européen dans sa forme actuelle. Le RN propose de passer par référendum pour la légitimer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel serait l'impact du programme Le Pen sur la dette publique ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selon la simulation macroéconomique réalisée à partir des chiffrages indépendants, le programme Le Pen conduirait à une dette publique d'environ 132 % du PIB à l'horizon 2030, contre environ 120 % sous la trajectoire actuelle. C'est une hausse significative, mais plus modérée que le programme LFI (estimé à 136 % du PIB). Le financement de la retraite à 60 ans reste la principale incertitude selon les économistes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Marine Le Pen peut-elle se présenter en 2027 malgré sa condamnation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, Marine Le Pen peut se présenter à la présidentielle 2027 selon l'arrêt de la Cour d'appel du 7 juillet 2026. Elle a été condamnée à 4 ans de prison dont 2 ferme et 5 ans d'inéligibilité, mais 30 mois de l'inéligibilité sont assortis du sursis — ce qui lui permet de se présenter. Un pourvoi en cassation est en cours, dont l'issue pourrait modifier cette situation."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -342,6 +419,92 @@
           </div>
         </div>
       </div>
+
+      <!-- ═══ FAQ ═══ -->
+      <div style="margin-top:40px">
+        <div class="rn-h2" style="margin-bottom:20px">❓ Questions fréquentes sur le programme de Marine Le Pen</div>
+
+        <style>
+          .faq-item { border:1px solid var(--border); border-radius:14px; margin-bottom:10px; overflow:hidden }
+          .faq-q { width:100%; background:rgba(255,255,255,.04); border:none; color:var(--text); font-size:.9rem; font-weight:800; padding:16px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:12px; line-height:1.4 }
+          .faq-q:hover { background:rgba(255,255,255,.07) }
+          .faq-chevron { font-size:.75rem; color:var(--muted); flex-shrink:0; transition:transform .2s }
+          .faq-q[aria-expanded="true"] .faq-chevron { transform:rotate(180deg) }
+          .faq-a { display:none; padding:0 20px 16px; font-size:.85rem; color:var(--muted); line-height:1.7 }
+          .faq-a.open { display:block }
+        </style>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Quel est le programme de Marine Le Pen pour 2027 ?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">
+            Le programme s'appuie sur <strong>Mon Projet pour la France</strong> (RN, 2022). Mesures phares : retraite à 60 ans pour les carrières longues (40 annuités avant 20 ans), TVA à 0 % sur l'alimentation essentielle, l'énergie et les carburants, préférence nationale à l'emploi et aux aides sociales, 10 000 policiers supplémentaires, suppression des droits de succession jusqu'à 300 000 € par enfant.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            La retraite à 60 ans de Le Pen, c'est pour tout le monde ?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">
+            Non. Elle ne concerne que les personnes ayant <strong>commencé à travailler avant 20 ans</strong> et cotisé <strong>40 annuités</strong>. Pas l'ensemble des actifs. Coût annoncé par le RN : ~17 Md€/an — un chiffre jugé optimiste par les instituts indépendants comme l'IFRAP.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Combien coûte le programme de Marine Le Pen ?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">
+            Selon l'analyse indépendante de la Fondation IFRAP (modèle Nemesis), les dépenses nouvelles atteignent environ <strong>100 Md€ sur le quinquennat</strong>. Les recettes et économies revendiquées par le RN (maîtrise de l'immigration, niches fiscales) ne couvrent pas intégralement ce montant selon les économistes indépendants. La dette publique monterait à ~132 % du PIB à l'horizon 2030.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            La TVA à 0 % s'applique à quels produits ?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">
+            Marine Le Pen propose de supprimer la TVA sur les <strong>produits alimentaires de première nécessité</strong>, l'<strong>énergie domestique</strong> (gaz, électricité) et les <strong>carburants</strong>. Coût estimé : ~10 Md€/an selon le RN, compensé en théorie par la suppression de niches fiscales pour les grandes entreprises.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Qu'est-ce que la préférence nationale dans le programme Le Pen ?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">
+            La préférence nationale désigne la priorité donnée aux citoyens français sur les étrangers pour l'accès à l'<strong>emploi public</strong>, aux <strong>aides sociales</strong> et au <strong>logement HLM</strong>. Cette mesure est contraire au droit européen actuel — le RN propose de la légitimer par référendum et révision constitutionnelle.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+            Marine Le Pen peut-elle se présenter en 2027 malgré sa condamnation ?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">
+            <strong>Oui, selon l'arrêt de la Cour d'appel du 7 juillet 2026.</strong> Elle a été condamnée à 4 ans dont 2 ferme et 5 ans d'inéligibilité, mais 30 mois de l'inéligibilité sont en sursis — ce qui lui permet de se présenter. Un pourvoi en cassation est en cours et pourrait modifier la situation avant avril 2027.
+          </div>
+        </div>
+      </div>
+
+      <script>
+      function toggleFaq(btn) {
+        const a = btn.nextElementSibling;
+        const open = a.classList.contains('open');
+        // close all
+        document.querySelectorAll('.faq-a').forEach(el => el.classList.remove('open'));
+        document.querySelectorAll('.faq-q').forEach(el => el.setAttribute('aria-expanded','false'));
+        if (!open) { a.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      }
+      </script>
 
     </div><!-- /max-width wrapper -->
   </main>
