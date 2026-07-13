@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Loi SREN 2024 — sécuriser et réguler l'espace numérique | Observatoire des libertés</title>
+  <meta name="description" content="Analyse de la loi SREN n° 2024-449 : filtrage DNS, vérification d'âge, pouvoirs ARCOM, relation avec le DSA européen. Score 62/100 — impact significatif.">
+  <link rel="canonical" href="https://le-francais-moyen.com/libertes/sren/">
+  <style>
+    :root{--red:#e03131;--accent:#1971c2;--accent2:#1864ab;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--bg:#f8fafc;--card:#fff}
+    @media(prefers-color-scheme:dark){:root{--text:#e8eaf0;--muted:#9ca3af;--border:#2d3748;--bg:#0f1117;--card:#1a1d27}}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
+    a{color:var(--accent)}
+    .nav{display:flex;align-items:center;gap:16px;padding:14px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+    .brand{font-weight:900;font-size:1.05rem;color:var(--text);text-decoration:none;letter-spacing:-.3px}
+    .brand span{color:var(--red)}
+    .nav nav{display:flex;gap:4px;flex:1;flex-wrap:wrap}
+    .nav nav a{font-size:.78rem;font-weight:600;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:6px;transition:background .15s}
+    .nav nav a:hover{background:var(--border)}
+    .nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;color:var(--text)}
+    .cta{margin-left:auto;font-size:.78rem;font-weight:700;color:var(--accent);text-decoration:none;white-space:nowrap}
+    @media(max-width:640px){.nav nav{display:none}.nav-toggle{display:block}.nav nav.open{display:flex;flex-direction:column;width:100%;order:99}}
+    .wrapper{max-width:860px;margin:0 auto;padding:32px 16px 80px}
+    .section-label{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+    .version-callout{background:rgba(25,113,194,.08);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:28px;font-size:.82rem;color:var(--text)}
+    .version-callout strong{color:var(--accent)}
+    .alert-box{background:rgba(224,49,49,.07);border-left:3px solid var(--red);border-radius:0 8px 8px 0;padding:12px 16px;margin:20px 0;font-size:.83rem}
+    .fiche-header{margin-bottom:32px}
+    .fiche-score{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .score-number{font-size:2.6rem;font-weight:900;color:#ff7a00;line-height:1}
+    .score-label{font-size:.78rem;color:var(--muted);font-weight:600;line-height:1.3}
+    .status-badge{display:inline-block;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase}
+    .s-vigueur{background:rgba(224,49,49,.12);color:var(--red)}
+    .s-projet{background:rgba(246,195,67,.15);color:#b38600}
+    .s-expire{background:rgba(107,114,128,.12);color:var(--muted)}
+    .score-pill{display:inline-block;font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:20px}
+    .score-modere{background:rgba(250,219,20,.15);color:#b38600}
+    .score-signif{background:rgba(255,122,0,.12);color:#cc5500}
+    .score-eleve{background:rgba(224,49,49,.12);color:var(--red)}
+    .fiche-title{font-size:1.65rem;font-weight:900;line-height:1.2;margin-bottom:8px}
+    .fiche-subtitle{font-size:.9rem;color:var(--muted);margin-bottom:0}
+    .en-bref{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:28px}
+    .en-bref p{font-size:.88rem;line-height:1.7;color:var(--text)}
+    .retenir-wrap{display:grid;gap:10px;margin-bottom:28px}
+    .retenir-item{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:.84rem}
+    .retenir-item .ri-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+    .garanties-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:28px}
+    .garantie-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:.82rem}
+    .garantie-card strong{display:block;font-size:.75rem;font-weight:800;letter-spacing:.04em;color:var(--accent);margin-bottom:4px;text-transform:uppercase}
+    .niveau-wrap{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:8px}
+    .niveau-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;background:var(--card);user-select:none;font-weight:700;font-size:.88rem}
+    .niveau-head:hover{background:var(--bg)}
+    .niveau-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-size:.72rem;font-weight:900;flex-shrink:0}
+    .n1{background:rgba(25,113,194,.12);color:var(--accent)}
+    .n2{background:rgba(64,192,87,.12);color:#2f9e44}
+    .n3{background:rgba(250,219,20,.2);color:#b38600}
+    .n4{background:rgba(255,122,0,.15);color:#cc5500}
+    .n5{background:rgba(224,49,49,.12);color:var(--red)}
+    .niveau-chevron{margin-left:auto;transition:transform .2s;color:var(--muted);font-size:.8rem}
+    .niveau-body{display:none;padding:16px 18px 18px;border-top:1px solid var(--border);font-size:.85rem;line-height:1.75}
+    .niveau-body.open{display:block}
+    .niveau-body ul{padding-left:20px;margin-top:8px}
+    .niveau-body li{margin-bottom:6px}
+    .niveau-body p+p{margin-top:10px}
+    .score-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px;align-items:start}
+    @media(max-width:640px){.score-2col{grid-template-columns:1fr}}
+    .score-table{width:100%;border-collapse:collapse;font-size:.8rem}
+    .score-table th{text-align:left;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--border)}
+    .score-table td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+    .score-table tr:last-child td{border-bottom:none}
+    .score-table .total-row td{font-weight:900;background:var(--bg);border-top:2px solid var(--border)}
+    .rev-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+    .rev-box .rev-label{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}
+    .rev-score{font-size:1.6rem;font-weight:900;color:#ff7a00;margin-bottom:6px}
+    .rev-box p{font-size:.82rem;color:var(--muted);line-height:1.6}
+    .diff-wrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+    @media(max-width:600px){.diff-wrap{grid-template-columns:1fr}}
+    .diff-col{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:.82rem;line-height:1.7}
+    .diff-col .diff-label{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+    .diff-col.avant .diff-label{color:var(--muted)}
+    .diff-col.apres .diff-label{color:var(--red)}
+    .tl-wrap{display:grid;gap:0;position:relative;margin-bottom:28px}
+    .tl-wrap::before{content:'';position:absolute;left:70px;top:0;bottom:0;width:2px;background:var(--border)}
+    .tl-item{display:grid;grid-template-columns:66px auto;gap:16px;padding-bottom:18px;position:relative}
+    .tl-date{text-align:right;font-size:.72rem;font-weight:800;color:var(--muted);padding-top:2px}
+    .tl-dot{position:absolute;left:68px;top:5px;width:8px;height:8px;border-radius:50%;background:var(--accent);transform:translateX(-50%)}
+    .tl-text{font-size:.82rem;line-height:1.6;padding-left:8px}
+    .tl-text strong{color:var(--text)}
+    .src-list{display:grid;gap:8px;margin-bottom:28px}
+    .src-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:.8rem;display:flex;gap:10px;align-items:flex-start}
+    .src-item .src-icon{flex-shrink:0;color:var(--muted)}
+    .src-item a{color:var(--accent)}
+    .faq-item{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:8px}
+    .faq-q{padding:14px 18px;cursor:pointer;font-weight:700;font-size:.87rem;background:var(--card);display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
+    .faq-q:hover{background:var(--bg)}
+    .faq-chevron{color:var(--muted);transition:transform .2s;flex-shrink:0}
+    .faq-a{display:none;padding:14px 18px;font-size:.84rem;line-height:1.75;border-top:1px solid var(--border)}
+    .faq-a.open{display:block}
+    .myth-box{border-radius:10px;padding:14px 16px;margin:12px 0;font-size:.83rem;line-height:1.65}
+    .myth-box.faux{background:rgba(224,49,49,.07);border-left:3px solid var(--red)}
+    .myth-box.vrai{background:rgba(64,192,87,.07);border-left:3px solid #40c057}
+    .myth-box .myth-label{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+    .myth-box.faux .myth-label{color:var(--red)}
+    .myth-box.vrai .myth-label{color:#2f9e44}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+      {"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://le-francais-moyen.com/libertes/"},
+      {"@type":"ListItem","position":3,"name":"Loi SREN 2024","item":"https://le-francais-moyen.com/libertes/sren/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"La loi SREN permet-elle à l'État de bloquer n'importe quel site internet ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Non. Le filtrage DNS administratif prévu par la SREN est limité à des catégories précises définies par la loi : pédopornographie (depuis LOPPSI 2, 2011), sites terroristes (2014), et nouvelles catégories ajoutées par la SREN (cybersécurité via ANSSI, jeux illégaux, IPTV illicite). Le blocage de sites légaux pour des raisons politiques ou de contenu controversé n'est pas prévu et serait censuré par le Conseil constitutionnel."}
+      },
+      {
+        "@type":"Question",
+        "name":"La vérification d'âge SREN oblige-t-elle les internautes à s'identifier sur les sites pornographiques ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Non. L'article 23 de la SREN impose une vérification d'âge sans transmission de l'identité de l'utilisateur au site visité — c'est une contrainte technique explicite. Le mécanisme envisagé repose sur un tiers de confiance ou un système de token anonyme : le site ne sait pas qui visite, seulement qu'il s'agit d'un majeur."}
+      },
+      {
+        "@type":"Question",
+        "name":"Quelle est la différence entre le DSA européen et la loi SREN française ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Le DSA (règlement UE 2022/2065) s'applique directement à toutes les plateformes, sans transposition nécessaire. Il cible en priorité les très grandes plateformes (VLOP : Meta, Google, TikTok...) avec des obligations renforcées. La SREN adapte le droit français au DSA, désigne l'ARCOM comme coordinateur national des services numériques, et complète le DSA pour les acteurs de taille intermédiaire et les spécificités françaises (vérification d'âge, bannissement express)."}
+      },
+      {
+        "@type":"Question",
+        "name":"L'ARCOM peut-elle bloquer des sites sans décision de justice ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Oui, dans les catégories prévues par la loi. L'ARCOM hérite des pouvoirs de blocage administratif initialement accordés au ministre de l'Intérieur (pédopornographie, terrorisme). C'est le principal point de vigilance de la loi : l'ARCOM cumule le rôle de régulateur et d'opérateur de blocage. Un recours devant le juge administratif est toujours possible, mais a posteriori."}
+      },
+      {
+        "@type":"Question",
+        "name":"Le filtrage DNS est-il efficace pour bloquer des contenus illicites ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Le filtrage DNS est contournable par des moyens simples : VPN, DNS alternatifs (1.1.1.1, 8.8.8.8), DNS over HTTPS (DoH). Son efficacité est donc limitée contre un utilisateur averti. Son principal effet est de rendre les contenus illicites moins accessibles pour l'internaute ordinaire — effet de seuil, pas d'éradication. Les rapports ARCOM mentionnent aussi des risques de sur-blocage (sites légaux hébergés sur les mêmes IP que des sites illicites)."}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">Le Français <span>Moyen</span></a>
+    <nav id="main-nav">
+      <a href="/dette/">Dette</a>
+      <a href="/impot/">Impôts</a>
+      <a href="/retraites/">Retraites</a>
+      <a href="/logement/">Logement</a>
+      <a href="/elections/">Élections</a>
+      <a href="/libertes/">Libertés</a>
+    </nav>
+    <button class="nav-toggle" onclick="document.getElementById('main-nav').classList.toggle('open')">☰</button>
+    <a href="/libertes/" class="cta">← Observatoire des libertés</a>
+  </div>
+</header>
+
+<main class="wrapper">
+
+  <div class="version-callout">
+    <strong>Loi n° 2024-449 du 21 mai 2024</strong> — en vigueur. Les décrets d'application sont publiés progressivement depuis juin 2024. La loi s'articule avec le <strong>DSA</strong> (règlement UE 2022/2065), directement applicable aux très grandes plateformes.
+  </div>
+
+  <div class="fiche-header">
+    <div class="fiche-score">
+      <div>
+        <div class="score-number">62</div>
+        <div class="score-label">/ 100<br>Indice d'impact<br>et de vigilance</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span class="status-badge s-vigueur">En vigueur</span>
+        <span class="score-pill score-signif">Impact significatif</span>
+      </div>
+    </div>
+    <h1 class="fiche-title">Loi SREN — Sécuriser et réguler l'espace numérique</h1>
+    <p class="fiche-subtitle">Loi n° 2024-449 du 21 mai 2024 · Filtrage DNS · Vérification d'âge · Pouvoirs ARCOM · Articulation DSA</p>
+  </div>
+
+  <div class="section-label">En bref</div>
+  <div class="en-bref">
+    <p>La loi SREN encadre les services en ligne en France et adapte le droit national au DSA européen. Ses trois mesures les plus structurantes : un filtrage DNS administratif étendu à de nouvelles catégories de contenus illicites, une obligation de vérification d'âge pour les sites pornographiques sans transmission de l'identité de l'utilisateur, et de nouveaux pouvoirs de régulation pour l'ARCOM.</p>
+    <p style="margin-top:10px">La SREN ne crée pas de surveillance généralisée d'internet. Le filtrage DNS cible des catégories définies par la loi, pas des opinions ou contenus controversés. Le Conseil constitutionnel a par ailleurs censuré certaines dispositions avant promulgation (décision 2024-863 DC). Le principal point de vigilance tient au rôle de l'ARCOM : elle cumule désormais fonction de régulateur et pouvoir de blocage administratif sans décision judiciaire préalable — ce qui place la France parmi les pays dotés d'une architecture de filtrage centralisée, extensible par voie législative future.</p>
+  </div>
+
+  <div class="section-label">Ce qu'il faut retenir</div>
+  <div class="retenir-wrap">
+    <div class="retenir-item"><span class="ri-icon">⚖️</span><span><strong>SREN ≠ censure internet</strong> — Le filtrage DNS est limité aux catégories légales précises (pédopornographie, terrorisme, cybersécurité ANSSI, jeux illégaux). Le blocage de contenus légaux politiquement sensibles n'est pas prévu.</span></div>
+    <div class="retenir-item"><span class="ri-icon">🇪🇺</span><span><strong>DSA prime sur SREN pour les grandes plateformes</strong> — Les VLOP (Meta, Google, TikTok...) sont régulées directement par le DSA européen. La SREN complète ce cadre pour les acteurs de taille intermédiaire et les spécificités françaises.</span></div>
+    <div class="retenir-item"><span class="ri-icon">🔞</span><span><strong>Vérification d'âge sans identification</strong> — L'art. 23 SREN interdit au site de connaître l'identité du visiteur. Le mécanisme doit reposer sur un tiers de confiance ou un token anonyme. La contrainte technique est forte.</span></div>
+    <div class="retenir-item"><span class="ri-icon">🏛️</span><span><strong>ARCOM : régulateur et opérateur de blocage</strong> — Ce cumul de rôles est le principal point de vigilance. Le blocage administratif sans juge existait avant la SREN (LOPPSI 2, 2011), mais le périmètre s'élargit.</span></div>
+    <div class="retenir-item"><span class="ri-icon">📈</span><span><strong>Précédent d'extension progressive</strong> — LOPPSI 2 (2011) → filtrage pédopornographie. Loi antiterroriste (2014) → terrorisme. SREN (2024) → cybersécurité, jeux, IPTV illicite. La logique d'extension par strates législatives est établie.</span></div>
+  </div>
+
+  <div class="section-label">Garanties prévues par les textes</div>
+  <div class="garanties-grid">
+    <div class="garantie-card"><strong>Contrôle ARCOM</strong>Les décisions de blocage peuvent être contestées devant le juge administratif (référé-liberté) dans les 48h.</div>
+    <div class="garantie-card"><strong>Contrôle CNIL</strong>La CNIL supervise les dispositifs de vérification d'âge pour s'assurer du respect de la vie privée (art. 23 SREN).</div>
+    <div class="garantie-card"><strong>Conseil constitutionnel</strong>La décision 2024-863 DC a censuré des dispositions jugées trop attentatoires aux libertés avant promulgation.</div>
+    <div class="garantie-card"><strong>DSA comme plancher</strong>Le DSA établit des garanties minimales pour toutes les plateformes (recours, transparence algorithmique, signalement). La SREN ne peut déroger en deçà.</div>
+  </div>
+
+  <div class="section-label">Analyse par niveaux</div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n1">N1</span>
+      Ce que la loi prévoit exactement
+      <span class="niveau-chevron">▼</span>
+    </div>
+    <div class="niveau-body">
+      <p>La loi SREN regroupe plusieurs dispositifs distincts qu'il convient de ne pas confondre :</p>
+      <ul>
+        <li><strong>Filtrage DNS (art. 6-10 SREN)</strong> : obligation pour les FAI de bloquer les noms de domaine signalés par l'ARCOM ou l'ANSSI dans les catégories légalement définies. L'ARCOM hérite des pouvoirs de blocage administratif précédemment détenus par le ministre de l'Intérieur (depuis LOPPSI 2, 2011, pour la pédopornographie ; depuis 2014 pour le terrorisme). Nouvelles catégories ajoutées par SREN : domaines malveillants signalés par l'ANSSI, sites de jeux illégaux, services IPTV illicites.</li>
+        <li><strong>Vérification d'âge (art. 23 SREN)</strong> : les sites pornographiques accessibles depuis la France doivent s'assurer que leurs visiteurs sont majeurs. Contrainte : le mécanisme ne doit pas permettre au site de connaître l'identité du visiteur (double anonymat). L'ARCOM peut ordonner le blocage des sites non conformes.</li>
+        <li><strong>Devoir de vigilance des plateformes (art. 1-5 SREN)</strong> : transposition et adaptation du DSA pour les plateformes hors VLOP. L'ARCOM est désignée coordinateur national des services numériques (CSN) en France.</li>
+        <li><strong>Bannissement express (art. 17 SREN)</strong> : les juges peuvent prononcer, à titre de peine complémentaire, l'interdiction d'utiliser les réseaux sociaux pour les auteurs de cyberharcèlement grave.</li>
+        <li><strong>Filtrage ANSSI (art. 11-15 SREN)</strong> : l'ANSSI peut demander aux FAI, résolveurs DNS et hébergeurs de bloquer ou rediriger les communications vers des domaines malveillants détectés (cyberattaques, phishing).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n2">N2</span>
+      Filtrage DNS : mécanisme et limites techniques
+      <span class="niveau-chevron">▼</span>
+    </div>
+    <div class="niveau-body">
+      <p>Le filtrage DNS fonctionne en demandant aux FAI de répondre avec une adresse nulle (blocage) ou une page d'avertissement lorsqu'un utilisateur demande la résolution d'un nom de domaine interdit. C'est un outil de blocage de niveau infrastructure, pas de surveillance du contenu.</p>
+      <div class="myth-box faux">
+        <div class="myth-label">Idée reçue</div>
+        Le filtrage DNS permet à l'État de voir quels sites vous visitez.
+      </div>
+      <div class="myth-box vrai">
+        <div class="myth-label">Réalité</div>
+        Le filtrage DNS bloque l'accès à certains domaines — il ne produit pas de log de navigation. Les FAI savent quelles requêtes DNS sont bloquées, pas ce que vous consultez sur des sites autorisés.
+      </div>
+      <p><strong>Limites techniques :</strong></p>
+      <ul>
+        <li>Facilement contournable : VPN, résolveurs DNS alternatifs (1.1.1.1, 8.8.8.8), DNS over HTTPS (DoH) intégré dans Firefox/Chrome.</li>
+        <li>Risque de sur-blocage : un domaine illicite hébergé sur une IP partagée peut entraîner le blocage de domaines légaux colocalisés.</li>
+        <li>Latence de mise à jour : entre la détection d'un contenu illicite et le blocage effectif, un délai opérationnel subsiste.</li>
+      </ul>
+      <p>L'efficacité du filtrage DNS est donc de <strong>seuil</strong> (rend l'accès moins immédiat pour l'utilisateur ordinaire) plutôt que d'éradication. Les rapports ARCOM reconnaissent cette limite.</p>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n3">N3</span>
+      Vérification d'âge : contrainte technique et vie privée
+      <span class="niveau-chevron">▼</span>
+    </div>
+    <div class="niveau-body">
+      <p>L'article 23 SREN impose aux sites pornographiques accessibles depuis la France de vérifier la majorité de leurs visiteurs. La contrainte clé : le site ne doit pas connaître l'identité du visiteur — seulement qu'il s'agit d'un majeur.</p>
+      <p><strong>Mécanismes techniques envisagés :</strong></p>
+      <ul>
+        <li><strong>Tiers de confiance certifié</strong> : un organisme agréé délivre un token anonyme après vérification d'identité. Le site reçoit le token (preuve de majorité), pas l'identité.</li>
+        <li><strong>Wallet d'identité numérique (eIDAS 2.0)</strong> : le règlement UE 2024/1183 prévoit des portefeuilles d'identité permettant de partager des attributs certifiés (majorité) sans révéler l'identité complète.</li>
+        <li><strong>Preuve à divulgation nulle de connaissance</strong> : solution cryptographique prouvant la majorité sans révéler l'âge exact ni l'identité.</li>
+      </ul>
+      <p>La CNIL a émis des réserves sur la faisabilité à grande échelle de solutions respectueuses de la vie privée, et sur le risque de centralisation des vérifications chez un petit nombre de prestataires.</p>
+      <div class="alert-box">
+        <strong>Point de vigilance :</strong> Si la vérification d'âge est déléguée à un ou deux opérateurs dominants, ces opérateurs auront connaissance des habitudes de navigation d'une fraction significative de la population française — même si le site pornographique lui-même n'a pas cette information.
+      </div>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n4">N4</span>
+      Pouvoirs ARCOM : indépendance et cumul de rôles
+      <span class="niveau-chevron">▼</span>
+    </div>
+    <div class="niveau-body">
+      <p>L'ARCOM (Autorité de régulation de la communication audiovisuelle et numérique) est née en 2022 de la fusion du CSA et de la HADOPI. La SREN lui confère de nouveaux pouvoirs :</p>
+      <ul>
+        <li>Coordinateur national des services numériques (CSN) au sens du DSA</li>
+        <li>Pouvoir de blocage administratif DNS (sans décision judiciaire préalable) pour les catégories légales</li>
+        <li>Compétence sur la vérification d'âge (injonction aux sites non conformes, blocage)</li>
+        <li>Compétence sur les services IPTV illicites</li>
+      </ul>
+      <p><strong>Le problème du cumul de rôles :</strong> L'ARCOM est à la fois l'autorité qui définit les critères de blocage, qui prononce les décisions de blocage, et qui supervise leur mise en œuvre technique. Ce cumul est inhabituel dans l'architecture des autorités administratives indépendantes françaises, où régulation et sanction sont habituellement séparées.</p>
+      <p>La voie de recours existe : référé-liberté devant le tribunal administratif dans les 48h suivant une décision de blocage. Mais ce recours est a posteriori — le blocage est effectif immédiatement.</p>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n5">N5</span>
+      Scénario 2030 : glissement vers un filtrage plus large ?
+      <span class="niveau-chevron">▼</span>
+    </div>
+    <div class="niveau-body">
+      <p>La vigilance porte sur la logique d'extension par strates législatives, documentée sur les 15 dernières années :</p>
+      <ul>
+        <li><strong>2011 (LOPPSI 2)</strong> : filtrage DNS pour la pédopornographie — cas extrême, large consensus</li>
+        <li><strong>2014</strong> : extension au terrorisme — consensus plus large que prévu à l'époque</li>
+        <li><strong>2024 (SREN)</strong> : extension à la cybersécurité, jeux illégaux, IPTV illicite</li>
+        <li><strong>Scénario 2027-2030</strong> : pression possible pour étendre à la désinformation "grave", aux deepfakes non labellisés, aux plateformes refusant de modérer certains contenus</li>
+      </ul>
+      <p>Le risque n'est pas que la SREN elle-même censure des contenus légaux — ce n'est pas ce qu'elle prévoit. Le risque est que l'<strong>infrastructure de blocage centralisée</strong> construite étape par étape soit disponible pour des futurs législateurs aux motivations différentes, sans avoir besoin de créer un nouveau dispositif technique.</p>
+      <p>Des précédents internationaux illustrent ce glissement : Australie (blocage anti-piratage étendu aux sites de désinformation), Royaume-Uni (Online Safety Act 2023 aux contours plus larges que la SREN).</p>
+    </div>
+  </div>
+
+  <div class="section-label">Score détaillé</div>
+  <div class="score-2col">
+    <div>
+      <table class="score-table">
+        <thead>
+          <tr><th>Critère</th><th>Poids</th><th>Note</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Périmètre des obligations imposées</td><td>15</td><td>9/15</td></tr>
+          <tr><td>Risques de détournement du filtrage</td><td>15</td><td>10/15</td></tr>
+          <tr><td>Traçabilité et surveillance induite</td><td>12</td><td>7/12</td></tr>
+          <tr><td>Contrôle indépendant (ARCOM + CNIL)</td><td>13</td><td>8/13</td></tr>
+          <tr><td>Droits des personnes concernées</td><td>10</td><td>8/10</td></tr>
+          <tr><td>Capacité d'extension du dispositif</td><td>20</td><td>13/20</td></tr>
+          <tr><td>Réversibilité</td><td>15</td><td>7/15</td></tr>
+          <tr class="total-row"><td colspan="2"><strong>Score total</strong></td><td><strong>62/100</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rev-box">
+      <div class="rev-label">Réversibilité</div>
+      <div class="rev-score">Modérée</div>
+      <p>La SREN est une loi ordinaire, modifiable par le Parlement. Le cadre DSA est un règlement UE — plus stable. La principale inertie est <strong>l'infrastructure de filtrage DNS</strong> : une fois construite et opérationnelle, elle est techniquement disponible pour de futures extensions législatives même si la SREN elle-même était abrogée.</p>
+    </div>
+  </div>
+
+  <div class="section-label">Avant / Après SREN</div>
+  <div class="diff-wrap">
+    <div class="diff-col avant">
+      <div class="diff-label">Avant SREN (pré-2024)</div>
+      Filtrage DNS fragmenté : pédopornographie (LOPPSI 2, 2011) et terrorisme (2014) gérés par le ministre de l'Intérieur. Vérification d'âge pour sites pornographiques : injonction judiciaire seulement, quasi-inappliquée. Pas de coordinateur national DSA désigné. DSA applicable mais sans coordinateur national.
+    </div>
+    <div class="diff-col apres">
+      <div class="diff-label">Après SREN (2024)</div>
+      Filtrage DNS unifié sous ARCOM + nouvelles catégories (ANSSI, jeux, IPTV). Vérification d'âge avec obligation de double anonymat (art. 23) et pouvoir de blocage ARCOM. ARCOM désignée coordinateur national des services numériques. Infrastructure centralisée disponible pour extensions futures.
+    </div>
+  </div>
+
+  <div class="section-label">Chronologie</div>
+  <div class="tl-wrap">
+    <div class="tl-item">
+      <div class="tl-date">2011</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text"><strong>LOPPSI 2</strong> — Premier filtrage DNS administratif en France pour la pédopornographie, sans décision judiciaire préalable.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2014</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text"><strong>Loi antiterrorisme</strong> — Extension du filtrage DNS aux sites à caractère terroriste. Même logique, périmètre élargi.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text"><strong>DSA adopté</strong> (règlement UE 2022/2065, 19 oct. 2022) — Cadre européen pour les plateformes, applicable directement. Nécessite désignation d'un coordinateur national.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text"><strong>Création de l'ARCOM</strong> (fusion CSA + HADOPI) — L'ARCOM devient l'autorité centrale de régulation des médias et du numérique.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">mai 2023</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text">Dépôt du projet de loi SREN à l'Assemblée nationale. Débats parlementaires sur la vérification d'âge et les pouvoirs ARCOM.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">mai 2024</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text"><strong>Décision CC 2024-863 DC</strong> (16 mai) — Le Conseil constitutionnel censure certaines dispositions. Promulgation loi n° 2024-449 le 21 mai 2024.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2024–</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text">Publication progressive des décrets d'application. L'ARCOM met en place les procédures de vérification d'âge et les nouvelles catégories de filtrage.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Sources et références légales</div>
+  <div class="src-list">
+    <div class="src-item"><span class="src-icon">📄</span><div><strong>Loi n° 2024-449 du 21 mai 2024</strong> — Texte intégral SREN sur Légifrance. Base légale principale.</div></div>
+    <div class="src-item"><span class="src-icon">📄</span><div><strong>Décision CC 2024-863 DC du 16 mai 2024</strong> — Conseil constitutionnel, contrôle de constitutionnalité préalable.</div></div>
+    <div class="src-item"><span class="src-icon">🇪🇺</span><div><strong>Règlement UE 2022/2065 (DSA)</strong> — Règlement sur les services numériques, applicable directement depuis février 2024 pour les VLOP, août 2024 pour tous.</div></div>
+    <div class="src-item"><span class="src-icon">🏛️</span><div><strong>Avis CNIL sur la vérification d'âge</strong> — Délibération sur les dispositifs de double anonymat (art. 23 SREN).</div></div>
+    <div class="src-item"><span class="src-icon">📊</span><div><strong>Rapports ARCOM sur le filtrage DNS</strong> — Bilan annuel des demandes de blocage, catégories et volumes.</div></div>
+  </div>
+
+  <div class="section-label">Questions fréquentes</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      La loi SREN permet-elle à l'État de bloquer n'importe quel site internet ?
+      <span class="faq-chevron">▼</span>
+    </div>
+    <div class="faq-a">
+      Non. Le filtrage DNS administratif est limité aux catégories définies par la loi : pédopornographie (depuis 2011), terrorisme (depuis 2014), cybersécurité ANSSI, jeux illégaux, IPTV illicite (depuis 2024). Le blocage de sites légaux pour opinions controversées n'est pas prévu et serait censuré par le Conseil constitutionnel. En revanche, la vigilance porte sur l'extension future de ces catégories par voie législative.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      La vérification d'âge SREN oblige-t-elle les internautes à s'identifier sur les sites pornographiques ?
+      <span class="faq-chevron">▼</span>
+    </div>
+    <div class="faq-a">
+      Non — c'est précisément ce que l'article 23 SREN interdit. Le mécanisme doit reposer sur un double anonymat : un tiers de confiance vérifie la majorité, mais le site pornographique ne reçoit qu'un token anonyme attestant la majorité, pas l'identité. La CNIL surveille la conformité des solutions techniques déployées.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Quelle est la différence entre le DSA européen et la loi SREN ?
+      <span class="faq-chevron">▼</span>
+    </div>
+    <div class="faq-a">
+      Le DSA (règlement UE 2022/2065) s'applique directement sans transposition, en priorité aux très grandes plateformes (VLOP). La SREN désigne l'ARCOM comme coordinateur français du DSA et complète le cadre pour les acteurs plus petits et les spécificités nationales (vérification d'âge, bannissement express, filtrage DNS). Les deux textes coexistent et se complètent.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      L'ARCOM peut-elle bloquer des sites sans juge ?
+      <span class="faq-chevron">▼</span>
+    </div>
+    <div class="faq-a">
+      Oui, dans les catégories légalement définies — c'est l'héritage du régime de blocage administratif instauré en 2011. Un recours devant le juge administratif (référé-liberté, 48h) est possible après le blocage, mais pas avant. Ce mécanisme précède la SREN ; elle l'étend et le centralise sous l'ARCOM.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      Le filtrage DNS est-il efficace ?
+      <span class="faq-chevron">▼</span>
+    </div>
+    <div class="faq-a">
+      Efficacité limitée : contournable par VPN, résolveurs DNS alternatifs ou DNS over HTTPS (DoH). Son effet est de seuil — il rend l'accès moins immédiat pour l'utilisateur non averti. Il ne constitue pas une barrière technique infranchissable. Les rapports ARCOM mentionnent aussi des risques de sur-blocage (domaines légaux hébergés sur les mêmes serveurs que des domaines illicites).
+    </div>
+  </div>
+
+</main>
+
+<script>
+function toggle(head){
+  const body=head.nextElementSibling;
+  const chev=head.querySelector('.niveau-chevron');
+  body.classList.toggle('open');
+  chev.style.transform=body.classList.contains('open')?'rotate(180deg)':'';
+}
+function toggleFaq(q){
+  const a=q.nextElementSibling;
+  const chev=q.querySelector('.faq-chevron');
+  a.classList.toggle('open');
+  chev.style.transform=a.classList.contains('open')?'rotate(180deg)':'';
+}
+document.querySelectorAll('.niveau-head')[0].click();
+</script>
+</body>
+</html>

@@ -113,6 +113,34 @@
   </url>
 
   <url>
+    <loc>https://le-francais-moyen.com/libertes/sren/</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/libertes/chat-control/</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/libertes/chiffrement/</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://le-francais-moyen.com/libertes/donnees-sante/</loc>
+    <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
     <loc>https://le-francais-moyen.com/programmes/melenchon-2027/</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
