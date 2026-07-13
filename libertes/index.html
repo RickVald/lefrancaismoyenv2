@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Observatoire des Libertés — lois de surveillance, droits fondamentaux, France et Europe</title>
+  <meta name="description" content="Suivez en temps réel l'évolution des lois de surveillance, des restrictions aux libertés fondamentales et des nouveaux pouvoirs de l'État en France et en Europe. Fiches sourcées, scorées, factuelles.">
+  <link rel="canonical" href="https://le-francais-moyen.com/libertes/">
+  <meta property="og:title" content="Observatoire des Libertés — surveillance, droits fondamentaux, France et UE">
+  <meta property="og:description" content="Fiches factuelles et sourcées sur les lois de surveillance, la reconnaissance faciale, l'euro numérique et les restrictions aux libertés en France et en Europe.">
+  <meta property="og:url" content="https://le-francais-moyen.com/libertes/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=22">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+          {"@type":"ListItem","position":2,"name":"Observatoire des Libertés","item":"https://le-francais-moyen.com/libertes/"}
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "Observatoire des Libertés Françaises et Européennes",
+        "description": "Base de données factuelle sur les lois de surveillance, les restrictions aux libertés fondamentales et les nouveaux pouvoirs de l'État en France et en Europe.",
+        "url": "https://le-francais-moyen.com/libertes/",
+        "inLanguage": "fr-FR",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Le Français Moyen",
+          "url": "https://le-francais-moyen.com/"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── Filtres ── */
+    .obs-search { position:relative; margin-bottom:14px }
+    .obs-search input { width:100%; padding:10px 14px 10px 38px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,.05); color:var(--text); font-size:.9rem; outline:none; box-sizing:border-box }
+    .obs-search input:focus { border-color:rgba(255,255,255,.25) }
+    .obs-search .icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--muted); font-size:.9rem }
+    .filter-chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px }
+    .chip { border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--muted); padding:5px 12px; border-radius:999px; cursor:pointer; font-size:.75rem; font-weight:800; transition:all .15s; white-space:nowrap }
+    .chip:hover { color:var(--text) }
+    .chip.active { background:rgba(255,255,255,.12); color:var(--text); border-color:rgba(255,255,255,.2) }
+
+    /* ── Stats row ── */
+    .obs-stats { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; padding:14px 18px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.03) }
+    .obs-stat { text-align:center }
+    .obs-stat .val { font-size:1.4rem; font-weight:900; letter-spacing:-.04em }
+    .obs-stat .lbl { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em }
+
+    /* ── Cards grid ── */
+    .obs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:14px; margin-bottom:32px }
+    .obs-card { border:1px solid var(--border); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.03); display:flex; flex-direction:column; transition:border-color .15s }
+    .obs-card:hover { border-color:rgba(255,255,255,.18) }
+    .obs-card.wip { opacity:.45; pointer-events:none }
+    .obs-card-top { padding:16px 18px 12px; flex:1 }
+    .obs-card-foot { padding:12px 18px; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between }
+
+    .card-badges { display:flex; align-items:center; gap:8px; margin-bottom:10px }
+    .status-badge { font-size:.62rem; font-weight:900; padding:3px 8px; border-radius:6px; text-transform:uppercase; letter-spacing:.04em }
+    .s-vigueur   { background:rgba(255,80,80,.15);  color:#ff8080 }
+    .s-projet    { background:rgba(246,195,67,.15); color:var(--accent) }
+    .s-signal    { background:rgba(64,169,255,.15); color:#40A9FF }
+    .s-preparation { background:rgba(255,255,255,.08); color:var(--muted) }
+
+    .score-pill { font-size:.62rem; font-weight:900; padding:3px 8px; border-radius:6px; margin-left:auto }
+    .score-faible  { background:rgba(82,196,26,.15); color:#82c91e }
+    .score-modere  { background:rgba(250,219,20,.15); color:#e6b800 }
+    .score-signif  { background:rgba(255,122,0,.15);  color:#ff7a00 }
+    .score-eleve   { background:rgba(255,59,59,.15);  color:#ff5050 }
+    .score-critique { background:rgba(200,0,0,.2);    color:#ff3030 }
+
+    .card-title { font-size:.92rem; font-weight:900; letter-spacing:-.02em; margin-bottom:6px; line-height:1.35 }
+    .card-summary { font-size:.78rem; color:var(--muted); line-height:1.55; margin-bottom:10px }
+
+    .card-tags { display:flex; flex-wrap:wrap; gap:4px }
+    .lib-tag { font-size:.62rem; font-weight:800; padding:2px 7px; border-radius:6px; background:rgba(255,255,255,.07); color:var(--muted) }
+
+    .score-bar { width:100%; height:5px; border-radius:3px; background:rgba(255,255,255,.08); overflow:hidden; margin-top:2px }
+    .score-fill { height:100%; border-radius:3px; transition:width .4s }
+
+    .card-meta { font-size:.7rem; color:var(--muted) }
+    .card-cta { font-size:.75rem; font-weight:900; color:var(--accent); text-decoration:none }
+    .card-cta:hover { text-decoration:underline }
+
+    /* ── Section méthode ── */
+    .method-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px; margin-top:16px }
+    .method-box { border:1px solid var(--border); border-radius:12px; padding:14px; background:rgba(255,255,255,.03) }
+    .method-num { font-size:1.3rem; font-weight:900; letter-spacing:-.04em; color:var(--accent); margin-bottom:4px }
+    .method-lbl { font-size:.8rem; font-weight:800; margin-bottom:4px }
+    .method-desc { font-size:.73rem; color:var(--muted); line-height:1.5 }
+
+    .section-label { font-size:.7rem; font-weight:900; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:10px }
+    .wip-label { font-size:.75rem; font-weight:800; color:var(--muted); text-align:center; padding:8px }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <a href="/elections/">Élections</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/libertes/" class="active">Libertés</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
+    <a href="/" class="cta">← Tableau de bord</a>
+  </div>
+</header>
+
+<main>
+  <div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
+
+    <!-- Hero -->
+    <div style="margin-bottom:28px">
+      <div class="section-label">Observatoire</div>
+      <h1 style="font-size:clamp(1.4rem,4vw,2rem);font-weight:900;letter-spacing:-.04em;margin:0 0 10px;line-height:1.15">
+        Libertés françaises &amp; européennes
+      </h1>
+      <p style="font-size:.9rem;color:var(--muted);max-width:580px;line-height:1.6;margin:0 0 14px">
+        Suivi factuel des lois de surveillance, des restrictions aux droits fondamentaux et des nouveaux pouvoirs accordés aux États en France et dans l'Union européenne.
+        Chaque fiche distingue les <strong style="color:var(--text)">faits établis</strong>, les <strong style="color:var(--text)">risques plausibles</strong> et les <strong style="color:var(--text)">scénarios futurs</strong>.
+      </p>
+      <div style="font-size:.75rem;color:var(--muted);padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.03);max-width:520px">
+        ⚖️ <strong>Principe de neutralité :</strong> ni défense ni accusation systématique des institutions. Un risque réel précisément documenté est plus utile qu'une accusation non sourcée.
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="obs-stats">
+      <div class="obs-stat">
+        <div class="val">1</div>
+        <div class="lbl">Fiche publiée</div>
+      </div>
+      <div class="obs-stat">
+        <div class="val">3</div>
+        <div class="lbl">En préparation</div>
+      </div>
+      <div class="obs-stat">
+        <div class="val">12</div>
+        <div class="lbl">Libertés surveillées</div>
+      </div>
+      <div class="obs-stat" style="margin-left:auto">
+        <div class="val" style="font-size:.85rem;color:var(--muted)">Mis à jour le 13/07/2026</div>
+        <div class="lbl">Dernière vérification</div>
+      </div>
+    </div>
+
+    <!-- Search & Filters -->
+    <div class="obs-search">
+      <span class="icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Rechercher une loi, un dispositif, une liberté…" oninput="filterCards()">
+    </div>
+    <div class="filter-chips" id="filterChips">
+      <span class="chip active" data-filter="all" onclick="setFilter(this,'all')">Tous</span>
+      <span class="chip" data-filter="surveillance" onclick="setFilter(this,'surveillance')">Surveillance</span>
+      <span class="chip" data-filter="numerique" onclick="setFilter(this,'numerique')">Numérique</span>
+      <span class="chip" data-filter="donnees" onclick="setFilter(this,'donnees')">Données personnelles</span>
+      <span class="chip" data-filter="expression" onclick="setFilter(this,'expression')">Liberté d'expression</span>
+      <span class="chip" data-filter="financier" onclick="setFilter(this,'financier')">Autonomie financière</span>
+      <span class="chip" data-filter="biometrie" onclick="setFilter(this,'biometrie')">Biométrie</span>
+      <span class="chip" data-filter="europe" onclick="setFilter(this,'europe')">Union européenne</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="obs-grid" id="obsGrid">
+
+      <!-- Fiche 1 : Loi Renseignement 2015 — publiée -->
+      <article class="obs-card" data-tags="surveillance donnees numerique" data-title="loi renseignement 2015 surveillance communications interceptions">
+        <div class="obs-card-top">
+          <div class="card-badges">
+            <span class="status-badge s-vigueur">En vigueur</span>
+            <span class="score-pill score-eleve">72 / 100</span>
+          </div>
+          <div class="card-title">Loi Renseignement du 24 juillet 2015</div>
+          <div class="card-summary">Légalise et encadre les techniques de surveillance des services de renseignement : interceptions de masse, algorithmes chez les opérateurs, IMSI-catchers.</div>
+          <div class="card-tags">
+            <span class="lib-tag">Vie privée</span>
+            <span class="lib-tag">Secret des communications</span>
+            <span class="lib-tag">Chiffrement</span>
+            <span class="lib-tag">Liberté de la presse</span>
+          </div>
+        </div>
+        <div class="obs-card-foot">
+          <div>
+            <div class="score-bar"><div class="score-fill" style="width:72%;background:#ff5050"></div></div>
+            <div class="card-meta" style="margin-top:4px">France · 24 juil. 2015 · Loi n° 2015-912</div>
+          </div>
+          <a href="/libertes/loi-renseignement-2015/" class="card-cta">Lire la fiche →</a>
+        </div>
+      </article>
+
+      <!-- Fiche 2 : France Identité — en préparation -->
+      <article class="obs-card wip" data-tags="numerique donnees biometrie" data-title="france identité identité numérique données biométrie">
+        <div class="obs-card-top">
+          <div class="card-badges">
+            <span class="status-badge s-vigueur">En vigueur</span>
+            <span class="score-pill score-signif">58 / 100</span>
+          </div>
+          <div class="card-title">France Identité — application d'identité numérique</div>
+          <div class="card-summary">Application officielle de la CNI numérique : données biométriques stockées, vérification d'identité dématérialisée, utilisation par des acteurs privés.</div>
+          <div class="card-tags">
+            <span class="lib-tag">Identité numérique</span>
+            <span class="lib-tag">Biométrie</span>
+            <span class="lib-tag">Données personnelles</span>
+          </div>
+        </div>
+        <div class="obs-card-foot">
+          <div>
+            <div class="score-bar"><div class="score-fill" style="width:58%;background:#ff7a00"></div></div>
+            <div class="card-meta" style="margin-top:4px">France · 2023 · Application MININT</div>
+          </div>
+          <span class="wip-label">Fiche en préparation</span>
+        </div>
+      </article>
+
+      <!-- Fiche 3 : Euro numérique — signal faible -->
+      <article class="obs-card wip" data-tags="financier numerique europe" data-title="euro numérique BCE banque centrale monnaie programmable">
+        <div class="obs-card-top">
+          <div class="card-badges">
+            <span class="status-badge s-signal">Signal faible</span>
+            <span class="score-pill score-signif">55 / 100</span>
+          </div>
+          <div class="card-title">Euro numérique — monnaie de banque centrale (BCE)</div>
+          <div class="card-summary">Projet de monnaie numérique de banque centrale pour la zone euro. Questions ouvertes sur la programmabilité, la traçabilité et les plafonds de détention.</div>
+          <div class="card-tags">
+            <span class="lib-tag">Autonomie financière</span>
+            <span class="lib-tag">Vie privée</span>
+            <span class="lib-tag">Monnaie numérique</span>
+          </div>
+        </div>
+        <div class="obs-card-foot">
+          <div>
+            <div class="score-bar"><div class="score-fill" style="width:55%;background:#ff7a00"></div></div>
+            <div class="card-meta" style="margin-top:4px">Union européenne · En préparation · BCE / Règlement UE</div>
+          </div>
+          <span class="wip-label">Fiche en préparation</span>
+        </div>
+      </article>
+
+      <!-- Fiche 4 : Reconnaissance faciale — signal faible -->
+      <article class="obs-card wip" data-tags="surveillance biometrie numerique" data-title="reconnaissance faciale IA surveillance publique règlement IA">
+        <div class="obs-card-top">
+          <div class="card-badges">
+            <span class="status-badge s-signal">Signal faible</span>
+            <span class="score-pill score-eleve">68 / 100</span>
+          </div>
+          <div class="card-title">Reconnaissance faciale en espace public — Règlement IA + LOPMI</div>
+          <div class="card-summary">Encadrement européen de la reconnaissance faciale (AI Act) et expérimentations françaises (JO 2024, LOPMI). Périmètre des exceptions et risques d'extension.</div>
+          <div class="card-tags">
+            <span class="lib-tag">Biométrie</span>
+            <span class="lib-tag">Surveillance</span>
+            <span class="lib-tag">IA</span>
+            <span class="lib-tag">Liberté de circulation</span>
+          </div>
+        </div>
+        <div class="obs-card-foot">
+          <div>
+            <div class="score-bar"><div class="score-fill" style="width:68%;background:#ff5050"></div></div>
+            <div class="card-meta" style="margin-top:4px">France / UE · 2023–2024 · LOPMI + AI Act</div>
+          </div>
+          <span class="wip-label">Fiche en préparation</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Méthodologie -->
+    <div style="margin-bottom:32px">
+      <div class="section-label">Méthodologie</div>
+      <div class="method-grid">
+        <div class="method-box">
+          <div class="method-num">N1</div>
+          <div class="method-lbl">Faits établis</div>
+          <div class="method-desc">Ce qui existe réellement : texte adopté, pouvoir accordé, infrastructure créée. Aucune spéculation.</div>
+        </div>
+        <div class="method-box">
+          <div class="method-num">N2</div>
+          <div class="method-lbl">Effets directs</div>
+          <div class="method-desc">Conséquences immédiates et juridiquement démontrables sur les libertés.</div>
+        </div>
+        <div class="method-box">
+          <div class="method-num">N3</div>
+          <div class="method-lbl">Risques plausibles</div>
+          <div class="method-desc">Dérives possibles sans modification fondamentale du dispositif. Raisonnement précis exigé.</div>
+        </div>
+        <div class="method-box">
+          <div class="method-num">N4</div>
+          <div class="method-lbl">Extensions futures</div>
+          <div class="method-desc">Ce que le dispositif pourrait permettre après modification législative ou changement politique.</div>
+        </div>
+        <div class="method-box">
+          <div class="method-num">N5</div>
+          <div class="method-lbl">Scénarios extrêmes</div>
+          <div class="method-desc">Hypothétiques. Conditions nécessaires précisées. Probabilité estimée.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scores -->
+    <div style="margin-bottom:32px;padding:16px 18px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03)">
+      <div class="section-label">Score d'alerte / 100</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">
+        <div style="display:flex;align-items:center;gap:8px;font-size:.78rem"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#82c91e;flex-shrink:0"></span><span><strong>0–20</strong> : vigilance faible</span></div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:.78rem"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#e6b800;flex-shrink:0"></span><span><strong>21–40</strong> : modéré</span></div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:.78rem"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#ff7a00;flex-shrink:0"></span><span><strong>41–60</strong> : significatif</span></div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:.78rem"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#ff5050;flex-shrink:0"></span><span><strong>61–80</strong> : élevé</span></div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:.78rem"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#c80000;flex-shrink:0"></span><span><strong>81–100</strong> : critique</span></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Le Français Moyen — Données issues de sources officielles</span>
+  <a href="/">Tableau de bord principal</a>
+</footer>
+
+<script>
+let activeFilter = 'all';
+
+function setFilter(el, val) {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  activeFilter = val;
+  filterCards();
+}
+
+function filterCards() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  document.querySelectorAll('#obsGrid .obs-card').forEach(card => {
+    const tags = card.dataset.tags || '';
+    const title = card.dataset.title || '';
+    const matchFilter = activeFilter === 'all' || tags.includes(activeFilter);
+    const matchSearch = !q || title.includes(q) || tags.includes(q);
+    card.style.display = (matchFilter && matchSearch) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
