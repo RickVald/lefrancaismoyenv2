@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fichier TES et France Identité : ce que l'État collecte et ce qu'il stocke</title>
+  <meta name="description" content="Analyse factuelle du fichier TES et de l'application France Identité : biométrie de ~60M de Français, accès encadré, CNIL, eIDAS 2.0 — indice d'impact 68/100.">
+  <link rel="canonical" href="https://le-francais-moyen.com/libertes/france-identite/">
+  <meta property="og:title" content="Fichier TES et France Identité : ce que l'État collecte et ce qu'il stocke">
+  <meta property="og:description" content="Le fichier TES centralise les données biométriques de la quasi-totalité des Français. L'application France Identité est optionnelle et fonctionne localement. Analyse factuelle, indice d'impact 68/100.">
+  <meta property="og:url" content="https://le-francais-moyen.com/libertes/france-identite/">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+          {"@type":"ListItem","position":2,"name":"Observatoire des Libertés","item":"https://le-francais-moyen.com/libertes/"},
+          {"@type":"ListItem","position":3,"name":"France Identité / TES","item":"https://le-francais-moyen.com/libertes/france-identite/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Qu'est-ce que le fichier TES ?","acceptedAnswer":{"@type":"Answer","text":"Le fichier TES (Titres Électroniques Sécurisés) est une base de données centralisée créée par le décret n° 2016-1460. Il stocke les données biométriques — empreintes digitales et photographie numérisée — des titulaires de passeports et, depuis août 2021, des cartes nationales d'identité biométriques. Il contient aujourd'hui les données de la quasi-totalité des Français ayant un titre en cours de validité."}},
+          {"@type":"Question","name":"France Identité est-elle obligatoire ?","acceptedAnswer":{"@type":"Answer","text":"Non. L'application France Identité est entièrement facultative. Elle permet de stocker une version numérique de sa carte nationale d'identité sur son téléphone. Les données sont conservées localement sur la puce sécurisée de l'appareil, et non dans un serveur central."}},
+          {"@type":"Question","name":"Qui peut accéder au fichier TES ?","acceptedAnswer":{"@type":"Answer","text":"L'accès au TES est limité aux agents habilités chargés de la délivrance des titres (préfectures, consulats) et, dans le cadre d'enquêtes judiciaires, à des agents de police et de gendarmerie spécifiquement habilités, sur réquisition. Les accès sont tracés. Le décret n° 2016-1460 liste les personnes et finalités autorisées."}},
+          {"@type":"Question","name":"La CNIL a-t-elle validé le fichier TES ?","acceptedAnswer":{"@type":"Answer","text":"La CNIL a émis un avis favorable avec réserves (délibération n° 2016-292 du 22 septembre 2016). Elle a formulé des conditions sur la sécurité des données, la limitation des accès et la durée de conservation. Elle n'a pas bloqué le fichier mais n'a pas donné de blanc-seing."}},
+          {"@type":"Question","name":"Le Conseil constitutionnel s'est-il prononcé sur la biométrie d'identité ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Sa décision n° 2012-652 DC du 22 mars 2012 a censuré l'article 5 de la loi du 27 mars 2012, qui prévoyait un fichier de liens permettant de retrouver l'identité d'une personne à partir de ses données biométriques. Le CC a jugé que cela portait une atteinte disproportionnée à la vie privée. Le stockage biométrique pour les titres (dans le TES) a été jugé distinct."}},
+          {"@type":"Question","name":"Qu'est-ce que l'eIDAS 2.0 et quel est son lien avec France Identité ?","acceptedAnswer":{"@type":"Answer","text":"Le règlement UE 2024/1183 du 11 avril 2024 (eIDAS 2.0) impose aux États membres de proposer un portefeuille numérique d'identité européen (EUDI Wallet) à leurs citoyens d'ici 2026. France Identité est le composant français destiné à alimenter ce portefeuille. Les données d'identité pourront être utilisées pour s'authentifier auprès de services publics et privés dans toute l'UE."}},
+          {"@type":"Question","name":"Y a-t-il un risque de fuite du fichier TES ?","acceptedAnswer":{"@type":"Answer","text":"Oui, c'est le principal risque structurel identifié. Contrairement à un mot de passe, des données biométriques ne peuvent pas être modifiées. Une fuite compromettrait définitivement les données de dizaines de millions de personnes. Ce risque est reconnu par la CNIL, qui a exigé des mesures de sécurité spécifiques."}},
+          {"@type":"Question","name":"La carte d'identité biométrique est-elle obligatoire ?","acceptedAnswer":{"@type":"Answer","text":"La CNI biométrique est le seul format délivré depuis août 2021. Il n'est pas obligatoire d'en posséder une, mais si vous demandez une nouvelle CNI, elle sera biométrique et vos données intégreront le TES. L'ancienne carte plastifiée reste valide jusqu'à expiration."}}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .fiche-header{border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:16px}
+    .fiche-header-top{padding:20px 24px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--border)}
+    .fiche-header-meta{padding:12px 24px;display:flex;flex-wrap:wrap;gap:16px}
+    .meta-item{font-size:.75rem;color:var(--muted)}
+    .meta-item strong{color:var(--text);font-weight:800}
+    .status-badge{display:inline-block;font-size:.63rem;font-weight:900;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.05em}
+    .s-vigueur{background:rgba(255,80,80,.15);color:#ff8080}
+    .lib-tag{font-size:.62rem;font-weight:800;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.07);color:var(--muted)}
+    .en-bref{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;margin-bottom:16px;background:rgba(255,255,255,.03)}
+    .en-bref-title{font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+    .version-callout{font-size:.75rem;color:var(--muted);padding:8px 14px;border:1px solid rgba(246,195,67,.2);border-radius:9px;background:rgba(246,195,67,.05);margin-bottom:16px}
+    .retenir-wrap{border:1px solid rgba(64,169,255,.25);border-radius:14px;padding:14px 16px;margin-bottom:16px;background:rgba(64,169,255,.04)}
+    .retenir-title{font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:#40A9FF;margin-bottom:10px}
+    .retenir-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    @media(max-width:540px){.retenir-grid{grid-template-columns:1fr}}
+    .retenir-item{border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:9px 12px;background:rgba(255,255,255,.03)}
+    .retenir-q{font-size:.77rem;font-weight:800;margin-bottom:3px}
+    .retenir-a{font-size:.74rem;color:var(--muted);line-height:1.5}
+    .niveau-section{margin-bottom:12px;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .niveau-head{padding:11px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+    .niveau-num{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:900;flex-shrink:0}
+    .n1{background:rgba(130,201,30,.15);color:#82c91e}
+    .n2{background:rgba(64,169,255,.15);color:#40A9FF}
+    .n3{background:rgba(255,122,0,.15);color:#ff7a00}
+    .n4{background:rgba(255,59,148,.15);color:#ff3b94}
+    .n5{background:rgba(200,0,0,.2);color:#ff3030}
+    .niveau-title{font-size:.86rem;font-weight:900;flex:1}
+    .niveau-toggle{font-size:.72rem;color:var(--muted);transition:transform .2s}
+    .niveau-toggle.open{transform:rotate(180deg)}
+    .niveau-body{padding:14px 16px;border-top:1px solid var(--border);background:rgba(0,0,0,.15)}
+    .fact-list{list-style:none;padding:0;margin:0}
+    .fact-item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.82rem;line-height:1.55}
+    .fact-item:last-child{border-bottom:none}
+    .fact-icon{flex-shrink:0;margin-top:1px}
+    .fact-source{font-size:.68rem;color:var(--muted);margin-top:2px}
+    .fact-note{font-size:.7rem;color:var(--muted);margin-top:3px}
+    .risk-box{border:1px solid rgba(255,122,0,.2);border-radius:10px;padding:12px 14px;margin-bottom:10px;background:rgba(255,122,0,.05)}
+    .risk-box:last-child{margin-bottom:0}
+    .risk-box.n5box{border-color:rgba(255,59,59,.2);background:rgba(255,59,59,.05)}
+    .risk-title{font-size:.82rem;font-weight:800;margin-bottom:4px}
+    .risk-body{font-size:.79rem;color:var(--muted);line-height:1.55}
+    .risk-chain{list-style:none;padding:0;margin:8px 0 0;padding-top:8px;border-top:1px solid rgba(255,255,255,.07)}
+    .risk-chain li{font-size:.74rem;color:var(--muted);margin-bottom:3px;padding-left:12px;position:relative}
+    .risk-chain li::before{content:'›';position:absolute;left:0;color:var(--muted)}
+    .risk-chain strong{color:var(--text)}
+    .hypo-banner{background:rgba(255,59,59,.08);border:1px solid rgba(255,59,59,.2);border-radius:10px;padding:9px 13px;margin-bottom:12px;font-size:.77rem;color:#ff8080;font-weight:800}
+    .score-2col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+    @media(max-width:560px){.score-2col{grid-template-columns:1fr}}
+    .score-box{border:1px solid var(--border);border-radius:14px;padding:16px}
+    .score-bar{width:100%;height:7px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;margin:6px 0}
+    .score-fill{height:100%;border-radius:4px}
+    .score-disclaimer{font-size:.71rem;color:var(--muted);line-height:1.55;margin-top:8px;padding:7px 10px;border:1px solid rgba(255,255,255,.07);border-radius:7px;background:rgba(255,255,255,.03)}
+    .wscore-table{width:100%;border-collapse:collapse;font-size:.74rem;margin-top:10px}
+    .wscore-table td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}
+    .wscore-table tr:last-child td{border-bottom:none;font-weight:900;color:var(--text)}
+    .wscore-pct{font-size:.65rem;color:var(--muted);white-space:nowrap}
+    .wscore-val{font-weight:900;text-align:right;white-space:nowrap}
+    .wscore-bar-w{width:50px}
+    .wscore-bar{height:3px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+    .wscore-fill{height:100%;border-radius:2px;background:#ff5050}
+    .revers-bar{width:100%;height:9px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden;margin:6px 0}
+    .revers-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,#82c91e,#ff5050)}
+    .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+    @media(max-width:560px){.diff-grid{grid-template-columns:1fr}}
+    .diff-col{border:1px solid var(--border);border-radius:11px;padding:12px}
+    .diff-col.avant{border-color:rgba(130,201,30,.2);background:rgba(130,201,30,.04)}
+    .diff-col.apres{border-color:rgba(64,169,255,.2);background:rgba(64,169,255,.04)}
+    .diff-head{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+    .diff-col.avant .diff-head{color:#82c91e}
+    .diff-col.apres .diff-head{color:#40A9FF}
+    .diff-item{font-size:.78rem;line-height:1.5;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:7px}
+    .diff-item:last-child{border-bottom:none}
+    .diff-changes{border:1px solid var(--border);border-radius:11px;overflow:hidden;margin-bottom:10px}
+    .diff-change{display:flex;gap:9px;padding:9px 13px;border-bottom:1px solid var(--border);font-size:.79rem;line-height:1.45}
+    .diff-change:last-child{border-bottom:none}
+    .diff-tag{font-size:.59rem;font-weight:900;padding:2px 6px;border-radius:5px;flex-shrink:0;white-space:nowrap;align-self:flex-start;margin-top:1px}
+    .tag-add{background:rgba(255,80,80,.15);color:#ff8080}
+    .tag-rm{background:rgba(130,201,30,.15);color:#82c91e}
+    .tag-mod{background:rgba(64,169,255,.15);color:#40A9FF}
+    .diff-note{font-size:.77rem;color:var(--muted);line-height:1.6;padding:10px 13px;border:1px solid rgba(255,122,0,.2);border-radius:10px;background:rgba(255,122,0,.04)}
+    .update-item{border:1px solid var(--border);border-radius:10px;padding:11px 13px;margin-bottom:7px;display:flex;gap:12px}
+    .update-item:last-child{margin-bottom:0}
+    .update-year{font-size:.7rem;font-weight:900;color:var(--accent);min-width:36px;padding-top:1px}
+    .update-title{font-size:.82rem;font-weight:800;margin-bottom:3px}
+    .update-body{font-size:.76rem;color:var(--muted);line-height:1.55}
+    .timeline{list-style:none;padding:0;margin:0;position:relative}
+    .timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{display:flex;gap:12px;padding:0 0 16px}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:4px;position:relative;z-index:1;box-shadow:0 0 0 3px rgba(246,195,67,.15)}
+    .tl-dot.red{background:#ff5050;box-shadow:0 0 0 3px rgba(255,80,80,.15)}
+    .tl-dot.blue{background:#40A9FF;box-shadow:0 0 0 3px rgba(64,169,255,.15)}
+    .tl-dot.grey{background:var(--muted);box-shadow:none}
+    .tl-date{font-size:.69rem;font-weight:900;color:var(--muted);white-space:nowrap;min-width:78px}
+    .tl-title{font-size:.82rem;font-weight:800;margin-bottom:2px}
+    .tl-desc{font-size:.76rem;color:var(--muted);line-height:1.5}
+    .source-table{width:100%;border-collapse:collapse;font-size:.77rem}
+    .source-table th{text-align:left;padding:7px 9px;border-bottom:1px solid var(--border);color:var(--muted);font-size:.67rem;text-transform:uppercase;letter-spacing:.05em}
+    .source-table td{padding:8px 9px;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.45;vertical-align:top}
+    .source-table tr:last-child td{border-bottom:none}
+    .src-p{font-size:.59rem;font-weight:900;padding:2px 6px;border-radius:4px;background:rgba(130,201,30,.15);color:#82c91e;white-space:nowrap}
+    .src-s{font-size:.59rem;font-weight:900;padding:2px 6px;border-radius:4px;background:rgba(255,255,255,.08);color:var(--muted);white-space:nowrap}
+    .source-table a{color:var(--accent);text-decoration:none}
+    .source-table a:hover{text-decoration:underline}
+    .garantie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:9px}
+    .garantie-box{border:1px solid rgba(130,201,30,.2);border-radius:9px;padding:11px 12px;background:rgba(130,201,30,.04)}
+    .garantie-title{font-size:.78rem;font-weight:800;margin-bottom:3px;color:#82c91e}
+    .garantie-body{font-size:.73rem;color:var(--muted);line-height:1.5}
+    .faq-wrap{border:1px solid var(--border);border-radius:13px;overflow:hidden}
+    .faq-item{border-bottom:1px solid var(--border)}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{padding:12px 16px;font-size:.84rem;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
+    .faq-arrow{font-size:.68rem;color:var(--muted);transition:transform .2s;flex-shrink:0}
+    .faq-a{font-size:.8rem;color:var(--muted);line-height:1.65;padding:0 16px 13px;display:none}
+    .section-label{font-size:.69rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:9px}
+    .section-divider{border:none;border-top:1px solid var(--border);margin:22px 0}
+    .alert-box{border:1px solid rgba(255,122,0,.25);border-radius:11px;padding:10px 14px;background:rgba(255,122,0,.05);font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:14px}
+    .alert-box strong{color:#ff7a00}
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <a href="/elections/">Élections</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/libertes/" class="active">Libertés</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
+    <a href="/" class="cta">← Tableau de bord</a>
+  </div>
+</header>
+
+<main>
+<div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
+
+  <div style="font-size:.74rem;color:var(--muted);margin-bottom:18px">
+    <a href="/" style="color:var(--muted)">Accueil</a> ›
+    <a href="/libertes/" style="color:var(--muted)">Observatoire des Libertés</a> ›
+    <span>France Identité / Fichier TES</span>
+  </div>
+
+  <div class="version-callout">
+    ⚠ Cette fiche distingue deux dispositifs distincts : le <strong>fichier TES</strong> (base biométrique centrale, en vigueur depuis 2017) et l'<strong>application France Identité</strong> (interface numérique optionnelle, en déploiement depuis 2022). Confondre les deux est la principale source d'erreur dans le débat public.
+  </div>
+
+  <div class="fiche-header">
+    <div class="fiche-header-top">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+        <span class="status-badge s-vigueur">En vigueur</span>
+        <span style="font-size:.71rem;color:var(--muted)">France · Décret n° 2016-1460 (TES) + Décret n° 2021-1900 (app)</span>
+        <span style="font-size:.71rem;color:var(--muted);margin-left:auto">Vérifié le 13/07/2026</span>
+      </div>
+      <h1 style="font-size:clamp(1.05rem,3.5vw,1.5rem);font-weight:900;letter-spacing:-.03em;margin:0 0 4px;line-height:1.2">
+        Fichier TES et application France Identité : ce que l'État collecte et ce qu'il stocke
+      </h1>
+      <div style="font-size:.76rem;color:var(--muted);margin-bottom:10px">Décret n° 2016-1460 du 28 octobre 2016 (TES) — Décret n° 2021-1900 du 30 décembre 2021 (France Identité)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px">
+        <span class="lib-tag">Vie privée</span>
+        <span class="lib-tag">Données biométriques</span>
+        <span class="lib-tag">Identité numérique</span>
+        <span class="lib-tag">Fichiers d'État</span>
+        <span class="lib-tag">eIDAS 2.0</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px">Indice d'impact et de vigilance sur les libertés</div>
+          <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.06em;line-height:1;color:#ff7a00">68 <span style="font-size:1rem;color:var(--muted)">/100</span></div>
+          <div style="font-size:.73rem;font-weight:800;color:#ff7a00">Impact significatif (61–80)</div>
+        </div>
+        <div style="flex:1;min-width:120px;max-width:200px">
+          <div class="score-bar"><div class="score-fill" style="width:68%;background:#ff7a00"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="fiche-header-meta">
+      <div class="meta-item"><strong>Pays</strong><br>France</div>
+      <div class="meta-item"><strong>TES créé</strong><br>Octobre 2016</div>
+      <div class="meta-item"><strong>CNI biométrique</strong><br>Depuis août 2021</div>
+      <div class="meta-item"><strong>Contrôle</strong><br>CNIL + CC + encadrement décret</div>
+      <div class="meta-item"><strong>Réversibilité</strong><br>Très difficile (biométrie permanente)</div>
+    </div>
+  </div>
+
+  <!-- En bref -->
+  <div class="en-bref">
+    <div class="en-bref-title">En bref</div>
+    <p style="font-size:.83rem;color:var(--muted);line-height:1.65;margin:0">
+      Le fichier TES (Titres Électroniques Sécurisés), créé par décret en octobre 2016, centralise les données biométriques — empreintes digitales et photographie numérisée — des titulaires de passeports et, depuis août 2021, des cartes nationales d'identité biométriques. Il contient aujourd'hui les données de la quasi-totalité des Français possédant un titre en cours de validité. <strong>Ce fichier est distinct</strong> de l'application France Identité, lancée à partir de 2022, qui permet d'utiliser une version numérique de sa CNI sur son téléphone. Cette application est <strong>facultative</strong> et fonctionne en stockage local sur la puce de l'appareil, sans serveur central.
+      Le principal enjeu de libertés concerne le TES lui-même : il constitue la plus grande base de données biométriques jamais constituée en France, et les données qu'il contient — notamment les empreintes — ne peuvent pas être modifiées en cas de fuite. La CNIL et le Conseil constitutionnel ont tous deux encadré ce dispositif sans l'interdire.
+    </p>
+  </div>
+
+  <!-- Ce qu'il faut retenir -->
+  <div class="retenir-wrap">
+    <div class="retenir-title">Ce qu'il faut retenir</div>
+    <div class="retenir-grid">
+      <div class="retenir-item">
+        <div class="retenir-q">L'État a-t-il mes données biométriques ?</div>
+        <div class="retenir-a">Oui, si vous avez un passeport ou une CNI émise depuis août 2021 : vos empreintes et votre photo sont dans le fichier TES.</div>
+      </div>
+      <div class="retenir-item">
+        <div class="retenir-q">France Identité est-elle obligatoire ?</div>
+        <div class="retenir-a">Non. L'application est entièrement facultative. Refuser de l'utiliser ne prive d'aucun droit ni d'aucun service public en 2026.</div>
+      </div>
+      <div class="retenir-item">
+        <div class="retenir-q">Qui peut consulter le fichier TES ?</div>
+        <div class="retenir-a">Les agents chargés de délivrer les titres et, sur réquisition judiciaire, certains agents de police habilités. Les accès sont tracés.</div>
+      </div>
+      <div class="retenir-item">
+        <div class="retenir-q">Pourquoi la biométrie est-elle particulièrement sensible ?</div>
+        <div class="retenir-a">Une empreinte digitale, contrairement à un mot de passe, ne peut pas être changée. Une fuite serait définitive pour les personnes concernées.</div>
+      </div>
+      <div class="retenir-item">
+        <div class="retenir-q">Le CC a-t-il validé ces dispositifs ?</div>
+        <div class="retenir-a">Il a censuré en 2012 le "fichier de liens" qui permettait de retrouver une identité à partir de biométrie. Le stockage biométrique dans le TES est un dispositif différent, non soumis à la même censure.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Objectif officiel + Garanties -->
+  <div style="margin-bottom:18px;padding:14px 16px;border:1px solid rgba(130,201,30,.2);border-radius:13px;background:rgba(130,201,30,.04)">
+    <div class="section-label" style="color:#82c91e">Objectif officiel et garanties annoncées</div>
+    <p style="font-size:.82rem;color:var(--muted);margin:0 0 10px;line-height:1.6">
+      Le fichier TES a été présenté comme un outil de lutte contre la fraude documentaire et de sécurisation des titres d'identité. L'application France Identité vise à offrir une alternative numérique aux justificatifs papier dans les démarches du quotidien. Ces deux outils s'inscrivent dans la feuille de route européenne d'identité numérique (eIDAS 2.0).
+    </p>
+    <div class="garantie-grid">
+      <div class="garantie-box">
+        <div class="garantie-title">CNIL — avis et contrôle</div>
+        <div class="garantie-body">Délibération n° 2016-292 : avis favorable avec réserves sur le TES. La CNIL a posé des exigences sur la sécurité, la limitation des accès et la durée de conservation.</div>
+      </div>
+      <div class="garantie-box">
+        <div class="garantie-title">Accès strictement listé</div>
+        <div class="garantie-body">Le décret 2016-1460 liste exhaustivement les agents et finalités autorisés à accéder au TES. Les accès font l'objet d'une traçabilité.</div>
+      </div>
+      <div class="garantie-box">
+        <div class="garantie-title">France Identité — stockage local</div>
+        <div class="garantie-body">Les données de l'application sont stockées sur la puce sécurisée du téléphone (SE/TEE), pas dans un serveur central. L'authentification reste sous le contrôle de l'utilisateur.</div>
+      </div>
+      <div class="garantie-box">
+        <div class="garantie-title">CC 2012 — censure du fichier de liens</div>
+        <div class="garantie-body">Le Conseil constitutionnel a interdit le dispositif permettant d'identifier une personne à partir de ses seules données biométriques (article 5 de la loi de 2012), jugeant l'atteinte à la vie privée disproportionnée.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- N1 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n1">N1</span>
+      <span class="niveau-title">Faits établis — Ce qui existe réellement</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul class="fact-list">
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Fichier TES — base biométrique centrale</strong> — Le décret n° 2016-1460 crée un traitement de données biométriques pour la délivrance des passeports et CNI. Il contient, pour chaque titulaire : état civil, photographie numérisée, empreintes digitales (deux doigts pour les CNI, huit pour les passeports), et données du titre. Il est géré par le ministère de l'Intérieur.</div>
+            <div class="fact-source">Décret n° 2016-1460 du 28 octobre 2016 relatif au traitement dénommé « Titres Électroniques Sécurisés »</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>CNI biométrique — obligatoire sur les nouvelles cartes depuis août 2021</strong> — Depuis le 2 août 2021, toute nouvelle CNI délivrée est au format biométrique (puce) conformément au règlement UE 2019/1157. La demande d'une nouvelle carte implique la collecte de données biométriques qui intègrent le TES. L'ancienne carte plastifiée reste valide jusqu'à son expiration.</div>
+            <div class="fact-source">Règlement (UE) 2019/1157 du 20 juin 2019 — applicable depuis le 2 août 2021</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Application France Identité — optionnelle, stockage local</strong> — Le décret n° 2021-1900 crée un service numérique permettant de stocker et d'utiliser une version numérique de sa CNI. L'application est disponible sur smartphone compatible NFC. Les données sont stockées dans la puce sécurisée de l'appareil (Secure Element ou Trusted Execution Environment). Aucune donnée biométrique n'est stockée dans un serveur central par l'application.</div>
+            <div class="fact-source">Décret n° 2021-1900 du 30 décembre 2021 relatif aux services numériques d'identité</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Accès au TES — liste exhaustive</strong> — Le décret liste les personnes habilitées : agents de la préfecture et des consulats pour la délivrance des titres ; agents de police et gendarmerie habilités dans le cadre de missions de police judiciaire (sur réquisition) ; agents de sécurité habilités de certains services. L'accès à la photographie seule est possible pour certains usages identifiés. Les accès sont tracés.</div>
+            <div class="fact-source">Art. 7 et 8 du décret n° 2016-1460</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Décision CC n° 2012-652 DC — censure du fichier de liens</strong> — Le Conseil constitutionnel a censuré l'article 5 de la loi n° 2012-410, qui prévoyait un dispositif permettant de retrouver l'identité d'une personne à partir de ses seules données biométriques. Le CC a jugé cette fonctionnalité contraire au droit au respect de la vie privée. Le stockage biométrique à des fins de vérification (aller de l'identité vers les données) a été maintenu.</div>
+            <div class="fact-source">Décision CC n° 2012-652 DC du 22 mars 2012</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>eIDAS 2.0 — interopérabilité européenne obligatoire</strong> — Le règlement UE 2024/1183 impose aux États membres de proposer un portefeuille numérique d'identité européen (EUDI Wallet) à leurs citoyens d'ici fin 2026. France Identité est le composant français prévu pour alimenter ce portefeuille. Les données d'identité pourront être utilisées pour des démarches auprès de services publics et de certains services privés dans toute l'UE.</div>
+            <div class="fact-source">Règlement (UE) 2024/1183 du 11 avril 2024 modifiant le règlement eIDAS</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- N2 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n2">N2</span>
+      <span class="niveau-title">Effets directs sur les libertés</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul class="fact-list">
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Centralisation biométrique inédite en France</strong> — Le TES constitue la première base de données biométriques de masse jamais créée pour l'ensemble de la population française. La quasi-totalité des titulaires d'un passeport ou d'une CNI en cours de validité y figure. Les données biométriques (empreintes) ont une propriété critique : elles sont permanentes et ne peuvent pas être modifiées en cas de compromission.</div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Risque structurel de fuite de données irréversible</strong> — Une faille de sécurité sur le TES exposerait des données qu'il est impossible de révoquer. Contrairement à un mot de passe ou un numéro de carte bancaire, une empreinte digitale compromise l'est définitivement. Ce risque est reconnu par la CNIL, qui en a fait un point central de son avis. Aucune fuite confirmée n'a été rendue publique à ce jour.</div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Pression de fait vers le numérique</strong> — L'application France Identité est facultative. Cependant, si des services publics ou privés proposent un parcours simplifié via France Identité et un parcours papier plus contraignant, l'opt-in devient une pression de fait. Ce risque est courant pour les identités numériques optionnelles et dépend des choix politiques futurs.</div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Extension vers l'espace européen (eIDAS 2.0)</strong> — L'interopérabilité imposée par eIDAS 2.0 permettra d'utiliser France Identité pour des démarches dans toute l'UE. Cela étend la surface d'exposition des données d'identité à des partenaires et services hors contrôle direct de la CNIL française. Les garanties s'appliquant à ces usages transfrontaliers relèveront du règlement européen et des autorités de contrôle des États concernés.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- N3 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n3">N3</span>
+      <span class="niveau-title">Risques plausibles — sans modification du cadre actuel</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <div class="risk-box">
+        <div class="risk-title">Élargissement des habilitations par voie réglementaire</div>
+        <div class="risk-body">Le décret 2016-1460 peut être modifié par simple décret en Conseil d'État pour ajouter de nouvelles catégories d'agents habilités ou de nouvelles finalités d'accès. Une telle modification n'implique pas de vote du Parlement. La CNIL devrait être consultée, mais son avis reste consultatif.</div>
+        <ul class="risk-chain">
+          <li><strong>Mécanisme :</strong> nouveau décret modificatif, consultation CNIL</li>
+          <li><strong>Obstacle :</strong> avis CNIL rendu public, pression médiatique, risque contentieux devant le Conseil d'État</li>
+        </ul>
+      </div>
+      <div class="risk-box">
+        <div class="risk-title">Pression vers l'usage exclusif du numérique pour certaines démarches</div>
+        <div class="risk-body">Si l'administration privilégie les parcours numériques France Identité au détriment des parcours papier (délais plus longs, guichets réduits), le caractère facultatif de l'application devient théorique pour une partie de la population. Ce glissement est documenté dans d'autres contextes de dématérialisation (CAF, Pôle emploi).</div>
+        <ul class="risk-chain">
+          <li><strong>Mécanisme :</strong> décisions administratives et budgétaires, sans modification législative</li>
+          <li><strong>Obstacle :</strong> obligation constitutionnelle de continuité du service public et d'accessibilité</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- N4 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n4">N4</span>
+      <span class="niveau-title">Extensions futures — après modification législative ou réglementaire</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul class="fact-list">
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#ff3b94">◈</span>
+          <div>
+            <div><strong>Interconnexion du TES avec d'autres fichiers administratifs</strong> — Une modification législative pourrait autoriser le croisement des données TES avec d'autres fichiers (FICOBA pour les comptes bancaires, SNGI pour la sécurité sociale, fichiers de police). La CC a censuré ce type de recoupement en 2012 pour le "fichier de liens", mais uniquement pour le sens biométrie → identité. Une extension par le sens inverse (identité → données croisées) nécessiterait une nouvelle loi et un passage probable devant le CC.</div>
+            <div class="fact-source">Modification nécessaire : loi habilitant explicitement le croisement, soumise au CC si déférée.</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#ff3b94">◈</span>
+          <div>
+            <div><strong>France Identité comme condition d'accès à certains services</strong> — Une loi pourrait imposer France Identité pour accéder à des services en ligne (fiscaux, médicaux, sociaux). Cela transformerait l'opt-in actuel en opt-out, ou en quasi-obligation. Un tel texte serait soumis au contrôle de la CNIL et du CC, qui ont des précédents en matière d'atteinte à la vie privée par obligation d'identification numérique.</div>
+            <div class="fact-source">Modification nécessaire : loi explicite. Obstacle : CNIL + CC + garanties eIDAS 2.0 sur le choix de l'utilisateur.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- N5 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n5">N5</span>
+      <span class="niveau-title">Scénarios extrêmes — hypothétiques, chaîne juridique détaillée</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <div class="hypo-banner">⚠ Ces scénarios sont hypothétiques. Ils décrivent des dérives possibles à long terme, non des situations actuelles.</div>
+      <div class="risk-box n5box">
+        <div class="risk-title">Fuite massive du TES — compromission biométrique irréversible de dizaines de millions de personnes</div>
+        <div class="risk-body">Une cyberattaque réussie sur le TES exposerait les données biométriques de l'essentiel de la population française. Contrairement à toute autre donnée personnelle, les empreintes digitales ne peuvent pas être "changées". Les victimes seraient définitivement vulnérables à l'usurpation d'identité biométrique pour toutes les démarches utilisant cette technologie dans leur vie, y compris les systèmes privés (smartphones, accès physiques).</div>
+        <ul class="risk-chain">
+          <li><strong>Aucune modification législative requise</strong> — c'est un risque de sécurité informatique, pas un risque juridique</li>
+          <li><strong>Obstacle :</strong> mesures de sécurité imposées par la CNIL (chiffrement, compartimentage), certifications, audits réguliers — mais aucun système n'est inviolable</li>
+          <li><strong>Précédent international :</strong> Office of Personnel Management (OPM, États-Unis, 2015) — 5,6 millions d'empreintes volées, conséquences irréversibles sur la sécurité des agents</li>
+          <li><strong>Probabilité cumulée sur 20 ans :</strong> non nulle compte tenu de l'attractivité de la cible pour des acteurs étatiques adverses</li>
+        </ul>
+      </div>
+      <div class="risk-box n5box">
+        <div class="risk-title">Glissement vers une identification biométrique dans les espaces publics, adossée au TES</div>
+        <div class="risk-body">Si la reconnaissance faciale en temps réel dans les espaces publics venait à être légalisée (voir fiche Reconnaissance faciale), le TES constituerait la base de référence naturelle pour l'identification. La combinaison des deux dispositifs — aujourd'hui distincts et pour le premier interdite par la décision CC de 2012 pour le sens biométrie → identité — permettrait une surveillance biométrique de masse.</div>
+        <ul class="risk-chain">
+          <li><strong>Modifications nécessaires :</strong> légalisation de la reconnaissance faciale en temps réel (non compatible avec l'AI Act 2024 dans sa rédaction actuelle) + modification du TES pour autoriser le sens biométrie → identité (contraire à la décision CC 2012)</li>
+          <li><strong>Obstacles :</strong> décision CC 2012-652 DC, AI Act 2024 (règlement UE, droit supérieur), CNIL, droit fondamental à la vie privée garanti par la CEDH</li>
+          <li><strong>Probabilité :</strong> faible à court terme dans le cadre constitutionnel et européen actuel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Score -->
+  <div class="score-2col">
+    <div class="score-box">
+      <div class="section-label">Indice d'impact et de vigilance sur les libertés</div>
+      <div style="font-size:1.9rem;font-weight:900;letter-spacing:-.05em;color:#ff7a00">68 <span style="font-size:.9rem;color:var(--muted)">/100</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:68%;background:#ff7a00"></div></div>
+      <table class="wscore-table">
+        <tr><td style="color:var(--muted)">Étendue de la collecte</td><td class="wscore-pct">15%</td><td class="wscore-val">12</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:80%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Sensibilité des données</td><td class="wscore-pct">15%</td><td class="wscore-val">14</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:93%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Absence de ciblage préalable</td><td class="wscore-pct">15%</td><td class="wscore-val">5</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:33%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Contrôle indépendant</td><td class="wscore-pct">15%</td><td class="wscore-val">9</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:60%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Recours et transparence</td><td class="wscore-pct">10%</td><td class="wscore-val">7</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:70%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Capacité d'extension</td><td class="wscore-pct">15%</td><td class="wscore-val">10</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:67%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Réversibilité</td><td class="wscore-pct">15%</td><td class="wscore-val">11</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:73%"></div></div></td></tr>
+        <tr><td><strong>Total</strong></td><td class="wscore-pct">100%</td><td class="wscore-val">68</td><td></td></tr>
+      </table>
+      <div class="score-disclaimer">Le score mesure l'ampleur des effets et des risques potentiels sur les libertés selon une <a href="/libertes/" style="color:var(--accent)">méthodologie publique</a>. Une note élevée sur la « sensibilité » ne signifie pas que le dispositif est illégitime — les données biométriques sont collectées à une fin précise et encadrée.</div>
+    </div>
+    <div class="score-box">
+      <div class="section-label">Indice de réversibilité</div>
+      <div style="font-size:1.9rem;font-weight:900;letter-spacing:-.05em;color:#ff5050">9 <span style="font-size:.9rem;color:var(--muted)">/10</span></div>
+      <div style="font-size:.67rem;color:var(--muted);margin-bottom:4px">9 = quasi irréversible</div>
+      <div class="revers-bar"><div class="revers-fill" style="width:90%"></div></div>
+      <div style="font-size:.74rem;color:var(--muted);line-height:1.6;margin-top:8px">Les données biométriques déjà collectées ne peuvent pas être "effacées" de façon opérationnelle pour les personnes concernées. Même si le TES était supprimé, les données auraient été collectées et stockées. La suppression du fichier nécessiterait par ailleurs une modification législative et un arbitrage politique majeur.</div>
+    </div>
+  </div>
+
+  <!-- Diff -->
+  <div style="margin-bottom:22px">
+    <div class="section-label">Diff avant / après — ce qui a changé</div>
+    <div class="diff-grid">
+      <div class="diff-col avant">
+        <div class="diff-head">Avant 2016</div>
+        <div class="diff-item"><span>📋</span>Données biométriques collectées pour les passeports, mais stockées de manière décentralisée par titre, sans base centrale unique</div>
+        <div class="diff-item"><span>📋</span>CNI au format plastifié sans puce, sans biométrie stockée dans un fichier central</div>
+        <div class="diff-item"><span>📋</span>Pas d'application d'identité numérique officielle</div>
+        <div class="diff-item"><span>📋</span>Tentative de fichier de liens censuré par le CC en 2012</div>
+      </div>
+      <div class="diff-col apres">
+        <div class="diff-head">Depuis 2016–2021</div>
+        <div class="diff-item"><span>🔴</span>TES : base biométrique centrale unique, passeports + CNI depuis 2021</div>
+        <div class="diff-item"><span>🔴</span>Empreintes et photographies de la quasi-totalité des Français dans un seul fichier</div>
+        <div class="diff-item"><span>🟢</span>France Identité : alternative numérique optionnelle, stockage local</div>
+        <div class="diff-item"><span>🟡</span>eIDAS 2.0 : interopérabilité européenne en cours de déploiement</div>
+      </div>
+    </div>
+    <div class="diff-note">
+      <strong>Note méthodologique :</strong> le score élevé sur la « sensibilité des données » (14/15) reflète la nature irremplaçable des données biométriques, pas nécessairement l'usage qui en est fait. La légitimité du dispositif au regard des objectifs de sécurisation documentaire est une question distincte de l'impact potentiel sur les libertés.
+    </div>
+  </div>
+
+  <!-- Ce qui a changé -->
+  <div style="margin-bottom:22px">
+    <div class="section-label">Jalons clés</div>
+    <ul class="timeline">
+      <li class="tl-item"><div class="tl-dot red"></div><div class="tl-date">22 mars 2012</div><div><div class="tl-title">CC censure le "fichier de liens"</div><div class="tl-desc">Décision 2012-652 DC : l'article 5 permettant de retrouver une identité à partir de biométrie est censuré. Le stockage biométrique à des fins de vérification est maintenu.</div></div></li>
+      <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Oct. 2016</div><div><div class="tl-title">Création du TES par décret</div><div class="tl-desc">Décret n° 2016-1460 : base biométrique centrale pour les passeports. Adoption controversée (pas de loi, simple décret). La CNIL émet un avis favorable avec réserves.</div></div></li>
+      <li class="tl-item"><div class="tl-dot blue"></div><div class="tl-date">Août 2021</div><div><div class="tl-title">CNI biométrique généralisée</div><div class="tl-desc">Application du règlement UE 2019/1157 : toute nouvelle CNI est biométrique et ses données intègrent le TES.</div></div></li>
+      <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Déc. 2021</div><div><div class="tl-title">Décret France Identité</div><div class="tl-desc">Décret n° 2021-1900 : création du service numérique d'identité, déploiement progressif de l'application à partir de 2022.</div></div></li>
+      <li class="tl-item"><div class="tl-dot blue"></div><div class="tl-date">Avr. 2024</div><div><div class="tl-title">eIDAS 2.0 adopté</div><div class="tl-desc">Règlement UE 2024/1183 : les États membres doivent proposer un EUDI Wallet avant fin 2026. France Identité constitue le composant français.</div></div></li>
+    </ul>
+  </div>
+
+  <!-- Sources -->
+  <div style="margin-bottom:22px;overflow-x:auto">
+    <div class="section-label">Sources</div>
+    <table class="source-table">
+      <thead><tr><th>Type</th><th>Titre</th><th>Éditeur</th><th>Date</th></tr></thead>
+      <tbody>
+        <tr><td><span class="src-p">Primaire</span></td><td><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000033337842" target="_blank" rel="noopener">Décret n° 2016-1460 relatif au TES</a></td><td>Legifrance</td><td>28/10/2016</td></tr>
+        <tr><td><span class="src-p">Primaire</span></td><td><a href="https://www.conseil-constitutionnel.fr/decision/2012/2012652DC.htm" target="_blank" rel="noopener">Décision CC n° 2012-652 DC</a></td><td>Conseil constitutionnel</td><td>22/03/2012</td></tr>
+        <tr><td><span class="src-p">Primaire</span></td><td><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000044816670" target="_blank" rel="noopener">Décret n° 2021-1900 (France Identité)</a></td><td>Legifrance</td><td>30/12/2021</td></tr>
+        <tr><td><span class="src-s">Secondaire</span></td><td>Délibération CNIL n° 2016-292 — avis sur le TES</td><td>CNIL</td><td>22/09/2016</td></tr>
+        <tr><td><span class="src-p">Primaire</span></td><td><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32019R1157" target="_blank" rel="noopener">Règlement (UE) 2019/1157 — CNI biométrique</a></td><td>Journal officiel UE</td><td>20/06/2019</td></tr>
+        <tr><td><span class="src-p">Primaire</span></td><td><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32024R1183" target="_blank" rel="noopener">Règlement (UE) 2024/1183 — eIDAS 2.0</a></td><td>Journal officiel UE</td><td>11/04/2024</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FAQ -->
+  <div style="margin-bottom:22px">
+    <div class="section-label">Questions fréquentes</div>
+    <div class="faq-wrap">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Qu'est-ce que le fichier TES ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Le fichier TES (Titres Électroniques Sécurisés) est une base de données centralisée créée en 2016 par décret. Il stocke les données biométriques — empreintes et photographies — des titulaires de passeports et, depuis août 2021, de CNI biométriques. Il est géré par le ministère de l'Intérieur.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>France Identité est-elle obligatoire ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Non. L'application est entièrement facultative. Elle permet d'utiliser une version numérique de sa CNI sur un smartphone compatible NFC. Les données sont stockées localement sur la puce sécurisée de l'appareil.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Qui peut accéder au fichier TES ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Les agents habilités pour la délivrance des titres (préfectures, consulats) et, dans le cadre d'enquêtes judiciaires, des agents de police et gendarmerie spécifiquement habilités sur réquisition. La liste est fixée par le décret et les accès sont tracés.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>La CNIL a-t-elle validé le TES ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">La CNIL a émis un avis favorable avec réserves (délibération n° 2016-292). Elle a posé des exigences sur la sécurité et la limitation des accès. Elle n'a pas bloqué le dispositif mais n'a pas donné de blanc-seing.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Pourquoi la biométrie est-elle plus sensible que d'autres données ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Un mot de passe ou un numéro de carte bancaire peut être changé après une compromission. Les empreintes digitales et la physionomie du visage ne peuvent pas être modifiées. Une fuite de données biométriques est donc définitive pour les personnes concernées.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Que change eIDAS 2.0 pour France Identité ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Le règlement européen de 2024 impose à la France de proposer un portefeuille numérique d'identité européen (EUDI Wallet) d'ici fin 2026. France Identité est le composant français prévu. L'identité numérique française sera utilisable auprès de services publics et privés dans toute l'UE.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Peut-on éviter que ses données intègrent le TES ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Si vous faites une demande de titre (passeport ou nouvelle CNI), vos données biométriques intégreront le TES — c'est inhérent au processus de délivrance. L'ancienne CNI plastifiée reste valide jusqu'à son expiration ; ne pas la renouveler permet de ne pas intégrer le TES pour la CNI, mais pas pour un passeport.</div></div>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border)">
+    <a href="/libertes/" style="font-size:.81rem;color:var(--muted);text-decoration:none">← Retour à l'Observatoire</a>
+    <div style="font-size:.71rem;color:var(--muted)">Dernière vérification : 13/07/2026</div>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <span>© 2026 Le Français Moyen — Données issues de sources officielles</span>
+  <a href="/">Tableau de bord principal</a>
+</footer>
+
+<script>
+function toggle(head){const body=head.nextElementSibling;const arrow=head.querySelector('.niveau-toggle');const open=body.style.display!=='none';body.style.display=open?'none':'block';arrow.classList.toggle('open',!open)}
+function toggleFaq(btn){const ans=btn.nextElementSibling;const arrow=btn.querySelector('.faq-arrow');const open=ans.style.display==='block';ans.style.display=open?'none':'block';arrow.style.transform=open?'':'rotate(180deg)'}
+document.querySelectorAll('.niveau-head')[0].click();
+</script>
+</body>
+</html>

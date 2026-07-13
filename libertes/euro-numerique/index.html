@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Euro numérique : ce que la proposition de la BCE prévoit réellement</title>
+  <meta name="description" content="Analyse factuelle de la proposition d'euro numérique (BCE, 2023) : programmabilité interdite, cash préservé, transactions offline protégées, incertitudes réelles — indice d'impact 52/100.">
+  <link rel="canonical" href="https://le-francais-moyen.com/libertes/euro-numerique/">
+  <meta property="og:title" content="Euro numérique : ce que la proposition de la BCE prévoit réellement">
+  <meta property="og:description" content="La proposition d'euro numérique interdit explicitement la programmabilité des dépenses. Le cash n'est pas supprimé. Analyse factuelle des protections prévues et des risques réels, indice d'impact 52/100.">
+  <meta property="og:url" content="https://le-francais-moyen.com/libertes/euro-numerique/">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+          {"@type":"ListItem","position":2,"name":"Observatoire des Libertés","item":"https://le-francais-moyen.com/libertes/"},
+          {"@type":"ListItem","position":3,"name":"Euro numérique","item":"https://le-francais-moyen.com/libertes/euro-numerique/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"L'euro numérique est-il déjà en vigueur ?","acceptedAnswer":{"@type":"Answer","text":"Non. En 2026, l'euro numérique est encore un projet en phase de préparation. La Banque centrale européenne a lancé une phase de préparation en octobre 2023. La proposition de règlement de la Commission européenne (COM(2023) 369) est en cours d'examen. Aucune décision définitive de lancement n'a été prise."}},
+          {"@type":"Question","name":"L'euro numérique sera-t-il programmable ?","acceptedAnswer":{"@type":"Answer","text":"Non, selon la proposition de règlement. L'article 16 du projet de règlement COM(2023) 369 interdit explicitement la programmabilité de l'euro numérique au sens de restriction ou conditionnement de son usage à des fins spécifiques. La BCE ne pourra pas décider ce que vous pouvez ou ne pouvez pas acheter avec vos euros numériques."}},
+          {"@type":"Question","name":"L'euro numérique remplacera-t-il les billets et pièces ?","acceptedAnswer":{"@type":"Answer","text":"Non. La proposition COM(2023) 364 parallèle, sur le statut légal des espèces, renforce au contraire le cours légal du cash et impose aux commerçants d'en assurer l'acceptation. Les deux textes ont été présentés en tandem précisément pour répondre aux inquiétudes sur la disparition du cash."}},
+          {"@type":"Question","name":"Les transactions en euro numérique seront-elles traçables ?","acceptedAnswer":{"@type":"Answer","text":"Cela dépend du type de transaction. Les transactions offline (entre deux appareils sans connexion réseau) bénéficieraient d'une confidentialité proche du cash selon la proposition. Les transactions online passeront par des prestataires de services de paiement (PSP) intermédiaires, qui auront accès aux métadonnées de la transaction, comme pour un virement bancaire classique."}},
+          {"@type":"Question","name":"Y a-t-il un plafond de détention d'euros numériques ?","acceptedAnswer":{"@type":"Answer","text":"Oui, la proposition prévoit un plafond de détention individuelle (de l'ordre de 1 000 à 3 000 euros dans les discussions préparatoires) pour limiter le risque de ruée bancaire. Ce plafond est conçu pour que l'euro numérique soit un moyen de paiement et non un instrument d'épargne."}},
+          {"@type":"Question","name":"La BCE pourra-t-elle bloquer mes achats ?","acceptedAnswer":{"@type":"Answer","text":"Non, selon les textes proposés. L'article 16 du projet de règlement interdit toute programmabilité restrictive. La BCE n'aurait pas la capacité technique ou juridique de bloquer des catégories d'achats. C'est une distinction essentielle par rapport aux craintes de \"monnaie conditionnée\" exprimées dans le débat public."}},
+          {"@type":"Question","name":"Quels sont les risques réels de l'euro numérique ?","acceptedAnswer":{"@type":"Answer","text":"Les risques identifiés dans le cadre de la proposition sont : la confidentialité partielle des transactions online (via les PSP), la possible pression vers l'adoption numérique si les services papier se dégradent, le risque de modification future des garanties par amendement législatif, et l'impact sur les banques commerciales si le plafond était relevé. La programmabilité et la suppression du cash sont en revanche explicitement interdites."}}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .fiche-header{border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:16px}
+    .fiche-header-top{padding:20px 24px 16px;background:rgba(255,255,255,.04);border-bottom:1px solid var(--border)}
+    .fiche-header-meta{padding:12px 24px;display:flex;flex-wrap:wrap;gap:16px}
+    .meta-item{font-size:.75rem;color:var(--muted)}
+    .meta-item strong{color:var(--text);font-weight:800}
+    .status-badge{display:inline-block;font-size:.63rem;font-weight:900;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.05em}
+    .s-projet{background:rgba(246,195,67,.15);color:#f6c343}
+    .lib-tag{font-size:.62rem;font-weight:800;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.07);color:var(--muted)}
+    .en-bref{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;margin-bottom:16px;background:rgba(255,255,255,.03)}
+    .en-bref-title{font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+    .version-callout{font-size:.75rem;color:var(--muted);padding:8px 14px;border:1px solid rgba(246,195,67,.2);border-radius:9px;background:rgba(246,195,67,.05);margin-bottom:16px}
+    .retenir-wrap{border:1px solid rgba(64,169,255,.25);border-radius:14px;padding:14px 16px;margin-bottom:16px;background:rgba(64,169,255,.04)}
+    .retenir-title{font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:#40A9FF;margin-bottom:10px}
+    .retenir-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    @media(max-width:540px){.retenir-grid{grid-template-columns:1fr}}
+    .retenir-item{border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:9px 12px;background:rgba(255,255,255,.03)}
+    .retenir-q{font-size:.77rem;font-weight:800;margin-bottom:3px}
+    .retenir-a{font-size:.74rem;color:var(--muted);line-height:1.5}
+    .niveau-section{margin-bottom:12px;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .niveau-head{padding:11px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+    .niveau-num{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:900;flex-shrink:0}
+    .n1{background:rgba(130,201,30,.15);color:#82c91e}
+    .n2{background:rgba(64,169,255,.15);color:#40A9FF}
+    .n3{background:rgba(255,122,0,.15);color:#ff7a00}
+    .n4{background:rgba(255,59,148,.15);color:#ff3b94}
+    .n5{background:rgba(200,0,0,.2);color:#ff3030}
+    .niveau-title{font-size:.86rem;font-weight:900;flex:1}
+    .niveau-toggle{font-size:.72rem;color:var(--muted);transition:transform .2s}
+    .niveau-toggle.open{transform:rotate(180deg)}
+    .niveau-body{padding:14px 16px;border-top:1px solid var(--border);background:rgba(0,0,0,.15)}
+    .fact-list{list-style:none;padding:0;margin:0}
+    .fact-item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.82rem;line-height:1.55}
+    .fact-item:last-child{border-bottom:none}
+    .fact-icon{flex-shrink:0;margin-top:1px}
+    .fact-source{font-size:.68rem;color:var(--muted);margin-top:2px}
+    .fact-note{font-size:.7rem;color:var(--muted);margin-top:3px}
+    .risk-box{border:1px solid rgba(255,122,0,.2);border-radius:10px;padding:12px 14px;margin-bottom:10px;background:rgba(255,122,0,.05)}
+    .risk-box:last-child{margin-bottom:0}
+    .risk-box.n5box{border-color:rgba(255,59,59,.2);background:rgba(255,59,59,.05)}
+    .risk-title{font-size:.82rem;font-weight:800;margin-bottom:4px}
+    .risk-body{font-size:.79rem;color:var(--muted);line-height:1.55}
+    .risk-chain{list-style:none;padding:0;margin:8px 0 0;padding-top:8px;border-top:1px solid rgba(255,255,255,.07)}
+    .risk-chain li{font-size:.74rem;color:var(--muted);margin-bottom:3px;padding-left:12px;position:relative}
+    .risk-chain li::before{content:'›';position:absolute;left:0;color:var(--muted)}
+    .risk-chain strong{color:var(--text)}
+    .hypo-banner{background:rgba(255,59,59,.08);border:1px solid rgba(255,59,59,.2);border-radius:10px;padding:9px 13px;margin-bottom:12px;font-size:.77rem;color:#ff8080;font-weight:800}
+    .score-2col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+    @media(max-width:560px){.score-2col{grid-template-columns:1fr}}
+    .score-box{border:1px solid var(--border);border-radius:14px;padding:16px}
+    .score-bar{width:100%;height:7px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden;margin:6px 0}
+    .score-fill{height:100%;border-radius:4px}
+    .score-disclaimer{font-size:.71rem;color:var(--muted);line-height:1.55;margin-top:8px;padding:7px 10px;border:1px solid rgba(255,255,255,.07);border-radius:7px;background:rgba(255,255,255,.03)}
+    .wscore-table{width:100%;border-collapse:collapse;font-size:.74rem;margin-top:10px}
+    .wscore-table td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}
+    .wscore-table tr:last-child td{border-bottom:none;font-weight:900;color:var(--text)}
+    .wscore-pct{font-size:.65rem;color:var(--muted);white-space:nowrap}
+    .wscore-val{font-weight:900;text-align:right;white-space:nowrap}
+    .wscore-bar-w{width:50px}
+    .wscore-bar{height:3px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+    .wscore-fill{height:100%;border-radius:2px;background:#f6c343}
+    .revers-bar{width:100%;height:9px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden;margin:6px 0}
+    .revers-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,#82c91e,#ff5050)}
+    .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+    @media(max-width:560px){.diff-grid{grid-template-columns:1fr}}
+    .diff-col{border:1px solid var(--border);border-radius:11px;padding:12px}
+    .diff-col.avant{border-color:rgba(130,201,30,.2);background:rgba(130,201,30,.04)}
+    .diff-col.apres{border-color:rgba(64,169,255,.2);background:rgba(64,169,255,.04)}
+    .diff-head{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+    .diff-col.avant .diff-head{color:#82c91e}
+    .diff-col.apres .diff-head{color:#40A9FF}
+    .diff-item{font-size:.78rem;line-height:1.5;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:7px}
+    .diff-item:last-child{border-bottom:none}
+    .diff-changes{border:1px solid var(--border);border-radius:11px;overflow:hidden;margin-bottom:10px}
+    .diff-change{display:flex;gap:9px;padding:9px 13px;border-bottom:1px solid var(--border);font-size:.79rem;line-height:1.45}
+    .diff-change:last-child{border-bottom:none}
+    .diff-tag{font-size:.59rem;font-weight:900;padding:2px 6px;border-radius:5px;flex-shrink:0;white-space:nowrap;align-self:flex-start;margin-top:1px}
+    .tag-add{background:rgba(255,80,80,.15);color:#ff8080}
+    .tag-rm{background:rgba(130,201,30,.15);color:#82c91e}
+    .tag-mod{background:rgba(64,169,255,.15);color:#40A9FF}
+    .diff-note{font-size:.77rem;color:var(--muted);line-height:1.6;padding:10px 13px;border:1px solid rgba(255,122,0,.2);border-radius:10px;background:rgba(255,122,0,.04)}
+    .timeline{list-style:none;padding:0;margin:0;position:relative}
+    .timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--border)}
+    .tl-item{display:flex;gap:12px;padding:0 0 16px}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:4px;position:relative;z-index:1;box-shadow:0 0 0 3px rgba(246,195,67,.15)}
+    .tl-dot.red{background:#ff5050;box-shadow:0 0 0 3px rgba(255,80,80,.15)}
+    .tl-dot.blue{background:#40A9FF;box-shadow:0 0 0 3px rgba(64,169,255,.15)}
+    .tl-dot.grey{background:var(--muted);box-shadow:none}
+    .tl-date{font-size:.69rem;font-weight:900;color:var(--muted);white-space:nowrap;min-width:78px}
+    .tl-title{font-size:.82rem;font-weight:800;margin-bottom:2px}
+    .tl-desc{font-size:.76rem;color:var(--muted);line-height:1.5}
+    .source-table{width:100%;border-collapse:collapse;font-size:.77rem}
+    .source-table th{text-align:left;padding:7px 9px;border-bottom:1px solid var(--border);color:var(--muted);font-size:.67rem;text-transform:uppercase;letter-spacing:.05em}
+    .source-table td{padding:8px 9px;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.45;vertical-align:top}
+    .source-table tr:last-child td{border-bottom:none}
+    .src-p{font-size:.59rem;font-weight:900;padding:2px 6px;border-radius:4px;background:rgba(130,201,30,.15);color:#82c91e;white-space:nowrap}
+    .src-s{font-size:.59rem;font-weight:900;padding:2px 6px;border-radius:4px;background:rgba(255,255,255,.08);color:var(--muted);white-space:nowrap}
+    .source-table a{color:var(--accent);text-decoration:none}
+    .source-table a:hover{text-decoration:underline}
+    .garantie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:9px}
+    .garantie-box{border:1px solid rgba(130,201,30,.2);border-radius:9px;padding:11px 12px;background:rgba(130,201,30,.04)}
+    .garantie-title{font-size:.78rem;font-weight:800;margin-bottom:3px;color:#82c91e}
+    .garantie-body{font-size:.73rem;color:var(--muted);line-height:1.5}
+    .faq-wrap{border:1px solid var(--border);border-radius:13px;overflow:hidden}
+    .faq-item{border-bottom:1px solid var(--border)}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{padding:12px 16px;font-size:.84rem;font-weight:800;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;user-select:none}
+    .faq-arrow{font-size:.68rem;color:var(--muted);transition:transform .2s;flex-shrink:0}
+    .faq-a{font-size:.8rem;color:var(--muted);line-height:1.65;padding:0 16px 13px;display:none}
+    .section-label{font-size:.69rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:9px}
+    .section-divider{border:none;border-top:1px solid var(--border);margin:22px 0}
+    .myth-box{display:flex;gap:12px;padding:10px 13px;border-radius:10px;margin-bottom:8px;font-size:.79rem;line-height:1.5}
+    .myth-box.faux{border:1px solid rgba(255,80,80,.2);background:rgba(255,80,80,.05)}
+    .myth-box.vrai{border:1px solid rgba(130,201,30,.2);background:rgba(130,201,30,.04)}
+    .myth-label{font-size:.62rem;font-weight:900;padding:2px 7px;border-radius:5px;flex-shrink:0;white-space:nowrap;align-self:flex-start;margin-top:1px}
+    .myth-box.faux .myth-label{background:rgba(255,80,80,.2);color:#ff8080}
+    .myth-box.vrai .myth-label{background:rgba(130,201,30,.2);color:#82c91e}
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <a href="/elections/">Élections</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/libertes/" class="active">Libertés</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
+    <a href="/" class="cta">← Tableau de bord</a>
+  </div>
+</header>
+
+<main>
+<div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
+
+  <div style="font-size:.74rem;color:var(--muted);margin-bottom:18px">
+    <a href="/" style="color:var(--muted)">Accueil</a> ›
+    <a href="/libertes/" style="color:var(--muted)">Observatoire des Libertés</a> ›
+    <span>Euro numérique</span>
+  </div>
+
+  <div class="version-callout">
+    ⚠ <strong>Statut : projet en cours d'examen.</strong> L'euro numérique n'est pas encore adopté ni déployé en 2026. Cette fiche analyse la proposition de règlement COM(2023) 369 telle que disponible. Les dispositions finales pourraient différer du texte proposé.
+  </div>
+
+  <div class="fiche-header">
+    <div class="fiche-header-top">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+        <span class="status-badge s-projet">En cours d'examen</span>
+        <span style="font-size:.71rem;color:var(--muted)">UE / Zone euro · COM(2023) 369 · Proposition de règlement</span>
+        <span style="font-size:.71rem;color:var(--muted);margin-left:auto">Vérifié le 13/07/2026</span>
+      </div>
+      <h1 style="font-size:clamp(1.05rem,3.5vw,1.5rem);font-weight:900;letter-spacing:-.03em;margin:0 0 4px;line-height:1.2">
+        Euro numérique : ce que la proposition de la BCE prévoit réellement
+      </h1>
+      <div style="font-size:.76rem;color:var(--muted);margin-bottom:10px">Proposition de règlement COM(2023) 369 du 28 juin 2023 — Phase de préparation BCE depuis octobre 2023</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px">
+        <span class="lib-tag">Vie privée financière</span>
+        <span class="lib-tag">Monnaie numérique</span>
+        <span class="lib-tag">Traçabilité</span>
+        <span class="lib-tag">Liberté de paiement</span>
+        <span class="lib-tag">Cash</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px">Indice d'impact et de vigilance sur les libertés</div>
+          <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.06em;line-height:1;color:#f6c343">52 <span style="font-size:1rem;color:var(--muted)">/100</span></div>
+          <div style="font-size:.73rem;font-weight:800;color:#f6c343">Impact modéré (41–60)</div>
+        </div>
+        <div style="flex:1;min-width:120px;max-width:200px">
+          <div class="score-bar"><div class="score-fill" style="width:52%;background:#f6c343"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="fiche-header-meta">
+      <div class="meta-item"><strong>Niveau</strong><br>UE / Zone euro</div>
+      <div class="meta-item"><strong>Statut</strong><br>Projet — pas encore adopté</div>
+      <div class="meta-item"><strong>Phase BCE</strong><br>Préparation depuis oct. 2023</div>
+      <div class="meta-item"><strong>Contrôle prévu</strong><br>Parlement européen + CEPD</div>
+      <div class="meta-item"><strong>Programmabilité</strong><br>Interdite par le projet de règlement</div>
+    </div>
+  </div>
+
+  <!-- En bref -->
+  <div class="en-bref">
+    <div class="en-bref-title">En bref</div>
+    <p style="font-size:.83rem;color:var(--muted);line-height:1.65;margin:0">
+      L'euro numérique est une monnaie de banque centrale (MNBC) à l'étude par la Banque centrale européenne depuis 2021. La Commission européenne a déposé une proposition de règlement en juin 2023 (COM(2023) 369). En 2026, ce projet n'est pas encore adopté ni déployé. La proposition prévoit plusieurs garanties importantes : <strong>la programmabilité restrictive est explicitement interdite</strong> (la BCE ne pourrait pas décider ce que vous achetez), <strong>le cash n'est pas supprimé</strong> (une proposition parallèle renforce même son cours légal), et <strong>les transactions offline bénéficieraient d'une confidentialité proche du cash</strong>. En revanche, les transactions en ligne passeront par des prestataires de services de paiement intermédiaires qui auront accès aux métadonnées, comme pour un virement bancaire. Les risques identifiés concernent davantage l'évolution possible des règles après adoption, la pression vers la dématérialisation, et le risque systémique sur les banques commerciales, que les fonctionnalités directement prévues par le texte actuel.
+    </p>
+  </div>
+
+  <!-- Démêler le vrai du faux -->
+  <div style="margin-bottom:18px">
+    <div class="section-label">Idées reçues vs. texte proposé</div>
+    <div class="myth-box faux"><span class="myth-label">FAUX</span><div><strong>"L'euro numérique sera programmable : on pourra vous interdire d'acheter de la viande ou de l'alcool."</strong> L'art. 16 du projet COM(2023) 369 interdit explicitement cette fonctionnalité. La BCE n'aurait pas le pouvoir de conditionner l'usage de vos euros à des catégories de dépenses.</div></div>
+    <div class="myth-box faux"><span class="myth-label">FAUX</span><div><strong>"L'euro numérique remplacera les billets et les pièces."</strong> La proposition COM(2023) 364, présentée le même jour, renforce le cours légal des espèces et impose leur acceptation. Les deux textes ont été présentés en tandem pour écarter cette hypothèse.</div></div>
+    <div class="myth-box vrai"><span class="myth-label">VRAI</span><div><strong>Les transactions online laisseront des traces auprès des PSP intermédiaires.</strong> Contrairement aux transactions offline (confidentialité proche du cash selon la proposition), les paiements en ligne passeront par des prestataires de paiement qui auront accès aux métadonnées, comme pour tout paiement bancaire aujourd'hui.</div></div>
+    <div class="myth-box vrai"><span class="myth-label">VRAI</span><div><strong>Le texte proposé peut être modifié avant adoption, et les garanties pourraient être amendées.</strong> La proposition est en cours de négociation législative entre le Parlement européen et le Conseil. Les dispositions protectrices actuelles ne sont pas définitives.</div></div>
+  </div>
+
+  <!-- Objectif officiel + Garanties -->
+  <div style="margin-bottom:18px;padding:14px 16px;border:1px solid rgba(130,201,30,.2);border-radius:13px;background:rgba(130,201,30,.04)">
+    <div class="section-label" style="color:#82c91e">Objectif officiel et garanties prévues dans la proposition</div>
+    <p style="font-size:.82rem;color:var(--muted);margin:0 0 10px;line-height:1.6">
+      La BCE présente l'euro numérique comme un complément au cash pour l'ère numérique : permettre des paiements électroniques en monnaie de banque centrale (sans passer par une banque commerciale intermédiaire), dans toute la zone euro, accessibles à tous. Les garanties suivantes sont inscrites dans le projet de règlement.
+    </p>
+    <div class="garantie-grid">
+      <div class="garantie-box">
+        <div class="garantie-title">Programmabilité interdite — art. 16</div>
+        <div class="garantie-body">L'euro numérique ne peut pas être restreint ou conditionné à des finalités d'achat spécifiques. Ni la BCE, ni les PSP, ni l'État ne peuvent décider ce que vous pouvez acheter.</div>
+      </div>
+      <div class="garantie-box">
+        <div class="garantie-title">Cash préservé — COM(2023) 364</div>
+        <div class="garantie-body">Le règlement parallèle renforce le cours légal des espèces. Les commerçants auront l'obligation d'accepter le cash. L'euro numérique est un complément, pas un remplacement.</div>
+      </div>
+      <div class="garantie-box">
+        <div class="garantie-title">Confidentialité offline</div>
+        <div class="garantie-body">Les transactions entre deux appareils sans connexion réseau (mode offline) bénéficieraient d'une confidentialité proche du cash. Ni la BCE, ni les PSP ne verraient ces transactions.</div>
+      </div>
+      <div class="garantie-box">
+        <div class="garantie-title">Plafond de détention</div>
+        <div class="garantie-body">Un plafond individuel (environ 1 000 à 3 000 € dans les discussions) limite la détention pour éviter une fuite des dépôts bancaires. L'euro numérique est pensé comme moyen de paiement, pas d'épargne.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- N1 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n1">N1</span>
+      <span class="niveau-title">Faits établis — Ce qui est proposé dans les textes</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul class="fact-list">
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Phase de préparation BCE — depuis octobre 2023</strong> — Le Conseil des gouverneurs de la BCE a lancé la phase de préparation du projet d'euro numérique en octobre 2023, après une phase d'investigation de deux ans (2021–2023). Cette phase consiste à tester des cas d'usage et à développer l'infrastructure technique. Elle n'implique pas de décision définitive de lancement.</div>
+            <div class="fact-source">Décision BCE du 18 octobre 2023 — Communiqué de presse BCE</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Proposition de règlement COM(2023) 369</strong> — Déposée par la Commission européenne le 28 juin 2023. Elle définit le cadre juridique de l'euro numérique : statut légal, accès, confidentialité, programmabilité, rôle des PSP. Soumise à l'approbation du Parlement européen et du Conseil. Le texte est en cours de négociation en 2026.</div>
+            <div class="fact-source">COM(2023) 369 final du 28 juin 2023 — Proposition de règlement relatif à l'établissement de l'euro numérique</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Interdiction de la programmabilité restrictive — art. 16 du projet</strong> — L'article 16 dispose que l'euro numérique ne peut pas être programmable au sens de restreindre ou conditionner son usage à des finalités spécifiques. Cela exclut la possibilité pour la BCE, les PSP ou les États de décider ce que les utilisateurs peuvent acheter. Les "smart contracts" et paiements conditionnels à l'initiative de l'utilisateur lui-même restent possibles (exemple : paiement automatique d'un loyer).</div>
+            <div class="fact-source">Art. 16 COM(2023) 369</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Préservation du cash — COM(2023) 364</strong> — Une proposition parallèle, présentée le même jour, vise à garantir le cours légal des espèces (billets et pièces en euros). Elle pose que les commerçants ne peuvent pas refuser le cash sauf exceptions. Les deux propositions ont été présentées en tandem pour démontrer que l'euro numérique n'a pas vocation à remplacer le cash.</div>
+            <div class="fact-source">COM(2023) 364 final du 28 juin 2023 — Proposition relative au cours légal des espèces</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#82c91e">✓</span>
+          <div>
+            <div><strong>Confidentialité offline et rôle des PSP</strong> — Le projet prévoit deux modes : (1) transactions offline entre appareils, sans connexion, avec confidentialité proche du cash — ni la BCE ni les PSP n'y auraient accès ; (2) transactions online via un PSP intermédiaire, qui voit les métadonnées de la transaction (montant, date, parties), mais pas le contenu au sens strict. La BCE ne verrait pas les transactions individuelles des utilisateurs.</div>
+            <div class="fact-source">Art. 27 à 29 COM(2023) 369</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- N2 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n2">N2</span>
+      <span class="niveau-title">Effets potentiels sur les libertés — si la proposition est adoptée</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul class="fact-list">
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Traçabilité partielle des transactions online par les PSP</strong> — Pour les paiements en ligne, les prestataires de services de paiement (banques, fintech) agissent comme intermédiaires et ont accès aux métadonnées des transactions. Ce niveau de traçabilité est comparable à celui d'un virement bancaire ou d'un paiement par carte classique — il n'est pas nouveau, mais il ne disparaît pas non plus avec l'euro numérique.</div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Pression vers la dématérialisation si le cash se dégrade</strong> — Même si le texte préserve le cash, les tendances de fond (fermeture de distributeurs, refus de cash dans certains commerces) créent une pression indépendante du texte. Si l'infrastructure cash se dégrade dans les faits, l'option "confidentiel" se réduirait progressivement. Ce risque n'est pas inhérent à la proposition elle-même, mais au contexte dans lequel elle s'inscrit.</div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Infrastructure pérenne difficile à démonter</strong> — Une fois l'euro numérique déployé avec une base d'utilisateurs significative, son abandon ou sa refonte substantielle sera politiquement et techniquement coûteux. Les garanties inscrites dans le règlement initial pourraient être amendées par un règlement modificatif ultérieur sans avoir à redéployer l'infrastructure.</div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#40A9FF">→</span>
+          <div><strong>Risque de désintermédiation bancaire et instabilité</strong> — Si le plafond de détention était relevé ultérieurement, les citoyens pourraient transférer massivement leurs dépôts des banques commerciales vers l'euro numérique (monnaie de banque centrale, perçue comme plus sûre). Cela fragiliserait le financement bancaire de l'économie. Ce risque systémique est reconnu par la BCE comme principale raison du plafond.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- N3 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n3">N3</span>
+      <span class="niveau-title">Risques plausibles — sans modification du texte proposé</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <div class="risk-box">
+        <div class="risk-title">Interprétation extensive du "smart contract à l'initiative de l'utilisateur"</div>
+        <div class="risk-body">Le projet autorise les paiements conditionnels à l'initiative de l'utilisateur (un loyer automatique, par exemple). La frontière entre une condition choisie par l'utilisateur et une condition imposée par un tiers (employeur, prestataire social) pourrait s'avérer difficile à tracer dans la pratique sans une définition très précise dans le règlement d'application.</div>
+        <ul class="risk-chain">
+          <li><strong>Mécanisme :</strong> règlement délégué de la Commission définissant les cas autorisés</li>
+          <li><strong>Obstacle :</strong> art. 16 pose le principe ; les textes d'application de la Commission sont soumis à contrôle du Parlement européen</li>
+        </ul>
+      </div>
+      <div class="risk-box">
+        <div class="risk-title">Obligation d'acceptation créant une pression vers l'adoption</div>
+        <div class="risk-body">Si des services publics ou privés sont tenus d'accepter l'euro numérique mais pas nécessairement le cash (ou si l'acceptation du cash se dégrade), la confidentialité des paiements en espèces devient de facto moins accessible. Ce glissement ne requiert pas de modification du texte sur l'euro numérique lui-même.</div>
+        <ul class="risk-chain">
+          <li><strong>Mécanisme :</strong> tendances du marché + refus de cash non sanctionné</li>
+          <li><strong>Obstacle :</strong> COM(2023) 364 impose le cours légal du cash ; des recours sont possibles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- N4 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n4">N4</span>
+      <span class="niveau-title">Extensions futures — après modification du règlement adopté</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul class="fact-list">
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#ff3b94">◈</span>
+          <div>
+            <div><strong>Relèvement du plafond de détention</strong> — Si le plafond était relevé ou supprimé par un règlement modificatif, l'euro numérique deviendrait un instrument d'épargne, amplifiant le risque de désintermédiation bancaire et augmentant la part des avoirs sous traçabilité partielle des PSP. Modification nécessaire : révision de l'article fixant le plafond par règlement du Parlement européen et du Conseil.</div>
+          </div>
+        </li>
+        <li class="fact-item">
+          <span class="fact-icon" style="color:#ff3b94">◈</span>
+          <div>
+            <div><strong>Introduction d'une programmabilité conditionnelle pour des politiques publiques</strong> — Après adoption, un amendement pourrait introduire des formes de conditionnalité pour certains paiements (aides sociales versées en euros numériques utilisables pour certains achats uniquement). Cela contredirait l'article 16, mais une révision est politiquement concevable dans un contexte de crise ou de gouvernement volontariste. Modification nécessaire : révision de l'art. 16 par le Parlement européen et le Conseil.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- N5 -->
+  <div class="niveau-section">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n5">N5</span>
+      <span class="niveau-title">Scénarios extrêmes — hypothétiques, chaîne juridique détaillée</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <div class="hypo-banner">⚠ Ces scénarios sont hypothétiques. Ils décrivent des dérives possibles à long terme, nécessitant des modifications législatives majeures et/ou l'abandon des protections actuellement inscrites dans la proposition.</div>
+      <div class="risk-box n5box">
+        <div class="risk-title">Suppression progressive du cash et monnaie numérique seul moyen de paiement légal</div>
+        <div class="risk-body">Si les espèces étaient progressivement démonétisées (retrait des distributeurs, refus généralisé non sanctionné, fin de fabrication des pièces et billets), l'euro numérique deviendrait de fait le seul moyen de paiement — avec la traçabilité partielle que cela implique pour toutes les transactions. Ce scénario est explicitement exclu par COM(2023) 364, mais son caractère de règlement européen n'empêche pas une évolution à très long terme.</div>
+        <ul class="risk-chain">
+          <li><strong>Modifications nécessaires :</strong> abrogation ou vidage de COM(2023) 364, décision politique de démonétiser les espèces — implique un vote des États membres et du Parlement européen</li>
+          <li><strong>Obstacles :</strong> COM(2023) 364 en vigueur, attachement culturel au cash dans plusieurs États membres (Allemagne, Autriche, France), précédent inexistant dans la zone euro</li>
+          <li><strong>Précédent partiel :</strong> la Suède a considérablement réduit l'usage du cash sans l'interdire ; la Riksbank a toutefois lancé en 2023 une réflexion sur la protection légale du cash précisément pour éviter ce scénario</li>
+          <li><strong>Probabilité à 20 ans :</strong> faible dans le cadre institutionnel actuel, mais non nulle si les tendances de marché s'accélèrent sans réaction réglementaire</li>
+        </ul>
+      </div>
+      <div class="risk-box n5box">
+        <div class="risk-title">Introduction d'une conditionnalité sociale sur les aides versées en euro numérique</div>
+        <div class="risk-body">Un gouvernement national ou une institution européenne pourrait proposer de verser certaines aides sociales (RSA, allocations) sous forme d'euros numériques conditionnés à des catégories d'achat (alimentation, logement — exclusion du tabac, alcool, jeux). Cela contreviendrait à l'article 16 du règlement, mais une révision ciblée de cet article est politiquement concevable. Ce type de mesure est déjà expérimenté à petite échelle avec des chèques-services (tickets-restaurant, chèques énergie) sans base numérique.</div>
+        <ul class="risk-chain">
+          <li><strong>Modification nécessaire :</strong> révision de l'art. 16 du règlement par codécision Parlement/Conseil</li>
+          <li><strong>Obstacle :</strong> majorité nécessaire au Parlement européen, contrôle de la CJUE sur les droits fondamentaux (dignité, liberté), opposition probable de plusieurs États membres</li>
+          <li><strong>Probabilité :</strong> faible en tant que mesure générale, plausible pour des dispositifs très ciblés si encadrés par une loi nationale compatible</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Score -->
+  <div class="score-2col">
+    <div class="score-box">
+      <div class="section-label">Indice d'impact et de vigilance sur les libertés</div>
+      <div style="font-size:1.9rem;font-weight:900;letter-spacing:-.05em;color:#f6c343">52 <span style="font-size:.9rem;color:var(--muted)">/100</span></div>
+      <div class="score-bar"><div class="score-fill" style="width:52%;background:#f6c343"></div></div>
+      <table class="wscore-table">
+        <tr><td style="color:var(--muted)">Étendue de la collecte</td><td class="wscore-pct">15%</td><td class="wscore-val">7</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:47%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Sensibilité des données</td><td class="wscore-pct">15%</td><td class="wscore-val">10</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:67%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Absence de ciblage préalable</td><td class="wscore-pct">15%</td><td class="wscore-val">4</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:27%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Contrôle indépendant</td><td class="wscore-pct">15%</td><td class="wscore-val">11</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:73%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Recours et transparence</td><td class="wscore-pct">10%</td><td class="wscore-val">9</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:90%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Capacité d'extension</td><td class="wscore-pct">15%</td><td class="wscore-val">11</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:73%"></div></div></td></tr>
+        <tr><td style="color:var(--muted)">Réversibilité</td><td class="wscore-pct">15%</td><td class="wscore-val">0</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:0%"></div></div></td></tr>
+        <tr><td><strong>Total</strong></td><td class="wscore-pct">100%</td><td class="wscore-val">52</td><td></td></tr>
+      </table>
+      <div class="score-disclaimer">Le score modéré reflète les protections explicites de la proposition (programmabilité interdite, cash préservé). La « réversibilité » est à 0 car l'euro numérique n'est pas encore adopté — ce critère s'appliquera lors de la mise en vigueur. Le score sera réévalué après adoption définitive.</div>
+    </div>
+    <div class="score-box">
+      <div class="section-label">Indice de réversibilité</div>
+      <div style="font-size:1.9rem;font-weight:900;letter-spacing:-.05em;color:#82c91e">N/A <span style="font-size:.9rem;color:var(--muted)"></span></div>
+      <div style="font-size:.67rem;color:var(--muted);margin-bottom:4px">Texte non encore adopté</div>
+      <div style="font-size:.74rem;color:var(--muted);line-height:1.6;margin-top:12px">La réversibilité sera évaluée après adoption et déploiement. Une infrastructure de paiement central, une fois déployée avec une base d'utilisateurs significative, sera difficile à démanteler politiquement, même si la désinstallation technique reste possible. Ce critère est à surveiller lors de la mise en vigueur du règlement.</div>
+    </div>
+  </div>
+
+  <!-- Diff -->
+  <div style="margin-bottom:22px">
+    <div class="section-label">Diff avant / après — si la proposition est adoptée</div>
+    <div class="diff-grid">
+      <div class="diff-col avant">
+        <div class="diff-head">Situation actuelle</div>
+        <div class="diff-item"><span>📋</span>Paiements électroniques uniquement via banques commerciales et réseaux privés (Visa, Mastercard, etc.)</div>
+        <div class="diff-item"><span>📋</span>Pas de monnaie de banque centrale accessible directement au grand public</div>
+        <div class="diff-item"><span>📋</span>Confidentialité des paiements offline assurée par le cash uniquement</div>
+      </div>
+      <div class="diff-col apres">
+        <div class="diff-head">Si le règlement est adopté</div>
+        <div class="diff-item"><span>🔵</span>Option de paiement en monnaie de banque centrale disponible pour tous</div>
+        <div class="diff-item"><span>🟢</span>Transactions offline confidentielles (proche du cash) en numérique</div>
+        <div class="diff-item"><span>🟡</span>Transactions online : traçabilité PSP maintenue (comme aujourd'hui)</div>
+        <div class="diff-item"><span>🔴</span>Infrastructure pérenne : garanties actuelles modifiables par règlement futur</div>
+      </div>
+    </div>
+    <div class="diff-note">
+      <strong>Note méthodologique :</strong> cette fiche analyse la proposition telle que déposée. Les dispositions finales pourraient différer après les négociations législatives. Certaines protections (art. 16 sur la programmabilité) sont les points les plus politiquement disputés et susceptibles d'évoluer.
+    </div>
+  </div>
+
+  <!-- Chronologie -->
+  <div style="margin-bottom:22px">
+    <div class="section-label">Chronologie</div>
+    <ul class="timeline">
+      <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Oct. 2021</div><div><div class="tl-title">Lancement de la phase d'investigation BCE</div><div class="tl-desc">Le Conseil des gouverneurs décide d'explorer l'euro numérique sur 24 mois.</div></div></li>
+      <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">28 juin 2023</div><div><div class="tl-title">Proposition COM(2023) 369 + COM(2023) 364</div><div class="tl-desc">La Commission dépose les deux règlements en tandem : euro numérique + protection du cours légal du cash.</div></div></li>
+      <li class="tl-item"><div class="tl-dot blue"></div><div class="tl-date">Oct. 2023</div><div><div class="tl-title">Lancement de la phase de préparation BCE</div><div class="tl-desc">Après la phase d'investigation, la BCE entre en phase de préparation technique (prototypage, tests). Pas encore de décision de lancement.</div></div></li>
+      <li class="tl-item"><div class="tl-dot grey"></div><div class="tl-date">2024–2026</div><div><div class="tl-title">Négociations législatives en cours</div><div class="tl-desc">Le Parlement européen et le Conseil négocient le texte du règlement. Pas d'adoption définitive en 2026.</div></div></li>
+      <li class="tl-item"><div class="tl-dot grey"></div><div class="tl-date">À déterminer</div><div><div class="tl-title">Décision de lancement BCE</div><div class="tl-desc">Conditionnée à l'adoption du règlement et à la maturité technique. Le calendrier reste incertain.</div></div></li>
+    </ul>
+  </div>
+
+  <!-- Sources -->
+  <div style="margin-bottom:22px;overflow-x:auto">
+    <div class="section-label">Sources</div>
+    <table class="source-table">
+      <thead><tr><th>Type</th><th>Titre</th><th>Éditeur</th><th>Date</th></tr></thead>
+      <tbody>
+        <tr><td><span class="src-p">Primaire</span></td><td><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:52023PC0369" target="_blank" rel="noopener">COM(2023) 369 — Proposition de règlement euro numérique</a></td><td>Commission européenne</td><td>28/06/2023</td></tr>
+        <tr><td><span class="src-p">Primaire</span></td><td><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:52023PC0364" target="_blank" rel="noopener">COM(2023) 364 — Cours légal des espèces</a></td><td>Commission européenne</td><td>28/06/2023</td></tr>
+        <tr><td><span class="src-s">Secondaire</span></td><td>Rapport sur la phase d'investigation euro numérique</td><td>BCE</td><td>Octobre 2023</td></tr>
+        <tr><td><span class="src-s">Secondaire</span></td><td>Avis du Comité économique et social européen sur COM(2023) 369</td><td>CESE</td><td>2023</td></tr>
+        <tr><td><span class="src-s">Secondaire</span></td><td>Note d'analyse BCE : confidentialité dans l'euro numérique</td><td>BCE</td><td>2022</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FAQ -->
+  <div style="margin-bottom:22px">
+    <div class="section-label">Questions fréquentes</div>
+    <div class="faq-wrap">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>L'euro numérique est-il déjà en vigueur ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Non. En 2026, l'euro numérique est encore un projet en cours d'examen législatif. La BCE est en phase de préparation technique depuis octobre 2023, mais aucune décision définitive de lancement n'a été prise.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Pourra-t-on m'interdire d'acheter certains produits ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Non, selon l'article 16 de la proposition. Il interdit explicitement toute programmabilité restrictive : ni la BCE, ni les PSP, ni les États ne pourront conditionner l'usage de l'euro numérique à des catégories de dépenses.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Les billets et pièces vont-ils disparaître ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Non selon les textes actuels. La proposition COM(2023) 364, présentée en tandem, renforce le cours légal des espèces et oblige les commerçants à les accepter. L'euro numérique est présenté comme un complément, pas un remplacement.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Mes paiements seront-ils traçables ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Cela dépend du mode. Les transactions offline seraient confidentielles (proche du cash). Les transactions online passeront par des PSP intermédiaires qui auront accès aux métadonnées, comme pour tout paiement bancaire numérique aujourd'hui.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Quels sont les risques réels ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Les risques identifiés concernent : la traçabilité partielle des paiements online via les PSP, la possible pression vers le numérique si le cash se dégrade dans les faits, et la possibilité d'amender les garanties actuelles dans un règlement futur. La programmabilité et la suppression du cash sont explicitement interdites dans la proposition actuelle.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Pourquoi un plafond de détention ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Pour éviter que les citoyens ne transfèrent massivement leurs dépôts bancaires vers l'euro numérique (perçu comme plus sûr car monnaie de banque centrale). Cela fragiliserait les banques commerciales. Le plafond, autour de 1 000 à 3 000 euros, maintient l'euro numérique comme moyen de paiement, pas d'épargne.</div></div>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border)">
+    <a href="/libertes/" style="font-size:.81rem;color:var(--muted);text-decoration:none">← Retour à l'Observatoire</a>
+    <div style="font-size:.71rem;color:var(--muted)">Dernière vérification : 13/07/2026</div>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <span>© 2026 Le Français Moyen — Données issues de sources officielles</span>
+  <a href="/">Tableau de bord principal</a>
+</footer>
+
+<script>
+function toggle(head){const body=head.nextElementSibling;const arrow=head.querySelector('.niveau-toggle');const open=body.style.display!=='none';body.style.display=open?'none':'block';arrow.classList.toggle('open',!open)}
+function toggleFaq(btn){const ans=btn.nextElementSibling;const arrow=btn.querySelector('.faq-arrow');const open=ans.style.display==='block';ans.style.display=open?'none':'block';arrow.style.transform=open?'':'rotate(180deg)'}
+document.querySelectorAll('.niveau-head')[0].click();
+</script>
+</body>
+</html>
