@@ -54,7 +54,7 @@
     .chip.active { background:rgba(255,255,255,.12); color:var(--text); border-color:rgba(255,255,255,.2) }
 
     /* ── Stats row ── */
-    .obs-stats { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; padding:14px 18px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.03) }
+    .obs-stats { display:flex; flex-wrap:wrap; justify-content:center; gap:24px; margin-bottom:24px; padding:14px 18px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.03) }
     .obs-stat { text-align:center }
     .obs-stat .val { font-size:1.4rem; font-weight:900; letter-spacing:-.04em }
     .obs-stat .lbl { font-size:.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:.05em }
@@ -110,14 +110,22 @@
   <div class="nav">
     <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
     <nav>
-      <a href="/elections/">Élections</a>
-      <a href="/programmes/">Programmes</a>
-      <a href="/libertes/" class="active">Libertés</a>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/programmes/">Programmes</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
     </nav>
-    <button class="nav-toggle" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
     <a href="/" class="cta">← Tableau de bord</a>
   </div>
 </header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/programmes/">Programmes</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
 
 <main>
   <div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
@@ -151,7 +159,7 @@
         <div class="val">12</div>
         <div class="lbl">Libertés surveillées</div>
       </div>
-      <div class="obs-stat" style="margin-left:auto">
+      <div class="obs-stat">
         <div class="val" style="font-size:.85rem;color:var(--muted)">Mis à jour le 13/07/2026</div>
         <div class="lbl">Dernière vérification</div>
       </div>

@@ -169,14 +169,22 @@
   <div class="nav">
     <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
     <nav>
-      <a href="/elections/">Élections</a>
-      <a href="/programmes/">Programmes</a>
-      <a href="/libertes/" class="active">Libertés</a>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/programmes/">Programmes</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
     </nav>
-    <button class="nav-toggle" aria-label="Menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
-    <a href="/" class="cta">← Tableau de bord</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
   </div>
 </header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/programmes/">Programmes</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
 
 <main>
 <div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
