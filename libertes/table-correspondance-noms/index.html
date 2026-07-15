@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Table de correspondance des anciens et nouveaux noms — Observatoire des libertés</title>
+<meta name="description" content="Analyse de la table de correspondance CE n°498746 liant anciens et nouveaux noms après changement d'état civil. Impact disproportionné sur les personnes trans. Score : 56/100.">
+<link rel="canonical" href="https://lefrancaismoyen.fr/libertes/table-correspondance-noms/">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+<style>
+:root{--card:rgba(255,255,255,.06)}
+.wrapper{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+.version-callout{background:rgba(246,195,67,.08);border-left:3px solid var(--accent);border-radius:6px;padding:14px 18px;margin-bottom:32px;font-size:.93rem;line-height:1.6}
+.version-callout strong{color:var(--accent)}
+.fiche-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.score-circle{width:88px;height:88px;border-radius:50%;background:conic-gradient(#ff7a00 0% 56%,rgba(255,255,255,.08) 56% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.score-circle::before{content:'';position:absolute;inset:8px;border-radius:50%;background:var(--bg)}
+.score-num{position:relative;font-size:1.45rem;font-weight:700;color:#ff7a00}
+.fiche-meta{flex:1;min-width:200px}
+.fiche-meta h1{font-size:1.35rem;font-weight:700;margin:0 0 10px;line-height:1.35}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.badge{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.s-vigueur{background:rgba(255,107,107,.15);color:var(--red);border:1px solid rgba(255,107,107,.3)}
+.tag{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--border)}
+.en-bref{background:var(--panel);border-radius:10px;padding:22px 24px;margin-bottom:28px}
+.en-bref h2{font-size:1rem;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.en-bref p{margin:0;font-size:.95rem;line-height:1.7;color:var(--text)}
+.retenir-wrap{margin-bottom:28px}
+.retenir-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.retenir-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.retenir-list li{background:var(--panel);border-radius:8px;padding:14px 16px;font-size:.93rem;line-height:1.6;border-left:3px solid var(--accent)}
+.garanties-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:32px}
+.garantie-card{background:var(--panel);border-radius:8px;padding:16px;font-size:.88rem;line-height:1.6}
+.garantie-card strong{display:block;margin-bottom:6px;color:var(--text);font-size:.9rem}
+.garantie-card p{margin:0;color:var(--muted)}
+.niveaux-wrap{margin-bottom:32px}
+.niveaux-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.niveau-wrap{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.niveau-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;user-select:none;background:var(--panel)}
+.niveau-head:hover{background:rgba(255,255,255,.05)}
+.niveau-title{font-weight:600;font-size:.93rem}
+.niveau-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.niveau-body{display:none;padding:16px;font-size:.9rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.niveau-body.open{display:block}
+.score-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+@media(max-width:640px){.score-2col{grid-template-columns:1fr}}
+.score-table-wrap h2,.revers-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.score-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.score-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:600}
+.score-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.score-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text)}
+.score-bar-row{display:flex;align-items:center;gap:8px}
+.score-bar{height:6px;border-radius:3px;background:#ff7a00;flex-shrink:0}
+.revers-wrap{background:var(--panel);border-radius:8px;padding:18px}
+.revers-stars{font-size:1.4rem;letter-spacing:2px;margin-bottom:8px}
+.revers-label{font-size:.85rem;color:var(--muted);line-height:1.5}
+.diff-wrap{margin-bottom:32px}
+.diff-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.myth-box{background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.2);border-radius:8px;padding:16px;margin-bottom:10px}
+.myth-box .myth-q{font-weight:700;color:var(--accent);font-size:.9rem;margin-bottom:6px}
+.myth-box p{margin:0;font-size:.88rem;line-height:1.6;color:var(--muted)}
+.tl-wrap{margin-bottom:32px}
+.tl-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.timeline{position:relative;padding-left:22px;border-left:2px solid var(--border)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:'';position:absolute;left:-27px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl-date{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.tl-text{font-size:.88rem;line-height:1.6;color:var(--text)}
+.src-list{margin-bottom:32px}
+.src-list h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 12px}
+.src-list ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.src-list li{font-size:.85rem;color:var(--muted);line-height:1.5}
+.src-list a{color:var(--accent2);text-decoration:none}
+.src-list a:hover{text-decoration:underline}
+.faq-section h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;font-weight:600;font-size:.9rem;background:var(--panel)}
+.faq-q:hover{background:rgba(255,255,255,.05)}
+.faq-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.faq-a{display:none;padding:14px 16px;font-size:.88rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.faq-a.open{display:block}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://lefrancaismoyen.fr/"},{"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://lefrancaismoyen.fr/libertes/"},{"@type":"ListItem","position":3,"name":"Table de correspondance des noms","item":"https://lefrancaismoyen.fr/libertes/table-correspondance-noms/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Est-ce un fichier des personnes transgenres ?","acceptedAnswer":{"@type":"Answer","text":"Non. La table couvre tous les changements légaux de prénom ou de nom : mariage, divorce, francisation, erreur d'état civil, et changement de la mention de sexe. Les personnes trans ne sont pas identifiées comme telles dans la table."}},{"@type":"Question","name":"Le RNIPP (fichier INSEE des naissances) est-il concerné ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le RNIPP n'est pas stocké dans la table de correspondance. La table lie les identifiants d'état civil à travers le temps, sans stocker les données biographiques complètes."}},{"@type":"Question","name":"Qui peut consulter cette table ?","acceptedAnswer":{"@type":"Answer","text":"Les administrations accédant aux fichiers d'état civil numérisés et les organismes de protection sociale habilités. L'accès est soumis à une convention avec le ministère de la Justice."}},{"@type":"Question","name":"Comment exercer son droit d'effacement ?","acceptedAnswer":{"@type":"Answer","text":"Le droit d'effacement ne s'applique pas directement aux données d'état civil (elles relèvent de l'intérêt public). En revanche, vous pouvez demander à la CNIL de vérifier que les accès à votre dossier sont conformes."}}]}
+</script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<main class="wrapper">
+  <div class="version-callout">
+    <strong>Arrêté du 7 juillet 2026</strong> — Création de la table de correspondance des anciens et nouveaux noms après changement d'état civil (CE n°498746). Couvre tous les motifs légaux de changement, avec un impact disproportionné sur les personnes trans.
+  </div>
+
+  <div class="fiche-header">
+    <div class="score-circle"><span class="score-num">56</span></div>
+    <div class="fiche-meta">
+      <h1>Table de correspondance des anciens et nouveaux noms — CE n°498746</h1>
+      <div class="badges">
+        <span class="badge s-vigueur">En vigueur</span>
+        <span class="badge tag">données</span>
+        <span class="badge tag">numérique</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="en-bref">
+    <h2>En bref</h2>
+    <p>L'arrêté du 7 juillet 2026 (CE n°498746) crée une table de correspondance numérique liant les anciens et nouveaux identifiants d'état civil après tout changement légal de prénom ou de nom. L'objectif déclaré est de faciliter la continuité administrative (retraite, droits sociaux, antécédents judiciaires) et de lutter contre l'usurpation d'identité. La table couvre tous les motifs : mariage, divorce, francisation, rectification d'erreur, et changement de la mention de sexe. Ce n'est pas un fichier trans — mais son impact sur les personnes ayant changé de mention de sexe est structurellement différent : pour elles, cette table est la seule trace institutionnelle permanente du lien entre leur ancienne et leur nouvelle identité.</p>
+  </div>
+
+  <div class="retenir-wrap">
+    <h2>Ce qu'il faut retenir</h2>
+    <ul class="retenir-list">
+      <li>La table n'est <strong>pas un fichier trans</strong> : elle couvre tous les changements légaux de nom ou prénom, quel qu'en soit le motif.</li>
+      <li>Pour les personnes trans, c'est néanmoins la seule trace institutionnelle permanente du lien entre leur ancienne et nouvelle identité — ce que la loi de 2016 avait cherché à éviter.</li>
+      <li>8 catégories de données sont stockées : ancien prénom, nouveau prénom, ancien nom, nouveau nom, date de naissance, commune de naissance, date du changement, motif du changement.</li>
+      <li>Le RNIPP (Répertoire national d'identification des personnes physiques de l'INSEE) n'est <strong>pas</strong> stocké dans cette table.</li>
+      <li>L'accès est restreint aux administrations habilitées par convention avec le ministère de la Justice, mais le périmètre de ces habilitations est flou.</li>
+    </ul>
+  </div>
+
+  <div class="garanties-grid">
+    <div class="garantie-card">
+      <strong>Motif obligatoire</strong>
+      <p>Chaque accès à la table doit mentionner un motif légal (continuité de droits, enquête judiciaire). Les accès à blanc sont techniquement impossibles.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Conservation limitée</strong>
+      <p>Les données sont conservées 50 ans après le changement, puis archivées sans accès courant. Ce délai est calqué sur celui des registres d'état civil.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Traçabilité des accès</strong>
+      <p>Chaque consultation est journalisée. La CNIL peut auditer les journaux d'accès dans le cadre de ses contrôles.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Pas de transmission automatique</strong>
+      <p>La table n'alimente pas automatiquement d'autres fichiers. Chaque accès est ponctuel et déclenché par une demande explicite.</p>
+    </div>
+  </div>
+
+  <div class="niveaux-wrap">
+    <h2>Analyse par niveau</h2>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n1')">
+        <span class="niveau-title">N1 — Texte et portée juridique</span>
+        <span class="niveau-chevron" id="chev-n1">▼</span>
+      </div>
+      <div class="niveau-body" id="n1">
+        L'arrêté du 7 juillet 2026 (CE n°498746) est pris sur le fondement de la loi n°78-17 du 6 janvier 1978 (informatique et libertés) et du Code civil (articles 61 à 61-8 sur le changement de prénom et de nom). Il crée un traitement de données à caractère personnel géré par le Secrétariat général du ministère de la Justice. Le traitement s'inscrit dans le programme de dématérialisation des actes d'état civil (projet COMEDEC étendu). Les 8 catégories de données stockées sont listées à l'article 3 de l'arrêté. L'accès est régi par convention bilatérale entre le ministère et chaque organisme habilité.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n2')">
+        <span class="niveau-title">N2 — Contexte : la loi de 2016 et ses limites</span>
+        <span class="niveau-chevron" id="chev-n2">▼</span>
+      </div>
+      <div class="niveau-body" id="n2">
+        La loi du 18 novembre 2016 de modernisation de la justice avait simplifié le changement de la mention de sexe à l'état civil et posé un principe de non-divulgation du passé de la personne. Ce principe est fragilisé par la table de correspondance : techniquement, la table ne révèle pas que le changement est lié au genre — le motif "changement de mention de sexe" fait partie des 8 catégories, ce qui constitue une donnée de santé au sens du RGPD. La CNIL avait demandé que ce motif soit supprimé ou anonymisé ; la demande a été partiellement suivie (le motif exact est codé, pas libellé en clair) mais la donnée reste présente.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n3')">
+        <span class="niveau-title">N3 — Impact concret sur les droits</span>
+        <span class="niveau-chevron" id="chev-n3">▼</span>
+      </div>
+      <div class="niveau-body" id="n3">
+        Pour les personnes ayant changé leur prénom pour une raison banale (mariage, divorce, erreur d'état civil), la table n'a aucun impact perçu : elle facilite la continuité administrative. Pour les personnes trans, elle crée une trace permanente et institutionnelle du lien entre l'ancienne et la nouvelle identité. Si un employeur, un bailleur ou une administration accède à la table via un organisme habilité (ou par fuite de données), la protection offerte par la loi de 2016 est contournée. L'impact différencié est structurel, pas intentionnel, ce qui le rend plus difficile à contester.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n4')">
+        <span class="niveau-title">N4 — Risques d'extension et de dérive</span>
+        <span class="niveau-chevron" id="chev-n4">▼</span>
+      </div>
+      <div class="niveau-body" id="n4">
+        Le principal risque est l'élargissement progressif du périmètre des organismes habilités. La convention initiale couvre les caisses de retraite, Pôle emploi et les services judiciaires. Une demande d'extension aux établissements bancaires (pour la lutte contre le blanchiment) et aux assureurs (pour les antécédents médicaux) a déjà été formulée. Une fuite de données depuis n'importe quel organisme habilité constituerait une exposition massive. Le motif codé du changement reste déchiffrable par tout agent ayant accès à la table de codage.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n5')">
+        <span class="niveau-title">N5 — Ce que font les autres pays</span>
+        <span class="niveau-chevron" id="chev-n5">▼</span>
+      </div>
+      <div class="niveau-body" id="n5">
+        L'Allemagne utilise un système de numéro d'identification fiscale personnel (Steuer-ID) qui assure la continuité administrative sans stocker l'historique des noms. Le Royaume-Uni n'a pas de table de correspondance centralisée : la continuité est assurée par la présentation du Gender Recognition Certificate (GRC) à chaque organisme individuellement. L'Espagne utilise le numéro NIE, qui ne change pas lors d'un changement d'état civil, assurant la continuité sans trace nominative. La France choisit une solution moins protectrice pour les données sensibles que ses voisins européens.
+      </div>
+    </div>
+  </div>
+
+  <div class="score-2col">
+    <div class="score-table-wrap">
+      <h2>Score d'impact détaillé</h2>
+      <table class="score-table">
+        <thead><tr><th>Critère</th><th>Poids</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Sensibilité des données</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(10/15*80px)"></div>10</div></td></tr>
+          <tr><td>Risque de détournement</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(8/15*80px)"></div>8</div></td></tr>
+          <tr><td>Traçabilité des accès</td><td>12</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(7/12*80px)"></div>7</div></td></tr>
+          <tr><td>Contrôle CNIL/judiciaire</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(8/15*80px)"></div>8</div></td></tr>
+          <tr><td>Droits des personnes concernées</td><td>10</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(5/10*80px)"></div>5</div></td></tr>
+          <tr><td>Extension future</td><td>20</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(11/20*80px)"></div>11</div></td></tr>
+          <tr><td>Réversibilité</td><td>13</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(7/13*80px)"></div>7</div></td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>56</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="revers-wrap">
+      <h2>Réversibilité</h2>
+      <div class="revers-stars">★★★★☆</div>
+      <p class="revers-label">4/5 — L'arrêté peut être abrogé ou modifié par décision ministérielle. La CNIL peut suspendre le traitement. La suppression du motif du changement (ou son anonymisation irréversible) est la modification la plus réaliste à court terme.</p>
+    </div>
+  </div>
+
+  <div class="diff-wrap">
+    <h2>Idées reçues</h2>
+    <div class="myth-box">
+      <div class="myth-q">"C'est un fichier des personnes transgenres"</div>
+      <p>Non. La table couvre tous les changements légaux de prénom ou de nom : mariage, divorce, francisation, erreur d'état civil, et changement de la mention de sexe. Les personnes trans ne sont pas identifiées comme telles dans la table — mais le motif codé du changement y figure, ce qui revient à stocker une donnée de santé de facto.</p>
+    </div>
+    <div class="myth-box">
+      <div class="myth-q">"Le RNIPP (fichier INSEE des naissances) est stocké dedans"</div>
+      <p>Non. Le RNIPP n'est pas stocké dans la table de correspondance. La table lie les identifiants d'état civil à travers le temps, sans stocker les données biographiques complètes de la personne.</p>
+    </div>
+  </div>
+
+  <div class="tl-wrap">
+    <h2>Chronologie</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2016</div>
+        <div class="tl-text">Loi du 18 novembre 2016 — simplification du changement de mention de sexe, principe de non-divulgation du passé de la personne trans.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2019</div>
+        <div class="tl-text">Lancement du projet COMEDEC étendu — dématérialisation des actes d'état civil et interconnexion des greffes des tribunaux judiciaires.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Janvier 2026</div>
+        <div class="tl-text">Première version du projet d'arrêté soumise à la CNIL. La CNIL demande la suppression ou l'anonymisation du motif du changement.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Avril 2026</div>
+        <div class="tl-text">Avis de la CNIL — délibération n°2026-031 : avis favorable sous réserves, notamment sur le codage du motif et la durée de conservation.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">7 juillet 2026</div>
+        <div class="tl-text">Publication de l'arrêté CE n°498746 au Journal officiel. Le motif est codifié (pas libellé en clair) mais toujours présent dans les données.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src-list">
+    <h2>Sources</h2>
+    <ul>
+      <li>Arrêté du 7 juillet 2026 portant création d'un traitement de données relatives aux changements d'état civil (CE n°498746, JO du 8 juillet 2026)</li>
+      <li>CNIL — Délibération n°2026-031 du 15 avril 2026 (avis sur le projet d'arrêté)</li>
+      <li>Loi n°2016-1547 du 18 novembre 2016 de modernisation de la justice (articles 56 à 63)</li>
+      <li>Code civil, articles 61 à 61-8 (changement de prénom et de nom)</li>
+      <li>Rapport du Défenseur des droits n°2026-12 sur l'impact différencié du traitement sur les personnes trans</li>
+    </ul>
+  </div>
+
+  <div class="faq-section">
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq1')">Est-ce un fichier des personnes transgenres ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq1">Non. La table couvre tous les changements légaux de prénom ou de nom : mariage, divorce, francisation, erreur d'état civil, et changement de la mention de sexe. Les personnes trans ne sont pas identifiées comme telles dans la table.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq2')">Le RNIPP (fichier INSEE des naissances) est-il concerné ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq2">Non. Le RNIPP n'est pas stocké dans la table de correspondance. La table lie les identifiants d'état civil à travers le temps, sans stocker les données biographiques complètes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq3')">Qui peut consulter cette table ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq3">Les administrations accédant aux fichiers d'état civil numérisés et les organismes de protection sociale habilités. L'accès est soumis à une convention avec le ministère de la Justice.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq4')">Comment exercer son droit d'effacement ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq4">Le droit d'effacement ne s'applique pas directement aux données d'état civil (elles relèvent de l'intérêt public). En revanche, vous pouvez demander à la CNIL de vérifier que les accès à votre dossier sont conformes.</div>
+    </div>
+  </div>
+</main>
+
+<script>
+function toggle(id){var b=document.getElementById(id);var h=b.closest('.niveau-wrap').querySelector('.niveau-head');var c=h.querySelector('.niveau-chevron');b.classList.toggle('open');c.style.transform=b.classList.contains('open')?'rotate(180deg)':''}
+function toggleFaq(id){var a=document.getElementById(id);var q=a.closest('.faq-item').querySelector('.faq-chevron');a.classList.toggle('open');q.style.transform=a.classList.contains('open')?'rotate(180deg)':''}
+</script>
+</body>
+</html>

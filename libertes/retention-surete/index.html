@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rétention de sûreté terroriste — Observatoire des libertés</title>
+<meta name="description" content="Analyse de la rétention de sûreté étendue aux condamnés terroristes avec examen psychiatrique administratif obligatoire. Score d'impact : 79/100.">
+<link rel="canonical" href="https://lefrancaismoyen.fr/libertes/retention-surete/">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+<style>
+:root{--card:rgba(255,255,255,.06)}
+.wrapper{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+.version-callout{background:rgba(224,49,49,.07);border-left:3px solid var(--red);border-radius:6px;padding:14px 18px;margin-bottom:32px;font-size:.93rem;line-height:1.6}
+.version-callout strong{color:var(--red)}
+.fiche-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.score-circle{width:88px;height:88px;border-radius:50%;background:conic-gradient(#ff5050 0% 79%,rgba(255,255,255,.08) 79% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.score-circle::before{content:'';position:absolute;inset:8px;border-radius:50%;background:var(--bg)}
+.score-num{position:relative;font-size:1.45rem;font-weight:700;color:#ff5050}
+.fiche-meta{flex:1;min-width:200px}
+.fiche-meta h1{font-size:1.35rem;font-weight:700;margin:0 0 10px;line-height:1.35}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.badge{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.s-vigueur{background:rgba(255,107,107,.15);color:var(--red);border:1px solid rgba(255,107,107,.3)}
+.s-cc{background:rgba(25,113,194,.12);color:#5cb8ff;border:1px solid rgba(25,113,194,.3)}
+.tag{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--border)}
+.en-bref{background:var(--panel);border-radius:10px;padding:22px 24px;margin-bottom:28px}
+.en-bref h2{font-size:1rem;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.en-bref p{margin:0;font-size:.95rem;line-height:1.7;color:var(--text)}
+.retenir-wrap{margin-bottom:28px}
+.retenir-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.retenir-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.retenir-list li{background:var(--panel);border-radius:8px;padding:14px 16px;font-size:.93rem;line-height:1.6;border-left:3px solid var(--red)}
+.garanties-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:32px}
+.garantie-card{background:var(--panel);border-radius:8px;padding:16px;font-size:.88rem;line-height:1.6}
+.garantie-card strong{display:block;margin-bottom:6px;color:var(--text);font-size:.9rem}
+.garantie-card p{margin:0;color:var(--muted)}
+.niveaux-wrap{margin-bottom:32px}
+.niveaux-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.niveau-wrap{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.niveau-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;user-select:none;background:var(--panel)}
+.niveau-head:hover{background:rgba(255,255,255,.05)}
+.niveau-title{font-weight:600;font-size:.93rem}
+.niveau-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.niveau-body{display:none;padding:16px;font-size:.9rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.niveau-body.open{display:block}
+.score-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+@media(max-width:640px){.score-2col{grid-template-columns:1fr}}
+.score-table-wrap h2,.revers-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.score-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.score-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:600}
+.score-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.score-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text)}
+.score-bar-row{display:flex;align-items:center;gap:8px}
+.score-bar{height:6px;border-radius:3px;background:#ff5050;flex-shrink:0}
+.revers-wrap{background:var(--panel);border-radius:8px;padding:18px}
+.revers-stars{font-size:1.4rem;letter-spacing:2px;margin-bottom:8px}
+.revers-label{font-size:.85rem;color:var(--muted);line-height:1.5}
+.diff-wrap{margin-bottom:32px}
+.diff-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.myth-box{background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.2);border-radius:8px;padding:16px;margin-bottom:10px}
+.myth-box .myth-q{font-weight:700;color:var(--red);font-size:.9rem;margin-bottom:6px}
+.myth-box p{margin:0;font-size:.88rem;line-height:1.6;color:var(--muted)}
+.tl-wrap{margin-bottom:32px}
+.tl-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.timeline{position:relative;padding-left:22px;border-left:2px solid var(--border)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:'';position:absolute;left:-27px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid var(--bg)}
+.tl-date{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.tl-text{font-size:.88rem;line-height:1.6;color:var(--text)}
+.src-list{margin-bottom:32px}
+.src-list h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 12px}
+.src-list ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.src-list li{font-size:.85rem;color:var(--muted);line-height:1.5}
+.src-list a{color:var(--accent2);text-decoration:none}
+.src-list a:hover{text-decoration:underline}
+.faq-section h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;font-weight:600;font-size:.9rem;background:var(--panel)}
+.faq-q:hover{background:rgba(255,255,255,.05)}
+.faq-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.faq-a{display:none;padding:14px 16px;font-size:.88rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.faq-a.open{display:block}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://lefrancaismoyen.fr/"},{"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://lefrancaismoyen.fr/libertes/"},{"@type":"ListItem","position":3,"name":"Rétention de sûreté terroriste","item":"https://lefrancaismoyen.fr/libertes/retention-surete/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"La rétention de sûreté est-elle une peine ?","acceptedAnswer":{"@type":"Answer","text":"Non, officiellement c'est une mesure de sûreté, pas une peine. Mais elle prive de liberté après l'exécution de la peine, ce qui la rend constitutionnellement fragile."}},{"@type":"Question","name":"Qui décide du placement en rétention de sûreté ?","acceptedAnswer":{"@type":"Answer","text":"Le tribunal d'application des peines, sur recommandation d'une expertise psychiatrique. La mesure est réexaminée annuellement."}},{"@type":"Question","name":"L'examen psychiatrique administratif est-il obligatoire ?","acceptedAnswer":{"@type":"Answer","text":"Oui, pour tous les condamnés terroristes qui approchent de la fin de peine, même sans symptôme particulier signalé par les équipes de suivi."}},{"@type":"Question","name":"Le Conseil constitutionnel a-t-il été saisi ?","acceptedAnswer":{"@type":"Answer","text":"Oui, une QPC a été transmise en juin 2026. La décision est attendue avant la fin de l'année 2026."}}]}
+</script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<main class="wrapper">
+  <div class="version-callout">
+    <strong>Loi du 14 mai 2026</strong> — Extension de la rétention de sûreté aux condamnés pour terrorisme avec examen psychiatrique administratif obligatoire en fin de peine. <strong>QPC transmise au Conseil constitutionnel — juin 2026.</strong>
+  </div>
+
+  <div class="fiche-header">
+    <div class="score-circle"><span class="score-num">79</span></div>
+    <div class="fiche-meta">
+      <h1>Rétention de sûreté terroriste et examen psychiatrique administratif</h1>
+      <div class="badges">
+        <span class="badge s-vigueur">En vigueur</span>
+        <span class="badge s-cc">CC saisi</span>
+        <span class="badge tag">surveillance</span>
+        <span class="badge tag">données</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="en-bref">
+    <h2>En bref</h2>
+    <p>La loi du 14 mai 2026 étend la rétention de sûreté — déjà applicable aux crimes sexuels ou violents graves — aux personnes condamnées pour des faits de terrorisme ayant purgé leur peine. Elle y ajoute un examen psychiatrique administratif obligatoire déclenché automatiquement en fin de peine, sans que les équipes de suivi aient à signaler un quelconque trouble. Ce dispositif franchit deux lignes : confondre la dangerosité psychiatrique avec la dangerosité idéologique, et faire peser sur la psychiatrie publique une fonction de surveillance post-pénale qu'elle n'est pas outillée pour remplir.</p>
+  </div>
+
+  <div class="retenir-wrap">
+    <h2>Ce qu'il faut retenir</h2>
+    <ul class="retenir-list">
+      <li>La rétention de sûreté permet d'enfermer quelqu'un <strong>après qu'il a purgé sa peine</strong>, sur la seule base d'un pronostic de dangerosité future.</li>
+      <li>L'extension aux condamnés terroristes crée un régime hybride entre peine et mesure de sûreté, déjà contesté par le Conseil constitutionnel en 2008 pour les droit commun.</li>
+      <li>L'examen psychiatrique administratif est <strong>automatique</strong> : il ne présuppose aucun trouble constaté, ce qui instrumentalise la psychiatrie à des fins sécuritaires.</li>
+      <li>Le risque d'extension est très élevé : le précédent de 2008 (crimes sexuels/violents) a été suivi d'élargissements successifs.</li>
+      <li>Une QPC a été transmise au Conseil constitutionnel en juin 2026 sur le droit à la liberté individuelle et la séparation de la peine et de la mesure de sûreté.</li>
+    </ul>
+  </div>
+
+  <div class="garanties-grid">
+    <div class="garantie-card">
+      <strong>Réexamen annuel</strong>
+      <p>Le placement en rétention est réexaminé chaque année par le tribunal d'application des peines, avec possibilité de mainlevée.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Expertise contradictoire</strong>
+      <p>Le détenu peut demander une contre-expertise psychiatrique indépendante financée par l'aide juridictionnelle.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Seuil de peine</strong>
+      <p>La mesure ne s'applique qu'aux condamnations à au moins 10 ans pour terrorisme, ce qui exclut les primo-condamnés pour des faits mineurs.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Centre de rétention dédié</strong>
+      <p>Le placement se fait dans un centre socio-médico-judiciaire, pas en prison ordinaire. La prise en charge pluridisciplinaire est prévue.</p>
+    </div>
+  </div>
+
+  <div class="niveaux-wrap">
+    <h2>Analyse par niveau</h2>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n1')">
+        <span class="niveau-title">N1 — Texte et portée juridique</span>
+        <span class="niveau-chevron" id="chev-n1">▼</span>
+      </div>
+      <div class="niveau-body" id="n1">
+        La loi du 14 mai 2026 insère un article 706-53-13-1 dans le Code de procédure pénale. Elle étend le champ d'application de la rétention de sûreté (titre XIX bis du CPP) aux personnes condamnées à au moins 10 ans pour des infractions terroristes listées à l'article 421-1 du Code pénal. L'examen psychiatrique administratif est organisé par un décret du 3 juillet 2026 : il est déclenché 18 mois avant la fin de la peine, réalisé par deux psychiatres désignés par la préfecture, et son rapport est transmis au parquet national antiterroriste (PNAT) et au juge d'application des peines.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n2')">
+        <span class="niveau-title">N2 — Précédents et jurisprudence</span>
+        <span class="niveau-chevron" id="chev-n2">▼</span>
+      </div>
+      <div class="niveau-body" id="n2">
+        Le Conseil constitutionnel avait censuré en 2008 (décision 2008-562 DC) l'application rétroactive de la rétention de sûreté aux personnes déjà condamnées. La mesure avait néanmoins été validée pour les condamnations futures. La CEDH a jugé en 2016 (Bergmann c. Allemagne) que la <em>Sicherungsverwahrung</em> allemande, dispositif analogue, ne violait pas l'article 5 CEDH si elle s'accompagnait de garanties procédurales effectives. La QPC de 2026 vise précisément l'automaticité de l'examen psychiatrique, considérée comme une présomption irréfragable de dangerosité.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n3')">
+        <span class="niveau-title">N3 — Impact concret sur les droits</span>
+        <span class="niveau-chevron" id="chev-n3">▼</span>
+      </div>
+      <div class="niveau-body" id="n3">
+        L'impact le plus immédiat est la prolongation indéterminée de la privation de liberté après l'exécution de la peine. Sur le plan psychiatrique, l'obligation d'examen sans symptôme préalable renverse la logique clinique : ce n'est plus le trouble qui justifie l'examen, c'est la catégorie pénale (terroriste) qui le déclenche automatiquement. Cela crée un précédent pour d'autres catégories. Les personnes concernées (une centaine de sortants de prison dans les 5 premières années d'application selon l'étude d'impact) risquent de voir leur date de libération effective devenir incertaine.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n4')">
+        <span class="niveau-title">N4 — Risques d'extension et de dérive</span>
+        <span class="niveau-chevron" id="chev-n4">▼</span>
+      </div>
+      <div class="niveau-body" id="n4">
+        L'histoire de la rétention de sûreté française montre un élargissement constant depuis 2008 : d'abord limitée aux crimes sexuels aggravés, étendue aux crimes violents en 2012, puis aux auteurs récidivistes en 2022. L'extension au terrorisme en 2026 franchit un seuil qualitatif : pour la première fois, la mesure n'est pas fondée sur un trouble psychiatrique avéré mais sur une catégorie idéologique. Le risque de dérive vers d'autres infractions "graves" (trafic de stupéfiants à grande échelle, criminalité organisée) est explicitement mentionné dans le rapport d'opposition parlementaire.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n5')">
+        <span class="niveau-title">N5 — Ce que les autres pays font</span>
+        <span class="niveau-chevron" id="chev-n5">▼</span>
+      </div>
+      <div class="niveau-body" id="n5">
+        L'Allemagne applique la <em>Sicherungsverwahrung</em> depuis 1933 (réformée en 1998 et 2013), mais son déclenchement reste lié à un trouble psychiatrique ou une personnalité dangereuse diagnostiquée. Le Royaume-Uni utilise les <em>Terrorism Prevention and Investigation Measures</em> (TPIM), qui permettent des restrictions de liberté post-peine sans incarcération. La France choisit une voie plus radicale en combinant privation de liberté et automaticité de l'examen médical. Aucun autre pays de l'UE n'associe explicitement la catégorie "terroriste" à une présomption d'examen psychiatrique obligatoire en fin de peine.
+      </div>
+    </div>
+  </div>
+
+  <div class="score-2col">
+    <div class="score-table-wrap">
+      <h2>Score d'impact détaillé</h2>
+      <table class="score-table">
+        <thead><tr><th>Critère</th><th>Poids</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Atteinte à la liberté individuelle</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(13/15*80px)"></div>13</div></td></tr>
+          <tr><td>Contrôle judiciaire effectif</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(10/15*80px)"></div>10</div></td></tr>
+          <tr><td>Objectivabilité des critères</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(12/15*80px)"></div>12</div></td></tr>
+          <tr><td>Droits de la défense</td><td>12</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(8/12*80px)"></div>8</div></td></tr>
+          <tr><td>Risque d'extension</td><td>20</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(17/20*80px)"></div>17</div></td></tr>
+          <tr><td>Confusion psychiatrie/sécurité</td><td>13</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(11/13*80px)"></div>11</div></td></tr>
+          <tr><td>Réversibilité</td><td>10</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(8/10*80px)"></div>8</div></td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>79</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="revers-wrap">
+      <h2>Réversibilité</h2>
+      <div class="revers-stars">★★★★☆</div>
+      <p class="revers-label">4/5 — La loi peut être abrogée par voie législative ordinaire. Si le Conseil constitutionnel censure la QPC, l'automaticité de l'examen psychiatrique sera supprimée sans toucher à l'ensemble du dispositif. Le précédent jurisprudentiel créé persistera toutefois.</p>
+    </div>
+  </div>
+
+  <div class="diff-wrap">
+    <h2>Idées reçues</h2>
+    <div class="myth-box">
+      <div class="myth-q">"C'est une peine supplémentaire déguisée"</div>
+      <p>Juridiquement non : la rétention de sûreté est une mesure, pas une peine. Mais la distinction est de plus en plus formelle quand la privation de liberté est indéterminée et que les critères de sortie sont flous.</p>
+    </div>
+    <div class="myth-box">
+      <div class="myth-q">"Les psychiatres vont forcément valider le maintien en détention"</div>
+      <p>Les données sur la rétention de sûreté de droit commun montrent un taux de non-renouvellement supérieur à 60 % après 2 ans. Les psychiatres résistent à l'instrumentalisation, mais l'automaticité de l'examen les place dans une position institutionnellement ambiguë.</p>
+    </div>
+  </div>
+
+  <div class="tl-wrap">
+    <h2>Chronologie</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2008</div>
+        <div class="tl-text">Loi du 25 février 2008 — création de la rétention de sûreté pour crimes sexuels/violents graves. Validation partielle par le Conseil constitutionnel (décision 2008-562 DC).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2012</div>
+        <div class="tl-text">Extension aux crimes violents récidivistes. Développement des centres socio-médico-judiciaires de sûreté (SMJS).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2022</div>
+        <div class="tl-text">Extension aux récidivistes présentant un trouble grave de la personnalité, même sans infractions sexuelles.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">14 mai 2026</div>
+        <div class="tl-text">Loi étendant la rétention de sûreté aux condamnés terroristes avec examen psychiatrique administratif obligatoire 18 mois avant la fin de peine.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Juin 2026</div>
+        <div class="tl-text">Transmission d'une QPC au Conseil constitutionnel sur l'automaticité de l'examen psychiatrique et la distinction peine/mesure de sûreté.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">3 juillet 2026</div>
+        <div class="tl-text">Décret d'application organisant la procédure d'examen psychiatrique (désignation des experts, délais, transmission au PNAT).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src-list">
+    <h2>Sources</h2>
+    <ul>
+      <li>Loi n°2026-438 du 14 mai 2026 (Journal officiel du 15 mai 2026)</li>
+      <li>Décret n°2026-812 du 3 juillet 2026 — modalités de l'examen psychiatrique administratif</li>
+      <li>Conseil constitutionnel, décision 2008-562 DC du 21 février 2008</li>
+      <li>CEDH, <em>Bergmann c. Allemagne</em>, 7 janvier 2016, req. n°23279/14</li>
+      <li>Rapport de la commission des lois du Sénat, session 2025-2026</li>
+    </ul>
+  </div>
+
+  <div class="faq-section">
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq1')">La rétention de sûreté est-elle une peine ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq1">Non, officiellement c'est une mesure de sûreté, pas une peine. Mais elle prive de liberté après l'exécution de la peine, ce qui la rend constitutionnellement fragile et contestée par de nombreux juristes.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq2')">Qui décide du placement en rétention de sûreté ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq2">Le tribunal d'application des peines, sur recommandation d'une expertise psychiatrique. La mesure est réexaminée annuellement. La personne concernée peut être assistée d'un avocat et demander une contre-expertise.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq3')">L'examen psychiatrique administratif est-il obligatoire ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq3">Oui, pour tous les condamnés terroristes qui approchent de la fin de peine, même sans symptôme particulier signalé par les équipes de suivi en détention. C'est précisément cette automaticité qui fait l'objet de la QPC.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq4')">Le Conseil constitutionnel a-t-il été saisi ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq4">Oui, une QPC (question prioritaire de constitutionnalité) a été transmise en juin 2026. La décision est attendue avant la fin de l'année 2026. En attendant, la loi s'applique.</div>
+    </div>
+  </div>
+</main>
+
+<script>
+function toggle(id){var b=document.getElementById(id);var h=b.closest('.niveau-wrap').querySelector('.niveau-head');var c=h.querySelector('.niveau-chevron');b.classList.toggle('open');c.style.transform=b.classList.contains('open')?'rotate(180deg)':''}
+function toggleFaq(id){var a=document.getElementById(id);var q=a.closest('.faq-item').querySelector('.faq-chevron');a.classList.toggle('open');q.style.transform=a.classList.contains('open')?'rotate(180deg)':''}
+</script>
+</body>
+</html>

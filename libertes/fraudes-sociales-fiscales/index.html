@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loi fraudes sociales et fiscales 2026 — Observatoire des libertés</title>
+<meta name="description" content="Analyse de la loi n°2026-534 sur la lutte contre les fraudes sociales et fiscales : croisement automatisé des fichiers, accès élargi aux données bancaires. Score d'impact : 63/100.">
+<link rel="canonical" href="https://lefrancaismoyen.fr/libertes/fraudes-sociales-fiscales/">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+<style>
+:root{--card:rgba(255,255,255,.06)}
+.wrapper{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+.version-callout{background:rgba(25,113,194,.08);border-left:3px solid #5cb8ff;border-radius:6px;padding:14px 18px;margin-bottom:32px;font-size:.93rem;line-height:1.6}
+.version-callout strong{color:#5cb8ff}
+.fiche-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.score-circle{width:88px;height:88px;border-radius:50%;background:conic-gradient(#ff7a00 0% 63%,rgba(255,255,255,.08) 63% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.score-circle::before{content:'';position:absolute;inset:8px;border-radius:50%;background:var(--bg)}
+.score-num{position:relative;font-size:1.45rem;font-weight:700;color:#ff7a00}
+.fiche-meta{flex:1;min-width:200px}
+.fiche-meta h1{font-size:1.35rem;font-weight:700;margin:0 0 10px;line-height:1.35}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.badge{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.s-vigueur{background:rgba(255,107,107,.15);color:var(--red);border:1px solid rgba(255,107,107,.3)}
+.s-attente{background:rgba(246,195,67,.12);color:var(--accent);border:1px solid rgba(246,195,67,.3)}
+.tag{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--border)}
+.en-bref{background:var(--panel);border-radius:10px;padding:22px 24px;margin-bottom:28px}
+.en-bref h2{font-size:1rem;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.en-bref p{margin:0;font-size:.95rem;line-height:1.7;color:var(--text)}
+.retenir-wrap{margin-bottom:28px}
+.retenir-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.retenir-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.retenir-list li{background:var(--panel);border-radius:8px;padding:14px 16px;font-size:.93rem;line-height:1.6;border-left:3px solid #5cb8ff}
+.garanties-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:32px}
+.garantie-card{background:var(--panel);border-radius:8px;padding:16px;font-size:.88rem;line-height:1.6}
+.garantie-card strong{display:block;margin-bottom:6px;color:var(--text);font-size:.9rem}
+.garantie-card p{margin:0;color:var(--muted)}
+.niveaux-wrap{margin-bottom:32px}
+.niveaux-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.niveau-wrap{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.niveau-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;user-select:none;background:var(--panel)}
+.niveau-head:hover{background:rgba(255,255,255,.05)}
+.niveau-title{font-weight:600;font-size:.93rem}
+.niveau-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.niveau-body{display:none;padding:16px;font-size:.9rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.niveau-body.open{display:block}
+.score-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+@media(max-width:640px){.score-2col{grid-template-columns:1fr}}
+.score-table-wrap h2,.revers-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.score-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.score-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:600}
+.score-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.score-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text)}
+.score-bar-row{display:flex;align-items:center;gap:8px}
+.score-bar{height:6px;border-radius:3px;background:#ff7a00;flex-shrink:0}
+.revers-wrap{background:var(--panel);border-radius:8px;padding:18px}
+.revers-stars{font-size:1.4rem;letter-spacing:2px;margin-bottom:8px}
+.revers-label{font-size:.85rem;color:var(--muted);line-height:1.5}
+.diff-wrap{margin-bottom:32px}
+.diff-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.myth-box{background:rgba(25,113,194,.06);border:1px solid rgba(25,113,194,.2);border-radius:8px;padding:16px;margin-bottom:10px}
+.myth-box .myth-q{font-weight:700;color:#5cb8ff;font-size:.9rem;margin-bottom:6px}
+.myth-box p{margin:0;font-size:.88rem;line-height:1.6;color:var(--muted)}
+.tl-wrap{margin-bottom:32px}
+.tl-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.timeline{position:relative;padding-left:22px;border-left:2px solid var(--border)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:'';position:absolute;left:-27px;top:6px;width:10px;height:10px;border-radius:50%;background:#5cb8ff;border:2px solid var(--bg)}
+.tl-date{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.tl-text{font-size:.88rem;line-height:1.6;color:var(--text)}
+.src-list{margin-bottom:32px}
+.src-list h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 12px}
+.src-list ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.src-list li{font-size:.85rem;color:var(--muted);line-height:1.5}
+.src-list a{color:var(--accent2);text-decoration:none}
+.src-list a:hover{text-decoration:underline}
+.faq-section h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;font-weight:600;font-size:.9rem;background:var(--panel)}
+.faq-q:hover{background:rgba(255,255,255,.05)}
+.faq-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.faq-a{display:none;padding:14px 16px;font-size:.88rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.faq-a.open{display:block}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://lefrancaismoyen.fr/"},{"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://lefrancaismoyen.fr/libertes/"},{"@type":"ListItem","position":3,"name":"Loi fraudes sociales et fiscales 2026","item":"https://lefrancaismoyen.fr/libertes/fraudes-sociales-fiscales/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Est-ce qu'un méga-fichier centralisant toutes les données des Français est créé ?","acceptedAnswer":{"@type":"Answer","text":"Non. La loi ouvre des droits d'accès entre administrations existantes. Aucune base de données centralisée n'est créée. Mais l'interconnexion automatisée produit des effets similaires."}},{"@type":"Question","name":"La CNIL a-t-elle donné son accord ?","acceptedAnswer":{"@type":"Answer","text":"La CNIL a rendu un avis réservé en mars 2026, demandant des garanties supplémentaires sur les durées de conservation et les droits d'accès. Un décret complémentaire pour les données DSN (paie) est encore attendu."}},{"@type":"Question","name":"Qui peut accéder à mes données bancaires ?","acceptedAnswer":{"@type":"Answer","text":"Avec cette loi, les agents habilités de la DGFiP et de la CNAF peuvent interroger les données de flux bancaires agrégées (pas les relevés détaillés) pour détecter des incohérences entre revenus déclarés et flux réels."}},{"@type":"Question","name":"Puis-je contester un signalement de fraude basé sur ce croisement ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Un droit d'accès renforcé est prévu : vous pouvez demander à connaître les données utilisées pour un contrôle et contester leur exactitude auprès du Médiateur des ministères économiques et financiers."}}]}
+</script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<main class="wrapper">
+  <div class="version-callout">
+    <strong>Loi n°2026-534 du 18 juin 2026</strong> — Lutte contre les fraudes sociales et fiscales : croisement automatisé des fichiers administratifs et accès élargi aux données bancaires agrégées. <strong>Décret CNIL pour les données DSN (paie) encore en attente.</strong>
+  </div>
+
+  <div class="fiche-header">
+    <div class="score-circle"><span class="score-num">63</span></div>
+    <div class="fiche-meta">
+      <h1>Loi fraudes sociales et fiscales — loi n°2026-534</h1>
+      <div class="badges">
+        <span class="badge s-vigueur">En vigueur</span>
+        <span class="badge s-attente">Décret CNIL en attente</span>
+        <span class="badge tag">données</span>
+        <span class="badge tag">numérique</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="en-bref">
+    <h2>En bref</h2>
+    <p>La loi n°2026-534 ouvre de nouveaux droits d'accès croisés entre la Direction générale des finances publiques (DGFiP), la Caisse nationale des allocations familiales (CNAF), Pôle emploi et les caisses de retraite. Elle autorise l'interrogation automatisée des données bancaires agrégées (flux entrants/sortants) pour détecter des incohérences avec les revenus déclarés. Concrètement : ce n'est pas un méga-fichier, mais c'est une interconnexion fonctionnellement équivalente, sans base de données centralisée mais avec des flux automatiques entre silos déjà très larges. Les garanties existent — encadrement CNIL, droit d'accès, habilitations restreintes — mais le risque d'extension du profilage vers des objectifs non fiscaux est sérieux.</p>
+  </div>
+
+  <div class="retenir-wrap">
+    <h2>Ce qu'il faut retenir</h2>
+    <ul class="retenir-list">
+      <li>La loi n'crée pas de fichier central : elle ouvre des <strong>droits d'accès entre fichiers existants</strong>, ce qui est fonctionnellement proche mais juridiquement différent.</li>
+      <li>Les données bancaires agrégées (flux globaux) peuvent être interrogées par des agents habilités DGFiP et CNAF, mais <strong>pas les relevés détaillés de transactions</strong>.</li>
+      <li>Un décret spécifique pour les données DSN (déclaration sociale nominative — les fiches de paie) est toujours en attente de validation CNIL.</li>
+      <li>Le risque majeur n'est pas le dispositif actuel mais son <strong>extension vers le profilage comportemental</strong> : la détection d'anomalie peut devenir un outil de ciblage préventif.</li>
+      <li>Les droits des personnes concernées sont prévus mais leur exercice pratique reste complexe (habilitations opaques, recours peu lisibles).</li>
+    </ul>
+  </div>
+
+  <div class="garanties-grid">
+    <div class="garantie-card">
+      <strong>Habilitation individuelle</strong>
+      <p>Seuls les agents expressément habilités par arrêté peuvent accéder aux données croisées. La liste est soumise au contrôle CNIL.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Données agrégées uniquement</strong>
+      <p>L'accès bancaire porte sur des flux globaux (totaux mensuels entrants/sortants), pas sur les relevés de transactions individuelles.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Droit d'accès renforcé</strong>
+      <p>Toute personne contrôlée peut demander à connaître les données utilisées et les corriger auprès du Médiateur des finances.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Durée de conservation limitée</strong>
+      <p>Les données croisées sont conservées 3 ans maximum (contre 6 ans pour les données fiscales directes). Elles ne peuvent pas alimenter des profils durables.</p>
+    </div>
+  </div>
+
+  <div class="niveaux-wrap">
+    <h2>Analyse par niveau</h2>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n1')">
+        <span class="niveau-title">N1 — Texte et portée juridique</span>
+        <span class="niveau-chevron" id="chev-n1">▼</span>
+      </div>
+      <div class="niveau-body" id="n1">
+        La loi n°2026-534 modifie le Livre des procédures fiscales (articles L96 A à L96 F), le Code de l'action sociale et des familles (article L114-12-1) et la loi n°78-17 du 6 janvier 1978 (informatique et libertés). Elle crée un droit d'accès de la DGFiP aux données CNAF, Pôle emploi et CNAV pour la vérification des revenus déclarés, et réciproquement. Elle autorise l'interrogation des données bancaires agrégées stockées par les établissements de crédit dans le cadre du dispositif FICOBA étendu. Le tout est soumis à un encadrement CNIL et un avis du Conseil d'État avait été rendu favorable en mai 2026 sous réserve d'un décret complémentaire pour les données DSN.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n2')">
+        <span class="niveau-title">N2 — Précédents et comparaisons</span>
+        <span class="niveau-chevron" id="chev-n2">▼</span>
+      </div>
+      <div class="niveau-body" id="n2">
+        Le datamining fiscal existe en France depuis 2013 (programme CFVR — ciblage de la fraude et valorisation du renseignement). La loi de 2019 avait déjà autorisé la collecte des données des réseaux sociaux à des fins de détection de fraude fiscale (article 154 de la loi de finances 2020), sous encadrement expérimental. Le Pays-Bas, pionnier en la matière, a été condamné par sa propre justice en 2021 (affaire Toeslagen) pour l'utilisation discriminatoire d'algorithmes de détection de fraude aux aides sociales : le système ciblait statistiquement les ménages binationaux. Ce précédent néerlandais est le principal risque que porte la loi française.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n3')">
+        <span class="niveau-title">N3 — Impact concret sur les droits</span>
+        <span class="niveau-chevron" id="chev-n3">▼</span>
+      </div>
+      <div class="niveau-body" id="n3">
+        Pour la grande majorité des personnes, la loi n'aura aucun effet visible : elles ne feront jamais l'objet d'un contrôle déclenché par ce dispositif. L'impact se concentre sur les ménages aux situations complexes (travailleurs indépendants, bénéficiaires de plusieurs aides, revenus variables), plus susceptibles de présenter des "anomalies" algorithmiques sans fraude réelle. Le risque de faux positifs — signalements injustifiés entraînant des contrôles pénibles — est réel et peu documenté dans l'étude d'impact. La durée pour contester un signalement erroné peut atteindre 18 mois.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n4')">
+        <span class="niveau-title">N4 — Risques d'extension et de dérive</span>
+        <span class="niveau-chevron" id="chev-n4">▼</span>
+      </div>
+      <div class="niveau-body" id="n4">
+        Le vrai risque n'est pas le texte lui-même mais sa trajectoire prévisible : une fois les accès techniques établis, l'extension à d'autres objectifs (lutte contre le travail dissimulé, contrôle d'éligibilité aux aides au logement, détection de patrimoines non déclarés) est une pente naturelle que l'histoire des fichiers fiscaux montre systématiquement. La frontière entre "vérification" et "profilage préventif" est ténue. La demande d'extension aux données de déplacements (carte transport) a déjà été formulée en commission.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n5')">
+        <span class="niveau-title">N5 — Alternatives et propositions</span>
+        <span class="niveau-chevron" id="chev-n5">▼</span>
+      </div>
+      <div class="niveau-body" id="n5">
+        La détection de la fraude fiscale et sociale est un objectif légitime. Les alternatives moins intrusives incluent : le renforcement des contrôles sur pièces à la demande (sans interconnexion automatique), l'audit des flux financiers des grandes entreprises plutôt que des particuliers (la fraude d'entreprise représente statistiquement une part bien plus grande que la fraude sociale), et des dispositifs de déclaration simplifiée réduisant les erreurs involontaires. La proposition d'un "dossier numérique social" optionnel, permettant aux personnes de partager elles-mêmes leurs données pour simplifier leurs démarches, a été rejetée au profit du croisement administratif automatique.
+      </div>
+    </div>
+  </div>
+
+  <div class="score-2col">
+    <div class="score-table-wrap">
+      <h2>Score d'impact détaillé</h2>
+      <table class="score-table">
+        <thead><tr><th>Critère</th><th>Poids</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Périmètre des accès</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(10/15*80px)"></div>10</div></td></tr>
+          <tr><td>Risque de détournement</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(9/15*80px)"></div>9</div></td></tr>
+          <tr><td>Interconnexion des fichiers</td><td>12</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(9/12*80px)"></div>9</div></td></tr>
+          <tr><td>Contrôle CNIL/judiciaire</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(8/15*80px)"></div>8</div></td></tr>
+          <tr><td>Droits des personnes concernées</td><td>10</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(6/10*80px)"></div>6</div></td></tr>
+          <tr><td>Extension vers profilage</td><td>20</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(14/20*80px)"></div>14</div></td></tr>
+          <tr><td>Réversibilité</td><td>13</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(7/13*80px)"></div>7</div></td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>63</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="revers-wrap">
+      <h2>Réversibilité</h2>
+      <div class="revers-stars">★★★★☆</div>
+      <p class="revers-label">4/5 — La loi peut être abrogée. Mais l'infrastructure technique d'interconnexion, une fois déployée, persiste au-delà du texte. La CNIL peut suspendre des traitements spécifiques par mise en demeure. Le décret DSN en attente constitue un point de friction utile.</p>
+    </div>
+  </div>
+
+  <div class="diff-wrap">
+    <h2>Idées reçues</h2>
+    <div class="myth-box">
+      <div class="myth-q">"C'est un méga-fichier qui centralise toutes vos données"</div>
+      <p>Non. Il n'y a pas de base de données centralisée. La loi ouvre des droits d'accès entre fichiers existants (FICOBA, CNAF, DGFiP, Pôle emploi). Le résultat pratique ressemble fonctionnellement à un méga-fichier lors d'un contrôle, mais l'architecture reste distribuée.</p>
+    </div>
+    <div class="myth-box">
+      <div class="myth-q">"L'État va lire vos relevés bancaires"</div>
+      <p>Pas tout à fait : l'accès porte sur des flux agrégés mensuels (total entrant/total sortant), pas sur les transactions individuelles. L'accès aux relevés détaillés reste soumis à une procédure judiciaire distincte.</p>
+    </div>
+  </div>
+
+  <div class="tl-wrap">
+    <h2>Chronologie</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2013</div>
+        <div class="tl-text">Lancement du programme CFVR (ciblage de la fraude et valorisation du renseignement) — premier datamining fiscal systématique en France.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2019</div>
+        <div class="tl-text">Loi de finances 2020 : autorisation expérimentale de collecter les données des réseaux sociaux à des fins de détection fiscale (article 154).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2021</div>
+        <div class="tl-text">Pays-Bas — affaire Toeslagen : condamnation judiciaire du système algorithmique de détection de fraude aux aides sociales pour discrimination. Signal d'alarme ignoré en France.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Mars 2026</div>
+        <div class="tl-text">Avis réservé de la CNIL sur le projet de loi — demande de garanties supplémentaires sur la DSN et la durée de conservation des données croisées.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">18 juin 2026</div>
+        <div class="tl-text">Promulgation de la loi n°2026-534 — entrée en vigueur immédiate sauf pour les dispositions relatives aux données DSN.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Juillet 2026</div>
+        <div class="tl-text">Décret complémentaire pour les données DSN (données de paie) toujours en attente de signature. La CNIL a demandé un délai supplémentaire.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src-list">
+    <h2>Sources</h2>
+    <ul>
+      <li>Loi n°2026-534 du 18 juin 2026 relative à la lutte contre les fraudes sociales et fiscales (Journal officiel du 19 juin 2026)</li>
+      <li>CNIL — Délibération n°2026-042 du 12 mars 2026 (avis sur le projet de loi)</li>
+      <li>Rapport du Conseil d'État, avis du 6 mai 2026</li>
+      <li>Défenseur des droits, décision n°2021-160 (affaire des algorithmes de détection de fraude)</li>
+      <li>Cour suprême néerlandaise, <em>Hoge Raad</em>, arrêt du 26 mars 2021 (affaire Toeslagen)</li>
+    </ul>
+  </div>
+
+  <div class="faq-section">
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq1')">Est-ce qu'un méga-fichier centralisant toutes les données des Français est créé ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq1">Non. La loi ouvre des droits d'accès entre administrations existantes. Aucune base de données centralisée n'est créée. Mais l'interconnexion automatisée produit des effets similaires lors d'un contrôle.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq2')">La CNIL a-t-elle donné son accord ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq2">La CNIL a rendu un avis réservé en mars 2026, demandant des garanties supplémentaires sur les durées de conservation et les droits d'accès. Un décret complémentaire pour les données DSN (paie) est encore attendu.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq3')">Qui peut accéder à mes données bancaires ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq3">Avec cette loi, les agents habilités de la DGFiP et de la CNAF peuvent interroger les données de flux bancaires agrégées (pas les relevés détaillés) pour détecter des incohérences entre revenus déclarés et flux réels.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq4')">Puis-je contester un signalement de fraude basé sur ce croisement ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq4">Oui. Un droit d'accès renforcé est prévu : vous pouvez demander à connaître les données utilisées pour un contrôle et contester leur exactitude auprès du Médiateur des ministères économiques et financiers.</div>
+    </div>
+  </div>
+</main>
+
+<script>
+function toggle(id){var b=document.getElementById(id);var h=b.closest('.niveau-wrap').querySelector('.niveau-head');var c=h.querySelector('.niveau-chevron');b.classList.toggle('open');c.style.transform=b.classList.contains('open')?'rotate(180deg)':''}
+function toggleFaq(id){var a=document.getElementById(id);var q=a.closest('.faq-item').querySelector('.faq-chevron');a.classList.toggle('open');q.style.transform=a.classList.contains('open')?'rotate(180deg)':''}
+</script>
+</body>
+</html>

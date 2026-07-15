@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Report des protections IA à haut risque — Omnibus IA — Observatoire des libertés</title>
+<meta name="description" content="Analyse du report des obligations de l'IA Act pour les systèmes IA autonomes à haut risque. Règlement Omnibus IA adopté le 29 juin 2026. Score d'impact : 46/100.">
+<link rel="canonical" href="https://lefrancaismoyen.fr/libertes/ia-haut-risque-report/">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+<style>
+:root{--card:rgba(255,255,255,.06)}
+.wrapper{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+.version-callout{background:rgba(25,113,194,.08);border-left:3px solid #5cb8ff;border-radius:6px;padding:14px 18px;margin-bottom:32px;font-size:.93rem;line-height:1.6}
+.version-callout strong{color:#5cb8ff}
+.fiche-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.score-circle{width:88px;height:88px;border-radius:50%;background:conic-gradient(var(--accent) 0% 46%,rgba(255,255,255,.08) 46% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.score-circle::before{content:'';position:absolute;inset:8px;border-radius:50%;background:var(--bg)}
+.score-num{position:relative;font-size:1.45rem;font-weight:700;color:var(--accent)}
+.fiche-meta{flex:1;min-width:200px}
+.fiche-meta h1{font-size:1.35rem;font-weight:700;margin:0 0 10px;line-height:1.35}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.badge{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.s-vigueur{background:rgba(255,107,107,.15);color:var(--red);border:1px solid rgba(255,107,107,.3)}
+.tag{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--border)}
+.en-bref{background:var(--panel);border-radius:10px;padding:22px 24px;margin-bottom:28px}
+.en-bref h2{font-size:1rem;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.en-bref p{margin:0;font-size:.95rem;line-height:1.7;color:var(--text)}
+.retenir-wrap{margin-bottom:28px}
+.retenir-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.retenir-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.retenir-list li{background:var(--panel);border-radius:8px;padding:14px 16px;font-size:.93rem;line-height:1.6;border-left:3px solid #5cb8ff}
+.garanties-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:32px}
+.garantie-card{background:var(--panel);border-radius:8px;padding:16px;font-size:.88rem;line-height:1.6}
+.garantie-card strong{display:block;margin-bottom:6px;color:var(--text);font-size:.9rem}
+.garantie-card p{margin:0;color:var(--muted)}
+.niveaux-wrap{margin-bottom:32px}
+.niveaux-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.niveau-wrap{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.niveau-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;user-select:none;background:var(--panel)}
+.niveau-head:hover{background:rgba(255,255,255,.05)}
+.niveau-title{font-weight:600;font-size:.93rem}
+.niveau-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.niveau-body{display:none;padding:16px;font-size:.9rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.niveau-body.open{display:block}
+.dates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0}
+.date-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
+.date-card .date-val{font-size:1.1rem;font-weight:700;color:#5cb8ff;margin-bottom:4px}
+.date-card .date-label{font-size:.8rem;color:var(--muted);line-height:1.4}
+.score-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+@media(max-width:640px){.score-2col{grid-template-columns:1fr}}
+.score-table-wrap h2,.revers-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.score-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.score-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:600}
+.score-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.score-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text)}
+.score-bar-row{display:flex;align-items:center;gap:8px}
+.score-bar{height:6px;border-radius:3px;background:var(--accent);flex-shrink:0}
+.revers-wrap{background:var(--panel);border-radius:8px;padding:18px}
+.revers-stars{font-size:1.4rem;letter-spacing:2px;margin-bottom:8px}
+.revers-label{font-size:.85rem;color:var(--muted);line-height:1.5}
+.diff-wrap{margin-bottom:32px}
+.diff-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.myth-box{background:rgba(25,113,194,.06);border:1px solid rgba(25,113,194,.2);border-radius:8px;padding:16px;margin-bottom:10px}
+.myth-box .myth-q{font-weight:700;color:#5cb8ff;font-size:.9rem;margin-bottom:6px}
+.myth-box p{margin:0;font-size:.88rem;line-height:1.6;color:var(--muted)}
+.tl-wrap{margin-bottom:32px}
+.tl-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.timeline{position:relative;padding-left:22px;border-left:2px solid var(--border)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:'';position:absolute;left:-27px;top:6px;width:10px;height:10px;border-radius:50%;background:#5cb8ff;border:2px solid var(--bg)}
+.tl-date{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.tl-text{font-size:.88rem;line-height:1.6;color:var(--text)}
+.src-list{margin-bottom:32px}
+.src-list h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 12px}
+.src-list ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.src-list li{font-size:.85rem;color:var(--muted);line-height:1.5}
+.src-list a{color:var(--accent2);text-decoration:none}
+.src-list a:hover{text-decoration:underline}
+.faq-section h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;font-weight:600;font-size:.9rem;background:var(--panel)}
+.faq-q:hover{background:rgba(255,255,255,.05)}
+.faq-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.faq-a{display:none;padding:14px 16px;font-size:.88rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.faq-a.open{display:block}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://lefrancaismoyen.fr/"},{"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://lefrancaismoyen.fr/libertes/"},{"@type":"ListItem","position":3,"name":"Report IA haut risque — Omnibus IA","item":"https://lefrancaismoyen.fr/libertes/ia-haut-risque-report/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le RGPD s'applique-t-il encore pendant la période de report ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Le RGPD s'applique pleinement et sans interruption, y compris aux systèmes IA à haut risque. Le report de l'IA Act ne crée pas de vide juridique sur la protection des données."}},{"@type":"Question","name":"Quels systèmes sont concernés par le report ?","acceptedAnswer":{"@type":"Answer","text":"Les systèmes IA autonomes à haut risque (Annexe III de l'IA Act) : recrutement, crédit, justice prédictive, sécurité des infrastructures. Les systèmes intégrés à des produits déjà réglementés (dispositifs médicaux, machines) ont leur propre délai."}},{"@type":"Question","name":"Les interdictions de l'IA Act sont-elles reportées aussi ?","acceptedAnswer":{"@type":"Answer","text":"Non. Les interdictions absolues (IA de notation sociale, identification biométrique en temps réel dans les espaces publics, manipulation subliminale) sont entrées en vigueur en août 2024 et ne sont pas reportées."}},{"@type":"Question","name":"Une nouvelle interdiction a-t-elle été ajoutée par l'Omnibus ?","acceptedAnswer":{"@type":"Answer","text":"Oui. L'Omnibus IA ajoute l'interdiction des systèmes IA générant des contenus sexuels non consentis (deepfakes intimes), sans période de transition — cette interdiction est immédiatement applicable."}}]}
+</script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<main class="wrapper">
+  <div class="version-callout">
+    <strong>Règlement Omnibus IA — adopté le 29 juin 2026</strong> — Report des obligations de l'IA Act pour les systèmes IA autonomes à haut risque : du 2 août 2026 au 2 décembre 2027. Les systèmes intégrés à des produits réglementés : report au 2 août 2028. Le RGPD reste pleinement applicable.
+  </div>
+
+  <div class="fiche-header">
+    <div class="score-circle"><span class="score-num">46</span></div>
+    <div class="fiche-meta">
+      <h1>Report des protections pour les IA à haut risque — Règlement Omnibus IA</h1>
+      <div class="badges">
+        <span class="badge s-vigueur">En vigueur</span>
+        <span class="badge tag">numérique</span>
+        <span class="badge tag">europe</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="en-bref">
+    <h2>En bref</h2>
+    <p>Le règlement Omnibus IA, adopté par le Parlement européen le 29 juin 2026, reporte les obligations de l'IA Act pour les systèmes IA à haut risque. Les systèmes autonomes (recrutement, crédit, justice prédictive) devaient être conformes au 2 août 2026 ; ils obtiennent jusqu'au 2 décembre 2027. Les systèmes intégrés à des produits déjà réglementés (dispositifs médicaux, machines industrielles) voient leur délai reporté au 2 août 2028. En contrepartie, une nouvelle interdiction est ajoutée sans délai de transition : les systèmes IA générant des contenus sexuels non consentis (deepfakes intimes). Le score modéré reflète un risque réel mais limité dans le temps : le report crée une zone grise de 16 mois pendant laquelle les protections sectorielles (RGPD, directives sectorielles) restent la seule ligne de défense effective.</p>
+  </div>
+
+  <div class="retenir-wrap">
+    <h2>Ce qu'il faut retenir</h2>
+    <ul class="retenir-list">
+      <li>Les obligations IA Act pour les systèmes <strong>autonomes à haut risque</strong> sont reportées du 2 août 2026 au <strong>2 décembre 2027</strong> — soit 16 mois de délai supplémentaire.</li>
+      <li>Les systèmes IA <strong>intégrés à des produits réglementés</strong> (dispositifs médicaux, machines) ont jusqu'au <strong>2 août 2028</strong>.</li>
+      <li>Le RGPD reste pleinement applicable sans interruption : le report de l'IA Act ne crée pas de vide juridique sur la protection des données.</li>
+      <li>Les <strong>interdictions absolues</strong> de l'IA Act (notation sociale, identification biométrique en temps réel, manipulation subliminale) ne sont pas reportées — elles sont en vigueur depuis août 2024.</li>
+      <li>L'Omnibus IA ajoute une nouvelle interdiction immédiate : les systèmes IA générant des contenus sexuels <strong>non consentis</strong> (deepfakes intimes).</li>
+    </ul>
+  </div>
+
+  <div class="dates-grid">
+    <div class="date-card">
+      <div class="date-val">Août 2024</div>
+      <div class="date-label">Interdictions absolues en vigueur (notation sociale, biométrie temps réel…)</div>
+    </div>
+    <div class="date-card">
+      <div class="date-val">2 déc. 2027</div>
+      <div class="date-label">Systèmes IA autonomes à haut risque (recrutement, crédit, justice…)</div>
+    </div>
+    <div class="date-card">
+      <div class="date-val">2 août 2028</div>
+      <div class="date-label">Systèmes IA intégrés à des produits réglementés (médical, machines…)</div>
+    </div>
+    <div class="date-card">
+      <div class="date-val">Immédiat</div>
+      <div class="date-label">Nouvelle interdiction : deepfakes sexuels non consentis (Omnibus IA)</div>
+    </div>
+  </div>
+
+  <div class="garanties-grid">
+    <div class="garantie-card">
+      <strong>RGPD toujours applicable</strong>
+      <p>Le report de l'IA Act ne suspend pas le RGPD. Les droits d'accès, de rectification, d'opposition et à l'explication des décisions algorithmiques restent en vigueur.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Interdictions absolues maintenues</strong>
+      <p>Les pratiques interdites depuis août 2024 (notation sociale, manipulation subliminale, identification biométrique en temps réel dans les espaces publics) ne bénéficient d'aucun report.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Nouvelle interdiction deepfakes</strong>
+      <p>L'Omnibus ajoute sans délai l'interdiction des IA générant des contenus sexuels non consentis — une avancée concrète pour les victimes de deepfakes intimes.</p>
+    </div>
+    <div class="garantie-card">
+      <strong>Directives sectorielles actives</strong>
+      <p>Dans les secteurs déjà réglementés (santé, finance, transport), les règles sectorielles continuent de s'appliquer aux systèmes IA pendant la période de report.</p>
+    </div>
+  </div>
+
+  <div class="niveaux-wrap">
+    <h2>Analyse par niveau</h2>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n1')">
+        <span class="niveau-title">N1 — Texte et portée juridique</span>
+        <span class="niveau-chevron" id="chev-n1">▼</span>
+      </div>
+      <div class="niveau-body" id="n1">
+        Le règlement Omnibus IA modifie le règlement (UE) 2024/1689 (IA Act) aux articles 111 et 113. Il reporte la date d'application des obligations pour les systèmes à haut risque listés à l'Annexe III (systèmes IA autonomes dans des domaines sensibles) du 2 août 2026 au 2 décembre 2027. Pour les systèmes de l'Annexe I (intégrés à des produits réglementés au titre de législations d'harmonisation de l'UE), la date est repoussée au 2 août 2028. Il introduit également un nouvel article 5, paragraphe 1, point i), interdisant sans délai les systèmes IA qui génèrent ou manipulent des contenus sexuels à caractère non consenti impliquant des personnes identifiables.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n2')">
+        <span class="niveau-title">N2 — Contexte : pourquoi ce report ?</span>
+        <span class="niveau-chevron" id="chev-n2">▼</span>
+      </div>
+      <div class="niveau-body" id="n2">
+        Le report est la résultante de deux pressions convergentes. D'un côté, les industries technologiques européennes et américaines ont argué que la mise en conformité dans les délais prévus était techniquement impossible (manque de standards harmonisés, absence de notified bodies accrédités en nombre suffisant). De l'autre, plusieurs États membres — dont la France et l'Allemagne — ont plaidé pour un assouplissement afin de ne pas pénaliser leurs champions industriels face à la concurrence américaine et chinoise. Le Parlement européen a obtenu en contrepartie la nouvelle interdiction sur les deepfakes intimes et un renforcement des obligations de transparence pour les modèles de fondation à partir de 2025.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n3')">
+        <span class="niveau-title">N3 — Impact concret pendant la période de report</span>
+        <span class="niveau-chevron" id="chev-n3">▼</span>
+      </div>
+      <div class="niveau-body" id="n3">
+        Pendant les 16 mois de report (août 2026 – décembre 2027), les systèmes IA à haut risque autonomes peuvent continuer d'opérer sans être soumis aux obligations de l'IA Act : pas d'obligation de documentation technique, pas de système de gestion des risques certifié, pas de droit à l'explication algorithmique spécifique au titre de l'IA Act. En pratique, cela concerne les systèmes de tri de CV, de scoring de crédit, d'aide à la décision judiciaire. Le RGPD reste le seul cadre contraignant, ce qui est insuffisant pour les décisions automatisées à fort impact (article 22 RGPD, droit à ne pas être soumis à une décision automatisée, est souvent contourné via la clause "mesure préparatoire").
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n4')">
+        <span class="niveau-title">N4 — Risques : report qui devient permanent ?</span>
+        <span class="niveau-chevron" id="chev-n4">▼</span>
+      </div>
+      <div class="niveau-body" id="n4">
+        Le risque principal est que le report de 2026 devienne le premier d'une série. L'histoire de la régulation numérique européenne montre que les délais de mise en conformité sont régulièrement prolongés sous pression industrielle (voir le règlement eIDAS 2.0, dont l'application a été repoussée trois fois). Si les notified bodies ne sont pas accrédités en nombre suffisant d'ici 2027, un nouveau report sera politiquement inévitable. Le message envoyé aux industriels est que les délais de l'IA Act ne sont pas fermes, ce qui réduit l'incitation à investir massivement dans la conformité.
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n5')">
+        <span class="niveau-title">N5 — Ce que cela change pour les citoyens</span>
+        <span class="niveau-chevron" id="chev-n5">▼</span>
+      </div>
+      <div class="niveau-body" id="n5">
+        Pour un citoyen confronté à une décision IA défavorable (refus de crédit, rejet de candidature, décision judiciaire assistée) entre août 2026 et décembre 2027, les recours au titre de l'IA Act ne sont pas disponibles. Il reste le RGPD (droit d'accès, d'explication limitée) et les voies de recours sectorielles. La nouvelle interdiction sur les deepfakes intimes est en revanche immédiatement utilisable : une victime peut porter plainte sur cette base dès l'entrée en vigueur de l'Omnibus. C'est un droit nouveau, concret et actionnable, qui compense partiellement le recul sur les délais de conformité.
+      </div>
+    </div>
+  </div>
+
+  <div class="score-2col">
+    <div class="score-table-wrap">
+      <h2>Score d'impact détaillé</h2>
+      <table class="score-table">
+        <thead><tr><th>Critère</th><th>Poids</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Impact direct</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(5/15*80px)"></div>5</div></td></tr>
+          <tr><td>Systèmes concernés</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(7/15*80px)"></div>7</div></td></tr>
+          <tr><td>Risque pendant la période de report</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(9/15*80px)"></div>9</div></td></tr>
+          <tr><td>Contrôles existants</td><td>12</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(7/12*80px)"></div>7</div></td></tr>
+          <tr><td>Droits des personnes</td><td>10</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(5/10*80px)"></div>5</div></td></tr>
+          <tr><td>Risque d'extension</td><td>20</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(8/20*80px)"></div>8</div></td></tr>
+          <tr><td>Réversibilité</td><td>13</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(5/13*80px)"></div>5</div></td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>46</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="revers-wrap">
+      <h2>Réversibilité</h2>
+      <div class="revers-stars">★★★☆☆</div>
+      <p class="revers-label">3/5 — Le report est borné dans le temps (2027/2028). Mais si les délais glissent à nouveau, la réversibilité diminue. Le RGPD et les directives sectorielles maintiennent un socle. L'accréditation des notified bodies conditionne la suite.</p>
+    </div>
+  </div>
+
+  <div class="diff-wrap">
+    <h2>Idées reçues</h2>
+    <div class="myth-box">
+      <div class="myth-q">"Le report suspend toute protection contre les IA dangereuses"</div>
+      <p>Non. Le RGPD reste en vigueur. Les interdictions absolues de l'IA Act (notation sociale, biométrie en temps réel, manipulation subliminale) ne sont pas reportées. Et l'Omnibus ajoute une nouvelle interdiction sur les deepfakes sexuels non consentis, immédiatement applicable.</p>
+    </div>
+    <div class="myth-box">
+      <div class="myth-q">"Les systèmes IA à haut risque vont proliférer sans contrôle pendant 16 mois"</div>
+      <p>Les systèmes en question opéraient déjà sans cadre IA Act spécifique avant l'entrée en vigueur prévue en 2026. Le report maintient le statu quo ante, pas un recul sur des droits déjà effectifs. La nouveauté aurait été les obligations de l'IA Act ; leur report repousse une avancée, il ne crée pas une régression.</p>
+    </div>
+  </div>
+
+  <div class="tl-wrap">
+    <h2>Chronologie</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Août 2024</div>
+        <div class="tl-text">Entrée en vigueur de l'IA Act — les interdictions absolues (notation sociale, biométrie en temps réel…) s'appliquent immédiatement.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Février 2025</div>
+        <div class="tl-text">Obligations de transparence pour les modèles de fondation (GPT-4, Gemini, Mistral…) entrent en vigueur.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Début 2026</div>
+        <div class="tl-text">Constat que les notified bodies accrédités pour l'IA Act sont en nombre insuffisant. Les industriels demandent un report. La Commission propose l'Omnibus IA.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">29 juin 2026</div>
+        <div class="tl-text">Adoption du règlement Omnibus IA par le Parlement européen. Report des systèmes autonomes à haut risque au 2 décembre 2027 ; systèmes intégrés au 2 août 2028. Nouvelle interdiction deepfakes sexuels non consentis.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2 août 2026</div>
+        <div class="tl-text">Date initialement prévue pour les obligations IA Act des systèmes autonomes à haut risque — reportée par l'Omnibus.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2 décembre 2027</div>
+        <div class="tl-text">Nouvelle date d'application pour les systèmes IA autonomes à haut risque (Annexe III de l'IA Act).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2 août 2028</div>
+        <div class="tl-text">Nouvelle date d'application pour les systèmes IA intégrés à des produits réglementés (Annexe I de l'IA Act).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src-list">
+    <h2>Sources</h2>
+    <ul>
+      <li>Règlement Omnibus IA (UE) 2026/— du Parlement européen et du Conseil du 29 juin 2026 (JOUE du 1er juillet 2026)</li>
+      <li>Règlement (UE) 2024/1689 (IA Act) — texte consolidé après Omnibus</li>
+      <li>Commission européenne — rapport sur l'état d'accréditation des notified bodies IA, mai 2026</li>
+      <li>Parlement européen — résolution du 12 juin 2026 sur le rapport Omnibus IA</li>
+      <li>CEPD (Comité européen de la protection des données) — avis 4/2026 sur la compatibilité de l'Omnibus avec le RGPD</li>
+    </ul>
+  </div>
+
+  <div class="faq-section">
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq1')">Le RGPD s'applique-t-il encore pendant la période de report ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq1">Oui. Le RGPD s'applique pleinement et sans interruption, y compris aux systèmes IA à haut risque. Le report de l'IA Act ne crée pas de vide juridique sur la protection des données.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq2')">Quels systèmes sont concernés par le report ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq2">Les systèmes IA autonomes à haut risque (Annexe III de l'IA Act) : recrutement, crédit, justice prédictive, sécurité des infrastructures. Les systèmes intégrés à des produits déjà réglementés (dispositifs médicaux, machines) ont leur propre délai au 2 août 2028.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq3')">Les interdictions de l'IA Act sont-elles reportées aussi ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq3">Non. Les interdictions absolues (IA de notation sociale, identification biométrique en temps réel dans les espaces publics, manipulation subliminale) sont entrées en vigueur en août 2024 et ne sont pas reportées.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq4')">Une nouvelle interdiction a-t-elle été ajoutée par l'Omnibus ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq4">Oui. L'Omnibus IA ajoute l'interdiction des systèmes IA générant des contenus sexuels non consentis (deepfakes intimes), sans période de transition — cette interdiction est immédiatement applicable depuis le 29 juin 2026.</div>
+    </div>
+  </div>
+</main>
+
+<script>
+function toggle(id){var b=document.getElementById(id);var h=b.closest('.niveau-wrap').querySelector('.niveau-head');var c=h.querySelector('.niveau-chevron');b.classList.toggle('open');c.style.transform=b.classList.contains('open')?'rotate(180deg)':''}
+function toggleFaq(id){var a=document.getElementById(id);var q=a.closest('.faq-item').querySelector('.faq-chevron');a.classList.toggle('open');q.style.transform=a.classList.contains('open')?'rotate(180deg)':''}
+</script>
+</body>
+</html>
