@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Synthèse croisée — 13 dispositifs de surveillance | Observatoire des libertés</title>
+<meta name="description" content="Analyse systémique des 13 dispositifs recensés : identité, communications, santé, paiements, surveillance physique et régulation de l'information. 7 combinaisons évaluées. Score global : 67/100 actuel, 91/100 prospectif.">
+<link rel="canonical" href="https://le-francais-moyen.com/libertes/synthese-dispositifs/">
+<meta property="og:title" content="Synthèse croisée — 13 dispositifs de surveillance | Observatoire des libertés">
+<meta property="og:description" content="Identité, communications, santé, paiements, surveillance, régulation de l'information : 7 combinaisons analysées. Architecture actuelle 67/100 — prospective 91/100 — irréversibilité 5/5.">
+<meta property="og:url" content="https://le-francais-moyen.com/libertes/synthese-dispositifs/">
+<meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+        {"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://le-francais-moyen.com/libertes/"},
+        {"@type":"ListItem","position":3,"name":"Synthèse croisée — 13 dispositifs","item":"https://le-francais-moyen.com/libertes/synthese-dispositifs/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Existe-t-il actuellement un système unifié de surveillance en France ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Ces textes ne créent pas un système unifié. Il n'existe pas de super-fichier légal reliant automatiquement identité, santé, opinions, comptes bancaires, déplacements et communications. Ils construisent néanmoins des fonctions complémentaires — identifier, observer, classer, décider, exécuter, conserver — dont la combinaison future reste le risque principal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la combinaison la plus urgente à surveiller ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La combinaison C2 (SREN + DSA + rapport sénatorial + Arcom) est la plus urgente, avec un score prospectif de 92/100. Elle permet d'agir sur l'architecture de distribution des contenus sans les interdire : observer, qualifier, signaler, rétrograder, promouvoir une source concurrente. Une rétrogradation algorithmique peut être silencieuse et impossible à réparer après une élection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment ces textes peuvent-ils interagir sans être formellement liés ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chaque secteur possède une brique compatible avec une décision automatisée portant sur une personne. La convergence n'est pas nécessairement planifiée : elle résulte de la juxtaposition de fonctions développées pour des finalités différentes. Le point décisif sera la suppression future des cloisons juridiques et techniques entre ces fonctions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le score global et que signifie l'irréversibilité 5/5 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "67/100 pour l'architecture actuelle (risque élevé) et 91/100 pour l'architecture prospective (risque critique). L'irréversibilité 5/5 signifie qu'une loi peut être abrogée, mais une architecture installée demeure : bases de données, normes techniques, marchés publics, logiciels, compétences administratives, contrats avec les plateformes, habitudes des utilisateurs et intérêts des bénéficiaires institutionnels."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* Dual score */
+.dual-score-wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:16px 0}
+.dual-block{display:flex;flex-direction:column;align-items:center;gap:5px}
+.dual-label{font-size:.63rem;color:var(--muted);text-align:center;max-width:90px;line-height:1.35;text-transform:uppercase;letter-spacing:.04em}
+.dual-sep{font-size:1.4rem;color:var(--muted);margin:0 2px;opacity:.5}
+
+/* Combination accordion */
+.comb-section{border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.comb-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;cursor:pointer;background:rgba(255,255,255,.02)}
+.comb-head:hover{background:rgba(255,255,255,.04)}
+.comb-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;flex-shrink:0}
+.comb-body{display:none;border-top:1px solid var(--border);padding:18px 20px;font-size:.875rem;line-height:1.75;color:var(--muted)}
+.comb-body p{margin:0 0 12px}
+.comb-body ul{margin:8px 0;padding-left:20px}
+.comb-body li{margin-bottom:6px}
+.comb-body strong{color:var(--text)}
+.comb-chev{color:var(--muted);font-size:.75rem;flex-shrink:0}
+.comb-warn{background:rgba(255,80,80,.07);border-left:3px solid #ff6b6b;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:.85rem}
+.comb-info{background:rgba(92,184,255,.07);border-left:3px solid #5cb8ff;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:.85rem}
+.comb-conclusion{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-weight:700;color:var(--text);font-size:.875rem}
+
+/* Architecture table (also used for corrections) */
+.archi-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.archi-table th{background:rgba(255,255,255,.06);color:var(--text);font-size:.72rem;font-weight:700;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.04em}
+.archi-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;line-height:1.5}
+.archi-table td:first-child{font-weight:600;color:var(--text)}
+.archi-table tr:last-child td{border-bottom:none}
+
+/* Score grid */
+.scores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;margin:14px 0}
+.score-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-align:center}
+.sc-final{border-color:rgba(255,80,80,.35);background:rgba(255,80,80,.06)}
+.sc-label{font-size:.68rem;color:var(--muted);margin-bottom:6px;line-height:1.35}
+.sc-val{font-size:1.15rem;font-weight:700}
+.sc-sub{font-size:.67rem;color:var(--muted);margin-top:4px;line-height:1.35}
+
+/* Cliquet / priority list */
+.cliquet-list{list-style:none;margin:0;padding:0;counter-reset:cliq}
+.cliquet-list li{counter-increment:cliq;display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:var(--muted);line-height:1.6}
+.cliquet-list li:last-child{border-bottom:none}
+.cliquet-list li::before{content:counter(cliq);min-width:22px;height:22px;border-radius:50%;background:rgba(255,122,0,.15);color:#ff7a00;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* Fiches liées */
+.fl-wrap{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.fl-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-decoration:none;color:var(--text);font-size:.82rem;transition:background .15s;display:block}
+.fl-card:hover{background:rgba(255,255,255,.08)}
+.fl-sub{font-size:.7rem;color:var(--muted);display:block;margin-top:3px}
+
+/* Score pill inline */
+.rpill{display:inline-block;padding:2px 9px;border-radius:10px;font-size:.73rem;font-weight:700}
+
+/* Function grid */
+.fn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin:12px 0}
+.fn-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:.82rem}
+.fn-num{font-weight:700;margin-bottom:4px}
+.fn-items{color:var(--muted);font-size:.78rem;line-height:1.55}
+
+/* Obstacles pills */
+.obstacle-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.obs-pill{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:6px;padding:3px 10px;font-size:.77rem;color:var(--muted)}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<div class="wrapper">
+
+  <!-- Version callout -->
+  <div class="version-callout" style="background:rgba(25,113,194,.08);border-left:3px solid #5cb8ff">
+    <strong>Synthèse — juillet 2026</strong> — Analyse globale des 13 dispositifs recensés sur l'Observatoire des Libertés. 7 combinaisons évaluées. Les scores reflètent la situation au 16 juillet 2026, projets et textes en vigueur.
+    Voir aussi : <a href="/libertes/regulation-information-croisee/" style="color:#5cb8ff">→ Analyse croisée — Régulation électorale de l'information</a>
+  </div>
+
+  <!-- Fiche header -->
+  <div class="fiche-header">
+    <div class="dual-score-wrap">
+      <div class="dual-block">
+        <div class="score-circle score-signif"><span class="score-num">67</span></div>
+        <div class="dual-label">Architecture actuelle</div>
+      </div>
+      <div class="dual-sep">→</div>
+      <div class="dual-block">
+        <div class="score-circle score-eleve"><span class="score-num">91</span></div>
+        <div class="dual-label">Si projets cumulés</div>
+      </div>
+    </div>
+    <div class="fiche-meta">
+      <h1>Synthèse croisée — 13 dispositifs de surveillance</h1>
+      <div class="badges">
+        <span class="badge s-signal">Analyse systémique</span>
+        <span class="badge s-vigueur">13 dispositifs</span>
+        <span class="badge tag">identité</span>
+        <span class="badge tag">communications</span>
+        <span class="badge tag">santé</span>
+        <span class="badge tag">paiements</span>
+        <span class="badge tag">information</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;font-size:.73rem;color:var(--muted);margin:-6px 0 20px">
+    Irréversibilité infrastructurelle : <strong style="color:#ff7a00">5 / 5</strong>
+  </div>
+
+  <!-- Section 1 : Corrections -->
+  <div class="section-label" style="margin-bottom:10px">Corrections indispensables sur les fiches</div>
+  <div style="background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.2);border-left:4px solid #ff6b6b;border-radius:10px;padding:12px 16px;margin-bottom:12px;font-size:.83rem;color:var(--muted)">
+    ⚠️ <strong style="color:var(--text)">Trois distinctions centrales sont brouillées sur plusieurs fiches</strong> : projet vs. droit applicable — décision judiciaire vs. acte réglementaire — donnée réellement collectée vs. donnée supposée.
+  </div>
+  <div style="overflow-x:auto;margin-bottom:28px">
+    <table class="archi-table" style="min-width:560px">
+      <thead>
+        <tr>
+          <th style="min-width:140px">Fiche</th>
+          <th>Problème identifié</th>
+          <th>Correction</th>
+          <th style="min-width:80px">Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rétention de sûreté</td>
+          <td style="color:var(--muted)">Présentée comme loi en vigueur n°&nbsp;2026-438</td>
+          <td style="color:var(--muted)">Le n°&nbsp;2026-438 est une ordonnance sur les collectivités polynésiennes. La PPL antiterroriste a été adoptée par l'AN le 16&nbsp;juin 2026 — pas encore promulguée.</td>
+          <td><span class="badge s-signal" style="font-size:.65rem">Dépubliée</span></td>
+        </tr>
+        <tr>
+          <td>Table des noms</td>
+          <td style="color:var(--muted)">«&nbsp;Arrêté du 7&nbsp;juil. 2026 comportant un motif codé&nbsp;»</td>
+          <td style="color:var(--muted)">Le 7&nbsp;juil. 2026 est une décision CE n°498746 sur un arrêté du 19&nbsp;déc. 2023. Le traitement ne contient pas le motif du changement.</td>
+          <td><span class="badge s-attente" style="font-size:.65rem">Corrigée</span></td>
+        </tr>
+        <tr>
+          <td>France Identité</td>
+          <td style="color:var(--muted)">Base juridique du service de garantie : n°&nbsp;2021-1900 (décret «&nbsp;app&nbsp;»)</td>
+          <td style="color:var(--muted)">La base principale du <em>service de garantie de l'identité numérique</em> est le décret n°&nbsp;2022-676 du 26&nbsp;avril 2022. Le décret n°&nbsp;2021-1900 concerne les services numériques d'identité (l'application).</td>
+          <td><span class="badge s-projet" style="font-size:.65rem">À corriger</span></td>
+        </tr>
+        <tr>
+          <td>Euro numérique</td>
+          <td style="color:var(--muted)">Interdiction de programmabilité attribuée à l'article&nbsp;16</td>
+          <td style="color:var(--muted)">Cette interdiction figure à l'article&nbsp;24 de la proposition COM/2023/369. L'article&nbsp;16 porte sur un objet distinct. La protection reste conditionnelle au texte finalement adopté.</td>
+          <td><span class="badge s-projet" style="font-size:.65rem">À corriger</span></td>
+        </tr>
+        <tr>
+          <td>Chat Control</td>
+          <td style="color:var(--muted)">Présenté comme «&nbsp;bloqué&nbsp;» à certains endroits</td>
+          <td style="color:var(--muted)">Proposition CSAR active : position du Conseil nov.&nbsp;2025, trilogue ouvert déc.&nbsp;2025, 4e réunion mai&nbsp;2026.</td>
+          <td><span class="badge s-attente" style="font-size:.65rem">Corrigée</span></td>
+        </tr>
+        <tr>
+          <td>VSA</td>
+          <td style="color:var(--muted)">Présentée principalement comme expérimentation expirée</td>
+          <td style="color:var(--muted)">Autorisation olympique expirée le 31&nbsp;mars 2025. Extension/réactivation en discussion dans RIPOST. Deux événements à suivre séparément.</td>
+          <td><span class="badge s-projet" style="font-size:.65rem">À corriger</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 2 : Architecture générale -->
+  <div class="section-label" style="margin-bottom:10px">Architecture générale — 6 fonctions complémentaires</div>
+  <p style="font-size:.88rem;color:var(--muted);margin:0 0 12px">Ces textes ne créent pas un système unifié. Le risque principal est la création progressive d'un environnement dans lequel <strong style="color:var(--text)">chaque secteur possède une brique compatible avec une décision automatisée ou administrative portant sur une personne</strong>.</p>
+  <div class="fn-grid" style="margin-bottom:28px">
+    <div class="fn-card">
+      <div class="fn-num" style="color:var(--accent)">① Identifier</div>
+      <div class="fn-items">TES · France Identité · Portefeuille eIDAS 2 · Table des changements de nom</div>
+    </div>
+    <div class="fn-card">
+      <div class="fn-num" style="color:#5cb8ff">② Observer</div>
+      <div class="fn-items">Renseignement algorithmique · VSA · Détection de contenus · Données de santé · Contrôles antifraude</div>
+    </div>
+    <div class="fn-card">
+      <div class="fn-num" style="color:#ff7a00">③ Classer</div>
+      <div class="fn-items">Profils de risque · Détection d'anomalies · Désinformation · Dangerosité · Systèmes IA</div>
+    </div>
+    <div class="fn-card">
+      <div class="fn-num" style="color:#ff5050">④ Décider</div>
+      <div class="fn-items">Blocage · Rétrogradation · Vérification supplémentaire · Contrôle administratif · Mesure de sûreté</div>
+    </div>
+    <div class="fn-card">
+      <div class="fn-num" style="color:#82c91e">⑤ Exécuter</div>
+      <div class="fn-items">Plateformes · Banques · Administrations · Opérateurs numériques · Forces de sécurité</div>
+    </div>
+    <div class="fn-card">
+      <div class="fn-num" style="color:#c77dff">⑥ Conserver</div>
+      <div class="fn-items">Fichiers biométriques · Historiques administratifs · Données sociales, fiscales et médicales</div>
+    </div>
+  </div>
+
+  <!-- Combinations label -->
+  <div class="section-label" style="margin-bottom:14px">7 combinaisons analysées</div>
+
+  <!-- C1 -->
+  <div class="comb-section" style="border-color:rgba(92,184,255,.3)">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap">
+        <span class="comb-badge" style="background:#5cb8ff">C1</span>
+        <span style="font-size:.875rem;font-weight:600;color:var(--text)">Identité numérique + TES + vérification d'âge + SREN</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span class="rpill score-modere">54</span>
+        <span style="color:var(--muted);font-size:.75rem">→</span>
+        <span class="rpill score-eleve">84</span>
+        <span class="comb-chev">▼</span>
+      </div>
+    </div>
+    <div class="comb-body">
+      <p>TES centralise données d'identité et données biométriques liées aux titres. Le règlement eIDAS 2 organise les portefeuilles européens d'identité numérique. La SREN et les mesures européennes développent la vérification d'âge pour certains services.</p>
+      <div class="comb-warn">
+        <strong>Pouvoir produit par la combinaison :</strong> transformer progressivement l'accès anonyme à internet en accès conditionné par un attribut certifié — âge, résidence, qualité professionnelle, statut parental, droit d'accéder à un service, identité en cas de litige.
+      </div>
+      <p><strong>Ce qui n'est pas établi :</strong> pas d'obligation générale d'utiliser France Identité pour accéder à internet, pas d'identité réelle obligatoire sur les réseaux sociaux, pas de connexion juridique automatique entre TES et les comptes de plateformes.</p>
+      <div class="comb-info">
+        <strong>Ce qu'il faudrait pour fermer la boucle :</strong> étendre les secteurs soumis à vérification, imposer un identifiant stable, autoriser la conservation et la réutilisation des vérifications, supprimer les solutions anonymes.
+      </div>
+      <div class="comb-conclusion">Réversibilité : 5/5 — Une fois le portefeuille accepté par administrations, banques et plateformes, le refus deviendrait pratiquement pénalisant même s'il restait juridiquement facultatif.</div>
+    </div>
+  </div>
+
+  <!-- C2 -->
+  <div class="comb-section" style="border-color:rgba(255,80,80,.35)">
+    <div class="comb-head" onclick="toggleComb(this)" style="background:rgba(255,80,80,.04)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap">
+        <span class="comb-badge" style="background:#ff5050">C2</span>
+        <span style="font-size:.875rem;font-weight:600;color:var(--text)">SREN + DSA + rapport sénatorial + Arcom</span>
+        <span style="font-size:.7rem;color:#ff5050;font-weight:700;background:rgba(255,80,80,.1);padding:2px 8px;border-radius:8px">▲ LA PLUS URGENTE</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span class="rpill score-signif">58</span>
+        <span style="color:var(--muted);font-size:.75rem">→</span>
+        <span class="rpill score-eleve">92</span>
+        <span class="comb-chev">▼</span>
+      </div>
+    </div>
+    <div class="comb-body">
+      <p>La SREN donne à l'Arcom des missions liées au DSA. Le DSA impose aux très grandes plateformes d'évaluer les risques pesant sur le débat civique et les processus électoraux. Le rapport sénatorial n°875 ajoute les maillons manquants : observatoire intérieur des manipulations, définition de la désinformation, classement des risques, signalement d'utilisateurs, invisibilisation algorithmique, mise en avant de médias reconnus, intervention renforcée pendant les élections.</p>
+      <div class="comb-warn">
+        <strong>Pouvoir produit :</strong> agir sur l'architecture de distribution des contenus sans les interdire.<br>
+        <em style="color:var(--text)">observer → qualifier → signaler → rétrograder → promouvoir une source concurrente</em>
+      </div>
+      <p><strong>Pourquoi ce risque dépasse la modération ordinaire :</strong> une rétrogradation algorithmique peut être silencieuse, statistiquement difficile à démontrer, temporaire mais décisive pendant une campagne, attribuée à la plateforme alors qu'elle résulte d'un signalement institutionnel, impossible à réparer après l'élection. Le pouvoir réel devient : décider de la probabilité qu'une voix soit entendue.</p>
+      <div class="comb-info">
+        <strong>Barrières actuelles :</strong> les signaleurs de confiance du DSA interviennent contre des contenus illégaux, pas toute opinion jugée fausse. Le rapport du Sénat n'est pas une loi. Les décisions restent soumises aux libertés constitutionnelles et européennes.
+      </div>
+      <div class="comb-conclusion">C'est la combinaison la plus urgente du corpus. Score prospectif si les recommandations centrales sont transposées : 92/100.</div>
+    </div>
+  </div>
+
+  <!-- C3 -->
+  <div class="comb-section" style="border-color:rgba(255,122,0,.3)">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap">
+        <span class="comb-badge" style="background:#ff7a00">C3</span>
+        <span style="font-size:.875rem;font-weight:600;color:var(--text)">Loi renseignement + Chat Control + pression sur le chiffrement</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span class="rpill score-signif">70</span>
+        <span style="color:var(--muted);font-size:.75rem">→</span>
+        <span class="rpill score-eleve">90</span>
+        <span class="comb-chev">▼</span>
+      </div>
+    </div>
+    <div class="comb-body">
+      <p>La loi relative au renseignement permet des traitements automatisés portant sur certaines données de connexion. La CSAR vise la détection de contenus pédocriminels par les fournisseurs de services. Le droit français peut imposer à une personne de remettre un moyen de déchiffrement — sans constituer une obligation générale de créer une porte dérobée.</p>
+      <div class="comb-warn">
+        <strong>3 étages combinés :</strong>
+        (1) analyse des métadonnées et connexions ;
+        (2) détection automatisée de certains contenus ;
+        (3) possibilité d'identifier ou de contraindre l'utilisateur détenant une clé.
+      </div>
+      <div style="padding:10px 14px;background:rgba(255,122,0,.07);border-left:3px solid #ff7a00;border-radius:0 8px 8px 0;margin:12px 0;font-size:.85rem">
+        <strong>Risque particulier — filtrage côté terminal :</strong> un système analysant les messages avant chiffrement préserve mathématiquement le chiffrement pendant le transport tout en supprimant sa confidentialité pratique. Une fois cette infrastructure installée dans des milliards de terminaux, l'élargissement à d'autres catégories (terrorisme, discours haineux, désinformation) devient techniquement beaucoup plus simple.
+      </div>
+      <div class="comb-conclusion">C3 présente le score actuel le plus élevé du corpus (70/100 avant toute extension). Score prospectif : 90/100.</div>
+    </div>
+  </div>
+
+  <!-- C4 -->
+  <div class="comb-section" style="border-color:rgba(199,125,255,.3)">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap">
+        <span class="comb-badge" style="background:#c77dff">C4</span>
+        <span style="font-size:.875rem;font-weight:600;color:var(--text)">TES + table des noms + VSA + reconnaissance biométrique</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span class="rpill score-signif">60</span>
+        <span style="color:var(--muted);font-size:.75rem">→</span>
+        <span class="rpill score-eleve">87</span>
+        <span class="comb-chev">▼</span>
+      </div>
+    </div>
+    <div class="comb-body">
+      <p>TES fournit identité administrative et données biométriques. La table examinée par le Conseil d'État assure la continuité entre anciennes et nouvelles identités dans les fichiers du ministère de l'Intérieur. L'autorisation olympique de VSA a expiré le 31 mars 2025, mais une extension est discutée dans RIPOST. L'AI Act interdit l'identification biométrique en temps réel dans les espaces publics à des fins répressives, avec des exceptions encadrées.</p>
+      <div class="comb-warn">
+        <strong>Effet cliquet typique :</strong> détection anonyme de comportements → conservation plus longue des séquences → recherche a posteriori d'une personne → comparaison biométrique dans les affaires graves → extension de la liste d'infractions → usage préventif ou temps réel.
+      </div>
+      <div class="comb-info">
+        <strong>Ce qui est actuellement absent :</strong> pas de base générale autorisant la comparaison automatique de chaque personne filmée avec TES. Il faudrait autoriser explicitement l'usage de TES comme base de comparaison, permettre la reconnaissance biométrique dans les situations concernées, définir les infractions, satisfaire aux contrôles constitutionnels, européens et de la CNIL.
+      </div>
+      <div class="comb-conclusion">Réversibilité : 5/5 — réseaux de caméras, logiciels et bases biométriques particulièrement difficiles à supprimer après investissement.</div>
+    </div>
+  </div>
+
+  <!-- C5 -->
+  <div class="comb-section" style="border-color:rgba(130,201,30,.25)">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap">
+        <span class="comb-badge" style="background:#82c91e">C5</span>
+        <span style="font-size:.875rem;font-weight:600;color:var(--text)">Loi antifraude + données de santé + IA à haut risque</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span class="rpill score-signif">57</span>
+        <span style="color:var(--muted);font-size:.75rem">→</span>
+        <span class="rpill score-eleve">88</span>
+        <span class="comb-chev">▼</span>
+      </div>
+    </div>
+    <div class="comb-body">
+      <p>La loi n°2026-534 accroît les échanges entre données fiscales, sociales et bancaires. Le SNDS et Mon espace santé organisent de vastes traitements médicaux avec finalités et accès régis par des textes sectoriels. Le règlement Omnibus IA (juin 2026) reporte à décembre 2027 ou août 2028 certaines obligations sur les systèmes à haut risque.</p>
+      <div class="comb-warn">
+        <strong>Profilage administratif transversal possible :</strong> revenus + patrimoine + prestations + situation familiale + activité professionnelle + données de santé + incohérences statistiques + relations atypiques = score de priorité ou de risque piloté par IA.
+      </div>
+      <div style="padding:10px 14px;background:rgba(130,201,30,.06);border-left:3px solid #82c91e;border-radius:0 8px 8px 0;margin:12px 0;font-size:.85rem">
+        <strong>Risque concret avant le scénario extrême :</strong> contrôle déclenché par faux positif ; prestation suspendue automatiquement ; personne obligée de prouver son innocence administrative ; discrimination indirecte produite par des variables corrélées à la santé, au handicap, à l'origine ou à la pauvreté.
+      </div>
+      <div class="comb-conclusion">Il n'existe pas actuellement de score citoyen général. Une telle combinaison exigerait base juridique spécifique, analyse d'impact, droits de contestation et examen constitutionnel.</div>
+    </div>
+  </div>
+
+  <!-- C6 -->
+  <div class="comb-section" style="border-color:rgba(246,195,67,.3)">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap">
+        <span class="comb-badge" style="background:#e6b800">C6</span>
+        <span style="font-size:.875rem;font-weight:600;color:var(--text)">Profilage administratif + rétention de sûreté + renseignement</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span class="rpill score-faible" style="opacity:.6">–</span>
+        <span style="color:var(--muted);font-size:.75rem">→</span>
+        <span class="rpill score-eleve">89</span>
+        <span class="comb-chev">▼</span>
+      </div>
+    </div>
+    <div class="comb-body">
+      <p>La PPL antiterroriste examinée en 2026 repose sur l'appréciation d'un risque futur, de la dangerosité, de troubles graves de la personnalité et de la probabilité de récidive. Son statut doit être corrigé sur le site avant de la présenter comme droit en vigueur. Le rapprochement avec le renseignement comportemental et les évaluations psychiatriques peut déplacer l'action de l'État de la constatation d'un acte vers la gestion préventive d'une personne réputée dangereuse.</p>
+      <div class="comb-warn">
+        <strong>Déplacement conceptuel :</strong> donnée → indice → profil → dangerosité → restriction de liberté.
+      </div>
+      <div class="comb-info">
+        <strong>Garde-fous nécessaires :</strong> critères factuels et non idéologiques ; expertise contradictoire ; décision judiciaire préalable ; seuil de preuve élevé ; durée strictement limitée ; réexamen fréquent ; accès intégral de la défense ; impossibilité de fonder la décision sur un algorithme opaque.
+      </div>
+      <div class="comb-conclusion">Le nombre de personnes directement concernées est faible, mais l'atteinte potentielle — privation de liberté fondée sur un risque anticipé — est maximale. Score prospectif : 89/100.</div>
+    </div>
+  </div>
+
+  <!-- C7 -->
+  <div class="comb-section" style="border-color:rgba(56,178,172,.3);margin-bottom:28px">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap">
+        <span class="comb-badge" style="background:#38b2ac">C7</span>
+        <span style="font-size:.875rem;font-weight:600;color:var(--text)">Euro numérique + identité numérique + données fiscales</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
+        <span class="rpill score-faible">38</span>
+        <span style="color:var(--muted);font-size:.75rem">→</span>
+        <span class="rpill score-signif">76</span>
+        <span class="comb-chev">▼</span>
+      </div>
+    </div>
+    <div class="comb-body">
+      <p>L'euro numérique reste un projet législatif européen. La proposition COM/2023/369 interdit à l'article 24 la monnaie programmable — c'est-à-dire une monnaie dont les unités ne pourraient être utilisées que pour certains biens, lieux ou périodes. Il faut distinguer cette interdiction des paiements conditionnels volontaires, des restrictions administratives extérieures à la monnaie ou des règles de lutte contre le blanchiment.</p>
+      <div class="comb-info">
+        <strong>Ce que la combinaison peut améliorer sans violer l'art. 24 :</strong> identification des payeurs, exécution de saisies, contrôles antifraude, traçabilité de flux, application de plafonds réglementaires.
+      </div>
+      <p><strong>Scénario de restriction politique :</strong> techniquement envisageable mais juridiquement non autorisé par la proposition actuelle. Il faudrait modifier ou contourner l'art. 24 et créer une base juridique permettant de communiquer les décisions de restriction au système de paiement.</p>
+      <div class="comb-conclusion">Risque le plus réaliste à court terme : diminution progressive des espèces, dépendance envers des portefeuilles certifiés, augmentation des transactions associables à une identité. Score si garanties supprimées : 76/100.</div>
+    </div>
+  </div>
+
+  <!-- Scénario extrême -->
+  <div class="section-label" style="margin-bottom:10px">Scénario extrême — combinaison globale</div>
+  <div style="background:rgba(255,80,80,.05);border:1px solid rgba(255,80,80,.2);border-radius:12px;padding:18px 20px;margin-bottom:28px;font-size:.875rem;line-height:1.75">
+    <p style="color:var(--muted);margin:0 0 12px">Un citoyen utilise une identité numérique pour accéder aux plateformes. Ses publications sont analysées par des outils de détection. Un observatoire les classe comme risque informationnel. Les plateformes réduisent leur visibilité. Son identité peut être obtenue en cas de procédure. Les administrations disposent parallèlement de ses données fiscales et sociales. Les paiements sont principalement numériques.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
+      <div>
+        <div style="font-size:.77rem;font-weight:700;color:#ff5050;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Ce qu'il faudrait pour y parvenir</div>
+        <ul style="margin:0;padding-left:16px;color:var(--muted);font-size:.82rem;line-height:1.75">
+          <li>Identité numérique obligatoire ou incontournable</li>
+          <li>Identifiant corrélable entre secteurs</li>
+          <li>Définition large de la désinformation légalisée</li>
+          <li>Coopération algorithmique des plateformes imposée</li>
+          <li>Identification des comptes pseudonymes facilitée</li>
+          <li>Échanges intersectoriels pour finalités politiques</li>
+          <li>Art. 24 euro numérique supprimé ou contourné</li>
+          <li>Contrôle judiciaire réduit</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:.77rem;font-weight:700;color:#82c91e;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em">Obstacles actuels</div>
+        <div class="obstacle-pills" style="margin-top:0">
+          <span class="obs-pill">Séparation des finalités</span>
+          <span class="obs-pill">RGPD</span>
+          <span class="obs-pill">Secret médical</span>
+          <span class="obs-pill">Liberté d'expression</span>
+          <span class="obs-pill">Droit au recours</span>
+          <span class="obs-pill">Conseil constitutionnel</span>
+          <span class="obs-pill">CJUE &amp; CEDH</span>
+          <span class="obs-pill">Art. 24 euro numérique</span>
+          <span class="obs-pill">Absence d'identifiant universel</span>
+          <span class="obs-pill">Pluralité des institutions</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);font-size:.83rem">
+      <strong style="color:#ff6b6b">Probabilité de l'architecture complète à court terme : faible.</strong><br>
+      <strong style="color:#ff7a00">Probabilité d'extensions partielles et progressives : élevée.</strong>
+    </div>
+  </div>
+
+  <!-- Score consolidé -->
+  <div class="section-label" style="margin-bottom:12px">Score consolidé</div>
+  <div class="scores-grid" style="margin-bottom:28px">
+    <div class="score-card sc-final" style="border-color:rgba(255,122,0,.4);background:rgba(255,122,0,.07)">
+      <div class="sc-label">Architecture actuelle</div>
+      <div class="sc-val" style="color:#ff7a00;font-size:1.8rem">67 / 100</div>
+      <div class="sc-sub">Risque élevé</div>
+    </div>
+    <div class="score-card sc-final">
+      <div class="sc-label">Architecture prospective</div>
+      <div class="sc-val" style="color:#ff5050;font-size:1.8rem">91 / 100</div>
+      <div class="sc-sub">Risque critique si cumulé</div>
+    </div>
+    <div class="score-card" style="border-color:rgba(255,107,107,.3)">
+      <div class="sc-label">Irréversibilité</div>
+      <div class="sc-val" style="color:#ff6b6b">5 / 5</div>
+      <div class="sc-sub">Infrastructures très difficiles à supprimer</div>
+    </div>
+    <div class="score-card" style="border-color:rgba(255,80,80,.3)">
+      <div class="sc-label">Combinaison la plus urgente</div>
+      <div class="sc-val" style="color:#ff5050;font-size:1rem">C2 · 92/100</div>
+      <div class="sc-sub">SREN + DSA + rapport Sénat + Arcom</div>
+    </div>
+    <div class="score-card">
+      <div class="sc-label">Score actuel le plus élevé</div>
+      <div class="sc-val" style="color:#ff7a00;font-size:1rem">C3 · 70/100</div>
+      <div class="sc-sub">Renseignement + Chat Control + chiffrement</div>
+    </div>
+    <div class="score-card" style="border-color:rgba(130,201,30,.2)">
+      <div class="sc-label">Score actuel le plus bas</div>
+      <div class="sc-val" style="color:#82c91e;font-size:1rem">C7 · 38/100</div>
+      <div class="sc-sub">Euro numérique (garanties en place)</div>
+    </div>
+  </div>
+
+  <!-- Priorités -->
+  <div class="section-label" style="margin-bottom:12px">8 priorités de surveillance</div>
+  <ol class="cliquet-list" style="margin-bottom:28px">
+    <li><strong style="color:var(--text)">Transposition du rapport sénatorial</strong> dans une loi, amendement budgétaire, mission de préfiguration ou protocole avec les plateformes</li>
+    <li><strong style="color:var(--text)">Texte final de Chat Control (CSAR)</strong> — application au chiffrement et au scan côté terminal</li>
+    <li><strong style="color:var(--text)">RIPOST</strong> — durée, périmètre et finalités de la VSA</li>
+    <li><strong style="color:var(--text)">Rétention de sûreté</strong> — référence exacte de promulgation ou décision constitutionnelle</li>
+    <li><strong style="color:var(--text)">Décrets de la loi antifraude</strong> — accès concrets et flux de données autorisés</li>
+    <li><strong style="color:var(--text)">Texte final euro numérique</strong> — article interdisant la programmabilité et règles d'identification</li>
+    <li><strong style="color:var(--text)">Portefeuille européen d'identité (eIDAS 2)</strong> — identifiants stables, journaux de preuve et possibilités de corrélation</li>
+    <li><strong style="color:var(--text)">Effets du report AI Act</strong> sur les systèmes utilisés par les administrations, frontières, police et prestations sociales</li>
+  </ol>
+
+  <!-- Qualification finale -->
+  <div style="padding:18px 20px;background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.22);border-left:4px solid #ff5050;border-radius:12px;margin-bottom:28px;font-size:.88rem;line-height:1.75;color:var(--muted)">
+    <strong style="color:var(--text);display:block;margin-bottom:6px">Conclusion</strong>
+    La conclusion n'est pas qu'un système total existe déjà. Elle est plus précise : <strong style="color:var(--text)">les fonctions nécessaires à un système de contrôle transversal sont progressivement construites dans des textes séparés, sous des finalités différentes.</strong> Le point décisif sera la suppression future des cloisons juridiques et techniques entre ces fonctions.
+  </div>
+
+  <!-- Sources -->
+  <div class="section-label" style="margin-bottom:10px">Sources</div>
+  <div class="src-list" style="margin-bottom:28px">
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054191154" target="_blank" rel="noopener">Ordonnance n°2026-438 — Polynésie française (Légifrance)</a></div>
+    <div class="src-item"><a href="https://www.conseil-etat.fr/fr/arianeweb/CE/decision/2026-07-07/498746" target="_blank" rel="noopener">Décision CE n°498746 du 7 juillet 2026 — Table des noms (Conseil d'État)</a></div>
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045667825" target="_blank" rel="noopener">Décret n°2022-676 du 26 avril 2022 — Service de garantie de l'identité numérique (Légifrance)</a></div>
+    <div class="src-item"><a href="https://eur-lex.europa.eu/legal-content/EN-FR/TXT/?from=EN&uri=CELEX%3A52023PC0369" target="_blank" rel="noopener">COM/2023/369 — Proposition euro numérique, art. 24 (Eur-Lex)</a></div>
+    <div class="src-item"><a href="https://www.europarl.europa.eu/legislative-train/spotlight-JD22/file-combating-child-sexual-abuse-online" target="_blank" rel="noopener">CSAR — Legislative Train, trilogue en cours (Parlement européen)</a></div>
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048007135" target="_blank" rel="noopener">Décret n°2023-828 — VSA olympique (Légifrance)</a></div>
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000033318345" target="_blank" rel="noopener">Décret n°2016-1460 — TES (Légifrance)</a></div>
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049563368" target="_blank" rel="noopener">Loi SREN n°2024-449 (Légifrance)</a></div>
+    <div class="src-item"><a href="https://www.senat.fr/fileadmin/Commissions/Culture_Education_Communication/2025-2026/r25-8751.pdf" target="_blank" rel="noopener">Rapport sénatorial n°875 — Régulation de l'information (Sénat)</a></div>
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000030931899" target="_blank" rel="noopener">Loi renseignement n°2015-912 (Légifrance)</a></div>
+    <div class="src-item"><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ%3AL_202401689" target="_blank" rel="noopener">Règlement IA — UE 2024/1689 (Eur-Lex)</a></div>
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054309429" target="_blank" rel="noopener">Loi antifraude n°2026-534 (Légifrance)</a></div>
+    <div class="src-item"><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043894115" target="_blank" rel="noopener">CSP art. L1461-1 — Données de santé (Légifrance)</a></div>
+    <div class="src-item"><a href="https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/" target="_blank" rel="noopener">Règlement Omnibus IA — Report obligations (Conseil de l'UE)</a></div>
+    <div class="src-item"><a href="https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-renforcer-la-securite-la-retention-administrative-et-la-prevention-des-risques-dattentat.html" target="_blank" rel="noopener">PPL rétention de sûreté antiterroriste 2026 (Sénat)</a></div>
+  </div>
+
+  <!-- Fiches liées -->
+  <div class="section-label" style="margin-bottom:10px">Analyses liées</div>
+  <div class="fl-wrap" style="margin-bottom:28px">
+    <a href="/libertes/" class="fl-card" style="flex:1;min-width:220px">
+      🔐 Observatoire des Libertés
+      <span class="fl-sub">Index des 13 dispositifs : identité, communications, santé, paiements, surveillance, information</span>
+    </a>
+    <a href="/libertes/regulation-information-croisee/" class="fl-card" style="flex:1;min-width:220px">
+      🔗 Analyse croisée — Régulation électorale de l'information
+      <span class="fl-sub">Architecture systémique : 49/100 actuel · 88/100 si transposé coordonné</span>
+    </a>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-label" style="margin-bottom:10px">Questions fréquentes</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Existe-t-il actuellement un système unifié de surveillance en France ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">Non. Ces textes ne créent pas de système unifié. Il n'existe pas de « super-fichier » légal reliant automatiquement identité, santé, opinions, comptes bancaires, déplacements et communications. Ils construisent néanmoins des fonctions complémentaires — identifier, observer, classer, décider, exécuter, conserver — dont la combinaison future reste le risque principal.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Quelle est la combinaison la plus urgente à surveiller ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">La combinaison C2 (SREN + DSA + rapport sénatorial + Arcom) est la plus urgente, avec un score prospectif de 92/100. Elle permet d'agir sur l'architecture de distribution des contenus sans les interdire : observer, qualifier, signaler, rétrograder, promouvoir une source concurrente. Une rétrogradation algorithmique peut être silencieuse, temporaire mais décisive pendant une campagne, impossible à réparer après l'élection.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Comment ces textes peuvent-ils interagir sans être formellement liés ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">Chaque secteur possède une brique compatible avec une décision automatisée portant sur une personne. La convergence n'est pas nécessairement planifiée : elle résulte de la juxtaposition de fonctions développées pour des finalités différentes. Le point décisif sera la suppression future des cloisons juridiques et techniques entre ces fonctions.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Quel est le score global et que signifie l'irréversibilité 5/5 ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">67/100 pour l'architecture actuelle (risque élevé) et 91/100 pour l'architecture prospective si les projets sont cumulés (risque critique). L'irréversibilité 5/5 signifie qu'une loi peut être abrogée, mais une architecture installée demeure : bases de données, normes techniques, marchés publics, logiciels, compétences administratives, contrats avec les plateformes, habitudes des utilisateurs et intérêts des bénéficiaires institutionnels.</div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border);margin-top:14px">
+    <a href="/libertes/" style="font-size:.81rem;color:var(--muted);text-decoration:none">← Retour à l'Observatoire</a>
+    <div style="font-size:.71rem;color:var(--muted)">Dernière mise à jour : 16/07/2026</div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2026 Le Français Moyen — Données issues de sources officielles</span>
+  <a href="/">Tableau de bord principal</a>
+</footer>
+
+<script>
+function toggleComb(h){
+  const b=h.nextElementSibling;
+  const open=b.style.display==='block';
+  b.style.display=open?'none':'block';
+  const t=h.querySelector('.comb-chev');
+  if(t)t.textContent=open?'▼':'▲';
+}
+function toggleFaq(h){
+  const a=h.nextElementSibling;
+  const open=a.classList.toggle('is-open');
+  const t=h.querySelector('.faq-chevron');
+  if(t)t.textContent=open?'▲':'▼';
+}
+</script>
+</body>
+</html>
