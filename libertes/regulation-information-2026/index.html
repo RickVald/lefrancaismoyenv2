@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rapport Sénat n°875 — Régulation de l'information en ligne — Observatoire des libertés</title>
+<meta name="description" content="Analyse du rapport sénatorial n°875 sur la régulation de l'information numérique : observatoire des manipulations intérieures, invisibilisation algorithmique, médias agréés. Score prospectif : 78/100.">
+<link rel="canonical" href="https://lefrancaismoyen.fr/libertes/regulation-information-2026/">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+<style>
+:root{--card:rgba(255,255,255,.06)}
+.wrapper{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+.version-callout{background:rgba(246,195,67,.07);border-left:3px solid var(--accent);border-radius:6px;padding:14px 18px;margin-bottom:32px;font-size:.93rem;line-height:1.6}
+.version-callout strong{color:var(--accent)}
+.fiche-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.score-circle{width:88px;height:88px;border-radius:50%;background:conic-gradient(#ff5050 0% 78%,rgba(255,255,255,.08) 78% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.score-circle::before{content:'';position:absolute;inset:8px;border-radius:50%;background:var(--bg)}
+.score-num{position:relative;font-size:1.3rem;font-weight:700;color:#ff5050;text-align:center;line-height:1.15}
+.score-sub{font-size:.55rem;font-weight:600;color:var(--muted);display:block}
+.fiche-meta{flex:1;min-width:200px}
+.fiche-meta h1{font-size:1.35rem;font-weight:700;margin:0 0 10px;line-height:1.35}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.badge{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.04em}
+.s-signal{background:rgba(64,169,255,.15);color:#40A9FF;border:1px solid rgba(64,169,255,.3)}
+.s-attente{background:rgba(246,195,67,.12);color:var(--accent);border:1px solid rgba(246,195,67,.3)}
+.tag{background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--border)}
+.score-now{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted);margin-top:10px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:6px;padding:5px 10px}
+.score-now strong{color:var(--text)}
+.en-bref{background:var(--panel);border-radius:10px;padding:22px 24px;margin-bottom:28px}
+.en-bref h2{font-size:1rem;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.en-bref p{margin:0;font-size:.95rem;line-height:1.7;color:var(--text)}
+.en-bref p+p{margin-top:10px}
+.retenir-wrap{margin-bottom:28px}
+.retenir-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.retenir-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.retenir-list li{background:var(--panel);border-radius:8px;padding:14px 16px;font-size:.93rem;line-height:1.6;border-left:3px solid var(--accent)}
+.composants-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:32px}
+.composant-card{background:var(--panel);border-radius:8px;padding:16px;font-size:.88rem;line-height:1.6;border-top:3px solid transparent}
+.composant-card.c-eleve{border-top-color:#ff5050}
+.composant-card.c-signif{border-top-color:#ff7a00}
+.composant-card.c-modere{border-top-color:#e6b800}
+.composant-card strong{display:block;margin-bottom:4px;color:var(--text);font-size:.9rem}
+.composant-card .c-score{font-size:.78rem;font-weight:700;margin-bottom:8px}
+.composant-card.c-eleve .c-score{color:#ff5050}
+.composant-card.c-signif .c-score{color:#ff7a00}
+.composant-card.c-modere .c-score{color:#e6b800}
+.composant-card p{margin:0;color:var(--muted)}
+.niveaux-wrap{margin-bottom:32px}
+.niveaux-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.niveau-wrap{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.niveau-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;user-select:none;background:var(--panel)}
+.niveau-head:hover{background:rgba(255,255,255,.05)}
+.niveau-title{font-weight:600;font-size:.93rem}
+.niveau-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.niveau-body{display:none;padding:16px;font-size:.9rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.niveau-body.open{display:block}
+.niveau-body ul{padding-left:18px;margin:8px 0}
+.niveau-body li{margin-bottom:4px}
+.score-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+@media(max-width:640px){.score-2col{grid-template-columns:1fr}}
+.score-table-wrap h2,.revers-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.score-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.score-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--muted);font-weight:600}
+.score-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05)}
+.score-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--text)}
+.score-bar-row{display:flex;align-items:center;gap:8px}
+.score-bar{height:6px;border-radius:3px;background:#ff5050;flex-shrink:0}
+.score-footnote{font-size:.78rem;color:var(--muted);margin-top:10px;line-height:1.5}
+.revers-wrap{background:var(--panel);border-radius:8px;padding:18px}
+.revers-stars{font-size:1.4rem;letter-spacing:2px;margin-bottom:8px}
+.revers-label{font-size:.85rem;color:var(--muted);line-height:1.5}
+.garanties-wrap{margin-bottom:32px}
+.garanties-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.garantie-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.garantie-card{background:var(--panel);border-radius:8px;padding:14px;font-size:.88rem;line-height:1.6}
+.garantie-card strong{display:block;margin-bottom:4px;color:var(--text)}
+.garantie-card p{margin:0;color:var(--muted);font-size:.84rem}
+.diff-wrap{margin-bottom:32px}
+.diff-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.myth-box{background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.2);border-radius:8px;padding:16px;margin-bottom:10px}
+.myth-box .myth-q{font-weight:700;color:var(--accent);font-size:.9rem;margin-bottom:6px}
+.myth-box p{margin:0;font-size:.88rem;line-height:1.6;color:var(--muted)}
+.alerte-box{background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.2);border-radius:8px;padding:18px;margin-bottom:28px}
+.alerte-box h3{font-size:.9rem;font-weight:700;color:#ff5050;margin:0 0 10px;text-transform:uppercase;letter-spacing:.04em}
+.alerte-box ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.alerte-box li{font-size:.86rem;color:var(--muted);line-height:1.5;padding-left:16px;position:relative}
+.alerte-box li::before{content:'→';position:absolute;left:0;color:#ff5050;font-weight:700}
+.tl-wrap{margin-bottom:32px}
+.tl-wrap h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.timeline{position:relative;padding-left:22px;border-left:2px solid var(--border)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:'';position:absolute;left:-27px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl-date{font-size:.78rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.tl-text{font-size:.88rem;line-height:1.6;color:var(--text)}
+.src-list{margin-bottom:32px}
+.src-list h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 12px}
+.src-list ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.src-list li{font-size:.85rem;color:var(--muted);line-height:1.5}
+.src-list a{color:var(--accent2);text-decoration:none}
+.src-list a:hover{text-decoration:underline}
+.faq-section h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px}
+.faq-item{border:1px solid var(--border);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;font-weight:600;font-size:.9rem;background:var(--panel)}
+.faq-q:hover{background:rgba(255,255,255,.05)}
+.faq-chevron{font-size:.8rem;color:var(--muted);transition:transform .25s}
+.faq-a{display:none;padding:14px 16px;font-size:.88rem;line-height:1.7;color:var(--muted);border-top:1px solid var(--border)}
+.faq-a.open{display:block}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://lefrancaismoyen.fr/"},{"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://lefrancaismoyen.fr/libertes/"},{"@type":"ListItem","position":3,"name":"Rapport Sénat — Régulation de l'information 2026","item":"https://lefrancaismoyen.fr/libertes/regulation-information-2026/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ce rapport crée-t-il une nouvelle loi ?","acceptedAnswer":{"@type":"Answer","text":"Non. Un rapport sénatorial n'a aucune valeur normative. Il peut inspirer des projets de loi, des amendements ou des crédits budgétaires, mais il ne crée lui-même aucun droit ni aucun pouvoir."}},{"@type":"Question","name":"Qu'est-ce que la « censure distributionnelle » ?","acceptedAnswer":{"@type":"Answer","text":"C'est la réduction de la portée d'un compte ou d'un contenu sans suppression : la personne peut toujours publier, mais ses publications n'apparaissent plus dans les recommandations, les recherches ou les fils d'actualité. Le DSA reconnaît cela comme une opération de modération."}},{"@type":"Question","name":"En quoi cet observatoire serait-il différent de Viginum ?","acceptedAnswer":{"@type":"Answer","text":"Viginum surveille les ingérences numériques étrangères — son décret le limite explicitement aux opérations d'origine étrangère. L'observatoire proposé viserait les manipulations d'origine intérieure : citoyens, associations, médias, influenceurs et groupes politiques français."}},{"@type":"Question","name":"La liberté d'expression protège-t-elle aussi les contenus faux ?","acceptedAnswer":{"@type":"Answer","text":"Oui, dans une large mesure. La CEDH protège les idées qui offensent, choquent ou dérangent. La liberté d'expression inclut les opinions contestables, les interprétations partiales et même les erreurs. Ce n'est pas la fausseté seule qui peut justifier une restriction, mais la fausseté combinée à une intention de tromper, à une diffusion artificielle et à un dommage concret démontrable."}}]}
+</script>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<main class="wrapper">
+  <div class="version-callout">
+    <strong>Signal fort — rapport non adopté</strong> — Rapport d'information n°875, enregistré le 8 juillet 2026. Commission de la culture du Sénat avec prérogatives d'enquête. Rapporteurs : Laurent Lafon, Agnès Evren et Sylvie Robert. 56 recommandations. Aucun pouvoir juridique direct — feuille de route préélectorale 2027.
+  </div>
+
+  <div class="fiche-header">
+    <div class="score-circle">
+      <span class="score-num">78<span class="score-sub">prospectif</span></span>
+    </div>
+    <div class="fiche-meta">
+      <h1>Rapport Sénat n°875 — Régulation de l'information dans l'espace numérique</h1>
+      <div class="badges">
+        <span class="badge s-signal">Signal fort</span>
+        <span class="badge s-attente">Pas encore loi</span>
+        <span class="badge tag">expression</span>
+        <span class="badge tag">numérique</span>
+        <span class="badge tag">europe</span>
+      </div>
+      <div class="score-now">Score actuel (rapport non contraignant) : <strong>12 / 100</strong> — si transposé dans son architecture principale : <strong>78 / 100</strong></div>
+    </div>
+  </div>
+
+  <div class="en-bref">
+    <h2>En bref</h2>
+    <p>Le rapport n°875 ne crée encore aucun pouvoir. C'est une feuille de route politique sans effet juridique direct. Mais son noyau est préoccupant : il propose de construire, avant la présidentielle de 2027, une infrastructure publique ou para-publique chargée de surveiller les manipulations provenant de citoyens, associations, médias, influenceurs et groupes politiques français — puis d'obtenir des plateformes qu'elles modifient la visibilité de contenus ou de comptes.</p>
+    <p>Le diagnostic de départ est partiellement juste : les campagnes coordonnées inauthentiques, les faux comptes et le financement opaque peuvent réellement altérer un scrutin. La réponse proposée est cependant insuffisamment délimitée. Le rapport mélange les opérations frauduleuses et inauthentiques (qui peuvent justifier une intervention) avec les opinions contestables, les campagnes militantes authentiques et l'influence politique intérieure ordinaire — qui constituent pourtant l'activité normale d'une démocratie.</p>
+  </div>
+
+  <div class="retenir-wrap">
+    <h2>Ce qu'il faut retenir</h2>
+    <ul class="retenir-list">
+      <li>Le rapport propose un <strong>observatoire des manipulations intérieures</strong>, pendant de Viginum pour les ingérences françaises. Sans définition de sa composition, de son financement ni des conflits d'intérêts possibles.</li>
+      <li>Il envisage d'<strong>« invisibiliser un utilisateur fautif »</strong> — réduire la portée algorithmique d'un compte, pas seulement retirer un contenu illégal. La personne peut toujours publier, mais disparaît des recommandations et des recherches.</li>
+      <li>Il demande une <strong>suspension des algorithmes pendant la campagne électorale</strong>, formulation techniquement mal maîtrisée et non définie dans son périmètre.</li>
+      <li>Il veut <strong>obliger les plateformes à favoriser les médias reconnus</strong> comme services d'intérêt général, dont la liste serait définie par l'Arcom — créant un pluralisme administré par une autorité administrative.</li>
+      <li>La distinction essentielle absente : entre manipulation inauthentique et frauduleuse (légitime à réguler) et expression politique partisane, agressive ou contestable (activité démocratique normale).</li>
+    </ul>
+  </div>
+
+  <div class="composants-grid">
+    <div class="composant-card c-eleve">
+      <strong>Observatoire des manipulations intérieures</strong>
+      <div class="c-score">Score si créé : 82 / 100</div>
+      <p>Signalements aux plateformes, incitation à réduire la visibilité d'un compte, saisine de l'Arcom. Critères non définis : « menace grave pour la qualité de l'information », « utilisateur fautif ».</p>
+    </div>
+    <div class="composant-card c-eleve">
+      <strong>Pluralisme administré (invisibilisation + médias agréés)</strong>
+      <div class="c-score">Score combiné : 86 / 100</div>
+      <p>Réduction de portée des comptes signalés + obligation de visibilité des médias reconnus par l'Arcom. Double levier sur la hiérarchie des voix sans décision judiciaire préalable.</p>
+    </div>
+    <div class="composant-card c-eleve">
+      <strong>Suspension ou contrôle des algorithmes électoraux</strong>
+      <div class="c-score">Score si adopté : 80 / 100</div>
+      <p>Formulation ambiguë — « suspendre les algorithmes » ou « interdire d'y toucher » ne sont pas équivalents. Périmètre, durée et exceptions non précisés.</p>
+    </div>
+    <div class="composant-card c-signif">
+      <strong>Définition réglementaire de la désinformation dans le DSA</strong>
+      <div class="c-score">Score selon définition : 72 / 100</div>
+      <p>Une définition précise pourrait clarifier. Une définition fondée sur la nocivité sociale ou des thèmes prioritaires (santé, climat) créerait une infrastructure de certification institutionnelle du vrai et du faux.</p>
+    </div>
+    <div class="composant-card c-signif">
+      <strong>Régulation des influenceurs et podcasts</strong>
+      <div class="c-score">Score : 70 / 100</div>
+      <p>Seuil d'audience, notion de programme similaire à une chaîne et de « risque sérieux » non définis. L'absence de contradiction ne doit pas devenir un manquement réglementaire général.</p>
+    </div>
+    <div class="composant-card c-modere">
+      <strong>Identification des auteurs d'infractions en ligne</strong>
+      <div class="c-score">Score : 66 / 100</div>
+      <p>Objectif légitime mais risque d'affaiblissement du pseudonymat pour des infractions à caractère complexe. Exige décision judiciaire, demande ciblée et droit de recours.</p>
+    </div>
+  </div>
+
+  <div class="niveaux-wrap">
+    <h2>Analyse par niveau</h2>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n1')">
+        <span class="niveau-title">N1 — Ce que le rapport dit réellement</span>
+        <span class="niveau-chevron" id="chev-n1">▼</span>
+      </div>
+      <div class="niveau-body" id="n1">
+        <p>Le rapport n°875 a été enregistré le 8 juillet 2026. La commission de la culture avait reçu les prérogatives d'une commission d'enquête, lui donnant accès à des documents et auditions sous serment. Ses 56 recommandations couvrent six axes principaux.</p>
+        <p>Sur l'observatoire intérieur (recommandations 1 à 5) : créer un organisme alimenté par des associations et chercheurs, pouvant demander ou suggérer aux plateformes de modifier leurs algorithmes, inciter à réduire la visibilité d'un utilisateur considéré fautif, saisir la CNCCEP en cas d'atteinte à l'égalité entre candidats, et saisir l'Arcom.</p>
+        <p>Ce que le rapport ne propose pas explicitement : confier à cet observatoire un pouvoir légal de suppression directe, lui permettre de sanctionner un citoyen, créer une base centralisée d'opinions politiques, surveiller les conversations privées, ou étendre formellement Viginum aux citoyens français. Le verbe employé est « inciter », non « ordonner ». Mais une demande émanant d'un organisme officiellement chargé de protéger l'intégrité électorale produit une pression quasi réglementaire sur une plateforme même sans ordre juridiquement contraignant.</p>
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n2')">
+        <span class="niveau-title">N2 — Droit existant et comparaisons</span>
+        <span class="niveau-chevron" id="chev-n2">▼</span>
+      </div>
+      <div class="niveau-body" id="n2">
+        <p>Le droit français offre déjà des instruments ciblés. L'article L. 163-2 du Code électoral permet à un juge d'intervenir pendant les trois mois précédant une élection, mais sous conditions cumulatives strictes : allégation factuelle inexacte ou trompeuse, susceptible d'altérer la sincérité du scrutin, diffusion délibérée, artificielle ou automatisée, et massive. La fausseté et le risque électoral doivent être manifestes selon le Conseil constitutionnel.</p>
+        <p>Le DSA européen impose déjà aux très grandes plateformes d'évaluer les risques sur le débat civique. Il permet l'adaptation des systèmes de recommandation, mais les mesures doivent rester proportionnées et respectueuses de la liberté d'expression. Les lignes directrices européennes actuelles sont non contraignantes — elles expliquent comment respecter le DSA mais ne peuvent pas créer n'importe quelle nouvelle obligation.</p>
+        <p>La CEDH protège les idées qui offensent, choquent ou dérangent (Handyside c. Royaume-Uni, 1976). Le Conseil constitutionnel considère le pluralisme des courants d'expression comme un objectif constitutionnel (décision 86-217 DC). Ces protections existantes constituent les obstacles principaux à une transposition directe du rapport.</p>
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n3')">
+        <span class="niveau-title">N3 — La censure distributionnelle : ce que c'est vraiment</span>
+        <span class="niveau-chevron" id="chev-n3">▼</span>
+      </div>
+      <div class="niveau-body" id="n3">
+        <p>La recommandation ne se limite pas au retrait d'un contenu précis. Elle envisage la réduction de visibilité d'un utilisateur — ce que le DSA reconnaît lui-même comme une opération de modération (rétrogradation, réduction d'accessibilité, limitation de portée, shadow banning).</p>
+        <p>Cette différence est majeure : retirer un contenu manifestement illégal répond à un acte déterminé. Réduire la visibilité d'un compte affecte toutes ses publications présentes et futures. L'utilisateur peut ne pas savoir que sa portée a été réduite. Ses lecteurs peuvent croire que son discours ne rencontre aucune audience. L'impact est particulièrement fort pendant une campagne courte.</p>
+        <p>La responsabilité serait dispersée : l'observatoire dirait n'avoir fait qu'alerter ; la plateforme dirait avoir appliqué ses conditions d'utilisation ; l'Arcom dirait ne pas avoir pris la décision ; l'utilisateur ne saurait pas contre qui exercer son recours. C'est un modèle classique de contrôle par intermédiaire privé qui contourne les garanties applicables à une décision administrative formelle.</p>
+        <p>Dans un environnement où l'immense majorité des informations est découverte par les moteurs de recherche et les fils d'actualité, être présent mais introuvable est fonctionnellement proche d'être réduit au silence.</p>
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n4')">
+        <span class="niveau-title">N4 — L'effet cliquet institutionnel</span>
+        <span class="niveau-chevron" id="chev-n4">▼</span>
+      </div>
+      <div class="niveau-body" id="n4">
+        <p>L'histoire des organismes de surveillance montre un élargissement progressif de leur mandat après leur création. Le chemin institutionnel le plus vraisemblable serait :</p>
+        <ul>
+          <li>observatoire temporaire ou expérimental pour 2027 ;</li>
+          <li>coopération volontaire avec les plateformes ;</li>
+          <li>formalisation des signalements ;</li>
+          <li>obligation de réponse des plateformes ;</li>
+          <li>extension aux autres élections ;</li>
+          <li>extension hors période électorale (crises sanitaires, mouvements sociaux…) ;</li>
+          <li>reconnaissance comme « signaleur de confiance » au sens du DSA ;</li>
+          <li>accès accru aux données et aux outils des plateformes.</li>
+        </ul>
+        <p>Ce scénario n'est pas annoncé dans le rapport. Il décrit une évolution institutionnelle classique rendue possible par la création initiale de l'organisme. Un observatoire limité aux élections pourrait ensuite être étendu à toute l'année, aux crises sanitaires, aux questions climatiques, aux conflits internationaux et aux contenus considérés comme susceptibles de troubler l'ordre public.</p>
+        <p>Le biais idéologique implicite du rapport constitue un facteur aggravant : les médias numériques progressistes sont surreprésentés parmi les exemples de « journalisme de qualité ». Une préférence éditoriale implicite peut devenir une préférence institutionnelle explicite, puis une préférence inscrite dans les algorithmes.</p>
+      </div>
+    </div>
+
+    <div class="niveau-wrap">
+      <div class="niveau-head" onclick="toggle('n5')">
+        <span class="niveau-title">N5 — Scénario extrême et obstacles actuels</span>
+        <span class="niveau-chevron" id="chev-n5">▼</span>
+      </div>
+      <div class="niveau-body" id="n5">
+        <p>Scénario hypothétique : une autorité surveille en permanence le débat politique national, classe les récits par niveau de risque, signale les comptes concernés aux plateformes et obtient leur rétrogradation sans décision judiciaire préalable.</p>
+        <p>Conditions nécessaires : création législative de l'organisme, définition large de la désinformation, accès étendu aux données des plateformes, obligations de coopération, procédures opaques, contrôle judiciaire seulement postérieur, extension hors période électorale.</p>
+        <p>Obstacles actuels : article 11 de la Déclaration de 1789 ; article 10 de la Convention européenne des droits de l'homme ; article 11 de la Charte des droits fondamentaux ; contrôle du Conseil constitutionnel ; contrôle de la CJUE et de la CEDH ; DSA et principe de proportionnalité ; compétence du juge électoral ; liberté de la presse et pluralisme.</p>
+        <p>Probabilité actuelle du scénario extrême : faible. Probabilité d'une version partielle — observatoire, signalements et rétrogradation volontaire avant ou après 2027 : <strong>moyenne à élevée</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="score-2col">
+    <div class="score-table-wrap">
+      <h2>Score prospectif détaillé</h2>
+      <table class="score-table">
+        <thead><tr><th>Composante</th><th>Poids</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Observatoire manipulations intérieures</td><td>20</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(17/20*80px)"></div>17</div></td></tr>
+          <tr><td>Censure distributionnelle / médias agréés</td><td>20</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(17/20*80px)"></div>17</div></td></tr>
+          <tr><td>Contrôle algorithmique électoral</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(12/15*80px)"></div>12</div></td></tr>
+          <tr><td>Définition réglementaire désinformation</td><td>15</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(11/15*80px)"></div>11</div></td></tr>
+          <tr><td>Régulation influenceurs / podcasts</td><td>12</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(8/12*80px)"></div>8</div></td></tr>
+          <tr><td>Identification des auteurs en ligne</td><td>10</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(7/10*80px)"></div>7</div></td></tr>
+          <tr><td>Réversibilité (effet cliquet)</td><td>8</td><td><div class="score-bar-row"><div class="score-bar" style="width:calc(6/8*80px)"></div>6</div></td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>100</strong></td><td><strong>78</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="score-footnote">Score si le rapport est transposé dans son architecture principale. Score actuel (rapport non contraignant) : 12 / 100.</div>
+    </div>
+    <div class="revers-wrap">
+      <h2>Réversibilité</h2>
+      <div class="revers-stars">★★★★☆</div>
+      <p class="revers-label">4/5 actuellement (rapport sans force légale). Descendrait à 2/5 après création d'un observatoire : une fois des équipes recrutées, des partenariats établis avec les plateformes et des procédures formalisées, sa suppression serait politiquement difficile même si son efficacité restait contestée.</p>
+    </div>
+  </div>
+
+  <div class="alerte-box">
+    <h3>Signaux d'alerte à surveiller</h3>
+    <ul>
+      <li>Création d'une mission de préfiguration de l'observatoire (mission gouvernementale, rapport intermédiaire, appel d'offres)</li>
+      <li>Amendements dans un texte électoral, audiovisuel ou numérique reprenant les termes « manipulation intérieure », « utilisateur fautif » ou « risque informationnel »</li>
+      <li>Crédits supplémentaires attribués à l'Arcom dans le budget 2027</li>
+      <li>Réforme des lignes directrices européennes sur les élections ou modification du DSA avant la présidentielle</li>
+      <li>Révision de la directive SMA concernant YouTube et les influenceurs</li>
+      <li>Évolution des pouvoirs de la CNCCEP (Commission nationale de contrôle de la campagne présidentielle)</li>
+    </ul>
+  </div>
+
+  <div class="garanties-wrap">
+    <h2>Protections juridiques existantes</h2>
+    <div class="garantie-list">
+      <div class="garantie-card">
+        <strong>Article 11 de la Déclaration de 1789</strong>
+        <p>Liberté de communication des pensées et opinions, pilier constitutionnel de la liberté d'expression en France.</p>
+      </div>
+      <div class="garantie-card">
+        <strong>Article 10 CEDH + CJUE</strong>
+        <p>La CEDH protège les idées qui offensent, choquent ou dérangent. Toute restriction doit être prévue par la loi, nécessaire et proportionnée.</p>
+      </div>
+      <div class="garantie-card">
+        <strong>Conseil constitutionnel</strong>
+        <p>Toute loi transposant ces recommandations serait soumise à un contrôle de constitutionnalité sur le pluralisme et la liberté d'expression.</p>
+      </div>
+      <div class="garantie-card">
+        <strong>Article L. 163-2 du Code électoral</strong>
+        <p>Intervention judiciaire déjà possible, mais sous conditions cumulatives strictes. Modèle plus protecteur que la notion de « qualité de l'information ».</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="diff-wrap">
+    <h2>Points de vigilance</h2>
+    <div class="myth-box">
+      <div class="myth-q">« Lutter contre la désinformation ne censure pas »</div>
+      <p>La distinction décisive est entre retrait d'un contenu illégal (acte déterminé, décision visible, voie de recours) et réduction de visibilité d'un compte (affecte toutes les publications futures, peut rester inconnue de l'utilisateur, responsabilité dispersée entre l'observatoire, la plateforme et l'Arcom). Ce sont deux natures d'intervention profondément différentes.</p>
+    </div>
+    <div class="myth-box">
+      <div class="myth-q">« L'ingérence intérieure nie la démocratie »</div>
+      <p>Non, pas dans toutes ses formes. Des procédés objectivement frauduleux (faux comptes, financement clandestin, coordination dissimulée, usurpation d'identité) peuvent justifier une intervention. Ce qui pose problème, c'est l'extension aux « stratégies coordonnées d'influence » authentiques — qui décrit exactement ce que font les partis, syndicats, associations et mouvements sociaux.</p>
+    </div>
+    <div class="myth-box">
+      <div class="myth-q">« La liste des médias favorisés serait pluraliste »</div>
+      <p>Le rapport cite HugoDécrypte, Gaspard G et Jean Massiet comme exemples de créateurs professionnels et pluralistes. Mediapart, Disclose, StreetPress, Blast et Reporterre figurent parmi les modèles d'investigation de qualité. Les médias de droite sont auditionnés mais absents des exemples valorisés. Une préférence éditoriale implicite peut devenir une préférence institutionnelle puis algorithmique.</p>
+    </div>
+    <div class="myth-box">
+      <div class="myth-q">« Ce n'est qu'un rapport sans conséquence »</div>
+      <p>Un rapport sénatorial avec prérogatives d'enquête, publié un an avant la présidentielle, par trois sénateurs de la majorité, constitue une feuille de route politique sérieuse. Il peut inspirer des amendements dans un texte électoral ou numérique, des crédits budgétaires, des évolutions du DSA ou des lignes directrices européennes, sans nécessiter de loi autonome.</p>
+    </div>
+  </div>
+
+  <div class="tl-wrap">
+    <h2>Chronologie</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2018</div>
+        <div class="tl-text">Loi relative à la lutte contre la manipulation de l'information — création de l'article L. 163-2 du Code électoral. Première tentative de régulation des « fausses informations » en période électorale.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2021</div>
+        <div class="tl-text">Création de Viginum (Service de vigilance et de protection contre les ingérences numériques étrangères), rattaché au SGDSN. Mandat explicitement limité aux opérations étrangères.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Août 2023</div>
+        <div class="tl-text">Entrée en vigueur du DSA (Digital Services Act) pour les très grandes plateformes. Obligations d'évaluation des risques systémiques sur le débat démocratique.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Automne 2025 – printemps 2026</div>
+        <div class="tl-text">Auditions de la commission de la culture du Sénat avec prérogatives d'enquête. 56 recommandations élaborées.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">8 juillet 2026</div>
+        <div class="tl-text">Dépôt du rapport n°875, « La régulation de l'information dans l'espace numérique ». Rapporteurs : Laurent Lafon, Agnès Evren et Sylvie Robert.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">À surveiller — 2026-2027</div>
+        <div class="tl-text">Possible mission de préfiguration de l'observatoire, amendements dans un texte audiovisuel ou numérique, crédits budgétaires 2027, évolutions du DSA ou des lignes directrices électorales européennes.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="src-list">
+    <h2>Sources</h2>
+    <ul>
+      <li>Rapport d'information n°875, Sénat, 8 juillet 2026 — « La régulation de l'information dans l'espace numérique » (Lafon, Evren, Robert)</li>
+      <li>Règlement (UE) 2022/2065 (DSA) — <a href="https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+      <li>Lignes directrices de la Commission européenne sur les élections et le DSA, 2024 — <a href="https://eur-lex.europa.eu/eli/C/2024/3014/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+      <li>Décret n°2021-922 du 13 juillet 2021 — création de Viginum — <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043788361" target="_blank" rel="noopener">legifrance.gouv.fr</a></li>
+      <li>Code électoral, article L. 163-2 — <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039278631" target="_blank" rel="noopener">legifrance.gouv.fr</a></li>
+      <li>CEDH, Handyside c. Royaume-Uni, 7 décembre 1976 — <a href="https://hudoc.echr.coe.int/eng?i=001-57499" target="_blank" rel="noopener">hudoc.echr.coe.int</a></li>
+      <li>Conseil constitutionnel, décision 86-217 DC du 18 septembre 1986 (pluralisme) — <a href="https://www.conseil-constitutionnel.fr/decision/1986/86217DC.htm" target="_blank" rel="noopener">conseil-constitutionnel.fr</a></li>
+      <li>Compte-rendu de commission — <a href="https://www.senat.fr/compte-rendu-commissions/20260706/cult.html" target="_blank" rel="noopener">senat.fr</a></li>
+    </ul>
+  </div>
+
+  <div class="faq-section">
+    <h2>Questions fréquentes</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq1')">Ce rapport crée-t-il une nouvelle loi ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq1">Non. Un rapport sénatorial n'a aucune valeur normative. Il peut inspirer des projets de loi, des amendements ou des crédits budgétaires, mais il ne crée lui-même aucun droit ni aucun pouvoir. Son score actuel est de 12/100. Le score de 78/100 est prospectif — il évalue le risque si son architecture principale est transposée.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq2')">Qu'est-ce que la « censure distributionnelle » ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq2">C'est la réduction de la portée d'un compte ou d'un contenu sans suppression visible : la personne peut toujours publier, mais ses publications n'apparaissent plus dans les recommandations, les recherches ou les fils d'actualité. Le DSA lui-même reconnaît cela comme une opération de modération (rétrogradation, limitation de portée, shadow banning). La personne peut ignorer que sa visibilité a été réduite.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq3')">En quoi cet observatoire serait-il différent de Viginum ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq3">Viginum surveille les ingérences numériques étrangères — son décret le limite explicitement aux opérations d'origine étrangère. L'observatoire proposé viserait les manipulations d'origine intérieure : citoyens, associations, médias, influenceurs et groupes politiques français. C'est un saut qualitatif : une ingérence étrangère peut être définie par son origine et ses méthodes. Une « ingérence intérieure » est beaucoup plus difficile à distinguer d'une campagne militante authentique.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq('faq4')">La liberté d'expression protège-t-elle aussi les contenus faux ?<span class="faq-chevron">▼</span></div>
+      <div class="faq-a" id="faq4">Oui, dans une large mesure. La CEDH protège les idées qui offensent, choquent ou dérangent. La liberté d'expression inclut les opinions contestables, les interprétations partiales et même les erreurs. Ce n'est pas la fausseté seule qui peut justifier une restriction, mais la fausseté combinée à une intention de tromper, à une diffusion artificielle et à un dommage concret démontrable — c'est le modèle de l'article L. 163-2 du Code électoral.</div>
+    </div>
+  </div>
+</main>
+
+<script>
+function toggle(id){var b=document.getElementById(id);var h=b.closest('.niveau-wrap').querySelector('.niveau-head');var c=h.querySelector('.niveau-chevron');b.classList.toggle('open');c.style.transform=b.classList.contains('open')?'rotate(180deg)':''}
+function toggleFaq(id){var a=document.getElementById(id);var q=a.closest('.faq-item').querySelector('.faq-chevron');a.classList.toggle('open');q.style.transform=a.classList.contains('open')?'rotate(180deg)':''}
+</script>
+</body>
+</html>
