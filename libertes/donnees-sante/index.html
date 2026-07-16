@@ -128,7 +128,7 @@
       {
         "@type":"Question",
         "name":"Pourquoi le Health Data Hub hébergeait-il des données sur Microsoft Azure ?",
-        "acceptedAnswer":{"@type":"Answer","text":"Le GIE Health Data Hub, créé en 2019 pour centraliser l'accès aux données de santé à des fins de recherche en IA, avait choisi Microsoft Azure comme infrastructure cloud. Cette décision a été très contestée : les données de santé de millions de Français hébergées chez un opérateur américain soumis au Cloud Act. Le Conseil d'État a autorisé provisoirement cette situation en 2021, à condition que Microsoft s'engage à ne pas transférer les données hors UE. Une migration vers un hébergeur souverain français était en cours à la date de rédaction."}
+        "acceptedAnswer":{"@type":"Answer","text":"Le GIP Health Data Hub, créé en 2019 pour centraliser l'accès aux données de santé à des fins de recherche en IA, avait choisi Microsoft Azure comme infrastructure cloud. Cette décision a été très contestée : les données de santé de millions de Français hébergées chez un opérateur américain soumis au Cloud Act. Le Conseil d'État a autorisé provisoirement cette situation en octobre 2020, à condition que Microsoft s'engage à ne pas transférer les données hors UE. En avril 2026, le GIP Health Data Hub a annoncé avoir sélectionné Scaleway comme hébergeur souverain."}
       }
     ]
   }
@@ -170,7 +170,7 @@
     </div>
     <div class="def-box">
       <strong>Mon espace santé</strong>
-      Dossier Médical numérique créé pour chaque Français (opt-out depuis fév. 2022). Nominatif pour les professionnels de santé habilités. Patient maître de ses données. Accès strictement limité aux soignants.
+      Dossier Médical numérique créé pour chaque Français (opt-out depuis fév. 2022). Patient maître de ses données. Accès limité aux professionnels de santé habilités par le patient ; des délégations, services référencés et accès d'urgence (bris de glace) sont également prévus par le cadre réglementaire.
     </div>
     <div class="def-box">
       <strong>Entrepôts hospitaliers (EDS)</strong>
@@ -196,7 +196,7 @@
   <div class="section-label">En bref</div>
   <div class="en-bref">
     <p>La France dispose de l'une des bases de données de santé les plus complètes d'Europe : le SNDS couvre 70 millions de bénéficiaires avec leurs données de soins depuis 2016. Mon espace santé (lancé en 2022) crée un dossier médical numérique pour chaque Français par défaut — le passage de l'opt-in à l'opt-out est la rupture principale. L'accès au SNDS est encadré par la CNIL et la Commission d'accès aux données de santé (CADS), avec des finalités précises.</p>
-    <p style="margin-top:10px">Les points de vigilance sont au nombre de trois. D'abord, la pseudonymisation du SNDS n'est pas une anonymisation : le NIR (numéro de sécurité sociale) est un quasi-identifiant qui permet une réidentification théorique par croisement de données. Ensuite, la controverse du Health Data Hub hébergé sur Microsoft Azure (soumis au Cloud Act américain) — le Conseil d'État a autorisé cette situation provisoirement en 2021, et une migration vers un hébergeur français était en cours. Enfin, la multiplication des entrepôts hospitaliers (EDS) crée de nouveaux silos de données nominatives dont la sécurité est variable.</p>
+    <p style="margin-top:10px">Les points de vigilance sont au nombre de trois. D'abord, la pseudonymisation du SNDS n'est pas une anonymisation : le NIR (numéro de sécurité sociale) est un quasi-identifiant qui permet une réidentification théorique par croisement de données. Ensuite, la controverse du Health Data Hub hébergé sur Microsoft Azure (soumis au Cloud Act américain) — le Conseil d'État a autorisé cette situation provisoirement en 2021, et en avril 2026, le GIP Health Data Hub a annoncé avoir sélectionné Scaleway comme hébergeur souverain. Enfin, la multiplication des entrepôts hospitaliers (EDS) crée de nouveaux silos de données nominatives dont la sécurité est variable.</p>
   </div>
 
   <div class="section-label">Ce qu'il faut retenir</div>
@@ -204,7 +204,7 @@
     <div class="retenir-item"><span class="ri-icon">🔒</span><span><strong>SNDS pseudonymisé ≠ anonymisé</strong> — Le NIR (numéro de sécu) est utilisé comme identifiant chiffré dans le SNDS. C'est un quasi-identifiant : croisé avec l'âge, la commune et des pathologies rares, une réidentification reste théoriquement possible.</span></div>
     <div class="retenir-item"><span class="ri-icon">📱</span><span><strong>Mon espace santé est opt-out</strong> — Chaque Français a un compte créé par défaut. Il peut s'y opposer. Les données ne sont accessibles qu'aux professionnels de santé habilités par le patient, pas à des assureurs ou employeurs.</span></div>
     <div class="retenir-item"><span class="ri-icon">🏢</span><span><strong>Accès chercheurs et industriels encadré</strong> — Des entreprises pharmaceutiques peuvent accéder au SNDS pour la recherche, avec autorisation CNIL et finalité définie. Ce n'est pas un accès commercial libre.</span></div>
-    <div class="retenir-item"><span class="ri-icon">☁️</span><span><strong>Health Data Hub / Microsoft Azure</strong> — Hébergement contesté du point de vue de la souveraineté (Cloud Act américain). Migration vers un hébergeur français en cours. Le Conseil d'État a autorisé provisoirement la situation existante.</span></div>
+    <div class="retenir-item"><span class="ri-icon">☁️</span><span><strong>Health Data Hub / Scaleway</strong> — L'hébergement initial sur Microsoft Azure (soumis au Cloud Act américain) a été autorisé provisoirement par le Conseil d'État en octobre 2020. En avril 2026, Scaleway a été sélectionné comme hébergeur souverain.</span></div>
     <div class="retenir-item"><span class="ri-icon">📈</span><span><strong>EDS hospitaliers en expansion</strong> — La multiplication d'entrepôts de données hospitaliers locaux crée de nouveaux dépôts de données nominatives dont les garanties de sécurité et les règles d'accès varient d'un établissement à l'autre.</span></div>
   </div>
 
@@ -302,12 +302,12 @@
       <span class="niveau-chevron">▼</span>
     </div>
     <div class="niveau-body">
-      <p>Le GIE Health Data Hub (HDH) a été créé par arrêté du 29 novembre 2019 pour centraliser l'accès aux données de santé à des fins de recherche en intelligence artificielle. L'infrastructure technique choisie : Microsoft Azure.</p>
+      <p>Le GIP Health Data Hub (HDH) a été créé par arrêté du 29 novembre 2019 pour centraliser l'accès aux données de santé à des fins de recherche en intelligence artificielle. L'infrastructure technique choisie : Microsoft Azure.</p>
       <p><strong>Le problème :</strong> Microsoft est une entreprise américaine soumise au <strong>Cloud Act</strong> (2018), qui autorise les autorités américaines à demander l'accès aux données hébergées par des entreprises américaines, même sur des serveurs situés en Europe. En d'autres termes : les données de santé de millions de Français pourraient théoriquement être accessibles aux autorités américaines.</p>
       <p><strong>La procédure judiciaire :</strong></p>
       <ul>
         <li>La CNIL a jugé la situation préoccupante mais n'a pas ordonné l'arrêt immédiat</li>
-        <li>Le Conseil d'État (ordonnance du 13 octobre 2021) a autorisé provisoirement le maintien de l'hébergement sur Azure, à condition que Microsoft s'engage contractuellement à ne pas transférer les données hors UE</li>
+        <li>Le Conseil d'État (ordonnance du 13 octobre 2020) a autorisé provisoirement le maintien de l'hébergement sur Azure, à condition que Microsoft s'engage contractuellement à ne pas transférer les données hors UE</li>
         <li>Une migration vers un hébergeur souverain français était inscrite comme obligation à terme</li>
       </ul>
       <p>Cette affaire illustre la tension entre la rapidité d'innovation (Azure offrait des capacités d'IA que les hébergeurs français n'avaient pas en 2019) et les exigences de souveraineté des données de santé.</p>
@@ -393,9 +393,9 @@
       <div class="tl-text">COVID-19 : accès accéléré au SNDS pour la recherche épidémiologique. Premières contestations de l'hébergement HDH sur Azure (CNIL, associations).</div>
     </div>
     <div class="tl-item">
-      <div class="tl-date">oct. 2021</div>
+      <div class="tl-date">oct. 2020</div>
       <div class="tl-dot"></div>
-      <div class="tl-text"><strong>Ordonnance CE du 13 octobre 2021</strong> — Le Conseil d'État autorise provisoirement le maintien d'Azure pour le HDH, sous conditions. Migration vers hébergeur français imposée à terme.</div>
+      <div class="tl-text"><strong>Ordonnance CE du 13 octobre 2020</strong> — Le Conseil d'État autorise provisoirement le maintien d'Azure pour le HDH, sous conditions. Migration vers hébergeur français imposée à terme.</div>
     </div>
     <div class="tl-item">
       <div class="tl-date">fév. 2022</div>
@@ -403,9 +403,14 @@
       <div class="tl-text"><strong>Mon espace santé</strong> — Déploiement national de l'espace de santé numérique (opt-out). Arrêté du 21 janvier 2022. Notifications envoyées à 67 M d'assurés.</div>
     </div>
     <div class="tl-item">
-      <div class="tl-date">2023–26</div>
+      <div class="tl-date">20 mars 2026</div>
       <div class="tl-dot"></div>
-      <div class="tl-text">Multiplication des entrepôts de données hospitaliers (EDS). Migration HDH en cours. Croissance de l'utilisation du SNDS pour la recherche en IA médicale.</div>
+      <div class="tl-text"><strong>Décision Conseil d'État du 20 mars 2026</strong> — À intégrer à la chronologie (nature et portée à vérifier sur les sources primaires).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">avr. 2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text"><strong>HDH sélectionne Scaleway</strong> — Le GIP Health Data Hub annonce avoir retenu Scaleway comme hébergeur souverain, mettant fin à la controverse Cloud Act / Azure.</div>
     </div>
   </div>
 
@@ -413,7 +418,7 @@
   <div class="src-list">
     <div class="src-item"><span class="src-icon">📄</span><div><strong>Loi n° 2016-41 du 26 janvier 2016</strong> — Création du SNDS, périmètre et gouvernance.</div></div>
     <div class="src-item"><span class="src-icon">📄</span><div><strong>Arrêté du 21 janvier 2022</strong> — Mon espace santé, conditions de création et d'accès.</div></div>
-    <div class="src-item"><span class="src-icon">🏛️</span><div><strong>Ordonnance CE du 13 octobre 2021</strong> — Health Data Hub / Microsoft Azure, conditions d'hébergement provisoire.</div></div>
+    <div class="src-item"><span class="src-icon">🏛️</span><div><strong>Ordonnance CE du 13 octobre 2020</strong> — Health Data Hub / Microsoft Azure, conditions d'hébergement provisoire.</div></div>
     <div class="src-item"><span class="src-icon">🏛️</span><div><strong>CNIL — Délibérations SNDS</strong> — Conditions d'accès, pseudonymisation, contrôle des traitements.</div></div>
     <div class="src-item"><span class="src-icon">🇪🇺</span><div><strong>RGPD, art. 9</strong> — Traitement des données de santé : catégorie "sensible", base légale spécifique obligatoire.</div></div>
     <div class="src-item"><span class="src-icon">📄</span><div><strong>Rapport CNIL 2022 sur la pseudonymisation</strong> — Analyse des risques de réidentification dans les bases de données de santé.</div></div>
@@ -457,7 +462,7 @@
       <span class="faq-chevron">▼</span>
     </div>
     <div class="faq-a">
-      Le GIE Health Data Hub a choisi Azure en 2019 pour ses capacités d'IA et de traitement à grande échelle, que les hébergeurs français n'offraient pas à l'époque. Cette décision a été très contestée : Microsoft est soumis au Cloud Act américain, qui permet aux autorités américaines d'accéder aux données hébergées par des entreprises US même en Europe. Le Conseil d'État a autorisé cette situation provisoirement en 2021. Une migration vers un hébergeur souverain français était en cours à la date de rédaction.
+      Le GIP Health Data Hub a choisi Azure en 2019 pour ses capacités d'IA et de traitement à grande échelle, que les hébergeurs français n'offraient pas à l'époque. Cette décision a été très contestée : Microsoft est soumis au Cloud Act américain, qui permet aux autorités américaines d'accéder aux données hébergées par des entreprises US même en Europe. Le Conseil d'État a autorisé cette situation provisoirement en octobre 2020. En avril 2026, Scaleway a été sélectionné comme hébergeur souverain de remplacement.
     </div>
   </div>
 
