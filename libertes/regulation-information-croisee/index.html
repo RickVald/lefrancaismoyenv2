@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Régulation électorale — Analyse croisée des architectures | Observatoire des libertés</title>
+<meta name="description" content="Six combinaisons d'outils existants et proposés forment une chaîne de gouvernement de la visibilité politique. Architecture actuelle : 49/100. Si transposé coordonné : 88/100. Analyse systémique du Rapport Sénat n°875.">
+<link rel="canonical" href="https://le-francais-moyen.com/libertes/regulation-information-croisee/">
+<meta property="og:title" content="Régulation électorale — Analyse croisée des architectures | Observatoire des libertés">
+<meta property="og:description" content="Viginum, observatoire intérieur, DSA, invisibilisation algorithmique, médias agréés, démonétisation : une chaîne de gouvernement de la visibilité. Score actuel : 49/100. Score si transposé : 88/100.">
+<meta property="og:url" content="https://le-francais-moyen.com/libertes/regulation-information-croisee/">
+<meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+        {"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://le-francais-moyen.com/libertes/"},
+        {"@type":"ListItem","position":3,"name":"Régulation électorale — Analyse croisée","item":"https://le-francais-moyen.com/libertes/regulation-information-croisee/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'observatoire intérieur proposé est-il un organe de censure ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas directement, à droit constant. L'observatoire n'aurait pas de pouvoir de retrait contraignant. Il pourrait inciter les plateformes à modifier leurs algorithmes ou invisibiliser un utilisateur. Le risque est une pression institutionnelle transformée en décision privée de modération, sans acte administratif formel contestable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le DSA ne protège-t-il pas déjà contre ces dérives ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le DSA impose des obligations de motivation, des audits des très grandes plateformes et confie à ces dernières la responsabilité d'évaluer les risques pour le débat civique. Ces garanties existent. Mais c'est précisément parce que le DSA fournit déjà une infrastructure d'évaluation que les recommandations sénatoriales pourraient y greffer des critères plus précis et des acteurs supplémentaires sans reconstruction de zéro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi le score actuel est-il de 49/100 si le rapport n'a pas encore été transposé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le score de 49/100 porte sur l'architecture existante déjà déployée, indépendamment du rapport : Viginum (2021, renforcé février 2026) avec ses capacités de collecte algorithmique, le DSA et ses obligations d'atténuation des risques électoraux, l'Arcom et ses signaleurs de confiance, le Code de conduite contre la désinformation, le régime des services d'intérêt général. Ces outils produisent déjà un risque systémique mesurable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre le score 12/100 de la fiche rapport et le 49/100 de cette analyse ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le score 12/100 mesure l'impact juridique direct du rapport lui-même : aucun, car c'est un texte sans effet contraignant. Le score 49/100 mesure le risque systémique de l'architecture déjà en place (Viginum, DSA, Arcom, SIG) que les recommandations viendraient compléter. Les deux analyses sont complémentaires et non contradictoires."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* Dual score in header */
+.dual-score-wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.dual-block{display:flex;flex-direction:column;align-items:center;gap:5px}
+.dual-label{font-size:.63rem;color:var(--muted);text-align:center;max-width:76px;line-height:1.35;text-transform:uppercase;letter-spacing:.04em}
+.dual-sep{font-size:1.4rem;color:var(--muted);margin:0 2px;opacity:.5}
+
+/* Chain */
+.chain-wrap{background:rgba(246,195,67,.06);border:1px solid rgba(246,195,67,.2);border-radius:12px;padding:18px 22px;margin:14px 0}
+.chain-intro{font-size:.78rem;color:var(--muted);padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,.07)}
+.chain-row{display:flex;align-items:flex-start;gap:10px;padding:4px 0;font-size:.875rem}
+.chain-arrow{color:var(--accent);flex-shrink:0;margin-top:2px;width:14px;text-align:center}
+.chain-text strong{color:var(--text)}
+.chain-text{color:var(--muted);line-height:1.5}
+
+/* Combination accordion */
+.comb-section{border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.comb-head{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;background:rgba(255,255,255,.02)}
+.comb-head:hover{background:rgba(255,255,255,.04)}
+.comb-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;flex-shrink:0}
+.c1{background:#5cb8ff}.c2{background:#9b59b6}.c3{background:#e53935}.c4{background:#ff7a00}.c5{background:#40A9FF}.c6{background:#ff5050}
+.comb-title{flex:1;font-size:.875rem;font-weight:600;color:var(--text)}
+.comb-score-pill{font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:14px;white-space:nowrap}
+.cs-crit{background:rgba(255,80,80,.15);color:#ff5050}
+.cs-eleve{background:rgba(255,122,0,.15);color:#ff7a00}
+.comb-chev{color:var(--muted);margin-left:4px;font-size:.75rem;flex-shrink:0}
+.comb-body{display:none;border-top:1px solid var(--border);padding:18px 20px;font-size:.875rem;line-height:1.75;color:var(--muted)}
+.comb-body p{margin:0 0 12px}
+.comb-body p:last-child{margin:0}
+.comb-body ul{margin:8px 0;padding-left:20px}
+.comb-body li{margin-bottom:6px}
+.comb-body strong{color:var(--text)}
+.comb-warn{background:rgba(255,80,80,.07);border-left:3px solid #ff6b6b;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:.85rem}
+.comb-info{background:rgba(92,184,255,.07);border-left:3px solid #5cb8ff;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:.85rem}
+.comb-conclusion{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-weight:700;color:var(--text);font-size:.875rem}
+
+/* Architecture table */
+.archi-wrap{overflow-x:auto;margin:14px 0}
+.archi-table{width:100%;border-collapse:collapse;font-size:.78rem;min-width:560px}
+.archi-table th{background:rgba(255,255,255,.06);color:var(--text);font-size:.72rem;font-weight:700;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+.archi-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;line-height:1.5}
+.archi-table td:first-child{font-weight:600;color:var(--text);white-space:nowrap;min-width:130px}
+.archi-table td:nth-child(2){color:var(--muted)}
+.archi-table td:nth-child(3){color:#f6c343}
+.archi-table tr:last-child td{border-bottom:none}
+
+/* Score grid */
+.scores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:14px 0}
+.score-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-align:center}
+.score-card.sc-final{border-color:rgba(255,80,80,.35);background:rgba(255,80,80,.06)}
+.sc-label{font-size:.68rem;color:var(--muted);margin-bottom:6px;line-height:1.35}
+.sc-val{font-size:1.15rem;font-weight:700}
+
+/* Final score table */
+.final-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.final-table th{background:rgba(255,255,255,.06);color:var(--text);font-weight:700;padding:8px 12px;text-align:left;border-bottom:1px solid var(--border)}
+.final-table td{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;line-height:1.5}
+.final-table td:first-child{color:var(--text);font-weight:500;white-space:nowrap;min-width:180px}
+.final-table td:nth-child(2){color:var(--muted)}
+.final-table tr:last-child td{border-bottom:none}
+.rpill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:700}
+.rp-crit{background:rgba(255,80,80,.15);color:#ff5050}
+.rp-faible{background:rgba(130,201,30,.15);color:#82c91e}
+
+/* Cliquet list */
+.cliquet-list{list-style:none;margin:0;padding:0;counter-reset:cliq}
+.cliquet-list li{counter-increment:cliq;display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:var(--muted);line-height:1.6}
+.cliquet-list li:last-child{border-bottom:none}
+.cliquet-list li::before{content:counter(cliq);min-width:22px;height:22px;border-radius:50%;background:rgba(255,122,0,.15);color:#ff7a00;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
+/* Fiches liées */
+.fl-wrap{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 22px}
+.fl-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-decoration:none;color:var(--text);font-size:.82rem;transition:background .15s;display:block}
+.fl-card:hover{background:rgba(255,255,255,.08)}
+.fl-card .fl-sub{font-size:.7rem;color:var(--muted);display:block;margin-top:3px}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<div class="wrapper">
+
+  <div class="version-callout" style="background:rgba(25,113,194,.08);border-left:3px solid #5cb8ff">
+    <strong>Analyse croisée — juillet 2026</strong> — Rapport Sénat n°875 du 8 juillet 2026 (sans effet juridique contraignant) + infrastructures existantes : Viginum (décret 11 février 2026), DSA, Arcom, SIG. Cette analyse examine la combinaison des maillons existants et proposés, pas seulement le rapport en lui-même. <a href="/libertes/regulation-information-2026/" style="color:#5cb8ff">→ Fiche du rapport</a>
+  </div>
+
+  <div class="fiche-header">
+    <div class="dual-score-wrap">
+      <div class="dual-block">
+        <div class="score-circle score-signif"><span class="score-num">49</span></div>
+        <div class="dual-label">Architecture actuelle</div>
+      </div>
+      <div class="dual-sep">→</div>
+      <div class="dual-block">
+        <div class="score-circle score-eleve"><span class="score-num">88</span></div>
+        <div class="dual-label">Si transposé coordonné</div>
+      </div>
+    </div>
+    <div class="fiche-meta">
+      <h1>Régulation électorale de l'information — Analyse croisée des architectures</h1>
+      <div class="badges">
+        <span class="badge s-signal">Analyse croisée</span>
+        <span class="badge s-projet">Pas encore loi</span>
+        <span class="badge tag">expression</span>
+        <span class="badge tag">numérique</span>
+        <span class="badge tag">europe</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="en-bref">
+    <h2>En bref</h2>
+    <p>Le Rapport Sénat n°875 ne propose pas seulement des mesures indépendantes. Combiné aux infrastructures existantes, il dessine une <strong>chaîne complète de gouvernement de la visibilité politique</strong>.</p>
+    <div class="chain-wrap">
+      <div class="chain-intro">La chaîne complète, maillon par maillon :</div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Observation</strong> du débat — Viginum (étranger) → observatoire des manipulations intérieures</span></div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Qualification</strong> des contenus et des acteurs — définition légale de la désinformation</span></div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Classement</strong> du risque — faible / élevé / inacceptable</span></div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Signalement</strong> aux plateformes — Arcom, signaleurs de confiance, observatoire</span></div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Réduction de visibilité</strong> des voix jugées problématiques — invisibilisation algorithmique</span></div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Promotion algorithmique</strong> des sources agréées — médias SIG étendus à YouTube</span></div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Assèchement publicitaire</strong> des sources disqualifiées — exclusion achats publics</span></div>
+      <div class="chain-row"><span class="chain-arrow">▸</span><span class="chain-text"><strong>Identification facilitée</strong> des auteurs — élargissement des réquisitions</span></div>
+    </div>
+    <p>Cette chaîne n'existe pas encore entièrement. Plusieurs maillons existent déjà ; les recommandations du Sénat fourniraient les maillons manquants.</p>
+  </div>
+
+  <div class="retenir-wrap">
+    <h2>Ce qu'il faut retenir</h2>
+    <ul class="retenir-list">
+      <li><strong>Architecture actuelle : 49/100 — risque significatif.</strong> L'infrastructure existante (Viginum renforcé, DSA, Arcom, SIG) produit déjà un risque systémique mesurable, indépendamment du rapport.</li>
+      <li><strong>Risque prospectif : 88/100 — risque critique.</strong> Si les principales recommandations sont adoptées ensemble et coordonnées, le dispositif franchit le seuil critique.</li>
+      <li><strong>Pas un bouton de censure.</strong> Le danger central n'est pas un retrait autoritaire direct, mais la création d'un système dans lequel l'État <em>contribue à décider qui sera entendu</em> sans décider officiellement qui peut parler.</li>
+      <li><strong>Administration simultanée de quatre leviers :</strong> visibilité, réputation, financement et identité — actionnés ensemble, sans acte unique identifiable.</li>
+      <li><strong>La frontière pertinente</strong> n'est pas coordonné vs. spontané (une mobilisation politique organisée est la démocratie ordinaire), c'est <em>authentique et transparent</em> vs. <em>frauduleux et dissimulé</em>.</li>
+      <li><strong>Effet cliquet.</strong> Chaque étape peut paraître raisonnable isolément. L'ensemble transforme une recommandation en norme sans qu'un acte unique n'assume politiquement la création du pouvoir.</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Cartographie de l'architecture</div>
+  <div class="archi-wrap">
+    <table class="archi-table">
+      <thead>
+        <tr><th>Fonction</th><th>Infrastructure existante</th><th>Ajout proposé (Rapport n°875)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Observer le débat</td><td>Viginum — opérations étrangères</td><td>Observatoire des manipulations intérieures</td></tr>
+        <tr><td>Collecter et analyser</td><td>Collecte automatisée Viginum, outils algorithmiques</td><td>Consortium chercheurs, OSINT, associations</td></tr>
+        <tr><td>Définir le problème</td><td>Risques systémiques DSA</td><td>Définition légale de la désinformation</td></tr>
+        <tr><td>Classer le risque</td><td>Évaluations de risques des plateformes</td><td>Risque faible / élevé / inacceptable</td></tr>
+        <tr><td>Signaler</td><td>Arcom, signaleurs de confiance (contenus illégaux)</td><td>Signalement des utilisateurs « fautifs »</td></tr>
+        <tr><td>Réduire la diffusion</td><td>Modération et recommandations des plateformes</td><td>Invisibilisation et suspension algorithmique</td></tr>
+        <tr><td>Promouvoir des sources</td><td>SIG — téléviseurs, box, interfaces audiovisuelles</td><td>Extension à YouTube et plateformes vidéo</td></tr>
+        <tr><td>Agir sur les revenus</td><td>Code volontaire du DSA contre la désinformation</td><td>Exclusion publicitaire et des achats publics</td></tr>
+        <tr><td>Identifier les auteurs</td><td>Réquisitions judiciaires encadrées</td><td>Élargissement des possibilités d'identification</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:.78rem;color:var(--muted);margin-top:-6px">Le risque ne vient pas seulement de la censure d'un contenu. Il vient d'une administration simultanée de la visibilité, de la réputation, du financement et de l'identité.</p>
+
+  <div class="section-label">Analyse par combinaison</div>
+
+  <!-- C1 -->
+  <div class="comb-section">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <span class="comb-badge c1">C1</span>
+      <span class="comb-title">Viginum + observatoire intérieur + Arcom + DSA</span>
+      <span class="comb-score-pill cs-crit">84 / 100</span>
+      <span class="comb-chev">▼</span>
+    </div>
+    <div class="comb-body">
+      <p><strong>Situation actuelle.</strong> Viginum est juridiquement limité aux opérations impliquant directement ou indirectement un État ou une entité étrangère, avec des critères cumulatifs stricts. Le décret du 11 février 2026 a néanmoins étendu ses capacités : collecte sur les moteurs de recherche, développement d'outils et modèles algorithmiques, collecte automatisée renouvelable jusqu'à un an, comptes techniques, transmission à l'Arcom.</p>
+      <p><strong>Ce que le rapport ajouterait.</strong> Un observatoire chargé des opérations <em>domestiques</em>, pouvant inciter les plateformes à « invisibiliser un utilisateur fautif » en cas de « menace grave pour la qualité de l'information » et à saisir la commission présidentielle ou l'Arcom. Il pourrait mobiliser les mêmes types de compétences techniques que Viginum.</p>
+      <p><strong>Risque de combinaison.</strong> La séparation actuelle (Viginum : étranger / police-justice : infraction / Arcom : régulation / plateformes : modération privée) serait remplacée par une continuité fonctionnelle : détection → qualification → signalement → limitation de visibilité → saisine judiciaire éventuelle.</p>
+      <div class="comb-info"><strong>Point juridique décisif :</strong> Les signaleurs de confiance DSA ne peuvent signaler prioritairement que des <em>contenus illégaux</em>. Pour que l'observatoire agisse contre des contenus légaux, il faudrait rendre certains contenus illégaux, élargir le DSA, ou utiliser des accords bilatéraux et les CGU des plateformes. Le chemin le plus probable est une <strong>pression institutionnelle transformée en décision privée de modération</strong> — sans acte administratif formel contestable.</div>
+      <div class="comb-conclusion">Score si la chaîne est formalisée : 84 / 100 — risque critique</div>
+    </div>
+  </div>
+
+  <!-- C2 -->
+  <div class="comb-section">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <span class="comb-badge c2">C2</span>
+      <span class="comb-title">Définition de la désinformation + classement des risques + invisibilisation</span>
+      <span class="comb-score-pill cs-crit">87 / 100</span>
+      <span class="comb-chev">▼</span>
+    </div>
+    <div class="comb-body">
+      <p><strong>Le basculement conceptuel.</strong> Le droit actuel s'intéresse à une affirmation déterminée et exige des critères étroits : fausseté objectivement démontrable, diffusion artificielle et massive, intention délibérée, risque manifeste pour la sincérité du scrutin, décision judiciaire. Le système proposé s'intéresserait à un <em>niveau de risque informationnel</em>.</p>
+      <p>La question passe de :<br>
+      <em>« Cette affirmation est-elle illégale et manifestement fausse ? »</em><br>
+      à :<br>
+      <em>« Ce contenu ou cet utilisateur crée-t-il un risque inacceptable pour la qualité du débat ? »</em></p>
+      <p>La seconde question est beaucoup plus politique. Elle ne porte plus sur la vérité d'un fait mais sur ses conséquences supposées, sa capacité de diffusion et sa place dans le débat public.</p>
+      <p><strong>Effet de la combinaison.</strong> Définition → notation → sanction de visibilité. La plateforme peut prétendre ne pas censurer une opinion, mais seulement atténuer un « risque systémique ». La sanction porte sur la <em>distribution</em> plutôt que sur la légalité.</p>
+      <div class="comb-info">Le DSA impose déjà aux très grandes plateformes d'évaluer et d'atténuer les risques pour le débat civique. Depuis juillet 2025, le Code de conduite contre la désinformation constitue un référentiel auditable pour les plateformes signataires. Les recommandations sénatoriales ne partiraient pas de zéro : elles ajouteraient des critères plus explicites à une machine réglementaire existante.</div>
+      <div class="comb-conclusion">Score : 87 / 100 — risque critique</div>
+    </div>
+  </div>
+
+  <!-- C3 -->
+  <div class="comb-section">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <span class="comb-badge c3">C3</span>
+      <span class="comb-title">Invisibilisation des critiques + promotion des médias agréés</span>
+      <span class="comb-score-pill cs-crit" style="background:rgba(229,57,53,.2);color:#e53935">92 / 100</span>
+      <span class="comb-chev">▼</span>
+    </div>
+    <div class="comb-body">
+      <p><strong>C'est la combinaison la plus grave.</strong> Elle articule deux mouvements simultanés et symétriques.</p>
+      <p><strong>Mouvement négatif :</strong> incitation à « invisibiliser un utilisateur fautif » en cas de « menace grave pour la qualité de l'information ». Ni l'utilisateur fautif, ni la menace grave, ni la qualité de l'information ne sont définis dans la recommandation.</p>
+      <p><strong>Mouvement positif :</strong> extension du régime des services d'intérêt général (SIG) à YouTube et aux plateformes vidéo, avec obligation de paramétrer les recommandations pour mettre en avant les médias sélectionnés par l'Arcom — et possibilité d'y inclure certains créateurs d'information.</p>
+      <div class="comb-warn"><strong>Pouvoir nouveau produit par la combinaison :</strong> Il ne s'agirait plus de retirer le faux ni de promouvoir le service public. Il s'agirait de <strong>configurer la structure relative de l'espace public</strong> : certains comptes diminués, certains médias augmentés, critères définis par des organismes agréés, plateformes exécutant les choix, utilisateur ne voyant pas l'intervention. C'est un <strong>pluralisme administré</strong>. La liberté d'expression formelle resterait intacte — mais la liberté réelle de communiquer dépend de la capacité d'être découvert, recommandé et partagé.</div>
+      <p><strong>Amplification du biais.</strong> Le rapport cite favorablement certains créateurs comme exemples de rigueur et de pluralisme. Cette appréciation peut être sincère — mais elle démontre que la sélection implique un jugement qualitatif sur les acteurs. Dès lors que ce jugement ouvre l'accès à une recommandation renforcée, des aides, des achats publicitaires publics et une reconnaissance réglementaire, il cesse d'être un commentaire éditorial et devient une <strong>allocation de puissance publique</strong>.</p>
+      <div class="comb-conclusion">Score : 92 / 100 — risque critique</div>
+    </div>
+  </div>
+
+  <!-- C4 -->
+  <div class="comb-section">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <span class="comb-badge c4">C4</span>
+      <span class="comb-title">Déréférencement + démonétisation + exclusion des campagnes publiques</span>
+      <span class="comb-score-pill cs-crit">85 / 100</span>
+      <span class="comb-chev">▼</span>
+    </div>
+    <div class="comb-body">
+      <p>Le rapport recommande de permettre aux annonceurs d'exclure les sites qualifiés de désinformation, d'intégrer cette démarche au Code de conduite du DSA, et de conditionner les achats publicitaires de l'État et des organismes publics à cette exclusion.</p>
+      <p>Cette politique peut être défendue contre des réseaux frauduleux créés uniquement pour capter des recettes publicitaires. Combinée à une définition institutionnelle large de la désinformation, elle produit une sanction économique sans jugement :</p>
+      <ul>
+        <li>Un site est classé source de désinformation</li>
+        <li>Les annonceurs sont incités à l'exclure</li>
+        <li>Les acteurs publics doivent l'exclure</li>
+        <li>Les recommandations réduisent sa visibilité</li>
+        <li>Ses revenus et son audience diminuent simultanément</li>
+      </ul>
+      <p>Ce système ne supprime pas juridiquement le média. Il peut rendre sa survie économiquement impossible.</p>
+      <div class="comb-warn"><strong>Effet disciplinaire :</strong> La qualification ne toucherait pas seulement le contenu litigieux — elle pourrait affecter l'ensemble du domaine, du média ou de l'auteur. Le pouvoir réel deviendrait : parler reste légal, mais parler contre la qualification dominante peut coûter l'audience, les revenus et la reconnaissance professionnelle. Cette combinaison agit sur la <strong>capacité durable</strong> de produire et diffuser de l'information, pas seulement sur un message ponctuel.</div>
+      <div class="comb-conclusion">Score : 85 / 100 — risque critique</div>
+    </div>
+  </div>
+
+  <!-- C5 -->
+  <div class="comb-section">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <span class="comb-badge c5">C5</span>
+      <span class="comb-title">Identification des auteurs + surveillance des réseaux politiques</span>
+      <span class="comb-score-pill cs-eleve">74 / 100</span>
+      <span class="comb-chev">▼</span>
+    </div>
+    <div class="comb-body">
+      <p>Le rapport propose d'élargir les possibilités d'identification des auteurs d'infractions de presse et de créer une procédure imposant aux hébergeurs étrangers de transmettre certaines données dans un délai déterminé.</p>
+      <p>Prise isolément, cette proposition répond à une difficulté réelle : une victime de menace, de diffamation ou de harcèlement doit pouvoir identifier l'auteur pour exercer un recours.</p>
+      <p>Combinée à l'observation des « manipulations internes », elle crée un autre risque : analyse d'un réseau de comptes → qualification comme campagne coordonnée → signalement de certains contenus → recherche de l'identité des animateurs → procédures pénales ou civiles → cartographie nominative progressive des mouvements politiques numériques.</p>
+      <div class="comb-info"><strong>Ce qui manque encore :</strong> Le rapport ne propose pas que l'observatoire obtienne lui-même les identités sans décision judiciaire. Il faudrait une infraction alléguée, une requête judiciaire et une coopération de la plateforme. Le scénario n'est pas actuellement établi — mais la juxtaposition des recommandations rapproche la surveillance comportementale publique et la levée du pseudonymat. Une identification plus efficace est légitime pour des infractions précises ; elle devient problématique lorsque la qualification initiale repose sur des notions comme « malinformation » ou « risque informationnel ».</div>
+      <div class="comb-conclusion">Score : 74 / 100 — risque élevé</div>
+    </div>
+  </div>
+
+  <!-- C6 -->
+  <div class="comb-section">
+    <div class="comb-head" onclick="toggleComb(this)">
+      <span class="comb-badge c6">C6</span>
+      <span class="comb-title">Élections + urgence + modifications ou suspension algorithmique</span>
+      <span class="comb-score-pill cs-crit">89 / 100</span>
+      <span class="comb-chev">▼</span>
+    </div>
+    <div class="comb-body">
+      <p>Le rapport demande des obligations renforcées de retrait pendant les campagnes électorales, allant jusqu'à une éventuelle « suspension des algorithmes ».</p>
+      <p>Une campagne présidentielle crée des conditions institutionnelles particulières : délais extrêmement courts, impossibilité de réparer une restriction après le vote, forte pression médiatique, tendance des plateformes à surmodérer pour limiter leur risque juridique, difficulté pour le juge de comprendre rapidement les mécanismes algorithmiques.</p>
+      <div class="comb-warn"><strong>Asymétrie irréversible :</strong> Un compte invisibilisé dix jours avant un scrutin peut obtenir gain de cause deux mois plus tard. Le recours serait juridiquement victorieux mais <strong>politiquement inutile</strong> — la campagne passée ne peut pas être rejouée. Cette irréversibilité temporelle distingue la modération électorale de toute autre mesure. Le standard de preuve devrait donc être <em>plus exigeant</em>, non moins exigeant, pendant une période électorale. Or le rapport envisage une intervention fondée sur une menace pour la « qualité » de l'information — notion plus large que l'illégalité ou la fausseté manifeste.</div>
+      <div class="comb-conclusion">Score : 89 / 100 — risque critique</div>
+    </div>
+  </div>
+
+  <div class="section-label">Analyse par niveaux</div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n1">N1</span>
+      <span class="niveau-title">Faits établis — Ce qui existe déjà</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul class="fact-list">
+        <li class="fact-item"><span class="fact-icon" style="color:#82c91e">✓</span><div><strong>Viginum</strong> — Service créé en 2021 pour surveiller les ingérences numériques étrangères. Décret du 11 février 2026 : extension de la collecte aux moteurs de recherche, développement d'outils et modèles algorithmiques, collecte automatisée renouvelable jusqu'à un an, comptes techniques, transmission à l'Arcom. La CNIL relève que Viginum peut réutiliser certaines données pour concevoir ou entraîner des outils algorithmiques.</div></li>
+        <li class="fact-item"><span class="fact-icon" style="color:#82c91e">✓</span><div><strong>DSA — risques électoraux</strong> — Les très grandes plateformes doivent évaluer et atténuer les risques pesant sur le débat civique et les processus électoraux. Les lignes directrices électorales de la Commission couvrent les systèmes de recommandation, les conditions d'utilisation, les motivations des décisions, les audits, les publicités et l'accès aux données.</div></li>
+        <li class="fact-item"><span class="fact-icon" style="color:#82c91e">✓</span><div><strong>Code de conduite contre la désinformation</strong> — Depuis juillet 2025, il constitue un référentiel auditable pertinent pour évaluer la conformité des plateformes signataires au DSA, avec audits annuels.</div></li>
+        <li class="fact-item"><span class="fact-icon" style="color:#82c91e">✓</span><div><strong>Arcom — Signaleurs de confiance</strong> — L'Arcom désigne les signaleurs de confiance qui peuvent signaler prioritairement des contenus illégaux. À droit constant, ce statut ne couvre pas les opinions légales qualifiées de désinformation.</div></li>
+        <li class="fact-item"><span class="fact-icon" style="color:#82c91e">✓</span><div><strong>Régime SIG</strong> — L'Arcom administre un régime de visibilité des services audiovisuels d'intérêt général sur les interfaces téléviseurs, box et autres interfaces audiovisuelles. Le rapport souhaite l'étendre à YouTube et aux plateformes vidéo.</div></li>
+        <li class="fact-item"><span class="fact-icon" style="color:#f6c343">⚠</span><div><strong>Rapport Sénat n°875</strong> — Aucun effet juridique contraignant à lui seul. Feuille de route adressée au gouvernement et à la Commission européenne.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n2">N2</span>
+      <span class="niveau-title">Effets directs actuels — Ce que les plateformes doivent déjà faire</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <p>Les très grandes plateformes doivent déjà :</p>
+      <ul>
+        <li>Évaluer les risques électoraux et produire des rapports d'atténuation</li>
+        <li>Adapter leurs systèmes de recommandation si nécessaire</li>
+        <li>Motiver certaines décisions de modération et prévoir des recours</li>
+        <li>Se soumettre à des audits indépendants</li>
+        <li>Permettre certains accès aux données pour la recherche</li>
+        <li>Traiter prioritairement les signalements de contenus <em>illégaux</em> des signaleurs agréés</li>
+      </ul>
+      <p>Ces obligations existent depuis le DSA. Les recommandations sénatoriales ne les créeraient pas ex nihilo — elles ajouteraient des critères plus précis (classification du risque, définition de la désinformation) et des acteurs supplémentaires (observatoire intérieur) à cette machine réglementaire.</p>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n3">N3</span>
+      <span class="niveau-title">Risques plausibles — Sans transposition législative complète</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <ul>
+        <li>Pression institutionnelle informelle sur les plateformes, sans obligation formelle</li>
+        <li>Surmodération par prudence des plateformes craignant les sanctions</li>
+        <li>Rétrogradations algorithmiques invisibles et difficilement contestables</li>
+        <li>Confusion entre opération inauthentique et mobilisation politique ordinaire</li>
+        <li>Biais idéologique des organismes évaluateurs, sans contrôle public efficace</li>
+        <li>Avantage cumulatif donné aux médias agréés sur les plateformes vidéo</li>
+        <li>Sanctions économiques indirectes via l'exclusion des achats publicitaires publics</li>
+        <li>Autocensure des citoyens pseudonymes craignant une identification facilitée</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n4">N4</span>
+      <span class="niveau-title">Extensions futures possibles — Ce que la transposition nécessiterait</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <p>Pour activer pleinement l'architecture, les modifications nécessaires seraient :</p>
+      <ul>
+        <li>Création législative ou réglementaire de l'observatoire intérieur</li>
+        <li>Définition européenne de la désinformation intégrée au DSA</li>
+        <li>Intégration du classement des risques au règlement DSA</li>
+        <li>Révision de la directive SMA pour couvrir les plateformes vidéo</li>
+        <li>Extension du régime SIG à des contenus individuels recommandés</li>
+        <li>Obligations de réponse des plateformes aux signalements institutionnels</li>
+        <li>Extension des règles d'identification des auteurs d'infractions de presse</li>
+        <li>Création d'un protocole électoral d'urgence avec suspensions algorithmiques temporaires</li>
+      </ul>
+      <p>Le rapport propose précisément plusieurs de ces modifications, en s'adressant à la fois au gouvernement français et à la Commission européenne.</p>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num n5">N5</span>
+      <span class="niveau-title">Scénario extrême — Obstacles et probabilités</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <p><strong>Hypothèse :</strong> une infrastructure nationale et européenne observe le débat public, classe certains récits comme risques inacceptables, demande aux plateformes de réduire la visibilité de leurs auteurs, favorise des médias agréés, exclut les sources disqualifiées des revenus publicitaires et facilite l'identification des responsables.</p>
+      <p><strong>Obstacles existants :</strong></p>
+      <ul>
+        <li>Liberté d'expression et pluralisme des courants d'opinion</li>
+        <li>Contrôle du Conseil constitutionnel et de la CJUE</li>
+        <li>Convention européenne des droits de l'homme et Charte des droits fondamentaux</li>
+        <li>Obligation de proportionnalité du DSA</li>
+        <li>Motivation et recours contre certaines décisions de plateformes</li>
+        <li>Contrôle de la CNIL pour les traitements de données</li>
+        <li>Pluralisme institutionnel et contrôle parlementaire</li>
+      </ul>
+      <p><strong>Probabilités par composante :</strong></p>
+      <ul>
+        <li>Architecture complète transposée : <strong>faible à moyenne</strong></li>
+        <li>Observatoire + coopération volontaire des plateformes : <strong>élevée</strong></li>
+        <li>Promotion algorithmique de médias agréés : <strong>moyenne</strong></li>
+        <li>Classification européenne de la désinformation dans le DSA : <strong>moyenne</strong></li>
+        <li>Invisibilisation administrative obligatoire sans juge : <strong>faible à ce stade</strong></li>
+        <li>Invisibilisation privée après signalement institutionnel : <strong>moyenne à élevée</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="niveau-wrap">
+    <div class="niveau-head" onclick="toggle(this)">
+      <span class="niveau-num" style="background:#5cb8ff;font-size:.65rem">Dem</span>
+      <span class="niveau-title">Analyse démocratique — La frontière pertinente</span>
+      <span class="niveau-toggle">▼</span>
+    </div>
+    <div class="niveau-body" style="display:none">
+      <p><strong>La démocratie peut légitimement sanctionner :</strong> le financement politique clandestin, l'usurpation d'identité, les faux documents, l'utilisation massive de robots dissimulés, les opérations secrètement pilotées par une puissance étrangère, les menaces et infractions. Ces comportements faussent le débat parce qu'ils <em>cachent qui parle, comment et avec quels moyens</em>.</p>
+      <p><strong>La régulation devient problématique</strong> lorsque l'État ne se limite plus aux procédés frauduleux, mais évalue : la qualité d'une opinion, la légitimité d'un récit, la dangerosité d'une interprétation, la valeur d'un média, la visibilité que mérite un citoyen.</p>
+      <div class="myth-box faux"><div class="myth-label">Ligne incorrecte</div>Coordonné contre spontané — une campagne coordonnée par un parti, un syndicat, un média, une association ou un collectif n'est pas une anomalie démocratique. C'est la démocratie organisée.</div>
+      <div class="myth-box vrai"><div class="myth-label">Ligne correcte</div>Authentique et transparent contre frauduleux et dissimulé — réguler une armée clandestine de faux comptes est légitime. Qualifier de menace une mobilisation politique domestique authentique ne l'est pas.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Effet cliquet — La trajectoire probable</div>
+  <div style="background:rgba(255,122,0,.06);border:1px solid rgba(255,122,0,.2);border-radius:12px;padding:18px 22px;margin-bottom:22px">
+    <p style="font-size:.875rem;color:var(--muted);margin:0 0 14px">La trajectoire probable n'est pas une loi proclamant ouvertement la censure. Elle serait progressive :</p>
+    <ol class="cliquet-list">
+      <li>Observatoire expérimental pour 2027, présenté comme outil de recherche</li>
+      <li>Signalements non contraignants aux plateformes</li>
+      <li>Accords volontaires formalisés avec les plateformes</li>
+      <li>Publication d'un protocole de bonnes pratiques</li>
+      <li>Obligation de répondre aux signalements dans un délai déterminé</li>
+      <li>Audit des réponses intégré à l'évaluation DSA</li>
+      <li>Sanctions contre les plateformes jugées insuffisamment réactives</li>
+      <li>Extension aux périodes non électorales (santé, sécurité, climat)</li>
+      <li>Intégration aux crises sanitaires, sociales, climatiques ou sécuritaires</li>
+      <li>Normalisation comme norme de gouvernance numérique</li>
+    </ol>
+    <p style="font-size:.82rem;color:var(--muted);margin:14px 0 0;font-style:italic">Chaque étape peut paraître raisonnable isolément. L'ensemble transforme une recommandation en norme sans qu'un acte unique n'assume politiquement la création du pouvoir.</p>
+  </div>
+
+  <div class="section-label">Score consolidé</div>
+
+  <div class="scores-grid">
+    <div class="score-card"><div class="sc-label">Architecture actuelle</div><div class="sc-val" style="color:#ff7a00">49 / 100</div></div>
+    <div class="score-card"><div class="sc-label">C1 — Viginum + observatoire</div><div class="sc-val" style="color:#ff5050">84 / 100</div></div>
+    <div class="score-card"><div class="sc-label">C2 — Définition + notation</div><div class="sc-val" style="color:#ff5050">87 / 100</div></div>
+    <div class="score-card"><div class="sc-label">C3 — Invisibilisation + SIG</div><div class="sc-val" style="color:#e53935">92 / 100</div></div>
+    <div class="score-card"><div class="sc-label">C4 — Démonétisation</div><div class="sc-val" style="color:#ff5050">85 / 100</div></div>
+    <div class="score-card"><div class="sc-label">C5 — Identification</div><div class="sc-val" style="color:#ff7a00">74 / 100</div></div>
+    <div class="score-card"><div class="sc-label">C6 — Urgence électorale</div><div class="sc-val" style="color:#ff5050">89 / 100</div></div>
+    <div class="score-card sc-final"><div class="sc-label">Si transposé coordonné</div><div class="sc-val" style="color:#ff5050">88 / 100</div></div>
+  </div>
+
+  <div style="overflow-x:auto;margin:14px 0 22px">
+    <table class="final-table">
+      <thead><tr><th>Critère</th><th>Évaluation</th></tr></thead>
+      <tbody>
+        <tr><td>Population concernée</td><td>Tous les utilisateurs et électeurs en France et en UE</td></tr>
+        <tr><td>Liberté concernée</td><td>Expression politique et pluralisme électoral</td></tr>
+        <tr><td>Opacité</td><td>Forte — les modifications algorithmiques sont invisibles pour l'utilisateur</td></tr>
+        <tr><td>Contrôle judiciaire préalable</td><td>Non prévu pour l'incitation à invisibiliser un contenu légal</td></tr>
+        <tr><td>Recours disponibles</td><td>Fragmentés entre organisme, plateforme, Arcom et juge — peu lisibles</td></tr>
+        <tr><td>Interconnexion des dispositifs</td><td><span class="rpill rp-crit">Très forte</span></td></tr>
+        <tr><td>Possibilité d'extension</td><td><span class="rpill rp-crit">Très forte</span></td></tr>
+        <tr><td>Caractère réversible</td><td><span class="rpill rp-crit">Très faible</span></td></tr>
+        <tr><td>Impact temporel électoral</td><td>Irréparable après le scrutin si exercé pendant la campagne</td></tr>
+        <tr><td>Indice de réversibilité</td><td>5 / 5 — pratiques, algorithmes, contrats et dépendances économiques survivraient à l'abrogation formelle</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.25);border-radius:12px;padding:18px 22px;margin-bottom:22px">
+    <div style="font-size:.75rem;font-weight:700;color:#ff6b6b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Qualification finale</div>
+    <p style="font-size:.9rem;color:var(--text);margin:0;line-height:1.8">Le danger central n'est pas un hypothétique « bouton de censure ». C'est la création d'un système dans lequel <strong>l'État ne décide pas officiellement qui peut parler, mais contribue à décider qui sera entendu</strong>.</p>
+  </div>
+
+  <div class="section-label">Fiche liée</div>
+  <div class="fl-wrap">
+    <a href="/libertes/regulation-information-2026/" class="fl-card">
+      📄 Rapport Sénat n°875 — Régulation de l'information en ligne
+      <span class="fl-sub">Impact juridique direct du rapport · 12/100 actuel · 78/100 prospectif</span>
+    </a>
+  </div>
+
+  <div class="section-label">Sources</div>
+  <div class="src-list">
+    <div class="src-item"><span class="src-icon">📜</span><div><strong>Décret n°2021-922 du 13 juillet 2021</strong> — Création de Viginum. <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000043788361" target="_blank" rel="noopener">Légifrance</a></div></div>
+    <div class="src-item"><span class="src-icon">📜</span><div><strong>Décret n°2026-70 du 11 février 2026</strong> — Extension des missions et moyens de Viginum. <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053458618" target="_blank" rel="noopener">Légifrance</a></div></div>
+    <div class="src-item"><span class="src-icon">🏛️</span><div><strong>Délibération CNIL n°2025-108 du 6 novembre 2025</strong> — Avis sur le projet de décret Viginum 2026. <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053459708" target="_blank" rel="noopener">Légifrance</a></div></div>
+    <div class="src-item"><span class="src-icon">🇪🇺</span><div><strong>Règlement DSA — Obligations des très grandes plateformes</strong> — Risques systémiques et processus électoraux. <a href="https://digital-strategy.ec.europa.eu/en/policies/dsa-vlops" target="_blank" rel="noopener">Commission européenne</a></div></div>
+    <div class="src-item"><span class="src-icon">🇪🇺</span><div><strong>Code de conduite contre la désinformation — juillet 2025</strong> — Référentiel auditable DSA. <a href="https://digital-strategy.ec.europa.eu/en/library/code-conduct-disinformation" target="_blank" rel="noopener">Commission européenne</a></div></div>
+    <div class="src-item"><span class="src-icon">🇪🇺</span><div><strong>Lignes directrices pour les VLOP/VLOSE — processus électoraux</strong> — Obligations d'atténuation systémique. <a href="https://digital-strategy.ec.europa.eu/en/library/guidelines-providers-vlops-and-vloses-mitigation-systemic-risks-electoral-processes" target="_blank" rel="noopener">Commission européenne</a></div></div>
+    <div class="src-item"><span class="src-icon">📺</span><div><strong>Arcom — Services d'intérêt général (SIG)</strong> — Régime de visibilité sur les interfaces audiovisuelles. <a href="https://www.arcom.fr/nous-connaitre/nos-missions/assurer-la-regulation-des-acteurs-techniques-et-economiques/assurer-une-visibilite-appropriee-aux-services-dinteret-general" target="_blank" rel="noopener">Arcom</a></div></div>
+    <div class="src-item"><span class="src-icon">📺</span><div><strong>Arcom — Signaleurs de confiance</strong> — Conditions d'agrément et applications. <a href="https://www.arcom.fr/en/professional-area/trusted-flaggers-conditions-and-applications" target="_blank" rel="noopener">Arcom</a></div></div>
+    <div class="src-item"><span class="src-icon">📄</span><div><strong>Rapport Sénat n°875 — 8 juillet 2026</strong> — Régulation de l'information en ligne (Commission des affaires étrangères, de la défense et des forces armées).</div></div>
+  </div>
+
+  <div class="section-label">Questions fréquentes</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">L'observatoire intérieur proposé est-il un organe de censure ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">Pas directement, à droit constant. L'observatoire n'aurait pas de pouvoir de retrait contraignant. Il pourrait inciter les plateformes à modifier leurs algorithmes ou « invisibiliser un utilisateur fautif ». Le risque est une pression institutionnelle transformée en décision privée de modération — sans acte administratif formel contestable. Les signaleurs de confiance DSA ne peuvent d'ailleurs signaler prioritairement que des contenus illégaux : pour agir sur des contenus légaux, il faudrait modifier le cadre juridique ou passer par les conditions générales des plateformes.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Le DSA ne protège-t-il pas déjà contre ces dérives ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">Le DSA impose des obligations de motivation, des audits des très grandes plateformes et confie à ces dernières la responsabilité d'évaluer les risques pour le débat civique. Ces garanties existent. Mais c'est précisément parce que le DSA fournit déjà une infrastructure d'évaluation que les recommandations sénatoriales pourraient y greffer des critères plus précis et des acteurs supplémentaires sans reconstruction de zéro.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Pourquoi le score actuel est-il de 49/100 si le rapport n'est pas encore transposé ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">Le score de 49/100 porte sur l'architecture déjà déployée, indépendamment du rapport : Viginum (renforcé en février 2026) avec ses capacités de collecte algorithmique, le DSA et ses obligations d'atténuation des risques électoraux, l'Arcom et ses signaleurs de confiance, le Code de conduite contre la désinformation, le régime des services d'intérêt général. Ces outils produisent déjà un risque systémique mesurable sur la liberté de communication politique.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Quelle est la différence entre le score 12/100 de la fiche rapport et le 49/100 de cette analyse ?<span class="faq-chevron">▼</span></div>
+    <div class="faq-a">Les deux scores mesurent des choses différentes. Le score 12/100 de la fiche Rapport Sénat n°875 mesure l'impact juridique direct du rapport lui-même : aucun, car c'est un texte parlementaire sans effet contraignant. Le score 49/100 mesure le risque systémique de l'architecture déjà en place que les recommandations viendraient compléter. Les deux analyses sont complémentaires et non contradictoires.</div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border);margin-top:14px">
+    <a href="/libertes/" style="font-size:.81rem;color:var(--muted);text-decoration:none">← Retour à l'Observatoire</a>
+    <div style="font-size:.71rem;color:var(--muted)">Dernière mise à jour : 16/07/2026</div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2026 Le Français Moyen — Données issues de sources officielles</span>
+  <a href="/">Tableau de bord principal</a>
+</footer>
+
+<script>
+function toggle(h){
+  const b=h.nextElementSibling;
+  const open=b.style.display==='block';
+  b.style.display=open?'none':'block';
+  const t=h.querySelector('.niveau-toggle,.niveau-chevron');
+  if(t)t.textContent=open?'▼':'▲';
+}
+function toggleComb(h){
+  const b=h.nextElementSibling;
+  const open=b.style.display==='block';
+  b.style.display=open?'none':'block';
+  const t=h.querySelector('.comb-chev');
+  if(t)t.textContent=open?'▼':'▲';
+}
+function toggleFaq(h){
+  const a=h.nextElementSibling;
+  const open=a.classList.toggle('is-open');
+  const t=h.querySelector('.faq-chevron');
+  if(t)t.textContent=open?'▲':'▼';
+}
+</script>
+</body>
+</html>
