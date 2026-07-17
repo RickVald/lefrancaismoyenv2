@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Révélations Snowden : audit des programmes de surveillance — NSA, GCHQ, Five Eyes</title>
+  <meta name="description" content="Audit historique des révélations Snowden (2013) : 22 programmes documentés (PRISM, UPSTREAM, XKEYSCORE, BULLRUN…), affirmations personnelles, confirmations officielles, précédents pour la France et l'UE — score d'alerte 96/100.">
+  <link rel="canonical" href="https://le-francais-moyen.com/libertes/snowden-revelations/">
+  <meta property="og:title" content="Révélations Snowden : audit des programmes de surveillance de masse">
+  <meta property="og:description" content="22 programmes documentés, 8 affirmations de Snowden, confirmations officielles (PCLOB, CEDH) et précédents pour la France — score d'alerte 96/100.">
+  <meta property="og:url" content="https://le-francais-moyen.com/libertes/snowden-revelations/">
+  <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+          {"@type":"ListItem","position":2,"name":"Observatoire des Libertés","item":"https://le-francais-moyen.com/libertes/"},
+          {"@type":"ListItem","position":3,"name":"Révélations Snowden","item":"https://le-francais-moyen.com/libertes/snowden-revelations/"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Que sont les révélations Snowden ?","acceptedAnswer":{"@type":"Answer","text":"Ensemble de documents classifiés de la NSA et du GCHQ transmis par Edward Snowden à des journalistes et publiés à partir de juin 2013. Ils révèlent l'existence d'une architecture mondiale de surveillance incluant la collecte de masse de métadonnées téléphoniques, de contenus Internet, de localisations, d'images et de SMS, et la compromission volontaire de normes de chiffrement."}},
+          {"@type":"Question","name":"Qu'est-ce que PRISM ?","acceptedAnswer":{"@type":"Answer","text":"Programme NSA permettant de recevoir des communications détenues par de grands fournisseurs américains (Microsoft, Yahoo, Google, Facebook, Apple…) dans le cadre de la Section 702 de FISA, lorsque la cible est une personne non américaine à l'étranger. La protection porte sur la définition de la cible initiale, pas sur les interlocuteurs européens ou américains qui échangent avec elle."}},
+          {"@type":"Question","name":"La NSA collectait-elle réellement les métadonnées de tous les Américains ?","acceptedAnswer":{"@type":"Answer","text":"Oui, confirmé par le Privacy and Civil Liberties Oversight Board (PCLOB). Une ordonnance secrète imposait à Verizon de transmettre quotidiennement à la NSA les métadonnées de tous les appels couverts. Le PCLOB a conclu que ce programme ne reposait pas sur une base légale solide dans la Section 215 et présentait une valeur antiterroriste limitée."}},
+          {"@type":"Question","name":"Qu'est-ce que XKEYSCORE ?","acceptedAnswer":{"@type":"Answer","text":"Outil de recherche et d'analyse permettant aux analystes d'explorer les données interceptées (e-mails, adresses IP, activité web, fichiers, identifiants de connexion, cookies). Il constitue la couche de recherche sur des données préalablement collectées par d'autres programmes. Son principe — collecter d'abord, sélectionner ensuite — inverse le modèle classique du mandat judiciaire."}},
+          {"@type":"Question","name":"Les révélations ont-elles conduit à des réformes ?","acceptedAnswer":{"@type":"Answer","text":"Partiellement. L'USA FREEDOM Act de 2015 a mis fin au programme de collecte de masse des métadonnées téléphoniques (Section 215). La Section 702 (PRISM, Upstream), les capacités de renseignement extérieur, les échanges Five Eyes et les architectures de collecte n'ont pas disparu. La Section 702 a été réautorisée en 2024, sous un cadre modifié mais maintenu."}},
+          {"@type":"Question","name":"Snowden avait-il vraiment accès à toutes les communications ?","acceptedAnswer":{"@type":"Answer","text":"La formulation 'espionner n'importe qui' est une simplification. Snowden disposait d'un accès à des outils extrêmement puissants (dont XKEYSCORE) et estimait que leurs contrôles techniques et audits étaient insuffisants. Cela ne signifie pas qu'il bénéficiait d'une autorisation juridique permanente de cibler librement toute personne. Le danger pointé était structurel : l'existence de l'infrastructure, pas l'usage effectif de chaque analyste."}},
+          {"@type":"Question","name":"Pourquoi ces révélations concernent-elles les Européens ?","acceptedAnswer":{"@type":"Answer","text":"Pour cinq raisons documentées : (1) PRISM collecte les communications des interlocuteurs européens de cibles étrangères ; (2) TEMPORA intercepte les câbles transatlantiques physiques passant par le Royaume-Uni ; (3) le partage Five Eyes permet des échanges entre législations différentes ; (4) l'espionnage des institutions de l'UE et de dirigeants alliés est documenté ; (5) les mécanismes révélés (collecte avant soupçon, dérive fonctionnelle, irréversibilité) sont universels."}},
+          {"@type":"Question","name":"Le chiffrement protège-t-il contre ce type de surveillance ?","acceptedAnswer":{"@type":"Answer","text":"Selon Snowden et les documents publiés : la cryptographie solide correctement mise en œuvre résiste. Les faiblesses documentées portent sur les terminaux (avant/après chiffrement), les standards affaiblis volontairement (BULLRUN/EDGEHILL), les clés compromises (Gemalto), et les protocoles incorrectement implémentés. La conclusion opérationnelle est que le chiffrement de bout en bout robuste reste fiable, mais que l'affaiblissement systémique des normes crée des vulnérabilités exploitables par d'autres acteurs (États étrangers, criminels)."}},
+          {"@type":"Question","name":"Où trouver les documents originaux ?","acceptedAnswer":{"@type":"Answer","text":"Le Snowden Surveillance Archive (Université de Toronto) réunit les documents effectivement publiés par des journalistes. Le NSA Archive de la George Washington University (nsarchive2.gwu.edu) documente les programmes avec les références primaires. Les rapports du PCLOB (documents.pclob.gov) constituent la confirmation officielle américaine la plus complète."}}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .fiche-header { border:1px solid var(--border); border-radius:20px; overflow:hidden; margin-bottom:16px }
+    .fiche-header-top { padding:20px 24px 16px; background:rgba(255,255,255,.04); border-bottom:1px solid var(--border) }
+    .fiche-header-meta { padding:12px 24px; display:flex; flex-wrap:wrap; gap:16px }
+    .meta-item { font-size:.75rem; color:var(--muted) }
+    .meta-item strong { color:var(--text); font-weight:800 }
+    .status-badge { display:inline-block; font-size:.63rem; font-weight:900; padding:3px 9px; border-radius:6px; text-transform:uppercase; letter-spacing:.05em }
+    .s-signal { background:rgba(64,169,255,.15); color:#40A9FF }
+    .lib-tag { font-size:.62rem; font-weight:800; padding:2px 7px; border-radius:6px; background:rgba(255,255,255,.07); color:var(--muted) }
+
+    .en-bref { border:1px solid rgba(255,255,255,.1); border-radius:14px; padding:16px 20px; margin-bottom:16px; background:rgba(255,255,255,.03) }
+    .en-bref-title { font-size:.7rem; font-weight:900; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:8px }
+
+    .version-callout { font-size:.75rem; color:var(--muted); padding:8px 14px; border:1px solid rgba(246,195,67,.2); border-radius:9px; background:rgba(246,195,67,.05); margin-bottom:16px }
+
+    .retenir-wrap { border:1px solid rgba(64,169,255,.25); border-radius:14px; padding:14px 16px; margin-bottom:16px; background:rgba(64,169,255,.04) }
+    .retenir-title { font-size:.7rem; font-weight:900; text-transform:uppercase; letter-spacing:.08em; color:#40A9FF; margin-bottom:10px }
+    .retenir-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px }
+    @media(max-width:540px){ .retenir-grid { grid-template-columns:1fr } }
+    .retenir-item { border:1px solid rgba(255,255,255,.08); border-radius:9px; padding:9px 12px; background:rgba(255,255,255,.03) }
+    .retenir-q { font-size:.77rem; font-weight:800; margin-bottom:3px }
+    .retenir-a { font-size:.74rem; color:var(--muted); line-height:1.5 }
+
+    .niveau-section { margin-bottom:12px; border:1px solid var(--border); border-radius:14px; overflow:hidden }
+    .niveau-head { padding:11px 16px; display:flex; align-items:center; gap:10px; cursor:pointer; user-select:none }
+    .niveau-num { width:26px; height:26px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:.7rem; font-weight:900; flex-shrink:0 }
+    .n1 { background:rgba(130,201,30,.15); color:#82c91e }
+    .n2 { background:rgba(64,169,255,.15);  color:#40A9FF }
+    .n3 { background:rgba(255,122,0,.15);   color:#ff7a00 }
+    .n4 { background:rgba(255,59,148,.15);  color:#ff3b94 }
+    .n5 { background:rgba(200,0,0,.2);      color:#ff3030 }
+    .niveau-title { font-size:.86rem; font-weight:900; flex:1 }
+    .niveau-toggle { font-size:.72rem; color:var(--muted); transition:transform .2s }
+    .niveau-toggle.open { transform:rotate(180deg) }
+    .niveau-body { padding:14px 16px; border-top:1px solid var(--border); background:rgba(0,0,0,.15) }
+    .fact-list { list-style:none; padding:0; margin:0 }
+    .fact-item { display:flex; gap:10px; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.05); font-size:.82rem; line-height:1.55 }
+    .fact-item:last-child { border-bottom:none }
+    .fact-icon { flex-shrink:0; margin-top:1px }
+    .fact-note { font-size:.7rem; color:var(--muted); margin-top:3px }
+    .fact-source { font-size:.68rem; color:var(--muted); margin-top:2px }
+    .risk-box { border:1px solid rgba(255,122,0,.2); border-radius:10px; padding:12px 14px; margin-bottom:10px; background:rgba(255,122,0,.05) }
+    .risk-box:last-child { margin-bottom:0 }
+    .risk-box.n5box { border-color:rgba(255,59,59,.2); background:rgba(255,59,59,.05) }
+    .risk-title { font-size:.82rem; font-weight:800; margin-bottom:4px }
+    .risk-body { font-size:.79rem; color:var(--muted); line-height:1.55 }
+    .risk-chain { list-style:none; padding:0; margin:8px 0 0; padding-top:8px; border-top:1px solid rgba(255,255,255,.07) }
+    .risk-chain li { font-size:.74rem; color:var(--muted); margin-bottom:3px; padding-left:12px; position:relative }
+    .risk-chain li::before { content:'›'; position:absolute; left:0; color:var(--muted) }
+    .risk-chain strong { color:var(--text) }
+    .hypo-banner { background:rgba(255,59,59,.08); border:1px solid rgba(255,59,59,.2); border-radius:10px; padding:9px 13px; margin-bottom:12px; font-size:.77rem; color:#ff8080; font-weight:800 }
+
+    .group-label { font-size:.67rem; font-weight:900; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:12px 0 4px; padding-bottom:4px; border-bottom:1px solid rgba(255,255,255,.07) }
+    .group-label:first-child { margin-top:0 }
+
+    .cert-badge { font-size:.6rem; font-weight:900; padding:2px 6px; border-radius:4px; display:inline-block; margin-left:6px; vertical-align:middle }
+    .cert-h { background:rgba(130,201,30,.15); color:#82c91e }
+    .cert-p { background:rgba(255,122,0,.15); color:#ff7a00 }
+    .cert-c { background:rgba(255,255,255,.08); color:var(--muted) }
+
+    .score-2col { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px }
+    @media(max-width:560px){ .score-2col { grid-template-columns:1fr } }
+    .score-box { border:1px solid var(--border); border-radius:14px; padding:16px }
+    .score-bar { width:100%; height:7px; border-radius:4px; background:rgba(255,255,255,.08); overflow:hidden; margin:6px 0 }
+    .score-fill { height:100%; border-radius:4px }
+    .score-disclaimer { font-size:.71rem; color:var(--muted); line-height:1.55; margin-top:8px; padding:7px 10px; border:1px solid rgba(255,255,255,.07); border-radius:7px; background:rgba(255,255,255,.03) }
+    .wscore-table { width:100%; border-collapse:collapse; font-size:.74rem; margin-top:10px }
+    .wscore-table td { padding:5px 8px; border-bottom:1px solid rgba(255,255,255,.06); vertical-align:middle }
+    .wscore-table tr:last-child td { border-bottom:none; font-weight:900; color:var(--text) }
+    .wscore-pct { font-size:.65rem; color:var(--muted); white-space:nowrap }
+    .wscore-val { font-weight:900; text-align:right; white-space:nowrap }
+    .wscore-bar-w { width:50px }
+    .wscore-bar { height:3px; border-radius:2px; background:rgba(255,255,255,.08); overflow:hidden }
+    .wscore-fill { height:100%; border-radius:2px; background:#ff3030 }
+    .revers-bar { width:100%; height:9px; border-radius:5px; background:rgba(255,255,255,.08); overflow:hidden; margin:6px 0 }
+    .revers-fill { height:100%; border-radius:5px; background:linear-gradient(90deg,#82c91e,#ff5050) }
+
+    .diff-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px }
+    @media(max-width:560px){ .diff-grid { grid-template-columns:1fr } }
+    .diff-col { border:1px solid var(--border); border-radius:11px; padding:12px }
+    .diff-col.avant { border-color:rgba(130,201,30,.2); background:rgba(130,201,30,.04) }
+    .diff-col.apres { border-color:rgba(64,169,255,.2); background:rgba(64,169,255,.04) }
+    .diff-head { font-size:.68rem; font-weight:900; text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px }
+    .diff-col.avant .diff-head { color:#82c91e }
+    .diff-col.apres .diff-head { color:#40A9FF }
+    .diff-item { font-size:.78rem; line-height:1.5; padding:4px 0; border-bottom:1px solid rgba(255,255,255,.05); display:flex; gap:7px }
+    .diff-item:last-child { border-bottom:none }
+    .diff-changes { border:1px solid var(--border); border-radius:11px; overflow:hidden; margin-bottom:10px }
+    .diff-change { display:flex; gap:9px; padding:9px 13px; border-bottom:1px solid var(--border); font-size:.79rem; line-height:1.45 }
+    .diff-change:last-child { border-bottom:none }
+    .diff-tag { font-size:.59rem; font-weight:900; padding:2px 6px; border-radius:5px; flex-shrink:0; white-space:nowrap; align-self:flex-start; margin-top:1px }
+    .tag-add { background:rgba(255,80,80,.15); color:#ff8080 }
+    .tag-rm  { background:rgba(130,201,30,.15); color:#82c91e }
+    .tag-mod { background:rgba(64,169,255,.15); color:#40A9FF }
+    .diff-note { font-size:.77rem; color:var(--muted); line-height:1.6; padding:10px 13px; border:1px solid rgba(255,122,0,.2); border-radius:10px; background:rgba(255,122,0,.04) }
+
+    .update-item { border:1px solid var(--border); border-radius:10px; padding:11px 13px; margin-bottom:7px; display:flex; gap:12px }
+    .update-item:last-child { margin-bottom:0 }
+    .update-year { font-size:.7rem; font-weight:900; color:var(--accent); min-width:36px; padding-top:1px }
+    .update-title { font-size:.82rem; font-weight:800; margin-bottom:3px }
+    .update-body { font-size:.76rem; color:var(--muted); line-height:1.55 }
+
+    .timeline { list-style:none; padding:0; margin:0; position:relative }
+    .timeline::before { content:''; position:absolute; left:14px; top:0; bottom:0; width:1px; background:var(--border) }
+    .tl-item { display:flex; gap:12px; padding:0 0 16px }
+    .tl-item:last-child { padding-bottom:0 }
+    .tl-dot { width:9px; height:9px; border-radius:50%; background:var(--accent); flex-shrink:0; margin-top:4px; position:relative; z-index:1; box-shadow:0 0 0 3px rgba(246,195,67,.15) }
+    .tl-dot.red  { background:#ff5050; box-shadow:0 0 0 3px rgba(255,80,80,.15) }
+    .tl-dot.blue { background:#40A9FF; box-shadow:0 0 0 3px rgba(64,169,255,.15) }
+    .tl-dot.grey { background:var(--muted); box-shadow:none }
+    .tl-date { font-size:.69rem; font-weight:900; color:var(--muted); white-space:nowrap; min-width:78px }
+    .tl-title { font-size:.82rem; font-weight:800; margin-bottom:2px }
+    .tl-desc  { font-size:.76rem; color:var(--muted); line-height:1.5 }
+
+    .source-table { width:100%; border-collapse:collapse; font-size:.77rem }
+    .source-table th { text-align:left; padding:7px 9px; border-bottom:1px solid var(--border); color:var(--muted); font-size:.67rem; text-transform:uppercase; letter-spacing:.05em }
+    .source-table td { padding:8px 9px; border-bottom:1px solid rgba(255,255,255,.05); line-height:1.45; vertical-align:top }
+    .source-table tr:last-child td { border-bottom:none }
+    .src-p { font-size:.59rem; font-weight:900; padding:2px 6px; border-radius:4px; background:rgba(130,201,30,.15); color:#82c91e; white-space:nowrap }
+    .src-s { font-size:.59rem; font-weight:900; padding:2px 6px; border-radius:4px; background:rgba(255,255,255,.08); color:var(--muted); white-space:nowrap }
+    .src-o { font-size:.59rem; font-weight:900; padding:2px 6px; border-radius:4px; background:rgba(64,169,255,.12); color:#40A9FF; white-space:nowrap }
+    .source-table a { color:var(--accent); text-decoration:none }
+    .source-table a:hover { text-decoration:underline }
+
+    .faq-wrap { border:1px solid var(--border); border-radius:13px; overflow:hidden }
+    .faq-item { border-bottom:1px solid var(--border) }
+    .faq-item:last-child { border-bottom:none }
+    .faq-q { padding:12px 16px; font-size:.84rem; font-weight:800; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:12px; user-select:none }
+    .faq-arrow { font-size:.68rem; color:var(--muted); transition:transform .2s; flex-shrink:0 }
+    .faq-a { font-size:.8rem; color:var(--muted); line-height:1.65; padding:0 16px 13px; display:none }
+
+    .section-label { font-size:.69rem; font-weight:900; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:9px }
+    .section-divider { border:none; border-top:1px solid var(--border); margin:22px 0 }
+
+    .meca-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:9px; margin-top:10px }
+    .meca-box { border:1px solid rgba(255,59,148,.2); border-radius:9px; padding:11px 12px; background:rgba(255,59,148,.04) }
+    .meca-num { font-size:.65rem; font-weight:900; color:#ff3b94; margin-bottom:3px }
+    .meca-title { font-size:.78rem; font-weight:800; margin-bottom:3px }
+    .meca-body { font-size:.73rem; color:var(--muted); line-height:1.5 }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<main>
+  <div style="max-width:860px;margin:0 auto;padding:32px 24px 48px">
+
+    <!-- Breadcrumb -->
+    <div style="font-size:.74rem;color:var(--muted);margin-bottom:18px">
+      <a href="/" style="color:var(--muted)">Accueil</a> ›
+      <a href="/libertes/" style="color:var(--muted)">Observatoire des Libertés</a> ›
+      <span>Révélations Snowden</span>
+    </div>
+
+    <!-- Version callout -->
+    <div class="version-callout">
+      ⚠ Cet audit couvre les <strong>documents effectivement publiés</strong> par des journalistes à partir de juin 2013 et réunis dans le Snowden Surveillance Archive (Université de Toronto). Il ne prétend pas couvrir l'intégralité des documents transmis aux journalistes ni les informations classifiées non publiées. Trois niveaux de certitude sont explicitement distingués dans chaque section.
+    </div>
+
+    <!-- Fiche header -->
+    <div class="fiche-header">
+      <div class="fiche-header-top">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+          <span class="status-badge s-signal">Référence historique</span>
+          <span style="font-size:.71rem;color:var(--muted)">États-Unis / Royaume-Uni · NSA, GCHQ, Five Eyes · Révélations juin 2013</span>
+          <span style="font-size:.71rem;color:var(--muted);margin-left:auto">Vérifié le 17/07/2026</span>
+        </div>
+        <h1 style="font-size:clamp(1.05rem,3.5vw,1.5rem);font-weight:900;letter-spacing:-.03em;margin:0 0 4px;line-height:1.2">
+          Révélations Snowden : audit historique de l'architecture mondiale de surveillance
+        </h1>
+        <div style="font-size:.76rem;color:var(--muted);margin-bottom:10px">22 programmes documentés (NSA, GCHQ, Five Eyes) — publications 2013–2015 — confirmations officielles PCLOB et CEDH</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px">
+          <span class="lib-tag">Vie privée</span>
+          <span class="lib-tag">Secret des communications</span>
+          <span class="lib-tag">Chiffrement</span>
+          <span class="lib-tag">Liberté de la presse</span>
+          <span class="lib-tag">Surveillance algorithmique</span>
+          <span class="lib-tag">Biométrie</span>
+          <span class="lib-tag">Espionnage économique</span>
+          <span class="lib-tag">Coopération internationale</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <div>
+            <div style="font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px">Score d'alerte historique</div>
+            <div style="font-size:2.4rem;font-weight:900;letter-spacing:-.06em;line-height:1;color:#ff3030">96 <span style="font-size:1rem;color:var(--muted)">/100</span></div>
+            <div style="font-size:.73rem;font-weight:800;color:#ff3030">Risque critique (81–100)</div>
+          </div>
+          <div style="flex:1;min-width:120px;max-width:200px">
+            <div class="score-bar"><div class="score-fill" style="width:96%;background:#ff3030"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fiche-header-meta">
+        <div class="meta-item"><strong>Pays</strong><br>USA / UK / Five Eyes</div>
+        <div class="meta-item"><strong>Révélé</strong><br>Juin 2013</div>
+        <div class="meta-item"><strong>Contrôle</strong><br>FISA Court (secret, ex parte)</div>
+        <div class="meta-item"><strong>Population</strong><br>Mondiale</div>
+        <div class="meta-item"><strong>Réversibilité</strong><br>Partielle (7/10)</div>
+      </div>
+    </div>
+
+    <!-- En bref -->
+    <div class="en-bref">
+      <div class="en-bref-title">En bref</div>
+      <p style="font-size:.83rem;color:var(--muted);line-height:1.65;margin:0">
+        Les documents Snowden ont montré que les États-Unis et leurs partenaires avaient construit une architecture mondiale permettant de collecter les communications en masse, les conserver, les interroger ultérieurement, contourner le chiffrement, suivre les déplacements et partager les résultats entre administrations — sans que la majorité des personnes collectées soient individuellement soupçonnées. <strong>Le point essentiel n'était pas que chaque citoyen soit continuellement observé par un analyste. Il était que les données de presque tous étaient collectées afin de pouvoir rechercher certains d'entre eux ultérieurement.</strong> Snowden fournit ainsi un précédent documenté de l'effet cliquet : des pouvoirs créés pour le renseignement extérieur et l'antiterrorisme ont évolué vers des infrastructures permettant la collecte massive, la recherche rétrospective, le profilage relationnel, l'espionnage économique et, dans certains cas, la manipulation politique.
+      </p>
+    </div>
+
+    <!-- Ce qu'il faut retenir -->
+    <div class="retenir-wrap">
+      <div class="retenir-title">Ce qu'il faut retenir</div>
+      <div class="retenir-grid">
+        <div class="retenir-item">
+          <div class="retenir-q">Ces documents sont-ils authentiques ?</div>
+          <div class="retenir-a">Oui. Les documents publiés n'ont pas fait l'objet de contestations sérieuses d'authenticité. Les confirmations officielles (PCLOB, CEDH) et les aveux de programmes par les agences elles-mêmes confortent leur fiabilité. Trois niveaux de certitude distincts sont détaillés dans cet audit.</div>
+        </div>
+        <div class="retenir-item">
+          <div class="retenir-q">Qu'est-ce que la collecte « avant soupçon » ?</div>
+          <div class="retenir-a">Le modèle classique : soupçon → mandat → surveillance. Le modèle révélé : collecte de masse → conservation → recherche ultérieure lorsqu'un numéro devient intéressant. MYSTIC/RETRO permettait même d'écouter des appels 30 jours avant qu'un numéro soit ciblé.</div>
+        </div>
+        <div class="retenir-item">
+          <div class="retenir-q">Le chiffrement protège-t-il vraiment ?</div>
+          <div class="retenir-a">Selon les documents : la cryptographie robuste correctement mise en œuvre résiste. Les faiblesses documentées portent sur les terminaux, les clés compromises (Gemalto), les standards délibérément affaiblis (BULLRUN) et les protocoles incorrectement implémentés. L'affaiblissement systémique crée des vulnérabilités exploitables par d'autres acteurs.</div>
+        </div>
+        <div class="retenir-item">
+          <div class="retenir-q">Ces révélations concernent-elles la France ?</div>
+          <div class="retenir-a">Oui. Les institutions de l'UE et des dirigeants alliés étaient ciblés. PRISM collecte les communications des interlocuteurs européens de cibles étrangères. TEMPORA intercepte les câbles transatlantiques. Les 5 mécanismes révélés (secret juridique, collecte avant soupçon, partage inter-États, dérive fonctionnelle, irréversibilité) sont universels.</div>
+        </div>
+        <div class="retenir-item">
+          <div class="retenir-q">Des réformes ont-elles suivi ?</div>
+          <div class="retenir-a">Partiellement. L'USA FREEDOM Act (2015) a mis fin au programme téléphonique Section 215. La Section 702 (PRISM, Upstream) a été maintenue et réautorisée en 2024. Les capacités de renseignement extérieur, les échanges Five Eyes et les architectures de câbles n'ont pas disparu.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- N1 -->
+    <div class="niveau-section">
+      <div class="niveau-head" onclick="toggle(this)">
+        <span class="niveau-num n1">N1</span>
+        <span class="niveau-title">Les 22 programmes révélés — faits établis par les documents publiés</span>
+        <span class="niveau-toggle">▼</span>
+      </div>
+      <div class="niveau-body" style="display:none">
+        <p style="font-size:.78rem;color:var(--muted);margin:0 0 10px;line-height:1.55">Les badges indiquent le degré de confirmation : <span class="cert-badge cert-h">Confirmé haut niveau</span> = PCLOB, aveu officiel ou décision judiciaire ; <span class="cert-badge cert-p">Confirmé avec nuances</span> = documents cohérents, périmètre exact partiellement classifié ; <span class="cert-badge cert-c">Contesté partiellement</span> = intrusion corroborée, ampleur discutée.</p>
+
+        <div class="group-label">Métadonnées téléphoniques et SMS</div>
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Section 215 — collecte massive des métadonnées téléphoniques américaines</strong> <span class="cert-badge cert-h">Confirmé</span> — Ordonnance secrète FISA imposant à Verizon de transmettre quotidiennement à la NSA les métadonnées de tous les appels couverts (numéros, dates, heures, durées). Pas le contenu audio. Conservation alors de cinq ans. Les analystes pouvaient ensuite effectuer des recherches relationnelles à partir d'un numéro suspect.</div>
+              <div class="fact-source">NSA Archive GWU — PCLOB, rapport Section 215 (documents.pclob.gov) : programme sans base légale solide, valeur antiterroriste limitée, recommandation de suppression.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>DISHFIRE — collecte mondiale de SMS</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Stockage d'environ 200 millions de SMS par jour. Le système PREFER extrayait automatiquement déplacements, itinéraires, transactions, contacts et notifications d'itinérance. Les SMS devenaient des données structurées exploitables automatiquement, pas seulement des messages à lire.</div>
+              <div class="fact-source">The Guardian, jan. 2014. NSA : données légalement collectées dans le cadre du renseignement extérieur, protections pour personnes américaines.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>MYSTIC / RETRO — enregistrement intégral d'un pays entier</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — MYSTIC comportait une capacité RETRO permettant, dans au moins un pays non nommé dans les publications, d'enregistrer pratiquement tous les appels téléphoniques et de les conserver environ 30 jours. Lorsqu'un numéro devenait intéressant, l'agence pouvait « remonter dans le temps ». Changement de paradigme : la surveillance ne commençait plus au moment de l'autorisation.</div>
+              <div class="fact-source">The Washington Post, mars 2014. Le pays concerné n'a pas été publié.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>BOUNDLESS INFORMANT — tableau de bord de la collecte mondiale</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Système fournissant statistiques et cartes internes sur les volumes de renseignements collectés par pays et source. Un document indiquait près de trois milliards d'éléments collectés depuis des réseaux américains sur trente jours. Preuve que le volume constituait une métrique opérationnelle suivie par l'agence.</div>
+              <div class="fact-source">The Guardian, juin 2013 (document original publié).</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="group-label">Collecte de contenus Internet</div>
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>PRISM — Section 702 FISA, collecte auprès des grandes plateformes</strong> <span class="cert-badge cert-h">Confirmé</span> — La NSA recevait communications détenues par des fournisseurs américains (Microsoft, Yahoo, Google, Facebook, Skype, Apple…) lorsque la cible était réputée être une personne non américaine à l'étranger. La formulation « accès direct aux serveurs » des premières publications a provoqué une confusion : les entreprises ont nié une interface libre. Le fait établi, confirmé officiellement, est que la Section 702 permettait bien cette collecte auprès de fournisseurs américains. La protection porte sur la définition de la cible initiale, pas sur chaque interlocuteur.</div>
+              <div class="fact-source">PCLOB, rapport Section 702 (nov. 2022). Diapositives originales publiées : The Guardian, The Washington Post, juin 2013.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>UPSTREAM — interception des câbles Internet</strong> <span class="cert-badge cert-h">Confirmé</span> — Programmes reposant sur l'interception du trafic circulant sur les infrastructures des opérateurs et les grands câbles Internet. Différence fondamentale avec PRISM : PRISM demande des données à une plateforme ; Upstream observe des flux lorsqu'ils traversent le réseau. La combinaison permettait à la NSA de recevoir des données à la fois auprès des services numériques et au niveau des infrastructures de transport.</div>
+              <div class="fact-source">PCLOB, rapport Section 702 — deux grandes méthodes de collecte confirmées.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>TEMPORA — interception massive par le GCHQ britannique</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Le GCHQ interceptait d'importants volumes de communications transitant par les câbles à fibres optiques desservant le Royaume-Uni. Les données pouvaient être filtrées, examinées et partagées avec la NSA. Position particulière du Royaume-Uni : câbles transatlantiques, régime juridique alors moins contraignant, coopération historique avec les États-Unis.</div>
+              <div class="fact-source">The Guardian, août 2013. CEDH, Grande Chambre, Big Brother Watch et autres c. Royaume-Uni (2021) : régime britannique présentant des défauts de garanties, violation de l'art. 8 CESDH.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>MUSCULAR — interception des liaisons internes Google et Yahoo</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — La NSA et le GCHQ ont intercepté les liaisons privées reliant les centres de données de Google et Yahoo situés hors des États-Unis, contournant le portail juridique de PRISM. Plus de 181 millions de nouveaux enregistrements traités en trente jours. Les entreprises n'étaient pas nécessairement complices : leur réaction a notamment conduit à renforcer le chiffrement entre centres de données.</div>
+              <div class="fact-source">The Washington Post, oct. 2013.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="group-label">Outils d'analyse et de recherche</div>
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>XKEYSCORE — couche de recherche dans les données interceptées</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Outil permettant aux analystes d'explorer de vastes ensembles de données interceptées : adresses e-mail, IP, activité web, conversations, fichiers, cookies, identifiants d'appareils. Ce n'était pas principalement un programme de collecte autonome, mais une interface de recherche sur des données déjà absorbées. Danger structurel : collecter d'abord, sélectionner ensuite — inversion du modèle classique du mandat judiciaire.</div>
+              <div class="fact-source">The Guardian, juil. 2013 (diapositives de formation publiées).</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>ICREACH — partage massif entre 23 organismes américains</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Moteur de recherche permettant à des analystes de nombreux organismes (environ 23) d'accéder à une immense base de métadonnées provenant d'appels, e-mails, SMS et localisations. Conçu pour gérer plus de 850 milliards d'enregistrements. Précédent documenté de l'effet cliquet : une donnée collectée pour le renseignement extérieur devient consultable par un cercle administratif beaucoup plus large.</div>
+              <div class="fact-source">PBS NewsHour / The Intercept, 2014.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="group-label">Localisation et biométrie</div>
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>CO-TRAVELER — géolocalisation mondiale (~5 milliards d'entrées/jour)</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — La NSA recevait près de cinq milliards de données de localisation téléphonique par jour dans le monde. CO-TRAVELER recherchait les appareils se déplaçant régulièrement avec un appareil ciblé pour identifier des associés inconnus. La plupart des personnes dont les positions contribuaient à la base n'étaient pas soupçonnées : leur présence était nécessaire au mécanisme comparatif.</div>
+              <div class="fact-source">The Washington Post, déc. 2013. Permet de reconstituer : déplacements, domiciles/lieux de travail, rencontres, réseaux militants, visites dans un lieu médical ou religieux.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>OPTIC NERVE — captures de webcams Yahoo</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Le GCHQ a intercepté et conservé en masse des captures d'images provenant de conversations vidéo Yahoo, sans limiter la collecte aux personnes individuellement ciblées. Environ 1,8 million de comptes sur six mois. Une proportion importante des images comportait de la nudité. Le système expérimentait aussi la reconnaissance faciale pour relier différents identifiants en ligne. Les données pouvaient être rendues accessibles via XKEYSCORE.</div>
+              <div class="fact-source">The Guardian, fév. 2014. Combinaison documentée : interception massive + images intimes + reconnaissance faciale + recherche par identifiant + partage international.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Collecte d'images faciales — ~55 000 images/jour exploitables</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — La NSA interceptait des millions d'images par jour, dont environ 55 000 jugées suffisamment bonnes pour la reconnaissance faciale, provenant de communications, e-mails, messages et autres sources numériques. Objectif : associer visage, identité, activité en ligne, localisation, relations et données biographiques. La biométrie était conçue comme une nouvelle clé de recherche dans les bases de renseignement.</div>
+              <div class="fact-source">The New York Times / Time, 2014.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="group-label">Compromission du chiffrement</div>
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>BULLRUN (NSA) / EDGEHILL (GCHQ) — affaiblissement volontaire du chiffrement</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Documents décrivant des méthodes pour vaincre ou contourner le chiffrement : exploitation d'erreurs d'implémentation, obtention de clés, coopération secrète avec des entreprises, influence sur des produits ou normes techniques, insertion ou préservation de vulnérabilités, attaques contre les terminaux. Conséquence systémique : une faiblesse introduite pour un service de renseignement peut être découverte et exploitée par une puissance étrangère, un groupe criminel ou un employé malveillant.</div>
+              <div class="fact-source">The Guardian / ProPublica / New York Times, sept. 2013.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Opération contre Gemalto — clés de cartes SIM</strong> <span class="cert-badge cert-c">Contesté partiellement</span> — Opération de la NSA et du GCHQ visant Gemalto et ses employés pour obtenir des clés cryptographiques de cartes SIM permettant de déchiffrer certaines communications mobiles sans coopération d'un opérateur. Gemalto a confirmé des intrusions sophistiquées probablement liées aux agences, mais a contesté que celles-ci aient permis le vol massif de clés annoncé. Intrusion : fortement corroborée. Ampleur exacte du vol des clés : contestée.</div>
+              <div class="fact-source">The Intercept, fév. 2015. Thales Group (Gemalto) — rapport d'enquête interne publié.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="group-label">Espionnage diplomatique, économique et coopération</div>
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Five Eyes — écosystème intégré NSA / GCHQ / CSE / ASD / GCSB</strong> <span class="cert-badge cert-h">Confirmé</span> — Les cinq agences formaient un ensemble intégré avec financements croisés, outils partagés et forte circulation des renseignements. L'architecture permettait matériellement de recueillir et partager des communications traversant d'autres territoires. Nuance : il n'est pas établi que chaque partenaire demandait systématiquement à un allié de contourner sa propre législation.</div>
+              <div class="fact-source">The Guardian, août 2013. Snowden devant le Parlement européen : documents sur Belgacom, SWIFT, institutions UE authentiques et non modifiés.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Espionnage des alliés, institutions et dirigeants</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Surveillance documentée des institutions européennes, représentations diplomatiques, dirigeants alliés, délégations internationales, de l'ONU et de sommets. Ces révélations ont contredit la justification publique selon laquelle les capacités massives auraient été développées exclusivement contre le terrorisme.</div>
+              <div class="fact-source">The Guardian, juin–oct. 2013. Opération contre Belgacom (télécom belge) confirmée par enquête belge.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Espionnage économique — SWIFT, Petrobras, énergie</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Documents révélant ou appuyant des opérations visant SWIFT et des flux financiers, Visa, Petrobras, des entreprises énergétiques, des responsables économiques et des sommets commerciaux et climatiques. Ces cibles montrent que la notion de « renseignement extérieur valable » incluait quotidiennement des objectifs économiques au-delà de la sécurité nationale stricte.</div>
+              <div class="fact-source">The Intercept / Globo (Brésil), 2013–2014.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="group-label">Capacités offensives et manipulation</div>
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>QUANTUM INSERT — hacking offensif et implants</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Capacités permettant de rediriger un navigateur vers un faux site, installer un logiciel espion, compromettre un opérateur, infiltrer un réseau. QUANTUM INSERT répondait à une requête web plus rapidement que le vrai serveur et envoyait une fausse page conduisant à l'installation d'un implant. Associé notamment à l'opération contre Belgacom.</div>
+              <div class="fact-source">WIRED, 2015. Documents publiés par Der Spiegel / The Intercept.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Compromission de la chaîne d'approvisionnement</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Document montrant que la NSA pouvait intercepter des routeurs et équipements réseau destinés à l'exportation, y installer des implants, puis les remettre dans le circuit de livraison. Un État peut simultanément dénoncer le risque de portes dérobées étrangères et insérer ses propres moyens d'accès dans des équipements commerciaux.</div>
+              <div class="fact-source">Glenn Greenwald, No Place to Hide (2014) — photographies du document publiées.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>JTRIG (GCHQ) — doctrine de manipulation de l'information</strong> <span class="cert-badge cert-c">Contesté partiellement</span> — Documents décrivant des outils ou méthodes : infiltrer des communautés en ligne, manipuler des discussions, diffuser de fausses informations, modifier des sondages en ligne, amplifier certains messages, usurper des identités, diviser des groupes, discréditer des individus. Distinction nécessaire : une présentation interne exposant une méthode ne prouve pas que chaque méthode ait été déployée dans toutes les situations.</div>
+              <div class="fact-source">The Intercept, 2014. Prouve que l'influence et la manipulation du débat numérique faisaient partie de la doctrine opérationnelle étudiée par un service occidental.</div>
+            </div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#82c91e">✓</span>
+            <div>
+              <div><strong>Exploitation de vulnérabilités privées pour discréditer des militants</strong> <span class="cert-badge cert-p">Confirmé avec nuances</span> — Document décrivant un projet visant à exploiter les habitudes sexuelles ou la consultation de contenus pornographiques de personnes qualifiées de « radicalizers » afin de miner leur crédibilité. Les personnes évoquées n'étaient pas présentées comme participant directement à un complot terroriste. Précédent documenté d'un changement de finalité : collecte de renseignement → découverte d'une faiblesse privée → exploitation politique ou réputationnelle.</div>
+              <div class="fact-source">PBS NewsHour / The Huffington Post, 2013.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- N2 -->
+    <div class="niveau-section">
+      <div class="niveau-head" onclick="toggle(this)">
+        <span class="niveau-num n2">N2</span>
+        <span class="niveau-title">Effets directs — ce que ces systèmes permettaient concrètement</span>
+        <span class="niveau-toggle">▼</span>
+      </div>
+      <div class="niveau-body" style="display:none">
+        <ul class="fact-list">
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#40A9FF">→</span>
+            <div><strong>Suppression du secret pratique de la plupart des communications numériques</strong> — Dès lors que les communications passaient par des câbles interceptés (UPSTREAM, TEMPORA) ou des fournisseurs américains (PRISM, MUSCULAR), leur confidentialité ne reposait plus uniquement sur le droit mais sur l'absence d'intérêt de l'agence pour leur contenu. La différence entre « non lu » et « non collecté » disparaissait pour une partie croissante du trafic mondial.</div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#40A9FF">→</span>
+            <div><strong>Collecte de personnes sans soupçon individuel préalable</strong> — Les programmes de métadonnées (Section 215), de localisation (CO-TRAVELER), de SMS (DISHFIRE) et d'images (OPTIC NERVE, collecte faciale) concernaient structurellement des populations entières non soupçonnées. Leur présence dans les bases était fonctionnelle : permettre la recherche comparative et relationnelle autour d'une cible identifiée après coup.</div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#40A9FF">→</span>
+            <div><strong>Reconstitution des réseaux relationnels, professionnels et militants</strong> — La combinaison de métadonnées téléphoniques (qui appelle qui), de localisations (qui se déplace où), d'e-mails (qui correspond avec qui) et d'identifiants numériques permettait de cartographier les relations sociales et professionnelles d'une personne sans lire le contenu d'aucune de ses communications. CO-TRAVELER en est l'exemple le plus direct : identifier les associés inconnus d'une cible par comparaison de trajectoires.</div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#40A9FF">→</span>
+            <div><strong>Surveillance des journalistes, sources, militants et entreprises concurrentes</strong> — Les révélations ont documenté la surveillance d'institutions de l'UE, de Belgacom (opérateur télécom belge), de Petrobras (pétrole brésilien), de délégations à des sommets climatiques, de dirigeants alliés et d'organisations internationales. Ces cibles ne relevaient pas d'une logique antiterroriste mais d'avantages diplomatiques, économiques ou informationnels.</div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#40A9FF">→</span>
+            <div><strong>Fragilisation des systèmes de chiffrement collectifs</strong> — BULLRUN et EDGEHILL ne visaient pas seulement les communications d'adversaires. L'affaiblissement de normes cryptographiques utilisées par des banques, hôpitaux, administrations et citoyens créait des vulnérabilités exploitables par tout acteur capable de les découvrir : États concurrents, groupes criminels, employés malveillants. La mission défensive de protection des infrastructures devenait incompatible avec la fragilisation volontaire des standards dont ces infrastructures dépendent.</div>
+          </li>
+          <li class="fact-item">
+            <span class="fact-icon" style="color:#40A9FF">→</span>
+            <div><strong>Contrôle juridictionnel secret ou absent selon les programmes</strong> — La FISA Court émettait des ordonnances secrètes sans procédure contradictoire. Les programmes Upstream et de renseignement extérieur opéraient hors du périmètre de la Section 215. Les partenaires Five Eyes échappaient partiellement à chacune des législations nationales. La surveillance des non-Américains à l'étranger s'effectuait sans aucune autorisation judiciaire américaine équivalente à celle requise pour un citoyen américain.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- N3 -->
+    <div class="niveau-section">
+      <div class="niveau-head" onclick="toggle(this)">
+        <span class="niveau-num n3">N3</span>
+        <span class="niveau-title">Affirmations de Snowden — distinction des niveaux de preuve</span>
+        <span class="niveau-toggle">▼</span>
+      </div>
+      <div class="niveau-body" style="display:none">
+        <p style="font-size:.78rem;color:var(--muted);margin:0 0 10px;line-height:1.55">Les affirmations personnelles de Snowden ne doivent pas être mises au même niveau que les documents publiés. Ce niveau distingue ce qui est corroboré, ce qui reste son interprétation, et ce qui est contesté ou non démontrable indépendamment.</p>
+
+        <div class="risk-box">
+          <div class="risk-title">✓ Corroboré — La surveillance de masse est une question démocratique</div>
+          <div class="risk-body">Son motif déclaré : révéler ce que le gouvernement faisait au nom des citoyens pour leur permettre de décider en connaissance de cause. Sa formule : « le consentement des gouvernés ne constitue pas un consentement lorsqu'il n'est pas éclairé ». Cette affirmation faisait référence aux déclarations trompeuses de James Clapper devant le Congrès en mars 2013, qui a nié sous serment l'existence de la collecte de masse. Clapper a reconnu publiquement s'être mal exprimé après les révélations.</div>
+        </div>
+        <div class="risk-box">
+          <div class="risk-title">✓ Corroboré partiellement — Inefficacité de la surveillance de masse contre le terrorisme</div>
+          <div class="risk-body">Snowden soutenait qu'accumuler trop de données pouvait détourner les analystes et produire davantage de bruit que de sécurité. Il citait notamment les attentats de Boston comme exemple de défaillance malgré la disponibilité de renseignements préalables. Le PCLOB a conclu que le programme de métadonnées de la Section 215 n'avait pas démontré une valeur suffisante pour justifier son ampleur. Cette confirmation vaut pour ce programme précis — pas nécessairement pour toute forme de collecte.</div>
+        </div>
+        <div class="risk-box">
+          <div class="risk-title">⚠ Nuancé — Les analystes disposaient de capacités très larges</div>
+          <div class="risk-body">Sa déclaration selon laquelle il pouvait espionner « n'importe qui, y compris le président » a été fortement contestée. La formulation rigoureuse : Snowden disposait d'un accès à des outils extrêmement puissants et estimait que leurs contrôles techniques et audits ne suffisaient pas à empêcher un abus ; cela ne signifie pas qu'il bénéficiait d'une autorisation juridique permanente de cibler librement toute personne. Le danger structurel réel est différent et plus subtil : l'existence de l'infrastructure et l'insuffisance des contrôles, pas l'accès libre de chaque analyste.</div>
+        </div>
+        <div class="risk-box">
+          <div class="risk-title">✓ Corroboré — Les règles internes peuvent être modifiées plus facilement que l'infrastructure</div>
+          <div class="risk-body">Snowden distinguait barrière technique, règle administrative, garantie législative et autorisation judiciaire. Une infrastructure capable de collecter l'ensemble des communications reste dangereuse même si son usage actuel est limité par une politique interne, car cette politique peut être élargie sans reconstruire le système. C'est exactement le principe de cet observatoire : analyser l'infrastructure selon les usages futurs qu'elle rend possibles.</div>
+        </div>
+        <div class="risk-box">
+          <div class="risk-title">✓ Corroboré — Le chiffrement robuste fonctionne</div>
+          <div class="risk-body">Snowden soutenait que la cryptographie solide correctement mise en œuvre restait fiable, et que la faiblesse principale se déplaçait vers les terminaux, les logiciels, les clés et les normes compromises. Les documents BULLRUN et EDGEHILL confirment cette distinction : l'attaque porte sur l'implémentation et les standards, pas directement sur les algorithmes solides.</div>
+        </div>
+        <div class="risk-box">
+          <div class="risk-title">⚠ Contesté — Il n'aurait pas transmis de documents à la Russie ou à la Chine</div>
+          <div class="risk-body">Snowden a déclaré n'avoir travaillé qu'avec des journalistes, ne pas avoir emporté de documents de Hong Kong vers la Russie et n'entretenir aucune relation avec les services russes ou chinois. Cette affirmation n'est pas démontrable de manière indépendante à partir des seuls documents publics. Elle doit être présentée comme sa version, non comme un fait définitivement établi.</div>
+        </div>
+        <div class="risk-box">
+          <div class="risk-title">⚠ Partiellement établi — Les voies internes d'alerte étaient insuffisantes</div>
+          <div class="risk-body">Snowden affirmait avoir signalé ses préoccupations à des responsables et ne disposer d'aucune protection réelle en tant que salarié d'un prestataire du renseignement. Ce point reste contesté par le gouvernement américain. Il est cependant établi que les protections accordées aux lanceurs d'alerte du renseignement contractuels étaient et restent distinctes de celles applicables aux agents publics directs.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- N4 -->
+    <div class="niveau-section">
+      <div class="niveau-head" onclick="toggle(this)">
+        <span class="niveau-num n4">N4</span>
+        <span class="niveau-title">Cinq mécanismes universels — précédents pour la France et l'UE</span>
+        <span class="niveau-toggle">▼</span>
+      </div>
+      <div class="niveau-body" style="display:none">
+        <p style="font-size:.78rem;color:var(--muted);margin:0 0 10px;line-height:1.55">L'intérêt du dossier n'est pas de dire que les États-Unis l'ont fait donc la France le fera. Il est de démontrer cinq mécanismes universels dont les conditions d'apparition peuvent être identifiées dans d'autres contextes juridiques.</p>
+        <div class="meca-grid">
+          <div class="meca-box">
+            <div class="meca-num">Mécanisme 1</div>
+            <div class="meca-title">Secret juridique</div>
+            <div class="meca-body">Des interprétations extensives peuvent transformer une disposition ciblée en autorisation de collecte massive. L'ordonnance Verizon reposait sur une lecture expansive de la Section 215. Pertinent pour : boîtes noires (art. L.851-3 CSI), finalité « intérêts économiques » (art. L.811-3, 4°).</div>
+          </div>
+          <div class="meca-box">
+            <div class="meca-num">Mécanisme 2</div>
+            <div class="meca-title">Collecte avant soupçon</div>
+            <div class="meca-body">Les données de tous deviennent disponibles pour les recherches futures. MYSTIC/RETRO : le contenu était déjà enregistré avant l'autorisation. Pertinent pour : VSA, analyse rétrospective d'images, Chat Control, cloud policier.</div>
+          </div>
+          <div class="meca-box">
+            <div class="meca-num">Mécanisme 3</div>
+            <div class="meca-title">Partage comme contournement</div>
+            <div class="meca-body">Un partenaire peut fournir ce qu'un service national aurait plus de difficulté à collecter directement. Five Eyes utilisait les différences territoriales et juridiques. Pertinent pour : échanges Europol, accès des services US aux données d'entreprises européennes.</div>
+          </div>
+          <div class="meca-box">
+            <div class="meca-num">Mécanisme 4</div>
+            <div class="meca-title">Dérive fonctionnelle</div>
+            <div class="meca-body">Antiterrorisme, diplomatie, économie, réputation et influence ont utilisé la même infrastructure. ICREACH a ouvert des données de renseignement extérieur à 23 organismes. Pertinent pour : données de santé accessibles à plusieurs administrations, BNSA, données d'identité numérique.</div>
+          </div>
+          <div class="meca-box">
+            <div class="meca-num">Mécanisme 5</div>
+            <div class="meca-title">Irréversibilité</div>
+            <div class="meca-body">Une fois les câbles captés, les centres installés et les outils distribués, une réforme légale supprime rarement toutes les capacités techniques. La Section 702 subsiste malgré la fin de la Section 215. Pertinent pour : toute infrastructure de surveillance une fois déployée.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px 13px;border:1px solid rgba(255,59,148,.2);border-radius:10px;background:rgba(255,59,148,.04);font-size:.78rem;color:var(--muted);line-height:1.6">
+          <strong style="color:#ff3b94">Lien JTRIG / rapport sénatorial français</strong> — Un précédent documenté d'une agence occidentale disposant de moyens d'infiltration, de manipulation du débat numérique et d'exploitation de vulnérabilités privées justifie d'exiger une séparation stricte entre observation, attribution, communication publique et intervention clandestine sur le débat. Une infrastructure créée pour lutter contre la manipulation étrangère peut elle-même disposer de moyens de manipulation. Ce principe doit guider l'analyse de tout dispositif de régulation de l'information en ligne.
+        </div>
+      </div>
+    </div>
+
+    <!-- N5 -->
+    <div class="niveau-section">
+      <div class="niveau-head" onclick="toggle(this)">
+        <span class="niveau-num n5">N5</span>
+        <span class="niveau-title">Scénario extrême — hypothétique, extension maximale des mécanismes révélés</span>
+        <span class="niveau-toggle">▼</span>
+      </div>
+      <div class="niveau-body" style="display:none">
+        <div class="hypo-banner">⚠ Ce scénario est hypothétique. Il décrit non pas ce qui s'est passé mais ce que l'architecture révélée par Snowden rendrait techniquement moins coûteux si des décisions politiques et juridiques supplémentaires étaient prises.</div>
+
+        <div class="risk-box n5box">
+          <div class="risk-title">Identification et classement des personnes politiquement ou socialement risquées</div>
+          <div class="risk-body">Une autorité combine communications, déplacements, biométrie, relations, opinions publiques et transactions financières pour identifier des personnes considérées comme politiquement ou socialement à risque — au-delà de toute menace terroriste documentée. Ce scénario constitue le prolongement logique de la dérive fonctionnelle (exploitation de vulnérabilités privées de militants, JTRIG) combinée aux capacités de collecte globale.</div>
+          <ul class="risk-chain">
+            <li><strong>Ce qui était déjà là :</strong> infrastructure de collecte, outils de recherche relationnelle (XKEYSCORE, ICREACH), capacité biométrique (images faciales), doctrine de manipulation (JTRIG)</li>
+            <li><strong>Ce qui manquerait encore :</strong> extension juridique des finalités, accès à des bases supplémentaires (santé, finances, identité), réduction du contrôle judiciaire, outils de classement automatisé, volonté politique explicite ou clandestine</li>
+            <li><strong>Contre-pouvoirs documentés :</strong> juridictions (CEDH art. 8, CJUE), autorités de protection des données, chiffrement de bout en bout robuste, presse indépendante, lanceurs d'alerte, séparation institutionnelle des bases</li>
+            <li><strong>Leçon Snowden :</strong> ces contre-pouvoirs ont fonctionné partiellement — le programme Section 215 a été supprimé, des réformes ont eu lieu. Mais l'architecture principale subsiste, montrant que la résistance réduit sans toujours éliminer.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Score + Réversibilité -->
+    <div class="score-2col">
+      <div class="score-box">
+        <div class="section-label">Score d'alerte historique</div>
+        <div style="font-size:1.9rem;font-weight:900;letter-spacing:-.05em;color:#ff3030">96 <span style="font-size:.9rem;color:var(--muted)">/100</span></div>
+        <div class="score-bar"><div class="score-fill" style="width:96%;background:#ff3030"></div></div>
+        <table class="wscore-table">
+          <tr><td style="color:var(--muted)">Étendue de la collecte</td><td class="wscore-pct">15%</td><td class="wscore-val">15</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:100%"></div></div></td></tr>
+          <tr><td style="color:var(--muted)">Sensibilité des données</td><td class="wscore-pct">15%</td><td class="wscore-val">15</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:100%"></div></div></td></tr>
+          <tr><td style="color:var(--muted)">Absence de ciblage préalable</td><td class="wscore-pct">15%</td><td class="wscore-val">14</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:93%"></div></div></td></tr>
+          <tr><td style="color:var(--muted)">Contrôle indépendant</td><td class="wscore-pct">15%</td><td class="wscore-val">14</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:93%"></div></div></td></tr>
+          <tr><td style="color:var(--muted)">Recours et transparence</td><td class="wscore-pct">10%</td><td class="wscore-val">10</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:100%"></div></div></td></tr>
+          <tr><td style="color:var(--muted)">Capacité d'extension</td><td class="wscore-pct">15%</td><td class="wscore-val">14</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:93%"></div></div></td></tr>
+          <tr><td style="color:var(--muted)">Réversibilité</td><td class="wscore-pct">15%</td><td class="wscore-val">14</td><td class="wscore-bar-w"><div class="wscore-bar"><div class="wscore-fill" style="width:93%"></div></div></td></tr>
+          <tr><td><strong>Total</strong></td><td class="wscore-pct">100%</td><td class="wscore-val">96</td><td></td></tr>
+        </table>
+        <div class="score-disclaimer">Le score mesure l'ampleur des effets et des risques potentiels sur les libertés selon une <a href="/libertes/" style="color:var(--accent)">méthodologie publique</a>. Pour un audit historique, il reflète l'état de l'architecture au moment des révélations et non les réformes partielles ultérieures. Un score élevé ne signifie pas qu'une loi est inconstitutionnelle.</div>
+      </div>
+      <div class="score-box">
+        <div class="section-label">Indice de réversibilité</div>
+        <div style="font-size:1.9rem;font-weight:900;letter-spacing:-.05em;color:#ff7a00">7 <span style="font-size:.9rem;color:var(--muted)">/10</span></div>
+        <div style="font-size:.67rem;color:var(--muted);margin-bottom:4px">7 = réformes partielles obtenues, architecture principale maintenue</div>
+        <div class="revers-bar"><div class="revers-fill" style="width:70%"></div></div>
+        <div style="font-size:.74rem;color:var(--muted);line-height:1.6;margin-top:8px">L'USA FREEDOM Act (2015) a mis fin au programme Section 215 de collecte de masse des métadonnées téléphoniques. Mais la Section 702 (PRISM, Upstream) a été réautorisée en 2024. Les capacités Upstream, les accords Five Eyes, les infrastructures d'interception des câbles et les outils d'analyse comme XKEYSCORE n'ont pas disparu. La mobilisation publique et judiciaire a produit des réformes réelles mais incomplètes.</div>
+      </div>
+    </div>
+
+    <!-- Diff avant/après -->
+    <div style="margin-bottom:22px">
+      <div class="section-label">Avant / après les révélations</div>
+      <div class="diff-grid">
+        <div class="diff-col avant">
+          <div class="diff-head">Avant juin 2013</div>
+          <div class="diff-item"><span>📋</span>Existence des programmes connue des seuls initiés ; aucun débat public informé</div>
+          <div class="diff-item"><span>📋</span>Section 215 interprétée secrètement comme autorisant la collecte de masse</div>
+          <div class="diff-item"><span>📋</span>FISA Court émettant des ordonnances sans procédure contradictoire et sans révision publique</div>
+          <div class="diff-item"><span>📋</span>Chiffrement entre centres de données (Google, Yahoo) non systématique</div>
+          <div class="diff-item"><span>📋</span>Cadre Safe Harbor UE–USA en vigueur sans que ses lacunes pratiques soient documentées</div>
+        </div>
+        <div class="diff-col apres">
+          <div class="diff-head">Après juin 2013</div>
+          <div class="diff-item"><span>🔵</span>Débat public mondial — réformes légales aux États-Unis, UE et dans plusieurs États</div>
+          <div class="diff-item"><span>🟢</span>USA FREEDOM Act (2015) : fin du programme Section 215 de collecte de masse</div>
+          <div class="diff-item"><span>🟢</span>PCLOB rendu public : rapports officiels confirmant les programmes et leurs défauts</div>
+          <div class="diff-item"><span>🟢</span>Renforcement du chiffrement entre centres de données (TLS systématique)</div>
+          <div class="diff-item"><span>🔴</span>Safe Harbor invalidé (Schrems I, 2015), Privacy Shield invalidé (Schrems II, 2020)</div>
+        </div>
+      </div>
+      <div class="diff-changes">
+        <div class="diff-change"><span class="diff-tag tag-rm">Réforme obtenue</span>Fin du programme de collecte de masse des métadonnées téléphoniques (Section 215) via l'USA FREEDOM Act. Confirmation que le programme manquait de base légale solide et présentait une utilité antiterroriste limitée (PCLOB).</div>
+        <div class="diff-change"><span class="diff-tag tag-add">Maintenu</span>Section 702 (PRISM, Upstream) réautorisée en 2024. Capacités Upstream, Five Eyes, infrastructures de câbles et outils d'analyse maintenus. Surveillance des non-Américains à l'étranger sans équivalent de garanties.</div>
+        <div class="diff-change"><span class="diff-tag tag-mod">Encadré</span>Deux arrêts Schrems (CJUE 2015, 2020) ont successivement invalidé les cadres de transfert de données UE–USA fondés sur des garanties insuffisantes. Le cadre actuel (Trans-Atlantic Data Privacy Framework, 2023) fait l'objet d'une procédure Schrems III.</div>
+      </div>
+      <div class="diff-note">
+        <strong>Note :</strong> Snowden n'a pas révélé un système unique enregistrant tout sur tout le monde de manière uniforme. Il a révélé un ensemble de systèmes spécialisés qui, combinés, permettaient de collecter une part considérable de la vie numérique mondiale et de rechercher une personne après que ses données avaient déjà été absorbées.
+      </div>
+    </div>
+
+    <!-- Ce qui a changé -->
+    <div style="margin-bottom:22px">
+      <div class="section-label">Réformes et suites juridiques</div>
+      <div class="update-item">
+        <div class="update-year">2015</div>
+        <div>
+          <div class="update-title">USA FREEDOM Act — fin du programme Section 215</div>
+          <div class="update-body">Loi du 2 juin 2015 : met fin à la collecte de masse des métadonnées téléphoniques par la NSA. Les données restent chez les opérateurs ; la NSA doit obtenir une ordonnance individuelle pour y accéder. La Section 702 (PRISM, Upstream) est maintenue sans modification substantielle.</div>
+        </div>
+      </div>
+      <div class="update-item">
+        <div class="update-year">2015</div>
+        <div>
+          <div class="update-title">Schrems I — Safe Harbor invalidé (CJUE)</div>
+          <div class="update-body">Arrêt C-362/14, 6 octobre 2015 : la CJUE invalide le cadre Safe Harbor autorisant les transferts de données personnelles vers les États-Unis. Motivation directement liée aux révélations Snowden : accès des autorités américaines aux données transférées sans protection équivalente au droit de l'UE.</div>
+        </div>
+      </div>
+      <div class="update-item">
+        <div class="update-year">2020</div>
+        <div>
+          <div class="update-title">Schrems II — Privacy Shield invalidé (CJUE)</div>
+          <div class="update-body">Arrêt C-311/18, 16 juillet 2020 : le Privacy Shield (successeur du Safe Harbor) est invalidé pour les mêmes raisons fondamentales. La Section 702 FISA et le Décret présidentiel 12333 permettent toujours un accès aux données transférées sans recours effectif pour les Européens.</div>
+        </div>
+      </div>
+      <div class="update-item">
+        <div class="update-year">2020</div>
+        <div>
+          <div class="update-title">9th Circuit américain — les révélations étaient dans l'intérêt public</div>
+          <div class="update-body">La cour d'appel fédérale a jugé que le programme de surveillance des métadonnées révélé par Snowden était illégal et que les responsables avaient menti au Congrès à ce sujet. Elle n'a pas statué sur la situation personnelle de Snowden (réfugié en Russie depuis 2013).</div>
+        </div>
+      </div>
+      <div class="update-item">
+        <div class="update-year">2023</div>
+        <div>
+          <div class="update-title">Executive Order 14086 — Trans-Atlantic Data Privacy Framework</div>
+          <div class="update-body">Décret de Biden établissant un nouveau cadre de transfert de données UE–USA avec un mécanisme de recours pour les Européens (Data Protection Review Court). La Commission européenne a adopté une décision d'adéquation en juillet 2023. La procédure Schrems III est en cours devant la CJUE.</div>
+        </div>
+      </div>
+      <div class="update-item">
+        <div class="update-year">2024</div>
+        <div>
+          <div class="update-title">Section 702 réautorisée — FISA Reform and Reauthorization Act</div>
+          <div class="update-body">Le Congrès américain a réautorisé la Section 702 pour cinq ans avec des modifications limitées. PRISM et Upstream demeurent. Les débats ont notamment porté sur l'extension potentielle de la définition des « prestataires de services électroniques » pouvant être contraints à coopérer.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div style="margin-bottom:22px">
+      <div class="section-label">Chronologie</div>
+      <ul class="timeline">
+        <li class="tl-item"><div class="tl-dot red"></div><div class="tl-date">5 juin 2013</div><div><div class="tl-title">Ordonnance Verizon — première publication</div><div class="tl-desc">The Guardian publie l'ordonnance secrète FISA imposant à Verizon la transmission quotidienne des métadonnées à la NSA.</div></div></li>
+        <li class="tl-item"><div class="tl-dot red"></div><div class="tl-date">6–7 juin 2013</div><div><div class="tl-title">PRISM révélé — The Guardian et Washington Post</div><div class="tl-desc">Diapositives internes citant Microsoft, Yahoo, Google, Facebook, Apple parmi les fournisseurs. Début de la confusion autour de l'« accès direct ».</div></div></li>
+        <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">9 juin 2013</div><div><div class="tl-title">Snowden se révèle — Hong Kong</div><div class="tl-desc">The Guardian publie la vidéo dans laquelle Snowden révèle son identité et ses motivations depuis Hong Kong.</div></div></li>
+        <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Juil. 2013</div><div><div class="tl-title">XKEYSCORE — diapositives de formation publiées</div><div class="tl-desc">The Guardian publie les supports montrant les capacités de recherche dans les données interceptées.</div></div></li>
+        <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Août 2013</div><div><div class="tl-title">TEMPORA (GCHQ) et Five Eyes révélés</div><div class="tl-desc">Interception des câbles à fibres optiques par le GCHQ. Architecture de coopération Five Eyes documentée.</div></div></li>
+        <li class="tl-item"><div class="tl-dot blue"></div><div class="tl-date">23 juil. 2013</div><div><div class="tl-title">Snowden — transit Moscou, asile temporaire russe</div><div class="tl-desc">Après le refus de passeport américain, la Russie accorde l'asile temporaire. Il y réside depuis.</div></div></li>
+        <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Oct. 2013</div><div><div class="tl-title">MUSCULAR — interception des câbles internes Google et Yahoo</div><div class="tl-desc">Washington Post révèle l'interception des liaisons entre centres de données, contournant le portail juridique de PRISM.</div></div></li>
+        <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Déc. 2013</div><div><div class="tl-title">CO-TRAVELER — ~5 milliards de localisations/jour</div><div class="tl-desc">Washington Post révèle la collecte mondiale de données de localisation et le système CO-TRAVELER.</div></div></li>
+        <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Jan.–fév. 2014</div><div><div class="tl-title">DISHFIRE, OPTIC NERVE publiés</div><div class="tl-desc">200 millions de SMS/jour stockés ; 1,8 million de comptes webcam Yahoo interceptés par le GCHQ.</div></div></li>
+        <li class="tl-item"><div class="tl-dot"></div><div class="tl-date">Mars 2014</div><div><div class="tl-title">MYSTIC / RETRO — enregistrement intégral révélé</div><div class="tl-desc">Washington Post révèle la capacité de remonter dans le temps sur des appels déjà enregistrés dans au moins un pays.</div></div></li>
+        <li class="tl-item"><div class="tl-dot blue"></div><div class="tl-date">Jan. 2014</div><div><div class="tl-title">Rapport PCLOB Section 215 — confirmation officielle</div><div class="tl-desc">L'organisme de contrôle américain conclut que le programme manquait de base légale solide et présentait une utilité limitée.</div></div></li>
+        <li class="tl-item"><div class="tl-dot blue"></div><div class="tl-date">2 juin 2015</div><div><div class="tl-title">USA FREEDOM Act — fin de la Section 215 de masse</div><div class="tl-desc">Premier résultat législatif direct : fin de la collecte de masse des métadonnées téléphoniques.</div></div></li>
+        <li class="tl-item"><div class="tl-dot blue"></div><div class="tl-date">Oct. 2015</div><div><div class="tl-title">CJUE Schrems I — Safe Harbor invalidé</div><div class="tl-desc">Conséquence judiciaire directe des révélations : les cadres de transfert de données UE–USA sont insuffisants.</div></div></li>
+        <li class="tl-item"><div class="tl-dot grey"></div><div class="tl-date">Juil. 2020</div><div><div class="tl-title">CJUE Schrems II — Privacy Shield invalidé</div><div class="tl-desc">La Section 702 FISA demeure problématique au regard du droit européen. Les mêmes causes produisent les mêmes effets.</div></div></li>
+        <li class="tl-item"><div class="tl-dot grey"></div><div class="tl-date">Avr. 2024</div><div><div class="tl-title">Section 702 réautorisée pour cinq ans</div><div class="tl-desc">PRISM et Upstream maintenus. Architecture fondamentale préservée onze ans après les révélations.</div></div></li>
+      </ul>
+    </div>
+
+    <!-- Sources -->
+    <div style="margin-bottom:22px;overflow-x:auto">
+      <div class="section-label">Sources</div>
+      <table class="source-table">
+        <thead><tr><th>Type</th><th>Titre</th><th>Éditeur</th><th>Date</th></tr></thead>
+        <tbody>
+          <tr><td><span class="src-o">Archive</span></td><td><a href="https://snowdenarchive.cjfe.org/" target="_blank" rel="noopener">Snowden Surveillance Archive</a></td><td>Université de Toronto / CJFE</td><td>2013–2015</td></tr>
+          <tr><td><span class="src-o">Archive</span></td><td><a href="https://nsarchive2.gwu.edu/NSAEBB/NSAEBB436/" target="_blank" rel="noopener">NSA Archive — ordonnance Verizon</a></td><td>George Washington University</td><td>2013</td></tr>
+          <tr><td><span class="src-p">Officiel</span></td><td><a href="https://documents.pclob.gov/prod/Documents/OversightReport/ec542143-1079-424a-84b3-acc354698560/215-Report_on_the_Telephone_Records_Program.pdf" target="_blank" rel="noopener">PCLOB — Rapport Section 215</a></td><td>Privacy and Civil Liberties Oversight Board</td><td>2014</td></tr>
+          <tr><td><span class="src-p">Officiel</span></td><td><a href="https://documents.pclob.gov/prod/Documents/OversightReport/ba65702c-3541-4125-a67d-92a7f974fc4c/702-Report-2%20-%20Complete%20-%20Nov%2014%202022%201548.pdf" target="_blank" rel="noopener">PCLOB — Rapport Section 702 (2022)</a></td><td>Privacy and Civil Liberties Oversight Board</td><td>Nov. 2022</td></tr>
+          <tr><td><span class="src-p">Officiel</span></td><td><a href="https://hudoc.echr.coe.int/eng?i=001-210077" target="_blank" rel="noopener">CEDH — Big Brother Watch c. Royaume-Uni (Grande Chambre)</a></td><td>Cour européenne des droits de l'homme</td><td>25 mai 2021</td></tr>
+          <tr><td><span class="src-s">Publication</span></td><td><a href="https://www.theguardian.com/world/interactive/2013/nov/01/prism-slides-nsa-document" target="_blank" rel="noopener">Diapositives PRISM originales</a></td><td>The Guardian</td><td>Juin 2013</td></tr>
+          <tr><td><span class="src-s">Publication</span></td><td><a href="https://www.theguardian.com/world/interactive/2013/jul/31/nsa-xkeyscore-program-full-presentation" target="_blank" rel="noopener">Présentation XKEYSCORE</a></td><td>The Guardian</td><td>Juil. 2013</td></tr>
+          <tr><td><span class="src-s">Publication</span></td><td><a href="https://www.theguardian.com/world/2013/sep/05/nsa-gchq-encryption-codes-security" target="_blank" rel="noopener">BULLRUN / EDGEHILL — affaiblissement du chiffrement</a></td><td>The Guardian / ProPublica / NYT</td><td>Sept. 2013</td></tr>
+          <tr><td><span class="src-s">Publication</span></td><td><a href="https://www.washingtonpost.com/world/national-security/nsa-infiltrates-links-to-yahoo-google-data-centers-worldwide-snowden-documents-say/2013/10/30/e51d661e-4166-11e3-8b74-d89d714ca4dd_story.html" target="_blank" rel="noopener">MUSCULAR — interception centres de données</a></td><td>The Washington Post</td><td>Oct. 2013</td></tr>
+          <tr><td><span class="src-s">Publication</span></td><td><a href="https://www.theguardian.com/world/2014/feb/27/gchq-nsa-webcam-images-internet-yahoo" target="_blank" rel="noopener">OPTIC NERVE — webcams Yahoo</a></td><td>The Guardian</td><td>Fév. 2014</td></tr>
+          <tr><td><span class="src-s">Publication</span></td><td><a href="https://www.statewatch.org/news/2015/february/nsa-gchq-the-great-sim-heist-how-spies-stole-the-keys-to-the-encryption-castle/" target="_blank" rel="noopener">Opération Gemalto — clés SIM</a></td><td>The Intercept / Statewatch</td><td>Fév. 2015</td></tr>
+          <tr><td><span class="src-s">Publication</span></td><td><a href="https://snowden.xsurveillance.site/items/show/87" target="_blank" rel="noopener">JTRIG — outils de manipulation numérique</a></td><td>Snowden Archive</td><td>2014</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-bottom:22px">
+      <div class="section-label">Questions fréquentes</div>
+      <div class="faq-wrap">
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Que sont les révélations Snowden ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Ensemble de documents classifiés de la NSA et du GCHQ transmis par Edward Snowden à des journalistes et publiés à partir de juin 2013. Ils révèlent l'existence d'une architecture mondiale de surveillance incluant la collecte de masse de métadonnées téléphoniques (Section 215), de contenus Internet (PRISM, Section 702), l'interception des câbles (UPSTREAM, TEMPORA), et la compromission volontaire de normes de chiffrement (BULLRUN, EDGEHILL).</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Qu'est-ce que PRISM et en quoi concerne-t-il les Européens ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">PRISM permettait à la NSA de recevoir des communications détenues par de grands fournisseurs américains (Microsoft, Yahoo, Google, Facebook, Apple…) dans le cadre de la Section 702 de FISA, lorsque la cible est une personne non américaine à l'étranger. La protection porte sur la définition de la cible initiale, pas sur les interlocuteurs. Si un Européen correspond avec une cible étrangère, ses communications sont également collectées, même s'il n'est pas lui-même ciblé.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>La NSA collectait-elle les métadonnées de tous les Américains ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Oui, confirmé par le PCLOB. Une ordonnance secrète FISA imposait à Verizon de transmettre quotidiennement à la NSA les métadonnées de tous les appels couverts — numéros, dates, heures, durées. Le PCLOB a conclu que ce programme ne reposait pas sur une base légale solide dans la Section 215, soulevait de graves questions constitutionnelles et présentait une valeur antiterroriste limitée. Il a recommandé sa suppression, ce qui a été fait par l'USA FREEDOM Act en 2015.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Qu'est-ce que XKEYSCORE et en quoi est-il significatif ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">XKEYSCORE n'était pas principalement un programme de collecte : c'était une interface de recherche permettant aux analystes d'explorer les données déjà interceptées par d'autres programmes — adresses e-mail, IP, activité web, fichiers, cookies, identifiants. Son danger structurel est de renverser le modèle classique du mandat judiciaire : au lieu de surveiller une personne parce qu'elle est soupçonnée, les données de très nombreuses personnes sont d'abord collectées, puis certaines recherchées ultérieurement.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Des réformes ont-elles suivi les révélations ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Partiellement. L'USA FREEDOM Act (2015) a mis fin au programme de collecte de masse des métadonnées téléphoniques. Le PCLOB a publié des rapports officiels confirmant les problèmes légaux et constitutionnels. Les arrêts Schrems I (2015) et II (2020) de la CJUE ont invalidé les cadres de transfert de données UE–USA. Mais la Section 702 (PRISM, Upstream) a été réautorisée en 2024, et les capacités fondamentales d'interception des câbles subsistent.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Snowden avait-il vraiment accès à toutes les communications ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">La formulation « espionner n'importe qui, y compris le président » est une simplification. Snowden disposait d'un accès à des outils très puissants (XKEYSCORE notamment) et estimait que leurs contrôles étaient insuffisants. Cela ne signifie pas qu'il bénéficiait d'une autorisation de cibler librement toute personne. Le vrai danger qu'il pointait était structurel : l'existence de l'infrastructure elle-même, pas l'usage effectif de chaque analyste.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Le chiffrement protège-t-il contre ce type de surveillance ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Selon les documents et les déclarations de Snowden : la cryptographie solide correctement mise en œuvre résiste. Les faiblesses documentées portent sur les terminaux (avant ou après chiffrement), les standards délibérément affaiblis (BULLRUN, EDGEHILL), les clés compromises (opération Gemalto) et les protocoles incorrectement implémentés. L'affaiblissement systémique est dangereux au-delà de la NSA : il crée des vulnérabilités exploitables par des États concurrents ou des groupes criminels.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Où trouver les documents originaux ?</span><span class="faq-arrow">▼</span></div><div class="faq-a">Le Snowden Surveillance Archive de l'Université de Toronto réunit les documents effectivement publiés. Le NSA Archive de la George Washington University documente les programmes avec références primaires. Les rapports du PCLOB (documents.pclob.gov) constituent la confirmation officielle américaine la plus complète et la plus accessible.</div></div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border)">
+      <a href="/libertes/" style="font-size:.81rem;color:var(--muted);text-decoration:none">← Retour à l'Observatoire</a>
+      <div style="font-size:.71rem;color:var(--muted)">Dernière vérification : 17/07/2026</div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Le Français Moyen — Données issues de sources officielles</span>
+  <a href="/">Tableau de bord principal</a>
+</footer>
+
+<script>
+function toggle(head) {
+  const body = head.nextElementSibling;
+  const arrow = head.querySelector('.niveau-toggle');
+  const open = body.style.display !== 'none';
+  body.style.display = open ? 'none' : 'block';
+  arrow.classList.toggle('open', !open);
+}
+function toggleFaq(btn) {
+  const ans = btn.nextElementSibling;
+  const arrow = btn.querySelector('.faq-arrow');
+  const open = ans.style.display === 'block';
+  ans.style.display = open ? 'none' : 'block';
+  arrow.style.transform = open ? '' : 'rotate(180deg)';
+}
+document.querySelectorAll('.niveau-head')[0].click();
+</script>
+</body>
+</html>
