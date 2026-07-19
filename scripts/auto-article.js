@@ -11,7 +11,6 @@
 const https  = require('https');
 const fs     = require('fs');
 const path   = require('path');
-const { renderCard } = require('./generate-og-card');
 
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 if (!ANTHROPIC_API_KEY) { console.error('ANTHROPIC_API_KEY manquante'); process.exit(1); }
@@ -324,6 +323,7 @@ Qualité requise : au moins 500 mots de contenu utile, sources officielles cité
   // 6b. Générer l'image OG dédiée à l'article
   let ogImageUrl = 'https://le-francais-moyen.com/assets/img/og-image.png';
   try {
+    const { renderCard } = require('./generate-og-card');
     renderCard({
       slug,
       headline: og_headline || card_title || title,
