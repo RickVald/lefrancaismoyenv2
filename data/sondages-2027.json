@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-09",
+  "updated": "2026-07-20",
   "source": "Wikipedia — Liste de sondages sur l'élection présidentielle française de 2027",
   "source_url": "https://fr.wikipedia.org/wiki/Liste_de_sondages_sur_l%27%C3%A9lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027",
   "candidates": {
@@ -14,6 +14,24 @@
     "tondelier": { "name": "M. Tondelier",       "party": "Verts",    "color": "#3BA35A" }
   },
   "polls": [
+    {
+      "date": "2026-07-10",
+      "institute": "Elabe",
+      "n": 1500,
+      "scores": { "le_pen": 35, "melenchon": 16, "philippe": 16.5, "glucksmann": 10.5, "retailleau": 8, "tondelier": 3.5, "roussel": 2.5, "zemmour": 3 }
+    },
+    {
+      "date": "2026-07-09",
+      "institute": "Verian",
+      "n": 1000,
+      "scores": { "le_pen": 37, "melenchon": 15, "philippe": 17, "attal": 8, "glucksmann": 11, "retailleau": 7, "roussel": 2, "zemmour": 3 }
+    },
+    {
+      "date": "2026-07-08",
+      "institute": "OpinionWay",
+      "n": 1001,
+      "scores": { "le_pen": 35, "melenchon": 13, "philippe": 18, "attal": 7, "glucksmann": 9, "retailleau": 8, "tondelier": 5, "zemmour": 3 }
+    },
     {
       "date": "2026-07-08",
       "institute": "Harris Interactive",
