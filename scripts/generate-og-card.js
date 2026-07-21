@@ -99,8 +99,8 @@ function renderCard({ slug, headline, chiffre, chiffreLabel, source, accent }) {
 
 // ── Pages prioritaires (ROI immédiat) ───────────────────────────────────────
 const CARDS = [
-  { slug: 'dette',  headline: "Les intérêts de la dette explosent", chiffre: '64,7 Md€', chiffreLabel: "payés en 2025 — soit 1,8 Md€ par semaine", source: 'INSEE T4 2025', accent: 'red' },
-  { slug: 'dette-par-habitant', headline: "La dette publique par habitant", chiffre: '50 600 €', chiffreLabel: 'pour chaque Français, fin 2025', source: 'INSEE T4 2025', accent: 'gold' },
+  { slug: 'dette',  headline: "Les intérêts de la dette explosent", chiffre: '64,7 Md€', chiffreLabel: "payés en 2025 — soit 1,8 Md€ par semaine", source: 'INSEE T1 2026', accent: 'red' },
+  { slug: 'dette-par-habitant', headline: "La dette publique par habitant", chiffre: '51 700 €', chiffreLabel: 'pour chaque Français, T1 2026', source: 'INSEE T1 2026', accent: 'gold' },
   { slug: 'budget', headline: "Dépenses publiques : record OCDE", chiffre: '57,2 %', chiffreLabel: 'du PIB — 1er rang des pays de l\'OCDE', source: 'INSEE / OCDE', accent: 'teal' },
   { slug: 'demographie-angleterre', headline: "La démographie de l'Angleterre", chiffre: '58,6 M', chiffreLabel: "d'habitants — +19,7M depuis 1945", source: 'ONS Census 2021', accent: 'gold' },
   { slug: 'melenchon-2027', headline: "Le programme de Mélenchon en chiffres", chiffre: '831', chiffreLabel: "mesures dans L'Avenir en Commun, éd. 2025", source: 'melenchon2027.fr · IFRAP', accent: 'red' },

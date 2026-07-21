@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://le-francais-moyen.com/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -23,7 +23,7 @@
 
   <url>
     <loc>https://le-francais-moyen.com/dette/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.88</priority>
   </url>
@@ -275,7 +275,7 @@
 
   <url>
     <loc>https://le-francais-moyen.com/weekly/latest</loc>
-    <lastmod>2026-05-10</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.70</priority>
   </url>
@@ -618,7 +618,7 @@
 
   <url>
     <loc>https://le-francais-moyen.com/questions/quelle-est-la-dette-de-la-france</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -702,7 +702,7 @@
 
   <url>
     <loc>https://le-francais-moyen.com/questions/dette-france-par-habitant</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -716,7 +716,7 @@
 
   <url>
     <loc>https://le-francais-moyen.com/widget-dette-publique-france/</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
@@ -730,14 +730,14 @@
 
   <url>
     <loc>https://le-francais-moyen.com/questions/pourquoi-la-dette-augmente</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 
   <url>
     <loc>https://le-francais-moyen.com/questions/sources-dette-publique-france</loc>
-    <lastmod>2026-05-26</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
