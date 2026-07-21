@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Dette publique France en direct : compteur, intérêts, déficit | Le Français Moyen</title>
-  <meta name="description" content="Données officielles sur la France : dette publique en direct (+4 800 €/s, 3 461 Md€), retraites, fiscalité, logement, industrie. Chiffres INSEE, Banque de France, Eurostat mis en perspective.">
+  <meta name="description" content="Données officielles sur la France : dette publique en direct (+4 800 €/s, 3 536 Md€), retraites, fiscalité, logement, industrie. Chiffres INSEE, Banque de France, Eurostat mis en perspective.">
   <meta name="keywords" content="inflation france, pouvoir d'achat, salaire réel france, dette publique france, démographie france, coût de la vie france, fiscalité france, données officielles france">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#0b1020">
@@ -20,7 +20,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Le Français Moyen">
   <meta property="og:title" content="Dette publique France en direct : compteur, intérêts, déficit | Le Français Moyen">
-  <meta property="og:description" content="3 461 Md€ de dette publique, 115,6 % du PIB, +4 800 €/s. Compteur en direct, qui détient la dette, dette par habitant, simulateur — données officielles INSEE et Banque de France.">
+  <meta property="og:description" content="3 536 Md€ de dette publique, 115,6 % du PIB, +4 800 €/s. Compteur en direct, qui détient la dette, dette par habitant, simulateur — données officielles INSEE et Banque de France.">
   <meta property="og:url" content="https://le-francais-moyen.com/">
   <meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -30,7 +30,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dette publique France en direct : compteur, intérêts, déficit | Le Français Moyen">
-  <meta name="twitter:description" content="3 461 Md€ de dette publique, +4 800 €/s, 115,6 % du PIB. Compteur en direct, simulateur, évolution depuis 1974 — données officielles INSEE.">
+  <meta name="twitter:description" content="3 536 Md€ de dette publique, +4 800 €/s, 115,6 % du PIB. Compteur en direct, simulateur, évolution depuis 1974 — données officielles INSEE.">
   <meta name="twitter:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
   <meta name="twitter:image:alt" content="Tableau de bord Le Français Moyen">
 
@@ -304,7 +304,7 @@
         <div style="background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.22);border-radius:16px;padding:26px 28px">
           <div data-i18n="ticker_debt_lbl" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#f87171;margin-bottom:10px">🇫🇷 Dette publique française</div>
           <div id="tickerDebt" style="font-size:clamp(1.35rem,3vw,2rem);font-weight:900;color:#f5f5f5;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.2;word-break:break-all">3 461 000 000 000 €</div>
-          <div data-i18n="ticker_debt_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Compteur continu · base 01/01/2026 · INSEE T4 2025</div>
+          <div data-i18n="ticker_debt_note" style="font-size:.8rem;color:#666;margin-top:10px;line-height:1.6">Compteur continu · base 01/01/2026 · INSEE T1 2026</div>
           <div data-i18n="ticker_debt_rate" style="font-size:.78rem;color:#f87171;margin-top:6px;font-weight:600">+4 800 €/s · 115,6 % du PIB</div>
           <a data-i18n="ticker_debt_cta" href="/dette/" style="display:inline-block;margin-top:16px;font-size:.82rem;color:#f87171;font-weight:700;text-decoration:none;border:1px solid rgba(248,113,113,.3);border-radius:6px;padding:7px 16px;transition:.15s" onmouseover="this.style.background='rgba(248,113,113,.1)'" onmouseout="this.style.background='transparent'">Voir le compteur complet →</a>
         </div>
@@ -334,11 +334,11 @@
   </style>
   <script>
   (function(){
-    var DEBT_REF  = 3460500000000;  // dette fin 2025 — INSEE T4 2025 (27/03/2026)
+    var DEBT_REF  = 3536100000000;  // dette fin 2025 — INSEE T1 2026 (25/06/2026)
     var DEBT_RATE = 4832;   // €/s — déficit 2025 = 152,5 Md€ ÷ 31 557 600 s
     var INT_RATE  = 2050;   // €/s — intérêts versés (64,7 Md€/an ÷ 31 557 600 s)
     var FUT_RATE  = 145;    // €/an par seconde d'emprunt (4 832 × 3 %)
-    var REF_TS    = new Date('2026-01-01T00:00:00Z').getTime();
+    var REF_TS    = new Date('2026-04-01T00:00:00Z').getTime();
     var PAGE_TS   = Date.now();
 
     function fmtDebt(v){
@@ -399,14 +399,14 @@
 
         <a href="/questions/dette-france-par-habitant" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(251,146,60,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#fb923c'" onmouseout="this.style.borderColor='rgba(251,146,60,.18)'">
           <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#fb923c;margin-bottom:8px">👤 Dette par habitant</div>
-          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">50 600 €</div>
+          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">51 700 €</div>
           <div style="font-size:.88rem;color:#888;line-height:1.6">C'était 15 000 € en 2000. Chaque Français hérite de +2 230 € de dette par an. Évolution 2000–2025 et comparatif UE.</div>
-          <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">Source : INSEE T4 2025 →</div>
+          <div style="font-size:.78rem;color:#fb923c;margin-top:10px;font-weight:600">Source : INSEE T1 2026 →</div>
         </a>
 
         <a href="/questions/quelle-est-la-difference-entre-la-dette-et-le-deficit" style="display:block;text-decoration:none;background:rgba(255,255,255,.03);border:1px solid rgba(167,139,250,.18);border-radius:14px;padding:20px 22px;transition:all .15s" onmouseover="this.style.borderColor='#a78bfa'" onmouseout="this.style.borderColor='rgba(167,139,250,.18)'">
           <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#a78bfa;margin-bottom:8px">📚 Dette ≠ déficit</div>
-          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">152 Md€ ≠ 3 461 Md€</div>
+          <div style="font-size:1.9rem;font-weight:900;color:#f5f5f5;letter-spacing:-.03em;margin-bottom:6px">152 Md€ ≠ 3 536 Md€</div>
           <div style="font-size:.88rem;color:#888;line-height:1.6">Le déficit (ce qu'on dépense de trop cette année) et la dette (le stock cumulé) — la confusion la plus fréquente.</div>
           <div style="font-size:.78rem;color:#a78bfa;margin-top:10px;font-weight:600">Source : INSEE · Banque de France 2025 →</div>
         </a>
@@ -443,8 +443,8 @@
         <a href="/dette/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(248,113,113,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#f87171';this.style.background='rgba(248,113,113,.05)'" onmouseout="this.style.borderColor='rgba(248,113,113,.2)';this.style.background='#161616'">
           <div style="font-size:22px;margin-bottom:10px">⏱️</div>
           <div data-i18n="theme_1_title" style="font-size:13px;font-weight:700;color:#f87171;margin-bottom:5px">Dette en direct</div>
-          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">3 461 Md€</div>
-          <div data-i18n="theme_1_desc" style="font-size:11px;color:#666;line-height:1.5">Compteur en direct. 115,6 % du PIB. +4 800 €/s.</div>
+          <div style="font-size:1.4rem;font-weight:900;color:#f5f5f5;letter-spacing:-.02em;margin-bottom:5px">3 536 Md€</div>
+          <div data-i18n="theme_1_desc" style="font-size:11px;color:#666;line-height:1.5">Compteur pédagogique. 117,5 % du PIB. +4 832 €/s.</div>
         </a>
 
         <a href="/budget/" style="display:block;text-decoration:none;background:#161616;border:1px solid rgba(251,146,60,.2);border-radius:10px;padding:18px 16px;transition:.18s" onmouseover="this.style.borderColor='#fb923c';this.style.background='rgba(251,146,60,.05)'" onmouseout="this.style.borderColor='rgba(251,146,60,.2)';this.style.background='#161616'">
@@ -676,13 +676,13 @@ fr:{
   ticker_live:'En direct · calcul automatique',
   ticker_debt_lbl:'🇫🇷 Dette publique française',
   ticker_debt_note:'Compteur continu · base 01/01/2026 · Banque de France',
-  ticker_debt_rate:'+4 800 €/s · 115,6 % du PIB',
+  ticker_debt_rate:'+4 832 €/s · 117,5 % du PIB',
   ticker_debt_cta:'Voir le compteur complet →',
   ticker_int_lbl:'💸 Intérêts payés depuis votre arrivée',
   ticker_int_note:'Intérêts de la dette versés depuis l\'ouverture de cette page',
   ticker_fut_lbl:'📈 Charge future d\'intérêts générée',
   ticker_fut_note:'Charge annuelle future créée par les emprunts depuis votre arrivée',
-  week_label:'Semaine du 12 mai 2026',
+  week_label:'Semaine du 12 juin 2026',
   week_h2:'3 chiffres que tout le monde devrait connaître',
   week_all:'Voir tous les articles →',
   card1_tag:'💡 La distinction essentielle',
@@ -699,7 +699,7 @@ fr:{
   themes_h2:'12 sujets. Les données officielles.',
   themes_sub:'Chaque thème : données longue période, sources vérifiables, chiffres clés mis en perspective.',
   themes_tools:'Voir les outils →',
-  theme_1_title:'Dette en direct',theme_1_desc:'Compteur en direct. 115,6 % du PIB. +4 800 €/s.',
+  theme_1_title:'Dette en direct',theme_1_desc:'Compteur pédagogique. 117,5 % du PIB. +4 832 €/s.',
   theme_2_title:'Budget de l\'État',theme_2_desc:'Recettes, dépenses, déficit. Le taux le plus élevé de l\'OCDE.',
   theme_3_title:'Impôt invisible',theme_3_desc:'Taux réel de prélèvement : IR, TVA, cotisations, énergie.',
   theme_4_title:'Retraites',theme_4_desc:'42 régimes. Ratio 1,7 actif/retraité. Réforme 2023.',
@@ -763,7 +763,7 @@ en:{
   themes_h2:'12 topics. Official data.',
   themes_sub:'Each topic: long-term data, verifiable sources, key figures in perspective.',
   themes_tools:'See the tools →',
-  theme_1_title:'Debt live',theme_1_desc:'Live counter. 115.6% of GDP. +€4,832/s.',
+  theme_1_title:'Debt live',theme_1_desc:'Pedagogical counter. 117.5% of GDP. +€4,832/s.',
   theme_2_title:'State budget',theme_2_desc:'Revenue, spending, deficit. The highest rate in the OECD.',
   theme_3_title:'Hidden tax burden',theme_3_desc:'Real total tax rate: income tax, VAT, contributions, energy.',
   theme_4_title:'Pensions',theme_4_desc:'42 schemes. Ratio 1.7 workers/retiree. 2023 reform.',
@@ -812,7 +812,7 @@ function setLang(l){
     :'The Average French — Debt, pensions, taxes and purchasing power in official figures';
   const desc=document.querySelector('meta[name="description"]');
   if(desc)desc.setAttribute('content',l==='fr'
-    ?'Données officielles sur la France : dette publique en direct (+4 800 €/s, 3 461 Md€), retraites, fiscalité, logement, industrie. Chiffres INSEE, Banque de France, Eurostat mis en perspective.'
+    ?'Données officielles sur la France : dette publique en direct (+4 800 €/s, 3 536 Md€), retraites, fiscalité, logement, industrie. Chiffres INSEE, Banque de France, Eurostat mis en perspective.'
     :'Official data on France: live national debt (+€4,800/s, €3,461bn), pensions, taxation, housing, industry. INSEE, Banque de France, Eurostat figures in perspective.');
   // Email placeholder
   const emailInput=document.getElementById('newsletterEmail');

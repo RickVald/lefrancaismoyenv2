@@ -3,8 +3,8 @@
     "site": "Le Français Moyen",
     "url": "https://le-francais-moyen.com",
     "description": "Chiffres clés de la dette publique et des finances publiques françaises — données officielles INSEE, Eurostat, Banque de France, AFT.",
-    "last_updated": "2026-03-27",
-    "next_update": "2026-06-26",
+    "last_updated": "2026-06-25",
+    "next_update": "2026-09-30",
     "update_frequency": "Trimestrielle (publication INSEE T+90 jours)",
     "license": "Données source sous licence Etalab Open Licence",
     "contact": "https://le-francais-moyen.com/a-propos/",
@@ -15,20 +15,26 @@
     "label": "Dette publique brute des administrations publiques (norme Maastricht)",
     "perimetre": "Ensemble des administrations publiques (APU) — État + collectivités + sécurité sociale + ODAC",
     "norme": "SEC 2010 / Règlement européen sur la procédure concernant les déficits excessifs",
-    "source": "INSEE — Comptes nationaux trimestriels, T4 2025",
+    "source": "INSEE — Comptes nationaux trimestriels, T1 2026",
     "source_url": "https://www.insee.fr/fr/statistiques/serie/001563388",
-    "date_publication": "2026-03-27",
-    "periode_reference": "T4 2025 (31 décembre 2025)",
-    "montant_milliards_eur": 3460.5,
-    "ratio_pib_pct": 115.6,
-    "par_habitant_eur": 50600,
-    "par_actif_eur": 98000,
-    "par_contribuable_eur": 141600,
+    "date_publication": "2026-06-25",
+    "periode_reference": "T1 2026 (31 mars 2026)",
+    "montant_milliards_eur": 3536.1,
+    "ratio_pib_pct": 117.5,
+    "par_habitant_eur": 51700,
+    "par_actif_eur": 100000,
+    "par_contribuable_eur": 144800,
     "seuil_maastricht_pib_pct": 60,
-    "ecart_seuil_maastricht_pts": 55.6,
+    "ecart_seuil_maastricht_pts": 57.5,
     "evolution_annuelle_milliards": 161.5,
+    "evolution_t4_2025_t1_2026_milliards": 75.6,
     "rythme_annualise_eur_par_seconde": 4832,
-    "note": "Le rythme de 4 832 €/s est un rythme théorique annualisé calculé à partir du déficit public 2025 (152,5 Md€ ÷ 31 536 000 secondes). La dette Maastricht est publiée trimestriellement et peut varier à la hausse comme à la baisse d'un trimestre à l'autre."
+    "t4_2025": {
+      "montant_milliards_eur": 3460.5,
+      "ratio_pib_pct": 115.6,
+      "date_publication": "2026-03-27"
+    },
+    "note": "Stock T1 2026 : 3 536,1 Md€ au 31 mars 2026 (source INSEE, publié le 25 juin 2026). Rythme du compteur pédagogique : déficit annualisé 2025 de 152,5 Md€ ÷ 31 536 000 s = 4 832 €/s. La variation trimestrielle de dette ne se déduit pas directement du déficit : des ajustements stock-flux, trésorerie et actifs financiers expliquent l'écart (note méthodologique INSEE)."
   },
 
   "deficit_public": {
@@ -49,7 +55,7 @@
 
   "interets_dette": {
     "label": "Charge d'intérêts — deux périmètres officiels",
-    "note_perimetre": "ATTENTION : deux chiffres coexistent selon le périmètre retenu. Ils sont tous les deux officiels mais ne sont pas comparables directement.",
+    "note_perimetre": "ATTENTION : deux chiffres coexistent selon le périmètre retenu. Ils ne sont pas comparables directement.",
     "apu": {
       "label": "Intérêts versés par l'ensemble des administrations publiques (APU)",
       "source": "INSEE — Comptes nationaux, D.41 charges d'intérêts 2025",
@@ -63,7 +69,7 @@
       "source": "PLF 2025 — Mission Engagements financiers de l'État",
       "montant_milliards_eur": 55.4,
       "annee": 2025,
-      "note": "Ce chiffre couvre uniquement la dette de l'État au sens du budget général, hors sécurité sociale, collectivités et ODAC."
+      "note": "Ce chiffre couvre uniquement la dette de l'État au sens du budget général, hors sécurité sociale, collectivités et ODAC. Il dépasse la Défense (~49 Md€) mais reste inférieur au budget total de l'Éducation nationale selon le périmètre budgétaire retenu."
     }
   },
 
@@ -101,7 +107,8 @@
       {"annee": 2022, "ratio_pib_pct": 111.6},
       {"annee": 2023, "ratio_pib_pct": 112.0},
       {"annee": 2024, "ratio_pib_pct": 113.7},
-      {"annee": 2025, "ratio_pib_pct": 115.6}
+      {"annee": 2025, "ratio_pib_pct": 115.6},
+      {"annee": 2026, "trimestre": "T1", "ratio_pib_pct": 117.5}
     ]
   },
 
