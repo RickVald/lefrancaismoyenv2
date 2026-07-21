@@ -4,16 +4,19 @@
       <stop offset="0%" stop-color="#f6c343"/>
       <stop offset="100%" stop-color="#fde68a"/>
     </linearGradient>
-    <clipPath id="round">
-      <rect width="32" height="32" rx="6" ry="6"/>
-    </clipPath>
   </defs>
+
+  <!-- Background -->
   <rect width="32" height="32" rx="6" ry="6" fill="#0b1020"/>
-  <text x="16" y="23"
-    font-family="system-ui,-apple-system,'Segoe UI',Arial,sans-serif"
-    font-weight="900"
-    font-size="17"
-    fill="url(#g)"
-    text-anchor="middle"
-    clip-path="url(#round)">FM</text>
+
+  <!-- F : barre verticale + barre haute + barre milieu -->
+  <rect x="4.5" y="7"   width="2.8" height="18" fill="url(#g)"/>
+  <rect x="4.5" y="7"   width="9"   height="2.8" fill="url(#g)"/>
+  <rect x="4.5" y="14.6" width="6.5" height="2.5" fill="url(#g)"/>
+
+  <!-- M : 2 barres verticales + V central en path -->
+  <rect x="15"  y="7" width="2.8" height="18" fill="url(#g)"/>
+  <rect x="24.2" y="7" width="2.8" height="18" fill="url(#g)"/>
+  <!-- V central (diagonales) : fill-rule evenodd pour l'espace intérieur -->
+  <path fill="url(#g)" d="M15,7 L21,15.5 L27,7 L24.2,7 L21,13 L17.8,7 Z"/>
 </svg>
