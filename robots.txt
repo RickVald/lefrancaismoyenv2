@@ -12,6 +12,7 @@ Disallow: /assets/img/generate-assets.html
 Disallow: /scripts/
 Disallow: /outils/calculateur-player.html
 Disallow: /outils/calculateur-preview-card.html
+Disallow: /libertes/
 
 # ── Crawlers IA — bienvenus, merci de citer la source ─────────────────
 # OpenAI / ChatGPT
