@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La convergence officieuse — Du citoyen libre au citoyen autorisé | Observatoire des libertés</title>
+<meta name="description" content="Analyse éditoriale : comment des dispositifs sectoriels aux finalités légitimes convergent vers une même architecture — identifier, vérifier, classer, suspendre. Du citoyen libre par défaut au citoyen autorisé sous conditions.">
+<link rel="canonical" href="https://le-francais-moyen.com/libertes/convergence-officieuse/">
+<meta property="og:title" content="La convergence officieuse — Du citoyen libre au citoyen autorisé | Observatoire des libertés">
+<meta property="og:description" content="Des finalités légitimes, un résultat commun : la construction progressive d'une infrastructure capable d'identifier chaque personne, de vérifier son statut, d'évaluer son comportement et de suspendre son accès.">
+<meta property="og:url" content="https://le-francais-moyen.com/libertes/convergence-officieuse/">
+<meta property="og:image" content="https://le-francais-moyen.com/assets/img/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/styles.css?v=22">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://le-francais-moyen.com/"},
+        {"@type":"ListItem","position":2,"name":"Observatoire des libertés","item":"https://le-francais-moyen.com/libertes/"},
+        {"@type":"ListItem","position":3,"name":"La convergence officieuse","item":"https://le-francais-moyen.com/libertes/convergence-officieuse/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un plan coordonné derrière ces dispositifs ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non démontré. La conclusion rigoureuse est différente — et plus grave : des administrations, gouvernements et entreprises poursuivent séparément des objectifs légitimes dont les solutions techniques convergent vers une même architecture. L'intention commune n'est pas établie. Le résultat commun, lui, devient visible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Une finalité légitime neutralise-t-elle le risque créé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Protéger les enfants, lutter contre le terrorisme, garantir des élections sincères sont des objectifs qui peuvent être simultanément légitimes et producteurs d'un pouvoir de contrôle étendu. La légitimité de la finalité ne supprime pas le risque lié aux capacités construites pour l'atteindre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une zone d'opacité légitime ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un espace dans lequel l'État, les entreprises ou d'autres citoyens ne savent pas immédiatement qui parle, qui lit, qui paye, qui rencontre qui ou qui appartient à quel courant. Ces zones ne sont pas criminelles par nature : elles permettent le secret des communications, le pseudonymat, la dissidence, la confidentialité médicale, la liberté d'association et la possibilité de changer de vie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi l'infrastructure est-elle plus décisive que la décision politique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une fois les briques installées — identité certifiée, biométrie, analyse algorithmique, plateformes intermédiatrices, systèmes de paiement numériques — une future majorité n'a plus besoin de construire un nouveau système. Elle doit seulement modifier une finalité, ajouter une catégorie de risque, abaisser un seuil ou rendre obligatoire ce qui était facultatif. Le vrai transfert de pouvoir a lieu lors de la construction, pas lors de l'usage le plus contestable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "En quoi l'invisibilisation diffère-t-elle de l'interdiction ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'interdiction frontale crée une réaction politique, des martyrs et un acte juridiquement contestable. L'invisibilisation agit plus discrètement : réduire la portée d'un compte, retirer une recommandation, modifier un classement, suspendre temporairement un accès. La liberté existe formellement, mais son exercice devient pratiquement inefficace. C'est le passage du droit de parler au droit conditionnel d'être entendu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le renversement silencieux de la présomption d'innocence ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas nécessairement au sens pénal strict. Au sens administratif : la machine collecte des signaux, les compare à un modèle, attribue une catégorie de risque et déclenche un traitement particulier. L'individu est ensuite invité à contester ou à prouver qu'il ne présente pas le risque. Le système signale d'abord ; la personne se justifie ensuite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce phénomène est-il propre à la France ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. La convergence est documentée au niveau européen (eIDAS 2, AI Act, DSA, CSAR) et dans d'autres démocraties avancées. Les dispositifs étudiés sur ce site sont surtout français ou franco-européens, mais la dynamique — vérification, classement, restriction par intermédiaires privés — est transnationale."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* Avant / après */
+.transition-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin:16px 0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.transition-col{padding:16px 18px}
+.transition-col.tc-avant{background:rgba(92,184,255,.05);border-right:1px solid var(--border)}
+.transition-col.tc-apres{background:rgba(255,80,80,.05)}
+.tc-label{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;display:block}
+.tc-principle{font-size:.82rem;line-height:1.65;color:var(--muted);font-style:italic}
+.transition-arrow{display:flex;align-items:center;justify-content:center;padding:0 10px;color:var(--muted);font-size:1.2rem;background:rgba(255,255,255,.02)}
+
+/* Opacité grid */
+.opac-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:8px;margin:12px 0}
+.opac-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:.82rem;color:var(--muted);line-height:1.5}
+.opac-card strong{color:var(--text);display:block;margin-bottom:3px;font-size:.78rem}
+
+/* Invisibilisation steps */
+.invis-list{list-style:none;margin:0;padding:0}
+.invis-list li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.875rem;color:var(--muted);line-height:1.55}
+.invis-list li:last-child{border-bottom:none}
+.invis-list li::before{content:"→";color:var(--muted);font-size:.85rem;flex-shrink:0;margin-top:1px;opacity:.5}
+
+/* Mécanique profil risque */
+.risk-chain{display:flex;flex-direction:column;gap:0;margin:12px 0;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.risk-step{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);font-size:.85rem}
+.risk-step:last-child{border-bottom:none}
+.risk-num{width:24px;height:24px;border-radius:50%;background:rgba(255,122,0,.15);color:#ff7a00;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.risk-text{color:var(--muted);line-height:1.5;flex:1}
+.risk-text strong{color:var(--text)}
+
+/* Briques infrastructurelles */
+.brick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:6px;margin:12px 0}
+.brick{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:.78rem;color:var(--muted);line-height:1.4}
+.brick::before{content:"▪ ";color:var(--accent)}
+
+/* Finalités */
+.finalite-list{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.finalite-pill{background:rgba(92,184,255,.08);border:1px solid rgba(92,184,255,.2);border-radius:20px;padding:4px 12px;font-size:.78rem;color:var(--muted)}
+
+/* Délégation privée */
+.delegation-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:12px 0}
+.del-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:10px 14px}
+.del-acteur{font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.del-mission{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+/* Formule highlight */
+.formule-box{background:rgba(255,80,80,.06);border:1px solid rgba(255,80,80,.25);border-left:4px solid #ff5050;border-radius:10px;padding:18px 22px;margin:22px 0}
+.formule-box .formule-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#ff8080;margin-bottom:8px}
+.formule-box .formule-text{font-size:.95rem;font-weight:600;color:var(--text);line-height:1.55}
+
+/* Ressenti */
+.ressenti-box{background:rgba(246,195,67,.05);border:1px solid rgba(246,195,67,.2);border-radius:10px;padding:16px 20px;margin:16px 0;font-size:.875rem;color:var(--muted);line-height:1.7}
+
+/* Conclusion */
+.conclusion-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin:20px 0;font-size:.875rem;color:var(--muted);line-height:1.75}
+.conclusion-box strong{color:var(--text)}
+
+/* Section collapsible */
+.cv-section{border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.cv-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;cursor:pointer;background:rgba(255,255,255,.02)}
+.cv-head:hover{background:rgba(255,255,255,.04)}
+.cv-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:#fff;flex-shrink:0;background:rgba(64,169,255,.5)}
+.cv-title{font-size:.875rem;font-weight:600;color:var(--text);flex:1}
+.cv-chev{color:var(--muted);font-size:.75rem;flex-shrink:0;transition:transform .2s}
+.cv-body{display:none;border-top:1px solid var(--border);padding:18px 20px;font-size:.875rem;line-height:1.75;color:var(--muted)}
+.cv-body p{margin:0 0 12px}
+.cv-body ul{margin:8px 0;padding-left:20px}
+.cv-body li{margin-bottom:6px}
+.cv-body strong{color:var(--text)}
+.cv-body.is-open{display:block}
+
+/* warn / info inline */
+.cv-warn{background:rgba(255,80,80,.07);border-left:3px solid #ff6b6b;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:.85rem}
+.cv-info{background:rgba(92,184,255,.07);border-left:3px solid #5cb8ff;border-radius:0 8px 8px 0;padding:10px 14px;margin:12px 0;font-size:.85rem}
+
+/* Fiches liées */
+.fl-wrap{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.fl-card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-decoration:none;color:var(--text);font-size:.82rem;transition:background .15s;display:block}
+.fl-card:hover{background:rgba(255,255,255,.08)}
+.fl-sub{font-size:.7rem;color:var(--muted);display:block;margin-top:3px}
+
+/* FAQ */
+.faq-wrap{margin:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;cursor:pointer;font-size:.875rem;font-weight:600;color:var(--text)}
+.faq-q:hover{color:var(--accent)}
+.faq-chev{font-size:.7rem;color:var(--muted);flex-shrink:0;transition:transform .2s}
+.faq-a{display:none;padding:0 0 14px;font-size:.875rem;color:var(--muted);line-height:1.7}
+.faq-a.is-open{display:block}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <a href="/" class="brand">🇫🇷 <strong>Le Français Moyen</strong></a>
+    <nav>
+      <ul>
+        <li><a href="/elections/">Élections</a></li>
+        <li><a href="/questions/">Questions</a></li>
+        <li><a href="/libertes/">Libertés</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true');document.getElementById('nav-mobile').classList.toggle('is-open');document.body.classList.toggle('nav-open')"><span></span><span></span><span></span></button>
+    <a href="/libertes/" class="cta">← Observatoire</a>
+  </div>
+</header>
+<nav id="nav-mobile" class="nav-mobile" aria-label="Menu principal">
+  <a href="/">Accueil</a>
+  <a href="/elections/">Élections</a>
+  <a href="/questions/">Questions</a>
+  <a href="/libertes/">Libertés</a>
+</nav>
+
+<div class="wrapper">
+
+  <!-- Version callout -->
+  <div class="version-callout" style="background:rgba(64,169,255,.06);border-left:3px solid #40A9FF">
+    <strong>Analyse éditoriale — juillet 2026</strong> — Cette page ne documente pas un texte législatif. Elle propose une lecture transversale des dynamiques observées à travers les 15 fiches publiées sur l'Observatoire.
+    Voir aussi : <a href="/libertes/synthese-dispositifs/" style="color:#40A9FF">→ Synthèse croisée — 13 dispositifs</a> · <a href="/libertes/regulation-information-croisee/" style="color:#40A9FF">→ Analyse croisée — Régulation électorale</a>
+  </div>
+
+  <!-- Fiche header -->
+  <div class="fiche-header">
+    <div style="margin-bottom:14px">
+      <span class="status-badge s-signal">Analyse éditoriale</span>
+      <span class="status-badge" style="background:rgba(255,255,255,.06);color:var(--muted);margin-left:6px">15 dispositifs analysés</span>
+    </div>
+    <div class="fiche-meta">
+      <h1>La convergence officieuse — Du citoyen libre par défaut au citoyen autorisé sous conditions</h1>
+      <div class="badges" style="margin-top:10px">
+        <span class="badge tag">identité</span>
+        <span class="badge tag">surveillance</span>
+        <span class="badge tag">opacité</span>
+        <span class="badge tag">infrastructure</span>
+        <span class="badge tag">algorithmes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formule centrale -->
+  <div class="formule-box">
+    <div class="formule-label">La convergence en une formule</div>
+    <div class="formule-text">
+      La construction progressive d'une société où l'exercice des libertés dépend d'une infrastructure capable d'identifier la personne, de vérifier son statut, d'évaluer son comportement et de suspendre son accès.
+    </div>
+  </div>
+
+  <!-- En bref -->
+  <div class="section-label" style="margin-bottom:10px">En bref</div>
+  <p style="font-size:.88rem;color:var(--muted);margin:0 0 20px;line-height:1.75">
+    La convergence officieuse n'est pas une idéologie unique ni un plan coordonné. C'est une <strong style="color:var(--text)">même direction fonctionnelle</strong> : rendre chaque citoyen identifiable, vérifiable, classable, traçable et, si nécessaire, désactivable <em>avant même qu'il ait commis une infraction</em>. Des administrations, gouvernements et entreprises poursuivent séparément des objectifs légitimes. Leurs solutions techniques convergent néanmoins vers une même architecture.
+  </p>
+
+  <!-- Sections thématiques -->
+  <div class="section-label" style="margin-bottom:12px">7 dynamiques analysées</div>
+
+  <!-- N1 : Transition du principe implicite -->
+  <div class="cv-section">
+    <div class="cv-head" onclick="toggleCV(this)">
+      <span class="cv-num">1</span>
+      <span class="cv-title">La transition du principe implicite</span>
+      <span class="cv-chev">▼</span>
+    </div>
+    <div class="cv-body is-open">
+      <p>Le droit libéral classique repose sur un principe non écrit :</p>
+      <div class="transition-grid">
+        <div class="transition-col tc-avant">
+          <span class="tc-label" style="color:#5cb8ff">Hier</span>
+          <div class="tc-principle">Tu es libre tant qu'un juge n'a pas établi que tu as enfreint la loi.</div>
+        </div>
+        <div class="transition-arrow">→</div>
+        <div class="transition-col tc-apres">
+          <span class="tc-label" style="color:#ff8080">Trajectoire observée</span>
+          <div class="tc-principle">Tu peux accéder, communiquer, payer, te déplacer ou rester visible <strong style="color:var(--text)">à condition que le système puisse vérifier que tu remplis les critères</strong>.</div>
+        </div>
+      </div>
+      <p>Cette transition se manifeste sous des formes sectorielles différentes :</p>
+      <ul>
+        <li>prouver son âge avant d'accéder à un espace de discussion ;</li>
+        <li>faire certifier son identité ou certains attributs ;</li>
+        <li>faire analyser des communications pour détecter des contenus ;</li>
+        <li>évaluer automatiquement les comportements ou les incohérences administratives ;</li>
+        <li>anticiper la dangerosité d'une personne ;</li>
+        <li>rétrograder une parole jugée nuisible sans nécessairement la supprimer ;</li>
+        <li>relier progressivement des systèmes jusque-là séparés ;</li>
+        <li>contrôler les moyens de contournement comme les VPN ou le chiffrement.</li>
+      </ul>
+      <div class="cv-info">
+        <strong>Ce qui ne change pas formellement :</strong> les textes protecteurs demeurent — RGPD, Constitution, CEDH, contrôle juridictionnel. La transition opère dans l'architecture technique et dans les conditions pratiques d'exercice des droits, pas nécessairement dans les droits eux-mêmes.
+      </div>
+    </div>
+  </div>
+
+  <!-- N2 : Disparition des zones d'opacité -->
+  <div class="cv-section">
+    <div class="cv-head" onclick="toggleCV(this)">
+      <span class="cv-num">2</span>
+      <span class="cv-title">La disparition des zones d'opacité légitimes</span>
+      <span class="cv-chev">▼</span>
+    </div>
+    <div class="cv-body">
+      <p>Les institutions considèrent de plus en plus <strong>l'opacité comme un problème en soi</strong>. Or les libertés ont historiquement besoin de zones dans lesquelles l'État, les entreprises ou d'autres citoyens ne savent pas immédiatement :</p>
+      <div class="opac-grid">
+        <div class="opac-card"><strong>Qui parle</strong>pseudonymat, sources journalistiques</div>
+        <div class="opac-card"><strong>Qui lit</strong>liberté intellectuelle, confidentialité</div>
+        <div class="opac-card"><strong>Qui rencontre qui</strong>liberté d'association</div>
+        <div class="opac-card"><strong>Qui paie quoi</strong>vie privée financière</div>
+        <div class="opac-card"><strong>Qui consulte quoi</strong>liberté de conscience</div>
+        <div class="opac-card"><strong>Qui possède quelle opinion</strong>secret du vote, dissidence</div>
+        <div class="opac-card"><strong>Qui traverse quel lieu</strong>liberté de déplacement</div>
+        <div class="opac-card"><strong>Qui appartient à quel courant</strong>pluralisme politique</div>
+      </div>
+      <p>Ces zones d'opacité permettent concrètement : le secret des communications, le pseudonymat, le droit à l'expérimentation personnelle, la dissidence, la confidentialité médicale, la protection des sources, la liberté d'association, la possibilité de changer de vie.</p>
+      <div class="cv-warn">
+        <strong>La convergence opère ici :</strong> transformer progressivement ces espaces légitimes d'opacité en anomalies à justifier.<br><br>
+        Le citoyen anonyme devient <em>suspect</em>. Le paiement non traçable devient <em>suspect</em>. La communication chiffrée devient un <em>obstacle</em>. Le VPN devient un <em>moyen de contournement</em>. Le compte non vérifié devient un <em>risque</em>. La parole non certifiée devient une possible <em>désinformation</em>.
+      </div>
+    </div>
+  </div>
+
+  <!-- N3 : De l'interdiction à l'invisibilisation -->
+  <div class="cv-section">
+    <div class="cv-head" onclick="toggleCV(this)">
+      <span class="cv-num">3</span>
+      <span class="cv-title">De l'interdiction à l'invisibilisation</span>
+      <span class="cv-chev">▼</span>
+    </div>
+    <div class="cv-body">
+      <p>Le pouvoir moderne ne cherche pas nécessairement à interdire frontalement. L'interdiction crée une réaction politique, des martyrs et un acte juridiquement contestable. Il agit plus discrètement :</p>
+      <ul class="invis-list">
+        <li>réduire la portée d'un compte</li>
+        <li>retirer une recommandation algorithmique</li>
+        <li>modifier un classement</li>
+        <li>exiger une preuve supplémentaire avant accès</li>
+        <li>suspendre temporairement un service</li>
+        <li>faire disparaître une application d'un magasin</li>
+        <li>exclure un site du marché publicitaire</li>
+        <li>augmenter le coût réglementaire d'un intermédiaire</li>
+        <li>rendre une procédure si complexe que la personne abandonne</li>
+      </ul>
+      <div class="cv-warn">
+        <strong>Le passage central :</strong><br>
+        du <em>droit de parler</em> au <em>droit conditionnel d'être entendu</em>.<br>
+        Et plus largement : du <em>droit d'agir</em> au <em>droit conditionnel d'être servi par l'infrastructure</em>.
+      </div>
+      <p>La liberté existe encore formellement, mais son exercice devient pratiquement inefficace — et statistiquement difficile à contester. Une rétrogradation algorithmique peut être silencieuse, temporaire mais décisive pendant une campagne, attribuée à la plateforme alors qu'elle résulte d'un signalement institutionnel.</p>
+    </div>
+  </div>
+
+  <!-- N4 : Délégation au privé -->
+  <div class="cv-section">
+    <div class="cv-head" onclick="toggleCV(this)">
+      <span class="cv-num">4</span>
+      <span class="cv-title">La délégation de l'exécution au secteur privé</span>
+      <span class="cv-chev">▼</span>
+    </div>
+    <div class="cv-body">
+      <p>L'État n'exécute plus nécessairement lui-même les restrictions. Il oblige ou incite :</p>
+      <div class="delegation-grid">
+        <div class="del-card">
+          <div class="del-acteur">Réseaux sociaux</div>
+          <div class="del-mission">modérer les contenus, signaler les anomalies, modifier les algorithmes</div>
+        </div>
+        <div class="del-card">
+          <div class="del-acteur">Banques</div>
+          <div class="del-mission">surveiller les flux, signaler les incohérences, bloquer les transactions</div>
+        </div>
+        <div class="del-card">
+          <div class="del-acteur">Fournisseurs d'identité</div>
+          <div class="del-mission">vérifier les attributs, certifier l'accès</div>
+        </div>
+        <div class="del-card">
+          <div class="del-acteur">Magasins d'applications</div>
+          <div class="del-mission">filtrer les services, appliquer les décisions de retrait</div>
+        </div>
+        <div class="del-card">
+          <div class="del-acteur">Opérateurs</div>
+          <div class="del-mission">bloquer les adresses, conserver les métadonnées</div>
+        </div>
+        <div class="del-card">
+          <div class="del-acteur">Hébergeurs</div>
+          <div class="del-mission">identifier les auteurs, retirer dans les délais légaux</div>
+        </div>
+      </div>
+      <div class="cv-warn">
+        <strong>La zone de responsabilité floue :</strong><br>
+        L'administration dit : <em>« Nous n'avons supprimé aucun compte. »</em><br>
+        La plateforme répond : <em>« Nous avons appliqué nos règles. »</em><br>
+        Le prestataire déclare : <em>« Nous avons seulement vérifié un attribut. »</em><br><br>
+        Le citoyen subit pourtant une restriction réelle sans pouvoir identifier clairement l'auteur de la décision. Cette privatisation de l'exécution protège politiquement l'autorité publique et complique les recours.
+      </div>
+    </div>
+  </div>
+
+  <!-- N5 : Citoyen en profil de risque -->
+  <div class="cv-section">
+    <div class="cv-head" onclick="toggleCV(this)">
+      <span class="cv-num">5</span>
+      <span class="cv-title">La transformation du citoyen en profil de risque</span>
+      <span class="cv-chev">▼</span>
+    </div>
+    <div class="cv-body">
+      <p>La logique commune n'est plus seulement de connaître une personne. C'est de <strong>prévoir son comportement</strong>. Les catégories de risque diffèrent — terroriste, fraude, informationnel, électoral, sanitaire, récidive — mais la mécanique est identique :</p>
+      <div class="risk-chain">
+        <div class="risk-step"><div class="risk-num">1</div><div class="risk-text"><strong>Collecter</strong> des signaux comportementaux, administratifs, financiers</div></div>
+        <div class="risk-step"><div class="risk-num">2</div><div class="risk-text"><strong>Comparer</strong> au modèle de référence (statistique, biométrique, algorithmique)</div></div>
+        <div class="risk-step"><div class="risk-num">3</div><div class="risk-text"><strong>Attribuer</strong> une catégorie ou un score de risque</div></div>
+        <div class="risk-step"><div class="risk-num">4</div><div class="risk-text"><strong>Déclencher</strong> un traitement particulier (contrôle, suspension, restriction)</div></div>
+        <div class="risk-step"><div class="risk-num">5</div><div class="risk-text"><strong>Demander</strong> à la personne de contester ou de prouver qu'elle ne présente pas le risque</div></div>
+      </div>
+      <div class="cv-warn">
+        <strong>Renversement silencieux de la présomption d'innocence</strong> — pas nécessairement au sens pénal, mais au sens administratif : la machine signale d'abord, l'individu se justifie ensuite. Les faux positifs entraînent des contraintes réelles : prestation suspendue, accès refusé, dossier ouvert, procédure de réhabilitation à la charge de la personne concernée.
+      </div>
+    </div>
+  </div>
+
+  <!-- N6 : Infrastructure avant la décision -->
+  <div class="cv-section">
+    <div class="cv-head" onclick="toggleCV(this)">
+      <span class="cv-num">6</span>
+      <span class="cv-title">L'infrastructure précède la décision politique</span>
+      <span class="cv-chev">▼</span>
+    </div>
+    <div class="cv-body">
+      <p>Les textes étudiés ne créent pas encore un système total. Mais ils créent les <strong>composants nécessaires</strong> :</p>
+      <div class="brick-grid">
+        <div class="brick">Identité certifiée</div>
+        <div class="brick">Preuve d'âge</div>
+        <div class="brick">Données biométriques</div>
+        <div class="brick">Analyse algorithmique</div>
+        <div class="brick">Capacité de détection</div>
+        <div class="brick">Plateformes intermédiatrices</div>
+        <div class="brick">Systèmes de paiement numériques</div>
+        <div class="brick">Échanges administratifs</div>
+        <div class="brick">Bases policières</div>
+        <div class="brick">Mécanismes de révocation</div>
+        <div class="brick">Journaux de conformité</div>
+        <div class="brick">Autorités de certification</div>
+        <div class="brick">Standards européens communs</div>
+      </div>
+      <p>Une fois ces briques installées, une future majorité n'aura plus besoin de construire un nouveau système. Elle devra seulement :</p>
+      <ul>
+        <li>modifier une finalité ;</li>
+        <li>ajouter une catégorie de risque ;</li>
+        <li>étendre une liste d'acteurs autorisés ;</li>
+        <li>allonger une durée de conservation ;</li>
+        <li>rendre obligatoire ce qui était facultatif ;</li>
+        <li>autoriser une interconnexion ;</li>
+        <li>abaisser un seuil de déclenchement ;</li>
+        <li>imposer une mise à jour technique.</li>
+      </ul>
+      <div class="cv-warn">
+        <strong>Le vrai transfert de pouvoir a lieu lors de la construction de l'infrastructure, pas au moment de son usage le plus contestable.</strong> Une loi peut être abrogée. Une architecture installée — bases de données, normes techniques, marchés publics, logiciels, compétences administratives, habitudes des utilisateurs, intérêts institutionnels — demeure.
+      </div>
+    </div>
+  </div>
+
+  <!-- N7 : Démocratie comme problème de sécurité -->
+  <div class="cv-section" style="margin-bottom:26px">
+    <div class="cv-head" onclick="toggleCV(this)">
+      <span class="cv-num">7</span>
+      <span class="cv-title">La démocratie transformée en problème de sécurité</span>
+      <span class="cv-chev">▼</span>
+    </div>
+    <div class="cv-body">
+      <p>La convergence devient particulièrement visible avec la régulation de l'information. Dans une conception démocratique classique, la société produit naturellement des conflits, des mensonges, des récits concurrents, des mobilisations, des querelles et des médias partisans. La réponse attendue est davantage de <strong>contradiction, de transparence et de débat</strong>.</p>
+      <p>La nouvelle approche tend à traiter le débat comme <strong>un système à sécuriser</strong> :</p>
+      <ul>
+        <li>détecter les récits dangereux ;</li>
+        <li>classer les sources par fiabilité ;</li>
+        <li>identifier les campagnes coordonnées ;</li>
+        <li>réduire les amplifications algorithmiques ;</li>
+        <li>favoriser les acteurs reconnus ;</li>
+        <li>protéger l'intégrité du processus électoral.</li>
+      </ul>
+      <div class="cv-info">
+        <strong>Ce qui est légitime :</strong> lutter contre les faux comptes, les financements clandestins d'origine étrangère et les opérations d'influence coordonnées. Ces objectifs ont des bases constitutionnelles et sont compatibles avec la liberté d'expression.
+      </div>
+      <div class="cv-warn">
+        <strong>Le basculement :</strong> le problème n'est pas l'existence d'une lutte contre les opérations étrangères. Il survient lorsque l'influence politique intérieure authentique devient elle-même une catégorie de risque. À ce moment, l'État ne protège plus seulement les règles du débat — il commence à <strong>administrer le débat</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Ressenti -->
+  <div class="ressenti-box">
+    <strong style="color:var(--text);display:block;margin-bottom:8px">Ce que chacun ressent sans nécessairement pouvoir le formuler</strong>
+    Nous ne sommes pas encore privés de toutes nos libertés, mais nous voyons apparaître l'infrastructure qui permettra de les rendre <em>révocables</em>. Ce n'est pas la dictature actuelle qui est ressentie. C'est la disparition progressive des obstacles techniques qui empêchaient une future autorité de savoir, relier, prévoir, filtrer, exclure, faire taire sans supprimer, sanctionner sans procès visible.<br><br>
+    La démocratie demeure. Les recours demeurent. Les textes protecteurs demeurent. Mais le rapport de force change : <strong style="color:var(--text)">l'individu devient transparent face à des institutions de plus en plus opaques</strong>.
+  </div>
+
+  <!-- Conclusion -->
+  <div class="section-label" style="margin:22px 0 10px">Conclusion rigoureuse</div>
+  <div class="conclusion-box">
+    <p>Il serait intellectuellement malhonnête d'affirmer que toutes ces mesures résultent d'un plan secret centralisé. La conclusion démontrable est <strong>plus grave parce qu'elle n'a pas besoin d'un complot</strong>.</p>
+    <p>Des administrations, gouvernements, institutions européennes et entreprises poursuivent <em>séparément</em> des objectifs légitimes ou politiquement valorisables. Leurs solutions techniques convergent néanmoins vers une même architecture :</p>
+    <ul style="margin:10px 0;padding-left:20px;color:var(--muted)">
+      <li>identification généralisée ;</li>
+      <li>collecte préventive ;</li>
+      <li>classement du risque ;</li>
+      <li>décisions automatisées ;</li>
+      <li>contrôle par intermédiaires privés ;</li>
+      <li>restriction réversible des accès.</li>
+    </ul>
+    <p>Ces objectifs ne sont pas nécessairement mensongers. Plusieurs sont légitimes. <strong>Mais une finalité légitime ne neutralise pas le pouvoir créé.</strong></p>
+    <div class="finalite-list">
+      <span class="finalite-pill">protéger les enfants</span>
+      <span class="finalite-pill">lutter contre le terrorisme</span>
+      <span class="finalite-pill">empêcher la fraude</span>
+      <span class="finalite-pill">garantir des élections sincères</span>
+      <span class="finalite-pill">combattre les contenus criminels</span>
+      <span class="finalite-pill">améliorer les services publics</span>
+      <span class="finalite-pill">sécuriser les paiements</span>
+      <span class="finalite-pill">faciliter l'identification</span>
+      <span class="finalite-pill">lutter contre la désinformation</span>
+    </div>
+    <p style="margin:12px 0 0"><strong>L'intention commune n'est pas démontrée. Le résultat commun, lui, devient visible.</strong></p>
+  </div>
+
+  <!-- Fiches liées -->
+  <div class="section-label" style="margin:22px 0 10px">Fiches documentant les dispositifs analysés</div>
+  <div class="fl-wrap">
+    <a href="/libertes/france-identite/" class="fl-card">France Identité<span class="fl-sub">Identité numérique certifiée</span></a>
+    <a href="/libertes/loi-renseignement-2015/" class="fl-card">Loi Renseignement 2015<span class="fl-sub">Surveillance algorithmique</span></a>
+    <a href="/libertes/chiffrement/" class="fl-card">Chiffrement<span class="fl-sub">Pressions sur les backdoors</span></a>
+    <a href="/libertes/sren/" class="fl-card">SREN<span class="fl-sub">Vérification d'âge, filtrages</span></a>
+    <a href="/libertes/chat-control/" class="fl-card">Chat Control<span class="fl-sub">Détection côté terminal</span></a>
+    <a href="/libertes/reconnaissance-faciale/" class="fl-card">VSA / Biométrie<span class="fl-sub">Surveillance dans l'espace public</span></a>
+    <a href="/libertes/donnees-sante/" class="fl-card">Données de santé<span class="fl-sub">SNDS, Mon espace santé</span></a>
+    <a href="/libertes/euro-numerique/" class="fl-card">Euro numérique<span class="fl-sub">Traçabilité des paiements</span></a>
+    <a href="/libertes/fraudes-sociales-fiscales/" class="fl-card">Loi antifraude 2026<span class="fl-sub">Croisement fiscal, social, bancaire</span></a>
+    <a href="/libertes/regulation-information-2026/" class="fl-card">Rapport Sénat n°875<span class="fl-sub">Régulation de l'information</span></a>
+    <a href="/libertes/reseaux-sociaux-moins-15-ans/" class="fl-card">Réseaux sociaux — moins de 15 ans<span class="fl-sub">Vérification d'âge généralisée</span></a>
+    <a href="/libertes/synthese-dispositifs/" class="fl-card">Synthèse croisée<span class="fl-sub">13 dispositifs, 7 combinaisons</span></a>
+  </div>
+
+  <hr style="margin:28px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- FAQ -->
+  <div class="section-label" style="margin-bottom:14px">Questions fréquentes</div>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Y a-t-il un plan coordonné derrière ces dispositifs ? <span class="faq-chev">▼</span></div>
+      <div class="faq-a">Non démontré. La conclusion rigoureuse est différente — et plus grave : des administrations, gouvernements et entreprises poursuivent séparément des objectifs légitimes dont les solutions techniques convergent vers une même architecture. L'intention commune n'est pas établie. Le résultat commun, lui, devient visible.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Une finalité légitime neutralise-t-elle le risque créé ? <span class="faq-chev">▼</span></div>
+      <div class="faq-a">Non. Protéger les enfants, lutter contre le terrorisme ou garantir des élections sincères sont des objectifs qui peuvent être simultanément légitimes et producteurs d'un pouvoir de contrôle étendu. La légitimité de la finalité ne supprime pas le risque lié aux capacités construites pour l'atteindre.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Qu'est-ce qu'une zone d'opacité légitime ? <span class="faq-chev">▼</span></div>
+      <div class="faq-a">Un espace dans lequel l'État, les entreprises ou d'autres citoyens ne savent pas immédiatement qui parle, qui lit, qui paye, qui rencontre qui ou qui appartient à quel courant politique. Ces zones ne sont pas criminelles par nature : elles permettent le secret des communications, le pseudonymat, la dissidence, la confidentialité médicale, la protection des sources journalistiques, la liberté d'association et la possibilité de changer de vie.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Pourquoi l'infrastructure est-elle plus décisive que la décision politique ? <span class="faq-chev">▼</span></div>
+      <div class="faq-a">Une fois les briques installées — identité certifiée, biométrie, analyse algorithmique, plateformes intermédiatrices, systèmes de paiement numériques — une future majorité n'a plus besoin de construire un nouveau système. Elle doit seulement modifier une finalité, ajouter une catégorie de risque, abaisser un seuil ou rendre obligatoire ce qui était facultatif. Une loi peut être abrogée ; une architecture demeure.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">En quoi l'invisibilisation diffère-t-elle de l'interdiction ? <span class="faq-chev">▼</span></div>
+      <div class="faq-a">L'interdiction frontale crée une réaction politique, des martyrs et un acte juridiquement contestable. L'invisibilisation agit discrètement : réduire la portée d'un compte, retirer une recommandation, modifier un classement, suspendre temporairement un accès. La liberté existe formellement, mais son exercice devient pratiquement inefficace. C'est le passage du droit de parler au droit conditionnel d'être entendu.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Qu'est-ce que le renversement silencieux de la présomption d'innocence ? <span class="faq-chev">▼</span></div>
+      <div class="faq-a">Pas nécessairement au sens pénal strict. Au sens administratif : la machine collecte des signaux, les compare à un modèle, attribue une catégorie de risque et déclenche un traitement particulier. L'individu est ensuite invité à contester ou à prouver qu'il ne présente pas le risque. Le système signale d'abord ; la personne se justifie ensuite.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Ce phénomène est-il propre à la France ? <span class="faq-chev">▼</span></div>
+      <div class="faq-a">Non. La convergence est documentée au niveau européen (eIDAS 2, AI Act, DSA, CSAR) et dans d'autres démocraties avancées. Les dispositifs étudiés sur ce site sont surtout français ou franco-européens, mais la dynamique — vérification, classement, restriction par intermédiaires privés — est transnationale.</div>
+    </div>
+  </div>
+
+  <div style="margin:32px 0 8px;text-align:center">
+    <a href="/libertes/" style="color:var(--accent);font-size:.85rem;text-decoration:none">← Retour à l'Observatoire des libertés</a>
+  </div>
+
+</div><!-- .wrapper -->
+
+<script>
+function toggleCV(head){
+  const body=head.nextElementSibling;
+  const chev=head.querySelector('.cv-chev');
+  const open=body.classList.toggle('is-open');
+  if(chev) chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';
+}
+function toggleFaq(q){
+  const a=q.nextElementSibling;
+  const chev=q.querySelector('.faq-chev');
+  const open=a.classList.toggle('is-open');
+  if(chev) chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';
+}
+// N1 auto-open already set by is-open class
+</script>
+</body>
+</html>
