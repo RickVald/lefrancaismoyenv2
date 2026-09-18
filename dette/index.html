@@ -392,7 +392,7 @@
             <div style="font-size:1.5rem;font-weight:900;color:var(--red);line-height:1.2;padding-top:2px">3</div>
             <div>
               <strong style="font-size:.93rem;color:var(--text)">La hausse brutale des taux d'intérêt depuis 2022</strong>
-              <p style="font-size:.86rem;color:var(--muted);margin:5px 0 0;line-height:1.75">L'OAT 10 ans est passé de <strong>~0 % en 2020</strong> à <strong>~4,5 % en septembre 2026</strong> (TEC10). La charge d'intérêts a bondi de 35 Md€ en 2020 à 64,7 Md€ en 2025. Selon l'AFT, un choc permanent de +1 point coûte ~3,2 Md€ la première année et ~23,5 Md€ après cinq ans. Au rythme actuel, la charge d'intérêts sera le <strong>premier poste budgétaire de l'État d'ici 2027</strong> (périmètre APU, devant l'Éducation nationale — projection Cour des comptes 2026).</p>
+              <p style="font-size:.86rem;color:var(--muted);margin:5px 0 0;line-height:1.75">L'OAT 10 ans est passé de <strong>~0 % en 2020</strong> à <strong>~4,5 % en septembre 2026</strong> (TEC10). La charge d'intérêts a bondi de 35 Md€ en 2020 à 64,7 Md€ en 2025. Selon l'AFT, un choc permanent de +1 point sur l'ensemble de la courbe se diffuse progressivement : +3,2 Md€ après 1 an, +23,5 Md€ après 5 ans, +33,5 Md€ après 9 ans — l'effet de roulement du stock. Au rythme actuel, la charge d'intérêts sera le <strong>premier poste budgétaire de l'État d'ici 2027</strong> (périmètre APU, devant l'Éducation nationale — projection Cour des comptes 2026).</p>
             </div>
           </div>
 
@@ -813,8 +813,8 @@
         <!-- Trajectoires officielles accordion -->
         <details style="border:1px solid var(--border);border-radius:10px;margin-bottom:20px;overflow:hidden">
           <summary style="padding:14px 18px;font-size:.88rem;font-weight:800;color:var(--text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
-            <span>Trajectoires officielles de charge d'intérêts (Md€, APU)</span>
-            <span style="font-size:.72rem;color:var(--muted);font-weight:400">▼ Cour des comptes · Sénat · Banque de France</span>
+            <span>Trajectoires officielles — charge d'intérêts APU (Md€) et macro BdF</span>
+            <span style="font-size:.72rem;color:var(--muted);font-weight:400">▼ Gouvernement · Sénat · Banque de France</span>
           </summary>
           <div style="padding:16px 18px 18px;border-top:1px solid var(--border)">
             <div style="overflow-x:auto">
@@ -833,9 +833,9 @@
               </table>
             </div>
             <p style="font-size:.72rem;color:var(--muted);margin-top:10px;line-height:1.6">
-              * Sénat / AFT, travaux parlementaires sur le PLF 2026 ; estimation gouvernementale révisée à 78,3 Md€. Périmètre APU Maastricht.
-              ** Commission des finances, projections pluriannuelles de charge d'intérêts (périmètre APU). La Cour des comptes estime par ailleurs qu'une hausse persistante de 55 pb des taux longs ajouterait +1,6 Md€ en 2026, +4 Md€ en 2027 et +8 Md€ en 2029.
-              *** Banque de France, <em>Projections macroéconomiques pour la France</em>, sept. 2026. Périmètre APU Maastricht.
+              * Gouvernement (PLF 2026 actualisé) et Commission des finances de l'Assemblée nationale, rapports pluriannuels sur la charge d'intérêts APU. Chiffres 2026 : ~78,3 Md€ (périmètre APU Maastricht) ; 2029 : ~105,8 Md€. Source : documents transmis en commission.
+              ** Sénat, commission des finances, travaux parlementaires sur le PLF 2026 ; estimation gouvernementale révisée ~78,3 Md€ en 2026. La Cour des comptes estime par ailleurs qu'une hausse persistante de 55 pb des taux longs ajouterait +1,6 Md€ en 2026, +4 Md€ en 2027 et +8 Md€ en 2029.
+              *** Banque de France, <em>Projections macroéconomiques pour la France</em>, juin 2026. La BdF publie des trajectoires de dette/PIB et de déficit (périmètre APU Maastricht), non des projections directes de charge en Md€. Chiffres retenus : déficit ~5,2 % du PIB en 2026, dette ~122 % du PIB en 2028.
             </p>
           </div>
         </details>
@@ -888,8 +888,8 @@
             <div id="tt-ratio" style="display:none;position:absolute;background:rgba(0,0,0,.88);color:#fff;font-size:.72rem;padding:6px 10px;border-radius:6px;pointer-events:none;z-index:10;white-space:nowrap;line-height:1.7"></div>
           </div>
           <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:14px;position:relative">
-            <p style="font-size:.8rem;font-weight:800;color:var(--text);margin-bottom:2px">Charge / recettes fiscales nettes (%)</p>
-            <p style="font-size:.7rem;color:var(--muted);margin-bottom:10px">PLF 2026 + projections</p>
+            <p style="font-size:.8rem;font-weight:800;color:var(--text);margin-bottom:2px">Charge APU / recettes fiscales nettes État (%)</p>
+            <p style="font-size:.7rem;color:var(--muted);margin-bottom:10px">Charge APU · recettes État ~300 Md€ base 2026 · périmètres distincts</p>
             <canvas id="chart-poids" height="140" style="width:100%;display:block"></canvas>
             <div id="tt-poids" style="display:none;position:absolute;background:rgba(0,0,0,.88);color:#fff;font-size:.72rem;padding:6px 10px;border-radius:6px;pointer-events:none;z-index:10;white-space:nowrap;line-height:1.7"></div>
           </div>
@@ -934,10 +934,11 @@
 
         <!-- Combien faut-il trouver -->
         <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:16px">
-          <p style="font-size:.88rem;font-weight:800;color:var(--text);margin-bottom:6px">Combien faut-il trouver chaque année pour stabiliser le ratio ?</p>
-          <p style="font-size:.8rem;color:var(--muted);margin-bottom:12px;line-height:1.5">Pour stabiliser la dette/PIB au niveau de <strong id="stab-ratio-ref" style="color:var(--text)">—</strong>, l'ajustement annuel nécessaire (solde primaire requis − solde primaire projeté) est :</p>
+          <p style="font-size:.88rem;font-weight:800;color:var(--text);margin-bottom:6px">Ajustement budgétaire supplémentaire requis (stabilisation dette/PIB)</p>
+          <p style="font-size:.8rem;color:var(--muted);margin-bottom:4px;line-height:1.5">Pour stabiliser le ratio dette/PIB au niveau de <strong id="stab-ratio-ref" style="color:var(--text)">—</strong>, l'effort supplémentaire annuel nécessaire est :</p>
+          <p style="font-size:.72rem;color:var(--muted);margin-bottom:12px;line-height:1.5;font-style:italic">Cet ajustement peut provenir des dépenses, des recettes, ou des deux. Il s'agit de l'écart entre le solde primaire requis pour stabiliser le ratio et le solde primaire projeté dans le scénario sélectionné.</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px" id="stab-blocks"></div>
-          <p style="font-size:.72rem;color:var(--muted);line-height:1.6">Valeur positive = effort supplémentaire requis. Valeur négative = le scénario stabilise le ratio sans ajustement additionnel. Formule : <code style="font-size:.72rem;background:rgba(255,255,255,.08);padding:2px 5px;border-radius:4px">ajust = (charge − g×dette) − solde_primaire_actuel</code></p>
+          <p style="font-size:.72rem;color:var(--muted);line-height:1.6">Valeur positive = effort supplémentaire requis. Valeur négative = le scénario stabilise déjà le ratio sans ajustement additionnel. Formule : <code style="font-size:.72rem;background:rgba(255,255,255,.08);padding:2px 5px;border-radius:4px">ajust = (charge − g×dette) − solde_primaire_projeté</code></p>
         </div>
 
         <!-- Methodology accordion -->
@@ -970,36 +971,40 @@
           stock0:   3536.1,   // Md€  — dette APU Maastricht T1 2026 · INSEE 25/06/2026
           pib0:     3060,     // Md€  — PIB 2026 estimé · PLF 2026 / INSEE
           charge0:  77.5,     // Md€  — charge intérêts APU 2026 · PLF 2026 révisé
-          rate_new: 0.032,    // taux à l'émission 2026 (OAT) · AFT
+          rate_new: 0.032,    // taux moyen pondéré à l'émission 2026 (toutes maturités) · AFT
           maturity: 8.5,      // ans  — maturité moy. portefeuille · AFT T1 2026
-          rec0:     465       // Md€  — recettes fiscales nettes 2026 · PLF 2026
+          rec0:     300       // Md€  — recettes fiscales nettes État seul 2026 · Sénat / PLF 2026
         };
         BASE.eff0 = BASE.charge0 / BASE.stock0;  // ~2.19 %
+        // Taux de référence marché (OAT 10 ans) — source unique pour toutes les mentions
+        BASE.tec10 = { val: 0.045, label: '~4,5 %', date: 'sept. 2026', src: 'AFT / Banque de France' };
 
+        // Trajectoires officielles — SEULES les lignes ayant une source primaire identifiée
+        // BdF : projections de charge APU en Md€ non disponibles ; utiliser ses trajectoires dette/PIB et déficit
         var TRAJ_OFF = [
-          { src: 'Sénat / AFT*',              y26: '~78,3',         y27: '>80',  y29: '>90',  y30: '~100',  p: 'APU Maastricht' },
-          { src: 'Commission des finances**', y26: '~78',           y27: '~85',  y29: '~102', y30: '~110',  p: 'APU Maastricht' },
-          { src: 'Banque de France***',        y26: '~77',           y27: '~82',  y29: '~95',  y30: '~100',  p: 'APU Maastricht' }
+          { src: 'Gouvernement / Commission des finances*',  y26: '~78,3',  y27: '~85',  y29: '~105,8', y30: '~112',  p: 'APU Maastricht' },
+          { src: 'Sénat / AFT**',                            y26: '~78,3',  y27: '>80',  y29: '>90',    y30: '~100',  p: 'APU Maastricht' },
+          { src: 'Banque de France*** (dette/PIB et déficit)', y26: 'déficit ~5,2 % PIB', y27: '—', y29: 'dette ~122 % PIB (2028)', y30: '—', p: 'Macro · APU' }
         ];
 
         var SCEN = {
           stab: {
             label: 'Stabilisation', color: '#22c55e',
-            desc: 'Ajustement budgétaire progressif ramenant le solde primaire à +0,5 % du PIB d\'ici 2028. Taux stables à ~3,2 %. Ce scénario suppose un effort de consolidation significatif (+2 pp de solde primaire en deux ans).',
+            desc: 'Ajustement budgétaire progressif ramenant le <strong>solde primaire à l\'équilibre (~0 % du PIB)</strong> d\'ici 2029, puis en léger excédent. <em>Important : un solde primaire nul ne signifie pas un déficit nul</em> — le déficit total reste ≈ charge d\'intérêts tant que le solde primaire est à 0. Pour stabiliser le ratio dette/PIB, il suffit que le taux de croissance nominale dépasse le taux d\'intérêt effectif (condition r < g). Pour stabiliser le stock nominal, il faudrait un excédent primaire ≥ charge d\'intérêts. Taux stables à ~3,2 %.',
             dRate:   0,
             primary: [-1.5, -0.75, 0.25, 0.5,  0.5,  0.5],
             growth:  [2.75, 2.5,   2.5,  2.5,  2.5,  2.5]
           },
           central: {
             label: 'Central', color: '#f59e0b',
-            desc: 'Réduction graduelle du déficit conforme au programme de stabilité transmis à Bruxelles. Taux d\'émission stables à ~3,2 %. Ce scénario suppose une consolidation modérée sans choc exogène.',
+            desc: 'Réduction graduelle du déficit conforme au programme de stabilité transmis à Bruxelles. Taux d\'émission stables à ~3,2 % (taux moyen pondéré toutes maturités). Ce scénario suppose une consolidation modérée sans choc exogène.',
             dRate:   0,
             primary: [-1.5, -1.2, -0.9, -0.7, -0.5, -0.3],
             growth:  [2.75, 2.75, 2.75, 2.75, 2.75, 2.75]
           },
           stress: {
             label: 'Stress de taux', color: '#ef4444',
-            desc: 'Hausse durable de +1,5 pp du taux à l\'émission (OAT 10 ans ~4,7 %) avec consolidation budgétaire limitée. Reflète un contexte de tensions sur les dettes souveraines européennes.',
+            desc: 'Hausse durable de +1,5 pp du taux d\'émission moyen (passant de ~3,2 % à ~4,7 %). Cela correspond à une tension sur l\'OAT 10 ans vers ~5,5–6 % selon la maturité. <em>Ce choc se transmet progressivement</em> via le roulement du stock (~11,8 %/an) : l\'effet est limité en année 1 mais s\'accumule pour atteindre +18 Md€/an environ à horizon 5 ans (cohérent avec la sensibilité AFT). Consolidation budgétaire limitée. Reflète un contexte de tensions sur les dettes souveraines européennes.',
             dRate:   1.5,
             primary: [-1.5, -1.5, -1.8, -1.5, -1.5, -1.5],
             growth:  [2.0,  1.75, 1.75, 2.0,  2.0,  2.0]
