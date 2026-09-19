@@ -24,14 +24,24 @@
       font-size:.6rem;font-weight:800;text-transform:uppercase;
       letter-spacing:.12em;color:#555;margin-bottom:6px;
     }
+    .counter-wrap{
+      display:flex;align-items:baseline;justify-content:center;gap:5px;
+      margin-bottom:3px;
+    }
     .counter{
-      font-size:clamp(1.5rem,6vw,2.4rem);
+      font-size:clamp(1.1rem,5vw,2.4rem);
       font-weight:900;
       letter-spacing:-.04em;
       color:#ff9898;
       font-variant-numeric:tabular-nums;
       line-height:1;
-      margin-bottom:3px;
+      white-space:nowrap;
+    }
+    .counter-euro{
+      font-size:clamp(1.1rem,5vw,2.4rem);
+      font-weight:900;
+      color:#ff9898;
+      line-height:1;
     }
     .unit{font-size:.62rem;color:#444;margin-bottom:10px}
     .pills{
@@ -66,7 +76,10 @@
 </head>
 <body>
   <div class="eyebrow">🇫🇷 dette publique française — en direct</div>
-  <div class="counter" id="wCounter">chargement…</div>
+  <div class="counter-wrap">
+    <div class="counter" id="wCounter">chargement…</div>
+    <div class="counter-euro">€</div>
+  </div>
   <div class="unit">euros</div>
 
   <div class="pills">
@@ -102,7 +115,7 @@
     var pageOpen  = Date.now();
 
     function fmt(n){
-      return Math.round(n).toLocaleString('fr-FR') + ' €';
+      return Math.round(n).toLocaleString('fr-FR');
     }
     function fmtSince(n){
       if(n < 1e6)  return Math.round(n).toLocaleString('fr-FR') + ' €';
