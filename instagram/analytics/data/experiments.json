@@ -1,0 +1,58 @@
+[
+  {
+    "experiment_id": "EXP-001",
+    "name": "Dette macro vs dette par habitant",
+    "hypothesis": "Ramener la dette au niveau individuel (51 200 €/habitant) génère un share rate plus élevé que la présentation macro (3 536 Md€).",
+    "metric_primary": "share_rate",
+    "metric_secondary": ["follow_rate", "reach_non_followers"],
+    "status": "running",
+    "started_at": "2026-09-22",
+    "posts_control": [],
+    "posts_variant": ["2026-09-22-dette-par-habitant"],
+    "result": null,
+    "decision": null,
+    "notes": "Besoin d'au moins 3 posts dans chaque groupe avant conclusion."
+  },
+  {
+    "experiment_id": "EXP-002",
+    "name": "Hook question vs hook affirmation",
+    "hypothesis": "Un hook sous forme d'affirmation contradictoire attire plus de non-abonnés qu'un hook sous forme de question.",
+    "metric_primary": "reach_non_followers",
+    "metric_secondary": ["follow_rate"],
+    "status": "planned",
+    "started_at": null,
+    "posts_control": [],
+    "posts_variant": [],
+    "result": null,
+    "decision": null,
+    "notes": "À démarrer après publication de 3 posts avec chaque format."
+  },
+  {
+    "experiment_id": "EXP-003",
+    "name": "France seule vs France VS",
+    "hypothesis": "La comparaison directe France/pays tiers génère plus de partages qu'une présentation de la France seule.",
+    "metric_primary": "share_rate",
+    "metric_secondary": ["reach_non_followers", "follow_rate"],
+    "status": "running",
+    "started_at": "2026-10-06",
+    "posts_control": [],
+    "posts_variant": ["2026-10-06-france-vs-allemagne-dette"],
+    "result": null,
+    "decision": null,
+    "notes": "Besoin d'au moins 3 posts France VS et 3 posts France seule."
+  },
+  {
+    "experiment_id": "EXP-004",
+    "name": "CTA sauvegarde vs CTA partage",
+    "hypothesis": "Un CTA orienté sauvegarde génère un save rate plus élevé sans pénaliser le share rate.",
+    "metric_primary": "save_rate",
+    "metric_secondary": ["share_rate"],
+    "status": "planned",
+    "started_at": null,
+    "posts_control": [],
+    "posts_variant": [],
+    "result": null,
+    "decision": null,
+    "notes": "À démarrer une fois 5 posts publiés avec CTA varié."
+  }
+]

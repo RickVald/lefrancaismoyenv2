@@ -1,0 +1,120 @@
+[
+  {
+    "post_id": "2026-09-22-dette-par-habitant",
+    "published_at": null,
+    "format": "carousel",
+    "pillar": "dette",
+    "series": "ca-represente-quoi",
+    "topic": "dette-par-habitant",
+    "title": "51 200 € de dette par Français",
+    "hook": "51 200 €. C'est votre part de la dette publique française.",
+    "hook_type": "big_number",
+    "cta_type": "save",
+    "objective": "shares_and_follows",
+    "news_or_evergreen": "evergreen",
+    "slides": 7,
+    "reel_duration_seconds": null,
+    "hypothesis": "Ramener la dette au niveau individuel génère davantage de partages et de sauvegardes que la présentation macro (3 536 Md€).",
+    "sources": [
+      {"label": "INSEE — dette Maastricht T1 2026", "url": "https://www.insee.fr/", "date": "2026-06-25"}
+    ],
+    "instagram_url": null,
+    "status": "planned",
+    "notes": "Premier post de la série. Chiffre clé : 3 536,1 Md€ / 68,4 M hab = 51 700 €."
+  },
+  {
+    "post_id": "2026-09-25-qui-detient-la-dette",
+    "published_at": null,
+    "format": "carousel",
+    "pillar": "dette",
+    "series": "mecanismes-dette",
+    "topic": "detenteurs-dette",
+    "title": "Qui détient la dette française ?",
+    "hook": "50 % de la dette française est détenue par des étrangers.",
+    "hook_type": "big_number",
+    "cta_type": "share",
+    "objective": "shares_and_follows",
+    "news_or_evergreen": "evergreen",
+    "slides": 6,
+    "reel_duration_seconds": null,
+    "hypothesis": "Révéler la proportion étrangère de détention génère une réaction de surprise → fort taux de partage.",
+    "sources": [
+      {"label": "Banque de France — décomposition de la dette", "url": "https://www.banque-france.fr/", "date": "2026-09-01"}
+    ],
+    "instagram_url": null,
+    "status": "planned",
+    "notes": "Chiffre ~50 % non-résidents à vérifier sur dernière publication BdF disponible."
+  },
+  {
+    "post_id": "2026-09-29-cout-refinancement-oat",
+    "published_at": null,
+    "format": "carousel",
+    "pillar": "dette",
+    "series": "le-chiffre-du-jour",
+    "topic": "taux-oat-refinancement",
+    "title": "3,5 % — le prix que paye la France pour emprunter",
+    "hook": "3,5 %. C'est ce que la France paie pour emprunter aujourd'hui. En 2021 : 0,5 %.",
+    "hook_type": "comparison",
+    "cta_type": "save",
+    "objective": "saves_and_follows",
+    "news_or_evergreen": "news",
+    "slides": 5,
+    "reel_duration_seconds": null,
+    "hypothesis": "La comparaison 0,5 % → 3,5 % en 4 ans contextualise le choc de taux et maximise les sauvegardes.",
+    "sources": [
+      {"label": "AFT — taux moyen pondéré OAT 2026", "url": "https://www.aft.gouv.fr/", "date": "2026-09-18"},
+      {"label": "Banque de France — TEC10 18/09/2026", "url": "https://www.banque-france.fr/", "date": "2026-09-18"}
+    ],
+    "instagram_url": null,
+    "status": "planned",
+    "notes": "Données : rate_new 3,5 % (AFT 31/08/2026), TEC10 4,468 % au 18/09/2026."
+  },
+  {
+    "post_id": "2026-10-02-deficit-vs-dette",
+    "published_at": null,
+    "format": "carousel",
+    "pillar": "dette",
+    "series": "vrai-chiffre-fausse-intuition",
+    "topic": "deficit-vs-dette-mecanisme",
+    "title": "Déficit vs dette — la confusion qui coûte cher",
+    "hook": "Le déficit et la dette. 90 % des gens confondent les deux.",
+    "hook_type": "contradiction",
+    "cta_type": "share",
+    "objective": "shares_and_follows",
+    "news_or_evergreen": "evergreen",
+    "slides": 7,
+    "reel_duration_seconds": null,
+    "hypothesis": "Formuler une contradiction sur une confusion commune pousse le partage (\"envoie à quelqu'un qui ne comprend pas la différence\").",
+    "sources": [
+      {"label": "INSEE — déficit 2025 (5,1 % PIB)", "url": "https://www.insee.fr/", "date": "2026-03-01"},
+      {"label": "INSEE — dette T1 2026 (117,5 % PIB)", "url": "https://www.insee.fr/", "date": "2026-06-25"}
+    ],
+    "instagram_url": null,
+    "status": "planned",
+    "notes": "Carrousel pédagogique. Slide 1 : confusion. Slide 2-4 : mécanisme. Slide 5-6 : chiffres FR. Slide 7 : CTA."
+  },
+  {
+    "post_id": "2026-10-06-france-vs-allemagne-dette",
+    "published_at": null,
+    "format": "carousel",
+    "pillar": "dette",
+    "series": "france-vs",
+    "topic": "dette-france-allemagne",
+    "title": "France 117 % — Allemagne 62 %. Même zone euro.",
+    "hook": "France : 117 % du PIB. Allemagne : 62 %. Même monnaie, même zone. Pourquoi ?",
+    "hook_type": "comparison",
+    "cta_type": "save",
+    "objective": "shares_and_follows",
+    "news_or_evergreen": "evergreen",
+    "slides": 6,
+    "reel_duration_seconds": null,
+    "hypothesis": "La comparaison directe France/Allemagne capte les non-abonnés par sa dimension évocatrice et génère du reach via l'algorithme.",
+    "sources": [
+      {"label": "INSEE — dette France T1 2026 (117,5 %)", "url": "https://www.insee.fr/", "date": "2026-06-25"},
+      {"label": "Eurostat — dette Allemagne 2025 (~62 %)", "url": "https://ec.europa.eu/eurostat/", "date": "2026-04-01"}
+    ],
+    "instagram_url": null,
+    "status": "planned",
+    "notes": "Vérifier chiffre Allemagne sur Eurostat avant publication. Critère Maastricht : 60 %."
+  }
+]
